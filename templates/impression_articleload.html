@@ -1,0 +1,20 @@
+<link href="<{$xoops_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
+
+<{if $show_categort_title == true}>
+<div style="margin-bottom: 4px;"><b><{$smarty.const._MD_IMPRESSION_CATEGORYC}></b><{$article.category}></div>
+<{/if}> 
+<div class="impression_articleTitle"><{$article.readarticle}><{$article.icons}></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="impression_articleMain">
+  <tr>
+    <td><div align="right"><small>Published by&nbsp;<b><{$article.submitter}></b>&nbsp;on&nbsp;<{$article.updated|wordwrap:50:"\n":true}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>&nbsp;</small></div></td>
+  </tr>
+  <tr>
+    <td><div style="padding: 5px;" valign="top"><{$article.introtext}></div></td>
+  </tr>
+</table>
+
+    <div class="impression_articleFooter">
+    <div style="float: left; margin-left: 2px;"><small><b><i><{$article.readmore}></small></b></i></div>
+    <div style="float: right;"><span><{if $xoops_isadmin}><small><{$article.adminarticle}></small><{/if}></span>&nbsp;</div>
+    </div>
+<div style="height: 4px;">&nbsp;</div>
