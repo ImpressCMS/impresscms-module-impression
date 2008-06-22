@@ -1,13 +1,13 @@
 <?php
 /**
  * $Id: admin.php
- * Module: XoopsTube
+ * Module: Impression
  * Language: english
  */
 
 define( "_AM_IMPRESSION_WARNINSTALL1", "WARNING: Directory %s exists on your server. <br />Please remove this directory for security reasons." );
 define( "_AM_IMPRESSION_WARNINSTALL2", "WARNING: File %s exists on your server. <br />Please remove this directory for security reasons." );
-define( "_AM_IMPRESSION_WARNINSTALL3", "WARNING: Folder %s does not exists on your server. <br />This folder is required by XoopsTube." );
+define( "_AM_IMPRESSION_WARNINSTALL3", "WARNING: Folder %s does not exists on your server. <br />This folder is required by Impression." );
 
 define( "_AM_IMPRESSION_MODULE_NAME", "Impression" );
 
@@ -168,7 +168,7 @@ define( "_AM_IMPRESSION_MINDEX_SUBMITTED", "Date Submitted" );
 define( "_AM_IMPRESSION_MINDEX_ACTION", "Action" );
 define( "_AM_IMPRESSION_MINDEX_NOARTICLESFOUND", "NOTICE: There are no articles that match this criteria" );
 define( "_AM_IMPRESSION_MINDEX_PAGE", "<b>Page:<b> " );
-define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '<ul><li>XoopsTubes main page details.</li><li>You can easily change the image logo, heading, main index header and footer text to suit your own look</li></ul><br />Note: The Logo image choosen will be used throughout XoopsTube.' );
+define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '<ul><li>Impressions main page details.</li><li>You can easily change the image logo, heading, main index header and footer text to suit your own look</li></ul><br />Note: The Logo image choosen will be used throughout Impression.' );
 define( "_AM_IMPRESSION_MINDEX_RESPONSE", "Response Time" );
 // Submitted Links
 define( "_AM_IMPRESSION_SUB_SUBMITTEDFILES", "Submitted Articles" );

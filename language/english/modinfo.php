@@ -1,7 +1,7 @@
 <?php
 /**
  * $Id: modinfo.php
- * Module: XoopsTube
+ * Module: Impression
  * Language: english
  */
 
