@@ -1,0 +1,12 @@
+<table width="100%" cellspacing="1" cellpadding="0" align="center" border="0">
+<tr>
+<{foreach item=videorandomh from=$block.random}>
+<td align="center" class="even" style="padding: 4px;vertical-align: top;">
+<a href="<{$xoops_url}>/modules/<{$videorandomh.dirname}>/singlevideo.php?cid=<{$videorandomh.cid}>&lid=<{$videorandomh.id}>"><{$videorandomh.videothumb}></a>
+<br />
+<a href="<{$xoops_url}>/modules/<{$videorandomh.dirname}>/singlevideo.php?cid=<{$videorandomh.cid}>&lid=<{$videorandomh.id}>"><small><{$videorandomh.title}></small></a>
+<br /><small>(<{$videorandomh.date}>)</small>
+</td>
+<{/foreach}>
+</tr>
+</table>
