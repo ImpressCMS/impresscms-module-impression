@@ -309,7 +309,7 @@ $modversion['config'][$i]['title'] = '_MI_IMPRESSION_CATEGORYIMG';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_CATEGORYIMGDSC';
 $modversion['config'][$i]['formtype'] = 'textbox';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'modules/' . $mydirname . '/category';
+$modversion['config'][$i]['default'] = 'modules/' . $mydirname . '/images/category';
 $i++;
 $modversion['config'][$i]['name'] = 'dateformat';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_DATEFORMAT';
