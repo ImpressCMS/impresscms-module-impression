@@ -1,0 +1,68 @@
+<{if $catarray.imageheader != ""}> <br />
+ <div style="padding-bottom: 12px; text-align: center;"><{$catarray.imageheader}></div>
+<{/if}> <br />
+<!-- <div style="padding-bottom: 12px; text-align: center;" class="itemPermaLink"><{$catarray.letters}></div>
+<div style="padding-bottom: 12px; text-align: center;"><{$catarray.toolbar}></div> -->
+<div><h4><{$smarty.const._MD_IMPRESSION_NEWARTICLES}></h4></div>
+
+
+<table width="100%" border="0" cellspacing="2" cellpadding="0">
+  <tr>
+    <td height="5" colspan="2" class="even"><b><{$smarty.const._MD_IMPRESSION_TOTALNEWARTICLES}>:</b></td>
+	<td width="60%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="odd"><{$smarty.const._MD_IMPRESSION_LASTWEEK}></td>
+    <td width="10%" class="odd"><{$allweekarticles}></td>
+    <td width="60%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="30%" class="odd"><{$smarty.const._MD_IMPRESSION_LAST30DAYS}></td>
+    <td width="10%" class="odd"><{$allmontharticles}></td>
+    <td width="60%">&nbsp;</td>
+  </tr>
+</table>
+<br /><br />
+	
+<table border="0" cellspacing="2" cellpadding="0">
+  <tr>
+    <td  class="even" width="50" align="left"><b><{$smarty.const._MD_IMPRESSION_SHOW}>:<b></td>
+    <td class="odd" align="center"><a href="<{$xoops_url}>/modules/<{$module_dir}>/newlist.php?newarticleshowdays=7"><{$smarty.const._MD_IMPRESSION_1WEEK}></a></td>
+    <td class="odd" align="center"><a href="<{$xoops_url}>/modules/<{$module_dir}>/newlist.php?newarticleshowdays=14"><{$smarty.const._MD_IMPRESSION_2WEEKS}></a></td>
+    <td class="odd" align="center"><a href="<{$xoops_url}>/modules/<{$module_dir}>/newlist.php?newarticleshowdays=30"><{$smarty.const._MD_IMPRESSION_30DAYS}></a></td>
+    <td width="525" align="center">&nbsp;</td>
+  </tr>
+</table>
+<br />
+<table width="100%" border="0" cellspacing="1" cellpadding="0">
+  <tr>
+    <td class="even" width="261"><b><{$smarty.const._MD_IMPRESSION_DTOTALFORLAST}> <{$newarticleshowdays}> <{$smarty.const._MD_IMPRESSION_DAYS}></b></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<{if count($dailyarticles) gt 0}>
+  <!-- Start day loop -->
+<{foreach item=dailyarticle from=$dailyarticles}>
+<table width="100%" border="0" cellspacing="1" cellpadding="0">
+  <tr>
+    <td class="odd" width="230"><a href="<{$xoops_url}>/modules/<{$module_dir}>/catview.php?selectdate=<{$dailyarticle.newarticledayRaw}>"><{$dailyarticle.newarticleView}></a></td>
+    <td class="odd" width="20" align="center"><{$dailyarticle.totalarticles}></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<{/foreach}>
+<!-- End day loop -->
+
+<!-- <h4><{$smarty.const._MD_IMPRESSION_LATESTLIST}></h4> -->
+<table width="100%" cellspacing="0" cellpadding="2" border="0">
+<tr>
+<td width="100%">
+  <!-- Start article loop -->
+   <{section name=i loop=$article}>
+	 <{include file="db:impression_articleload.html" article=$article[i]}>
+   <{/section}>
+  <!-- End artcle loop -->
+</td></tr>
+</table>
+<{/if}>
