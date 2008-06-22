@@ -14,6 +14,9 @@ No special functions like notification, commenting, and rating are implemented.
 The submit forms are very basic; give the title of the article, enter the first paragraph (for the spotlight block), and the rest of the article. Choose a category, time of publishing and submit your article.
 
 
+Impression is based on WF-Links and MyTube.
+
+
 
     .::McDonald::.
 
