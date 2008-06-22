@@ -371,7 +371,7 @@ function impression_letters() {
 function impression_isnewimage( $published ) {
     global $xoopsModule, $xoopsDB;
 
-    $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.png";
+    $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/category/folder.png";
     $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
     return $indicator;
