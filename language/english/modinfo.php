@@ -19,8 +19,8 @@ define("_MI_IMPRESSION_BNEW","Recent headlines");
 // Sub menu titles
 define("_MI_IMPRESSION_SMNAME1","Submit");
 define("_MI_IMPRESSION_SMNAME2","Popular");
-define("_MI_IMPRESSION_SMNAME3","Top Rated");
-define("_MI_IMPRESSION_SMNAME4","Latest");
+define("_MI_IMPRESSION_SMNAME3","");
+define("_MI_IMPRESSION_SMNAME4","");
 
 // Names of admin menu items
 define("_MI_IMPRESSION_BINDEX","Main Index");
@@ -30,43 +30,42 @@ define("_MI_IMPRESSION_MARTICLES","Article Management");
 define("_MI_IMPRESSION_MUPLOADS","Image Upload");
 define("_MI_IMPRESSION_PERMISSIONS","Permission Settings");
 define("_MI_IMPRESSION_BLOCKADMIN","Block Settings");
-define("_MI_IMPRESSION_MVOTEDATA","Votes");
 
 // Title of config items
-define('_MI_IMPRESSION_POPULAR', 'article Popular Count');
-define('_MI_IMPRESSION_POPULARDSC', 'The number of hits before a article status will be considered as popular.');
+define('_MI_IMPRESSION_POPULAR', '<b>Article popular count</b>');
+define('_MI_IMPRESSION_POPULARDSC', 'The number of reads before a article status will be considered as popular.');
 
-define("_MI_IMPRESSION_ICONDISPLAY","articles Popular and New:");
+define("_MI_IMPRESSION_ICONDISPLAY","<b>Articles popular & new:</b>");
 define("_MI_IMPRESSION_DISPLAYICONDSC", "Select how to display the popular and new icons in article listing.");
-define("_MI_IMPRESSION_DISPLAYICON1", "Display As Icons");
-define("_MI_IMPRESSION_DISPLAYICON2", "Display As Text");
-define("_MI_IMPRESSION_DISPLAYICON3", "Do Not Display");
+define("_MI_IMPRESSION_DISPLAYICON1", "Display as icons");
+define("_MI_IMPRESSION_DISPLAYICON2", "Display as text");
+define("_MI_IMPRESSION_DISPLAYICON3", "Do not display");
 
-define("_MI_IMPRESSION_DAYSNEW","articles Days New:");
+define("_MI_IMPRESSION_DAYSNEW","<b>Articles days new:</b>");
 define("_MI_IMPRESSION_DAYSNEWDSC","The number of days a article status will be considered as new.");
 
-define("_MI_IMPRESSION_DAYSUPDATED","articles Days Updated:");
+define("_MI_IMPRESSION_DAYSUPDATED","<b>Articles days updated:</b>");
 define("_MI_IMPRESSION_DAYSUPDATEDDSC","The amount of days a article status will be considered as updated.");
 
-define('_MI_IMPRESSION_PERPAGE', 'article Listing Count:');
+define('_MI_IMPRESSION_PERPAGE', '<b>Article listing count:</b>');
 define('_MI_IMPRESSION_PERPAGEDSC', 'Number of articles to display in each category listing.');
 
-define("_MI_IMPRESSION_ADMINPAGE", "Admin Index Articles Count:");
-define("_MI_IMPRESSION_AMDMINPAGEDSC", "Number of new Articles to display in module admin area.");
+define("_MI_IMPRESSION_ADMINPAGE", "<b>Admin index articles count:");
+define("_MI_IMPRESSION_AMDMINPAGEDSC", "Number of new articles to display in module admin area.");
 
-define("_MI_IMPRESSION_ARTICLESSORT", "Default article Order:");
+define("_MI_IMPRESSION_ARTICLESSORT", "<b>Default article order:</b>");
 define("_MI_IMPRESSION_ARTICLESSORTDSC", "Select the default order for the article listings.");
 
-define("_MI_IMPRESSION_SORTCATS", "Sort categories by:");
+define("_MI_IMPRESSION_SORTCATS", "<b>Sort categories by:</b>");
 define("_MI_IMPRESSION_SORTCATSDSC", "Select how categories and sub-categories are sorted.");
 
-define('_MI_IMPRESSION_SUBCATS', 'Sub-Categories:');
-define('_MI_IMPRESSION_SUBCATSDSC', 'Select Yes to display sub-categories. Selecting No will hide sub-categories from the listings');
+define('_MI_IMPRESSION_SUBCATS', '<b>Sub-Categories:</b>');
+define('_MI_IMPRESSION_SUBCATSDSC', 'Select Yes to display sub-categories. Selecting No will hide sub-categories from the listings.');
 
-define('_MI_IMPRESSION_EDITOR', "Editor to use:");
-define('_MI_IMPRESSION_EDITORCHOICE', "Select the editor to use. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact");
+define('_MI_IMPRESSION_EDITOR', "Editor to use (admin):");
+define('_MI_IMPRESSION_EDITORCHOICE', "Select the editor to use for administrators. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
 define('_MI_IMPRESSION_EDITORUSER', "Editor to use (user):");
-define('_MI_IMPRESSION_EDITORCHOICEUSER', "Select the editor to use for user side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact");
+define('_MI_IMPRESSION_EDITORCHOICEUSER', "Select the editor to use for user side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
 define("_MI_IMPRESSION_FORM_DHTML","DHTML");
 define("_MI_IMPRESSION_FORM_DHTMLEXT", "DHTML Extended");
 define("_MI_IMPRESSION_FORM_COMPACT","Compact");
@@ -77,7 +76,7 @@ define("_MI_IMPRESSION_FORM_KOIVI","Koivi Editor");
 define("_MI_IMPRESSION_FORM_TINYEDITOR","Tinyeditor");
 
 define('_MI_IMPRESSION_USESHOTS', 'Display Screenshot Images?');
-define('_MI_IMPRESSION_USESHOTSDSC', 'Select yes to display screenshot images for each article item');
+define('_MI_IMPRESSION_USESHOTSDSC', 'Select Yes to display screenshot images for each article item.');
 
 define('_MI_IMPRESSION_USETHUMBS', 'Use Thumb Nails:');
 define("_MI_IMPRESSION_USETHUMBSDSC", "Supported link types: JPG, GIF, PNG.<div style='padding-top: 8px;'>WF-Links will use thumb nails for images. Set to 'No' to use orginal image if the server does not support this option.</div>");
