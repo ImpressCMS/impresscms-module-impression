@@ -1,16 +1,25 @@
 <?php
 /**
- * $Id: modinfo.php
- * Module: Impression
- * Language: english
- */
+* Translation for Portuguese users
+* $Id: modinfo.php,v 0.83 2008/06/23  19:07:00 GibaPhp Exp $
+* @Module: impression
+* @Dependences: 
+* @Version: 1.00
+* @Release Date: 
+* @Author: McDonald
+* @Language: Portuguesebr
+* @Translators: GibaPhp / 
+* @Revision: 
+* @Support: http://br.impresscms.org - Team Brazilian.
+* @Licence: GNU
+*/
 
 // Module Info
 // The name of this module
 define("_MI_IMPRESSION_NAME","Impression");
 
 // A brief description of this module
-define("_MI_IMPRESSION_DESC","A simple module to create articles.");
+define("_MI_IMPRESSION_DESC","Um simples módulo para criar Artigos.");
 
 // Names of blocks for this module (Not all module has blocks)
 define("_MI_IMPRESSION_BSPOT","Spotlight");

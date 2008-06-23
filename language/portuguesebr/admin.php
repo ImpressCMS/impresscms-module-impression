@@ -1,13 +1,22 @@
 <?php
 /**
- * $Id: admin.php
- * Module: Impression
- * Language: english
- */
+* Translation for Portuguese users
+* $Id: admin.php,v 0.83 2008/06/23  19:07:00 GibaPhp Exp $
+* @Module: impression
+* @Dependences: 
+* @Version: 1.00
+* @Release Date: 
+* @Author: McDonald
+* @Language: Portuguesebr
+* @Translators: GibaPhp / 
+* @Revision: 
+* @Support: http://br.impresscms.org - Team Brazilian.
+* @Licence: GNU
+*/
 
-define( "_AM_IMPRESSION_WARNINSTALL1", "WARNING: Directory %s exists on your server. <br />Please remove this directory for security reasons." );
-define( "_AM_IMPRESSION_WARNINSTALL2", "WARNING: File %s exists on your server. <br />Please remove this directory for security reasons." );
-define( "_AM_IMPRESSION_WARNINSTALL3", "WARNING: Folder %s does not exists on your server. <br />This folder is required by Impression." );
+define( "_AM_IMPRESSION_WARNINSTALL1", "ATENÇÃO: Directory %s exists on your server. <br />Please remove this directory for security reasons." );
+define( "_AM_IMPRESSION_WARNINSTALL2", "ATENÇÃO: File %s exists on your server. <br />Please remove this directory for security reasons." );
+define( "_AM_IMPRESSION_WARNINSTALL3", "ATENÇÃO: Folder %s does not exists on your server. <br />This folder is required by Impression." );
 
 define( "_AM_IMPRESSION_MODULE_NAME", "Impression" );
 

@@ -1,11 +1,20 @@
 <?php
 /**
- * $Id: main.php
- * Module: Impression
- * Language: english
- */
+* Translation for Portuguese users
+* $Id: main.php,v 0.83 2008/06/23  19:07:00 GibaPhp Exp $
+* @Module: impression
+* @Dependences: 
+* @Version: 1.00
+* @Release Date: 
+* @Author: McDonald
+* @Language: Portuguesebr
+* @Translators: GibaPhp / 
+* @Revision: 
+* @Support: http://br.impresscms.org - Team Brazilian.
+* @Licence: GNU
+*/
 
-define( "_MD_IMPRESSION_NOARTICLE", "This article does not exist!" );
+define( "_MD_IMPRESSION_NOARTICLE", "Este artigo não existe!" );
 define( "_MD_IMPRESSION_SUBCATLISTING", "Category listing" );
 define( "_MD_IMPRESSION_ISADMINNOTICE", "Webmaster: There is a problem with this image." );
 define( "_MD_IMPRESSION_THANKSFORINFO", "Thank-you for your submission.<br />You will be notified once your request has be approved by the webmaster." );
