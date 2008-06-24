@@ -19,7 +19,6 @@ echo "<form method='post' name='fselperm' action='permissions.php'><table border
 <option value='2'" . $selected[1] . ">" . _AM_IMPRESSION_PERM_SPERMISSIONS . "</option>
 <option value='3'" . $selected[2] . ">" . _AM_IMPRESSION_PERM_APERMISSIONS . "</option>
 <option value='4'" . $selected[3] . ">" . _AM_IMPRESSION_PERM_AUTOPERMISSIONS . "</option>
-<option value='5'" . $selected[4] . ">" . _AM_IMPRESSION_PERM_RATEPERMISSIONS . "</option>
 </select></td></tr><tr><td><input type='submit' name='go'/></td></tr></table></form>";
 $module_id = $xoopsModule->getVar('mid');
 
@@ -43,11 +42,6 @@ switch($permtoset) {
 		$title_of_form = _AM_IMPRESSION_PERM_AUTOPERMISSIONS;
 		$perm_name = 'ImpressionAutoApp';
 		$perm_desc = _AM_IMPRESSION_PERM_AUTOPERMISSIONS_TEXT;
-		break;
-	case 5:
-		$title_of_form = _AM_IMPRESSION_PERM_RATEPERMISSIONS;
-		$perm_name = 'ImpressionRatePerms';
-		$perm_desc = _AM_IMPRESSION_PERM_RATEPERMISSIONS_TEXT;
 		break;
 }
 
