@@ -433,4 +433,8 @@ define("_AM_IMPRESSION_IMPORT_SELECT_FILE_DSC", "Choose the module from which to
 define("_AM_IMPRESSION_DATESUB_DSC", "Select the date of publication");
 define("_AM_IMPRESSION_DATESUB", "Published date");
 define("_AM_IMPRESSION_READS", "Reads: ");
+
+define( '_AM_IMPRESSION_PUBLISHED', 'Published' );
+define( '_AM_IMPRESSION_OFFLINE', 'Offline' );
+define( '_AM_IMPRESSION_REJECTED', 'Rejected' );
 ?>
