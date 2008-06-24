@@ -243,7 +243,8 @@ $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dh
 						_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
 						_MI_IMPRESSION_FORM_KOIVI => 'koivi',
 						_MI_IMPRESSION_FORM_FCK => 'fck',
-						_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor'
+						_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
+						_MI_IMPRESSION_FORM_TINYMCE => 'tinymce'
                                               );
 $i++;
 $modversion['config'][$i]['name'] = 'form_optionsuser';
@@ -258,7 +259,8 @@ $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dh
 						_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
 						_MI_IMPRESSION_FORM_KOIVI => 'koivi',
 						_MI_IMPRESSION_FORM_FCK => 'fck',
-						_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor'
+						_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
+						_MI_IMPRESSION_FORM_TINYMCE => 'tinymce'
                                               );
 
 //$i++;
@@ -296,6 +298,7 @@ $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dh
 //$modversion['config'][$i]['formtype'] = 'textbox';
 //$modversion['config'][$i]['valuetype'] = 'int';
 //$modversion['config'][$i]['default'] = 90;
+
 $i++;
 $modversion['config'][$i]['name'] = 'mainimagedir';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_MAINIMGDIR';
@@ -381,7 +384,6 @@ $modversion['config'][$i]['description'] = '_MI_IMPRESSION_HEADERPRINTDSC';
 $modversion['config'][$i]['formtype'] = 'textarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = '';
-
 $i++;
 $modversion['config'][$i]['name'] = 'printlogourl';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_PRINTLOGOURL';
@@ -389,7 +391,6 @@ $modversion['config'][$i]['description'] = '_MI_IMPRESSION_PRINTLOGOURLDSC';
 $modversion['config'][$i]['formtype'] = 'textbox';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = XOOPS_URL . '/images/logo.gif';
-
 $i++;
 $modversion['config'][$i]['name'] = 'footerprint';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_FOOTERPRINT';
