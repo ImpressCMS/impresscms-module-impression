@@ -1,0 +1,30 @@
+<link href="<{$xoops_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
+<!-- <{if $article.imageheader != ""}>
+     <div class="impression_header"><{$article.imageheader}></div>
+<{/if}>
+<div class="impression_path">
+     <div style="float: left;">&nbsp;<{$article.path}></div>
+     <div style="float: right;"><{$back}>&nbsp;</div>
+</div>
+<div>&nbsp;</div>   -->
+
+<div class="impression_articleTitle"><{$article.title}><{$article.icons}></div>
+<table width="100%" class="impression_articleMain">
+<tr><td>
+
+     <div align="right"><small><{$smarty.const._MD_IMPRESSION_PUBLISHED}><{$article.updated|wordwrap:50:"\n":true}>&nbsp;by&nbsp;<{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}></small></div>
+          <div>&nbsp;</div>
+     <div><{$article.introtext}></div>
+          <div>&nbsp;</div>
+     <div><{$article.description}></div>
+
+</td></tr>
+<tr><td>
+     <{if $article.showsbookmarx > 0}>
+          <div class="impression_socbookmark" align="center"><{$article.sbmarks}></div>
+     <{/if}>
+</td></tr>
+</table>
+<div class="impression_articleFooter"><{$article.pdf}>&nbsp;<{$article.print}>&nbsp;<{$article.recommend}><{if $xoops_isadmin}> <small><{$article.adminarticle}></small><{/if}>&nbsp;</div>
+<br />
+<!-- <div align="center"><{if $xoops_isadmin}><{$admintools}><{/if}></div> -->

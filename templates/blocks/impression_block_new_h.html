@@ -1,0 +1,12 @@
+<table width="100%" cellspacing="1" cellpadding="0" align="center" border="0">
+<tr>
+<{foreach item=videoload from=$block.videos}> 
+<td align="center" class="even" style="padding: 4px;vertical-align: center;">
+<a href="<{$xoops_url}>/modules/<{$videoload.dirname}>/singlevideo.php?cid=<{$videoload.cid}>&lid=<{$videoload.id}>"><{$videoload.videothumb}></a>
+<br />
+<a href="<{$xoops_url}>/modules/<{$videoload.dirname}>/singlevideo.php?cid=<{$videoload.cid}>&lid=<{$videoload.id}>"><small><{$videoload.title}></small></a><br />
+<small>(<{$videoload.date}>)</small> 
+</td>
+<{/foreach}>
+</tr>
+</table>

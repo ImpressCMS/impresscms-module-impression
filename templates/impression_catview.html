@@ -1,0 +1,88 @@
+<{if $catarray.imageheader != ""}>
+	<br /><div align="center"><{$catarray.imageheader}></div><br />
+<{/if}>
+<div><{$description}></div><br />
+<div class='outer'><div class="even" style="font-size: smaller;"><b><{$category_path}></b></div></div><br />
+<{if $subcategories}>
+<fieldset><legend class="impression_legend"><{$smarty.const._MD_IMPRESSION_SUBCATLISTING}></legend>
+<div style="padding: 2px;">
+<div align= "left" style="margin-left: 5px; padding: 0px;">
+ <table width="80%">
+  <tr>
+   <{foreach item=subcat from=$subcategories}>
+    <td><a href="catview.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" title="<{$subcat.alttext}>" alt="<{$subcat.alttext}>" align="middle" /></a> <a href="catview.php?cid=<{$subcat.id}>"><{$subcat.title}></a>&nbsp;(<{$subcat.totalarticles}>)<br />
+		
+	 <{if $subcat.infercategories}>
+	  &nbsp;&nbsp;<{$subcat.infercategories}>
+      <{/if}>
+	 </td>
+	 <{if $subcat.count is div by 2}>
+    </tr><tr>
+     <{/if}>
+   <{/foreach}>
+   </tr>
+ </table>    
+</div></fieldset>
+<br />
+<{/if}>
+
+<{if $show_articles == true}>
+<div align="center" style="vertical-align: middle;"><small>
+<b><{$smarty.const._MD_IMPRESSION_SORTBY}></b>&nbsp;<{$smarty.const._MD_IMPRESSION_TITLE}> (
+<a href="catview.php?cid=<{$category_id}>&orderby=titleA">
+<img src="images/up.png" align="middle" alt="" /></a>
+<a href="catview.php?cid=<{$category_id}>&orderby=titleD">
+<img src="images/down.png" align="middle" alt="" /></a>
+)
+&nbsp;
+<{$smarty.const._MD_IMPRESSION_DATE}> (
+<a href="catview.php?cid=<{$category_id}>&orderby=dateA">
+<img src="images/up.png" align="middle" alt="" /></a>
+<a href="catview.php?cid=<{$category_id}>&orderby=dateD">
+<img src="images/down.png" align="middle" alt="" /></a>
+)
+&nbsp;
+<{$smarty.const._MD_IMPRESSION_POPULARITY}> (
+<a href="catview.php?cid=<{$category_id}>&orderby=hitsA">
+<img src="images/up.png" align="middle" alt="" /></a><a href="catview.php?cid=<{$category_id}>&orderby=hitsD">
+<img src="images/down.png" align="middle" alt="" /></a>
+)</small></div>
+<div align="center" style="vertical-align: middle;font-size: smaller;"><{$lang_cursortedby}></div>
+<br />
+<{/if}>
+
+<{if $page_nav == true}>
+<div><{$smarty.const._MD_IMPRESSION_PAGES}>: <{$pagenav}></div>
+<br />
+<{/if}>
+
+<table width="100%" cellspacing="0" cellpadding="10" border="0">
+ <tr>
+  <td width="100%">
+   <!-- Start link loop --><{section name=i loop=$article}>
+	 <{include file="db:impression_articleload.html" article=$article[i]}>
+   <{/section}>
+   <!-- End link loop -->
+  </td>
+ </tr>
+</table>
+<{if $page_nav == true}>
+<div align="right"><{$smarty.const._MD_IMPRESSION_PAGES}>: <{$pagenav}></div>
+<{/if}>
+
+<{if $moderate == true}>
+<div><b><{$smarty.const._MD_IMPRESSION_MODERATOR_OPTIONS}></b></div><br />
+<table width="100%" cellspacing="0" cellpadding="10" border="0">
+ <tr>
+  <td width="100%">
+   <!-- Start link loop -->
+   <{section name=a loop=$mod_arr}>
+	 <{include file="db:impression_articleload.html" article=$mod_arr[a]}>
+   <{/section}>
+   <!-- End link loop -->
+  </td>
+ </tr>
+</table>
+
+<{/if}>
+<{include file="db:system_notification_select.html"}>
