@@ -174,10 +174,10 @@ switch ( strtolower( $op ) ) {
             $date = time();
             $publishdate = time();
             $ipaddress = $_SERVER['REMOTE_ADDR'];
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, screenshot, submitter, publisher, status,  published, introtext, description, ipaddress, meta_keywords, item_tag )";
-            $sql .= " VALUES 	('', $cid, '$title', '', '$submitter', '$publisher', '$status', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag')";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, submitter, publisher, status,  published, introtext, description, ipaddress, meta_keywords, item_tag )";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$publisher', '$status', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag')";
         } else {
-            $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid = $cid, title='$title', screenshot='', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag' WHERE aid=" . $aid;
+            $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag' WHERE aid=" . $aid;
         }
 
         if ( !$result = $xoopsDB -> queryF( $sql ) ) {
@@ -256,7 +256,7 @@ switch ( strtolower( $op ) ) {
 			<div style='padding: 8px;'><small>\n
 			<a href='category.php'>" . _AM_IMPRESSION_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
 			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> | \n
-			<a href='newarticless.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> | \n
+			<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> | \n
 			<a href='modifications.php'>" . _AM_IMPRESSION_SMODREQUEST . "</a><b>" . $totalmodrequests . "</b> \n
 			</small></div></fieldset><br />\n
 		";
