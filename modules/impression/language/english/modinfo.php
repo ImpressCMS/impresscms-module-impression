@@ -30,59 +30,58 @@ define("_MI_IMPRESSION_MARTICLES","Article Management");
 define("_MI_IMPRESSION_MUPLOADS","Image Upload");
 define("_MI_IMPRESSION_PERMISSIONS","Permission Settings");
 define("_MI_IMPRESSION_BLOCKADMIN","Block Settings");
-define("_MI_IMPRESSION_MVOTEDATA","Votes");
 
 // Title of config items
-define('_MI_IMPRESSION_POPULAR', 'article Popular Count');
+define('_MI_IMPRESSION_POPULAR', 'Article popular count');
 define('_MI_IMPRESSION_POPULARDSC', 'The number of hits before a article status will be considered as popular.');
 
-define("_MI_IMPRESSION_ICONDISPLAY","articles Popular and New:");
+define("_MI_IMPRESSION_ICONDISPLAY","Articles popular and new:");
 define("_MI_IMPRESSION_DISPLAYICONDSC", "Select how to display the popular and new icons in article listing.");
-define("_MI_IMPRESSION_DISPLAYICON1", "Display As Icons");
-define("_MI_IMPRESSION_DISPLAYICON2", "Display As Text");
+define("_MI_IMPRESSION_DISPLAYICON1", "Display as Icons");
+define("_MI_IMPRESSION_DISPLAYICON2", "Display as Text");
 define("_MI_IMPRESSION_DISPLAYICON3", "Do Not Display");
 
-define("_MI_IMPRESSION_DAYSNEW","articles Days New:");
+define("_MI_IMPRESSION_DAYSNEW","Articles days new:");
 define("_MI_IMPRESSION_DAYSNEWDSC","The number of days a article status will be considered as new.");
 
-define("_MI_IMPRESSION_DAYSUPDATED","articles Days Updated:");
+define("_MI_IMPRESSION_DAYSUPDATED","Articles days updated:");
 define("_MI_IMPRESSION_DAYSUPDATEDDSC","The amount of days a article status will be considered as updated.");
 
-define('_MI_IMPRESSION_PERPAGE', 'article Listing Count:');
+define('_MI_IMPRESSION_PERPAGE', 'Article listing count:');
 define('_MI_IMPRESSION_PERPAGEDSC', 'Number of articles to display in each category listing.');
 
-define("_MI_IMPRESSION_ADMINPAGE", "Admin Index Articles Count:");
-define("_MI_IMPRESSION_AMDMINPAGEDSC", "Number of new Articles to display in module admin area.");
+define("_MI_IMPRESSION_ADMINPAGE", "Admin index articles count:");
+define("_MI_IMPRESSION_AMDMINPAGEDSC", "Number of new articles to display in module admin area.");
 
-define("_MI_IMPRESSION_ARTICLESSORT", "Default article Order:");
+define("_MI_IMPRESSION_ARTICLESSORT", "Default article order:");
 define("_MI_IMPRESSION_ARTICLESSORTDSC", "Select the default order for the article listings.");
 
 define("_MI_IMPRESSION_SORTCATS", "Sort categories by:");
 define("_MI_IMPRESSION_SORTCATSDSC", "Select how categories and sub-categories are sorted.");
 
-define('_MI_IMPRESSION_SUBCATS', 'Sub-Categories:');
+define('_MI_IMPRESSION_SUBCATS', 'Sub-categories:');
 define('_MI_IMPRESSION_SUBCATSDSC', 'Select Yes to display sub-categories. Selecting No will hide sub-categories from the listings');
 
 define('_MI_IMPRESSION_EDITOR', "Editor to use:");
-define('_MI_IMPRESSION_EDITORCHOICE', "Select the editor to use. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact");
+define('_MI_IMPRESSION_EDITORCHOICE', "Select the editor to use. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
 define('_MI_IMPRESSION_EDITORUSER', "Editor to use (user):");
-define('_MI_IMPRESSION_EDITORCHOICEUSER', "Select the editor to use for user side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact");
+define('_MI_IMPRESSION_EDITORCHOICEUSER', "Select the editor to use for user side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
 define("_MI_IMPRESSION_FORM_DHTML","DHTML");
 define("_MI_IMPRESSION_FORM_DHTMLEXT", "DHTML Extended");
 define("_MI_IMPRESSION_FORM_COMPACT","Compact");
-define("_MI_IMPRESSION_FORM_SPAW","Spaw Editor");
 define("_MI_IMPRESSION_FORM_HTMLAREA","HtmlArea Editor");
 define("_MI_IMPRESSION_FORM_FCK","FCK Editor");
 define("_MI_IMPRESSION_FORM_KOIVI","Koivi Editor");
-define("_MI_IMPRESSION_FORM_TINYEDITOR","Tinyeditor");
+define("_MI_IMPRESSION_FORM_TINYEDITOR","TinyEditor");
+define('_MI_IMPRESSION_FORM_TINYMCE','TinyMCE');
 
 define('_MI_IMPRESSION_USESHOTS', 'Display Screenshot Images?');
 define('_MI_IMPRESSION_USESHOTSDSC', 'Select yes to display screenshot images for each article item');
 
-define('_MI_IMPRESSION_USETHUMBS', 'Use Thumb Nails:');
+define('_MI_IMPRESSION_USETHUMBS', 'Use thumbnails:');
 define("_MI_IMPRESSION_USETHUMBSDSC", "Supported link types: JPG, GIF, PNG.<div style='padding-top: 8px;'>WF-Links will use thumb nails for images. Set to 'No' to use orginal image if the server does not support this option.</div>");
 
-define("_MI_IMPRESSION_IMGUPDATE", "Update Thumbnails?");
+define("_MI_IMPRESSION_IMGUPDATE", "Update thumbnails?");
 define("_MI_IMPRESSION_IMGUPDATEDSC", "If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br /><br />");
 
 define('_MI_IMPRESSION_SHOTWIDTH', 'Screenshot Display Width');
@@ -91,15 +90,15 @@ define('_MI_IMPRESSION_SHOTWIDTHDSC', 'Display width for screenshot image');
 define('_MI_IMPRESSION_SHOTHEIGHT', 'Screenshot Display Height');
 define('_MI_IMPRESSION_SHOTHEIGHTDSC', 'Display height for screenshot image');
 
-define('_MI_IMPRESSION_MAINIMGDIR','Main Image Directory');
+define('_MI_IMPRESSION_MAINIMGDIR','Main image directory');
 
-define('_MI_IMPRESSION_CATEGORYIMG','Category Image Upload Directory');
+define('_MI_IMPRESSION_CATEGORYIMG','Category image upload directory');
 
 define('_MI_IMPRESSION_DATEFORMAT', 'Timestamp:');
-define('_MI_IMPRESSION_DATEFORMATDSC', 'Default Timestamp for Impression');
+define('_MI_IMPRESSION_DATEFORMATDSC', 'Default timestamp for Impression');
 
 define('_MI_IMPRESSION_DATEFORMATADMIN', 'Timestamp administration:');
-define('_MI_IMPRESSION_DATEFORMATADMINDSC', 'Default admininstration Timestamp for Impression');
+define('_MI_IMPRESSION_DATEFORMATADMINDSC', 'Default admininstration timestamp for Impression');
 
 define("_MI_IMPRESSION_TOTALCHARS", "Set total amount of characters for description?");
 define("_MI_IMPRESSION_TOTALCHARSDSC", "Set total amount of characters for description on Index Page.");
@@ -110,50 +109,47 @@ define("_MI_IMPRESSION_OTHERARTICLESDSC", "Select Yes if other articles of the s
 define("_MI_IMPRESSION_SHOWARTCOUNT", "Show article count in category list?");
 define("_MI_IMPRESSION_SHOWARTCOUNTDSC", "Select Yes if you want the amount of articles per category have displayed.");
 
-define("_MI_IMPRESSION_SHOWSBOOKMARKS", "Show Social Bookmarks?");
+define("_MI_IMPRESSION_SHOWSBOOKMARKS", "Show social bookmarks?");
 define("_MI_IMPRESSION_SHOWSBOOKMARKSDSC", "Select Yes if you want Social Bookmark icons to be displayed under article.");
 
 define("_MI_IMPRESSION_USEMETADESCR", "Generate meta description:");
 define("_MI_IMPRESSION_USEMETADSC", "With this option the meta description will be based on the article introtext.");
 
-define('_MI_IMPRESSION_SHOWDISCLAIMER', 'Show Disclaimer before User Submission?');
-define('_MI_IMPRESSION_SHOWDISCLAIMERDSC', 'Before a User can submit a Article show the Entry regulations?');
+define('_MI_IMPRESSION_SHOWDISCLAIMER', 'Show disclaimer before user submission?');
+define('_MI_IMPRESSION_SHOWDISCLAIMERDSC', 'Before a user can submit an article show the entry regulations?');
 
-define('_MI_IMPRESSION_DISCLAIMER', 'Enter Submission Disclaimer Text:');
+define('_MI_IMPRESSION_DISCLAIMER', 'Enter submission disclaimer text:');
 
-define('_MI_IMPRESSION_SHOWARTICLEDISCL', 'Show Disclaimer before User article?');
+define('_MI_IMPRESSION_SHOWARTICLEDISCL', 'Show disclaimer before user article?');
 define('_MI_IMPRESSION_SHOWARTICLEDISCLDSC', 'Show article regulations before open an article?');
 
-define('_MI_IMPRESSION_ARTICLEDISCLAIMER', 'Enter article Disclaimer Text:');
+define('_MI_IMPRESSION_ARTICLEDISCLAIMER', 'Enter article disclaimer text:');
 
-define('_MI_IMPRESSION_COPYRIGHT', 'Copyright Notice:');
+define('_MI_IMPRESSION_COPYRIGHT', 'Copyright notice:');
 define('_MI_IMPRESSION_COPYRIGHTDSC', 'Select to display a copyright notice on article page.');
 
-define('_MI_IMPRESSION_CHECKHOST', 'Disallow direct article linking? (leeching)');
-define('_MI_IMPRESSION_REFERERS', 'These sites can directly article to your videos <br />Separate with #');
-define("_MI_IMPRESSION_ANONPOST","Anonymous User Submission:");
-define("_MI_IMPRESSION_ANONPOSTDSC","Allow Anonymous users to submit or upload to your website?");
-define('_MI_IMPRESSION_AUTOAPPROVE','Auto Approve Submitted articles');
-define('_MI_IMPRESSION_AUTOAPPROVEDSC','Select to approve submitted articles without moderation.');
+//define('_MI_IMPRESSION_REFERERS', 'These sites can directly article to your videos <br />Separate with #');
+//define("_MI_IMPRESSION_ANONPOST","Anonymous User Submission:");
+//define("_MI_IMPRESSION_ANONPOSTDSC","Allow Anonymous users to submit or upload to your website?");
+//define('_MI_IMPRESSION_AUTOAPPROVE','Auto Approve Submitted articles');
+//define('_MI_IMPRESSION_AUTOAPPROVEDSC','Select to approve submitted articles without moderation.');
 
-define('_MI_IMPRESSION_MAXFILESIZE','Upload Size (KB)');
+define('_MI_IMPRESSION_MAXFILESIZE','Upload size (KB)');
 define('_MI_IMPRESSION_MAXFILESIZEDSC','Maximum article size permitted with article uploads.');
-define('_MI_IMPRESSION_IMGWIDTH','Upload Image width');
+define('_MI_IMPRESSION_IMGWIDTH','Upload image width');
 define('_MI_IMPRESSION_IMGWIDTHDSC','Maximum image width permitted when uploading image articles');
-define('_MI_IMPRESSION_IMGHEIGHT','Upload Image height');
+define('_MI_IMPRESSION_IMGHEIGHT','Upload image height');
 define('_MI_IMPRESSION_IMGHEIGHTDSC','Maximum image height permitted when uploading image articles');
 
-define('_MI_IMPRESSION_UPLOADDIR','Upload Directory (No trailing slash)');
-define('_MI_IMPRESSION_ALLOWSUBMISS','User Submissions:');
-define('_MI_IMPRESSION_ALLOWSUBMISSDSC','Allow Users to Submit new articles');
-define('_MI_IMPRESSION_ALLOWUPLOADS','User Uploads:');
-define('_MI_IMPRESSION_ALLOWUPLOADSDSC','Allow Users to upload articles directly to your website');
-define('_MI_IMPRESSION_SCREENSHOTS','Screenshots Upload Directory');
+define('_MI_IMPRESSION_UPLOADDIR','Upload directory (no trailing slash)');
+define('_MI_IMPRESSION_ALLOWSUBMISS','User submissions:');
+define('_MI_IMPRESSION_ALLOWSUBMISSDSC','Allow users to submit new articles');
+define('_MI_IMPRESSION_ALLOWUPLOADS','User uploads:');
+define('_MI_IMPRESSION_ALLOWUPLOADSDSC','Allow users to upload articles directly to your website');
+define('_MI_IMPRESSION_SCREENSHOTS','Screenshots upload directory');
 
-define("_MI_IMPRESSION_SUBMITART", "article Submission:");
+define("_MI_IMPRESSION_SUBMITART", "Article submission:");
 define("_MI_IMPRESSION_SUBMITARTDSC", "Select groups that can submit new articles.");
-define("_MI_IMPRESSION_RATINGGROUPS", "article Ratings:");
-define("_MI_IMPRESSION_RATINGGROUPSDSC", "Select groups that can rate a article.");
 
 define("_MI_IMPRESSION_QUALITY", "Thumb Nail Quality:");
 define("_MI_IMPRESSION_QUALITYDSC", "Quality Lowest: 0 Highest: 100");
@@ -161,10 +157,9 @@ define("_MI_IMPRESSION_KEEPASPECT", "Keep Image Aspect Ratio?");
 define("_MI_IMPRESSION_KEEPASPECTDSC", "");
 
 define("_MI_IMPRESSION_TITLE", "Title");
-define("_MI_IMPRESSION_RATING", "Rating");
 define("_MI_IMPRESSION_WEIGHT", "Weight");
 define("_MI_IMPRESSION_POPULARITY", "Readings");
-define("_MI_IMPRESSION_SUBMITTED2", "Submission Date");
+define("_MI_IMPRESSION_SUBMITTED2", "Submission date");
 
 // Text for notifications
 define('_MI_IMPRESSION_GLOBAL_NOTIFY', 'Global');
@@ -213,20 +208,20 @@ define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'Notify me when this Video is
 define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Receive notification when this video is approved.');
 define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Video Approved');
 
-define('_MI_IMPRESSION_AUTHOR_INFO', "Developer Information");
+define('_MI_IMPRESSION_AUTHOR_INFO', "Developer information");
 define('_MI_IMPRESSION_AUTHOR_NAME', "Developer");
-define('_MI_IMPRESSION_AUTHOR_DEVTEAM', "Development Team");
+define('_MI_IMPRESSION_AUTHOR_DEVTEAM', "Development team");
 define('_MI_IMPRESSION_AUTHOR_WEBSITE', "Developer website");
 define('_MI_IMPRESSION_AUTHOR_EMAIL', "Developer email");
 define('_MI_IMPRESSION_AUTHOR_CREDITS', "Credits");
-define('_MI_IMPRESSION_MODULE_INFO', "Module Development Information");
-define('_MI_IMPRESSION_MODULE_STATUS', "Development Status");
-define('_MI_IMPRESSION_MODULE_DEMO', "Demo Site");
+define('_MI_IMPRESSION_MODULE_INFO', "Module development information");
+define('_MI_IMPRESSION_MODULE_STATUS', "Development status");
+define('_MI_IMPRESSION_MODULE_DEMO', "Demo site");
 define('_MI_IMPRESSION_MODULE_SUPPORT', "Official support site");
 define('_MI_IMPRESSION_MODULE_BUG', "Report a bug for this module");
 define('_MI_IMPRESSION_MODULE_FEATURE', "Suggest a new feature for this module");
 define('_MI_IMPRESSION_MODULE_DISCLAIMER', "Disclaimer");
-define('_MI_IMPRESSION_RELEASE', "Release Date: ");
+define('_MI_IMPRESSION_RELEASE', "Release date: ");
 define('_MI_IMPRESSION_ICONS_CREDITS', "Icons by:");
 
 define("_MI_IMPRESSION_HEADERPRINT","[PRINT OPTIONS] Print page header");
@@ -236,18 +231,10 @@ define("_MI_IMPRESSION_PRINTLOGOURLDSC","Url of the logo that will be printed at
 define("_MI_IMPRESSION_FOOTERPRINT","[PRINT OPTIONS] Print page footer");
 define("_MI_IMPRESSION_FOOTERPRINTDSC","Footer that will be printed for each article");
 define("_MI_IMPRESSION_ITEMFOOTER_SEL", "Item footer");
-define("_MI_IMPRESSION_INDEXFOOTER_SEL","Index Footer");
+define("_MI_IMPRESSION_INDEXFOOTER_SEL","Index footer");
 define("_MI_IMPRESSION_BOTH_FOOTERS","Both footers");
 define("_MI_IMPRESSION_NO_FOOTERS","None");
 define("_MI_IMPRESSION_ITEMFOOTER", "[CONTENT OPTIONS] Item footer");
-
-define('_MI_IMPRESSION_MODULE_MAILLIST', "WF-Project Mailing Lists");
-define('_MI_IMPRESSION_MODULE_MAILANNOUNCEMENTS', "Announcements Mailing List");
-define('_MI_IMPRESSION_MODULE_MAILBUGS', "Bug Mailing List");
-define('_MI_IMPRESSION_MODULE_MAILFEATURES', "Features Mailing List");
-define('_MI_IMPRESSION_MODULE_MAILANNOUNCEMENTSDSC', "Get the latest announcements from WF-Project.");
-define('_MI_IMPRESSION_MODULE_MAILBUGSDSC', "Bug Tracking and submission mailing list");
-define('_MI_IMPRESSION_MODULE_MAILFEATURESDSC', "Request New Features mailing list.");
 
 define('_MI_IMPRESSION_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY MCDONALD \"AS IS\" AND \"WITH ALL FAULTS.\"
 MCDONALD MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
@@ -261,7 +248,7 @@ EVENT WILL MCDONALD BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
 INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
 MCDONALD HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES..");
 
-define('_MI_IMPRESSION_AUTHOR_CREDITSTEXT',"WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.");
+define('_MI_IMPRESSION_AUTHOR_CREDITSTEXT',"WF-Projects Team. Based on the module WF-Links & MyTube, thanks to the dream-team for some code snippits.");
 define('_MI_IMPRESSION_AUTHOR_BUGFIXES', "Bug Fix History");
 
 define('_MI_IMPRESSION_COPYRIGHTIMAGE', "");
