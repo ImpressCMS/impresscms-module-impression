@@ -1,0 +1,25 @@
+<link href="<{$xoops_url}>/modules/impression/impressionstyle.css" rel="stylesheet" type="text/css" />
+<{foreach item=article from=$block.article}>
+<div class="even"><{$article.title}></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td>
+    <div align="right"><small>Published on&nbsp;<{$article.date|wordwrap:50:"\n":true}>&nbsp;(<{$article.hits|wordwrap:50:"\n":true}>&nbsp;reads)</small>&nbsp;</div></td>
+  </tr>
+  <tr>
+    <td><div style="padding: 4px;text-align: left;" valign="top"><{$article.introtext}></div></td>
+  </tr>
+</table>
+<div class="impression_articleFooter">
+    <div style="float: left;"><small><b><i>&nbsp;<{$article.readmore}></i></b></small></div>
+    <div style="float: right;"><span><{if $xoops_isadmin}> <small><{$article.adminarticle}>&nbsp;</small><{/if}></span></div>
+    </div>
+<div style="height: 4px;">&nbsp;</div>
+<{/foreach}>
+<div align="center" style="padding: 2px;">
+<a href="<{$xoops_url}>/modules/rss/rss.php" alt="Get RSS news feed" target="_blank"><img src="<{$xoops_url}>/modules/impression/images/icon/rss.gif" /></a>&nbsp;
+<a href="http://fusion.google.com/add?feedurl=<{$xoops_url}>/modules/rss/rss.php"><img src="<{$xoops_url}>/modules/impression/images/rss_icons/google.gif" alt="Google Reader or Homepage" border="0"></a>&nbsp;
+<a href="http://add.my.yahoo.com/rss?url=<{$xoops_url}>/modules/rss/rss.php"><img src="<{$xoops_url}>/modules/impression/images/rss_icons/yahoo.gif" border="0" alt="Add to My Yahoo!"></a>&nbsp;
+<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url=<{$xoops_url}>/modules/rss/rss.php"><img src="<{$xoops_url}>/modules/impression/images/rss_icons/newsgator.gif" alt="Subscribe in NewsGator Online" border="0"></a>&nbsp;
+<a href="http://feeds.my.aol.com/add.jsp?url=<{$xoops_url}>/modules/rss/rss.php"><img src="<{$xoops_url}>/modules/impression/images/rss_icons/aol2.gif" alt="Add to My AOL" border="0"></a>&nbsp;
+<a href="http://www.live.com/?add=<{$xoops_url}>/modules/rss/rss.php"><img style="width: 92px; height: 17px;" src="<{$xoops_url}>/modules/impression/images/rss_icons/windowslive.gif" border="0"></a></div>

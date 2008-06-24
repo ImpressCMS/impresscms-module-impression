@@ -1,0 +1,89 @@
+<{if $article.imageheader != ""}>
+    <div class="impression_header"><{$article.imageheader}></div>
+<{/if}>
+<div class="impression_path"><{$article.path}></div>
+<div class="impression_background"><{$article.title}><{$article.icons}><span><{if $xoops_isadmin}> <small><{$article.adminarticle}></small><{/if}></span> </div><div>&nbsp;</div>
+<table width="100%" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td colspan="2"> <table width="100%" border="0" cellspacing="0" cellpadding="2"> 
+        <tr> 
+          <td width="45%">
+            <div align="center"><{$article.showarticle}></div>
+            <div>&nbsp;</div>
+            <{if $article.showsbookmarx > 0}>
+            <div align="center">
+              <table border="0"cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center"><div class="impression_socbookmark"><{$article.sbmarks}></div></td>
+                </tr>
+              </table>
+            </div>
+            <{/if}>
+          </td> 
+          <td width="55%"> <div class="impression_summary">
+                    <div><small><b><{$smarty.const._MD_IMPRESSION_SUBMITTER}>:</b>&nbsp;<{$article.submitter}></small></div>
+                    <div><small><b><{$smarty.const._MD_IMPRESSION_PUBLISHER}>:</b>&nbsp;<{$article.publisher}></small></div>
+                    <div><small><b><{$lang_subdate}>:</b>&nbsp;<{$article.updated|wordwrap:50:"\n":true}></small></div>
+                    <div><small><{$article.hits|wordwrap:50:"\n":true}></small></div>
+                    <div><small><{$smarty.const._MD_IMPRESSION_TIMEB}>&nbsp;<{$article.time}></small></div>
+              </div>
+              <br />
+              <div  class="impression_description">
+                    <div><b><{$smarty.const._MD_IMPRESSION_DESCRIPTIONC}></b><br />
+                    <{$article.description}></div>
+              </div>
+            <br /> 
+            <div class="impression_rating"> <small> <b><{$smarty.const._MD_IMPRESSION_RATINGC}></b>&nbsp;<img src="<{$xoops_url}>/modules/<{$article.module_dir}>/images/icon/<{$article.rateimg}>" alt="" align="middle" />&nbsp;&nbsp;(<{$article.votes}>) </small> </div>
+            <br />
+            <{if $tagbar}>
+	        <div><{include file="db:tag_bar.html"}></div>
+			<{/if}>
+			<br /></td>
+        </tr> 
+        <tr> 
+         <td colspan="2" valign="top">&nbsp;</td> 
+        </tr> 
+        <tr>
+         <td colspan="2" class="even" style="text-valign: top; text-align: center;">
+		  <div class="even" align="center">
+		   <small>[&nbsp;<{if $article.allow_rating}> 
+			 <a href="<{$xoops_url}>/modules/<{$article.module_dir}>/ratearticle.php?cid=<{$article.cid}>&amp;aid=<{$article.id}>"><{$smarty.const._MD_IMPRESSION_RATETHISFILE}></a> |
+			<{/if}> 
+			<a href="<{$xoops_url}>/modules/<{$article.module_dir}>/brokenarticle.php?aid=<{$article.id}>"><{$smarty.const._MD_IMPRESSION_REPORTBROKEN}></a> |
+			<{if $article.useradminarticle}>
+			 <a href="<{$xoops_url}>/modules/<{$article.module_dir}>/submit.php?aid=<{$article.id}>"> <{$smarty.const._MD_IMPRESSION_MODIFY}></a> |
+			<{/if}> 
+			<a href="mailto:?subject=<{$article.mail_subject}>&body=<{$article.mail_body}>" target="_top"><{$smarty.const._MD_IMPRESSION_TELLAFRIEND}></a>
+                       <{if $article.comment_rules > 0}>
+                            | <a href="<{$xoops_url}>/modules/<{$article.module_dir}>/singlearticle.php?cid=<{$article.cid}>&amp;aid=<{$article.id}>"><{$smarty.const._COMMENTS}> (<{$article.comments}>)</a>
+                       <{/if}>&nbsp;]
+		   </small>
+		   </div>
+		  </td> 
+        </tr> 
+       </table> 
+  </tr> 
+</table>
+
+<br /> 
+<{if $article.otherarticlex > 0}>
+<{$other_articles}>
+<{foreach item=article_user from=$article_uid}>
+   <div style="margin-left: 10px;"> <a href="<{$xoops_url}>/modules/<{$article.module_dir}>/singlearticle.php?cid=<{$article_user.cid}>&amp;aid=<{$article_user.aid}>"><{$article_user.title}></a> (<{$article_user.published}>) </div>
+<{/foreach}>
+<{/if}>
+<br /><br /> 
+<div align="center"><{$lang_copyright}></div>
+<div style="text-align: center; padding: 3px; margin:3px;">
+ <{$commentsnav}> <{$lang_notice}> 
+</div>
+<!-- start comments loop --> 
+<{if $comment_mode == "flat"}> 
+	<{include file="db:system_comments_flat.html"}> 
+<{elseif $comment_mode == "thread"}> 
+	<{include file="db:system_comments_thread.html"}> 
+<{elseif $comment_mode == "nest"}> 
+	<{include file="db:system_comments_nest.html"}> 
+<{/if}> 
+<!-- end comments loop --> 
+<{include file="db:system_notification_select.html"}>
