@@ -106,9 +106,9 @@ $i = 0;
 //$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME3;
 //$modversion['sub'][$i]['url'] = "topten.php?list=rate";
 
-$i++;
-$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME4;
-$modversion['sub'][$i]['url'] = "topten.php";
+//$i++;
+//$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME4;
+//$modversion['sub'][$i]['url'] = "topten.php";
 unset( $i );
 
 // Search
