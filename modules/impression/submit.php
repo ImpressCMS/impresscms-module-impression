@@ -23,9 +23,9 @@ if ( false == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     exit();
 } 
 
-if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ){
-    if ( impression_cleanRequestVars( $_REQUEST, 'submit', 0 ) )
-        if ( false == checkgroups( $cid, 'ImpressionSubPerm' ) )
+if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
+    if ( impression_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
+        if ( false == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
             redirect_header( "index.php", 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
             exit();
         } 
@@ -37,31 +37,30 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ){
         $title = $impressionmyts -> addslashes( ltrim( $_REQUEST["title"] ) );
         $introtextb = $impressionmyts -> addslashes( ltrim( $_REQUEST["introtextb"] ) );
         $descriptionb = $impressionmyts -> addslashes( ltrim( $_REQUEST["descriptionb"] ) );
-        $keywords = $impressionmyts -> addslashes( ltrim( $_REQUEST["keywords"] ) );
+        $meta_keywords = $impressionmyts -> addslashes( ltrim( $_REQUEST["meta_keywords"] ) );
         $date = time();
         $publishdate = 0;
         $ipaddress = $_SERVER['REMOTE_ADDR'];
 
-        if ( $aid == 0 )
+        if ( $aid == 0 ) {
             $status = 0;
             $publishdate = 0;
             $message = _MD_IMPRESSION_THANKSFORINFO;
-            if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) )
+            if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
                 $publishdate = time();
                 $status = 1;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, date, hits, rating, votes, comments, published, offline, introtext, description, ipaddress, notifypub, keywords) ";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', 0, 0, 0, 0, '$publishdate', '$offline', '$introtextb', '$descriptionb', '$ipaddress', '$notifypub', '$keywords')";
-            if ( !$result = $xoopsDB -> query( $sql ) )
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, published, introtext, description, ipaddress, meta_keywords) ";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$publishdate', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords')";
+            if ( !$result = $xoopsDB -> query( $sql ) ) {
                 $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
             } 
             $newid = $xoopsDB -> getInsertId();
 
-            /**
-             * Notify of new link (anywhere) and new link in category
-             */
+
+            // Notify of new link (anywhere) and new link in category
             $notification_handler = &xoops_gethandler( 'notification' );
 
             $tags = array();
@@ -91,7 +90,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ){
         } else {
             if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
                 $updated = time();
-                $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', updated='$updated', offline='$offline', introtext='$introtextb', description='$descriptionb', ipaddress='$ipaddress', notifypub='$notifypub', keywords='$keywords' WHERE aid =" . $aid;
+                $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords' WHERE aid=" . $aid;
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
                     $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -142,9 +141,8 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ){
         global $xoopsModuleConfig;
 
         $approve = impression_cleanRequestVars( $_REQUEST, 'approve', 0 );
-        /*
-		* Show disclaimer
-		*/
+
+	// Show disclaimer
         if ( $xoopsModuleConfig['showdisclaimer'] && !isset( $_GET['agree'] ) && $approve == 0 ) {
             echo "<br /><div style='text-align: center;'>" . impression_imageheader() . "</div><br />\n";
             echo "<h4>" . _MD_IMPRESSION_DISCLAIMERAGREEMENT . "</h4>\n";
@@ -168,15 +166,14 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ){
         $cid = $article_array['cid'] ? $article_array['cid'] : 0;
         $title = $article_array['title'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['title'] ) : '';
         $publisher = $article_array['publisher'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['publisher'] ) : '';
-        $screenshot = $article_array['screenshot'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['screenshot'] ) : '';
         $introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
         $descriptionb = $article_array['description'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['description'] ) : '';
         $published = $article_array['published'] ? $article_array['published'] : 0;
         $updated = $article_array['updated'] ? $article_array['updated'] : 0;
         $offline = $article_array['offline'] ? $article_array['offline'] : 0;
         $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
-        $notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
-        $keywords = $article_array['keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['keywords'] ) : '';
+//        $notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
+        $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
 
      	$sform = new XoopsThemeForm( '', "storyform", xoops_getenv( 'PHP_SELF' ) );
         $sform -> setExtra( 'enctype="multipart/form-data"' );
@@ -212,19 +209,20 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ){
         $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 10, 50, '');
         $sform -> addElement( $editor, true );
 
-// Meta keywords form
-        $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_KEYWORDS, 'keywords', 70, 128, $keywords ), false);
-        $sform -> insertBreak( sprintf( _MD_IMPRESSION_KEYWORDS_NOTE ), "even" );
-        
-        $option_tray = new XoopsFormElementTray( _MD_IMPRESSION_OPTIONS, '<br />' );
+// Meta meta_keywords form
+        $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 7, 60);
+        $keywords -> setDescription(  '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
+        $sform -> addElement( $keywords, false );
 
-        if ( !$approve ) {
-            $notify_checkbox = new XoopsFormCheckBox( '', 'notifypub' );
-            $notify_checkbox -> addOption( 1, _MD_IMPRESSION_NOTIFYAPPROVE );
-            $option_tray -> addElement( $notify_checkbox );
-        } else {
-            $sform -> addElement( new XoopsFormHidden( 'notifypub', 0 ) );
-        } 
+//        $option_tray = new XoopsFormElementTray( _MD_IMPRESSION_OPTIONS, '<br />' );
+
+//        if ( !$approve ) {
+//            $notify_checkbox = new XoopsFormCheckBox( '', 'notifypub' );
+//            $notify_checkbox -> addOption( 1, _MD_IMPRESSION_NOTIFYAPPROVE );
+//            $option_tray -> addElement( $notify_checkbox );
+//        } else {
+//            $sform -> addElement( new XoopsFormHidden( 'notifypub', 0 ) );
+//        }
 
         if ( true == checkgroups( $cid, 'ImpressionAppPerm' ) && $aid > 0 ) {
             $approve_checkbox = new XoopsFormCheckBox( '', 'approve', $approve );
