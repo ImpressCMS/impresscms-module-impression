@@ -6,7 +6,7 @@
  */
 
 include 'admin_header.php';
-// global $xoopsDB, $xoopsModuleConfig, $xoopsModule, $xoopsUser, $impressionmyts, $mytree, $imagearray;
+
 $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
 $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
@@ -112,9 +112,9 @@ function edit( $aid = 0 ) {
     $sform -> addElement( $datesub_datetime );
 
 // Set Status
-    $status_array = array( 0 => 'Published',
-                           1 => 'Offline',
-                           2 => 'Rejected' );
+    $status_array = array( 0 => _AM_IMPRESSION_PUBLISHED,
+                           1 => _AM_IMPRESSION_OFFLINE,
+                           2 => _AM_IMPRESSION_REJECTED );
     $status_select = new XoopsFormSelect( _AM_IMPRESSION_ARTICLE_FILESSTATUS, 'status', $status );
     $status_select -> addOptionArray( $status_array );
     $status_select -> setDescription( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC);
@@ -174,7 +174,7 @@ switch ( strtolower( $op ) ) {
             $date = time();
             $publishdate = time();
             $ipaddress = $_SERVER['REMOTE_ADDR'];
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, submitter, publisher, status,  published, introtext, description, ipaddress, meta_keywords, item_tag )";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, submitter, publisher, status, published, introtext, description, ipaddress, meta_keywords, item_tag )";
             $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$publisher', '$status', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag')";
         } else {
             $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag' WHERE aid=" . $aid;

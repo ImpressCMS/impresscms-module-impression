@@ -56,7 +56,7 @@ CREATE TABLE `impression_indexpage` (
 
 
 
-INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`nohtml`,`nosmiley`,`noxcodes`,`noimages`,`nobreak`,`indexheaderalign`,`indexfooteralign`) VALUES ('impression_bar.gif','','Enjoy reading the articles in <em>Impression</em>','','0','0','0','0','1','left','left');
+INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`nohtml`,`nosmiley`,`noxcodes`,`noimages`,`nobreak`,`indexheaderalign`,`indexfooteralign`) VALUES ('impression_bar.png','','Enjoy reading the articles in <em>Impression</em>','','0','0','0','0','1','left','left');
 
 
 #
@@ -85,6 +85,8 @@ CREATE TABLE `impression_mod` (
   `description` longtext NOT NULL,
   `modifysubmitter` int(11) NOT NULL default '0',
   `requestdate` int(11) NOT NULL default '0',
+  `meta_keywords` varchar(255) NOT NULL default '',
+  `item_tag` text NOT NULL,
   PRIMARY KEY  (`requestid`)
 ) TYPE=MyISAM COMMENT='Impression by McDonald' AUTO_INCREMENT=1 ;
 
@@ -115,6 +117,7 @@ CREATE TABLE `impression_articles` (
   `ipaddress` varchar(120) NOT NULL default '0',
   `notifypub` int(1) NOT NULL default '0',
   `meta_keywords` varchar(255) NOT NULL default '',
+  `item_tag` text NOT NULL,
   PRIMARY KEY  (`aid`),
   KEY `cid` (`cid`),
   KEY `status` (`status`),

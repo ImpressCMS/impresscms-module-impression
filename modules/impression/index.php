@@ -51,7 +51,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
     $subtotalarticleload = 0;
     $totalarticleload = impression_getTotalItems( $myrow['cid'], 1 );
 
-    $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.gif";
+    $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.png";
     $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
     if ( checkgroups( $myrow['cid'] ) ) {

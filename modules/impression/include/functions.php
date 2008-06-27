@@ -641,8 +641,8 @@ function impression_articlelistbody( $published ) {
 		<td class='even' style='text-align: left;'><small>" . $title . "</small></td>\n
 		<td class='even' style='text-align: left; width: 15%;'><small>" . $cattitle . "</small></td>\n
 		<td class='even' style='white-space: nowrap;'><small>" . $submitter . "</small></td>\n
-		<td class='even' style='white-space: nowrap;'><small>" . $publish . "</small></td>\n
-		<td class='even'><small>" . $published_status . "</small></td>\n
+		<td class='even' style='white-space: nowrap; width: 15%;'><small>" . $publish . "</small></td>\n
+		<td class='even' style='white-space: nowrap; width: 50px;'><small>" . $published_status . "</small></td>\n
 		<td class='even' style='text-align: center; width: 5%; white-space: nowrap;'>$icon</td>\n
 		</tr>\n
 		";
