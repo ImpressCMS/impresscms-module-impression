@@ -14,17 +14,17 @@ switch ( strtolower( $op ) ) {
     case "approve":
 
         global $xoopsModule;
-        $sql = "SELECT cid, title, publisher, notifypub FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . $aid;
+        $sql = "SELECT cid, title, publisher FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . $aid;
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
-        list( $cid, $title, $publisher, $notifypub ) = $xoopsDB -> fetchRow( $result );
+        list( $cid, $title, $publisher ) = $xoopsDB -> fetchRow( $result );
 
         // Update the database
 
         $time = time();
-        $xoopsDB -> queryF( "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET published='$time.', status='1', publisher='$publisher' WHERE aid=" . $aid );
+        $xoopsDB -> queryF( "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET published='$time . ', status='1', publisher='$publisher' WHERE aid=" . $aid );
 
         $tags = array();
         $tags['ARTICLE_NAME'] = $title;
@@ -53,7 +53,7 @@ switch ( strtolower( $op ) ) {
         global $xoopsModuleConfig;
 
         $start = impression_cleanRequestVars( $_REQUEST, 'start', 0 );
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published = 0 ORDER BY aid DESC" ;
+        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published=0 ORDER BY aid DESC" ;
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
@@ -72,33 +72,32 @@ switch ( strtolower( $op ) ) {
         echo "<li>" . $imagearray['deleteimg'] . " " . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . "</div>\n";
         echo "</fieldset><br />\n";
 
-        echo "<table width='100%' cellspacing='1' class='outer'>\n";
+        echo "<table width='100%' cellspacing='1' class='outer' summary>\n";
         echo "<tr style='text-align: center;'>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_ID . "</small></th>\n";
+        echo "<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_ID . "</small></th>\n";
         echo "<th style='text-align: left;'><small>" . _AM_IMPRESSION_MINDEX_TITLE . "</small></th>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_POSTER . "</small></th>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_SUBMITTED . "</small></th>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_ACTION . "</small></th>\n";
+        echo "<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_POSTER . "</small></th>\n";
+        echo "<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_SUBMITTED . "</small></th>\n";
+        echo "<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_ACTION . "</small></th>\n";
         echo "</tr>\n";
         if ( $new_array_count > 0 ) {
             while ( $new = $xoopsDB -> fetchArray( $new_array ) ) {
                 $aid = intval( $new['aid'] );
                 $rating = number_format( $new['rating'], 2 );
                 $title = $impressionmyts -> htmlSpecialCharsStrip( $new['title'] );
-                $logourl = $impressionmyts -> htmlSpecialCharsStrip( $new['screenshot'] );
                 $submitter = xoops_getLinkedUnameFromId( $new['submitter'] );
-                $datetime = formatTimestamp( $new['date'], $xoopsModuleConfig['dateformat'] );
+                $datetime = formatTimestamp( $new['published'], $xoopsModuleConfig['dateformatadmin'] );
 
                 $icon = ( $new['published'] ) ? $approved : "<a href='newarticles.php?op=approve&amp;aid=" . $aid . "'>" . $imagearray['approve'] . "</a>&nbsp;";
                 $icon .= "<a href='index.php?op=edit&amp;aid=" . $aid . "'>" . $imagearray['editimg'] . "</a>&nbsp;";
                 $icon .= "<a href='index.php?op=delete&amp;aid=" . $aid . "'>" . $imagearray['deleteimg'] . "</a>";
 
                 echo "<tr>\n";
-                echo "<td class='head' style='text-align: center;'><small>$aid</small></td>\n";
-                echo "<td class='even' nowrap><a href='newarticles.php?op=edit&amp;aid=" . $aid . "'><small>$title</small></a></td>\n";
-                echo "<td class='even' style='text-align: center;' nowrap><small>$submitter</small></td>\n";
-                echo "<td class='even' style='text-align: center;'><small>$datetime</small></td>\n";
-                echo "<td class='even' style='text-align: center;' nowrap>$icon</td>\n";
+                echo "<td class='head' style='text-align: center; width: 5%;'><small>" . $aid . "</small></td>\n";
+                echo "<td class='even' style='text-align: left;'><a href='newarticles.php?op=edit&amp;aid=" . $aid . "'><small>$title</small></a></td>\n";
+                echo "<td class='even' style='text-align: center; white-space: nowrap;'><small>" . $submitter . "</small></td>\n";
+                echo "<td class='even' style='text-align: center; width: 15%;'><small>" . formatTimestamp( $new['published'], $xoopsModuleConfig['dateformatadmin'] ) . "</small></td>\n";
+                echo "<td class='even' style='text-align: center; width: 5%; white-space: nowrap;'>" . $icon . "</td>\n";
                 echo "</tr>\n";
             } 
         } else {

@@ -32,27 +32,27 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
         $submitter = ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) ? $xoopsUser -> getVar( 'uid' ) : 0;
         $offline = impression_cleanRequestVars( $_REQUEST, 'offline', 0 );
-        $notifypub = impression_cleanRequestVars( $_REQUEST, 'notifypub', 0 );
+//        $notifypub = impression_cleanRequestVars( $_REQUEST, 'notifypub', 0 );
         $approve = impression_cleanRequestVars( $_REQUEST, 'approve', 0 );
         $title = $impressionmyts -> addslashes( ltrim( $_REQUEST["title"] ) );
         $introtextb = $impressionmyts -> addslashes( ltrim( $_REQUEST["introtextb"] ) );
         $descriptionb = $impressionmyts -> addslashes( ltrim( $_REQUEST["descriptionb"] ) );
         $meta_keywords = $impressionmyts -> addslashes( ltrim( $_REQUEST["meta_keywords"] ) );
         $date = time();
-        $publishdate = 0;
+        $publishdate = time();
         $ipaddress = $_SERVER['REMOTE_ADDR'];
 
         if ( $aid == 0 ) {
-            $status = 0;
-            $publishdate = 0;
+            $status = 1;
+            $date = time();
             $message = _MD_IMPRESSION_THANKSFORINFO;
             if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
-                $publishdate = time();
-                $status = 1;
+                $date = time();
+                $status = 0;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
             $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, published, introtext, description, ipaddress, meta_keywords) ";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$publishdate', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords')";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords')";
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );

@@ -14,8 +14,7 @@ $aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
 
 global $impressionmyts, $xoopsModuleConfig;
 
-function createcat( $cid = 0 )
-{
+function createcat( $cid = 0 ) {
     global $xoopsDB, $impressionmyts, $xoopsModuleConfig, $mytree, $xoopsModule;
 
     $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $cid;
@@ -45,22 +44,17 @@ function createcat( $cid = 0 )
     $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"imgurl\", \"" . $xoopsModuleConfig['catimage'] . "\", \"\", \"" . XOOPS_URL . "\")'" );
     $indeximage_tray = new XoopsFormElementTray( _AM_IMPRESSION_FCATEGORY_CIMAGE, '&nbsp;' );
     $indeximage_tray -> addElement( $indeximage_select );
-    if ( !empty( $imgurl ) )
-    {
+    if ( !empty( $imgurl ) ) {
         $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . XOOPS_URL . "/" . $xoopsModuleConfig['catimage'] . "/" . $imgurl . "' name='image' id='image' alt='' />" ) );
-    } 
-    else
-    {
+    } else {
         $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . XOOPS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
     } 
     $sform -> addElement( $indeximage_tray );
- //   $sform -> addElement( new XoopsFormDhtmlTextArea( _AM_IMPRESSION_FCATEGORY_DESCRIPTION, 'descriptionb', $descriptionb, 15, 60 ) );
 
     $editor=impression_getWysiwygForm( _AM_IMPRESSION_FCATEGORY_DESCRIPTION, 'descriptionb', $descriptionb, 15, 60, '');
     $sform->addElement($editor,false);
 
     $sform -> addElement( new XoopsFormHidden( 'cid', $cid ) );
-//    $sform -> addElement( new XoopsFormHidden( 'spotlighttop', $cid ) );
 
     $button_tray = new XoopsFormElementTray( '', '' );
     $hidden = new XoopsFormHidden( 'op', 'save' );
@@ -69,13 +63,10 @@ function createcat( $cid = 0 )
     $butt_create = new XoopsFormButton( '', '', _AM_IMPRESSION_BSAVE, 'submit' );
     $butt_create -> setExtra( 'onclick="this.form.elements.op.value=\'addCat\'"' );
     $button_tray -> addElement( $butt_create );
-    if ( !$cid )
-    {
+    if ( !$cid ) {
         $butt_clear = new XoopsFormButton( '', '', _AM_IMPRESSION_BRESET, 'reset' );
         $button_tray -> addElement( $butt_clear );
-    }
-    else
-    {
+    } else {
         $butt_delete = new XoopsFormButton( '', '', _AM_IMPRESSION_BDELETE, 'submit' );
         $butt_delete -> setExtra( 'onclick="this.form.elements.op.value=\'delCat\'"' );
         $button_tray -> addElement( $butt_delete );
@@ -88,11 +79,9 @@ function createcat( $cid = 0 )
     $sform -> display();
 } 
 
-switch ( strtolower( $op ) )
-{
+switch ( strtolower( $op ) ) {
     case "move":
-        if ( impression_cleanRequestVars( $_REQUEST, 'ok', 0 ) )
-        {
+        if ( impression_cleanRequestVars( $_REQUEST, 'ok', 0 ) ) {
             xoops_cp_header();
             impression_adminmenu( _AM_IMPRESSION_MCATEGORY );
 
@@ -114,25 +103,20 @@ switch ( strtolower( $op ) )
             $sform -> addElement( $create_tray );
             $sform -> display();
             xoops_cp_footer();
-        } 
-        else
-        {
+        } else {
             global $xoopsDB;
 
             $source = impression_cleanRequestVars( $_REQUEST, 'source', 0 );
             $target = impression_cleanRequestVars( $_REQUEST, 'target', 0 );
-            if ( $target == $source )
-            {
+            if ( $target == $source ) {
                 redirect_header( "category.php?op=move&amp;ok=0&amp;cid=" . $source, 5, _AM_IMPRESSION_CCATEGORY_MODIFY_FAILED );
             } 
 
-            if ( !$target )
-            {
+            if ( !$target ) {
                 redirect_header( "category.php?op=move&amp;ok=0&amp;cid=" . $source, 5, _AM_IMPRESSION_CCATEGORY_MODIFY_FAILEDT );
             } 
             $sql = "UPDATE " . $xoopsDB -> prefix( 'impresson_articles' ) . " SET aid=" . $target . " WHERE aid =" . $source;
-            if ( !$result = $xoopsDB -> queryF( $sql ) )
-            {
+            if ( !$result = $xoopsDB -> queryF( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
             } 
@@ -149,22 +133,18 @@ switch ( strtolower( $op ) )
         $descriptionb = $impressionmyts -> addslashes( $_REQUEST["descriptionb"] );
         $imgurl = ( $_REQUEST["imgurl"] && $_REQUEST["imgurl"] != "blank.gif" ) ? $impressionmyts -> addslashes( $_REQUEST["imgurl"] ) : "";
 
-        if ( !$cid )
-        {
+        if ( !$cid ) {
             $cid = 0;
             $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_cat' ) . " (cid, pid, title, imgurl, description, weight ) VALUES ('', $pid, '$title', '$imgurl', '$descriptionb', '$weight' )";
-            if ( $cid == 0 )
-            {
+            if ( $cid == 0 ) {
                 $newid = $xoopsDB -> getInsertId();
             } 
-        } 
-        else
-        {
+            $database_mess = _AM_IMPRESSION_CCATEGORY_CREATED;
+        } else {
             $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_cat' ) . " SET title ='$title', imgurl='$imgurl', pid =$pid, description='$descriptionb', weight='$weight' WHERE cid=" . $cid;
             $database_mess = _AM_IMPRESSION_CCATEGORY_MODIFIED;
         } 
-        if ( !$result = $xoopsDB -> query( $sql ) )
-        {
+        if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
@@ -172,23 +152,19 @@ switch ( strtolower( $op ) )
         break;
 
     case "del":
-        if ( impression_cleanRequestVars( $_REQUEST, 'ok', 0 ) )
-        {
+        if ( impression_cleanRequestVars( $_REQUEST, 'ok', 0 ) ) {
             $gperm_handler = &xoops_gethandler( 'groupperm' ); 
             // get all subcategories under the specified category
             $arr = $mytree -> getAllChildId( $cid );
             $lcount = count( $arr );
 
-            for ( $i = 0; $i < $lcount; $i++ )
-            { 
+            for ( $i = 0; $i < $lcount; $i++ ) {
                 // get all links in each subcategory
                 $result = $xoopsDB -> query( "SELECT aid FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . $arr[$i] );
                 // now for each linkload, delete the text data and vote ata associated with the linkload
-                while ( list( $aid ) = $xoopsDB -> fetchRow( $result ) )
-                {
+                while ( list( $aid ) = $xoopsDB -> fetchRow( $result ) ) {
                     $sql = sprintf( "DELETE FROM %s WHERE aid = %u", $xoopsDB -> prefix( 'impression_articles' ), $aid );
-                    if ( !$result = $xoopsDB -> query( $sql ) )
-                    {
+                    if ( !$result = $xoopsDB -> query( $sql ) ) {
                         XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                         return false;
                     } 
@@ -198,19 +174,16 @@ switch ( strtolower( $op ) )
                 // all links for each subcategory is deleted, now delete the subcategory data
                 $gperm_handler -> deleteByModule( $xoopsModule -> getVar( 'mid' ), $this -> perm_name, $arr[$i] );
                 $sql = sprintf( "DELETE FROM %s WHERE aid = %u", $xoopsDB -> prefix( 'impression_articles' ), $arr[$i] );
-                if ( !$result = $xoopsDB -> query( $sql ) )
-                {
+                if ( !$result = $xoopsDB -> query( $sql ) ) {
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                     return false;
                 } 
             } 
             // all subcategory and associated data are deleted, now delete category data and its associated data
             $result = $xoopsDB -> query( "SELECT aid FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . $cid );
-            while ( list( $aid ) = $xoopsDB -> fetchRow( $result ) )
-            {
+            while ( list( $aid ) = $xoopsDB -> fetchRow( $result ) ) {
                 $sql = sprintf( "DELETE FROM %s WHERE aid = %u", $xoopsDB -> prefix( 'impression_articles' ), $aid );
-                if ( !$result = $xoopsDB -> queryF( $sql ) )
-                {
+                if ( !$result = $xoopsDB -> queryF( $sql ) ) {
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                     return false;
                 } 
@@ -218,16 +191,13 @@ switch ( strtolower( $op ) )
                 xoops_comment_delete( $xoopsModule -> getVar( 'mid' ), $aid );
             }
             $sql = sprintf( "DELETE FROM %s WHERE cid = %u", $xoopsDB -> prefix( 'impression_cat' ), $cid );
-            if ( !$result = $xoopsDB -> query( $sql ) )
-            {
+            if ( !$result = $xoopsDB -> query( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
             } 
             redirect_header( "category.php", 1, _AM_IMPRESSION_CCATEGORY_DELETED );
             exit();
-        } 
-        else
-        {
+        } else {
             xoops_cp_header();
             xoops_confirm( array( 'op' => 'del', 'cid' => $cid, 'ok' => 1 ), 'category.php', _AM_IMPRESSION_CCATEGORY_AREUSURE );
             xoops_cp_footer();
@@ -249,8 +219,7 @@ switch ( strtolower( $op ) )
 
         $sform = new XoopsThemeForm( _AM_IMPRESSION_CCATEGORY_MODIFY, "category", xoops_getenv( 'PHP_SELF' ) );
         $totalcats = impression_totalcategory();
-        if ( $totalcats > 0 )
-        {
+        if ( $totalcats > 0 ) {
             ob_start();
             $mytree -> makeMySelBox( "title", "title" );
             $sform -> addElement( new XoopsFormLabel( _AM_IMPRESSION_CCATEGORY_MODIFY_TITLE, ob_get_contents() ) );
