@@ -29,7 +29,6 @@ function edit( $aid = 0 ) {
     $introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
     $descriptionb = $article_array['description'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['description'] ) : '';
     $published = $article_array['published'] ? $article_array['published'] : time();
-    $offline = $article_array['offline'] ? $article_array['offline'] : 0;
     $status = $article_array['status'] ? $article_array['status'] : 0;
     $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
     $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
@@ -176,7 +175,7 @@ switch ( strtolower( $op ) ) {
         $published =  strtotime($_POST['published']['date'] ) + $_POST['published']['time'];
         $submitter = $xoopsUser -> uid();
         $publisher = $xoopsUser -> uname();
-        $approved = ( isset( $_POST['approved'] ) && $_POST['approved'] == 1 ) ? 1 : 0;
+//        $approved = ( isset( $_POST['approved'] ) && $_POST['approved'] == 1 ) ? 1 : 0;
 
         // Update or insert linkload data into database
         if ( !$aid ) {
@@ -271,7 +270,7 @@ switch ( strtolower( $op ) ) {
 		";
         if ( $totalarticles > 0 ) {
 
-            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND offline = 0 ORDER BY aid DESC";
+            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 ORDER BY aid DESC";
             $published_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
             $published_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
             impression_articlelistheader( _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE );

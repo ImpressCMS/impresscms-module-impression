@@ -15,7 +15,7 @@ $sql2 = "SELECT count(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . 
  . $xoopsDB -> prefix( 'impression_altcat' ) . " b "
  . " ON b.aid = a.aid"
  . " WHERE a.published > 0 AND a.published <= " . time()
- . " AND (a.expired = 0 OR a.expired > " . time() . ") AND a.offline = 0"
+ . " AND a.status = 0"
  . " AND (b.cid=a.cid OR (a.cid=" . intval($cid) . " OR b.cid=" . intval($cid) . "))";
 list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
 
@@ -26,8 +26,7 @@ if ( false == checkgroups( $cid ) && $count == 0 ) {
 
 $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . intval($aid) . "
 		AND (published > 0 AND published <= " . time() . ")
-		AND (expired = 0 OR expired > " . time() . ")
-		AND offline = 0 
+		AND status = 0
 		AND cid > 0";
 $result = $xoopsDB -> query( $sql );
 $article_arr = $xoopsDB -> fetchArray( $result );
@@ -106,8 +105,8 @@ if ( $article['isadmin'] == false  ) {
 $sql = "SELECT aid, cid, title, published FROM " . $xoopsDB -> prefix( 'impression_articles' ) . "
     WHERE submitter=" . $article_arr['submitter'] . "
     AND aid <> " . $article_arr['aid'] . "
-    AND published > 0 AND published <= " . time() . " AND (expired = 0 OR expired > " . time() . ")  
-    AND offline = 0 ORDER by published DESC"; 
+    AND published > 0 AND published <= " . time() . "  
+    AND status = 0 ORDER by published DESC";
 $result = $xoopsDB -> query( $sql, 10, 0 );
 
 while ( $arr = $xoopsDB -> fetchArray( $result ) ) {

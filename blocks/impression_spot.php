@@ -81,7 +81,7 @@ function b_impression_spoticons($aid, $dirname) {
 function b_impression_spot_show( $options ) {
 
     global $xoopsDB, $xoopsModuleConfig, $xoopsUser, $xoopsTemplate;
-    $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
     $block = array();
     $modhandler = xoops_gethandler( 'module' );
     $impressionModule = $modhandler -> getByDirname( $mydirname );
