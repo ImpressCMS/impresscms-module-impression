@@ -21,15 +21,15 @@ $xoopsTpl -> assign( 'lang_dltimes', $article['hits'] );
 $publisher = ( isset( $article_arr['publisher'] ) && !empty( $article_arr['publisher'] ) ) ? $impressionmyts -> htmlSpecialCharsStrip( $article_arr['publisher'] ) : _MD_IMPRESSION_NOTSPECIFIED;
 $article['title'] = $impressionmyts -> htmlSpecialCharsStrip( $article_arr['title']);
 
-if ( $moderate == 0 ) {
-    $time = ( $article_arr['updated'] != 0 ) ? $article_arr['updated'] : $article_arr['published'];
-    $is_updated = ( $article_arr['updated'] != 0 ) ? _MD_IMPRESSION_UPDATEDON : _MD_IMPRESSION_PUBLISHDATE;
-    $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
-} else {
-    $time = $article_arr['date'];
+//if ( $moderate == 0 ) {
+//    $time = ( $article_arr['updated'] != 0 ) ? $article_arr['updated'] : $article_arr['published'];
+//    $is_updated = ( $article_arr['updated'] != 0 ) ? _MD_IMPRESSION_UPDATEDON : _MD_IMPRESSION_PUBLISHDATE;
+//    $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
+//} else {
+    $time = $article_arr['published'];
     $is_updated = _MD_IMPRESSION_SUBMITDATE;
     $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
-}
+//}
  
 $article['updated'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
 $article['introtext'] = $impressionmyts -> displayTarea( $article_arr['introtext'], 1, 1, 1, 1, 1 );
