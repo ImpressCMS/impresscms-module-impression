@@ -71,7 +71,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
             } 
         } 
         $totalarticles = impression_getTotalItems( $ele['cid'] );
-        $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.gif";
+        $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.png";
         $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
         $_image = ( $ele['imgurl'] ) ? urldecode( $ele['imgurl'] ) : "";

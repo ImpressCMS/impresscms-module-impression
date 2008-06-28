@@ -4,13 +4,11 @@
  * Module: Impression
  */
 
-/**
- * wfs_gethandler()
- * 
- * @param  $name 
- * @param boolean $optional 
- * @return 
- */
+// wfs_gethandler()
+//
+// @param  $name
+// @param boolean $optional
+// @return
 function &impression_gethandler( $name, $optional = false ) {
     global $handlers, $xoopsModule;
 
@@ -125,14 +123,12 @@ function impression_serverstats() {
     echo "</fieldset><br />";
 } 
 
-/**
- * displayicons()
- * 
- * @param  $time 
- * @param integer $status 
- * @param integer $counter 
- * @return 
- */
+// displayicons()
+//
+// @param  $time
+// @param integer $status
+// @param integer $counter
+// @return
 function impression_displayicons( $time, $status = 0, $counter = 0 ) {
     global $xoopsModuleConfig, $xoopsModule;
 
@@ -171,12 +167,9 @@ function impression_displayicons( $time, $status = 0, $counter = 0 ) {
 
 if ( !function_exists( 'impression_convertorderbyin' ) ) {
     // Reusable Link Sorting Functions
-    /**
-     * impression_convertorderbyin()
-     * 
-     * @param  $orderby 
-     * @return 
-     */
+    // impression_convertorderbyin()
+    // @param  $orderby
+    // @return
     function impression_convertorderbyin( $orderby ) {
         switch ( trim( $orderby ) ) {
             case "titleA":
@@ -224,12 +217,9 @@ if ( !function_exists( 'impression_convertorderbyout' ) ) {
     } 
 } 
 
-/**
- * totalcategory()
- * 
- * @param integer $pid 
- * @return 
- */
+// totalcategory()
+// @param integer $pid
+// @return
 function impression_totalcategory( $pid = 0 ) {
     global $xoopsDB;
 
@@ -247,14 +237,11 @@ function impression_totalcategory( $pid = 0 ) {
     return $catlisting;
 } 
 
-/**
- * impression_getTotalItems()
- * 
- * @param integer $sel_id 
- * @param integer $get_child 
- * @param integer $return_sql 
- * @return 
- */
+// impression_getTotalItems()
+// @param integer $sel_id
+// @param integer $get_child
+// @param integer $return_sql
+// @return
 function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
     global $xoopsDB, $mytree, $_check_array;
 
@@ -409,13 +396,11 @@ function impression_adminmenu( $header = '', $menu = '', $extra = '', $scount = 
 
     if ( empty( $menu ) ) {
         // You can change this part to suit your own module. Defining this here will save you form having to do this each time.
-        $menu = array(
-            _AM_IMPRESSION_INDEXPAGE => "indexpage.php",
-            _AM_IMPRESSION_MCATEGORY => "category.php",
-            _AM_IMPRESSION_MARTICLES => "index.php?op=edit",
-            _AM_IMPRESSION_MUPLOADS => "upload.php"
-//            _AM_IMPRESSION_MCOMMENTS => "../../system/admin.php?module=" . $xoopsModule -> getVar( 'mid' ) . "&status=0&limit=100&fct=comments&selsubmit=Go"
-            );
+        $menu = array( _AM_IMPRESSION_INDEXPAGE => "indexpage.php",
+                       _AM_IMPRESSION_MCATEGORY => "category.php",
+                       _AM_IMPRESSION_MARTICLES => "index.php?op=edit",
+                       _AM_IMPRESSION_MUPLOADS => "upload.php"
+                       );
     } 
 
     if ( !is_array( $menu ) ) {
@@ -637,13 +622,13 @@ function impression_articlelistbody( $published ) {
     $icon .= "<a href='altcat.php?op=main&amp;cid=" . $cid . "&amp;aid=" . $aid . "&amp;title=" . $published['title'] . "' title='" . _AM_IMPRESSION_ALTCAT_CREATEF . "'>" . $imagearray['altcat'] . "</a>";
 
     echo " 	<tr style='text-align: center;'>\n
-		<td class='head'><small>" . $aid . "</small></td>\n
+		<td class='head' style='white-space: nowrap; width: 60px;'><small>" . $aid . "</small></td>\n
 		<td class='even' style='text-align: left;'><small>" . $title . "</small></td>\n
 		<td class='even' style='text-align: left; width: 15%;'><small>" . $cattitle . "</small></td>\n
 		<td class='even' style='white-space: nowrap;'><small>" . $submitter . "</small></td>\n
 		<td class='even' style='white-space: nowrap; width: 15%;'><small>" . $publish . "</small></td>\n
 		<td class='even' style='white-space: nowrap; width: 50px;'><small>" . $published_status . "</small></td>\n
-		<td class='even' style='text-align: center; width: 5%; white-space: nowrap;'>$icon</td>\n
+		<td class='even' style='text-align: center; width: 60px; white-space: nowrap;'>$icon</td>\n
 		</tr>\n
 		";
     unset( $published );
