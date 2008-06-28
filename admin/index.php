@@ -29,6 +29,7 @@ function edit( $aid = 0 ) {
     $introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
     $descriptionb = $article_array['description'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['description'] ) : '';
     $published = $article_array['published'] ? $article_array['published'] : time();
+    $offline = $article_array['offline'] ? $article_array['offline'] : 0;
     $status = $article_array['status'] ? $article_array['status'] : 0;
     $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
     $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
@@ -119,6 +120,14 @@ function edit( $aid = 0 ) {
     $status_select -> addOptionArray( $status_array );
     $status_select -> setDescription( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC);
     $sform -> addElement( $status_select );
+    
+// Set Approved
+//    if ( $aid && $offline == 0 ) {
+//        $approved = ( $offline == 1 ) ? 0 : 1;
+//        $approve_checkbox = new XoopsFormCheckBox( _AM_IMPRESSION_ARTICLE_SETASAPPROVED, "approved", 1 );
+//        $approve_checkbox -> addOption( 1, " " );
+//        $sform -> addElement( $approve_checkbox );
+//    }
 
     if ( !$aid ) {
         $button_tray = new XoopsFormElementTray( '', '' );
@@ -245,7 +254,7 @@ switch ( strtolower( $op ) ) {
 
         $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_mod' ) );
         list( $totalmodrequests ) = $xoopsDB -> fetchRow( $result );
-        $result2 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published = 0" );
+        $result2 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE offline = 1" );
         list( $totalnewarticles ) = $xoopsDB -> fetchRow( $result2 );
         $result3 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0" );
         list( $totalarticles ) = $xoopsDB -> fetchRow( $result3 );
@@ -256,13 +265,13 @@ switch ( strtolower( $op ) ) {
 			<div style='padding: 8px;'><small>\n
 			<a href='category.php'>" . _AM_IMPRESSION_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
 			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> | \n
-			<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> | \n
+		<!--	<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> | \n   -->
 			<a href='modifications.php'>" . _AM_IMPRESSION_SMODREQUEST . "</a><b>" . $totalmodrequests . "</b> \n
 			</small></div></fieldset><br />\n
 		";
         if ( $totalarticles > 0 ) {
 
-            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0  ORDER BY aid DESC";
+            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND offline = 0 ORDER BY aid DESC";
             $published_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
             $published_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
             impression_articlelistheader( _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE );

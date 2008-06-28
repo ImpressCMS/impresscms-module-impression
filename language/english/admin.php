@@ -215,7 +215,7 @@ define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "<b>Main category:</b>" );
 //define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", " Set article offline?<br /><br /><span style='font-weight: normal;'>article will not be viewable to all users.</span>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "<b>Set article status:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC", "<small>Set article as published/offline/rejected</small>" );
-define( "_AM_IMPRESSION_ARTICLE_SETASUPDATED", " Set article status as updated?<br /><br /><span style='font-weight: normal;'>article will display updated icon.</span>" );
+define( "_AM_IMPRESSION_ARTICLE_SETASAPPROVED", "Set article status as approved?" );
 define( "_AM_IMPRESSION_ARTICLE_PUBLISHDATE", "Article publish date:" );
 define( "_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC", "<small>Select the date of publication</small>");
 define( "_AM_IMPRESSION_ARTICLE_EXPIREDATE", "Article expire date:" );

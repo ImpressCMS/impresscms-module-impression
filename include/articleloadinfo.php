@@ -59,7 +59,7 @@ if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
 
 $article['icons'] = impression_displayicons( $article_arr['published'], $article_arr['status'], $article_arr['hits'] );
 
-$article['total_chars'] = $xoopsModuleConfig['totalchars'];
+// $article['total_chars'] = $xoopsModuleConfig['totalchars'];
 $article['dirname'] = $xoopsModule -> getVar( 'dirname' );
 $article['readarticle'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&amp;aid=' . $article_arr['aid'] . '">' . $article_arr['title'] . ' </a>';
 $article['readmore'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&amp;aid=' . $article_arr['aid'] . '">' . _MD_IMPRESSION_READMORE . ' </a>';

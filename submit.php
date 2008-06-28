@@ -44,11 +44,13 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
         if ( $aid == 0 ) {
             $status = 1;
+        //    $offline = 1;
             $date = time();
             $message = _MD_IMPRESSION_THANKSFORINFO;
             if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
                 $date = time();
                 $status = 0;
+         //       $offline = 0;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
             $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, published, introtext, description, ipaddress, notifypub, meta_keywords) ";

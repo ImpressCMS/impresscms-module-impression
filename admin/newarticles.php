@@ -53,7 +53,7 @@ switch ( strtolower( $op ) ) {
         global $xoopsModuleConfig;
 
         $start = impression_cleanRequestVars( $_REQUEST, 'start', 0 );
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published=0 ORDER BY aid DESC" ;
+        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE offline=1 ORDER BY aid DESC" ;
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
@@ -83,7 +83,6 @@ switch ( strtolower( $op ) ) {
         if ( $new_array_count > 0 ) {
             while ( $new = $xoopsDB -> fetchArray( $new_array ) ) {
                 $aid = intval( $new['aid'] );
-                $rating = number_format( $new['rating'], 2 );
                 $title = $impressionmyts -> htmlSpecialCharsStrip( $new['title'] );
                 $submitter = xoops_getLinkedUnameFromId( $new['submitter'] );
                 $datetime = formatTimestamp( $new['published'], $xoopsModuleConfig['dateformatadmin'] );
