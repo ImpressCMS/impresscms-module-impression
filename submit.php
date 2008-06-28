@@ -32,7 +32,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
         $submitter = ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) ? $xoopsUser -> getVar( 'uid' ) : 0;
         $offline = impression_cleanRequestVars( $_REQUEST, 'offline', 0 );
-//        $notifypub = impression_cleanRequestVars( $_REQUEST, 'notifypub', 0 );
+        $notifypub = impression_cleanRequestVars( $_REQUEST, 'notifypub', 0 );
         $approve = impression_cleanRequestVars( $_REQUEST, 'approve', 0 );
         $title = $impressionmyts -> addslashes( ltrim( $_REQUEST["title"] ) );
         $introtextb = $impressionmyts -> addslashes( ltrim( $_REQUEST["introtextb"] ) );
@@ -51,8 +51,8 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 $status = 0;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, published, introtext, description, ipaddress, meta_keywords) ";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords')";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, published, introtext, description, ipaddress, notifypub, meta_keywords) ";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$notifypub', '$meta_keywords')";
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -172,7 +172,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $updated = $article_array['updated'] ? $article_array['updated'] : 0;
         $offline = $article_array['offline'] ? $article_array['offline'] : 0;
         $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
-//        $notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
+        $notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
         $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
 
      	$sform = new XoopsThemeForm( '', "storyform", xoops_getenv( 'PHP_SELF' ) );
@@ -214,15 +214,15 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $keywords -> setDescription(  '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
         $sform -> addElement( $keywords, false );
 
-//        $option_tray = new XoopsFormElementTray( _MD_IMPRESSION_OPTIONS, '<br />' );
+        $option_tray = new XoopsFormElementTray( _MD_IMPRESSION_OPTIONS, '<br />' );
 
-//        if ( !$approve ) {
-//            $notify_checkbox = new XoopsFormCheckBox( '', 'notifypub' );
-//            $notify_checkbox -> addOption( 1, _MD_IMPRESSION_NOTIFYAPPROVE );
-//            $option_tray -> addElement( $notify_checkbox );
-//        } else {
-//            $sform -> addElement( new XoopsFormHidden( 'notifypub', 0 ) );
-//        }
+        if ( !$approve ) {
+            $notify_checkbox = new XoopsFormCheckBox( '', 'notifypub' );
+            $notify_checkbox -> addOption( 1, _MD_IMPRESSION_NOTIFYAPPROVE );
+            $option_tray -> addElement( $notify_checkbox );
+        } else {
+            $sform -> addElement( new XoopsFormHidden( 'notifypub', 0 ) );
+        }
 
         if ( true == checkgroups( $cid, 'ImpressionAppPerm' ) && $aid > 0 ) {
             $approve_checkbox = new XoopsFormCheckBox( '', 'approve', $approve );
