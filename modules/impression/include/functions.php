@@ -250,10 +250,10 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
          . $xoopsDB -> prefix( 'impression_altcat' ) . " b "
          . "ON b.aid=a.aid "
          . "WHERE a.published > 0 AND a.published <= " . time()
-         . " AND offline = 0 "
+         . " AND status = 0 "
          . " AND (b.cid=a.cid OR (a.cid=" . $sel_id . " OR b.cid=" . $sel_id . ")) ";
     } else {
-        $sql = "SELECT aid, cid, published from " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE offline = 0 AND published > 0 AND published <= " . time();
+        $sql = "SELECT aid, cid, published from " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE status = 0 AND published > 0 AND published <= " . time();
     } 
     if ( $return_sql == 1 ) {
         return $sql;
@@ -280,7 +280,7 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
              . $xoopsDB -> prefix( 'impression_altcat' ) . " b "
              . "ON b.aid=a.aid "
              . "WHERE a.published > 0 AND a.published <= " . time()
-             . " AND offline = 0 "
+             . " AND status = 0 "
              . " AND (b.cid=a.cid OR (a.cid=" . $arr[$i] . " OR b.cid=" . $arr[$i] . ")) ";
 
             $result2 = $xoopsDB -> query( $query2 );
