@@ -3,10 +3,11 @@
  * $Id: impression_top.php
  * Module: Impression
  */
+
 function checkImpressionSpotBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
 
     global $xoopsUser;
-    $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
     $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
     $gperm_handler = &xoops_gethandler( 'groupperm' );
 
@@ -25,44 +26,30 @@ function checkImpressionSpotBlockgroups( $cid = 0, $permType = 'ImpressionCatPer
     return true;
 }
 
-function b_impression_displayspoticons( $time, $status = 0, $counter = 0 ) {
-    $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+function b_impression_displayrssicons() {
+    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
     $modhandler = xoops_gethandler( 'module' );
-    $impressionModule = $modhandler -> getByDirname( $mydirname );
-    $config_handler = xoops_gethandler( 'config' );
-    $impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
-    $new = '';
-    $pop = '';
 
-    $newdate = ( time() - ( 86400 * intval( $impressionModuleConfig['daysnew'] ) ) );
-    $popdate = ( time() - ( 86400 * intval( $impressionModuleConfig['daysupdated'] ) ) ) ;
+    $icons = '<div align="center" style="padding: 2px;">';
 
-    if ( $impressionModuleConfig['displayicons'] != 3 ) {
-        if ( $newdate < $time ) {
-            if ( intval( $status ) > 1 ) {
-                if ( $impressionModuleConfig['displayicons'] == 1 )
-                    $new = "&nbsp;<img src=" . XOOPS_URL . "/modules/" . $impressionModule -> getVar( 'dirname' ) . "/images/icon/update.png alt='' align ='absmiddle'/>";
-                if ( $impressionModuleConfig['displayicons'] == 2 )
-                    $new = "<i>Updated!</i>";
-            } else {
-                if ( $impressionModuleConfig['displayicons'] == 1 )
-                    $new = "&nbsp;<img src=" . XOOPS_URL . "/modules/" . $impressionModule -> getVar( 'dirname' ) . "/images/icon/new.png alt='' align ='absmiddle'/>";
-                if ( $impressionModuleConfig['displayicons'] == 2 )
-                    $new = "<i>New!</i>";
-            }
-        } 
-        if ( $popdate > $time ) {
-            if ( $counter >= $impressionModuleConfig['popular'] ) {
-                if ( $impressionModuleConfig['displayicons'] == 1 )
-                    $pop = "&nbsp;<img src =" . XOOPS_URL . "/modules/" . $impressionModule -> getVar( 'dirname' ) . "/images/icon/popular.png alt='' align ='absmiddle'/>";
-                if ( $impressionModuleConfig['displayicons'] == 2 )
-                    $pop = "<i>Popular!</i>";
-            } 
-        } 
-    } 
-    $icons = $new . " " . $pop;
+    // Display rss icon if RSSFit module is installed
+    // Plugin needs to be activated!!
+    $rss_mod = $modhandler -> getByDirName( 'rss' );
+             if ( !$rss_mod ) {
+                 $rss_mod = false;
+               } else {
+                 $icons .= '<a href="'. XOOPS_URL . '/modules/rss/rss.php" alt="Get RSS news feed" target="_blank"><img src="'. XOOPS_URL . '/modules/' . $mydirname . '/images/icon/rss.gif" /></a>&nbsp;';
+               }
+
+    $icons .= '<a href="http://fusion.google.com/add?feedurl='. XOOPS_URL . '/modules/rss/rss.php"><img src="'. XOOPS_URL . '/modules/' . $mydirname . '/images/rss_icons/google.gif" alt="'._MB_IMPRESSION_ADDGOOGLE.'" title="'._MB_IMPRESSION_ADDGOOGLE.'" border="0"></a>&nbsp;';
+    $icons .= '<a href="http://add.my.yahoo.com/rss?url='. XOOPS_URL . '/modules/rss/rss.php"><img src="'. XOOPS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.gif" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
+    $icons .= '<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url='. XOOPS_URL . '/modules/rss/rss.php"><img src="'. XOOPS_URL . '/modules/' . $mydirname . '/images/rss_icons/newsgator.gif" alt="'._MB_IMPRESSION_ADDNEWSGATOR.'" title="'._MB_IMPRESSION_ADDNEWSGATOR.'" border="0"></a>&nbsp;';
+    $icons .= '<a href="http://feeds.my.aol.com/add.jsp?url='. XOOPS_URL . '/modules/rss/rss.php"><img src="'. XOOPS_URL . '/modules/' . $mydirname . '/images/rss_icons/aol2.gif" alt="'._MB_IMPRESSION_ADDAOL.'" title="'._MB_IMPRESSION_ADDAOL.'" border="0"></a>&nbsp;';
+    $icons .= '<a href="http://www.live.com/?add='. XOOPS_URL . '/modules/rss/rss.php"><img style="width: 92px; height: 17px;" src="'. XOOPS_URL . '/modules/' . $mydirname . '/images/rss_icons/windowslive.gif" alt="'._MB_IMPRESSION_ADDMSLIVE.'" title="'._MB_IMPRESSION_ADDMSLIVE.'" border="0"></a></div>';
+
     return $icons;
 }
+
 function b_impression_spoticons($aid, $dirname) {
 
         $iconadmin = '<a href="' . XOOPS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . XOOPS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="' . _MB_IMPRESSION_ADMINSECTION . '" title="' . _MB_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>';
@@ -77,6 +64,8 @@ function b_impression_spoticons($aid, $dirname) {
 // 			   hits for the most popular videos
 //           $block['content'] = The optional above content
 //           $options[1] = How many videos are displayes
+//           $options[2] = Set date format
+//           $options[3] = Display RSS icons y/n
 // Output  : Returns the most recent or most popular videos
 function b_impression_spot_show( $options ) {
 
@@ -108,16 +97,18 @@ function b_impression_spot_show( $options ) {
         $articleload['adminarticle'] = '[ <a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;aid=' . $myrow['aid'] . '&approve=1">' . _MB_IMPRESSION_APPROVE . '</a> | ';
         $articleload['adminarticle'] .= '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;aid=' . $myrow['aid'] . '">' . _MB_IMPRESSION_DELETE . '</a> ]';
         }
-//        $articleload['icons'] = b_impression_displayicons( $myrow['published'], $myrow['status'], $myrow['hits'] );
+
         $articleload['id'] = intval($myrow['aid']);
         $articleload['cid'] = intval($myrow['cid']);
         $articleload['title'] = $title;
         $articleload['title'] = '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $title . ' </a>';
         $articleload['date'] = formatTimestamp( $myrow['published'], $options[2] );
-        $articleload['hits'] = $myrow['hits'];
+        $articleload['hits'] = sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
         $articleload['submitter'] = xoops_getLinkedUnameFromId($myrow['submitter']);
         $articleload['introtext'] = $myrow['introtext'];
-        $articleload['readmore'] = '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">Read more</a>';
+        $articleload['readmore'] = '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . _MB_IMPRESSION_READMORE . '</a>';
+        $articleload['rssicons'] = $options[3];
+        $articleload['showrss'] = b_impression_displayrssicons();
         $articleload['dirname'] = $impressionModule -> getVar( 'dirname' );
         $block['article'][] = $articleload;
     }
@@ -138,6 +129,16 @@ function b_impression_spot_edit( $options ) {
     $form .= " />";
     $form .= "<input type='text' name='options[]' value='" . $options[1] . "' />&nbsp;" . _MB_IMPRESSION_FILES . "";
     $form .= "&nbsp;<br />" . _MB_IMPRESSION_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_DATEFORMATMANUAL;
+    $chk   = "";
+	if ($options[3] == 0) {
+		$chk = " checked='checked'";
+	}
+	$form .= "&nbsp;<br />" . _MB_IMPRESSION_SHOWRSSICONS . "&nbsp;<input type='radio' name='options[3]' value='0'".$chk." />&nbsp;"._NO."&nbsp;";
+	$chk   = "";
+	if ($options[3] == 1) {
+		$chk = " checked='checked'";
+	}
+	$form .= "&nbsp;<input type='radio' name='options[3]' value='1'".$chk." />&nbsp;"._YES."";
     return $form;
 }
 ?>

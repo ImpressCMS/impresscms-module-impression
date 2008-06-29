@@ -3,6 +3,7 @@
  * $Id: main.php
  * Module: Impression
  * Language: english
+ * Author: McDonald
  */
 
 define( "_MD_IMPRESSION_NOARTICLE", "This article does not exist!" );

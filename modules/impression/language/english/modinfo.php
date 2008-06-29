@@ -2,7 +2,8 @@
 /**
  * $Id: modinfo.php
  * Module: XoopsTube
- * Language: english
+ * Language: english 
+ * Author: McDonald
  */
 
 // Module Info
@@ -18,9 +19,6 @@ define("_MI_IMPRESSION_BNEW","Recent headlines");
 
 // Sub menu titles
 define("_MI_IMPRESSION_SMNAME1","Submit");
-define("_MI_IMPRESSION_SMNAME2","Popular");
-define("_MI_IMPRESSION_SMNAME3","Top Rated");
-define("_MI_IMPRESSION_SMNAME4","Latest");
 
 // Names of admin menu items
 define("_MI_IMPRESSION_BINDEX","Main Index");
