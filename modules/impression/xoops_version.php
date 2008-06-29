@@ -404,14 +404,14 @@ $modversion['config'][$i]['options'] = array( _MI_IMPRESSION_ITEMFOOTER_SEL  => 
                                    	      _MI_IMPRESSION_INDEXFOOTER_SEL   => 'index footer',
                                               _MI_IMPRESSION_BOTH_FOOTERS => 'both',
                                   	      _MI_IMPRESSION_NO_FOOTERS => 'none');
-$i++;
-$modversion['config'][$i]['name'] = 'headlinetitle';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_HEADLINES';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_HEADLINESDSC';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 10;
-$modversion['config'][$i]['options'] = array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100 );
+//$i++;
+//$modversion['config'][$i]['name'] = 'headlinetitle';
+//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_HEADLINES';
+//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_HEADLINESDSC';
+//$modversion['config'][$i]['formtype'] = 'select';
+//$modversion['config'][$i]['valuetype'] = 'int';
+//$modversion['config'][$i]['default'] = 10;
+//$modversion['config'][$i]['options'] = array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100 );
 $i++;
 $modversion['config'][$i]['name'] = 'showdisclaimer';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWDISCLAIMER';
