@@ -6,7 +6,7 @@
 
 include_once '../../mainfile.php';
 
-$mydirname = basename( dirname( __FILE__ ) ) ;
+$mydirname = basename( dirname( __FILE__ ) );
 
 include XOOPS_ROOT_PATH . '/modules/' . $mydirname . '/include/config.php';
 include XOOPS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
