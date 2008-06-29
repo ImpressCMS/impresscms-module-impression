@@ -82,21 +82,15 @@ define("_MI_IMPRESSION_USETHUMBSDSC", "Supported link types: JPG, GIF, PNG.<div 
 define("_MI_IMPRESSION_IMGUPDATE", "Update thumbnails?");
 define("_MI_IMPRESSION_IMGUPDATEDSC", "If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br /><br />");
 
-define('_MI_IMPRESSION_SHOTWIDTH', 'Screenshot Display Width');
-define('_MI_IMPRESSION_SHOTWIDTHDSC', 'Display width for screenshot image');
-
-define('_MI_IMPRESSION_SHOTHEIGHT', 'Screenshot Display Height');
-define('_MI_IMPRESSION_SHOTHEIGHTDSC', 'Display height for screenshot image');
-
 define('_MI_IMPRESSION_MAINIMGDIR','Main image directory');
 
 define('_MI_IMPRESSION_CATEGORYIMG','Category image upload directory');
 
 define('_MI_IMPRESSION_DATEFORMAT', 'Timestamp:');
-define('_MI_IMPRESSION_DATEFORMATDSC', 'Default timestamp for Impression');
+define('_MI_IMPRESSION_DATEFORMATDSC', 'Default timestamp for Impression.<br />See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>');
 
 define('_MI_IMPRESSION_DATEFORMATADMIN', 'Timestamp administration:');
-define('_MI_IMPRESSION_DATEFORMATADMINDSC', 'Default admininstration timestamp for Impression');
+define('_MI_IMPRESSION_DATEFORMATADMINDSC', 'Default admininstration timestamp for Impression.<br />See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>');
 
 define("_MI_IMPRESSION_TOTALCHARS", "Set total amount of characters for description?");
 define("_MI_IMPRESSION_TOTALCHARSDSC", "Set total amount of characters for description on Index Page.");

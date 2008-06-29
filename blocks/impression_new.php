@@ -117,7 +117,7 @@ function b_impression_new_show( $options )
         $articlenew['cid'] = intval($myrow['cid']);
         $articlenew['title'] = '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $myrow['title'] . ' </a>';
         $articlenew['cattitle'] = '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/catview.php?cid=' . intval($myrow['cid']).'">' . $mycat['title'] . ' </a>';
-        $articlenew['date'] = formatTimestamp( $myrow['published'], $options[2] );
+        $articlenew['date'] = formatTimestamp( $myrow['published'], $options[3] );
         $articlenew['dirname'] = $impressionModule -> getVar( 'dirname' );
         $articlenew['adminnewicons'] = b_impression_adminnewicons( intval($myrow['aid']),$impressionModule -> getVar( 'dirname' ));
         $block['articlenew'][] = $articlenew;
@@ -143,7 +143,8 @@ function b_impression_new_edit( $options )
     }
     $form .= " />";
     $form .= "<input type='text' name='options[]' value='" . $options[1] . "' />&nbsp;" . _MB_IMPRESSION_HEADLINES . "";
-    $form .= "&nbsp;<br />" . _MB_IMPRESSION_CHARS . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_LENGTH . "";
+//    $form .= "&nbsp;<br />" . _MB_IMPRESSION_CHARS . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_LENGTH . "";
+    $form .= "&nbsp;<br />" . _MB_IMPRESSION_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[3] . "' />&nbsp;" . _MB_IMPRESSION_DATEFORMATMANUAL;
     return $form;
 }
 ?>
