@@ -183,8 +183,9 @@ if ( $count > 0 ) {
     $istrue = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
     $xoopsTpl -> assign( 'page_nav', $istrue );
     $xoopsTpl -> assign( 'pagenav', $page_nav );
-    $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
-} 
+    $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
+    $xoopsTpl -> assign( 'showartcount', $xoopsModuleConfig['showartcount'] );
+}
 unset( $article_arr );
 
 include XOOPS_ROOT_PATH . '/footer.php';

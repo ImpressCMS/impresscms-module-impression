@@ -1,4 +1,4 @@
-<{if $catarray.imageheader != ""}>
+<link href="<{$xoops_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" /><{if $catarray.imageheader != ""}>
 	<br /><div align="center"><{$catarray.imageheader}></div><br />
 <{/if}>
 <div><{$description}></div><br />
@@ -10,13 +10,22 @@
  <table width="80%">
   <tr>
    <{foreach item=subcat from=$subcategories}>
-    <td><a href="catview.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" title="<{$subcat.alttext}>" alt="<{$subcat.alttext}>" align="middle" /></a> <a href="catview.php?cid=<{$subcat.id}>"><{$subcat.title}></a>&nbsp;(<{$subcat.totalarticles}>)<br />
-		
-	 <{if $subcat.infercategories}>
-	  &nbsp;&nbsp;<{$subcat.infercategories}>
-      <{/if}>
-	 </td>
-	 <{if $subcat.count is div by 2}>
+
+    <td width="2%">
+    <div  style="text-align: center;"><a href="<{$xoops_url}>/modules/<{$module_dir}>/catview.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" alt="<{$category.title}>" title="<{$category.title}>" align="top" /></a></div>  </td>
+
+   <td> <div>
+   <div style="float: left; font-size: 14px;"> <a href="<{$xoops_url}>/modules/<{$dirname}>/catview.php?cid=<{$subcat.id}>"><b><{$subcat.title}></b></a></div>
+   <{if $showartcount}><div style="float: right;">&nbsp;<small>(<{$subcat.totalarticles}><{$smarty.const._MD_IMPRESSION_ARTICLESCAT}>)</small></div><{/if}></div> <br /><br />
+   <div style="text-align: left; font-size: 11px;"><{$subcat.alttext}></div>
+
+    <{if $subcat.subcategories}>
+     <div style="font-size: 12px;"><li><{$subcat.subcategories}></li></div>
+    <{/if}><div style="height: 4px;">&nbsp;</div>
+
+   </td>
+
+ <{if $subcat.count is div by 2}>
     </tr><tr>
      <{/if}>
    <{/foreach}>
