@@ -17,7 +17,7 @@ define( '_MB_IMPRESSION_APPROVE', 'Approve' );
 define( '_MB_IMPRESSION_CATEGORY', 'Category' );
 define( '_MB_IMPRESSION_ARTICLE', 'Article title' );
 define( '_MB_IMPRESSION_DATE', 'Date' );
-define( '_MB_IMPRESSION_HEADLINES', 'Headlines' );
+define( '_MB_IMPRESSION_HEADLINES', 'headlines' );
 define( '_MB_IMPRESSION_ADMINSECTION', 'Administrative section' );
 define( '_MB_IMPRESSION_DATEFORMAT', '<b>Date format: </b>' );
 define( '_MB_IMPRESSION_DATEFORMATMANUAL', 'See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>' );

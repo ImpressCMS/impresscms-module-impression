@@ -584,15 +584,15 @@ function impression_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetyp
 
 function impression_articlelistheader( $heading ) {
     echo "	<h4 style='font-weight: bold; color: #0A3760;'>" . $heading . "</h4>\n
-		<table width='100%' cellspacing='1' class='outer' summary>\n
+		<table width='100%' cellspacing='1' style='text-align: center;' class='outer' summary>\n
 		<tr>\n
-		<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_ID . "</small></th>\n
-		<th style='text-align: left;'><b><small>" . _AM_IMPRESSION_MINDEX_TITLE . "</small></th>\n
-		<th style='text-align: left;'><b><small>" . _AM_IMPRESSION_MINDEX_CATTITLE . "</small></th>\n
-		<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_POSTER . "</small></th>\n
-		<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_PUBLISH . "</small></th>\n
-		<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_ONLINE . "</small></th>\n
-		<th style='text-align: center;'><small>" . _AM_IMPRESSION_MINDEX_ACTION . "</small></th>\n
+		<th><small>" . _AM_IMPRESSION_MINDEX_ID . "</small></th>\n
+		<th style='text-align: left;'>&nbsp;<b><small>" . _AM_IMPRESSION_MINDEX_TITLE . "</small></th>\n
+		<th style='text-align: left;'>&nbsp;<b><small>" . _AM_IMPRESSION_MINDEX_CATTITLE . "</small></th>\n
+		<th><small>" . _AM_IMPRESSION_MINDEX_POSTER . "</small></th>\n
+		<th><small>" . _AM_IMPRESSION_MINDEX_PUBLISH . "</small></th>\n
+		<th><small>" . _AM_IMPRESSION_MINDEX_ONLINE . "</small></th>\n
+		<th><small>" . _AM_IMPRESSION_MINDEX_ACTION . "</small></th>\n
 		</tr>\n
 		";
 } 
@@ -621,13 +621,13 @@ function impression_articlelistbody( $published ) {
     $icon .= "<a href='index.php?op=delete&amp;aid=" . $aid . "' title='" . _AM_IMPRESSION_ICO_DELETE . "'>" . $imagearray['deleteimg'] . "&nbsp;</a>";
     $icon .= "<a href='altcat.php?op=main&amp;cid=" . $cid . "&amp;aid=" . $aid . "&amp;title=" . $published['title'] . "' title='" . _AM_IMPRESSION_ALTCAT_CREATEF . "'>" . $imagearray['altcat'] . "</a>";
 
-    echo " 	<tr style='text-align: center;'>\n
-		<td class='head' style='white-space: nowrap; width: 60px;'><small>" . $aid . "</small></td>\n
-		<td class='even' style='text-align: left;'><small>" . $title . "</small></td>\n
-		<td class='even' style='text-align: left; width: 15%;'><small>" . $cattitle . "</small></td>\n
-		<td class='even' style='white-space: nowrap;'><small>" . $submitter . "</small></td>\n
-		<td class='even' style='white-space: nowrap; width: 15%;'><small>" . $publish . "</small></td>\n
-		<td class='even' style='white-space: nowrap; width: 50px;'><small>" . $published_status . "</small></td>\n
+    echo " 	<tr>\n
+		<td class='head' style='text-align: center;white-space: nowrap; width: 55px;'><small>" . $aid . "</small></td>\n
+		<td class='even' style='text-align: left;'>&nbsp;<small>" . $title . "</small></td>\n
+		<td class='even' style='text-align: left;'>&nbsp;<small>" . $cattitle . "</small></td>\n
+		<td class='even' style='text-align: center;'><small>" . $submitter . "</small></td>\n
+		<td class='even' style='text-align: center; width: 10%; white-space: nowrap;'>&nbsp;<small>" . $publish . "</small>&nbsp;</td>\n
+		<td class='even' style='text-align: center; white-space: nowrap; width: 50px;'><small>" . $published_status . "</small></td>\n
 		<td class='even' style='text-align: center; width: 60px; white-space: nowrap;'>$icon</td>\n
 		</tr>\n
 		";
@@ -893,5 +893,65 @@ function impression_updateCounter($aid) {
          global $xoopsDB;
 	 $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET hits=hits+1 WHERE aid=" . intval($aid);
          $result = $xoopsDB -> queryF( $sql );
+}
+
+function impression_substr($str, $start, $length, $trimmarker = '...')
+{
+	$config_handler =& xoops_gethandler('config');
+	$im_multilanguageConfig =& $config_handler->getConfigsByCat(IM_CONF_MULILANGUAGE);
+    
+	if ($im_multilanguageConfig['ml_enable']) {
+		$tags = explode(',',$im_multilanguageConfig['ml_tags']);
+		$strs = array();
+		$hasML = false;
+		foreach ($tags as $tag){
+			if (preg_match("/\[".$tag."](.*)\[\/".$tag."\]/sU",$str,$matches)){
+				if (count($matches) > 0){
+					$hasML = true;
+					$strs[] = $matches[1];
+				}
+			}
+		}
+	}else{
+		$hasML = false;
+	}
+	
+	if (!$hasML){
+        $strs = array($str);
+	}
+	
+	for ($i = 0; $i <= count($strs)-1; $i++){
+		if ( !XOOPS_USE_MULTIBYTES ) {
+			$strs[$i] = ( strlen($strs[$i]) - $start <= $length ) ? substr( $strs[$i], $start, $length ) : substr( $strs[$i], $start, $length - strlen($trimmarker) ) . $trimmarker;
+		}
+
+		if (function_exists('mb_internal_encoding') && @mb_internal_encoding(_CHARSET)) {
+			$str2 = mb_strcut( $strs[$i] , $start , $length - strlen( $trimmarker ) );
+			$strs[$i] = $str2 . ( mb_strlen($strs[$i])!=mb_strlen($str2) ? $trimmarker : '' );
+		}
+
+		// phppp patch
+		$DEP_CHAR=127;
+		$pos_st=0;
+		$action = false;
+		for ( $pos_i = 0; $pos_i < strlen($strs[$i]); $pos_i++ ) {
+			if ( ord( substr( $strs[$i], $pos_i, 1) ) > 127 ) {
+				$pos_i++;
+			}
+			if ($pos_i<=$start) {
+				$pos_st=$pos_i;
+			}
+			if ($pos_i>=$pos_st+$length) {
+				$action = true;
+				break;
+			}
+		}
+		$strs[$i] = ($action) ? substr( $strs[$i], $pos_st, $pos_i - $pos_st - strlen($trimmarker) ) . $trimmarker : $strs[$i];
+
+		$strs[$i] = ($hasML)?'['.$tags[$i].']'.$strs[$i].'[/'.$tags[$i].']':$strs[$i];
+	}
+	$str = implode('',$strs);
+
+	return $str;
 }
 ?>
