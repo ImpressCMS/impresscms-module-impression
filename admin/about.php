@@ -60,7 +60,7 @@ if ( @file_exists( $file ) ) {
 
 $sform = new XoopsThemeForm( _MI_IMPRESSION_AUTHOR_BUGFIXES, "", "" );
 ob_start();
-  echo "<div class='even'>" . $impressionmyts -> displayTarea( $bugtext ) . "</div>";
+  echo "<div class='even'><small>" . $impressionmyts -> displayTarea( $bugtext ) . "</small></div>";
   $sform -> addElement( new XoopsFormLabel( _MI_IMPRESSION_AUTHOR_BUGFIXES, ob_get_contents(), 0 ) );
 ob_end_clean();
 $sform -> display();

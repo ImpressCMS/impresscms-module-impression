@@ -9,7 +9,7 @@ $mydirname = basename( dirname( __FILE__ ) );
 
 $modversion['name'] = _MI_IMPRESSION_NAME;
 $modversion['version'] = "1.00";
-$modversion['releasedate'] = "02 December 2007";
+$modversion['releasedate'] = "xx July 2008";
 $modversion['status'] = "RC-1";
 $modversion['description'] = _MI_IMPRESSION_DESC;
 $modversion['license'] = "GNU General Public License (GPL)";
@@ -64,7 +64,7 @@ $modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BSPOT;
 $modversion['blocks'][$i]['description'] = "Shows recently added news in spotlight";
 $modversion['blocks'][$i]['show_func'] = "b_impression_spot_show";
 $modversion['blocks'][$i]['edit_func'] = "b_impression_spot_edit";
-$modversion['blocks'][$i]['options'] = "spot|10|d/m/Y";
+$modversion['blocks'][$i]['options'] = "spot|10|d/m/Y|1";
 $modversion['blocks'][$i]['template'] = 'impression_block_spot.html';
 $modversion['blocks'][$i]['can_clone'] = true ;
 $i++;
@@ -98,7 +98,7 @@ if ( $cansubmit == 1 ) {
 } 
 unset( $cansubmit );
 
-$i = 0;
+//$i = 0;
 //$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME2;
 //$modversion['sub'][$i]['url'] = "topten.php?list=hit";
 
@@ -109,7 +109,7 @@ $i = 0;
 //$i++;
 //$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME4;
 //$modversion['sub'][$i]['url'] = "topten.php";
-unset( $i );
+//unset( $i );
 
 // Search
 $modversion['hasSearch'] = 1;
@@ -236,7 +236,7 @@ $modversion['config'][$i]['title'] = '_MI_IMPRESSION_EDITOR';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_EDITORCHOICE';
 $modversion['config'][$i]['formtype'] = 'select';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'dhtml';
+$modversion['config'][$i]['default'] = 'tinymce';
 $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
                                                 _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
 						_MI_IMPRESSION_FORM_COMPACT => 'textarea',
@@ -252,7 +252,7 @@ $modversion['config'][$i]['title'] = '_MI_IMPRESSION_EDITORUSER';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_EDITORCHOICEUSER';
 $modversion['config'][$i]['formtype'] = 'select';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'dhtml';
+$modversion['config'][$i]['default'] = 'tinymce';
 $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
                                                 _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
 						_MI_IMPRESSION_FORM_COMPACT => 'textarea',

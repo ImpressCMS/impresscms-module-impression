@@ -106,7 +106,7 @@ function impression_serverstats() {
 
     $safemode = ( ini_get( 'safe_mode' ) ) ? _AM_IMPRESSION_ARTICLE_ON . _AM_IMPRESSION_ARTICLE_SAFEMODEPROBLEMS : _AM_IMPRESSION_ARTICLE_OFF;
     $registerglobals = ( ini_get( 'register_globals' ) == '' ) ? _AM_IMPRESSION_ARTICLE_OFF : _AM_IMPRESSION_ARTICLE_ON;
-    $aticles = ( ini_get( 'file_uploads' ) ) ? _AM_IMPRESSION_ARTICLE_ON : _AM_IMPRESSION_ARTICLE_OFF;
+    $articles = ( ini_get( 'file_uploads' ) ) ? _AM_IMPRESSION_ARTICLE_ON : _AM_IMPRESSION_ARTICLE_OFF;
 
     $gdlib = ( function_exists( 'gd_info' ) ) ? _AM_IMPRESSION_ARTICLE_GDON : _AM_IMPRESSION_ARTICLE_GDOFF;
     echo "<li>" . _AM_IMPRESSION_ARTICLE_GDLIBSTATUS . $gdlib;

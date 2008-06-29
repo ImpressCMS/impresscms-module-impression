@@ -3,6 +3,7 @@
  * $Id: admin.php
  * Module: XoopsTube
  * Language: english
+ * Author: McDonald
  */
 
 define( "_AM_IMPRESSION_WARNINSTALL1", "WARNING: Directory %s exists on your server. <br />Please remove this directory for security reasons." );

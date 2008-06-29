@@ -263,9 +263,9 @@ switch ( strtolower( $op ) ) {
         echo "		<fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</legend>\n
 			<div style='padding: 8px;'><small>\n
 			<a href='category.php'>" . _AM_IMPRESSION_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
-			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> | \n
-		<!--	<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> | \n   -->
-			<a href='modifications.php'>" . _AM_IMPRESSION_SMODREQUEST . "</a><b>" . $totalmodrequests . "</b> \n
+			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> \n
+		<!--	<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> | \n
+			<a href='modifications.php'>" . _AM_IMPRESSION_SMODREQUEST . "</a><b>" . $totalmodrequests . "</b> \n  -->
 			</small></div></fieldset><br />\n
 		";
         if ( $totalarticles > 0 ) {
