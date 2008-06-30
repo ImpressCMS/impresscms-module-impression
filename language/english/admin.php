@@ -1,14 +1,14 @@
 <?php
 /**
  * $Id: admin.php
- * Module: XoopsTube
+ * Module: Impression
  * Language: english
  * Author: McDonald
  */
 
 define( "_AM_IMPRESSION_WARNINSTALL1", "WARNING: Directory %s exists on your server. <br />Please remove this directory for security reasons." );
 define( "_AM_IMPRESSION_WARNINSTALL2", "WARNING: File %s exists on your server. <br />Please remove this directory for security reasons." );
-define( "_AM_IMPRESSION_WARNINSTALL3", "WARNING: Folder %s does not exists on your server. <br />This folder is required by XoopsTube." );
+define( "_AM_IMPRESSION_WARNINSTALL3", "WARNING: Folder %s does not exists on your server. <br />This folder is required by Impression." );
 
 define( "_AM_IMPRESSION_MODULE_NAME", "Impression" );
 
@@ -40,7 +40,6 @@ define( "_AM_IMPRESSION_PREFS", "Preferences" );
 define( "_AM_IMPRESSION_BUPDATE", "Module Update" );
 define( "_AM_IMPRESSION_BINDEX", "Main Index" );
 define( "_AM_IMPRESSION_BPERMISSIONS", "Permissions" );
-// define( "_AM_IMPRESSION_BLOCKADMIN", "Blocks" );
 define( "_AM_IMPRESSION_BLOCKADMIN", "Block settings" );
 define( "_AM_IMPRESSION_GOMODULE", "Go to module" );
 define( "_AM_IMPRESSION_ABOUT", "About" );
@@ -50,14 +49,11 @@ define( "_AM_IMPRESSION_SFILES", "Articles: " );
 define( "_AM_IMPRESSION_SNEWFILESVAL", "Submitted: " );
 define( "_AM_IMPRESSION_SMODREQUEST", "Modified: " );
 define( "_AM_IMPRESSION_SREVIEWS", "Reviews: " );
-
 // Admin Main Menu
 define( "_AM_IMPRESSION_MCATEGORY", "Category Management" );
 define( "_AM_IMPRESSION_MARTICLES", "Article Management" );
-define( "_AM_IMPRESSION_MLISTBROKEN", "List Broken Articles" );
 define( "_AM_IMPRESSION_INDEXPAGE", "Index Page Management" );
 define( "_AM_IMPRESSION_MUPLOADS", "Image Upload" );
-
 // Catgeory defines
 define( "_AM_IMPRESSION_CCATEGORY_CREATENEW", "Create New Category" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY", "Modify Category" );
@@ -74,16 +70,13 @@ define( "_AM_IMPRESSION_CCATEGORY_NOEXISTS", "You must create a Category before 
 define( "_AM_IMPRESSION_FCATEGORY_GROUPPROMPT", "Category Access Permissions:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Select user groups who will have access to this Category.</span></div>" );
 define( "_AM_IMPRESSION_FCATEGORY_SUBGROUPPROMPT", "Category Submission Permissions:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Select user groups who will have permission to submit new articles to this Category.</span></div>" );
 define( "_AM_IMPRESSION_FCATEGORY_MODGROUPPROMPT", "Category Moderation Permissions:<div style='padding-top: 8px;'><span style='font-weight: normal;'>Select user groups who will have permission to moderate this Category.</span></div>" );
-
 define( "_AM_IMPRESSION_FCATEGORY_TITLE", "Category title:" );
 define( "_AM_IMPRESSION_FCATEGORY_WEIGHT", "Category weight:" );
 define( "_AM_IMPRESSION_FCATEGORY_SUBCATEGORY", "Set as sub-category:" );
 define( "_AM_IMPRESSION_FCATEGORY_CIMAGE", "Select category image:" );
 define( "_AM_IMPRESSION_FCATEGORY_DESCRIPTION", "Set category description:" );
 define( "_AM_IMPRESSION_FCATEGORY_SUMMARY", "Set category summary:" );
-/**
- * Index page Defines
- */
+// Index page Defines
 define( "_AM_IMPRESSION_IPAGE_UPDATED", "Index page modified and database updated successfully!" );
 define( "_AM_IMPRESSION_IPAGE_INFORMATION", "Index Page Information" );
 define( "_AM_IMPRESSION_IPAGE_MODIFY", "Modify Index Page" );
@@ -96,9 +89,7 @@ define( "_AM_IMPRESSION_IPAGE_CFOOTERA", "Index footer alignment:" );
 define( "_AM_IMPRESSION_IPAGE_CLEFT", "Align left" );
 define( "_AM_IMPRESSION_IPAGE_CCENTER", "Align center" );
 define( "_AM_IMPRESSION_IPAGE_CRIGHT", "Align right" );
-/**
- * Permissions defines
- */
+// Permissions defines
 define( "_AM_IMPRESSION_PERM_MANAGEMENT", "Permissions Management" );
 define( "_AM_IMPRESSION_PERM_PERMSNOTE", "<div><b>NOTE:</b> Please be aware that even if you&#8217ve set correct viewing permissions here, a group might not see the articles or blocks if you don&#8217t also grant that group permissions to access the module. To do that, go to <b>System admin > Groups</b>, choose the appropriate group and click the checkboxes to grant its members the access.</div>" );
 define( "_AM_IMPRESSION_PERM_CPERMISSIONS", "Category Permissions" );
@@ -107,9 +98,7 @@ define( "_AM_IMPRESSION_PERM_CNOCATEGORY", "Cannot set permission's: No categori
 define( "_AM_IMPRESSION_PERM_FPERMISSIONS", "Article Permissions" );
 define( "_AM_IMPRESSION_PERM_FNOFILES", "Cannot set permission's: No articles have been created yet!" );
 define( "_AM_IMPRESSION_PERM_FSELECTPERMISSIONS", "Select the articles that each group is allowed to view" );
-/**
- * Upload defines
- */
+// Upload defines
 define( "_AM_IMPRESSION_ARTICLE_IMAGEUPLOAD", "Image successfully uploaded to server destination" );
 define( "_AM_IMPRESSION_ARTICLE_NOIMAGEEXIST", "Error: No article was selected for uploading.  Please try again!" );
 define( "_AM_IMPRESSION_ARTICLE_IMAGEEXIST", "Image already exists in upload area!" );
@@ -143,7 +132,6 @@ define( "_AM_IMPRESSION_ARTICLE_FUPLOADURL", "Upload URL: " );
 define( "_AM_IMPRESSION_ARTICLE_FOLDERSELECTION", "Select Upload Destination:" );
 define( "_AM_IMPRESSION_ARTICLE_FSHOWSELECTEDIMAGE", "Display Selected Image:" );
 define( "_AM_IMPRESSION_ARTICLE_FUPLOADIMAGE", "Upload New Image to Selected Destination:" );
-
 // Main Index defines
 define( "_AM_IMPRESSION_MINDEX_ARTICLESUMMARY", "Module Admin Summary" );
 define( "_AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE", "Published articles:" );
@@ -162,12 +150,11 @@ define( "_AM_IMPRESSION_MINDEX_PUBLISHED", "Published" );
 define( "_AM_IMPRESSION_MINDEX_EXPIRE", "Expired" );
 define( "_AM_IMPRESSION_MINDEX_NOTSET", "Date not set" );
 define( "_AM_IMPRESSION_MINDEX_SUBMITTED", "Date submitted" );
-
 define( "_AM_IMPRESSION_MINDEX_ACTION", "Action" );
 define( "_AM_IMPRESSION_MINDEX_NOARTICLESFOUND", "NOTICE: There are no articles that match this criteria" );
 define( "_AM_IMPRESSION_MINDEX_PAGE", "<b>Page:<b> " );
-define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '<ul><li>Impression main page details.</li><li>You can easily change the image logo, heading, main index header and footer text to suit your own look</li></ul><br />Note: The Logo image choosen will be used throughout XoopsTube.' );
-// Submitted Links
+define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '<ul><li>Impression main page details.</li><li>You can easily change the image logo, heading, main index header and footer text to suit your own look</li></ul><br />Note: The Logo image choosen will be used throughout Impression.' );
+// Submitted Articles
 define( "_AM_IMPRESSION_SUB_SUBMITTEDFILES", "Submitted Articles" );
 define( "_AM_IMPRESSION_SUB_FILESWAITINGINFO", "Waiting Articles Information" );
 define( "_AM_IMPRESSION_SUB_FILESWAITINGVALIDATION", "Articles Waiting Validation: " );
@@ -176,7 +163,6 @@ define( "_AM_IMPRESSION_SUB_EDITWAITINGFILE", "<b>Edit</b> new article informati
 define( "_AM_IMPRESSION_SUB_DELETEWAITINGFILE", "<b>Delete</b> the new article information." );
 define( "_AM_IMPRESSION_SUB_NOFILESWAITING", "There are no articles that match this critera" );
 define( "_AM_IMPRESSION_SUB_NEWFILECREATED", "New Article Data Created and Database Updated Successfully" );
-
 // Modifications
 define( "_AM_IMPRESSION_MOD_TOTMODREQUESTS", "Total modification requests: " );
 define( "_AM_IMPRESSION_MOD_MODREQUESTS", "Modified articles" );
@@ -203,7 +189,7 @@ define( "_AM_IMPRESSION_MOD_ORIGINAL", "Orginal article details" );
 define( "_AM_IMPRESSION_MOD_REQDELETED", "Modification request removed from the database" );
 define( "_AM_IMPRESSION_MOD_REQUPDATED", "Selected article modified and database updated successfully" );
 define( '_AM_IMPRESSION_MOD_VIEW', 'View' );
-// Link management
+// Article management
 define( "_AM_IMPRESSION_ARTICLE_ID", "Article ID: " );
 define( "_AM_IMPRESSION_ARTICLE_IP", "IP address: " );
 define( "_AM_IMPRESSION_ARTICLE_ALLOWEDAMIME", "<div style='padding-top: 4px; padding-bottom: 4px;'><b>Allowed admin article extensions</b>:</div>" );
@@ -213,7 +199,6 @@ define( "_AM_IMPRESSION_ARTICLE_TITLE", "<b>Title:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "<b>Article intro text:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "<b>Article main text:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "<b>Main category:</b>" );
-//define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", " Set article offline?<br /><br /><span style='font-weight: normal;'>article will not be viewable to all users.</span>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "<b>Set article status:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC", "<small>Set article as published/offline/rejected</small>" );
 define( "_AM_IMPRESSION_ARTICLE_SETASAPPROVED", "Set article status as approved?" );
@@ -239,12 +224,9 @@ define( "_AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS", "Really delete the selected 
 define( "_AM_IMPRESSION_ARTICLE_FILEWASDELETED", "Article %s successfully removed from the database!" );
 define( "_AM_IMPRESSION_ARTICLE_FILEAPPROVED", "Article approved and database updated successfully" );
 define( "_AM_IMPRESSION_ARTICLE_PUBLISHER", "<b>Publisher name:</b>" );
-
-/**
- * About defines
- */
+// About defines
 define( "_AM_IMPRESSION_BY", "by" );
-// block defines
+// Block defines
 define( "_AM_IMPRESSION_BADMIN", "Block Administration" );
 define( "_AM_IMPRESSION_BLKDESC", "Description" );
 define( "_AM_IMPRESSION_TITLE", "Title" );
@@ -263,25 +245,18 @@ define( "_AM_IMPRESSION_ACCESSRIGHTS", "Access rights" );
 define( "_AM_IMPRESSION_ICO_EDIT", "Edit this article" );
 define( "_AM_IMPRESSION_ICO_DELETE", "Delete this article" );
 define( "_AM_IMPRESSION_ICO_RESOURCE", "Edit this resource" );
-
 define( "_AM_IMPRESSION_ICO_ONLINE", "Published" );
 define( "_AM_IMPRESSION_ICO_OFFLINE", "Offline" );
 define( "_AM_IMPRESSION_ICO_APPROVED", "Approved" );
 define( "_AM_IMPRESSION_ICO_NOTAPPROVED", "Not approved" );
-
 define( "_AM_IMPRESSION_ICO_ARTICLE", "Related article" );
 define( "_AM_IMPRESSION_ICO_URL", "Add related URL" );
 define( "_AM_IMPRESSION_ICO_ADD", "Add" );
 define( "_AM_IMPRESSION_ICO_APPROVE", "Approve" );
 define( "_AM_IMPRESSION_ICO_STATS", "Stats" );
 define( "_AM_IMPRESSION_ICO_VIEW", "View this item" );
-
 define( "_AM_IMPRESSION_ICO_IGNORE", "Ignore" );
 define( "_AM_IMPRESSION_ICO_REJECTED", "Rejected" );
-define( "_AM_IMPRESSION_ICO_ACK", "Broken report acknowledged" );
-define( "_AM_IMPRESSION_ICO_REPORT", "Acknowledge broken report?" );
-define( "_AM_IMPRESSION_ICO_CONFIRM", "Broken Report Confirmed" );
-define( "_AM_IMPRESSION_ICO_CONBROKEN", "Confirm Broken Report?" );
 define( "_AM_IMPRESSION_ICO_RES", "Edit Resources/Articles for this Item" );
 define( "_AM_IMPRESSION_MOD_URLRATING", "Interent Content Rating:" );
 // Alternate category
