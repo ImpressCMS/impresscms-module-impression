@@ -136,7 +136,7 @@ function impression_displayicons( $time, $status = 0, $counter = 0 ) {
     $pop = '';
 
     $newdate = ( time() - ( 86400 * intval( $xoopsModuleConfig['daysnew'] ) ) );
-    $popdate = ( time() - ( 86400 * intval( $xoopsModuleConfig['daysupdated'] ) ) ) ;
+    $popdate = ( time() - 864000 ) ;
 
     if ( $xoopsModuleConfig['displayicons'] != 3 ) {
         if ( $newdate < $time ) {

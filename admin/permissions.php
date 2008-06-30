@@ -20,7 +20,7 @@ echo "<form method='post' name='fselperm' action='permissions.php'><table border
 <option value='3'" . $selected[2] . ">" . _AM_IMPRESSION_PERM_APERMISSIONS . "</option>
 <option value='4'" . $selected[3] . ">" . _AM_IMPRESSION_PERM_AUTOPERMISSIONS . "</option>
 </select></td></tr><tr><td><input type='submit' name='go'/></td></tr></table></form>";
-$module_id = $xoopsModule->getVar('mid');
+$module_id = $xoopsModule -> getVar('mid');
 
 switch($permtoset) {
 	case 1:
