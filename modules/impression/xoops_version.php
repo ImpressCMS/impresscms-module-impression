@@ -1,8 +1,8 @@
 <?php
 /**
- * $Id: xoops_version.php v 1.0.1
- * Module: Impression
- * Licence: GNU
+ *  $Id: xoops_version.php
+ *  Module: Impression
+ *  Licence: GNU
  */
  
 $mydirname = basename( dirname( __FILE__ ) );
@@ -174,13 +174,13 @@ $modversion['config'][$i]['description'] = '_MI_IMPRESSION_DAYSNEWDSC';
 $modversion['config'][$i]['formtype'] = 'textbox';
 $modversion['config'][$i]['valuetype'] = 'int';
 $modversion['config'][$i]['default'] = 10;
-$i++;
-$modversion['config'][$i]['name'] = 'daysupdated';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_DAYSUPDATED';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DAYSUPDATEDDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 10;
+//$i++;
+//$modversion['config'][$i]['name'] = 'daysupdated';
+//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_DAYSUPDATED';
+//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DAYSUPDATEDDSC';
+//$modversion['config'][$i]['formtype'] = 'textbox';
+//$modversion['config'][$i]['valuetype'] = 'int';
+//$modversion['config'][$i]['default'] = 10;
 $i++;
 $modversion['config'][$i]['name'] = 'perpage';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_PERPAGE';
@@ -426,20 +426,20 @@ $modversion['config'][$i]['description'] = '_MI_IMPRESSION_DISCLAIMERDSC';
 $modversion['config'][$i]['formtype'] = 'textarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'We have the right, but not the obligation to monitor and review submissions submitted by users, to this website. We shall not be responsible for any of the content of these messages. We further reserve the right, to delete, move or edit submissions that we, in its exclusive discretion, deems abusive, defamatory, obscene or in violation of any Copyright or Trademark laws or otherwise objectionable.';
-$i++;
-$modversion['config'][$i]['name'] = 'showarticledisclaimer';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWARTICLEDISCL';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOWARTICLEDISCLDSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 0;
-$i++;
-$modversion['config'][$i]['name'] = 'articledisclaimer';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_ARTICLEDISCLAIMER';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_ARTICLEDISCLAIMERDSC';
-$modversion['config'][$i]['formtype'] = 'textarea';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'The articles on this site are provided as is without warranty either expressed or implied. If you have a question concerning a particular piece article, feel free to contact the administrator of this website.<br /><br />Contact us if you have questions concerning this disclaimer.';
+//$i++;
+//$modversion['config'][$i]['name'] = 'showarticledisclaimer';
+//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWARTICLEDISCL';
+//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOWARTICLEDISCLDSC';
+//$modversion['config'][$i]['formtype'] = 'yesno';
+//$modversion['config'][$i]['valuetype'] = 'int';
+//$modversion['config'][$i]['default'] = 0;
+//$i++;
+//$modversion['config'][$i]['name'] = 'articledisclaimer';
+//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_ARTICLEDISCLAIMER';
+//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_ARTICLEDISCLAIMERDSC';
+//$modversion['config'][$i]['formtype'] = 'textarea';
+//$modversion['config'][$i]['valuetype'] = 'text';
+//$modversion['config'][$i]['default'] = 'The articles on this site are provided as is without warranty either expressed or implied. If you have a question concerning a particular piece article, feel free to contact the administrator of this website.<br /><br />Contact us if you have questions concerning this disclaimer.';
 //$i++;
 //$modversion['config'][$i]['name'] = 'copyright';
 //$modversion['config'][$i]['title'] = '_MI_IMPRESSION_COPYRIGHT';
