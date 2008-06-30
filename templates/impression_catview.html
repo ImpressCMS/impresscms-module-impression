@@ -1,4 +1,5 @@
-<link href="<{$xoops_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" /><{if $catarray.imageheader != ""}>
+<link href="<{$xoops_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
+<{if $catarray.imageheader != ""}>
 	<br /><div align="center"><{$catarray.imageheader}></div><br />
 <{/if}>
 <div><{$description}></div><br />
@@ -12,7 +13,7 @@
    <{foreach item=subcat from=$subcategories}>
 
     <td width="2%">
-    <div  style="text-align: center;"><a href="<{$xoops_url}>/modules/<{$module_dir}>/catview.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" alt="<{$category.title}>" title="<{$category.title}>" align="top" /></a></div>  </td>
+    <div  style="text-align: center;"><a href="<{$xoops_url}>/modules/<{$dirname}>/catview.php?cid=<{$subcat.id}>"><img src="<{$subcat.image}>" alt="<{$category.title}>" title="<{$category.title}>" align="top" /></a></div>  </td>
 
    <td> <div>
    <div style="float: left; font-size: 14px;"> <a href="<{$xoops_url}>/modules/<{$dirname}>/catview.php?cid=<{$subcat.id}>"><b><{$subcat.title}></b></a></div>
