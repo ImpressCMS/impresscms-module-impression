@@ -112,7 +112,7 @@ switch ( $total_cat ) {
         break;
 }
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
-$xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
  
 include XOOPS_ROOT_PATH . '/footer.php';
 
