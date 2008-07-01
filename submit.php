@@ -160,7 +160,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         }
         echo "<br /><div style='text-align: center;'>" . impression_imageheader() . "</div><br />\n";
         echo "<div>" . _MD_IMPRESSION_SUB_SNEWMNAMEDESC . "</div>\n<br />\n";
-        echo "<div class='impression_background'>" . _MD_IMPRESSION_SUBMITCATHEAD . "</div>\n";
+//        echo "<h2>" . _MD_IMPRESSION_SUBMITCATHEAD . "</h2>\n";
         $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . intval( $aid );
         $article_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
@@ -177,11 +177,11 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
         $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
 
-     	$sform = new XoopsThemeForm( '', "storyform", xoops_getenv( 'PHP_SELF' ) );
+     	$sform = new XoopsThemeForm( _MD_IMPRESSION_SUBMITCATHEAD, "storyform", xoops_getenv( 'PHP_SELF' ) );
         $sform -> setExtra( 'enctype="multipart/form-data"' );
         
 // Article title
-        $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_FILETITLE, 'title', 50, 255, $title ), true );
+        $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_FILETITLE, 'title', 90, 255, $title ), true );
 
 // Article publisher
 //    $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_ARTICLE_PUBLISHER, 'publisher', 50, 255, $publisher ), true );
@@ -212,30 +212,30 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $sform -> addElement( $editor, true );
 
 // Meta meta_keywords form
-        $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 7, 60);
+        $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 5, 50);
         $keywords -> setDescription(  '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
         $sform -> addElement( $keywords, false );
 
-        $option_tray = new XoopsFormElementTray( _MD_IMPRESSION_OPTIONS, '<br />' );
+//        $option_tray = new XoopsFormElementTray( _MD_IMPRESSION_OPTIONS, '<br />' );
 
-        if ( !$approve ) {
-            $notify_checkbox = new XoopsFormCheckBox( '', 'notifypub' );
-            $notify_checkbox -> addOption( 1, _MD_IMPRESSION_NOTIFYAPPROVE );
-            $option_tray -> addElement( $notify_checkbox );
-        } else {
-            $sform -> addElement( new XoopsFormHidden( 'notifypub', 0 ) );
-        }
+//        if ( !$approve ) {
+//            $notify_checkbox = new XoopsFormCheckBox( '', 'notifypub' );
+//            $notify_checkbox -> addOption( 1, _MD_IMPRESSION_NOTIFYAPPROVE );
+//            $option_tray -> addElement( $notify_checkbox );
+//        } else {
+//            $sform -> addElement( new XoopsFormHidden( 'notifypub', 0 ) );
+//        }
 
-        if ( true == checkgroups( $cid, 'ImpressionAppPerm' ) && $aid > 0 ) {
-            $approve_checkbox = new XoopsFormCheckBox( '', 'approve', $approve );
-            $approve_checkbox -> addOption( 1, _MD_IMPRESSION_APPROVE );
-            $option_tray -> addElement( $approve_checkbox );
-        } else if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
-            $sform -> addElement( new XoopsFormHidden( 'approve', 1 ) );
-        } else {
-            $sform -> addElement( new XoopsFormHidden( 'approve', 0 ) );
-        } 
-        $sform -> addElement( $option_tray );
+//        if ( true == checkgroups( $cid, 'ImpressionAppPerm' ) && $aid > 0 ) {
+//            $approve_checkbox = new XoopsFormCheckBox( '', 'approve', $approve );
+//            $approve_checkbox -> addOption( 1, _MD_IMPRESSION_APPROVE );
+//            $option_tray -> addElement( $approve_checkbox );
+//        } else if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
+//            $sform -> addElement( new XoopsFormHidden( 'approve', 1 ) );
+//        } else {
+//            $sform -> addElement( new XoopsFormHidden( 'approve', 0 ) );
+//        }
+//        $sform -> addElement( $option_tray );
 
         $button_tray = new XoopsFormElementTray( '', '' );
         $button_tray -> addElement( new XoopsFormButton( '', 'submit', _SUBMIT, 'submit' ) );
