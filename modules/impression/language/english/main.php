@@ -14,7 +14,7 @@ define( "_MD_IMPRESSION_ISAPPROVED", "Thank-you for your submission.<br />Your r
 define( "_MD_IMPRESSION_THANKSFORHELP", "Thank-you for helping to maintain this directory's integrity." );
 define( "_MD_IMPRESSION_FORSECURITY", "For security reasons your user name and IP address will also be temporarily recorded." );
 define( "_MD_IMPRESSION_DESCRIPTION", "Description" );
-define( "_MD_IMPRESSION_SUBMITCATHEAD", "Submit article Form" );
+define( "_MD_IMPRESSION_SUBMITCATHEAD", "Submit article form" );
 define( "_MD_IMPRESSION_MAIN", "Home" );
 define( "_MD_IMPRESSION_POPULAR", "Popular" );
 define( "_MD_IMPRESSION_NEWTHISWEEK", "New this week" );
