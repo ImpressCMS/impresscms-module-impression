@@ -30,9 +30,10 @@ if (!defined("XOOPS_ROOT_PATH")) {
  * 
  */
 
-function impression_tag_iteminfo(&$items)
-{
-    if(empty($items) || !is_array($items)){ 
+
+
+function impression_tag_iteminfo(&$items) {
+    if (empty($items) || !is_array($items)) {
         return false; 
     } 
 
@@ -41,18 +42,18 @@ function impression_tag_iteminfo(&$items)
 
     $items_id = array(); 
 
-    foreach(array_keys($items) as $cat_id){ 
+    foreach (array_keys($items) as $cat_id) {
         // Some handling here to build the link upon catid 
             // If catid is not used, just skip it 
-        foreach(array_keys($items[$cat_id]) as $item_id){ 
+        foreach (array_keys($items[$cat_id]) as $item_id) {
             // In article, the item_id is "art_id" 
             $items_id[] = intval($item_id); 
         } 
     } 
 
-    foreach(array_keys($items) as $cat_id){ 
-        foreach(array_keys($items[$cat_id]) as $item_id){ 
-            $sql = "SELECT l.aid, l.cid as lcid, l.title as ltitle, l.published, l.submitter, l.introtext, l.item_tag, c.title as ctitle FROM ".$xoopsDB->prefix('impression_articles')." l, ".$xoopsDB->prefix('impression_cat')." c WHERE l.aid=".$item_id." AND l.cid=c.cid AND l.status>0 ORDER BY l.date DESC";
+    foreach (array_keys($items) as $cat_id) {
+        foreach (array_keys($items[$cat_id]) as $item_id) {
+            $sql = "SELECT l.aid, l.cid as lcid, l.title as ltitle, l.published, l.submitter, l.introtext, l.item_tag FROM " . $xoopsDB -> prefix('impression_articles') . " l, " . $xoopsDB -> prefix('impression_cat') . " c WHERE l.aid=".$item_id." AND l.cid=c.cid AND l.status=0 ORDER BY l.published DESC";
             $result = $xoopsDB -> query($sql);
             $row = $xoopsDB -> fetchArray($result);
             $lcid = $row['lcid'];
@@ -69,8 +70,7 @@ function impression_tag_iteminfo(&$items)
 }
 
 /** Remove orphan tag-item links **/
-function impression_tag_synchronization($mid)
-{
+function impression_tag_synchronization($mid) {
   // Optional
 }
 ?>

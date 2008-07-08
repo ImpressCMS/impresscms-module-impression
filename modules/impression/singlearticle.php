@@ -40,6 +40,12 @@ $xoopsOption['template_main'] = 'impression_singlearticle.html';
 
 include XOOPS_ROOT_PATH . '/header.php';
 
+// tags support
+if (impression_tag_module_included()) {
+	include_once XOOPS_ROOT_PATH . "/modules/tag/include/tagbar.php";
+	$xoopsTpl -> assign('tagbar', tagBar($article_arr['aid'], 0));
+}
+
 $article['imageheader'] = impression_imageheader();
 $article['id'] = $article_arr['aid'];
 $article['cid'] = $article_arr['cid'];
@@ -105,7 +111,7 @@ if ( $article['isadmin'] == false  ) {
 $sql = "SELECT aid, cid, title, published FROM " . $xoopsDB -> prefix( 'impression_articles' ) . "
     WHERE submitter=" . $article_arr['submitter'] . "
     AND aid <> " . $article_arr['aid'] . "
-    AND published > 0 AND published <= " . time() . "  
+    AND published > 0 AND published <= " . time() . "
     AND status = 0 ORDER by published DESC";
 $result = $xoopsDB -> query( $sql, 10, 0 );
 
@@ -118,15 +124,7 @@ while ( $arr = $xoopsDB -> fetchArray( $result ) ) {
     $xoopsTpl -> append( 'article_uid', $articleuid );
 } 
 
-if ( isset( $xoopsModuleConfig['copyright'] ) && $xoopsModuleConfig['copyright'] == 1 ) {
-    $xoopsTpl -> assign( 'lang_copyright', "" . $publisher . " © " . _MD_IMPRESSION_COPYRIGHT . " " . date( "Y" ) . " " . XOOPS_URL );
-}
-if ( isset( $xoopsModuleConfig['otherarticles'] ) && $xoopsModuleConfig['otherarticles'] == 1 ) {
-    $xoopsTpl -> assign( 'other_articles', "" . "<b>" ._MD_IMPRESSION_OTHERBYUID . "</b>"  . $article['submitter'] . "<br />" );
-}
-
 $article['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
-$article['otherarticlex'] = $xoopsModuleConfig['otherarticles'];
 $xoopsTpl -> assign( 'article', $article );
 
 $xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/back.png" /></a>' );

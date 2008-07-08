@@ -55,8 +55,9 @@ function edit( $aid = 0 ) {
 			 </tr>
 			</table>";
         echo "
-			<fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_INFOMATION . "</legend>\n
-			<div style='padding: 8px;'>$text_info</div>\n	
+			<fieldset>
+                           <legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_INFOMATION . "</legend>\n
+			   <div style='padding: 8px;'>$text_info</div>\n
 			</fieldset>\n
 			<br />\n";
     } 
