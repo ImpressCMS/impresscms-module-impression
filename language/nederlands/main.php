@@ -133,5 +133,6 @@ define( "_MD_IMPRESSION_NOITEMSELECTED", "U hebt geen geldig artikel gekozen!");
 define( "_MD_IMPRESSION_ARTICLESCAT", " artikelen" );
 define( "_MD_IMPRESSION_ADMINSECTION", "Administratie" );
 define( "_MD_IMPRESSION_ARTICLE", "Artikel titel" );
+define( "_MD_IMPRESSION_WHO_WHEN", "Gepubliceerd door %s op %s" );
 
 ?>
