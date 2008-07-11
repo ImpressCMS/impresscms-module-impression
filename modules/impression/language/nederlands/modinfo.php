@@ -249,5 +249,7 @@ define("_MI_IMPRESSION_KEYLENGTH", "Voer het max. aantal karakters in voor meta 
 define("_MI_IMPRESSION_KEYLENGTHDSC", "Standaard is 255 karakters");
 define("_MI_IMPRESSION_HEADLINES", "Aantal koppen" );
 define("_MI_IMPRESSION_HEADLINESDSC", "Voer het aantal te tonen koppen in.");
+define("_MI_IMPRESSION_BTAGCLOUD", "Impression Tag Cloud");
+define("_MI_IMPRESSION_BTOPTAG", "Impression Top Tags");
 
 ?>

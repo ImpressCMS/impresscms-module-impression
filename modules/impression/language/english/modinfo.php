@@ -60,8 +60,8 @@ define("_MI_IMPRESSION_SORTCATSDSC", "Select how categories and sub-categories a
 define('_MI_IMPRESSION_SUBCATS', 'Sub-categories:');
 define('_MI_IMPRESSION_SUBCATSDSC', 'Select Yes to display sub-categories. Selecting No will hide sub-categories from the listings');
 
-define('_MI_IMPRESSION_EDITOR', "Editor to use:");
-define('_MI_IMPRESSION_EDITORCHOICE', "Select the editor to use. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
+define('_MI_IMPRESSION_EDITOR', "Editor to use (admin):");
+define('_MI_IMPRESSION_EDITORCHOICE', "Select the editor to use for administration. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
 define('_MI_IMPRESSION_EDITORUSER', "Editor to use (user):");
 define('_MI_IMPRESSION_EDITORCHOICEUSER', "Select the editor to use for user side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
 define("_MI_IMPRESSION_FORM_DHTML","DHTML");
@@ -249,5 +249,6 @@ define("_MI_IMPRESSION_KEYLENGTH", "Enter max. characters for meta keywords:");
 define("_MI_IMPRESSION_KEYLENGTHDSC", "default is 255 characters");
 define("_MI_IMPRESSION_HEADLINES", "Headlines" );
 define("_MI_IMPRESSION_HEADLINESDSC", "Set the number of headlines to show.");
-
+define("_MI_IMPRESSION_BTAGCLOUD", "Impression Tag Cloud");
+define("_MI_IMPRESSION_BTOPTAG", "Impression Top Tags");
 ?>
