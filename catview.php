@@ -24,9 +24,9 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 
 $xoopsOption['template_main'] = 'impression_catview.html';
 
-include XOOPS_ROOT_PATH . '/header.php';
+include ICMS_ROOT_PATH . '/header.php';
 
-global $xoopsModuleConfig;
+global $xoopsModuleConfig, $xoopsModule;
 
 $catarray['imageheader'] = impression_imageheader();
 $xoopsTpl -> assign( 'catarray', $catarray );
@@ -46,8 +46,8 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
         } 
         $sub_arr = array();
         $sub_arr = $mytree -> getFirstChild( $ele['cid'], $catsort );
-        $space = 0;
-        $chcount = 0;
+        $space = 1;
+        $chcount = 1;
         $infercategories = "";
         foreach( $sub_arr as $sub_ele ) {
 
@@ -92,7 +92,9 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                          'infercategories' => $infercategories,
                          'totalarticles' => $totalarticles['count'],
                          'count' => $scount,
-                         'alttext' => $ele['description'] )
+                         'alttext' => $ele['description'],
+                         'showartcount' => $xoopsModuleConfig['showartcount'],
+                         'module_dir' => $xoopsModule -> getVar( 'dirname' ) )
                          );
         $scount++;
     }
@@ -101,8 +103,8 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 // Show Description for Category listing
 $sql = "SELECT title, description, imgurl FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid =" . intval( $cid );
 $head_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
-$description = $impressionmyts -> displayTarea( $head_arr['description'] );
-$xoopsTpl -> assign( 'description', $description );
+//$description = $head_arr['description'];
+$xoopsTpl -> assign( 'description', $head_arr['description'] );
 $xoopsTpl -> assign( 'xoops_pagetitle', $head_arr['title'] );
 
 // Extract articleload information from database
@@ -164,7 +166,7 @@ if ( $count > 0 ) {
     $moderate = 0;
     while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
-        require XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
+        require ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
 	include_once("footer.php");
         $xoopsTpl -> append( 'article', $article );
     }
@@ -183,11 +185,11 @@ if ( $count > 0 ) {
     $istrue = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
     $xoopsTpl -> assign( 'page_nav', $istrue );
     $xoopsTpl -> assign( 'pagenav', $page_nav );
-    $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
+    $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
     $xoopsTpl -> assign( 'showartcount', $xoopsModuleConfig['showartcount'] );
 }
 unset( $article_arr );
 
-include XOOPS_ROOT_PATH . '/footer.php';
+include ICMS_ROOT_PATH . '/footer.php';
 
 ?>

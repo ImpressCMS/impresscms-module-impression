@@ -8,9 +8,9 @@
 */
 
 include_once 'header.php';
-require_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once ICMS_ROOT_PATH.'/class/template.php';
 
-if (!defined('XOOPS_ROOT_PATH')) {
+if (!defined('ICMS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 

@@ -4,13 +4,10 @@
  * Module: Impression
  */
 
-class impressionTextSanitizer extends MyTextSanitizer
-{
+class impressionTextSanitizer extends MyTextSanitizer {
     function impressionTextSanitizer() {
     } 
-
-	function htmlSpecialCharsStrip( $text )
-    {
+	function htmlSpecialCharsStrip( $text ) {
 		return $this -> htmlSpecialChars( $this -> stripSlashesGPC( $text) );
     } 
 } 

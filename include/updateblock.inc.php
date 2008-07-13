@@ -3,7 +3,7 @@
  * $Id: updateblock.inc.php
  * Module: Impression
  */
-	if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
+	if( ! defined( 'ICMS_ROOT_PATH' ) ) exit ;
 
 	// Keep Block option values when update (by nobunobu)
 	global $xoopsDB;

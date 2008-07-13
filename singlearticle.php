@@ -38,11 +38,12 @@ if ( !is_array( $article_arr ) ) {
 
 $xoopsOption['template_main'] = 'impression_singlearticle.html';
 
-include XOOPS_ROOT_PATH . '/header.php';
+include ICMS_ROOT_PATH . '/header.php';
+include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/sbookmarks.php';
 
 // tags support
 if (impression_tag_module_included()) {
-	include_once XOOPS_ROOT_PATH . "/modules/tag/include/tagbar.php";
+	include_once ICMS_ROOT_PATH . "/modules/tag/include/tagbar.php";
 	$xoopsTpl -> assign('tagbar', tagBar($article_arr['aid'], 0));
 }
 
@@ -99,7 +100,7 @@ global $xoopsTpl, $xoTheme;
 
 $moderate = 0;
 $res_type = 1;
-include_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/include/articleloadinfo.php';
+include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/include/articleloadinfo.php';
 
 // Increase hit-counter but not for admin
 if ( $article['isadmin'] == false  ) {
@@ -130,6 +131,6 @@ $xoopsTpl -> assign( 'article', $article );
 $xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/back.png" /></a>' );
 $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
 
-include XOOPS_ROOT_PATH . '/footer.php';
+include ICMS_ROOT_PATH . '/footer.php';
 
 ?>

@@ -1,13 +1,13 @@
 <link href="<{$xoops_url}>/modules/impression/impressionstyle.css" rel="stylesheet" type="text/css" />
 <{foreach item=article from=$block.article}>
 <div class="even"><{$article.title}></div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+<table width="100%" border="0" cellpadding="0" cellspacing="2" >
   <tr>
     <td>
-    <div align="right"><small><{$smarty.const._MB_IMPRESSION_PUBLISHEDON}><{$article.date|wordwrap:50:"\n":true}><{$smarty.const._MB_IMPRESSION_BY}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>&nbsp;</small>&nbsp;</div></td>
+    <div style="text-align:right;"><small><{$smarty.const._MB_IMPRESSION_PUBLISHEDON}><{$article.date|wordwrap:50:"\n":true}><{$smarty.const._MB_IMPRESSION_BY}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>&nbsp;</small>&nbsp;</div></td>
   </tr>
   <tr>
-    <td><div style="padding: 4px;text-align: left;" valign="top"><{$article.introtext}></div></td>
+    <td><div style="text-align: left;" valign="top"><{$article.introtext}></div></td>
   </tr>
 </table>
 <div class="impression_articleFooter">

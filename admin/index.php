@@ -29,6 +29,7 @@ function edit( $aid = 0 ) {
     $introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
     $descriptionb = $article_array['description'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['description'] ) : '';
     $published = $article_array['published'] ? $article_array['published'] : time();
+    $date = $article_array['date'];
     $status = $article_array['status'] ? $article_array['status'] : 0;
     $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
     $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
@@ -50,15 +51,16 @@ function edit( $aid = 0 ) {
 			   <div><b>" . _AM_IMPRESSION_ARTICLE_IP . " </b>" . $ipaddress . "</div>
 			  </td>
 			  <td>
-			   <div>&nbsp;</div>
+			   <div><b>" . _AM_IMPRESSION_MINDEX_SUBMITTED . ": </b>" . formatTimestamp( $article_array['date'], $xoopsModuleConfig['dateformatadmin'] ) . "</div>
+			   <div><b>" . _AM_IMPRESSION_DATESUB . ": </b>" . formatTimestamp( $article_array['published'], $xoopsModuleConfig['dateformatadmin'] ) . "</div>
 			  </td>
 			 </tr>
 			</table>";
         echo "
-			<fieldset>
-                           <legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_INFOMATION . "</legend>\n
-			   <div style='padding: 8px;'>$text_info</div>\n
-			</fieldset>\n
+
+                           <div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_INFOMATION . "</div>\n
+			   <div>$text_info</div>\n
+
 			<br />\n";
     } 
     unset( $_vote_data );
@@ -66,16 +68,10 @@ function edit( $aid = 0 ) {
     $sform = new XoopsThemeForm( $caption, "storyform", xoops_getenv( 'PHP_SELF' ) );
     $sform -> setExtra( 'enctype="multipart / form - data"' );
 
-//    if ( $aid ) {
-//      $sform -> addElement( new XoopsFormLabel( _AM_IMPRESSION_ARTICLE_ID, $aid ) );
-//    }
-
     $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_ARTICLE_TITLE, 'title', 128, 255, $title ), true );
-    
-//    $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_ARTICLE_PUBLISHER, 'publisher', 50, 255, $publisher ), false );
+
     if ($publisher) {
       $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_ARTICLE_PUBLISHER, 'publisher', 70, 255, $publisher ) );
-      //$sform -> addElement( new XoopsFormHidden( 'publisher', $publisher ) ) ;
     } else {
       $publisher = $xoopsUser -> uname();
       $sform -> addElement( new XoopsFormHidden( 'publisher', $publisher ) );
@@ -100,11 +96,10 @@ function edit( $aid = 0 ) {
     
 // Insert tags if Tag-module is installed
     if (impression_tag_module_included()) {
-    include_once XOOPS_ROOT_PATH . "/modules/tag/include/formtag.php";
-    $text_tags = new XoopsFormTag("item_tag", 70, 255, $article_array['item_tag'], 0);
-    $sform -> addElement( $text_tags );
+      include_once ICMS_ROOT_PATH . "/modules/tag/include/formtag.php";
+      $sform -> addElement( new XoopsFormTag("item_tag", 70, 255, $article_array['item_tag'], 0) );
     } else {
-      $sform -> addElement( new XoopsFormHidden( 'item_tag', $article_array['item_tag'] ) ) ;
+      $sform -> addElement( new XoopsFormHidden( 'item_tag', $article_array['item_tag'] ) );
     }
 
 // Publish date
@@ -120,7 +115,7 @@ function edit( $aid = 0 ) {
     $status_select -> addOptionArray( $status_array );
     $status_select -> setDescription( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC);
     $sform -> addElement( $status_select );
-    
+
 // Set Approved
 //    if ( $aid && $offline == 0 ) {
 //        $approved = ( $offline == 1 ) ? 0 : 1;
@@ -181,10 +176,9 @@ switch ( strtolower( $op ) ) {
         // Update or insert linkload data into database
         if ( !$aid ) {
             $date = time();
-            $publishdate = time();
             $ipaddress = $_SERVER['REMOTE_ADDR'];
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, submitter, publisher, status, published, introtext, description, ipaddress, meta_keywords, item_tag )";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$publisher', '$status', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag')";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, submitter, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, item_tag )";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag')";
         } else {
             $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag' WHERE aid=" . $aid;
         }
@@ -198,9 +192,9 @@ switch ( strtolower( $op ) ) {
         
 // Add item_tag to Tag-module
         if ( !$aid ) {
-        $tagupdate = impression_tagupdate($newid, $item_tag);
+          $tagupdate = impression_tagupdate($newid, $item_tag);
         } else {
-         $tagupdate = impression_tagupdate($aid, $item_tag);
+          $tagupdate = impression_tagupdate($aid, $item_tag);
         }
 
         $message = ( !$aid ) ? _AM_IMPRESSION_ARTICLE_NEWFILEUPLOAD : _AM_IMPRESSION_ARTICLE_FILEMODIFIEDUPDATE ;
@@ -256,7 +250,7 @@ switch ( strtolower( $op ) ) {
         list( $totalmodrequests ) = $xoopsDB -> fetchRow( $result );
         $result2 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE offline = 1" );
         list( $totalnewarticles ) = $xoopsDB -> fetchRow( $result2 );
-        $result3 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0" );
+        $result3 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0" );
         list( $totalarticles ) = $xoopsDB -> fetchRow( $result3 );
 
         xoops_cp_header();
@@ -271,7 +265,7 @@ switch ( strtolower( $op ) ) {
 		";
         if ( $totalarticles > 0 ) {
 
-            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 ORDER BY aid DESC";
+            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0 ORDER BY aid DESC";
             $published_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
             $published_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
             impression_articlelistheader( _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE );

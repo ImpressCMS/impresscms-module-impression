@@ -6,7 +6,7 @@
 
 include 'admin_header.php';
 include_once '../../../include/cp_header.php';
-include_once XOOPS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
+include_once ICMS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
 
 xoops_cp_header();
 impression_adminmenu( _AM_IMPRESSION_PERM_MANAGEMENT );

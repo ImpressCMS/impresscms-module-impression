@@ -4,7 +4,7 @@
 // Author: Bruno Barthez	                                           //
 // ----------------------------------------------------------------- //
 
-include_once XOOPS_ROOT_PATH."/class/xoopsobject.php";
+include_once ICMS_ROOT_PATH."/class/xoopsobject.php";
 /**
 * impression_cat class.  
 * $this class is responsible for providing data access mechanisms to the data source 

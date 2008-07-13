@@ -7,7 +7,7 @@
 include 'header.php';
 
 $xoopsOption['template_main'] = 'impression_index.html';
-include XOOPS_ROOT_PATH . '/header.php';
+include ICMS_ROOT_PATH . '/header.php';
 
 global $xoopsModuleConfig;
 
@@ -28,8 +28,8 @@ $xcodes = ( $head_arr['noxcodes'] ) ? 0 : 1;
 $images = ( $head_arr['noimages'] ) ? 0 : 1;
 $breaks = ( $head_arr['nobreak'] ) ? 1 : 0;
 
-$catarray['indexheader'] = $impressionmyts -> displayTarea( $head_arr['indexheader'], $html, $smiley, $xcodes, $images, $breaks );
-$catarray['indexfooter'] = $impressionmyts -> displayTarea( $head_arr['indexfooter'], $html, $smiley, $xcodes, $images, $breaks );
+$catarray['indexheader'] = $head_arr['indexheader'];
+$catarray['indexfooter'] = $head_arr['indexfooter'];
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 // End main page Headers
@@ -60,7 +60,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
         $arr = array();
         $arr = $mytree -> getFirstChild( $myrow['cid'], "title" );
 
-        $space = $chcount = 0;
+        $space = $chcount = 1;
         $subcategories = "";
         foreach( $arr as $ele ) {
             if ( true == checkgroups( $ele['cid'] ) ) {
@@ -73,7 +73,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
                     if ( $space > 0 ) {
                         $subcategories .= "<br />";
                     }
-                    $subcategories .= "<a href='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a>";
+                    $subcategories .= "<li><a href='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a></li>";
                     $space++;
                     $chcount++;
                 } 
@@ -114,6 +114,6 @@ switch ( $total_cat ) {
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
 $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
  
-include XOOPS_ROOT_PATH . '/footer.php';
+include ICMS_ROOT_PATH . '/footer.php';
 
 ?>

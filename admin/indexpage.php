@@ -50,7 +50,7 @@ switch ( strtolower( $op ) ) {
 
         $sform = new XoopsThemeForm( _AM_IMPRESSION_IPAGE_MODIFY, "op", xoops_getenv( 'PHP_SELF' ) );
         $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_IPAGE_CTITLE, 'indexheading', 60, 60, $indexheading ), false );
-        $graph_array = &impressionLists :: getListTypeAsArray( XOOPS_ROOT_PATH . "/" . $xoopsModuleConfig['mainimagedir'], $type = "images" );
+        $graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . $xoopsModuleConfig['mainimagedir'], $type = "images" );
         $indeximage_select = new XoopsFormSelect( '', 'indeximage', $indeximage );
         $indeximage_select -> addOptionArray( $graph_array );
         $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"indeximage\", \"" . $xoopsModuleConfig['mainimagedir'] . "\", \"\", \"" . XOOPS_URL . "\")'" );

@@ -37,7 +37,7 @@ function createcat( $cid = 0 ) {
 
     $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_FCATEGORY_WEIGHT, 'weight', 10, 80, $weight ), false );
 
-    $graph_array = &impressionLists :: getListTypeAsArray( XOOPS_ROOT_PATH . "/" . $xoopsModuleConfig['catimage'], $type = "images" );
+    $graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . $xoopsModuleConfig['catimage'], $type = "images" );
     $indeximage_select = new XoopsFormSelect( '', 'imgurl', $imgurl );
     $indeximage_select -> addOption( '', 'No Image' );
     $indeximage_select -> addOptionArray( $graph_array );

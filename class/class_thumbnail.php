@@ -4,18 +4,15 @@
  * Module: Impression
  */
 
-if ( !defined( '_PATH' ) )
-{
-    define( "_PATH", XOOPS_ROOT_PATH );
+if ( !defined( '_PATH' ) ) {
+    define( "_PATH", ICMS_ROOT_PATH );
 } 
 
-if ( !defined( 'DEFAULT_PATH' ) )
-{
+if ( !defined( 'DEFAULT_PATH' ) ) {
     define( "DEFAULT_PATH", XOOPS_UPLOAD_URL . "/blank.gif" );
 } 
 
-class impressionThumbsNails
-{
+class impressionThumbsNails {
     var $_img_name = 'blank.gif';
     var $_img_path = 'uploads';
     var $_img_savepath = 'thumbs';
@@ -49,43 +46,36 @@ class impressionThumbsNails
      * @param string $_img_path 
      * @param string $_img_savepath 
      */
-    function impressionThumbsNails( $img_name = null, $img_path = null, $img_savepath = null )
-    {
-		if ( !preg_match( "/\.(jpg|gif|png|jpeg)$/i", $img_name ) )
-        {
+    function impressionThumbsNails( $img_name = null, $img_path = null, $img_savepath = null ) {
+      if ( !preg_match( "/\.(jpg|gif|png|jpeg)$/i", $img_name ) ) {
             return false;
         } 
 
         /*
-		* The actual image we will be processing
-		*/ 
-		if ( !is_null( $img_name ) )
-        {
-            $this -> _img_name = strval( trim( $img_name ) );
+        * The actual image we will be processing
+        */
+	if ( !is_null( $img_name ) ) {
+          $this -> _img_name = strval( trim( $img_name ) );
         } 
 
         /*
-		* The image path
-		*/ 
-        if ( !is_null( $img_path ) )
-        {
+	* The image path
+	*/
+        if ( !is_null( $img_path ) )  {
             $this -> _img_path = strval( trim( $img_path ) );
         } 
 
         /*
 		* The image save path
 		*/ 
-        if ( !is_null( $img_savepath ) )
-        {
+        if ( !is_null( $img_savepath ) ) {
             $this -> _img_savepath = strval( trim( $img_savepath ) );
         } 
 
-        $path_to_check = XOOPS_ROOT_PATH . "/$img_path/$img_savepath";
+        $path_to_check = ICMS_ROOT_PATH . "/$img_path/$img_savepath";
 
-        if ( !is_dir( $path_to_check ) )
-        {
-            if ( false == mkdir( "$path_to_check", 0777 ) )
-            {
+        if ( !is_dir( $path_to_check ) ) {
+            if ( false == mkdir( "$path_to_check", 0777 ) ) {
                 return false;
             } 
         } 
@@ -97,8 +87,7 @@ class impressionThumbsNails
      * @param integer $value
      * @return 
      **/
-    function setUseThumbs( $value = 1 )
-    {
+    function setUseThumbs( $value = 1 ) {
         $this -> _usethumbs = $value;
     } 
 
@@ -108,8 +97,7 @@ class impressionThumbsNails
      * @param string $value
      * @return 
      **/
-    function setImageType( $value = "gd2" )
-    {
+    function setImageType( $value = "gd2" ) {
         $this -> _image_type = $value;
     } 
 
@@ -123,10 +111,9 @@ class impressionThumbsNails
      * @param int $img_aspect 
      * @return 
      */
-    function do_thumb( $img_width = null, $img_height = null, $img_quality = null, $img_update = null, $img_aspect = null )
-    {
-        $this -> _source_path = XOOPS_ROOT_PATH . "/{$this->_img_path}";
-        $this -> _save_path = XOOPS_ROOT_PATH . "/{$this->_img_path}/{$this->_img_savepath}";
+    function do_thumb( $img_width = null, $img_height = null, $img_quality = null, $img_update = null, $img_aspect = null ) {
+        $this -> _source_path = ICMS_ROOT_PATH . "/{$this->_img_path}";
+        $this -> _save_path = ICMS_ROOT_PATH . "/{$this->_img_path}/{$this->_img_savepath}";
         $this -> _source_url = XOOPS_URL . "/{$this->_img_path}";
         $this -> _source_image = "{$this->_source_path}/{$this->_img_name}";
 
@@ -172,16 +159,13 @@ class impressionThumbsNails
             return $image;
     } 
 
-    function setImgName( $value )
-    {
+    function setImgName( $value ) {
         $this -> _img_name = strval( trim( $value ) );
     } 
-    function setImgPath( $value )
-    {
+    function setImgPath( $value ) {
         $this -> _img_path = strval( trim( $value ) );
     } 
-    function setImgSavePath( $value )
-    {
+    function setImgSavePath( $value ) {
         $this -> _img_savepath = strval( trim( $value ) );
     } 
 
@@ -190,8 +174,7 @@ class impressionThumbsNails
      * 
      * @return 
      */
-    function do_resize()
-    {
+    function do_resize() {
         global $xoopsModuleConfig; 
         // $this->_img_info = info array to the image being resized
         // $this->_img_info[0] == width
@@ -207,8 +190,7 @@ class impressionThumbsNails
          */
         $newWidth = $this -> img_width;
         $newHeight = $this -> img_height;
-        if ( $scale < 1 && $this -> img_aspect == 1 )
-        {
+        if ( $scale < 1 && $this -> img_aspect == 1 ) {
             $newWidth = floor( $scale * $this -> _img_info[0] );
             $newHeight = floor( $scale * $this -> _img_info[1] );
         } 
@@ -219,39 +201,29 @@ class impressionThumbsNails
         $savefile = "{$newWidth}x{$newHeight}_{$this->_img_name}";
         $this -> _save_image = "{$this->_save_path}/{$savefile}";
 
-        if ( $this -> img_update == 0 && file_exists( $this -> _save_image ) )
-        {
-            if ( $this -> _return_fullpath == 1 )
-            {
+        if ( $this -> img_update == 0 && file_exists( $this -> _save_image ) ) {
+            if ( $this -> _return_fullpath == 1 ) {
                 return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
-            } 
-            else
-            {
+            } else {
                 return "{$this->_img_savepath}/{$savefile}";
             } 
         } 
 
-        switch ( $this -> _image_type )
-        {
+        switch ( $this -> _image_type ) {
             case "im":
-                if ( !empty( $xoopsModuleConfig['path_magick'] ) && is_dir( $xoopsModuleConfig['path_magick'] ) )
-                {
-                    if ( preg_match( "#[A-Z]:|\\\\#Ai", __FILE__ ) )
-                    {
+                if ( !empty( $xoopsModuleConfig['path_magick'] ) && is_dir( $xoopsModuleConfig['path_magick'] ) ) {
+                    if ( preg_match( "#[A-Z]:|\\\\#Ai", __FILE__ ) ) {
                         $cur_dir = dirname( __FILE__ );
                         $src_file_im = '"' . $cur_dir . '\\' . strtr( $this -> _source_image, '/', '\\' ) . '"';
                         $new_file_im = '"' . $cur_dir . '\\' . strtr( $this -> _save_image, '/', '\\' ) . '"';
-                    } 
-                    else
-                    {
+                    } else {
                         $src_file_im = escapeshellarg( $this -> _source_image );
                         $new_file_im = escapeshellarg( $this -> _save_image );
                     } 
                     $magick_command = $xoopsModuleConfig['path_magick'] . '/convert -quality {$xoopsModuleConfig["imagequality"]} -antialias -sample {$newWidth}x{$newHeight} {$src_file_im} +profile "*" ' . str_replace( '\\', '/', $new_file_im ) . '';
                     passthru( $magick_command );
                     return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
-                } 
-                else
+                } else
                     return false;
 
                 break;
@@ -263,8 +235,7 @@ class impressionThumbsNails
                 $imageCreateFunction = ( function_exists( 'imagecreatetruecolor' ) && $this -> _image_type == "gd2" ) ? "imagecreatetruecolor" : "imagecreate";
                 $imageCopyfunction = ( function_exists( 'ImageCopyResampled' ) && $this -> _image_type == "gd2" ) ? "imagecopyresampled" : "imagecopyresized";
 
-                switch ( $this -> _img_info[2] )
-                {
+                switch ( $this -> _img_info[2] ) {
                     case 1: 
                         // GIF image
                         $img = ( function_exists( 'imagecreatefromgif' ) ) ? imagecreatefromgif( $this -> _source_image ) : imageCreateFromPNG( $this -> _source_image );
@@ -300,12 +271,9 @@ class impressionThumbsNails
                     default:
                         return false;
                 } 
-                if ( $this -> _return_fullpath == 1 )
-                {
+                if ( $this -> _return_fullpath == 1 ) {
                     return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
-                } 
-                else
-                {
+                } else {
                     return "{$this->_img_savepath}/{$savefile}";
                 } 
                 break;
@@ -318,24 +286,19 @@ class impressionThumbsNails
      * 
      * @return 
      */
-    function check_paths()
-    {
-        if ( file_exists( $this -> _source_image ) || is_readable( $this -> _source_image ) )
-        {
+    function check_paths() {
+        if ( file_exists( $this -> _source_image ) || is_readable( $this -> _source_image ) ) {
             return true; 
         } 
-        if ( is_dir( $this -> _save_image ) || is_writable( $this -> _save_image ) )
-        {
+        if ( is_dir( $this -> _save_image ) || is_writable( $this -> _save_image ) ) {
             return true;
         } 
         return false;
     } 
 
-    function image_check()
-    {
+    function image_check() {
         $this -> _img_info = getimagesize( $this -> _source_image , $imageinfo );
-        if ( null == $this -> _img_info )
-        {
+        if ( null == $this -> _img_info ) {
             return false;
         } 
         // if ( $this->_img_info[0] < $this->img_width && $this->_img_info[1] < $this->img_height )
@@ -349,15 +312,12 @@ class impressionThumbsNails
      * 
      * @return false if gd lib not found on the system
      */
-    function gd_lib_check()
-    {
-        if ( !extension_loaded( 'gd' ) )
-        {
+    function gd_lib_check() {
+        if ( !extension_loaded( 'gd' ) ) {
             return false;
         } 
         $gdlib = ( function_exists( 'gd_info' ) );
-        if ( false == $gdlib = gd_info() )
-        {
+        if ( false == $gdlib = gd_info() ) {
             return false;
         } 
         return $gdlib;
@@ -368,10 +328,8 @@ class impressionThumbsNails
      * 
      * @return 
      */
-    function use_thumbs()
-    {
-        if ( $this -> _usethumbs )
-        {
+    function use_thumbs() {
+        if ( $this -> _usethumbs ) {
             return true;
         } 
         return false;

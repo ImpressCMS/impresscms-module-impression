@@ -4,8 +4,8 @@
  * Module: Impression
  */
  
-if (!defined("XOOPS_ROOT_PATH")) {
- 	die("XOOPS root path not defined");
+if (!defined("ICMS_ROOT_PATH")) {
+ 	die("ICMS root path not defined");
 }
 
 ?>

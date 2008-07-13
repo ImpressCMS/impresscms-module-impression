@@ -5,8 +5,8 @@
  */
 
 include 'header.php';
-include XOOPS_ROOT_PATH . '/header.php';
-include XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
+include ICMS_ROOT_PATH . '/header.php';
+include ICMS_ROOT_PATH . '/class/xoopsformloader.php';
 
 $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 global $xoopsModule, $impressionmyts, $xoopsModuleConfig;
@@ -84,7 +84,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
                 $notification_handler -> triggerEvent( 'category', $cid, 'article_submit', $tags );
                 if ( $notifypub ) {
-                    include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
+                    include_once ICMS_ROOT_PATH . '/include/notification_constants.php';
                     $notification_handler -> subscribe( 'article', $newid, 'approve', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE );
                 } 
                 redirect_header( 'index.php', 2, _MD_IMPRESSION_THANKSFORINFO );
@@ -132,7 +132,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
                 $notification_handler -> triggerEvent( 'category', $cid, 'article_submit', $tags );
                 if ( $notifypub ) {
-                    include_once XOOPS_ROOT_PATH . '/include/notification_constants.php';
+                    include_once ICMS_ROOT_PATH . '/include/notification_constants.php';
                     $notification_handler -> subscribe( 'article', $newid, 'approve', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE );
                 }
                 $_message = _MD_IMPRESSION_THANKSFORINFO;
@@ -155,7 +155,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
             echo "&nbsp;\n";
             echo "<input type='button' onclick='location=\"index.php\"' class='formButton' value='" . _CANCEL . "' alt='" . _CANCEL . "' />\n";
             echo "</div></form>\n";
-            include XOOPS_ROOT_PATH . '/footer.php';
+            include ICMS_ROOT_PATH . '/footer.php';
             exit();
         }
         echo "<br /><div style='text-align: center;'>" . impression_imageheader() . "</div><br />\n";
@@ -244,7 +244,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $sform -> addElement( $button_tray );
         $sform -> display();
 
-        include XOOPS_ROOT_PATH . '/footer.php';
+        include ICMS_ROOT_PATH . '/footer.php';
     }
 } else {
     redirect_header( 'index.php', 2, _MD_IMPRESSION_NOPERMISSIONTOPOST );

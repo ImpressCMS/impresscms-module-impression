@@ -36,7 +36,7 @@ class fileList {
         $this -> selection = $selected;
         $this -> size = intval( $size );
 
-        $path_to_check = XOOPS_ROOT_PATH . "/{$path}";
+        $path_to_check = ICMS_ROOT_PATH . "/{$path}";
         if ( !is_dir( $path_to_check ) ) {
             if ( false === @mkdir( "$path_to_check", 0777 ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $path_to_check." does not exist!", __FILE__, __LINE__ );
@@ -103,7 +103,7 @@ class fileList {
         $filelist = array();
         switch ( trim( $this -> type ) ) {
             case "images":
-                $types = "[.gif|.jpg|.gif]";
+                $types = "[.gif|.jpg|.png]";
                 if ( $this -> noselection )
                     $this -> filelist[0] = "Show No Image";
                 break;
@@ -125,7 +125,7 @@ class fileList {
             $this -> path = substr( $this -> path, 0, -1 );
         } 
 
-        $_full_path = XOOPS_ROOT_PATH . "/{$this->path}";
+        $_full_path = ICMS_ROOT_PATH . "/{$this->path}";
 
         if ( is_dir( $_full_path ) && $handle = opendir( $_full_path ) ) {
             while ( false !== ( $file = readdir( $handle ) ) ) {
