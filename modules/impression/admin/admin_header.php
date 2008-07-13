@@ -7,18 +7,18 @@
 include '../../../mainfile.php';
 include '../../../include/cp_header.php';
 
-include XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar('dirname') . '/include/config.php';
-include_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar('dirname') . '/include/functions.php';
-include_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar('dirname') . '/class/impression_lists.php';
-include_once XOOPS_ROOT_PATH . '/modules/'.$xoopsModule -> getVar('dirname') . '/class/myts_extended.php';
+include ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar('dirname') . '/include/config.php';
+include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar('dirname') . '/include/functions.php';
+include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar('dirname') . '/class/impression_lists.php';
+include_once ICMS_ROOT_PATH . '/modules/'.$xoopsModule -> getVar('dirname') . '/class/myts_extended.php';
 
-include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
-include_once XOOPS_ROOT_PATH . '/class/xoopslists.php';
-include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
+include_once ICMS_ROOT_PATH . '/class/xoopstree.php';
+include_once ICMS_ROOT_PATH . '/class/xoopslists.php';
+include_once ICMS_ROOT_PATH . '/class/xoopsformloader.php';
 
-if( !defined("IMPRESSION_ADMIN_URL") ){
-	define('IMPRESSION_ADMIN_URL', XOOPS_ROOT_PATH . '/modules/'.$xoopsModule -> getVar('dirname') . '/admin');
-}
+//if( !defined("IMPRESSION_ADMIN_URL") ){
+//	define('IMPRESSION_ADMIN_URL', ICMS_ROOT_PATH . '/modules/'.$xoopsModule -> getVar('dirname') . '/admin');
+//}
 
 $impressionmyts = new impressionTextSanitizer(); // MyTextSanitizer object
 

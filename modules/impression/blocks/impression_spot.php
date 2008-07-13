@@ -4,28 +4,6 @@
  * Module: Impression
  */
 
-function checkImpressionSpotBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
-
-    global $xoopsUser;
-    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
-    $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = &xoops_gethandler( 'groupperm' );
-
-    $module_handler = &xoops_gethandler( 'module' );
-    $module = &$module_handler -> getByDirname( $mydirname );
-
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
-        if ( $redirect == false ) {
-            return false;
-        } else {
-            redirect_header( 'index.php', 3, _NOPERM );
-            exit();
-        } 
-    } 
-    unset( $module );
-    return true;
-}
-
 function b_impression_displayrssicons() {
     $mydirname = basename( dirname( dirname( __FILE__ ) ) );
     $modhandler = xoops_gethandler( 'module' );
@@ -81,9 +59,7 @@ function b_impression_spot_show( $options ) {
 
     $result = $xoopsDB -> query( "SELECT aid, cid, title, submitter, published, status, date, hits, introtext FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status = 0 ORDER BY published DESC", $options[1], 0 );
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-        if ( false == checkImpressionSpotBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
-            continue;
-        } 
+
         $articleload = array();
         $title = $impressionmyts -> htmlSpecialChars( $impressionmyts -> stripSlashesGPC($myrow["title"]) );
         $articleload['isadmin'] = ( ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) && $xoopsUser -> isAdmin( $impressionModule -> mid() ) ) ? true : false;

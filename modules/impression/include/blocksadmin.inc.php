@@ -32,8 +32,8 @@
 if ( !is_object($xoopsUser) || !is_object($xoopsModule) || !$xoopsUser->isAdmin($xoopsModule->mid()) ) {
   exit('Access Denied');
 }
-include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
-include XOOPS_ROOT_PATH.'/modules/system/admin/blocksadmin/blocksadmin.php';
+include_once ICMS_ROOT_PATH.'/class/xoopsblock.php';
+include ICMS_ROOT_PATH.'/modules/system/admin/blocksadmin/blocksadmin.php';
 
 $op = 'list';
 
@@ -64,7 +64,7 @@ if (isset($_POST['previewblock'])) {
   if ( !empty($_POST['bcachetime']) ) { $bcachetime = intval($_POST['bcachetime']); } else { $bcachetime = 0; }
   
   xoops_cp_header();
-  include_once XOOPS_ROOT_PATH.'/class/template.php';
+  include_once ICMS_ROOT_PATH.'/class/template.php';
   $xoopsTpl = new XoopsTpl();
   $xoopsTpl->xoops_setCaching(0);
   $block['bid'] = $bid;
@@ -361,7 +361,7 @@ if ($op == 'clone_ok') {
 				$sql = sprintf("INSERT INTO %s (block_id, module_id) VALUES (%u, %d)", $db->prefix('block_module_link'), $bid, intval($bmid));
 				$db->query($sql);
 			}
-			include_once XOOPS_ROOT_PATH.'/class/template.php';
+			include_once ICMS_ROOT_PATH.'/class/template.php';
 			$xoopsTpl = new XoopsTpl();
 			$xoopsTpl->xoops_setCaching(2);
 			if ($myblock->getVar('template') != '') {

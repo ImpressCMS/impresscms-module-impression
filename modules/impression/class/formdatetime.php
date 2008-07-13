@@ -12,7 +12,7 @@
  * for smartsection, we need them "floored"
  */
 
-if (!defined("XOOPS_ROOT_PATH")) {
+if (!defined("ICMS_ROOT_PATH")) {
 die("XOOPS root path not defined");
 }
 

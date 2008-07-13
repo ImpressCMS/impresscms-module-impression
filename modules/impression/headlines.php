@@ -11,7 +11,7 @@ global $xoopsTpl;
 
 $xoopsOption['template_main'] = 'impression_headlines.html';
 
-include XOOPS_ROOT_PATH . '/header.php';
+include ICMS_ROOT_PATH . '/header.php';
 
 $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $headline_arr = $xoopsDB -> query( "SELECT aid, cid, title, submitter, published, introtext FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND (expired = 0 OR expired > " . time() . ") AND offline = 0 ORDER BY published DESC" );

@@ -14,7 +14,7 @@ function &impression_gethandler( $name, $optional = false ) {
 
     $name = strtolower( trim( $name ) );
     if ( !isset( $handlers[$name] ) ) {
-        if ( file_exists( $hnd_file = XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/class/class_' . $name . '.php' ) ) {
+        if ( file_exists( $hnd_file = ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/class/class_' . $name . '.php' ) ) {
             require_once $hnd_file;
         } 
         $class = 'impression' . ucfirst( $name ) . 'Handler';
@@ -322,7 +322,7 @@ function impression_displayimage( $image = '', $path = '', $imgsource = '', $alt
         $showimage = "<a href=" . $path . ">";
     } 
     // checks to see if the file is valid else displays default blank image
-    if ( !is_dir( XOOPS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( XOOPS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
+    if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
         $showimage .= "<img src='" . XOOPS_URL . "/{$imgsource}/{$image}' border='0' title='" . $alttext . "' alt='" . $alttext . "' /></a>";
     } else {
         if ( $xoopsUser && $xoopsUser -> isAdmin( $xoopsModule -> getVar( 'mid' ) ) ) {
@@ -476,50 +476,50 @@ function impression_adminmenu( $header = '', $menu = '', $extra = '', $scount = 
         unset( $menucount );
     } 
     // ###### Output warn messages for security ######
-    if ( is_dir( XOOPS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update/" ) ) {
-        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL1, XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) );
+    if ( is_dir( ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update/" ) ) {
+        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL1, ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) );
         echo '<br />';
     } 
 
-    $_file = XOOPS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update.php";
+    $_file = ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update.php";
     if ( file_exists( $_file ) ) {
-        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL2, XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update.php' ) );
+        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL2, ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update.php' ) );
         echo '<br />';
     } 
 
-    $path1 = XOOPS_ROOT_PATH . '/' . $xoopsModuleConfig['mainimagedir'];
+    $path1 = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['mainimagedir'];
     if ( !is_dir( $path1 ) || !is_writable( $path1 ) ) {
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path1 ) );
         echo '<br />';
     } 
 
-    $path1_t = XOOPS_ROOT_PATH . '/' . $xoopsModuleConfig['mainimagedir'] . '/thumbs';
+    $path1_t = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['mainimagedir'] . '/thumbs';
     if ( !is_dir( $path1_t ) || !is_writable( $path1_t ) ) {
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path1_t ) );
         echo '<br />';
     } 
 
-//    $path2 = XOOPS_ROOT_PATH . '/' . $xoopsModuleConfig['screenshots'];
+//    $path2 = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['screenshots'];
 //    if ( !is_dir( $path2 ) || !is_writable( $path2 ) )
 //    {
 //        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path2 ) );
 //        echo '<br />';
 //    } 
 
-//    $path2_t = XOOPS_ROOT_PATH . '/' . $xoopsModuleConfig['screenshots'] . '/thumbs';
+//    $path2_t = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['screenshots'] . '/thumbs';
 //    if ( !is_dir( $path2_t ) || !is_writable( $path2_t ) )
 //    {
 //        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path2_t ) );
 //        echo '<br />';
 //    }
 
-    $path3 = XOOPS_ROOT_PATH . '/' . $xoopsModuleConfig['catimage'];
+    $path3 = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['catimage'];
     if ( !is_dir( $path3 ) || !is_writable( $path3 ) ) {
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path3 ) );
         echo '<br />';
     } 
 
-    $path3_t = XOOPS_ROOT_PATH . '/' . $xoopsModuleConfig['catimage'] . '/thumbs';
+    $path3_t = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['catimage'] . '/thumbs';
     if ( !is_dir( $path3_t ) || !is_writable( $path3_t ) ) {
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path3_t ) );
         echo '<br />';
@@ -549,11 +549,11 @@ function impression_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetyp
     global $_FILES, $xoopsConfig, $xoopsModuleConfig, $xoopsModule;
 
     $down = array();
-    include_once XOOPS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/class/uploader.php";
+    include_once ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/class/uploader.php";
     if ( empty( $allowed_mimetypes ) ) {
         $allowed_mimetypes = impression_retmime( $_FILES['userfile']['name'], $usertype );
     } 
-    $upload_dir = XOOPS_ROOT_PATH . "/" . $uploaddir . "/";
+    $upload_dir = ICMS_ROOT_PATH . "/" . $uploaddir . "/";
 
     $maxfilesize = $xoopsModuleConfig['maxfilesize'];
     $maxfilewidth = $xoopsModuleConfig['maximgwidth'];
@@ -571,7 +571,7 @@ function impression_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetyp
             } else {
                 if ( is_file( $uploader -> savedDestination ) ) {
                     $down['url'] = XOOPS_URL . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName );
-                    $down['size'] = filesize( XOOPS_ROOT_PATH . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName ) );
+                    $down['size'] = filesize( ICMS_ROOT_PATH . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName ) );
                 } 
                 return $down;
             } 
@@ -622,12 +622,12 @@ function impression_articlelistbody( $published ) {
     $icon .= "<a href='altcat.php?op=main&amp;cid=" . $cid . "&amp;aid=" . $aid . "&amp;title=" . $published['title'] . "' title='" . _AM_IMPRESSION_ALTCAT_CREATEF . "'>" . $imagearray['altcat'] . "</a>";
 
     echo " 	<tr>\n
-		<td class='head' style='text-align: center;white-space: nowrap; width: 55px;'><small>" . $aid . "</small></td>\n
+		<td class='head' style='text-align: center;white-space: nowrap;'><small>" . $aid . "</small></td>\n
 		<td class='even' style='text-align: left;'>&nbsp;<small>" . $title . "</small></td>\n
 		<td class='even' style='text-align: left;'>&nbsp;<small>" . $cattitle . "</small></td>\n
 		<td class='even' style='text-align: center;'><small>" . $submitter . "</small></td>\n
-		<td class='even' style='text-align: center; width: 10%; white-space: nowrap;'>&nbsp;<small>" . $publish . "</small>&nbsp;</td>\n
-		<td class='even' style='text-align: center; white-space: nowrap; width: 50px;'><small>" . $published_status . "</small></td>\n
+		<td class='even' style='text-align: center; white-space: nowrap;'><small>" . $publish . "</small></td>\n
+		<td class='even' style='text-align: center; white-space: nowrap;'><small>" . $published_status . "</small></td>\n
 		<td class='even' style='text-align: center; width: 60px; white-space: nowrap;'>$icon</td>\n
 		</tr>\n
 		";
@@ -653,7 +653,7 @@ function impression_articlelistpagenav( $pubrowamount, $start, $art = "art", $_t
         return false;
     } 
     // Display Page Nav if published is > total display pages amount.
-    include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+    include_once ICMS_ROOT_PATH . '/class/pagenav.php';
     $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
               //new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start', $list_by );
     $pagenav = new XoopsPageNav( $pubrowamount, $xoopsModuleConfig['admin_perpage'], $start, 'st' . $art, $_this );
@@ -666,7 +666,7 @@ function impression_articlelistpagenavleft( $pubrowamount, $start, $art = "art",
         return false;
     } 
     // Display Page Nav if published is > total display pages amount.
-    include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+    include_once ICMS_ROOT_PATH . '/class/pagenav.php';
     $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
     $pagenav = new XoopsPageNav( $pubrowamount, $xoopsModuleConfig['admin_perpage'], $start, 'st' . $art, $_this );
     echo '<div align="left" style="padding: 8px;">' . $page . '' . $pagenav -> renderNav() . '</div>';
@@ -701,8 +701,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 	switch($formuser){
 	case "fck":
 		if (!$x22) {
-			if ( is_readable(XOOPS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php"))	{
-				include_once(XOOPS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php"))	{
+				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php");
 				$editor = new XoopsFormFckeditor($editor_configs,true);
 			} else {
 				if ($dhtml) {
@@ -718,8 +718,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 
 	case "htmlarea":
 		if(!$x22) {
-			if ( is_readable(XOOPS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php"))	{
-				include_once(XOOPS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php"))	{
+				include_once(ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php");
 				$editor = new XoopsFormHtmlarea($caption, $name, $value);
 			}
 		} else {
@@ -741,8 +741,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 
 	case "koivi":
 		if(!$x22) {
-			if ( is_readable(XOOPS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php"))	{
-				include_once(XOOPS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php"))	{
+				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php");
 				$editor = new XoopsFormWysiwygTextArea($caption, $name, $value, '100%', '400px');
 			} else {
 				if ($dhtml) {
@@ -758,8 +758,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 
 	case "tinyeditor":
                if(!$x22) {
-			if ( is_readable(XOOPS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php"))	{
-				include_once(XOOPS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php"))	{
+				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php");
 				$editor = new XoopsFormTinyeditorTextArea(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'400px'));
 			} else {
 				if ($dhtml) {
@@ -775,8 +775,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 
 	case "dhtmlext":
                if(!$x22) {
-			if ( is_readable(XOOPS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php"))	{
-				include_once(XOOPS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php"))	{
+				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php");
 				$editor = new XoopsFormDhtmlTextAreaExtended($caption, $name, $value, 10, 50);
 			} else {
 				if ($dhtml) {
@@ -792,12 +792,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 
 	case 'tinymce' :
              if (!$x22) {
-                       if ( is_readable(XOOPS_ROOT_PATH . "/class/xoopseditor/tinymce/formtinymce.php")) {
-                          include_once(XOOPS_ROOT_PATH . "/class/xoopseditor/tinymce/formtinymce.php");
-                          $editor = new XoopsFormTinymce(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'400px'));
-                       } 
-                       elseif ( is_readable(XOOPS_ROOT_PATH . "/editors/tinymce/formtinymce.php")) {
-                          include_once(XOOPS_ROOT_PATH . "/editors/tinymce/formtinymce.php");
+                       if ( is_readable(ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php")) {
+                          include_once(ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php");
                           $editor = new XoopsFormTinymce(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'400px'));
                        } else {
                           if ($dhtml) {
@@ -875,8 +871,8 @@ function impression_tag_module_included() {
 // Add item_tag to Tag-module
 function impression_tagupdate( $aid, $item_tag ) {
          global $xoopsModule;
-         if ( impression_tag_module_included() )         {
-            include_once XOOPS_ROOT_PATH . "/modules/tag/include/formtag.php";
+         if (impression_tag_module_included()) {
+            include_once ICMS_ROOT_PATH . "/modules/tag/include/formtag.php";
             $tag_handler = xoops_getmodulehandler( 'tag', 'tag' );
             $tag_handler -> updateByItem( $item_tag, $aid, $xoopsModule -> getVar( 'dirname' ), 0 );
          }

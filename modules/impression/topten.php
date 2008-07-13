@@ -7,7 +7,7 @@
 include 'header.php';
 
 $xoopsOption['template_main'] = 'impression_topten.html';
-include XOOPS_ROOT_PATH . '/header.php';
+include ICMS_ROOT_PATH . '/header.php';
 
 global $xoopsModule, $xoopsModuleConfig;
 
@@ -26,6 +26,6 @@ global $xoopsModule, $xoopsModuleConfig;
  }
 $xoopsTpl -> append('headlines', $headlines);
 
-include XOOPS_ROOT_PATH . '/footer.php';
+include ICMS_ROOT_PATH . '/footer.php';
 
 ?>

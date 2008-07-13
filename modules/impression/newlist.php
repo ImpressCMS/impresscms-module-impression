@@ -7,7 +7,7 @@
 include 'header.php';
 
 $xoopsOption['template_main'] = 'impression_newlistindex.html';
-include XOOPS_ROOT_PATH . '/header.php';
+include ICMS_ROOT_PATH . '/header.php';
 include_once("footer.php");
 
 global $xoopsModuleConfig;
@@ -79,10 +79,10 @@ $sql .="WHERE	published > 0 AND published <= " . $time_cur . ")
 		ORDER BY " . $xoopsModuleConfig['articlexorder'];
 $result = $xoopsDB -> query( $sql, 10 , 0 );
 while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
-    include XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
+    include ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
 } 
 
 $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
-include XOOPS_ROOT_PATH . '/footer.php';
+include ICMS_ROOT_PATH . '/footer.php';
 
 ?>

@@ -57,9 +57,9 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
     $i = 0;
 
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-        if ( false == impressioncheckSearchgroups( $myrow['cid'] ) ) {
-            continue;
-        } 
+//        if ( false == impressioncheckSearchgroups( $myrow['cid'] ) ) {
+//            continue;
+//        } 
         $ret[$i]['image'] = "images/size2.gif";
         $ret[$i]['link'] = "singlearticle.php?cid=" . $myrow['cid'] . "&amp;aid=" . $myrow['aid'];
         $ret[$i]['title'] = $myrow['title'];

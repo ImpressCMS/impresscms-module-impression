@@ -10,9 +10,9 @@
  * @package		module::tag
  */
 
-if (!defined("XOOPS_ROOT_PATH")) {
-	die("XOOPS root path not defined");
-}
+//if (!defined("ICMS_ROOT_PATH")) {
+//	die("XOOPS root path not defined");
+//}
 
 /**
  * Get item fields:

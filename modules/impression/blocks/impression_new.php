@@ -4,10 +4,9 @@
  * Module: Impression
  */
 
-//include XOOPS_ROOT_PATH . '/modules/impression/include/functions.php';
+//include ICMS_ROOT_PATH . '/modules/impression/include/functions.php';
 
-function checkImpressionNewBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false )
-{
+function checkImpressionNewBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
     global $xoopsUser;
 
     $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
@@ -16,14 +15,10 @@ function checkImpressionNewBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm
     $module_handler = &xoops_gethandler( 'module' );
     $module = &$module_handler -> getByDirname( 'impression' );
 
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) )
-    {
-        if ( $redirect == false )
-        {
+    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
+        if ( $redirect == false ) {
             return false;
-        } 
-        else
-        {
+        } else {
             redirect_header( 'index.php', 3, _NOPERM );
             exit();
         } 
@@ -31,8 +26,8 @@ function checkImpressionNewBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm
     unset( $module );
     return true;
 }
-function b_impression_displaynewicons( $time, $status = 0, $counter = 0 )
-{
+
+function b_impression_displaynewicons( $time, $status = 0, $counter = 0 ) {
     $modhandler = xoops_gethandler( 'module' );
     $impressionModule = $modhandler -> getByDirname( "impression" );
     $config_handler = xoops_gethandler( 'config' );
@@ -41,31 +36,24 @@ function b_impression_displaynewicons( $time, $status = 0, $counter = 0 )
     $pop = '';
 
     $newdate = ( time() - ( 86400 * intval( $impressionModuleConfig['daysnew'] ) ) );
-    $popdate = ( time() - ( 86400 * intval( $impressionModuleConfig['daysupdated'] ) ) ) ;
+    $popdate = ( time() - ( 86400 * 10  ) ) ;
 
-    if ( $impressionModuleConfig['displayicons'] != 3 )
-    {
-        if ( $newdate < $time )
-        {
-            if ( intval( $status ) > 1 )
-            {
+    if ( $impressionModuleConfig['displayicons'] != 3 ) {
+        if ( $newdate < $time ) {
+            if ( intval( $status ) > 1 ) {
                 if ( $impressionModuleConfig['displayicons'] == 1 )
                     $new = "&nbsp;<img src=" . XOOPS_URL . "/modules/" . $impressionModule -> getVar( 'dirname' ) . "/images/icon/update.png alt='' align ='absmiddle'/>";
                 if ( $impressionModuleConfig['displayicons'] == 2 )
                     $new = "<i>Updated!</i>";
-            } 
-            else
-            {
+            } else  {
                 if ( $impressionModuleConfig['displayicons'] == 1 )
                     $new = "&nbsp;<img src=" . XOOPS_URL . "/modules/" . $impressionModule -> getVar( 'dirname' ) . "/images/icon/new.png alt='' align ='absmiddle'/>";
                 if ( $impressionModuleConfig['displayicons'] == 2 )
                     $new = "<i>New!</i>";
             }
         } 
-        if ( $popdate > $time )
-        {
-            if ( $counter >= $impressionModuleConfig['popular'] )
-            {
+        if ( $popdate > $time ) {
+            if ( $counter >= $impressionModuleConfig['popular'] ) {
                 if ( $impressionModuleConfig['displayicons'] == 1 )
                     $pop = "&nbsp;<img src =" . XOOPS_URL . "/modules/" . $impressionModule -> getVar( 'dirname' ) . "/images/icon/popular.png alt='' align ='absmiddle'/>";
                 if ( $impressionModuleConfig['displayicons'] == 2 )
@@ -76,6 +64,7 @@ function b_impression_displaynewicons( $time, $status = 0, $counter = 0 )
     $icons = $new . " " . $pop;
     return $icons;
 }
+
 function b_impression_adminnewicons($aid, $dirname) {
 
         $iconadmin = '<a href="' . XOOPS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . XOOPS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="' . _MB_IMPRESSION_ADMINSECTION . '" title="' . _MB_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>';
@@ -84,6 +73,7 @@ function b_impression_adminnewicons($aid, $dirname) {
 
         return $iconadmin;
 }
+
 /**
  * Function: b_impression_new_show
  * Input   : $options[0] = date for the most recent articles
@@ -92,8 +82,7 @@ function b_impression_adminnewicons($aid, $dirname) {
  *           $options[1] = How many videos are displayes
  * Output  : Returns the most recent or most popular articles
  */
-function b_impression_new_show( $options )
-{
+function b_impression_new_show( $options ) {
     global $xoopsDB, $xoopsModuleConfig, $xoopsUser;
 
     $block = array();
@@ -104,7 +93,7 @@ function b_impression_new_show( $options )
     $moderate = 0;
     $impressionmyts = &MyTextSanitizer :: getInstance();
 
-    $result = $xoopsDB -> query( "SELECT aid, cid, title, submitter, published, introtext FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status = 0 ORDER BY published DESC", $options[1], 0 );
+    $result = $xoopsDB -> query( "SELECT aid, cid, title, submitter, published, introtext, status, hits FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status = 0 ORDER BY published DESC", $options[1], 0 );
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
         if ( false == checkImpressionNewBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
             continue;
@@ -117,8 +106,9 @@ function b_impression_new_show( $options )
         $articlenew['cid'] = intval($myrow['cid']);
         $articlenew['title'] = '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $myrow['title'] . ' </a>';
         $articlenew['cattitle'] = '<a href="' . XOOPS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/catview.php?cid=' . intval($myrow['cid']).'">' . $mycat['title'] . ' </a>';
-        $articlenew['date'] = formatTimestamp( $myrow['published'], $options[3] );
+        $articlenew['date'] = formatTimestamp( $myrow['published'], $options[2] );
         $articlenew['dirname'] = $impressionModule -> getVar( 'dirname' );
+        $articlenew['newpopicons'] = b_impression_displaynewicons($myrow['published'], $myrow['status'], $myrow['hits']);
         $articlenew['adminnewicons'] = b_impression_adminnewicons( intval($myrow['aid']),$impressionModule -> getVar( 'dirname' ));
         $block['articlenew'][] = $articlenew;
 
@@ -133,18 +123,16 @@ function b_impression_new_show( $options )
  * @param $options
  * @return 
  **/
-function b_impression_new_edit( $options )
-{
+function b_impression_new_edit( $options ) {
     $form = "" . _MB_IMPRESSION_DISP . "&nbsp;";
     $form .= "<input type='hidden' name='options[]' value='";
-    if ( $options[0] == "new" )
-    {
+    if ( $options[0] == "new" ) {
         $form .= "new'";
     }
     $form .= " />";
     $form .= "<input type='text' name='options[]' value='" . $options[1] . "' />&nbsp;" . _MB_IMPRESSION_HEADLINES . "";
 //    $form .= "&nbsp;<br />" . _MB_IMPRESSION_CHARS . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_LENGTH . "";
-    $form .= "&nbsp;<br />" . _MB_IMPRESSION_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[3] . "' />&nbsp;" . _MB_IMPRESSION_DATEFORMATMANUAL;
+    $form .= "&nbsp;<br />" . _MB_IMPRESSION_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_DATEFORMATMANUAL;
     return $form;
 }
 ?>

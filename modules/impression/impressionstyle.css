@@ -41,6 +41,7 @@ tr.impression_even td {
 .impression_articleMain {
   display: table;
   padding-left:6px;
+  padding-right:6px;
   padding-bottom: 6px;
   border-left: 1px solid #E8E6E2;
   border-right: 1px solid #E8E6E2;}

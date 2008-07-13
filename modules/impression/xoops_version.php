@@ -15,12 +15,7 @@ $modversion['description'] = _MI_IMPRESSION_DESC;
 $modversion['license'] = "GNU General Public License (GPL)";
 $modversion['official'] = 1;
 $modversion['dirname'] = $mydirname;
-
-if (defined("ICMS_VERSION_NAME")) {
-  $modversion['image'] = "images/impression_ilogo.png";
-} else {
-  $modversion['image'] = "images/impression_logo.png";
-}
+$modversion['image'] = "images/impression_ilogo.png";
 $modversion['iconsmall'] = "images/impression_iconsmall.png";
 $modversion['iconbig'] = "images/impression_iconbig.png";
 
@@ -73,8 +68,26 @@ $modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BNEW;
 $modversion['blocks'][$i]['description'] = "Shows headlines of recently added articles";
 $modversion['blocks'][$i]['show_func'] = "b_impression_new_show";
 $modversion['blocks'][$i]['edit_func'] = "b_impression_new_edit";
-$modversion['blocks'][$i]['options'] = "new|25|128|d F Y";
+$modversion['blocks'][$i]['options'] = "new|25|d F Y";
 $modversion['blocks'][$i]['template'] = 'impression_block_new.html';
+$modversion['blocks'][$i]['can_clone'] = true ;
+$i++;
+$modversion['blocks'][$i]['file'] = "impression_block_tag.php";
+$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTAGCLOUD;
+$modversion['blocks'][$i]['description'] = "Show tag cloud";
+$modversion['blocks'][$i]['show_func'] = "impression_tag_block_cloud_show";
+$modversion['blocks'][$i]['edit_func'] = "impression_tag_block_cloud_edit";
+$modversion['blocks'][$i]['options'] = "100|0|150|80";
+$modversion['blocks'][$i]['template'] = 'impression_tag_block_cloud.html';
+$modversion['blocks'][$i]['can_clone'] = true ;
+$i++;
+$modversion['blocks'][$i]['file'] = "impression_block_tag.php";
+$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTOPTAG;
+$modversion['blocks'][$i]['description'] = "Show top tag";
+$modversion['blocks'][$i]['show_func'] = "impression_tag_block_top_show";
+$modversion['blocks'][$i]['edit_func'] = "impression_tag_block_top_edit";
+$modversion['blocks'][$i]['options'] = "50|30|c";
+$modversion['blocks'][$i]['template'] = 'impression_tag_block_tag.html';
 $modversion['blocks'][$i]['can_clone'] = true ;
 
 // Menu
@@ -378,7 +391,7 @@ $modversion['config'][$i]['title'] = '_MI_IMPRESSION_ITEMFOOTER';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_ITEMFOOTERDSC';
 $modversion['config'][$i]['formtype'] = 'textarea';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = '';
+$modversion['config'][$i]['default'] = XOOPS_URL;
 $i++;
 $modversion['config'][$i]['name'] = 'headerprint';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_HEADERPRINT';

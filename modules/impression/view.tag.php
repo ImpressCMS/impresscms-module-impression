@@ -1,9 +1,9 @@
 <?php
 /**
  * $Id: view.tag.php
- * Module: MyTube
+ * Module: WF-Links
  */
 
 include 'header.php';
-include XOOPS_ROOT_PATH . '/modules/tag/view.tag.php';
+include ICMS_ROOT_PATH . '/modules/tag/view.tag.php';
 ?>

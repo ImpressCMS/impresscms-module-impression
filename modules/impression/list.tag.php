@@ -10,5 +10,5 @@
  * @package		module::tag
  */
 include "header.php";
-include XOOPS_ROOT_PATH."/modules/tag/list.tag.php";
+include ICMS_ROOT_PATH."/modules/tag/list.tag.php";
 ?>

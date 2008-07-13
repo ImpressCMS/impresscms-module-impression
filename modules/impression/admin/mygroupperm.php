@@ -1,6 +1,6 @@
 <?php
 
-if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
+if( ! defined( 'ICMS_ROOT_PATH' ) ) exit ;
 
 function myDeleteByModule($DB, $gperm_modid, $gperm_name = null, $gperm_itemid = null)
 {

@@ -5,10 +5,10 @@
 
 include_once( '../../../include/cp_header.php' ) ;
 include_once( 'mygrouppermform.php' );
-include_once( XOOPS_ROOT_PATH . '/class/xoopsblock.php' );
+include_once( ICMS_ROOT_PATH . '/class/xoopsblock.php' );
 include_once "../include/gtickets.php" ; // GIJ
 
-$xoops_system_path = XOOPS_ROOT_PATH . '/modules/system';
+$xoops_system_path = ICMS_ROOT_PATH . '/modules/system';
 // language files
 $language = $xoopsConfig['language'];
 if ( ! file_exists( "$xoops_system_path/language/$language/admin/blocksadmin.php" ) ) $language = 'english';
@@ -298,7 +298,7 @@ function list_blocks() {
         redirect_header( XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/admin/myblocksadmin.php$query4redirect" , 1 , _MD_AM_DBUPDATED );
     } 
 
-    include XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/functions.php';
+    include ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/functions.php';
     xoops_cp_header() ;
     impression_adminmenu();
 

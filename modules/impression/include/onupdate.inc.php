@@ -4,7 +4,7 @@
  * Module: Impression
  */
 
-if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
+if( ! defined( 'ICMS_ROOT_PATH' ) ) exit ;
 
 // referer check
 $ref = xoops_getenv('HTTP_REFERER');

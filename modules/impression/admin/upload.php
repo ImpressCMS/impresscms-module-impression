@@ -16,7 +16,7 @@ switch ( strtolower($op) )
     case "upload":
         if ( $_FILES['uploadfile']['name'] != "" )
         {
-            if ( file_exists( XOOPS_ROOT_PATH . "/" . $_POST['uploadpath'] . "/" . $_FILES['uploadfile']['name'] ) )
+            if ( file_exists( ICMS_ROOT_PATH . "/" . $_POST['uploadpath'] . "/" . $_FILES['uploadfile']['name'] ) )
             {
                 redirect_header( 'upload.php', 2, _AM_IMPRESSION_ARTICLE_IMAGEEXIST );
             } 
@@ -36,7 +36,7 @@ switch ( strtolower($op) )
 
         if ( isset( $_POST['confirm'] ) && $_POST['confirm'] == 1 )
         {
-            $filetodelete = XOOPS_ROOT_PATH . "/" . $_POST['uploadpath'] . "/" . $_POST['articlefile'];
+            $filetodelete = ICMS_ROOT_PATH . "/" . $_POST['uploadpath'] . "/" . $_POST['articlefile'];
             if ( file_exists( $filetodelete ) )
             {
                 chmod( $filetodelete, 0666 );
@@ -80,7 +80,7 @@ switch ( strtolower($op) )
         impression_serverstats();
         if ( $rootpath > 0 )
         {
-            echo "<div><b>" . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . "</b> " . XOOPS_ROOT_PATH . "/" . $dirarray[$rootpath] . "</div>\n";
+            echo "<div><b>" . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . "</b> " . ICMS_ROOT_PATH . "/" . $dirarray[$rootpath] . "</div>\n";
             echo "<div><b>" . _AM_IMPRESSION_ARTICLE_FUPLOADURL . "</b> " . XOOPS_URL . "/" . $dirarray[$rootpath] . "</div><br />\n";
         } 
         $pathlist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
@@ -96,7 +96,7 @@ switch ( strtolower($op) )
 
         if ( $rootpath > 0 )
         {
-            $graph_array = &impressionLists :: getListTypeAsArray( XOOPS_ROOT_PATH . "/" . $dirarray[$rootpath], $type = "images" );
+            $graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . $dirarray[$rootpath], $type = "images" );
             $indeximage_select = new XoopsFormSelect( '', 'articlefile', '' );
             $indeximage_select -> addOptionArray( $graph_array );
             $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"articlefile\", \"" . $dirarray[$rootpath] . "\", \"\", \"" . XOOPS_URL . "\")'" );
