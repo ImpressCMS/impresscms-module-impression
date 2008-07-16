@@ -41,13 +41,13 @@ function createcat( $cid = 0 ) {
     $indeximage_select = new XoopsFormSelect( '', 'imgurl', $imgurl );
     $indeximage_select -> addOption( '', 'No Image' );
     $indeximage_select -> addOptionArray( $graph_array );
-    $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"imgurl\", \"" . $xoopsModuleConfig['catimage'] . "\", \"\", \"" . XOOPS_URL . "\")'" );
+    $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"imgurl\", \"" . $xoopsModuleConfig['catimage'] . "\", \"\", \"" . ICMS_URL . "\")'" );
     $indeximage_tray = new XoopsFormElementTray( _AM_IMPRESSION_FCATEGORY_CIMAGE, '&nbsp;' );
     $indeximage_tray -> addElement( $indeximage_select );
     if ( !empty( $imgurl ) ) {
-        $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . XOOPS_URL . "/" . $xoopsModuleConfig['catimage'] . "/" . $imgurl . "' name='image' id='image' alt='' />" ) );
+        $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/" . $xoopsModuleConfig['catimage'] . "/" . $imgurl . "' name='image' id='image' alt='' />" ) );
     } else {
-        $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . XOOPS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
+        $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
     } 
     $sform -> addElement( $indeximage_tray );
 

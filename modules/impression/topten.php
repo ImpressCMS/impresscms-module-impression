@@ -17,11 +17,11 @@ global $xoopsModule, $xoopsModuleConfig;
  while ($myrow = $xoopsDB -> fetchArray($result,10)){
   $result2 = $xoopsDB -> query( "SELECT title FROM " . $xoopsDB -> prefix('impression_cat') . " WHERE cid=" . $myrow['cid']);
   $mycat = $xoopsDB -> fetchArray( $result2 );
-  $headlines['cattitle'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . intval($myrow['cid']).'">' . $mycat['title'] . ' </a>';
+  $headlines['cattitle'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . intval($myrow['cid']).'">' . $mycat['title'] . ' </a>';
 //  $headlines['cattitle'] =  '';
   $headlines['adminicons'] = impression_adminicons( $myrow['aid'], $xoopsModule -> getVar( 'dirname' ) );
   $headlines['articledate'] = formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] );
-  $headlines['articletitle'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $myrow['title'] . ' </a>';
+  $headlines['articletitle'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $myrow['title'] . ' </a>';
  $i++;
  }
 $xoopsTpl -> append('headlines', $headlines);

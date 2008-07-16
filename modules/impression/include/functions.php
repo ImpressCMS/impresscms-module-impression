@@ -142,12 +142,12 @@ function impression_displayicons( $time, $status = 0, $counter = 0 ) {
         if ( $newdate < $time ) {
             if ( intval( $status ) > 1 ) {
                 if ( $xoopsModuleConfig['displayicons'] == 1 )
-                    $new = "&nbsp;<img src=" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/update.png alt='' align ='absmiddle'/>";
+                    $new = "&nbsp;<img src=" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/update.png alt='' align ='absmiddle'/>";
                 if ( $xoopsModuleConfig['displayicons'] == 2 )
                     $new = "<i>Updated!</i>";
             } else {
                 if ( $xoopsModuleConfig['displayicons'] == 1 )
-                    $new = "&nbsp;<img src=" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/new.png alt='' align ='absmiddle'/>";
+                    $new = "&nbsp;<img src=" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/new.png alt='' align ='absmiddle'/>";
                 if ( $xoopsModuleConfig['displayicons'] == 2 )
                     $new = "<i>New!</i>";
             }
@@ -155,7 +155,7 @@ function impression_displayicons( $time, $status = 0, $counter = 0 ) {
         if ( $popdate > $time ) {
             if ( $counter >= $xoopsModuleConfig['popular'] ) {
                 if ( $xoopsModuleConfig['displayicons'] == 1 )
-                    $pop = "&nbsp;<img src =" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/popular.png alt='' align ='absmiddle'/>";
+                    $pop = "&nbsp;<img src =" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/popular.png alt='' align ='absmiddle'/>";
                 if ( $xoopsModuleConfig['displayicons'] == 2 )
                     $pop = "<i>Popular!</i>";
             } 
@@ -323,12 +323,12 @@ function impression_displayimage( $image = '', $path = '', $imgsource = '', $alt
     } 
     // checks to see if the file is valid else displays default blank image
     if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
-        $showimage .= "<img src='" . XOOPS_URL . "/{$imgsource}/{$image}' border='0' title='" . $alttext . "' alt='" . $alttext . "' /></a>";
+        $showimage .= "<img src='" . ICMS_URL . "/{$imgsource}/{$image}' border='0' title='" . $alttext . "' alt='" . $alttext . "' /></a>";
     } else {
         if ( $xoopsUser && $xoopsUser -> isAdmin( $xoopsModule -> getVar( 'mid' ) ) ) {
-            $showimage .= "<img src='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/brokenimg.png' alt='" . _MD_IMPRESSION_ISADMINNOTICE . "' /></a>";
+            $showimage .= "<img src='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/brokenimg.png' alt='" . _MD_IMPRESSION_ISADMINNOTICE . "' /></a>";
         } else {
-            $showimage .= "<img src='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/blank.gif' alt='" . $alttext . "' /></a>";
+            $showimage .= "<img src='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/blank.gif' alt='" . $alttext . "' /></a>";
         } 
     } 
     clearstatcache();
@@ -344,7 +344,7 @@ function impression_letters() {
     $num = count( $alphabet ) - 1;
     $counter = 0;
     while ( list( , $ltr ) = each( $alphabet ) ) {
-        $letterchoice .= "<a href='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?list=$ltr'>$ltr</a>";
+        $letterchoice .= "<a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?list=$ltr'>$ltr</a>";
         if ( $counter == round( $num / 2 ) )
             $letterchoice .= " ]<br />[ ";
         elseif ( $counter != $num )
@@ -570,7 +570,7 @@ function impression_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetyp
                 redirect_header( $redirecturl, 1 , _AM_PDD_UPLOADFILE );
             } else {
                 if ( is_file( $uploader -> savedDestination ) ) {
-                    $down['url'] = XOOPS_URL . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName );
+                    $down['url'] = ICMS_URL . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName );
                     $down['size'] = filesize( ICMS_ROOT_PATH . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName ) );
                 } 
                 return $down;
@@ -701,8 +701,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 	switch($formuser){
 	case "fck":
 		if (!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/fckeditor/formfckeditor.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/editors/fckeditor/formfckeditor.php"))	{
+				include_once(ICMS_ROOT_PATH . "/editors/fckeditor/formfckeditor.php");
 				$editor = new XoopsFormFckeditor($editor_configs,true);
 			} else {
 				if ($dhtml) {
@@ -741,8 +741,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 
 	case "koivi":
 		if(!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/koivi/formwysiwygtextarea.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/editors/koivi/formwysiwygtextarea.php"))	{
+				include_once(ICMS_ROOT_PATH . "/editors/koivi/formwysiwygtextarea.php");
 				$editor = new XoopsFormWysiwygTextArea($caption, $name, $value, '100%', '400px');
 			} else {
 				if ($dhtml) {
@@ -775,8 +775,8 @@ function impression_getWysiwygForm( $caption, $name, $value ) {
 
 	case "dhtmlext":
                if(!$x22) {
-			if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php"))	{
-				include_once(ICMS_ROOT_PATH . "/class/xoopseditor/dhtmlext/dhtmlext.php");
+			if ( is_readable(ICMS_ROOT_PATH . "/editors/dhtmlext/dhtmlext.php"))	{
+				include_once(ICMS_ROOT_PATH . "/editors/dhtmlext/dhtmlext.php");
 				$editor = new XoopsFormDhtmlTextAreaExtended($caption, $name, $value, 10, 50);
 			} else {
 				if ($dhtml) {
@@ -879,9 +879,9 @@ function impression_tagupdate( $aid, $item_tag ) {
 }
 
 function impression_adminicons($aid, $dirname) {
-        $iconadmin = '<a href="' . XOOPS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . XOOPS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="' . _MD_IMPRESSION_ADMINSECTION . '" title="' . _MD_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>';
-        $iconadmin .= '&nbsp;<a href="' . XOOPS_URL . '/modules/' . $dirname . '/admin/index.php?op=edit&amp;aid=' . $aid . '"><img src="' . XOOPS_URL . '/modules/' . $dirname . '/images/icon/pageedit_small.png" alt="' . _MD_IMPRESSION_EDIT . '" title="' . _MD_IMPRESSION_EDIT . '" align="absmiddle"/></a>&nbsp;';
-        $iconadmin .= '<a href="' . XOOPS_URL . '/modules/' . $dirname . '/admin/index.php?op=delete&amp;aid=' . $aid . '"><img src="' . XOOPS_URL . '/modules/' . $dirname . '/images/icon/pagedelete_small.png" alt="' . _MD_IMPRESSION_DELETE . '" title="' . _MD_IMPRESSION_DELETE . '" align="absmiddle"/></a>&nbsp;';
+        $iconadmin = '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="' . _MD_IMPRESSION_ADMINSECTION . '" title="' . _MD_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>';
+        $iconadmin .= '&nbsp;<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=edit&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pageedit_small.png" alt="' . _MD_IMPRESSION_EDIT . '" title="' . _MD_IMPRESSION_EDIT . '" align="absmiddle"/></a>&nbsp;';
+        $iconadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=delete&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pagedelete_small.png" alt="' . _MD_IMPRESSION_DELETE . '" title="' . _MD_IMPRESSION_DELETE . '" align="absmiddle"/></a>&nbsp;';
         return $iconadmin;
 }
 
@@ -891,8 +891,7 @@ function impression_updateCounter($aid) {
          $result = $xoopsDB -> queryF( $sql );
 }
 
-function impression_substr($str, $start, $length, $trimmarker = '...')
-{
+function impression_substr($str, $start, $length, $trimmarker = '...') {
 	$config_handler =& xoops_gethandler('config');
 	$im_multilanguageConfig =& $config_handler->getConfigsByCat(IM_CONF_MULILANGUAGE);
     
@@ -901,22 +900,22 @@ function impression_substr($str, $start, $length, $trimmarker = '...')
 		$strs = array();
 		$hasML = false;
 		foreach ($tags as $tag){
-			if (preg_match("/\[".$tag."](.*)\[\/".$tag."\]/sU",$str,$matches)){
+			if (preg_match("/\[".$tag."](.*)\[\/".$tag."\]/sU",$str,$matches)) {
 				if (count($matches) > 0){
 					$hasML = true;
 					$strs[] = $matches[1];
 				}
 			}
 		}
-	}else{
+	} else {
 		$hasML = false;
 	}
 	
-	if (!$hasML){
+	if (!$hasML) {
         $strs = array($str);
 	}
 	
-	for ($i = 0; $i <= count($strs)-1; $i++){
+	for ($i = 0; $i <= count($strs)-1; $i++) {
 		if ( !XOOPS_USE_MULTIBYTES ) {
 			$strs[$i] = ( strlen($strs[$i]) - $start <= $length ) ? substr( $strs[$i], $start, $length ) : substr( $strs[$i], $start, $length - strlen($trimmarker) ) . $trimmarker;
 		}

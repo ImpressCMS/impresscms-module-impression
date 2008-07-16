@@ -65,7 +65,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                 if ( $space > 0 )
                     $infercategories .= ", ";
 
-                $infercategories .= "<a href='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $sub_ele['cid'] . "'>" . $impressionmyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . "</a> (" . $hassubitems['count'] . ")";
+                $infercategories .= "<a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $sub_ele['cid'] . "'>" . $impressionmyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . "</a> (" . $hassubitems['count'] . ")";
                 $space++;
                 $chcount++;
             } 
@@ -88,7 +88,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
         $xoopsTpl -> append( 'subcategories',
                   array( 'title' => $impressionmyts -> htmlSpecialCharsStrip( $ele['title'] ),
                          'id' => $ele['cid'],
-                         'image' => XOOPS_URL . "/$imgurl",
+                         'image' => ICMS_URL . "/$imgurl",
                          'infercategories' => $infercategories,
                          'totalarticles' => $totalarticles['count'],
                          'count' => $scount,

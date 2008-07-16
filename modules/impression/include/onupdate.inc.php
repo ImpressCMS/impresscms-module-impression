@@ -8,7 +8,7 @@ if( ! defined( 'ICMS_ROOT_PATH' ) ) exit ;
 
 // referer check
 $ref = xoops_getenv('HTTP_REFERER');
-if( $ref == '' || strpos( $ref , XOOPS_URL.'/modules/system/admin.php' ) === 0 ) {
+if( $ref == '' || strpos( $ref , ICMS_URL.'/modules/system/admin.php' ) === 0 ) {
 	/* module specific part */
 
 

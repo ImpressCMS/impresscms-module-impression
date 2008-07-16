@@ -114,7 +114,7 @@ class impressionThumbsNails {
     function do_thumb( $img_width = null, $img_height = null, $img_quality = null, $img_update = null, $img_aspect = null ) {
         $this -> _source_path = ICMS_ROOT_PATH . "/{$this->_img_path}";
         $this -> _save_path = ICMS_ROOT_PATH . "/{$this->_img_path}/{$this->_img_savepath}";
-        $this -> _source_url = XOOPS_URL . "/{$this->_img_path}";
+        $this -> _source_url = ICMS_URL . "/{$this->_img_path}";
         $this -> _source_image = "{$this->_source_path}/{$this->_img_name}";
 
         if ( isset( $img_width ) && !is_null( $img_width ) )

@@ -52,13 +52,13 @@ $article['id'] = $article_arr['aid'];
 $article['cid'] = $article_arr['cid'];
 $article['submitter'] = xoops_getLinkedUnameFromId( $article_arr['submitter'] );
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
-$article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
+$article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
 // Recommend icon
-   $article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/email.png" alt="' . _MD_IMPRESSION_TELLAFRIEND . '" title="' . _MD_IMPRESSION_TELLAFRIEND . '" align="absmiddle" /></a>';
+   $article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/email.png" alt="' . _MD_IMPRESSION_TELLAFRIEND . '" title="' . _MD_IMPRESSION_TELLAFRIEND . '" align="absmiddle" /></a>';
 // Print icon
-   $article['print'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="' . _MD_IMPRESSION_PRINT . '" title="' . _MD_IMPRESSION_PRINT . '" align="absmiddle" /></a>';
+   $article['print'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="' . _MD_IMPRESSION_PRINT . '" title="' . _MD_IMPRESSION_PRINT . '" align="absmiddle" /></a>';
 // PDF icon
-// $article['pdf'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="' . _MD_IMPRESSION_PDF . '" title="' . _MD_IMPRESSION_PDF . '" align="absmiddle" /></a>';
+// $article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="' . _MD_IMPRESSION_PDF . '" title="' . _MD_IMPRESSION_PDF . '" align="absmiddle" /></a>';
 
 $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $pathstring = "<a href='index.php'>" . _MD_IMPRESSION_MAIN . "</a>&nbsp;:&nbsp;";
@@ -128,7 +128,7 @@ while ( $arr = $xoopsDB -> fetchArray( $result ) ) {
 $article['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
 $xoopsTpl -> assign( 'article', $article );
 
-$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/back.png" /></a>' );
+$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/back.png" /></a>' );
 $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
 
 include ICMS_ROOT_PATH . '/footer.php';

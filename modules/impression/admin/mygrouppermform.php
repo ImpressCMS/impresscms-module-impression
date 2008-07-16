@@ -80,7 +80,7 @@ class MyXoopsGroupPermForm extends XoopsForm
 	 */
 	function MyXoopsGroupPermForm($title, $modid, $permname, $permdesc)
 	{
-//		$this->XoopsForm($title, 'groupperm_form', XOOPS_URL.'/modules/system/admin/groupperm.php', 'post'); GIJ
+//		$this->XoopsForm($title, 'groupperm_form', ICMS_URL.'/modules/system/admin/groupperm.php', 'post'); GIJ
 		$this->XoopsForm($title, 'groupperm_form', '' , 'post');
 		$this->_modid = intval($modid);
 		$this->_permName = $permname;

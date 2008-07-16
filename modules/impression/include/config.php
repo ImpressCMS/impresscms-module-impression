@@ -14,6 +14,6 @@ if ( !defined( "impression_articles" ) ) define( "impression_articles", "impress
 if ( !defined( "impression_mod" ) ) define( "impression_mod", "impression_mod" );
 if ( !defined( "impression_indexpage" ) ) define( "impression_indexpage", "impression_indexpage" );
 if ( !defined( "impression_altcat" ) ) define( "impression_altcat", "impression_altcat" );
-if ( !defined( "impression_url" ) ) define( "impression_url", XOOPS_URL . "/modules/" . $mydirname . "/" );
+if ( !defined( "impression_url" ) ) define( "impression_url", ICMS_URL . "/modules/" . $mydirname . "/" );
 
 ?>

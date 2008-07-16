@@ -73,7 +73,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
                     if ( $space > 0 ) {
                         $subcategories .= "<br />";
                     }
-                    $subcategories .= "<li><a href='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a></li>";
+                    $subcategories .= "<li><a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a></li>";
                     $space++;
                     $chcount++;
                 } 
@@ -91,7 +91,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
         }
         // End
 
-        $xoopsTpl -> append( 'categories', array( 'image' => XOOPS_URL . "/$imgurl",
+        $xoopsTpl -> append( 'categories', array( 'image' => ICMS_URL . "/$imgurl",
                                                   'id' => $myrow['cid'],
                                                   'title' => $title,
                                                   'subcategories' => $subcategories,

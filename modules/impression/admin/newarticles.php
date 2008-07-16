@@ -28,7 +28,7 @@ switch ( strtolower( $op ) ) {
 
         $tags = array();
         $tags['ARTICLE_NAME'] = $title;
-        $tags['ARTICLE_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $aid;
+        $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $aid;
 
         $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $cid;
         if ( !$result = $xoopsDB -> query( $sql ) ) {
@@ -36,7 +36,7 @@ switch ( strtolower( $op ) ) {
         } else {
             $row = $xoopsDB -> fetchArray( $result );
             $tags['CATEGORY_NAME'] = $row['title'];
-            $tags['CATEGORY_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
+            $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
             $notification_handler = &xoops_gethandler( 'notification' );
             $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
             $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );

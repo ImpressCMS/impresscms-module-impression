@@ -37,22 +37,22 @@ $headlines['introtext'] = $impressionmyts -> displayTarea( $headline_arr['introt
 $headlines['submitter'] = xoops_getLinkedUnameFromId( $headline_arr['submitter'] );
 
 $headlines['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
-$headlines['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $headline_arr['cid'] . '&aid=' . $headline_arr['aid'] );
+$headlines['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $headline_arr['cid'] . '&aid=' . $headline_arr['aid'] );
 $headlines['isadmin'] = ( ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) && $xoopsUser -> isAdmin( $xoopsModule -> mid() ) ) ? true : false;
 //$headlines['comments'] = $headline_arr['comments'];
 
 $headlines['adminarticle'] = '';
 if ( $headlines['isadmin'] == true  )
 {
-    $headlines['adminarticle'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/computer.png" alt="' . _MD_IMPRESSION_ADMINSECTION . '" title="' . _MD_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>&nbsp;';
-    $headlines['adminarticle'] .= '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=edit&amp;aid=' . $headline_arr['aid'] . '"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_edit.png" alt="' . _MD_IMPRESSION_EDIT . '" title="' . _MD_IMPRESSION_EDIT . '" align="absmiddle"/></a>&nbsp;';
-    $headlines['adminarticle'] .= '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=delete&amp;aid=' . $headline_arr['aid'] . '"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_delete.png" alt="' . _MD_IMPRESSION_DELETE . '" title="' . _MD_IMPRESSION_DELETE . '" align="absmiddle"/></a>';
+    $headlines['adminarticle'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/computer.png" alt="' . _MD_IMPRESSION_ADMINSECTION . '" title="' . _MD_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>&nbsp;';
+    $headlines['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=edit&amp;aid=' . $headline_arr['aid'] . '"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_edit.png" alt="' . _MD_IMPRESSION_EDIT . '" title="' . _MD_IMPRESSION_EDIT . '" align="absmiddle"/></a>&nbsp;';
+    $headlines['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=delete&amp;aid=' . $headline_arr['aid'] . '"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_delete.png" alt="' . _MD_IMPRESSION_DELETE . '" title="' . _MD_IMPRESSION_DELETE . '" align="absmiddle"/></a>';
 
 } 
 else
 {
-    $headlines['adminarticle'] = '[ <a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;aid=' . $headline_arr['aid'] . '&approve=1">' . _MD_IMPRESSION_APPROVE . '</a> | ';
-    $headlines['adminarticle'] .= '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;aid=' . $headline_arr['aid'] . '">' . _MD_IMPRESSION_DELETE . '</a> ]';
+    $headlines['adminarticle'] = '[ <a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;aid=' . $headline_arr['aid'] . '&approve=1">' . _MD_IMPRESSION_APPROVE . '</a> | ';
+    $headlines['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;aid=' . $headline_arr['aid'] . '">' . _MD_IMPRESSION_DELETE . '</a> ]';
 } 
 
 
@@ -62,8 +62,8 @@ $headlines['icons'] = impression_displayicons( $headline_arr['published'], $head
 $headlines['screen_shot'] = $xoopsModuleConfig['screenshot'];
 $headlines['total_chars'] = $xoopsModuleConfig['totalchars'];
 $headlines['dirname'] = $xoopsModule -> getVar( 'dirname' );
-$headlines['readarticle'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $headline_arr['cid'] . '&amp;aid=' . $headline_arr['aid'] . '">' . $headline_arr['title'] . ' </a>';
-$headlines['readmore'] = '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $headline_arr['cid'] . '&amp;aid=' . $headline_arr['aid'] . '">' . _MD_IMPRESSION_READMORE . ' </a>';
+$headlines['readarticle'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $headline_arr['cid'] . '&amp;aid=' . $headline_arr['aid'] . '">' . $headline_arr['title'] . ' </a>';
+$headlines['readmore'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $headline_arr['cid'] . '&amp;aid=' . $headline_arr['aid'] . '">' . _MD_IMPRESSION_READMORE . ' </a>';
 //$headlines['comment_rules'] = $xoopsModuleConfig['com_rule'];
 
 ?>

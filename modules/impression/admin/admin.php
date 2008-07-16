@@ -28,7 +28,6 @@
 // URL: http://www.myweb.ne.jp/, http://www.xoops.org/, http://jp.xoops.org/ //
 // Project: The XOOPS Project                                                //
 // ------------------------------------------------------------------------- //
-$admin_mydirname = basename( dirname( dirname( __FILE__ ) ) ) ;
 
 $fct = empty( $_REQUEST['fct'] ) ? '' : trim( $_REQUEST['fct'] ) ;
 if ( empty( $fct ) ) $fct = 'preferences' ;
@@ -47,12 +46,12 @@ $admintest = 0;
 if ( is_object( $xoopsUser ) ) {
     $xoopsModule = &XoopsModule :: getByDirname( "system" );
     if ( !$xoopsUser -> isAdmin( $xoopsModule -> mid() ) ) {
-        redirect_header( XOOPS_URL . '/user.php', 3, _NOPERM );
+        redirect_header( ICMS_URL . '/user.php', 3, _NOPERM );
         exit();
     } 
     $admintest = 1;
 } else {
-    redirect_header( XOOPS_URL . '/user.php', 3, _NOPERM );
+    redirect_header( ICMS_URL . '/user.php', 3, _NOPERM );
     exit();
 } 
 // include system category definitions
@@ -130,7 +129,7 @@ if ( false != $error ) {
                 $category = isset( $modversion['category'] ) ? intval( $modversion['category'] ) : 0;
                 if ( false != $all_ok || in_array( $modversion['category'], $ok_syscats ) ) {
                     echo "<td class='$class' style='text-align: center;' valign='bottom' width='19%'>";
-                    echo "<a href='" . XOOPS_URL . "/modules/system/admin.php?fct=" . $file . "'><b>" . trim( $modversion['name'] ) . "</b></a>\n";
+                    echo "<a href='" . ICMS_URL . "/modules/system/admin.php?fct=" . $file . "'><b>" . trim( $modversion['name'] ) . "</b></a>\n";
                     echo "</td>";
                     $counter++;
                     $class = ( $class == 'even' ) ? 'odd' : 'even';

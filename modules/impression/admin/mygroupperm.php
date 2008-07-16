@@ -24,13 +24,13 @@ function myDeleteByModule($DB, $gperm_modid, $gperm_name = null, $gperm_itemid =
 $modid = isset($_POST['modid']) ? intval($_POST['modid']) : 1;
 // we dont want system module permissions to be changed here ( 1 -> 0 GIJ)
 if ($modid <= 0 || !is_object($xoopsUser) || !$xoopsUser->isAdmin($modid)) {
-	redirect_header(XOOPS_URL.'/user.php', 1, _NOPERM);
+	redirect_header(ICMS_URL.'/user.php', 1, _NOPERM);
 	exit();
 }
 $module_handler =& xoops_gethandler('module');
 $module =& $module_handler->get($modid);
 if (!is_object($module) || !$module->getVar('isactive')) {
-	redirect_header(XOOPS_URL.'/admin.php', 1, _MODULENOEXIST);
+	redirect_header(ICMS_URL.'/admin.php', 1, _MODULENOEXIST);
 	exit();
 }
 $member_handler =& xoops_gethandler('member');
@@ -80,11 +80,11 @@ if (is_array($_POST['perms']) && !empty($_POST['perms'])) {
 	}
 }
 /*
-$backlink = XOOPS_URL.'/admin.php';
+$backlink = ICMS_URL.'/admin.php';
 if ($module->getVar('hasadmin')) {
 	$adminindex = $module->getInfo('adminindex');
 	if ($adminindex) {
-		$backlink = XOOPS_URL.'/modules/'.$module->getVar('dirname').'/'.$adminindex;
+		$backlink = ICMS_URL.'/modules/'.$module->getVar('dirname').'/'.$adminindex;
 	}
 }
 
