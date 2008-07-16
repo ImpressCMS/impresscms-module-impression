@@ -32,7 +32,7 @@ function impression_notify_iteminfo($category, $item_id) {
 		}
 		$result_array = $xoopsDB -> fetchArray($result);
 		$item['name'] = $result_array['title'];
-		$item['url'] = XOOPS_URL . '/modules/' . $mydirname . '/catview.php?cid=' . $item_id;
+		$item['url'] = ICMS_URL . '/modules/' . $mydirname . '/catview.php?cid=' . $item_id;
 		return $item;
 	}
 
@@ -44,7 +44,7 @@ function impression_notify_iteminfo($category, $item_id) {
 		}
 		$result_array = $xoopsDB -> fetchArray($result);
 		$item['name'] = $result_array['title'];
-		$item['url'] = XOOPS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . $result_array['cid'] . '&amp;aid=' . $item_id;
+		$item['url'] = ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . $result_array['cid'] . '&amp;aid=' . $item_id;
 		return $item;
 	}
 }

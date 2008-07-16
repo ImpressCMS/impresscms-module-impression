@@ -175,7 +175,7 @@ function admin_refcheck($chkref = "") {
 	} else {
 		$ref = $_SERVER['HTTP_REFERER'];
 	}
-	$cr = XOOPS_URL;
+	$cr = ICMS_URL;
 	if ( $chkref != "" ) { $cr .= $chkref; }
 	if ( strpos($ref, $cr) !== 0 ) { return false; }
 	return true;

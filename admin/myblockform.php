@@ -67,7 +67,7 @@ $form -> addElement($mod_select);
 $form -> addElement(new XoopsFormText(_AM_TITLE, 'btitle', 50, 255, $block['title']), false);
 if ( $block['is_custom'] ) {
 	$textarea = new XoopsFormDhtmlTextArea(_AM_CONTENT, 'bcontent', $block['content'], 15, 70);
-	$textarea -> setDescription('<span style="font-size:x-small;font-weight:bold;">'._AM_USEFULTAGS.'</span><br /><span style="font-size:x-small;font-weight:normal;">'.sprintf(_AM_BLOCKTAG1, '{X_SITEURL}', XOOPS_URL.'/').'</span>');
+	$textarea -> setDescription('<span style="font-size:x-small;font-weight:bold;">'._AM_USEFULTAGS.'</span><br /><span style="font-size:x-small;font-weight:normal;">'.sprintf(_AM_BLOCKTAG1, '{X_SITEURL}', ICMS_URL.'/').'</span>');
 	$form -> addElement($textarea, true);
 	$ctype_select = new XoopsFormSelect(_AM_CTYPE, 'bctype', $block['ctype']);
 	$ctype_select -> addOptionArray(array('H' => _AM_HTML, 'P' => _AM_PHP, 'S' => _AM_AFWSMILE, 'T' => _AM_AFNOSMILE));
@@ -77,11 +77,11 @@ if ( $block['is_custom'] ) {
 		$tplfile_handler =& xoops_gethandler('tplfile');
 		$btemplate =& $tplfile_handler -> find($GLOBALS['xoopsConfig']['template_set'], 'block', $block['bid']);
 		if (count($btemplate) > 0) {
-			$form -> addElement(new XoopsFormLabel(_AM_CONTENT, '<a href="'.XOOPS_URL.'/modules/system/admin.php?fct=tplsets&op=edittpl&id='.$btemplate[0] -> getVar('tpl_id').'">'._AM_EDITTPL.'</a>'));
+			$form -> addElement(new XoopsFormLabel(_AM_CONTENT, '<a href="'.ICMS_URL.'/modules/system/admin.php?fct=tplsets&op=edittpl&id='.$btemplate[0] -> getVar('tpl_id').'">'._AM_EDITTPL.'</a>'));
 		} else {
 			$btemplate2 =& $tplfile_handler -> find('default', 'block', $block['bid']);
 			if (count($btemplate2) > 0) {
-				$form -> addElement(new XoopsFormLabel(_AM_CONTENT, '<a href="'.XOOPS_URL.'/modules/system/admin.php?fct=tplsets&op=edittpl&id='.$btemplate2[0] -> getVar('tpl_id').'" target="_blank">'._AM_EDITTPL.'</a>'));
+				$form -> addElement(new XoopsFormLabel(_AM_CONTENT, '<a href="'.ICMS_URL.'/modules/system/admin.php?fct=tplsets&op=edittpl&id='.$btemplate2[0] -> getVar('tpl_id').'" target="_blank">'._AM_EDITTPL.'</a>'));
 			}
 		}
 	}
@@ -102,6 +102,6 @@ $button_tray = new XoopsFormElementTray('', '&nbsp;');
 if ($block['is_custom']) {
 	$button_tray -> addElement(new XoopsFormButton('', 'previewblock', _PREVIEW, "submit"));
 }
-$button_tray -> addElement(new XoopsFormButton('', 'submitblock', $block['submit_button'], "submit"));
+$button_tray->addElement ( new XoopsFormButton ( '', 'submitblock', _SUBMIT, "submit" ) );
 $form -> addElement($button_tray);
 ?>

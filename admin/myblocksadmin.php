@@ -24,7 +24,7 @@ foreach( $group_defs as $def ) {
     if ( strstr( $def , '_AM_ACCESSRIGHTS' ) || strstr( $def , '_AM_ACTIVERIGHTS' ) ) eval( $def );
 } 
 // check $xoopsModule
-if ( ! is_object( $xoopsModule ) ) redirect_header( XOOPS_URL . '/user.php' , 1 , _NOPERM );
+if ( ! is_object( $xoopsModule ) ) redirect_header( ICMS_URL . '/user.php' , 1 , _NOPERM );
 // set target_module if specified by $_GET['dirname']
 $module_handler = &xoops_gethandler( 'module' );
 if ( ! empty( $_GET['dirname'] ) ) {
@@ -47,7 +47,7 @@ if ( ! empty( $target_module ) && is_object( $target_module ) ) {
 } 
 // check access right (needs system_admin of BLOCK)
 $sysperm_handler = &xoops_gethandler( 'groupperm' );
-if ( !$sysperm_handler -> checkRight( 'system_admin', XOOPS_SYSTEM_BLOCK, $xoopsUser -> getGroups() ) ) redirect_header( XOOPS_URL . '/user.php' , 1 , _NOPERM ) ;
+if ( !$sysperm_handler -> checkRight( 'system_admin', XOOPS_SYSTEM_BLOCK, $xoopsUser -> getGroups() ) ) redirect_header( ICMS_URL . '/user.php' , 1 , _NOPERM ) ;
 // get blocks owned by the module (Imported from xoopsblock.php then modified)
 // $block_arr =& XoopsBlock::getByModule( $target_mid ) ;
 $db = &XoopsDatabaseFactory :: getdatabaseconnection();
@@ -291,11 +291,11 @@ function list_blocks() {
 
     if ( ! empty( $_POST['submit'] ) ) {
         if ( ! $xoopsGTicket -> check() ) {
-            redirect_header( XOOPS_URL . '/', 3, $xoopsGTicket -> getErrors() );
+            redirect_header( ICMS_URL . '/', 3, $xoopsGTicket -> getErrors() );
         } 
 
         include( "mygroupperm.php" ) ;
-        redirect_header( XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/admin/myblocksadmin.php$query4redirect" , 1 , _MD_AM_DBUPDATED );
+        redirect_header( ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/admin/myblocksadmin.php$query4redirect" , 1 , _MD_AM_DBUPDATED );
     } 
 
     include ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/functions.php';

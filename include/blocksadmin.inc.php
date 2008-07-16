@@ -49,7 +49,7 @@ if ( isset($_GET['op']) ) {
 
 if (isset($_POST['previewblock'])) {
   if ( ! $xoopsGTicket->check() ) {
-    redirect_header(XOOPS_URL.'/',3,$xoopsGTicket->getErrors());
+    redirect_header(ICMS_URL.'/',3,$xoopsGTicket->getErrors());
   }
 
   if( empty( $bid ) ) die( 'Invalid bid.' ) ;
@@ -122,7 +122,7 @@ if (isset($_POST['previewblock'])) {
 
 if ( $op == 'order' ) {
   if ( ! $xoopsGTicket->check() ) {
-    redirect_header(XOOPS_URL.'/',3,$xoopsGTicket->getErrors());
+    redirect_header(ICMS_URL.'/',3,$xoopsGTicket->getErrors());
   }
   if ( !empty($_POST['side']) ) { $side = $_POST['side']; }
   if ( !empty($_POST['visible']) ) { $visible = $_POST['visible']; }
@@ -148,7 +148,7 @@ if ( $op == 'order' ) {
 
 if ( $op == 'update' ) {
   if ( ! $xoopsGTicket->check() ) {
-    redirect_header(XOOPS_URL.'/',3,$xoopsGTicket->getErrors());
+    redirect_header(ICMS_URL.'/',3,$xoopsGTicket->getErrors());
   }
 	$bcachetime = isset($_POST['bcachetime']) ? intval($_POST['bcachetime']) : 0;
 	$options = isset($_POST['options']) ? $_POST['options'] : array();
@@ -162,7 +162,7 @@ if ( $op == 'update' ) {
 
 if ( $op == 'delete_ok' ) {
   if ( ! $xoopsGTicket->check() ) {
-    redirect_header(XOOPS_URL.'/',3,$xoopsGTicket->getErrors());
+    redirect_header(ICMS_URL.'/',3,$xoopsGTicket->getErrors());
   }
   // delete_block_ok($bid); GIJ imported from blocksadmin.php
 		$myblock = new XoopsBlock($bid);
@@ -255,7 +255,7 @@ if ($op == 'clone') {
 if ($op == 'clone_ok') {
 	// Ticket Check
 	if ( ! $xoopsGTicket->check() ) {
-		redirect_header(XOOPS_URL.'/',3,$xoopsGTicket->getErrors());
+		redirect_header(ICMS_URL.'/',3,$xoopsGTicket->getErrors());
 	}
 
 	$block = new XoopsBlock($bid);

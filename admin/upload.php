@@ -81,7 +81,7 @@ switch ( strtolower($op) )
         if ( $rootpath > 0 )
         {
             echo "<div><b>" . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . "</b> " . ICMS_ROOT_PATH . "/" . $dirarray[$rootpath] . "</div>\n";
-            echo "<div><b>" . _AM_IMPRESSION_ARTICLE_FUPLOADURL . "</b> " . XOOPS_URL . "/" . $dirarray[$rootpath] . "</div><br />\n";
+            echo "<div><b>" . _AM_IMPRESSION_ARTICLE_FUPLOADURL . "</b> " . ICMS_URL . "/" . $dirarray[$rootpath] . "</div><br />\n";
         } 
         $pathlist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
         $namelist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
@@ -99,16 +99,16 @@ switch ( strtolower($op) )
             $graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . $dirarray[$rootpath], $type = "images" );
             $indeximage_select = new XoopsFormSelect( '', 'articlefile', '' );
             $indeximage_select -> addOptionArray( $graph_array );
-            $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"articlefile\", \"" . $dirarray[$rootpath] . "\", \"\", \"" . XOOPS_URL . "\")'" );
+            $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"articlefile\", \"" . $dirarray[$rootpath] . "\", \"\", \"" . ICMS_URL . "\")'" );
             $indeximage_tray = new XoopsFormElementTray( _AM_IMPRESSION_ARTICLE_FSHOWSELECTEDIMAGE, '&nbsp;' );
             $indeximage_tray -> addElement( $indeximage_select );
             if ( !empty( $imgurl ) )
             {
-                $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . XOOPS_URL . "/" . $dirarray[$rootpath] . "/" . $articlefile . "' name='image' id='image' alt='' />" ) );
+                $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/" . $dirarray[$rootpath] . "/" . $articlefile . "' name='image' id='image' alt='' />" ) );
             }
             else
             {
-                $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . XOOPS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
+                $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
             }
             $iform -> addElement( $indeximage_tray );
 

@@ -15,7 +15,7 @@ $versioninfo = &$module_handler -> get( $xoopsModule -> getVar( 'mid' ) );
 
 impression_adminmenu( _AM_IMPRESSION_MARTICLES );
 // Left headings...
-echo "<img src='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar('dirname') . "/" . $versioninfo -> getInfo( 'image' ) . "' alt='' hspace='10' vspace='0' /></a>\n
+echo "<img src='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar('dirname') . "/" . $versioninfo -> getInfo( 'image' ) . "' alt='' hspace='10' vspace='0' /></a>\n
 <div style='margin-top: 10px; color: #33538e; margin-bottom: 4px; font-size: 18px; line-height: 18px; font-weight: bold; display: block;'>" . $versioninfo -> getInfo( 'name' ) . " version " . $versioninfo -> getInfo( 'version' ) . "</div>\n
 
 <div>\n";

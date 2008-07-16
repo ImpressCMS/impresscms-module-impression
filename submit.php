@@ -67,20 +67,20 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
             $tags = array();
             $tags['ARTICLE_NAME'] = $title;
-            $tags['ARTICLE_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $newid;
+            $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $newid;
             
             $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $cid;
             $result = $xoopsDB -> query( $sql );
             $row = $xoopsDB -> fetchArray( $result );
 
             $tags['CATEGORY_NAME'] = $row['title'];
-            $tags['CATEGORY_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
+            $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
             if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
                 $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
                 $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );
                 redirect_header( 'index.php', 2, _MD_IMPRESSION_ISAPPROVED );
             } else {
-                $tags['WAITINGFILES_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/newarticles.php';
+                $tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/newarticles.php';
                 $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
                 $notification_handler -> triggerEvent( 'category', $cid, 'article_submit', $tags );
                 if ( $notifypub ) {
@@ -101,12 +101,12 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 $notification_handler = &xoops_gethandler( 'notification' );
                 $tags = array();
                 $tags['ARTICLE_NAME'] = $title;
-                $tags['ARTICLE_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $aid;
+                $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $aid;
                 $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $cid;
                 $result = $xoopsDB -> query( $sql );
                 $row = $xoopsDB -> fetchArray( $result );
                 $tags['CATEGORY_NAME'] = $row['title'];
-                $tags['CATEGORY_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
+                $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
 
                 $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
                 $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );
@@ -124,11 +124,11 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 } 
 
                 $tags = array();
-                $tags['MODIFYREPORTS_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=listModReq';
+                $tags['MODIFYREPORTS_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=listModReq';
                 $notification_handler = &xoops_gethandler( 'notification' );
                 $notification_handler -> triggerEvent( 'global', 0, 'article_modify', $tags );
 
-                $tags['WAITINGFILES_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=listNewarticles';
+                $tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=listNewarticles';
                 $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
                 $notification_handler -> triggerEvent( 'category', $cid, 'article_submit', $tags );
                 if ( $notifypub ) {

@@ -31,12 +31,6 @@ tr.impression_even td {
   text-align: right;
   display: block;
   padding: 2px;}
-  
-.impression_articleFooter a {
-  color: #666666;}
-  
-.impression_articleFooter a:hover {
-  color: #093A6C;}
 
 .impression_articleMain {
   display: table;
@@ -44,33 +38,26 @@ tr.impression_even td {
   padding-right:6px;
   padding-bottom: 6px;
   border-left: 1px solid #E8E6E2;
-  border-right: 1px solid #E8E6E2;}
-  
-.impression_articleMain a {
-  color: #666666;}
-  
-.impression_articleMain a:hover {
-  color: #093A6C;}
+  border-right: 1px solid #E8E6E2; }
 
 .impression_header {
   text-align: center;
   line-height: 120%;
-  padding-bottom: 12px;}
+  padding-bottom: 12px; }
 
 .impression_path {
   text-align: left;
   font-size: smaller;
   line-height: 120%; 
   padding-top: 12px; 
-  padding-bottom: 12px; 
-  }
+  padding-bottom: 12px; }
   
 .impression_singletitle {
   font-size: 16px; 
   font-weight: bold; 
   color: #72B8FF;
   background-color:#D9D9D9;
-  padding: 5px;}
+  padding: 5px; }
   
 .impression_articleloadtitle {
   text-align: left;
@@ -91,57 +78,18 @@ tr.impression_even td {
   padding: 4px; 
   background-color:#393939;
   border: 1px solid #999999; }
-  
-.impression_rating {
-  margin-left: 10px; 
-  margin-right: 10px; 
-  padding: 4px;
-  border: 1px solid #999999; }
-  
+
 .impression_background {
   text-align: left;
   font-size: 14px;
   font-weight: bold; 
   color: #ffffff;
   background-color:#393939;
-
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 4px;
   padding-right: 4px;
   vertical-align: middle; }
-  
-.impression_tablebackground {
-  background-image: url(images/mainbar.gif); }
-
-.impression_tablehdr {
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  color: #D9D9D9;
-  background-image: url(images/headbg.gif);
-  height: 18px;
-  padding-top: 1px;
-  vertical-align: middle; }
-  
-.impression_tablehdrleft {
-  font-size: 12px;
-  font-weight: bold;
-  text-align: left;
-  color: #D9D9D9;
-  background-image: url(images/headbg.gif);
-  height: 18px;
-  padding-top: 1px;
-  vertical-align: middle; }
-  
-.impression_link {
-	color: #333333;
-	text-decoration: none; 
-	font-weight: bold; 
-	background-color: transparent;}
-	
-.impression_link:hover {
-	color: #333333;}
 
 /* Bookmark tags */
 div.impression_socbookmark a img

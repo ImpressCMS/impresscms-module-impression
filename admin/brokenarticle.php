@@ -109,7 +109,7 @@ switch ( strtolower( $op ) ) {
 
                 echo "<tr style='text-align: center;'>\n";
                 echo "<td class='head'>$reportid</td>\n";
-                echo "<td class='even' style='text-align: left;'><a href='" . XOOPS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/singlearticle.php?cid=" . $cid . "&amp;aid=" . $aid . "' target='_blank'>" . $articleshowname . "</a></td>\n";
+                echo "<td class='even' style='text-align: left;'><a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/singlearticle.php?cid=" . $cid . "&amp;aid=" . $aid . "' target='_blank'>" . $articleshowname . "</a></td>\n";
 
                 if ( $email == "" ) {
                     echo "<td class='even'>$sendername ($ip)";
