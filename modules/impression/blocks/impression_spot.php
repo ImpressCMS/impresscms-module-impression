@@ -32,20 +32,19 @@ function b_impression_displayrssicons() {
 
     $icons = '<div align="center" style="padding: 2px;">';
 
-    // Display rss icon if RSSFit module is installed
-    // Plugin needs to be activated!!
+    // Display rss icons if RSSFit module is installed
+    // Plugin and sub-feed need to be activated!!
     $rss_mod = $modhandler -> getByDirName( 'rss' );
-             if ( !$rss_mod ) {
-                 $rss_mod = false;
-               } else {
-                 $icons .= '<a href="'. ICMS_URL . '/modules/rss/rss.php" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.gif" /></a>&nbsp;';
-               }
-
-    $icons .= '<a href="http://fusion.google.com/add?feedurl='. ICMS_URL . '/modules/rss/rss.php"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/google.gif" alt="'._MB_IMPRESSION_ADDGOOGLE.'" title="'._MB_IMPRESSION_ADDGOOGLE.'" border="0"></a>&nbsp;';
-    $icons .= '<a href="http://add.my.yahoo.com/rss?url='. ICMS_URL . '/modules/rss/rss.php"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.gif" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
-    $icons .= '<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url='. ICMS_URL . '/modules/rss/rss.php"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/newsgator.gif" alt="'._MB_IMPRESSION_ADDNEWSGATOR.'" title="'._MB_IMPRESSION_ADDNEWSGATOR.'" border="0"></a>&nbsp;';
-    $icons .= '<a href="http://feeds.my.aol.com/add.jsp?url='. ICMS_URL . '/modules/rss/rss.php"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/aol2.gif" alt="'._MB_IMPRESSION_ADDAOL.'" title="'._MB_IMPRESSION_ADDAOL.'" border="0"></a>&nbsp;';
-    $icons .= '<a href="http://www.live.com/?add='. ICMS_URL . '/modules/rss/rss.php"><img style="width: 92px; height: 17px;" src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/windowslive.gif" alt="'._MB_IMPRESSION_ADDMSLIVE.'" title="'._MB_IMPRESSION_ADDMSLIVE.'" border="0"></a></div>';
+    if ( !$rss_mod ) {
+      $rss_mod = false;
+    } else {
+      $icons .= '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=impression" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.gif" /></a>&nbsp;';
+      $icons .= '<a href="http://fusion.google.com/add?feedurl='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/google.gif" alt="'._MB_IMPRESSION_ADDGOOGLE.'" title="'._MB_IMPRESSION_ADDGOOGLE.'" border="0"></a>&nbsp;';
+      $icons .= '<a href="http://add.my.yahoo.com/rss?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.gif" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
+      $icons .= '<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/newsgator.gif" alt="'._MB_IMPRESSION_ADDNEWSGATOR.'" title="'._MB_IMPRESSION_ADDNEWSGATOR.'" border="0"></a>&nbsp;';
+      $icons .= '<a href="http://feeds.my.aol.com/add.jsp?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/aol2.gif" alt="'._MB_IMPRESSION_ADDAOL.'" title="'._MB_IMPRESSION_ADDAOL.'" border="0"></a>&nbsp;';
+      $icons .= '<a href="http://www.live.com/?add='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img style="width: 92px; height: 17px;" src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/windowslive.gif" alt="'._MB_IMPRESSION_ADDMSLIVE.'" title="'._MB_IMPRESSION_ADDMSLIVE.'" border="0"></a></div>';
+    }
 
     return $icons;
 }
