@@ -35,7 +35,7 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
     } 
 
     $sql = "SELECT aid, cid, title, submitter, published, introtext, description FROM " . $xoopsDB -> prefix( 'impression_articles' );
-    $sql .= " WHERE published > 0 AND published <= " . time() . " AND offline = 0 AND cid > 0";
+    $sql .= " WHERE published > 0 AND published <= " . time() . " AND status = 0 AND cid > 0";
 
     if ( $userid != 0 ) {
         $sql .= " AND submitter=" . $userid . " ";
@@ -44,10 +44,10 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
     // because count() returns 1 even if a supplied variable
     // is not an array, we must check if $querryarray is really an array
     if ( is_array( $queryarray ) && $count = count( $queryarray ) ) {
-        $sql .= " AND ((title LIKE LOWER('%$queryarray[0]%') OR LOWER(description) LIKE LOWER('%$queryarray[0]%'))";
+        $sql .= " AND ((title LIKE LOWER('%$queryarray[0]%') OR LOWER(introtext) LIKE LOWER('%$queryarray[0]%') OR LOWER(description) LIKE LOWER('%$queryarray[0]%'))";
         for( $i = 1;$i < $count;$i++ ) {
             $sql .= " $andor ";
-            $sql .= "(title LIKE LOWER('%$queryarray[$i]%') OR LOWER(description) LIKE LOWER('%$queryarray[$i]%'))";
+            $sql .= "(title LIKE LOWER('%$queryarray[$i]%') OR LOWER(introtext) LIKE LOWER('%$queryarray[$i]%') OR LOWER(description) LIKE LOWER('%$queryarray[$i]%'))";
         } 
         $sql .= ") ";
     } 
@@ -59,8 +59,8 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
 //        if ( false == impressioncheckSearchgroups( $myrow['cid'] ) ) {
 //            continue;
-//        } 
-        $ret[$i]['image'] = "images/size2.gif";
+//        }
+        $ret[$i]['image'] = "images/impression_search.png";
         $ret[$i]['link'] = "singlearticle.php?cid=" . $myrow['cid'] . "&amp;aid=" . $myrow['aid'];
         $ret[$i]['title'] = $myrow['title'];
         $ret[$i]['time'] = $myrow['published'];
