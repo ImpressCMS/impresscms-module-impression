@@ -140,6 +140,7 @@ define( "_MD_IMPRESSION_ARTICLESCAT", " articles" );
 define( "_MD_IMPRESSION_ADMINSECTION", "Administrative Section" );
 define( "_MD_IMPRESSION_ARTICLE", "Article title" );
 define( "_MD_IMPRESSION_WHO_WHEN", "Published by %s on %s" );
+define( "_MD_IMPRESSION_RANK", "Rank" );
 //define( "_MD_IMPRESSION_EDIT", "Edit article" );
 //define( "_MD_IMPRESSION_DELETE", "Delete article" );
 ?>

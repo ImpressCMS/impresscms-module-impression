@@ -111,9 +111,9 @@ if ( $cansubmit == 1 ) {
 } 
 unset( $cansubmit );
 
-//$i = 0;
-//$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME2;
-//$modversion['sub'][$i]['url'] = "topten.php?list=hit";
+
+$modversion['sub'][1]['name'] = _MI_IMPRESSION_SMNAME2;
+$modversion['sub'][1]['url'] = "topten.php?list=hit";
 
 //$i++;
 //$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME3;
@@ -138,25 +138,16 @@ $i++;
 $modversion['templates'][$i]['file'] = 'impression_index.html';
 $modversion['templates'][$i]['description'] = '';
 $i++;
-$modversion['templates'][$i]['file'] = 'impression_ratearticle.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
 $modversion['templates'][$i]['file'] = 'impression_singlearticle.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_topten.html';
 $modversion['templates'][$i]['description'] = '';
 $i++;
 $modversion['templates'][$i]['file'] = 'impression_catview.html';
 $modversion['templates'][$i]['description'] = '';
 $i++;
-$modversion['templates'][$i]['file'] = 'impression_newlistindex.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_articleloadsimple.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
 $modversion['templates'][$i]['file'] = 'impression_print.html';
+$modversion['templates'][$i]['description'] = '';
+$i++;
+$modversion['templates'][$i]['file'] = 'impression_topten.html';
 $modversion['templates'][$i]['description'] = '';
 //$i++;
 //$modversion['templates'][$i]['file'] = 'impression_headlines.html';

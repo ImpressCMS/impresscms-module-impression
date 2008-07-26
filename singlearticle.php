@@ -39,7 +39,6 @@ if ( !is_array( $article_arr ) ) {
 $xoopsOption['template_main'] = 'impression_singlearticle.html';
 
 include ICMS_ROOT_PATH . '/header.php';
-include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/sbookmarks.php';
 
 // tags support
 if (impression_tag_module_included()) {
@@ -51,12 +50,16 @@ $article['imageheader'] = impression_imageheader();
 $article['id'] = $article_arr['aid'];
 $article['cid'] = $article_arr['cid'];
 $article['submitter'] = xoops_getLinkedUnameFromId( $article_arr['submitter'] );
+
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
 $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
+
 // Recommend icon
    $article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/email.png" alt="' . _MD_IMPRESSION_TELLAFRIEND . '" title="' . _MD_IMPRESSION_TELLAFRIEND . '" align="absmiddle" /></a>';
+
 // Print icon
    $article['print'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="' . _MD_IMPRESSION_PRINT . '" title="' . _MD_IMPRESSION_PRINT . '" align="absmiddle" /></a>';
+
 // PDF icon
 // $article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="' . _MD_IMPRESSION_PDF . '" title="' . _MD_IMPRESSION_PDF . '" align="absmiddle" /></a>';
 
@@ -107,23 +110,6 @@ if ( $article['isadmin'] == false  ) {
     $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET hits=hits+1 WHERE aid=" . $aid;
     $result = $xoopsDB -> queryF( $sql );
 }
-
-// Show other author articles
-$sql = "SELECT aid, cid, title, published FROM " . $xoopsDB -> prefix( 'impression_articles' ) . "
-    WHERE submitter=" . $article_arr['submitter'] . "
-    AND aid <> " . $article_arr['aid'] . "
-    AND published > 0 AND published <= " . time() . "
-    AND status = 0 ORDER by published DESC";
-$result = $xoopsDB -> query( $sql, 10, 0 );
-
-while ( $arr = $xoopsDB -> fetchArray( $result ) ) {
-    $articleuid['title'] = $impressionmyts -> htmlSpecialCharsStrip( $arr['title'] );
-    $articleuid['aid'] = $arr['aid'];
-    $articleuid['cid'] = $arr['cid'];
-
-    $articleuid['published'] = formatTimestamp( $arr['published'], $xoopsModuleConfig['dateformat'] );
-    $xoopsTpl -> append( 'article_uid', $articleuid );
-} 
 
 $article['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
 $xoopsTpl -> assign( 'article', $article );

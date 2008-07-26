@@ -36,30 +36,31 @@ function edit( $aid = 0 ) {
     $item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
 
     xoops_cp_header();
-    impression_adminmenu( _AM_IMPRESSION_MARTICLES );
+    impression_adminmenu( "<h4>" . _AM_IMPRESSION_MARTICLES . "</h4>" );
     if ( $aid ) {
         $text_info = "
 			<table width='100%'>
 			 <tr>
 			  <td width='33%' valign='top'>
 			   <div><b>" . _AM_IMPRESSION_ARTICLE_ID . " </b>" . $aid . "</div>
-			   <div><b>" . _AM_IMPRESSION_READS . ": </b>" . $article_array['hits']. "</div>
+			   <div><b>" . _AM_IMPRESSION_READS . " </b>" . $article_array['hits']. "</div>
 
 			  </td>
-			  <td>
+			  <td width='33%' valign='top'>
 			   <div><b>" . _AM_IMPRESSION_ARTICLE_PUBLISHER . " </b>" . xoops_getLinkedUnameFromId( $article_array['submitter'] ) . "</div>
 			   <div><b>" . _AM_IMPRESSION_ARTICLE_IP . " </b>" . $ipaddress . "</div>
 			  </td>
-			  <td>
+			  <td width='33%' valign='top'>
 			   <div><b>" . _AM_IMPRESSION_MINDEX_SUBMITTED . ": </b>" . formatTimestamp( $article_array['date'], $xoopsModuleConfig['dateformatadmin'] ) . "</div>
 			   <div><b>" . _AM_IMPRESSION_DATESUB . ": </b>" . formatTimestamp( $article_array['published'], $xoopsModuleConfig['dateformatadmin'] ) . "</div>
 			  </td>
 			 </tr>
 			</table>";
         echo "
-
+                           <div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>\n
                            <div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_INFOMATION . "</div>\n
-			   <div>$text_info</div>\n
+			   <div style='font-size: smaller;'>$text_info</div>\n
+			   </div>\n
 
 			<br />\n";
     } 
@@ -82,12 +83,12 @@ function edit( $aid = 0 ) {
     ob_end_clean();
 
 // Article introtext form
-    $introeditor=impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT, 'introtextb', $introtextb, 15, 60 );
-    $sform->addElement($introeditor,false);
+    $introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT, 'introtextb', $introtextb );
+    $sform -> addElement($introeditor, false);
 
-// Article description form
-    $editor=impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb, 15, 60 );
-    $sform->addElement($editor,false);
+// Article description form 
+    $editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb );
+    $sform -> addElement($editor, false);
 
 // Meta keywords form
     $keywords = new XoopsFormTextArea( _AM_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 7, 60);
@@ -254,7 +255,7 @@ switch ( strtolower( $op ) ) {
         list( $totalarticles ) = $xoopsDB -> fetchRow( $result3 );
 
         xoops_cp_header();
-        impression_adminmenu( _AM_IMPRESSION_BINDEX );
+        impression_adminmenu( "<h4>" . _AM_IMPRESSION_BINDEX . "</h4>" );
         echo "		<fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</legend>\n
 			<div style='padding: 8px;'><small>\n
 			<a href='category.php'>" . _AM_IMPRESSION_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
@@ -268,7 +269,7 @@ switch ( strtolower( $op ) ) {
             $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0 ORDER BY aid DESC";
             $published_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
             $published_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
-            impression_articlelistheader( _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE );
+            impression_articlelistheader( "<h4>" . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . "</h4>" );
             impression_articlelistpagenavleft( $published_array_count, $start, 'art' );
             if ( $published_array_count > 0 ) {
                 while ( $published = $xoopsDB -> fetchArray( $published_array ) ) {

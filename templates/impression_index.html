@@ -3,9 +3,11 @@
 <div class="impression_header"><{$catarray.imageheader}></div>
 <{/if}> 
 <{if $catarray.indexheading != ""}> 
-<h4 style="text-align: center;"><{$catarray.indexheading}></h4>
+<h4><{$catarray.indexheading}></h4>
 <{/if}>
-<div style="padding-bottom: 12px; text-align: <{$catarray.indexheaderalign}>;"><{$catarray.indexheader}></div>
+<{if $catarray.indexheader != ""}>
+<div style="text-align: <{$catarray.indexheaderalign}>; padding-left: 8px; padding-top: 12px; padding-bottom: 12px;"><{$catarray.indexheader}></div>
+<{/if}>
 <{if count($categories) gt 0}> 
 <div class="even" style="font-weight: bold;"><{$smarty.const._MD_IMPRESSION_MAINLISTING}></div>
 
@@ -28,14 +30,21 @@
     <div style="height: 4px; border-bottom: 1px solid #D9D9D9;">&nbsp;</div>
 
    </td>
-
 </tr>
 
  <{/foreach}>
   <!-- End category loop --> 
 </table>
-
-<div style="text-align: left; font-size: smaller; padding: 8px;"><{$lang_thereare}></div>
 <{/if}>
-<div style="padding-bottom: 12px; text-align: <{$catarray.indexfooteralign}>;"><{$catarray.indexfooter}></div>
-<{include file="db:system_notification_select.html"}>
+<div style="padding: 8px;">
+  <div style="float: left; font-size: smaller;"><{$lang_thereare}></div>
+  <div style="float: right;"><{$rss_icon}></div>
+</div>
+
+
+<{if $catarray.indexfooter != ""}>
+  <div style="clear: both; float: <{$catarray.indexfooteralign}>; padding-left: 8px; padding-top: 12px; padding-bottom: 12px;">
+    <{$catarray.indexfooter}>
+  </div>
+<{/if}>
+<!-- <{include file="db:system_notification_select.html"}>  -->

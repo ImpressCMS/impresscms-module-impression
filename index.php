@@ -22,11 +22,11 @@ $catarray['indexheading'] = $impressionmyts -> displayTarea( $head_arr['indexhea
 $catarray['indexheaderalign'] = $impressionmyts -> htmlSpecialCharsStrip( $head_arr['indexheaderalign'] );
 $catarray['indexfooteralign'] = $impressionmyts -> htmlSpecialCharsStrip( $head_arr['indexfooteralign'] );
 
-$html = ( $head_arr['nohtml'] ) ? 0 : 1;
-$smiley = ( $head_arr['nosmiley'] ) ? 0 : 1;
-$xcodes = ( $head_arr['noxcodes'] ) ? 0 : 1;
-$images = ( $head_arr['noimages'] ) ? 0 : 1;
-$breaks = ( $head_arr['nobreak'] ) ? 1 : 0;
+//$html = ( $head_arr['nohtml'] ) ? 0 : 1;
+//$smiley = ( $head_arr['nosmiley'] ) ? 0 : 1;
+//$xcodes = ( $head_arr['noxcodes'] ) ? 0 : 1;
+//$images = ( $head_arr['noimages'] ) ? 0 : 1;
+//$breaks = ( $head_arr['nobreak'] ) ? 1 : 0;
 
 $catarray['indexheader'] = $head_arr['indexheader'];
 $catarray['indexfooter'] = $head_arr['indexfooter'];
@@ -77,7 +77,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
                     $space++;
                     $chcount++;
                 } 
-            } 
+            }
         } 
 
         $_image = ( $myrow['imgurl'] ) ? urldecode( $myrow['imgurl'] ) : "";
@@ -111,7 +111,18 @@ switch ( $total_cat ) {
         $lang_thereare = _MD_IMPRESSION_THEREARE;
         break;
 }
+
+$modhandler = xoops_gethandler( 'module' );
+$rss_mod = $modhandler -> getByDirName( 'rss' );
+    if ( !$rss_mod ) {
+      $rss_icon = '';
+      $rss_mod = false;
+    } else {
+      $xoopsTpl -> assign( 'rss_icon', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=impression" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>' );
+    }
+
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
+//$xoopsTpl -> assign( 'rss_icon', $rss_icon );
 $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
  
 include ICMS_ROOT_PATH . '/footer.php';
