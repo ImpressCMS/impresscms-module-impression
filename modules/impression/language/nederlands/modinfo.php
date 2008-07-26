@@ -19,6 +19,9 @@ define("_MI_IMPRESSION_BNEW", "Recente koppen");
 
 // Sub menu titles
 define("_MI_IMPRESSION_SMNAME1", "Inzenden");
+define("_MI_IMPRESSION_SMNAME2","Populair");
+define("_MI_IMPRESSION_SMNAME3","Top Rated");
+define("_MI_IMPRESSION_SMNAME4","Latest Listings");
 
 // Names of admin menu items
 define("_MI_IMPRESSION_BINDEX", "Hoofd index");
