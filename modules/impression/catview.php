@@ -157,11 +157,11 @@ if ( $selectdate ) {
                                     . " AND (b.cid=a.cid OR (a.cid=" . intval($cid) . " OR b.cid=" . intval($cid) . "))";
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
     $order = impression_convertorderbyout($orderby);
-    $list_by = "cid=$cid&orderby=$order";
+    $list_by = "cid=" . intval($cid) . "&orderby=$order";
 }
 $pagenav = new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start', $list_by );
 
-// Show links
+// Show articles
 if ( $count > 0 ) {
     $moderate = 0;
     while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
