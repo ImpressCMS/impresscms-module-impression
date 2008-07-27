@@ -71,7 +71,7 @@ tr.impression_even td {
   padding: 4px; 
   background-color:#393939; 
   border: 1px solid #999999; }
-  
+
 .impression_description {
   margin-left: 10px;
   margin-right: 10px;
@@ -92,17 +92,18 @@ tr.impression_even td {
   vertical-align: middle; }
 
 /* Bookmark tags */
-div.impression_socbookmark a img
-	{
-	opacity: .4;
-	-moz-opacity: .4;
-	filter: alpha(opacity=40);
-	}
-div.impression_socbookmark a:hover img
-	{
-	opacity: 1;
-	-moz-opacity: 1;
-	filter: alpha(opacity=100);
-	}
+div.impression_socbookmark {
+  text-align: center; }
+
+div.impression_socbookmark a img {
+  opacity: .4;
+  -moz-opacity: .4;
+  filter: alpha(opacity=40); }
+
+div.impression_socbookmark a:hover img {
+  opacity: 1;
+  -moz-opacity: 1;
+  filter: alpha(opacity=100); }
 
 /* end bd */
+

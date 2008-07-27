@@ -827,9 +827,9 @@ function impression_tag_module_included() {
 		$modules_handler = xoops_gethandler( 'module' );
 		$tag_mod = $modules_handler -> getByDirName( 'tag' );
 		if ( !$tag_mod ) {
-			$tag_mod = false;
+                  $tag_mod = false;
 		} else {
-			$impression_tag_module_included = $tag_mod -> getVar( 'isactive' ) == 1;
+                  $impression_tag_module_included = $tag_mod -> getVar( 'isactive' ) == 1;
 		}
 	}
 	return $impression_tag_module_included;

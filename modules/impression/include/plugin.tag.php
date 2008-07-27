@@ -10,9 +10,9 @@
  * @package		module::tag
  */
 
-//if (!defined("ICMS_ROOT_PATH")) {
-//	die("XOOPS root path not defined");
-//}
+if (!defined("XOOPS_ROOT_PATH")) {
+	die("ICMS root path not defined");
+}
 
 /**
  * Get item fields:
@@ -34,7 +34,7 @@
 
 function impression_tag_iteminfo(&$items) {
   
-    $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
+    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
 
     if (empty($items) || !is_array($items)) {
         return false; 
@@ -56,7 +56,7 @@ function impression_tag_iteminfo(&$items) {
 
     foreach (array_keys($items) as $cat_id) {
         foreach (array_keys($items[$cat_id]) as $item_id) {
-            $sql = "SELECT l.aid, l.cid as lcid, l.title as ltitle, l.published, l.submitter, l.introtext, l.item_tag FROM " . $xoopsDB -> prefix('impression_articles') . " l, " . $xoopsDB -> prefix('impression_cat') . " c WHERE l.aid=".$item_id." AND l.cid=c.cid AND l.status=0 ORDER BY l.published DESC";
+            $sql = "SELECT l.aid, l.cid as lcid, l.title as ltitle, l.published, l.submitter, l.introtext, l.item_tag FROM " . $xoopsDB -> prefix('impression_articles') . " l, " . $xoopsDB -> prefix('impression_cat') . " c WHERE l.aid=" . $item_id . " AND l.cid=c.cid AND l.status=0 ORDER BY l.published DESC";
             $result = $xoopsDB -> query($sql);
             $row = $xoopsDB -> fetchArray($result);
             $lcid = $row['lcid'];
