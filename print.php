@@ -48,12 +48,12 @@ $xoopsTpl->assign('printheader', $item['printheader']);
 $xoopsTpl->assign('lang_category', _MD_IMPRESSION_CATEGORY);
 $xoopsTpl->assign('lang_author_date', $item['who_where']);
 $xoopsTpl->assign('item', $item);
-if($xoopsModuleConfig['footerprint']== 'item footer' || $xoopsModuleConfig['footerprint']== 'both'){
+//if($xoopsModuleConfig['footerprint']== 'item footer' || $xoopsModuleConfig['footerprint']== 'both'){
 	$xoopsTpl->assign('itemfooter', $myts->displayTarea( $xoopsModuleConfig['itemfooter']));
-}
-if($xoopsModuleConfig['footerprint']== 'index footer' || $xoopsModuleConfig['footerprint']== 'both'){
-	$xoopsTpl->assign('indexfooter', $myts->displayTarea( $xoopsModuleConfig['indexfooter']));
-}
+//}
+//if($xoopsModuleConfig['footerprint']== 'index footer' || $xoopsModuleConfig['footerprint']== 'both'){
+//	$xoopsTpl->assign('indexfooter', $myts->displayTarea( $xoopsModuleConfig['indexfooter']));
+//}
 
 //$xoopsTpl->assign('display_whowhen_link', $xoopsModuleConfig['display_whowhen_link']);
 

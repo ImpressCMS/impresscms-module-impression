@@ -42,7 +42,7 @@ function b_impression_displayrssicons() {
       // Google
       $icons .= '<a href="http://fusion.google.com/add?feedurl='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/google.png" alt="'._MB_IMPRESSION_ADDGOOGLE.'" title="'._MB_IMPRESSION_ADDGOOGLE.'" border="0"></a>&nbsp;';
       // Yahoo
-      $icons .= '<a href="http://add.my.yahoo.com/rss?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.gif" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
+      $icons .= '<a href="http://add.my.yahoo.com/rss?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.png" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
       // NewsGator
       $icons .= '<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/newsgator.png" alt="'._MB_IMPRESSION_ADDNEWSGATOR.'" title="'._MB_IMPRESSION_ADDNEWSGATOR.'" border="0"></a>&nbsp;';
       // AOL
