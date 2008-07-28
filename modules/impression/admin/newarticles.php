@@ -105,9 +105,9 @@ switch ( strtolower( $op ) ) {
         echo "</table>\n";
 
         include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-        $page = ( $new_array_count > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
+//        $page = ( $new_array_count > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
         $pagenav = new XoopsPageNav( $new_array_count, $xoopsModuleConfig['admin_perpage'], $start, 'start' );
-        echo '<div align="right" style="padding: 8px;">' . $page . '' . $pagenav -> renderNav() . '</div>';
+        echo '<div align="right" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
         xoops_cp_footer();
         break;
 } 

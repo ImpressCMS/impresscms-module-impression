@@ -168,9 +168,9 @@ switch ( strtolower( $op ) ) {
         echo "</table>\n";
 
         include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-        $page = ( $totalmodrequests > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
+//        $page = ( $totalmodrequests > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
         $pagenav = new XoopsPageNav( $totalmodrequests, $xoopsModuleConfig['admin_perpage'], $start, 'start' );
-        echo "<div style='text-align: right; padding: 8px;'>" . $page . '' . $pagenav -> renderNav() . '</div>';
+        echo "<div style='text-align: right; padding: 8px;'>" . $pagenav -> renderNav() . '</div>';
         xoops_cp_footer();
 } 
 
