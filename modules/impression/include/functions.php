@@ -653,10 +653,10 @@ function impression_articlelistpagenav( $pubrowamount, $start, $art = "art", $_t
     } 
     // Display Page Nav if published is > total display pages amount.
     include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-    $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
+//    $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
               //new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start', $list_by );
     $pagenav = new XoopsPageNav( $pubrowamount, $xoopsModuleConfig['admin_perpage'], $start, 'st' . $art, $_this );
-    echo '<div align="right" style="padding: 8px;">' . $page . '' . $pagenav -> renderNav() . '</div>';
+    echo '<div align="right" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
 }
 
 function impression_articlelistpagenavleft( $pubrowamount, $start, $art = "art", $_this='' ) {
@@ -666,9 +666,9 @@ function impression_articlelistpagenavleft( $pubrowamount, $start, $art = "art",
     } 
     // Display Page Nav if published is > total display pages amount.
     include_once ICMS_ROOT_PATH . '/class/pagenav.php';
-    $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
+//    $page = ( $pubrowamount > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
     $pagenav = new XoopsPageNav( $pubrowamount, $xoopsModuleConfig['admin_perpage'], $start, 'st' . $art, $_this );
-    echo '<div align="left" style="padding: 8px;">' . $page . '' . $pagenav -> renderNav() . '</div>';
+    echo '<div align="left" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
 }
 
 // Retreive an editor according to the module's option "form_options"
