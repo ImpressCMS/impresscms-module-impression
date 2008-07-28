@@ -64,7 +64,7 @@ function edit( $aid = 0 ) {
 
 			<br />\n";
     } 
-    unset( $_vote_data );
+    
     $caption = ( $aid ) ? _AM_IMPRESSION_ARTICLE_MODIFYFILE : _AM_IMPRESSION_ARTICLE_CREATENEWFILE;
     $sform = new XoopsThemeForm( $caption, "storyform", xoops_getenv( 'PHP_SELF' ) );
     $sform -> setExtra( 'enctype="multipart / form - data"' );

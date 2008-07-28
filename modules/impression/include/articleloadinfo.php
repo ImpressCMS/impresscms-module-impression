@@ -45,7 +45,7 @@ if ( $article['isadmin'] == true && $moderate == 0 ) {
 if ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) {
     $article['useradminarticle'] = 0;
     $_user_submitter = ( $xoopsUser -> getvar( 'uid' ) == $article_arr['submitter'] ) ? true : false;
-    if ( true == checkgroups( $cid ) ) {
+    if ( true == impression_checkgroups( $cid ) ) {
         $article['useradminarticle'] = 1;
     } 
 } 

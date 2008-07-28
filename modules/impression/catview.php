@@ -16,7 +16,7 @@ $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $arr = $mytree -> getFirstChild( $cid, $catsort );
 
 if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
-    if ( false == checkgroups( $cid ) ) {
+    if ( false == impression_checkgroups( $cid ) ) {
         redirect_header( "index.php", 1, _MD_IMPRESSION_MUSTREGFIRST );
         exit();
     } 
@@ -41,7 +41,7 @@ $xoopsTpl -> assign( 'category_id', $cid );
 if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
     $scount = 1;
     foreach( $arr as $ele ) {
-        if ( checkgroups( $ele['cid'] ) == false ) {
+        if ( impression_checkgroups( $ele['cid'] ) == false ) {
             continue;
         } 
         $sub_arr = array();
@@ -55,7 +55,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
             $hassubitems = impression_getTotalItems( $sub_ele['cid'] );
 
             // Filter group permissions
-            if ( true == checkgroups( $sub_ele['cid'] ) ) {
+            if ( true == impression_checkgroups( $sub_ele['cid'] ) ) {
 
                 // If subcategory count > 5 then finish adding subcats to $infercategories and end
                 if ( $chcount > 5 ) {

@@ -25,7 +25,7 @@ $result = $xoopsDB -> query( "SELECT cid, title, pid FROM " . $xoopsDB -> prefix
 
 $e = 0;
 while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
-    if ( true == checkgroups( $cid ) ) {
+    if ( true == impression_checkgroups( $cid ) ) {
         $query = "SELECT aid, cid, title, hits FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status = 0 AND (cid=" . intval($cid);
         $arr = $mytree -> getAllChildId( $cid );
         for( $i = 0;$i < count( $arr );$i++ ) {

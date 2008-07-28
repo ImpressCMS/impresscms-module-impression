@@ -29,7 +29,7 @@ function &impression_gethandler( $name, $optional = false ) {
     return isset( $handlers[$name] ) ? $handlers[$name] : false;
 } 
 
-function checkgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
+function impression_checkgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
     global $xoopsUser, $xoopsModule;
 
     $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
@@ -91,7 +91,7 @@ function impression_cleanRequestVars( &$array, $name = null, $def = null, $stric
 // toolbar()
 function impression_toolbar( $cid = 0 ) {
     $toolbar = "[ ";
-    if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
+    if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $toolbar .= "<a href='submit.php?cid=" . $cid . "'>" . _MD_IMPRESSION_SUBMITARTICLE . "</a> | ";
     } 
     $toolbar .= "<a href='newlist.php?newarticleshowdays=7'>" . _MD_IMPRESSION_LATESTLIST . "</a> | <a href='topten.php?list=hit'>" . _MD_IMPRESSION_POPULARITY . "</a> ]";
@@ -230,7 +230,7 @@ function impression_totalcategory( $pid = 0 ) {
     $result = $xoopsDB -> query( $sql );
     $catlisting = 0;
     while ( list( $cid ) = $xoopsDB -> fetchRow( $result ) ) {
-        if ( checkgroups( $cid ) ) {
+        if ( impression_checkgroups( $cid ) ) {
             $catlisting++;
         } 
     } 
@@ -265,7 +265,7 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
     $arr = array();
     $result = $xoopsDB -> query( $sql );
     while ( list( $aid, $cid, $published ) = $xoopsDB -> fetchRow( $result ) ) {
-        if ( true == checkgroups() ) {
+        if ( true == impression_checkgroups() ) {
             $count++;
             $published_date = ( $published > $published_date ) ? $published : $published_date;
         } 
