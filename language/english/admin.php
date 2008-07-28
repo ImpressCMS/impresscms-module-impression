@@ -61,7 +61,7 @@ define( "_AM_IMPRESSION_CCATEGORY_MOVE", "Move Category articles" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY_TITLE", "Category title:" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY_FAILED", "Failed Moving Articles: Cannot move to this Category" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY_FAILEDT", "Failed Moving Articles: Cannot find this Category" );
-define( "_AM_IMPRESSION_CCATEGORY_MODIFY_MOVED", "Articles Moved and Category Deleted" );
+define( "_AM_IMPRESSION_CCATEGORY_MODIFY_MOVED", "Articles Moved" );
 define( "_AM_IMPRESSION_CCATEGORY_CREATED", "New Category Created and Database Updated Successfully" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFIED", "Selected Category Modified and Database Updated Successfully" );
 define( "_AM_IMPRESSION_CCATEGORY_DELETED", "Selected Category Deleted and Database Updated Successfully" );

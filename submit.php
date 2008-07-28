@@ -18,14 +18,14 @@ $aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
 $cid = intval($cid);
 $aid = intval($aid);
 
-if ( false == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
+if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     redirect_header( "index.php", 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
     exit();
 } 
 
-if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
+if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     if ( impression_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
-        if ( false == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
+        if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
             redirect_header( "index.php", 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
             exit();
         } 
@@ -47,7 +47,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         //    $offline = 1;
             $date = time();
             $message = _MD_IMPRESSION_THANKSFORINFO;
-            if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
+            if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) ) {
                 $date = time();
                 $status = 0;
          //       $offline = 0;
@@ -75,7 +75,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
             $tags['CATEGORY_NAME'] = $row['title'];
             $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
-            if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
+            if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) ) {
                 $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
                 $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );
                 redirect_header( 'index.php', 2, _MD_IMPRESSION_ISAPPROVED );
@@ -90,7 +90,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 redirect_header( 'index.php', 2, _MD_IMPRESSION_THANKSFORINFO );
             } 
         } else {
-            if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
+            if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
                 $updated = time();
                 $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords' WHERE aid=" . $aid;
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
@@ -193,7 +193,7 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " ORDER BY title";
         $result = $xoopsDB -> query( $sql );
         while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-            if ( true == checkgroups( $myrow['cid'], 'ImpressionSubPerm' ) ) {
+            if ( true == impression_checkgroups( $myrow['cid'], 'ImpressionSubPerm' ) ) {
                 $submitcats[$myrow['cid']] = $myrow['title'];
             } 
         }
@@ -226,11 +226,11 @@ if ( true == checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 //            $sform -> addElement( new XoopsFormHidden( 'notifypub', 0 ) );
 //        }
 
-//        if ( true == checkgroups( $cid, 'ImpressionAppPerm' ) && $aid > 0 ) {
+//        if ( true == impression_checkgroups( $cid, 'ImpressionAppPerm' ) && $aid > 0 ) {
 //            $approve_checkbox = new XoopsFormCheckBox( '', 'approve', $approve );
 //            $approve_checkbox -> addOption( 1, _MD_IMPRESSION_APPROVE );
 //            $option_tray -> addElement( $approve_checkbox );
-//        } else if ( true == checkgroups( $cid, 'ImpressionAutoApp' ) ) {
+//        } else if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) ) {
 //            $sform -> addElement( new XoopsFormHidden( 'approve', 1 ) );
 //        } else {
 //            $sform -> addElement( new XoopsFormHidden( 'approve', 0 ) );

@@ -61,7 +61,7 @@ define( "_AM_IMPRESSION_CCATEGORY_MOVE", "Verplaats artikelen categorie" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY_TITLE", "Categorie titel:" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY_FAILED", "Artikelen verplaatsen mislukt: kan niet verplaatsen naar deze categorie" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY_FAILEDT", "Artikelen verplaatsen mislukt: Kan deze categorie niet vinden" );
-define( "_AM_IMPRESSION_CCATEGORY_MODIFY_MOVED", "Artikelen verplaatst en categorie verwijderd" );
+define( "_AM_IMPRESSION_CCATEGORY_MODIFY_MOVED", "Artikelen verplaatst" );
 define( "_AM_IMPRESSION_CCATEGORY_CREATED", "Nieuwe categorie aangemaakt en database succesvol geupdate" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFIED", "Geselekteerde categorie aangemaakt en database succesvol geupdate" );
 define( "_AM_IMPRESSION_CCATEGORY_DELETED", "Geselekteerde categorie verwijderd en database succesvol geupdate" );

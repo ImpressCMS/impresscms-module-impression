@@ -54,7 +54,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
     $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.png";
     $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
-    if ( checkgroups( $myrow['cid'] ) ) {
+    if ( impression_checkgroups( $myrow['cid'] ) ) {
         $title = $impressionmyts -> htmlSpecialCharsStrip( $myrow['title'] );
 
         $arr = array();
@@ -63,7 +63,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
         $space = $chcount = 1;
         $subcategories = "";
         foreach( $arr as $ele ) {
-            if ( true == checkgroups( $ele['cid'] ) ) {
+            if ( true == impression_checkgroups( $ele['cid'] ) ) {
                 if ( $xoopsModuleConfig['subcats'] == 1 ) {
                     $chtitle = $impressionmyts -> htmlSpecialCharsStrip( $ele['title'] );
                     if ( $chcount > 5 ) {
