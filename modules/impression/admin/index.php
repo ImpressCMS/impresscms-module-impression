@@ -247,23 +247,19 @@ switch ( strtolower( $op ) ) {
         $start5 = impression_cleanRequestVars( $_REQUEST, 'start5', 0 );
         $totalcats = impression_totalcategory();
 
-        $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_mod' ) );
-        list( $totalmodrequests ) = $xoopsDB -> fetchRow( $result );
-        $result2 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE offline = 1" );
-        list( $totalnewarticles ) = $xoopsDB -> fetchRow( $result2 );
-        $result3 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0" );
-        list( $totalarticles ) = $xoopsDB -> fetchRow( $result3 );
+        $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0" );
+        list( $totalarticles ) = $xoopsDB -> fetchRow( $result );
 
         xoops_cp_header();
         impression_adminmenu( "<h4>" . _AM_IMPRESSION_BINDEX . "</h4>" );
-        echo "		<fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</legend>\n
+        echo "		<div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
+                        <div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</div>\n
 			<div style='padding: 8px;'><small>\n
 			<a href='category.php'>" . _AM_IMPRESSION_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
 			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> \n
-		<!--	<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> | \n
-			<a href='modifications.php'>" . _AM_IMPRESSION_SMODREQUEST . "</a><b>" . $totalmodrequests . "</b> \n  -->
-			</small></div></fieldset><br />\n
-		";
+			</small></div></div><br />\n
+	      ";
+
         if ( $totalarticles > 0 ) {
 
             $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0 ORDER BY aid DESC";
