@@ -236,7 +236,7 @@ switch ($op) {
             for ($i = 0; $i < $lcount; $i++) {
                 // get all links in each subcategory
                 $result = $xoopsDB -> query("SELECT aid FROM " . $xoopsDB -> prefix('impression_articles') . " WHERE cid=" . $arr[$i] . "");
-                // now for each linkload, delete the text data and vote ata associated with the linkload
+                // now for each linkload, delete the text data associated with the articleload
                 while (list($aid) = $xoopsDB -> fetchRow($result)) {
                     $sql = sprintf("DELETE FROM %s WHERE aid = %u", $xoopsDB -> prefix('impression_articles'), $aid);
                     $xoopsDB -> query($sql); 
