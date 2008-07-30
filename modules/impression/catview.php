@@ -167,7 +167,6 @@ if ( $count > 0 ) {
     while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
         require ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
-	include_once("footer.php");
         $xoopsTpl -> append( 'article', $article );
     }
 
