@@ -84,10 +84,12 @@ function edit( $aid = 0 ) {
 
 // Article introtext form
     $introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT, 'introtextb', $introtextb );
+    $introeditor -> setDescription(  '<small>' . _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC . '</small>' );
     $sform -> addElement($introeditor, false);
 
 // Article description form 
     $editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb );
+    $editor -> setDescription(  '<small>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC . '</small>' );
     $sform -> addElement($editor, false);
 
 // Meta keywords form

@@ -26,7 +26,9 @@ define( "_MD_IMPRESSION_TITLEZTOA", "Title (Z to A)" );
 define( "_MD_IMPRESSION_DATEOLD", "Date (old articles listed first)" );
 define( "_MD_IMPRESSION_DATENEW", "Date (new articles listed first)" );
 define( "_MD_IMPRESSION_INTROTEXTC", "Intro text: " );
+define( "_MD_IMPRESSION_INTROTEXTC_DSC", "<br />The text entered here will function as the first part of the article and will be displayed in the Spotlight block" );
 define( "_MD_IMPRESSION_DESCRIPTIONC", "Main article: " );
+define( "_MD_IMPRESSION_DESCRIPTIONC_DSC", "<br />The text entered here is together with the text entered as intro text the total article" );
 define( "_MD_IMPRESSION_CATEGORYC", "Category: " );
 define( "_MD_IMPRESSION_VERSION", "Version" );
 define( "_MD_IMPRESSION_SUBMITDATE", "Submitted" );
@@ -125,7 +127,7 @@ define( "_MD_IMPRESSION_MODERATOR_OPTIONS", "Moderator options" );
 
 // added by McDonald
 define( "_MD_IMPRESSION_KEYWORDS", "Keywords:" );
-define( "_MD_IMPRESSION_KEYWORDS_NOTE", "<small>Keywords should be seperated with a comma (keyword1, keyword2, keyword3).</small>" );
+define( "_MD_IMPRESSION_KEYWORDS_NOTE", "Keywords should be seperated with a comma<br />(<i>keyword1, keyword2, keyword3, etc.</i>)" );
 define( "_MD_IMPRESSION_NOARTICLELOAD", "Thanks for your post!" );
 define( "_MD_IMPRESSION_LINKID", "Article id" );
 define( "_MD_IMPRESSION_ADDTO", "Add to: " );

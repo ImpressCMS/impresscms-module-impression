@@ -205,10 +205,12 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
 // Article description form
         $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, 10, 50, '');
+        $introtext -> setDescription(  '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
         $sform -> addElement( $introtext, true );
 
 // Article description form
         $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 10, 50, '');
+        $editor -> setDescription(  '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
         $sform -> addElement( $editor, true );
 
 // Meta meta_keywords form
@@ -250,5 +252,5 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     redirect_header( 'index.php', 2, _MD_IMPRESSION_NOPERMISSIONTOPOST );
     exit();
 } 
-include_once("footer.php");
+
 ?>
