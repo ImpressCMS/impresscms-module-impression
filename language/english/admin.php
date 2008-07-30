@@ -197,7 +197,9 @@ define( "_AM_IMPRESSION_ARTICLE_MODIFYFILE", "Modify Article Information" );
 define( "_AM_IMPRESSION_ARTICLE_CREATENEWFILE", "Create New Article" );
 define( "_AM_IMPRESSION_ARTICLE_TITLE", "<b>Title:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "<b>Article intro text:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_INTROTEXT_DSC", "<br />The text entered here will function as the first part of the article and will be displayed in the Spotlight block" );
 define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "<b>Article main text:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC", "<br />The text entered here is together with the text entered as intro text the total article" );
 define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "<b>Main category:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "<b>Set article status:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC", "<small>Set article as published/offline/rejected</small>" );
@@ -277,7 +279,7 @@ define( "_AM_IMPRESSION_PERM_APERMISSIONS_TEXT", "Select the groups who have mod
 
 define( "_AM_IMPRESSION_TIME", "Time:" );
 define( "_AM_IMPRESSION_KEYWORDS", "<b>Keywords:</b>" );
-define( "_AM_IMPRESSION_KEYWORDS_NOTE", "<i>Keywords should be seperated with a comma <br />(keyword1, keyword2, keyword3)</i>" );
+define( "_AM_IMPRESSION_KEYWORDS_NOTE", "Keywords should be seperated with a comma <br />(<i>keyword1, keyword2, keyword3, etc.</i>)" );
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION", "Meta description");
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION_DSC", "In order to help Search Engines, you can customize the meta description you would like to use for this article. if you leave this field empty when creating a category, it will automatically be populated with the Summary field of this article.");
 

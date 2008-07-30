@@ -200,7 +200,9 @@ define( "_AM_IMPRESSION_ARTICLE_MODIFYFILE", "Aangepaste artikel informatie" );
 define( "_AM_IMPRESSION_ARTICLE_CREATENEWFILE", "Nieuw artikel aanmaken" );
 define( "_AM_IMPRESSION_ARTICLE_TITLE", "<b>Titel:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "<b>Artikel intro tekst:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_INTROTEXT_DSC", "<br />De hier ingevoerde tekst doet dienst als het eerste deel van het artikel (inleiding) en wordt gebruikt in het Spotlight blok" );
 define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "<b>Artikel hoofd tekst:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC", "<br />De hier ingevoerde tekst vormt samen met de eerder ingevoerde intro tekst het totale artikel" );
 define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "<b>Hoofd categorie:</b>" );
 //define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", " Set article offline?<br /><br /><span style='font-weight: normal;'>article will not be viewable to all users.</span>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "<b>Instellen artikel status:</b>" );
@@ -281,7 +283,7 @@ define( "_AM_IMPRESSION_PERM_APERMISSIONS_TEXT", "Selekteer de groepen die behee
 
 define( "_AM_IMPRESSION_TIME", "Tijd:" );
 define( "_AM_IMPRESSION_KEYWORDS", "<b>Keywords:</b>" );
-define( "_AM_IMPRESSION_KEYWORDS_NOTE", "Keywords dienen gescheiden te worden door een komma (<i>keyword1, keyword2, keyword3</i>)." );
+define( "_AM_IMPRESSION_KEYWORDS_NOTE", "Keywords dienen gescheiden te worden door een komma<br />(<i>keyword1, keyword2, keyword3, etc.</i>)." );
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION", "Meta omschrijving");
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION_DSC", "In order to help Search Engines, you can customize the meta description you would like to use for this article. if you leave this field empty when creating a category, it will automatically be populated with the Summary field of this article.");
 
