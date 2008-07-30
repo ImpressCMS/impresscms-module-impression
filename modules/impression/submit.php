@@ -204,13 +204,13 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     	ob_end_clean();
 
 // Article description form
-        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, 10, 50, '');
-        $introtext -> setDescription(  '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
+        $introtext = impression_getWysiwygForm( '', 'introtextb', $introtextb, 10, 50, '');
+        $introtext -> setDescription(  '<b>' . _MD_IMPRESSION_INTROTEXTC . '</b><br />' . '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
         $sform -> addElement( $introtext, true );
 
 // Article description form
-        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 10, 50, '');
-        $editor -> setDescription(  '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
+        $editor = impression_getWysiwygForm( '', 'descriptionb', $descriptionb, 10, 50, '');
+        $editor -> setDescription(  '<b>' . _MD_IMPRESSION_DESCRIPTIONC . '</b><br />' . '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
         $sform -> addElement( $editor, true );
 
 // Meta meta_keywords form
