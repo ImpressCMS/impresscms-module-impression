@@ -77,9 +77,9 @@ function createcat($cid = 0) {
     $indeximage_tray = new XoopsFormElementTray(_AM_IMPRESSION_FCATEGORY_CIMAGE, '&nbsp;');
     $indeximage_tray -> addElement($indeximage_select);
     if (!empty($imgurl)) {
-        $indeximage_tray -> addElement(new XoopsFormLabel('', "<br /><br /><img src='" . XOOPS_URL . "/" . $xoopsModuleConfig['catimage'] . "/" . $imgurl . "' name='image' id='image' alt='' />"));
+        $indeximage_tray -> addElement(new XoopsFormLabel('', "<br /><br /><img src='" . ICMS_URL . "/" . $xoopsModuleConfig['catimage'] . "/" . $imgurl . "' name='image' id='image' alt='' />"));
     } else {
-        $indeximage_tray -> addElement(new XoopsFormLabel('', "<br /><br /><img src='" . XOOPS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />"));
+        $indeximage_tray -> addElement(new XoopsFormLabel('', "<br /><br /><img src='" . ICMS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />"));
     } 
     $sform -> addElement($indeximage_tray);
 
@@ -201,7 +201,7 @@ switch ($op) {
             global $xoopsModule;
             $tags = array();
             $tags['CATEGORY_NAME'] = $title;
-            $tags['CATEGORY_URL'] = XOOPS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $newid;
+            $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $newid;
             $notification_handler = &xoops_gethandler( 'notification' );
             $notification_handler -> triggerEvent( 'global', 0, 'new_category', $tags );
             $database_mess = _AM_IMPRESSION_CCATEGORY_CREATED;
