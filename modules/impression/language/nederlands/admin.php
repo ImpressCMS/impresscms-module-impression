@@ -161,7 +161,7 @@ define( "_AM_IMPRESSION_SUB_FILESWAITINGINFO", "Wachtende artikelen informatie" 
 define( "_AM_IMPRESSION_SUB_FILESWAITINGVALIDATION", "Artikelen wachtend op goedkeuring: " );
 define( "_AM_IMPRESSION_SUB_APPROVEWAITINGFILE", "Nieuwe artikelen informatie <b>accepteren zonder goedkeuring</b>." );
 define( "_AM_IMPRESSION_SUB_EDITWAITINGFILE", "<b>Wijzig</b> nieuwe artikel informatie en keur daarna goed." );
-define( "_AM_IMPRESSION_SUB_DELETEWAITINGFILE", "<b>Verwijder</b> the new article information." );
+define( "_AM_IMPRESSION_SUB_DELETEWAITINGFILE", "<b>Verwijder</b> de nieuwe artikel informatie." );
 define( "_AM_IMPRESSION_SUB_NOFILESWAITING", "Er zijn geen artikelen overeenkomend met deze kriteria." );
 define( "_AM_IMPRESSION_SUB_NEWFILECREATED", "Nieuwe artikel data aangemaakt en database succesvol bijgewerkt." );
 
@@ -263,6 +263,7 @@ define( "_AM_IMPRESSION_ICO_STATS", "Statistieken" );
 define( "_AM_IMPRESSION_ICO_VIEW", "Bekijk dit item" );
 define( "_AM_IMPRESSION_ICO_IGNORE", "Negeren" );
 define( "_AM_IMPRESSION_ICO_REJECTED", "Gewijgert" );
+define( "_AM_IMPRESSION_ICO_SUBMITTED", "Ingezonden" );
 define( "_AM_IMPRESSION_ICO_RES", "Edit Resources/Articles for this Item" );
 define( "_AM_IMPRESSION_MOD_URLRATING", "" );
 // Alternate category
@@ -294,5 +295,7 @@ define("_AM_IMPRESSION_READS", "Gelezen: ");
 define( '_AM_IMPRESSION_PUBLISHED', 'Gepubliceerd' );
 define( '_AM_IMPRESSION_OFFLINE', 'Offline' );
 define( '_AM_IMPRESSION_REJECTED', 'Gewijgert' );
+define( '_AM_IMPRESSION_SUBMITTED', 'Ingezonden' );
 define( '_AM_IMPRESSION_INFOMATION', 'Informatie' );
+define( '_AM_IMPRESSION_NOTPUBLiSHED', 'Niet Gepubliceerd' );
 ?>

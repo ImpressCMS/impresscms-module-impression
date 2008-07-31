@@ -37,6 +37,7 @@ $imagearray = array(
         'statsimg' => "<img src='../images/icon/stats.gif' alt='" . _AM_IMPRESSION_ICO_STATS . "' align='middle'>",
 	'ignore' => "<img src='../images/icon/cross.png' alt='" . _AM_IMPRESSION_ICO_IGNORE . "' align='middle'>",
 	'rejected' => "<img src='../images/icon/cross.png' alt='" . _AM_IMPRESSION_ICO_REJECTED . "' align='middle'>",
+	'submitted' => "<img src='../images/icon/impression.png' alt='" . _AM_IMPRESSION_ICO_SUBMITTED . "' align='middle'>",
 //        'ack_yes' => "<img src='../images/icon/on.png' alt='" . _AM_IMPRESSION_ICO_ACK . "' align='middle'>",
 //	'ack_no' => "<img src='../images/icon/off.png' alt='" . _AM_IMPRESSION_ICO_REPORT . "' align='middle'>",
 //        'con_yes' => "<img src='../images/icon/on.png' alt='" . _AM_IMPRESSION_ICO_CONFIRM . "' align='middle'>",
