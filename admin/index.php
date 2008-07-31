@@ -83,13 +83,13 @@ function edit( $aid = 0 ) {
     ob_end_clean();
 
 // Article introtext form
-    $introeditor = impression_getWysiwygForm( '', 'introtextb', $introtextb );
-    $introeditor -> setDescription(  '<b>' . _AM_IMPRESSION_ARTICLE_INTROTEXT . '</b><br />' . '<small>' . _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC . '</small>' );
-    $sform -> addElement($introeditor, false);
+    $introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT, 'introtextb', $introtextb );
+    $introeditor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC . '</small>' );
+    $sform -> addElement($introeditor, true);
 
 // Article description form 
-    $editor = impression_getWysiwygForm( '', 'descriptionb', $descriptionb );
-    $editor -> setDescription( '<b>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION . '</b><br />' . '<small>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC . '</small>' );
+    $editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb );
+    $editor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC . '</small>' );
     $sform -> addElement($editor, false);
 
 // Meta keywords form
@@ -111,21 +111,20 @@ function edit( $aid = 0 ) {
     $sform -> addElement( $datesub_datetime );
 
 // Set Status
-    $status_array = array( 0 => _AM_IMPRESSION_PUBLISHED,
-                           1 => _AM_IMPRESSION_OFFLINE,
-                           2 => _AM_IMPRESSION_REJECTED );
+    if ($status==3) {
+      $status_array = array( 0 => _AM_IMPRESSION_PUBLISHED,
+                             1 => _AM_IMPRESSION_OFFLINE,
+                             2 => _AM_IMPRESSION_REJECTED,
+                             3 => _AM_IMPRESSION_SUBMITTED );
+    } else {
+      $status_array = array( 0 => _AM_IMPRESSION_PUBLISHED,
+                             1 => _AM_IMPRESSION_OFFLINE,
+                             2 => _AM_IMPRESSION_REJECTED );
+    }
     $status_select = new XoopsFormSelect( _AM_IMPRESSION_ARTICLE_FILESSTATUS, 'status', $status );
     $status_select -> addOptionArray( $status_array );
     $status_select -> setDescription( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC);
     $sform -> addElement( $status_select );
-
-// Set Approved
-//    if ( $aid && $offline == 0 ) {
-//        $approved = ( $offline == 1 ) ? 0 : 1;
-//        $approve_checkbox = new XoopsFormCheckBox( _AM_IMPRESSION_ARTICLE_SETASAPPROVED, "approved", 1 );
-//        $approve_checkbox -> addOption( 1, " " );
-//        $sform -> addElement( $approve_checkbox );
-//    }
 
     if ( !$aid ) {
         $button_tray = new XoopsFormElementTray( '', '' );
@@ -249,8 +248,10 @@ switch ( strtolower( $op ) ) {
         $start5 = impression_cleanRequestVars( $_REQUEST, 'start5', 0 );
         $totalcats = impression_totalcategory();
 
-        $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0" );
+        $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published>0" );
         list( $totalarticles ) = $xoopsDB -> fetchRow( $result );
+        $result2 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE status=3" );
+        list( $totalnewarticles ) = $xoopsDB -> fetchRow( $result2 );
 
         xoops_cp_header();
         impression_adminmenu( "<h4>" . _AM_IMPRESSION_BINDEX . "</h4>" );
@@ -258,7 +259,8 @@ switch ( strtolower( $op ) ) {
                         <div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</div>\n
 			<div style='padding: 8px;'><small>\n
 			<a href='category.php'>" . _AM_IMPRESSION_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
-			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> \n
+			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> | \n
+			<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> \n
 			</small></div></div><br />\n
 	      ";
 
