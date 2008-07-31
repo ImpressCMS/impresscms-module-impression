@@ -607,11 +607,14 @@ function impression_articlelistbody( $published ) {
     $cattitle = impression_cattitle($published['cid']);
     $submitter = xoops_getLinkedUnameFromId( $published['submitter'] );
     $submitted = formatTimestamp( $published['date'], $xoopsModuleConfig['dateformat'] );
-    $publish = ( $published['published'] > 0 ) ? formatTimestamp( $published['published'], $xoopsModuleConfig['dateformatadmin'] ) : 'Not Published';
+    $publish = ( $published['published'] > 0 ) ? formatTimestamp( $published['published'], $xoopsModuleConfig['dateformatadmin'] ) : _AM_IMPRESSION_NOTPUBLiSHED;
+
     if ( $published['status'] == 0 && ( $published['published'] && $published['published'] < time() ) ) {
         $published_status = $imagearray['online'];
     } elseif ( $published['status'] == 2 ) {
         $published_status = $imagearray['rejected'];
+    } elseif ( $published['status'] == 3 ) {
+        $published_status = $imagearray['submitted'];
     } else {
       //( $published['status'] == 1 ) {
         $published_status = $imagearray['offline'];
