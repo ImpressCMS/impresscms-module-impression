@@ -43,7 +43,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $ipaddress = $_SERVER['REMOTE_ADDR'];
 
         if ( $aid == 0 ) {
-            $status = 1;
+            $status = 3;
         //    $offline = 1;
             $date = time();
             $message = _MD_IMPRESSION_THANKSFORINFO;
@@ -53,7 +53,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
          //       $offline = 0;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, published, introtext, description, ipaddress, notifypub, meta_keywords) ";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, date, introtext, description, ipaddress, notifypub, meta_keywords) ";
             $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$notifypub', '$meta_keywords')";
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
@@ -61,34 +61,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
             } 
             $newid = $xoopsDB -> getInsertId();
 
-
-            // Notify of new link (anywhere) and new link in category
-            $notification_handler = &xoops_gethandler( 'notification' );
-
-            $tags = array();
-            $tags['ARTICLE_NAME'] = $title;
-            $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $newid;
-            
-            $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $cid;
-            $result = $xoopsDB -> query( $sql );
-            $row = $xoopsDB -> fetchArray( $result );
-
-            $tags['CATEGORY_NAME'] = $row['title'];
-            $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
-            if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) ) {
-                $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
-                $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );
-                redirect_header( 'index.php', 2, _MD_IMPRESSION_ISAPPROVED );
-            } else {
-                $tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/newarticles.php';
-                $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
-                $notification_handler -> triggerEvent( 'category', $cid, 'article_submit', $tags );
-                if ( $notifypub ) {
-                    include_once ICMS_ROOT_PATH . '/include/notification_constants.php';
-                    $notification_handler -> subscribe( 'article', $newid, 'approve', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE );
-                } 
                 redirect_header( 'index.php', 2, _MD_IMPRESSION_THANKSFORINFO );
-            } 
+
         } else {
             if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
                 $updated = time();
@@ -98,18 +72,6 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
                 } 
 
-                $notification_handler = &xoops_gethandler( 'notification' );
-                $tags = array();
-                $tags['ARTICLE_NAME'] = $title;
-                $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $cid . '&amp;aid=' . $aid;
-                $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $cid;
-                $result = $xoopsDB -> query( $sql );
-                $row = $xoopsDB -> fetchArray( $result );
-                $tags['CATEGORY_NAME'] = $row['title'];
-                $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $cid;
-
-                $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
-                $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );
                 $_message = _MD_IMPRESSION_ISAPPROVED;
             } else {
                 $modifysubmitter = $xoopsUser -> uid();
@@ -123,18 +85,6 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
                 } 
 
-                $tags = array();
-                $tags['MODIFYREPORTS_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=listModReq';
-                $notification_handler = &xoops_gethandler( 'notification' );
-                $notification_handler -> triggerEvent( 'global', 0, 'article_modify', $tags );
-
-                $tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/admin/index.php?op=listNewarticles';
-                $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
-                $notification_handler -> triggerEvent( 'category', $cid, 'article_submit', $tags );
-                if ( $notifypub ) {
-                    include_once ICMS_ROOT_PATH . '/include/notification_constants.php';
-                    $notification_handler -> subscribe( 'article', $newid, 'approve', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE );
-                }
                 $_message = _MD_IMPRESSION_THANKSFORINFO;
             }
             redirect_header( "index.php", 2, $_message );
@@ -203,15 +153,15 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     	        $sform -> addElement( new XoopsFormLabel( _MD_IMPRESSION_CATEGORYC, ob_get_contents() ) );
     	ob_end_clean();
 
-// Article description form
-        $introtext = impression_getWysiwygForm( '', 'introtextb', $introtextb, 10, 50, '');
-        $introtext -> setDescription(  '<b>' . _MD_IMPRESSION_INTROTEXTC . '</b><br />' . '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
+// Article introtext form
+        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, 10, 50, '');
+        $introtext -> setDescription(  '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
         $sform -> addElement( $introtext, true );
 
 // Article description form
-        $editor = impression_getWysiwygForm( '', 'descriptionb', $descriptionb, 10, 50, '');
-        $editor -> setDescription(  '<b>' . _MD_IMPRESSION_DESCRIPTIONC . '</b><br />' . '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
-        $sform -> addElement( $editor, true );
+        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 10, 50, '');
+        $editor -> setDescription(  '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
+        $sform -> addElement( $editor, false );
 
 // Meta meta_keywords form
         $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 5, 50);

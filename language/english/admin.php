@@ -259,6 +259,7 @@ define( "_AM_IMPRESSION_ICO_STATS", "Stats" );
 define( "_AM_IMPRESSION_ICO_VIEW", "View this item" );
 define( "_AM_IMPRESSION_ICO_IGNORE", "Ignore" );
 define( "_AM_IMPRESSION_ICO_REJECTED", "Rejected" );
+define( "_AM_IMPRESSION_ICO_SUBMITTED", "Submitted" );
 define( "_AM_IMPRESSION_ICO_RES", "Edit Resources/Articles for this Item" );
 define( "_AM_IMPRESSION_MOD_URLRATING", "Interent Content Rating:" );
 // Alternate category
@@ -290,5 +291,7 @@ define("_AM_IMPRESSION_READS", "Reads: ");
 define( '_AM_IMPRESSION_PUBLISHED', 'Published' );
 define( '_AM_IMPRESSION_OFFLINE', 'Offline' );
 define( '_AM_IMPRESSION_REJECTED', 'Rejected' );
+define( '_AM_IMPRESSION_SUBMITTED', 'Submitted' );
 define( '_AM_IMPRESSION_INFOMATION', 'Information' );
+define( '_AM_IMPRESSION_NOTPUBLiSHED', 'Not Published' );
 ?>
