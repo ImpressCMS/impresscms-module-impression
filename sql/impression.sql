@@ -60,31 +60,6 @@ INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`i
 
 
 #
-# Table structure for table 'impression_mod'
-#
-
-CREATE TABLE `impression_mod` (
-  `requestid` int(11) NOT NULL auto_increment,
-  `aid` int(11) unsigned NOT NULL default '0',
-  `cid` int(5) unsigned NOT NULL default '0',
-  `title` varchar(255) NOT NULL default '',
-  `submitter` int(11) NOT NULL default '0',
-  `publisher` text NOT NULL,
-  `status` tinyint(2) NOT NULL default '0',
-  `date` int(10) NOT NULL default '0',
-  `hits` int(11) unsigned NOT NULL default '0',
-  `published` int(10) NOT NULL default '0',
-  `introtext` longtext NOT NULL,
-  `description` longtext NOT NULL,
-  `modifysubmitter` int(11) NOT NULL default '0',
-  `requestdate` int(11) NOT NULL default '0',
-  `meta_keywords` varchar(255) NOT NULL default '',
-  `item_tag` text NOT NULL,
-  PRIMARY KEY  (`requestid`)
-) TYPE=MyISAM COMMENT='Impression by McDonald' AUTO_INCREMENT=1 ;
-
-
-#
 # Table structure for table 'impression_articles'
 #
 
@@ -101,7 +76,6 @@ CREATE TABLE `impression_articles` (
   `introtext` longtext NOT NULL,
   `description` longtext NOT NULL,
   `ipaddress` varchar(120) NOT NULL default '0',
-  `notifypub` int(1) NOT NULL default '0',
   `meta_keywords` varchar(255) NOT NULL default '',
   `item_tag` text NOT NULL,
   PRIMARY KEY  (`aid`),
