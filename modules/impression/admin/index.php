@@ -269,7 +269,7 @@ switch ( strtolower( $op ) ) {
             $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0 ORDER BY aid DESC";
             $published_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
             $published_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
-            impression_articlelistheader( "<h4>" . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . "</h4>" );
+            impression_articlelistheader( _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE );
             impression_articlelistpagenavleft( $published_array_count, $start, 'art' );
             if ( $published_array_count > 0 ) {
                 while ( $published = $xoopsDB -> fetchArray( $published_array ) ) {

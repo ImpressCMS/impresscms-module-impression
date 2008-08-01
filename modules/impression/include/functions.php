@@ -582,7 +582,7 @@ function impression_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetyp
 } 
 
 function impression_articlelistheader( $heading ) {
-    echo "	<h4 style='font-weight: bold; color: #0A3760;'>" . $heading . "</h4>\n
+    echo "	<h4 style='font-weight: bold; color: #0A3760;'>" . $heading . "</h4>
 		<table width='100%' cellspacing='1' style='text-align: center;' class='outer' summary>\n
 		<tr>\n
 		<th><small>" . _AM_IMPRESSION_MINDEX_ID . "</small></th>\n

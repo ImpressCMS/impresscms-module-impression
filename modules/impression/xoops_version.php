@@ -9,7 +9,7 @@ $mydirname = basename( dirname( __FILE__ ) );
 
 $modversion['name'] = _MI_IMPRESSION_NAME;
 $modversion['version'] = "1.00";
-$modversion['releasedate'] = "xx July 2008";
+$modversion['releasedate'] = "01 August 2008";
 $modversion['status'] = "RC-1";
 $modversion['description'] = _MI_IMPRESSION_DESC;
 $modversion['license'] = "GNU General Public License (GPL)";
@@ -38,9 +38,9 @@ $modversion['sqlfile']['mysql'] = "sql/impression.sql";
 include_once 'include/config.php';
 $modversion['tables'][0] = 'impression_cat';
 $modversion['tables'][1] = 'impression_articles';
-$modversion['tables'][2] = 'impression_mod';
-$modversion['tables'][3] = 'impression_indexpage';
-$modversion['tables'][4] = 'impression_altcat';
+//$modversion['tables'][2] = 'impression_mod';
+$modversion['tables'][2] = 'impression_indexpage';
+$modversion['tables'][3] = 'impression_altcat';
 
 // Launch additional install script to check
 $modversion['onInstall'] = '';
@@ -111,18 +111,8 @@ if ( $cansubmit == 1 ) {
 } 
 unset( $cansubmit );
 
-
 $modversion['sub'][1]['name'] = _MI_IMPRESSION_SMNAME2;
 $modversion['sub'][1]['url'] = "topten.php?list=hit";
-
-//$i++;
-//$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME3;
-//$modversion['sub'][$i]['url'] = "topten.php?list=rate";
-
-//$i++;
-//$modversion['sub'][$i]['name'] = _MI_IMPRESSION_SMNAME4;
-//$modversion['sub'][$i]['url'] = "topten.php";
-//unset( $i );
 
 // Search
 $modversion['hasSearch'] = 1;
@@ -149,9 +139,6 @@ $modversion['templates'][$i]['description'] = '';
 $i++;
 $modversion['templates'][$i]['file'] = 'impression_topten.html';
 $modversion['templates'][$i]['description'] = '';
-//$i++;
-//$modversion['templates'][$i]['file'] = 'impression_headlines.html';
-//$modversion['templates'][$i]['description'] = '';
 
 // Module config setting
 $i=0;
@@ -266,43 +253,6 @@ $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dh
 						_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
 						_MI_IMPRESSION_FORM_TINYMCE => 'tinymce'
                                               );
-
-//$i++;
-//$modversion['config'][$i]['name'] = 'screenshot';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_USESHOTS';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_USESHOTSDSC';
-//$modversion['config'][$i]['formtype'] = 'yesno';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 1;
-//$i++;
-//$modversion['config'][$i]['name'] = 'usethumbs';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_USETHUMBS';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_USETHUMBSDSC';
-//$modversion['config'][$i]['formtype'] = 'yesno';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 0;
-//$i++;
-//$modversion['config'][$i]['name'] = 'updatethumbs';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_IMGUPDATE';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_IMGUPDATEDSC';
-//$modversion['config'][$i]['formtype'] = 'yesno';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 1;
-//$i++;
-//$modversion['config'][$i]['name'] = 'shotwidth';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOTWIDTH';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOTWIDTHDSC';
-//$modversion['config'][$i]['formtype'] = 'textbox';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 120;
-//$i++;
-//$modversion['config'][$i]['name'] = 'shotheight';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOTHEIGHT';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOTHEIGHTDSC';
-//$modversion['config'][$i]['formtype'] = 'textbox';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 90;
-
 $i++;
 $modversion['config'][$i]['name'] = 'mainimagedir';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_MAINIMGDIR';
@@ -331,23 +281,6 @@ $modversion['config'][$i]['description'] = '_MI_IMPRESSION_DATEFORMATADMINDSC';
 $modversion['config'][$i]['formtype'] = 'textbox';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'l, d F Y - G:i';
-
-//$i++;
-//$modversion['config'][$i]['name'] = 'keywordlength';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_KEYLENGTH';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_KEYLENGTHDSC';
-//$modversion['config'][$i]['formtype'] = 'textbox';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 255;
-//$i++;
-//$modversion['config'][$i]['name'] = 'totalchars';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_TOTALCHARS';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_TOTALCHARSDSC';
-//$modversion['config'][$i]['formtype'] = 'select';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 200;
-//$modversion['config'][$i]['options'] = array( '100' => 100, '200' => 200, '300' => 300, '400' => 400, '500' => 500, '750' => 750 );
-
 $i++;
 $modversion['config'][$i]['name'] = 'showartcount';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWARTCOUNT';
@@ -408,14 +341,6 @@ $modversion['config'][$i]['default'] = ICMS_URL;
 //                                   	      _MI_IMPRESSION_INDEXFOOTER_SEL   => 'index footer',
 //                                              _MI_IMPRESSION_BOTH_FOOTERS => 'both',
 //                                  	      _MI_IMPRESSION_NO_FOOTERS => 'none');
-//$i++;
-//$modversion['config'][$i]['name'] = 'headlinetitle';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_HEADLINES';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_HEADLINESDSC';
-//$modversion['config'][$i]['formtype'] = 'select';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 10;
-//$modversion['config'][$i]['options'] = array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100 );
 $i++;
 $modversion['config'][$i]['name'] = 'showdisclaimer';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWDISCLAIMER';

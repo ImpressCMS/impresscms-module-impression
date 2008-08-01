@@ -9,7 +9,7 @@
 define( "_MD_IMPRESSION_NOARTICLE", "This article does not exist!" );
 define( "_MD_IMPRESSION_SUBCATLISTING", "Category listing" );
 define( "_MD_IMPRESSION_ISADMINNOTICE", "Webmaster: There is a problem with this image." );
-define( "_MD_IMPRESSION_THANKSFORINFO", "Thank-you for your submission.<br />You will be notified once your request has be approved by the webmaster." );
+define( "_MD_IMPRESSION_THANKSFORINFO", "Thank-you for your submission." );
 define( "_MD_IMPRESSION_ISAPPROVED", "Thank-you for your submission.<br />Your request has been approved and will now appear in our listing." );
 define( "_MD_IMPRESSION_THANKSFORHELP", "Thank-you for helping to maintain this directory's integrity." );
 define( "_MD_IMPRESSION_FORSECURITY", "For security reasons your user name and IP address will also be temporarily recorded." );
