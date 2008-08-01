@@ -41,7 +41,7 @@ $sform = new XoopsThemeForm( _MI_IMPRESSION_MODULE_INFO, "", "" );
 $sform -> addElement( new XoopsFormLabel( _MI_IMPRESSION_MODULE_STATUS, $versioninfo -> getInfo( 'status' ) ) );
 $sform -> addElement( new XoopsFormLabel( _MI_IMPRESSION_MODULE_SUPPORT, "<a href='" . $versioninfo -> getInfo( 'support_site_url' ) . "' target='_blank'>" . $versioninfo -> getInfo( 'support_site_name' ) . "</a>" ) );
 $sform -> addElement( new XoopsFormLabel( _MI_IMPRESSION_MODULE_BUG, "<a href='" . $versioninfo -> getInfo( 'submit_bug' ) . "' target='_blank'>" . "Submit a Bug" . "</a>" ) );
-$sform -> addElement( new XoopsFormLabel( _MI_IMPRESSION_MODULE_FEATURE, "<a href='" . $versioninfo -> getInfo( 'submit_feature' ) . "' target='_blank'>" . "Request a new feature" . "</a>" ) );
+// $sform -> addElement( new XoopsFormLabel( _MI_IMPRESSION_MODULE_FEATURE, "<a href='" . $versioninfo -> getInfo( 'submit_feature' ) . "' target='_blank'>" . "Request a new feature" . "</a>" ) );
 $sform -> display();
 
 // Credits
