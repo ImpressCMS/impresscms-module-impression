@@ -9,7 +9,7 @@
 define( "_MD_IMPRESSION_NOARTICLE", "Dit artikel bestaat niet!" );
 define( "_MD_IMPRESSION_SUBCATLISTING", "Categorie lijst" );
 define( "_MD_IMPRESSION_ISADMINNOTICE", "Webmaster: Er is een probleem met deze afbeelding." );
-define( "_MD_IMPRESSION_THANKSFORINFO", "Bedankt voor deze inzending.<br />Er wordt een bericht verzonden wanneer de inzending is goedgekeurd door de webmaster." );
+define( "_MD_IMPRESSION_THANKSFORINFO", "Bedankt voor deze inzending." );
 define( "_MD_IMPRESSION_ISAPPROVED", "Bedankt voor deze inzending.<br />De inzending is goedgekeurd en zal worden opgenomen in de index." );
 define( "_MD_IMPRESSION_THANKSFORHELP", "Bedankt voor uw bijdrage aan het up-to-date houden van het bestand." );
 define( "_MD_IMPRESSION_FORSECURITY", "Vanwege veiligheidsredenen worden gebruikersnaam en IP-adres tijdelijk worden opgeslagen." );
