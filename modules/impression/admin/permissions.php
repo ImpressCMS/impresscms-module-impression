@@ -17,7 +17,7 @@ $selected[$permtoset-1] = ' selected';
 echo "<form method='post' name='fselperm' action='permissions.php'><table border=0><tr><td><select name='permtoset' onChange='javascript: document.fselperm.submit()'>
 <option value='1'" . $selected[0] . ">" . _AM_IMPRESSION_PERM_CPERMISSIONS . "</option>
 <option value='2'" . $selected[1] . ">" . _AM_IMPRESSION_PERM_SPERMISSIONS . "</option>
-<option value='3'" . $selected[2] . ">" . _AM_IMPRESSION_PERM_APERMISSIONS . "</option>
+<!-- <option value='3'" . $selected[2] . ">" . _AM_IMPRESSION_PERM_APERMISSIONS . "</option> -->
 <option value='4'" . $selected[3] . ">" . _AM_IMPRESSION_PERM_AUTOPERMISSIONS . "</option>
 </select></td></tr><tr><td><input type='submit' name='go'/></td></tr></table></form>";
 $module_id = $xoopsModule -> getVar('mid');
@@ -33,11 +33,11 @@ switch($permtoset) {
 		$perm_name = 'ImpressionSubPerm';
 		$perm_desc = _AM_IMPRESSION_PERM_SPERMISSIONS_TEXT;
 		break;
-	case 3:
-		$title_of_form = _AM_IMPRESSION_PERM_APERMISSIONS;
-		$perm_name = 'ImpressionAppPerm';
-		$perm_desc = _AM_IMPRESSION_PERM_APERMISSIONS_TEXT;
-		break;
+//	case 3:
+//		$title_of_form = _AM_IMPRESSION_PERM_APERMISSIONS;
+//		$perm_name = 'ImpressionAppPerm';
+//		$perm_desc = _AM_IMPRESSION_PERM_APERMISSIONS_TEXT;
+//		break;
 	case 4:
 		$title_of_form = _AM_IMPRESSION_PERM_AUTOPERMISSIONS;
 		$perm_name = 'ImpressionAutoApp';
