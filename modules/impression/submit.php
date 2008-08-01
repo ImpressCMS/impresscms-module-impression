@@ -73,19 +73,6 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 } 
 
                 $_message = _MD_IMPRESSION_ISAPPROVED;
-            } else {
-                $modifysubmitter = $xoopsUser -> uid();
-                $requestid = $modifysubmitter;
-                $requestdate = time();
-                $updated = impression_cleanRequestVars( $_REQUEST, 'up_dated', time() );
-                $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_mod' ) . " (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate)";
-                $sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate')";
-                if ( !$result = $xoopsDB -> query( $sql ) ) {
-                    $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
-                    XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
-                } 
-
-                $_message = _MD_IMPRESSION_THANKSFORINFO;
             }
             redirect_header( "index.php", 2, $_message );
         }
