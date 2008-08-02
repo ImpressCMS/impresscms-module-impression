@@ -7,13 +7,15 @@
 //include ICMS_ROOT_PATH . '/modules/impression/include/functions.php';
 
 function checkImpressionNewBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
+  
+    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
     global $xoopsUser;
 
     $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
     $gperm_handler = &xoops_gethandler( 'groupperm' );
 
     $module_handler = &xoops_gethandler( 'module' );
-    $module = &$module_handler -> getByDirname( 'impression' );
+    $module = &$module_handler -> getByDirname( $mydirname );
 
     if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
         if ( $redirect == false ) {
@@ -28,8 +30,9 @@ function checkImpressionNewBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm
 }
 
 function b_impression_displaynewicons( $time, $status = 0, $counter = 0 ) {
+    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
     $modhandler = xoops_gethandler( 'module' );
-    $impressionModule = $modhandler -> getByDirname( "impression" );
+    $impressionModule = $modhandler -> getByDirname( $mydirname );
     $config_handler = xoops_gethandler( 'config' );
     $impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
     $new = '';
@@ -83,11 +86,13 @@ function b_impression_adminnewicons($aid, $dirname) {
  * Output  : Returns the most recent or most popular articles
  */
 function b_impression_new_show( $options ) {
-    global $xoopsDB, $xoopsModuleConfig, $xoopsUser;
+  
+    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
+    global $xoopsDB, $xoopsModuleConfig, $xoopsUser, $xoopsTpl;
 
     $block = array();
     $modhandler = xoops_gethandler( 'module' );
-    $impressionModule = $modhandler -> getByDirname( "impression" );
+    $impressionModule = $modhandler -> getByDirname( $mydirname );
     $config_handler = xoops_gethandler( 'config' );
     $impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
     $moderate = 0;
@@ -107,9 +112,9 @@ function b_impression_new_show( $options ) {
         $articlenew['title'] = '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $myrow['title'] . ' </a>';
         $articlenew['cattitle'] = '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/catview.php?cid=' . intval($myrow['cid']).'">' . $mycat['title'] . ' </a>';
         $articlenew['date'] = formatTimestamp( $myrow['published'], $options[2] );
-        $articlenew['dirname'] = $impressionModule -> getVar( 'dirname' );
         $articlenew['newpopicons'] = b_impression_displaynewicons($myrow['published'], $myrow['status'], $myrow['hits']);
         $articlenew['adminnewicons'] = b_impression_adminnewicons( intval($myrow['aid']),$impressionModule -> getVar( 'dirname' ));
+        $xoopsTpl -> assign( 'dirname', $impressionModule -> getVar( 'dirname' ) );
         $block['articlenew'][] = $articlenew;
 
     }

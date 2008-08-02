@@ -74,7 +74,7 @@ function b_impression_spoticons($aid, $dirname) {
 // Output  : Returns the most recent or most popular videos
 function b_impression_spot_show( $options ) {
 
-    global $xoopsDB, $xoopsModuleConfig, $xoopsUser, $xoopsTemplate;
+    global $xoopsDB, $xoopsModuleConfig, $xoopsUser, $xoopsTpl;
     $mydirname = basename( dirname( dirname( __FILE__ ) ) );
     $block = array();
     $modhandler = xoops_gethandler( 'module' );
@@ -115,7 +115,7 @@ function b_impression_spot_show( $options ) {
         $articleload['readmore'] = '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . _MB_IMPRESSION_READMORE . '</a>';
         $articleload['rssicons'] = $options[3];
         $articleload['showrss'] = b_impression_displayrssicons();
-        $articleload['dirname'] = $impressionModule -> getVar( 'dirname' );
+        $xoopsTpl -> assign( 'dirname', $impressionModule -> getVar( 'dirname' ) );
         $block['article'][] = $articleload;
     }
     unset( $_block_check_array );
