@@ -18,7 +18,7 @@ define("_MI_IMPRESSION_BSPOT","Spotlight");
 define("_MI_IMPRESSION_BNEW","Recent headlines");
 
 // Sub menu titles
-define("_MI_IMPRESSION_SMNAME1","Submit");
+define("_MI_IMPRESSION_SMNAME1","Submit an article");
 define("_MI_IMPRESSION_SMNAME2","Popular");
 define("_MI_IMPRESSION_SMNAME3","Top Rated");
 define("_MI_IMPRESSION_SMNAME4","Latest Listings");
