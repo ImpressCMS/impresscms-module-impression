@@ -22,6 +22,7 @@ define( '_MB_IMPRESSION_ADMINSECTION', 'Administrative section' );
 define( '_MB_IMPRESSION_DATEFORMAT', '<b>Date format: </b>' );
 define( '_MB_IMPRESSION_DATEFORMATMANUAL', 'See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>' );
 define( '_MB_IMPRESSION_SHOWRSSICONS', '<b>Display RSS icons: </b>' );
+define( '_MB_IMPRESSION_SHOWRSSICONS_DSC', '(sub-feed needs to be activated in RSSFit)' );
 define( '_MB_IMPRESSION_ADDGOOGLE', 'Google Reader or Homepage' );
 define( '_MB_IMPRESSION_ADDMYYAHOO', 'Add to My Yahoo!' );
 define( '_MB_IMPRESSION_ADDNEWSGATOR', 'Subscribe in NewsGator Online' );

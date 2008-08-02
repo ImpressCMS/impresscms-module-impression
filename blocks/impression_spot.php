@@ -38,17 +38,17 @@ function b_impression_displayrssicons() {
     if ( !$rss_mod ) {
       $rss_mod = false;
     } else {
-      $icons .= '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=impression" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>&nbsp;';
+      $icons .= '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>&nbsp;';
       // Google
-      $icons .= '<a href="http://fusion.google.com/add?feedurl='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/google.png" alt="'._MB_IMPRESSION_ADDGOOGLE.'" title="'._MB_IMPRESSION_ADDGOOGLE.'" border="0"></a>&nbsp;';
+      $icons .= '<a href="http://fusion.google.com/add?feedurl='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/google.png" alt="'._MB_IMPRESSION_ADDGOOGLE.'" title="'._MB_IMPRESSION_ADDGOOGLE.'" border="0"></a>&nbsp;';
       // Yahoo
-      $icons .= '<a href="http://add.my.yahoo.com/rss?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.png" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
+      $icons .= '<a href="http://add.my.yahoo.com/rss?url='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.png" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
       // NewsGator
-      $icons .= '<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/newsgator.png" alt="'._MB_IMPRESSION_ADDNEWSGATOR.'" title="'._MB_IMPRESSION_ADDNEWSGATOR.'" border="0"></a>&nbsp;';
+      $icons .= '<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/newsgator.png" alt="'._MB_IMPRESSION_ADDNEWSGATOR.'" title="'._MB_IMPRESSION_ADDNEWSGATOR.'" border="0"></a>&nbsp;';
       // AOL
-      $icons .= '<a href="http://feeds.my.aol.com/add.jsp?url='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/aol2.png" alt="'._MB_IMPRESSION_ADDAOL.'" title="'._MB_IMPRESSION_ADDAOL.'" border="0"></a>&nbsp;';
+      $icons .= '<a href="http://feeds.my.aol.com/add.jsp?url='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/aol2.png" alt="'._MB_IMPRESSION_ADDAOL.'" title="'._MB_IMPRESSION_ADDAOL.'" border="0"></a>&nbsp;';
       // Windows Live
-      $icons .= '<a href="http://www.live.com/?add='. ICMS_URL . '/modules/rss/rss.php?feed=impression"><img style="width: 92px; height: 17px;" src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/windowslive.png" alt="'._MB_IMPRESSION_ADDMSLIVE.'" title="'._MB_IMPRESSION_ADDMSLIVE.'" border="0"></a>';
+      $icons .= '<a href="http://www.live.com/?add='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img style="width: 92px; height: 17px;" src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/windowslive.png" alt="'._MB_IMPRESSION_ADDMSLIVE.'" title="'._MB_IMPRESSION_ADDMSLIVE.'" border="0"></a>';
       $icons .= '</div>';
     }
 
@@ -84,7 +84,7 @@ function b_impression_spot_show( $options ) {
     $moderate = 0;
     $impressionmyts = &MyTextSanitizer :: getInstance();
 
-    $sql = $xoopsDB -> query( "SELECT aid, cid, title, submitter, published, status, date, hits, introtext FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status = 0 ORDER BY published DESC", $options[1], 0 );
+    $sql = $xoopsDB -> query( "SELECT aid, cid, title, submitter, published, status, hits, introtext FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status=0 ORDER BY published DESC", $options[1], 0 );
     while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {
         if ( false == checkImpressionSpotgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
             continue;
@@ -144,7 +144,7 @@ function b_impression_spot_edit( $options ) {
 	if ($options[3] == 1) {
 		$chk = " checked='checked'";
 	}
-	$form .= "&nbsp;<input type='radio' name='options[3]' value='1'".$chk." />&nbsp;"._YES."";
+	$form .= "&nbsp;<input type='radio' name='options[3]' value='1'".$chk." />&nbsp;"._YES."&nbsp;&nbsp;"._MB_IMPRESSION_SHOWRSSICONS_DSC."";
     return $form;
 }
 ?>
