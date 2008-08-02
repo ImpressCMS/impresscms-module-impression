@@ -18,7 +18,7 @@ define("_MI_IMPRESSION_BSPOT", "Spotlight");
 define("_MI_IMPRESSION_BNEW", "Recente koppen");
 
 // Sub menu titles
-define("_MI_IMPRESSION_SMNAME1", "Inzenden");
+define("_MI_IMPRESSION_SMNAME1", "Zend een artikel in");
 define("_MI_IMPRESSION_SMNAME2","Populair");
 define("_MI_IMPRESSION_SMNAME3","Top Rated");
 define("_MI_IMPRESSION_SMNAME4","Latest Listings");
