@@ -69,7 +69,7 @@ function edit( $aid = 0 ) {
     $sform = new XoopsThemeForm( $caption, "storyform", xoops_getenv( 'PHP_SELF' ) );
     $sform -> setExtra( 'enctype="multipart / form - data"' );
 
-    $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_ARTICLE_TITLE, 'title', 128, 255, $title ), true );
+    $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_ARTICLE_TITLE, 'title', 70, 255, $title ), true );
 
     if ($publisher) {
       $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_ARTICLE_PUBLISHER, 'publisher', 70, 255, $publisher ) );
