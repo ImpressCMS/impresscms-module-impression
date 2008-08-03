@@ -11,8 +11,6 @@ include ICMS_ROOT_PATH . '/class/xoopsformloader.php';
 $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 global $xoopsModule, $impressionmyts, $xoopsModuleConfig;
 
-$xoopsTpl->assign("xoops_module_header", '<link rel="stylesheet" type="text/css" href="' . impression_url . '/impressionstyle.css" />');
-
 $cid = impression_cleanRequestVars( $_REQUEST, 'cid', 0 );
 $aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
 $cid = intval($cid);
@@ -129,7 +127,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $sform -> setExtra( 'enctype="multipart/form-data"' );
         
 // Article title
-        $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_FILETITLE, 'title', 90, 255, $title ), true );
+        $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_FILETITLE, 'title', 70, 255, $title ), true );
 
 // Article publisher
 //    $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_ARTICLE_PUBLISHER, 'publisher', 50, 255, $publisher ), true );
@@ -152,12 +150,12 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     	ob_end_clean();
 
 // Article introtext form
-        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, 10, 50, '');
+        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb );
         $introtext -> setDescription(  '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
         $sform -> addElement( $introtext, true );
 
 // Article description form
-        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 10, 50, '');
+        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb );
         $editor -> setDescription(  '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
         $sform -> addElement( $editor, false );
 
