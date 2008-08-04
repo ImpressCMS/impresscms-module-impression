@@ -280,7 +280,7 @@ switch ($op) {
     case 'main':
         default:
         xoops_cp_header();
-        impression_adminmenu(_AM_IMPRESSION_MCATEGORY);
+        impression_adminmenu( "<h4>" . _AM_IMPRESSION_MCATEGORY . "</h4>" );
 
         include_once ICMS_ROOT_PATH . '/class/xoopsformloader.php';
         $mytree = new XoopsTree($xoopsDB -> prefix('impression_cat'), "cid", "pid");

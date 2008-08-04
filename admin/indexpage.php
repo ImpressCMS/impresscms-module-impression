@@ -41,13 +41,13 @@ switch ( strtolower( $op ) ) {
         list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign ) = $xoopsDB -> fetchrow( $result );
 
         xoops_cp_header();
-        impression_adminmenu( _AM_IMPRESSION_INDEXPAGE );
+        impression_adminmenu( "<h4>" . _AM_IMPRESSION_INDEXPAGE . "</h4>" );
 
-        echo "	 <fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_IPAGE_INFORMATION . "</legend>\n
-		 <div style='padding: 8px;'>" . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . "</div>\n
-		 </fieldset><br />\n
+        echo "   <div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
+		 <span style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_IPAGE_INFORMATION . "</span>\n
+		 <span style='padding: 8px;'>" . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . "</span>\n
+		 </div><br />\n
 		";
-
         $sform = new XoopsThemeForm( _AM_IMPRESSION_IPAGE_MODIFY, "op", xoops_getenv( 'PHP_SELF' ) );
         $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_IPAGE_CTITLE, 'indexheading', 60, 60, $indexheading ), false );
         $graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . $xoopsModuleConfig['mainimagedir'], $type = "images" );

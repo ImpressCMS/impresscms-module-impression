@@ -9,7 +9,7 @@ include_once '../../../include/cp_header.php';
 include_once ICMS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
 
 xoops_cp_header();
-impression_adminmenu( _AM_IMPRESSION_PERM_MANAGEMENT );
+impression_adminmenu( "<h4>" . _AM_IMPRESSION_PERM_MANAGEMENT  . "</h4>" );
 
 $permtoset = isset($_POST['permtoset']) ? intval($_POST['permtoset']) : 1;
 $selected = array('','','','','');
