@@ -1,21 +1,21 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
-A new video "{VIDEO_NAME}" has been added in category "{CATEGORY_NAME}" at {X_SITENAME}.
+Um novo vídeo "{VIDEO_NAME}" foi adicionado na categoria "{CATEGORY_NAME}" do {X_SITENAME}.
 
-You can view this video here:
+Você pode ver o vídeo aqui:
 {VIDEO_URL}
 
-You can view the whole category here:
+Você pode visualizar toda a categoria aqui:
 {CATEGORY_URL}
 
 -----------
 
-You are receiving this message because you selected to be notified when new videos are added in this category.
+Você está recebendo esta mensagem porque você escolheu para ser notificado quando novos vídeos forem adicionados nesta categoria.
 
-If this is an error or you wish not to receive further such notifications, please update your subscriptions by visiting the link below:
+Se este é um erro ou não desejar receber mais essas notificações, atualize suas inscrições, acesse o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Please do not reply to this message.
+FAVOR NÃO RESPONDER ESTA MENSAGEM. 
 
 -----------
 

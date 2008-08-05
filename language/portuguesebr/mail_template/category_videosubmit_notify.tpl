@@ -1,18 +1,18 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
-A new video "{VIDEO_NAME}" has been submitted in the category "{CATEGORY_NAME}" at {X_SITENAME} and is awaiting approval.
+Um novo vídeo "{VIDEO_NAME}" Foi apresentado na categoria "{CATEGORY_NAME}" no {X_SITENAME} e aguarda aprovação.
 
-You can view this video submission here (note this page shows waiting videos in ALL categories):
+Você pode ver a apresentação do vídeo aqui (nota: Eesta página mostra os vídeos que estão aguardando aprovação em todas as categorias):
 {WAITINGFILES_URL}
 
 -----------
 
-You are receiving this message because you selected to be notified when new videos are submitted in this category.
+Você está recebendo esta mensagem porque você escolheu para ser notificado quando novos vídeos forem submetidos nesta categoria.
 
-If this is an error or you wish not to receive further such notifications, please update your subscriptions by visiting the link below:
+Se este é um erro ou não desejar receber mais essas notificações, atualize suas inscrições, acesse o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Please do not reply to this message.
+FAVOR NÃO RESPONDER ESTA MENSAGEM. 
 
 -----------
 

@@ -1,21 +1,21 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
-A new video category "{CATEGORY_NAME}" has been created at {X_SITENAME}.
+Uma nova categoria de vídeo "{CATEGORY_NAME}" Foi criada no {X_SITENAME}.
 
-Follow this link to view this video category:
+Clique no link abaixo para ver esta categoria de Vídeo:
 {CATEGORY_URL}
 
-Follow this link to view the category index:
+Siga este link para visualizar o início desta categoria:
 {X_MODULE_URL}
 
 -----------
 
-You are receiving this message because you selected to be notified when new video categories are added to our site.
+Você está recebendo esta mensagem porque você escolheu para ser notificado quando novas categorias de vídeo forem adicionadas ao nosso site.
 
-If this is an error or you wish not to receive further such notifications, please update your subscriptions by visiting the link below:
+Se este é um erro ou não desejar receber mais essas notificações, atualize suas inscrições, acesse o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Please do not reply to this message.
+FAVOR NÃO RESPONDER ESTA MENSAGEM. 
 
 -----------
 

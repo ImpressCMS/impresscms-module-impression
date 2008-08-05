@@ -1,18 +1,18 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
-A new video "{LINK_NAME}" has been added at {X_SITENAME}.
+Um novo vídeo "{LINK_NAME}" foi corretamente adicionado no {X_SITENAME}.
 
-You can view this video here:
+Você pode ver o vídeo aqui:
 {LINK_URL}
 
 -----------
 
-You are receiving this message because you selected to be notified when new videos are added to our site.
+Você está recebendo esta mensagem porque você escolheu para ser notificado quando novos vídeos forem adicionadas ao nosso site.
 
-If this is an error or you wish not to receive further such notifications, please update your subscriptions by visiting the link below:
+Se este é um erro ou não desejar receber mais essas notificações, atualize suas inscrições, acesse o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Please do not reply to this message.
+FAVOR NÃO RESPONDER ESTA MENSAGEM. 
 
 -----------
 
