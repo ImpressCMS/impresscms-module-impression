@@ -1,18 +1,18 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
-A new link "{VIDEO_NAME}" has been submitted at {X_SITENAME} and is awaiting approval.
+Um novo link "{VIDEO_NAME}" foi apresentado no {X_SITENAME} e aguarda aprovação.
 
-You can view this video submission here:
+Você pode ver esta apresentação de vídeo aqui:
 {WAITINGFILES_URL}
 
 -----------
 
-You are receiving this message because you selected to be notified when new videos are submitted to our site.
+Você está recebendo esta mensagem porque você escolheu para ser notificado quando novos vídeos forem submetidos ao nosso site.
 
-If this is an error or you wish not to receive further such notifications, please update your subscriptions by visiting the link below:
+Se este é um erro ou não desejar receber mais essas notificações, atualize suas inscrições, acesse o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Please do not reply to this message.
+FAVOR NÃO RESPONDER ESTA MENSAGEM. 
 
 -----------
 

@@ -1,18 +1,18 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
-A broken video report has been submitted and is awaiting approval.
+Um relatório de vídeo quebrado foi apresentado e está aguardando aprovação.
 
-You can view this request here:
+Você pode ver esta solicitação aqui:
 {BROKENREPORTS_URL}
 
 -----------
 
-You are receiving this message because you selected to be notified when broken video reports are submitted.
+Você está recebendo esta mensagem porque você escolheu para ser notificado quando for enviado algum relatório de vídeo quebrado em nosso site.
 
-If this is an error or you wish not to receive further such notifications, please update your subscriptions by visiting the link below:
+Se este é um erro ou não desejar receber mais essas notificações, atualize suas inscrições, acesse o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Please do not reply to this message.
+FAVOR NÃO RESPONDER ESTA MENSAGEM. 
 
 -----------
 
