@@ -70,7 +70,7 @@ $article['path'] = $pathstring;
 
 // Get Social Bookmarks
 $article['sbmarks'] = impression_sbmarks($article_arr['aid']);
-$article['description'] = $article_arr['description'];
+$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, 1 );
 
 // Start of meta tags
 global $xoopsTpl, $xoTheme;

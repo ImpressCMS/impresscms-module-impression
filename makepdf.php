@@ -47,7 +47,7 @@ $title = $myts -> displayTarea( $myrow['title'] );
 $category = $mycat['title'];
 $whowhen = sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
 //$content = $myrow['introtext'] . '<br /><br />' . $myrow['description'];
-$content = $title . '<br /><br />' . strip_p_tag($myrow['introtext']) . strip_p_tag( $myrow['description']);
+$content = $title . '<br /><br />' . $myts -> displayTarea( strip_p_tag($myrow['introtext']), 1, 1, 1, 1, 1 ) . $myts -> displayTarea( strip_p_tag( $myrow['description']), 1, 1, 1, 1, 1 );
 
 $slogan = $xoopsConfig['sitename'] . ' - ' . $xoopsConfig['slogan'];
 //$filename = preg_replace( "/[^0-9a-z\-_\.]/i",'', $title );
