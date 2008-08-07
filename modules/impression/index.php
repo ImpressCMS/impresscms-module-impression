@@ -97,7 +97,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
                                                   'subcategories' => $subcategories,
                                                   'totalarticles' => $totalarticleload['count'],
                                                   'count' => $count,
-                                                  'alttext' => $myrow['description'],
+                                                  'alttext' => $impressionmyts -> displayTarea( $myrow['description'], 1, 1, 1, 1, 1 ),
                                                   'showartcount' => $xoopsModuleConfig['showartcount'] )
                                                   );
         $count++;
@@ -122,7 +122,7 @@ $rss_mod = $modhandler -> getByDirName( 'rss' );
     }
 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
-//$xoopsTpl -> assign( 'rss_icon', $rss_icon );
+
 $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
  
 include ICMS_ROOT_PATH . '/footer.php';
