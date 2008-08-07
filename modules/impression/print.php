@@ -40,8 +40,8 @@ $item['printheader'] = _MD_IMPRESSION_PUBLISHEDON . formatTimestamp($myrow['publ
 $item['who_where'] = sprintf(_MD_IMPRESSION_WHO_WHEN, $myrow['submitter'], formatTimestamp($myrow['published'], $xoopsModuleConfig['dateformat']));
 $item['categoryname'] = $mycat['title'];
 $item['title'] = $myrow['title'];
-$item['introtext'] = $myrow['introtext'];
-$item['description'] = $myrow['description'];
+$item['introtext'] = $myts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 );
+$item['description'] = $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, 1 );
 $xoopsTpl->assign('printtitle', $item['printtitle']);
 $xoopsTpl->assign('printlogourl', $xoopsModuleConfig['printlogourl']);
 $xoopsTpl->assign('printheader', $item['printheader']);

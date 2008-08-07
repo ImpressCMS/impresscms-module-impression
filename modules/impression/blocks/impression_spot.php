@@ -111,7 +111,7 @@ function b_impression_spot_show( $options ) {
         $articleload['date'] = formatTimestamp( $myrow['published'], $options[2] );
         $articleload['hits'] = sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
         $articleload['submitter'] = xoops_getLinkedUnameFromId($myrow['submitter']);
-        $articleload['introtext'] = $myrow['introtext'];
+        $articleload['introtext'] = $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 );
         $articleload['readmore'] = '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . _MB_IMPRESSION_READMORE . '</a>';
         $articleload['rssicons'] = $options[3];
         $articleload['showrss'] = b_impression_displayrssicons();

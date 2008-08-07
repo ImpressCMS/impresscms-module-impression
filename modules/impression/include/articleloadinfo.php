@@ -25,7 +25,7 @@ $is_updated = _MD_IMPRESSION_SUBMITDATE;
 $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
 
 $article['updated'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
-$article['introtext'] = $article_arr['introtext'];
+$article['introtext'] = $impressionmyts -> displayTarea( $article_arr['introtext'], 1, 1, 1, 1, 1 );
 $article['submitter'] = xoops_getLinkedUnameFromId( $article_arr['submitter'] );
 
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
