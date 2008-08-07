@@ -3,7 +3,11 @@ Impression changelog:
 =========================================================
 xx.xx.2008   1.0 RC-2
 =========================================================
+- Added Portuguese-Brazilian language files [gibaphp]
+
 - Fixed bug in blocks in case folder name was renamed
+- Fixed bug in output in case dhtml editor is used
+
 
 =========================================================
 01.08.2008   1.0 RC-1
