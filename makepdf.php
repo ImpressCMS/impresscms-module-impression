@@ -102,6 +102,9 @@ $pdf -> setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
 $pdf -> setLanguageArray($l); //set language items
 
+// set font
+$pdf -> SetFont("dejavusans", "BI", 16);
+
 //initialize document
 $pdf -> AliasNbPages();
 $pdf -> AddPage();
