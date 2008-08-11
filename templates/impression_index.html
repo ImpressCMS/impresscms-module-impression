@@ -41,9 +41,25 @@
   <div style="float: right;"><{$rss_icon}></div>
 </div>
 
-
 <{if $catarray.indexfooter != ""}>
   <div style="clear: both; float: <{$catarray.indexfooteralign}>; padding-left: 8px; padding-top: 12px; padding-bottom: 12px;">
     <{$catarray.indexfooter}>
   </div>
+<{/if}>
+
+<{if $showlatest}>
+
+	<div class="odd" style="margin-top: 50px; font-size: bigger; font-weight: bold;"><{$smarty.const._MD_IMPRESSION_LATESTLIST}></div>
+	<br />
+	<table width="100%" cellspacing="0" cellpadding="10" border="0">
+		<tr>
+			<td width="100%">
+				<!-- Start articleloop -->
+				<{section name=i loop=$article}>
+				<{include file="db:impression_articleload.html" article=$article[i]}>
+				<{/section}>
+				<!-- End article loop -->
+			</td>
+		</tr>
+	</table>
 <{/if}>

@@ -24,7 +24,9 @@ switch ( strtolower( $op ) ) {
 //        $nobreak = isset( $_REQUEST['nobreak'] ) ? 1 : 0;
         $indexheaderalign = $impressionmyts -> addslashes( $_REQUEST['indexheaderalign'] );
         $indexfooteralign = $impressionmyts -> addslashes( $_REQUEST['indexfooteralign'] );
-        $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign'";
+		$lastarticlesyn = $_REQUEST['lastarticlesyn'];
+        $lastarticlestotal = $impressionmyts -> addslashes( $_REQUEST['lastarticlestotal'] );
+        $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlesyn='$lastarticlesyn', lastarticlestotal='$lastarticlestotal'";
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
@@ -33,12 +35,12 @@ switch ( strtolower( $op ) ) {
         break;
 
     default:
-        $sql = "SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign FROM " . $xoopsDB -> prefix( 'impression_indexpage' );
+        $sql = "SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastarticlesyn, lastarticlestotal FROM " . $xoopsDB -> prefix( 'impression_indexpage' );
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
-        list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign ) = $xoopsDB -> fetchrow( $result );
+        list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastarticlesyn, $lastarticlestotal ) = $xoopsDB -> fetchrow( $result );
 
         xoops_cp_header();
         impression_adminmenu( "<h4>" . _AM_IMPRESSION_INDEXPAGE . "</h4>" );
@@ -97,6 +99,11 @@ switch ( strtolower( $op ) ) {
 //        $breaks_checkbox -> addOption( 1, _AM_IMPRESSION_DISABLEBREAK );
 //        $options_tray -> addElement( $breaks_checkbox );
 //        $sform -> addElement( $options_tray );
+
+		$sform -> addElement(  new XoopsFormRadioYN( _AM_IMPRESSION_IPAGE_SHOWLATEST, 'lastarticlesyn', $lastarticlesyn, ' ' . _YES . '', ' ' . _NO . '' ) );
+
+        $lastarticlestotalform = new XoopsFormText( _AM_IMPRESSION_IPAGE_LATESTTOTAL, 'lastarticlestotal', 2, 2, $lastarticlestotal );
+        $sform -> addElement( $lastarticlestotalform, false );
 
         $button_tray = new XoopsFormElementTray( '', '' );
         $hidden = new XoopsFormHidden( 'op', 'save' );

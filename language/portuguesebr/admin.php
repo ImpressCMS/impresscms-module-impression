@@ -294,4 +294,7 @@ define( '_AM_IMPRESSION_REJECTED', 'Rejected' );
 define( '_AM_IMPRESSION_SUBMITTED', 'Submitted' );
 define( '_AM_IMPRESSION_INFOMATION', 'Information' );
 define( '_AM_IMPRESSION_NOTPUBLiSHED', 'Not Published' );
+
+define( "_AM_IMPRESSION_IPAGE_SHOWLATEST", "Show Latest Listings?" );
+define( "_AM_IMPRESSION_IPAGE_LATESTTOTAL", "How many articles to show?" );
 ?>

@@ -39,7 +39,7 @@ CREATE TABLE `impression_cat` (
 
 CREATE TABLE `impression_indexpage` (
   `indeximage` varchar(255) NOT NULL default 'blank.gif',
-  `indexheading` varchar(255) NOT NULL default 'XoopsTube',
+  `indexheading` varchar(255) NOT NULL default 'Impression',
   `indexheader` text NOT NULL,
   `indexfooter` text NOT NULL,
   `nohtml` tinyint(8) NOT NULL default '1',
@@ -49,6 +49,8 @@ CREATE TABLE `impression_indexpage` (
   `nobreak` tinyint(4) NOT NULL default '0',
   `indexheaderalign` varchar(25) NOT NULL default 'left',
   `indexfooteralign` varchar(25) NOT NULL default 'center',
+  `lastarticlesyn` tinyint(1) NOT NULL default '0',
+  `lastarticlestotal` varchar(5) NOT NULL default '5',
   FULLTEXT KEY `indexheading` (`indexheading`),
   FULLTEXT KEY `indexheader` (`indexheader`),
   FULLTEXT KEY `indexfooter` (`indexfooter`)
@@ -56,7 +58,7 @@ CREATE TABLE `impression_indexpage` (
 
 
 
-INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`nohtml`,`nosmiley`,`noxcodes`,`noimages`,`nobreak`,`indexheaderalign`,`indexfooteralign`) VALUES ('impression_bar.png','','Enjoy reading the articles in <em>Impression</em>','','0','0','0','0','1','left','left');
+INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`nohtml`,`nosmiley`,`noxcodes`,`noimages`,`nobreak`,`indexheaderalign`,`indexfooteralign`) VALUES ('impression_bar.png','','Enjoy reading the articles in <em>Impression</em>','','0','0','0','0','1','left','left','0','5');
 
 
 #
