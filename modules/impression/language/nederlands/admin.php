@@ -298,4 +298,7 @@ define( '_AM_IMPRESSION_REJECTED', 'Gewijgert' );
 define( '_AM_IMPRESSION_SUBMITTED', 'Ingezonden' );
 define( '_AM_IMPRESSION_INFOMATION', 'Informatie' );
 define( '_AM_IMPRESSION_NOTPUBLiSHED', 'Niet Gepubliceerd' );
+
+define( "_AM_IMPRESSION_IPAGE_SHOWLATEST", "Laat Laatste Artikelen zien?" );
+define( "_AM_IMPRESSION_IPAGE_LATESTTOTAL", "Hoeveel artikel dienen afgebeeld te worden?" );
 ?>

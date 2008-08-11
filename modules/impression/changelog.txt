@@ -3,6 +3,8 @@ Impression changelog:
 =========================================================
 xx.xx.2008   1.0 RC-2
 =========================================================
+- Added option to display Latest Articles on Index Page
+
 - Added Portuguese-Brazilian language files [gibaphp]
 
 - Fixed bug in blocks in case folder name was renamed

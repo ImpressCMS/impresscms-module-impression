@@ -40,7 +40,7 @@ define( "_MD_IMPRESSION_TELLAFRIEND", "Recommend" );
 define( "_MD_IMPRESSION_EDIT", "Edit" );
 define( "_MD_IMPRESSION_THEREARE", "There are <b>%s</b> <i>Categories</i> and <b>%s</b> <i>Articles</i> listed" );
 define( "_MD_IMPRESSION_THEREIS", "There is <b>%s</b> <i>Category</i> and <b>%s</b> <i>Articles</i> listed" );
-define( "_MD_IMPRESSION_LATESTLIST", "Latest listings" );
+define( "_MD_IMPRESSION_LATESTLIST", "Latest articles" );
 define( "_MD_IMPRESSION_FILETITLE", "Article title: " );
 define( "_MD_IMPRESSION_ARTICLE_PUBLISHER", "Article publisher name:" );
 define( "_MD_IMPRESSION_HOMEPAGEC", "Home page: " );

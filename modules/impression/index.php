@@ -120,6 +120,21 @@ $rss_mod = $modhandler -> getByDirName( 'rss' );
     } else {
       $xoopsTpl -> assign( 'rss_icon', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>' );
     }
+	
+$sql = $xoopsDB -> query( "SELECT lastarticlesyn, lastarticlestotal FROM " . $xoopsDB -> prefix( 'impression_indexpage' ));
+$lastarticles = $xoopsDB -> fetchArray( $sql );
+
+if ($lastarticles['lastarticlesyn'] == 1) {
+  $result = $xoopsDB -> query( "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status=0 ORDER BY published DESC", $lastarticles['lastarticlestotal'], 0 );
+  while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
+        $res_type = 0;
+        $moderate = 0;
+        $cid = $article_arr['cid'];
+        require XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
+        $xoopsTpl -> append( 'article', $article );
+  }
+}
+$xoopsTpl -> assign( 'showlatest', $lastarticles['lastarticlesyn'] );	
 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
 
