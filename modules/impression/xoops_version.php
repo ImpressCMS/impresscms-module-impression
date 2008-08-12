@@ -10,7 +10,7 @@ $mydirname = basename( dirname( __FILE__ ) );
 $modversion['name'] = _MI_IMPRESSION_NAME;
 $modversion['version'] = "1.00";
 $modversion['releasedate'] = "01 August 2008";
-$modversion['status'] = "RC-1";
+$modversion['status'] = "RC-2";
 $modversion['description'] = _MI_IMPRESSION_DESC;
 $modversion['license'] = "GNU General Public License (GPL)";
 $modversion['official'] = 1;
@@ -90,6 +90,7 @@ $modversion['blocks'][$i]['can_clone'] = true ;
 //$modversion['blocks'][$i]['template'] = 'impression_tag_block_tag.html';
 //$modversion['blocks'][$i]['can_clone'] = true ;
 
+
 // Menu
 $modversion['hasMain'] = 1;
 
@@ -120,7 +121,7 @@ $modversion['search']['file'] = "include/search.inc.php";
 $modversion['search']['func'] = "impression_search";
 
 // Templates
-$i=0;
+$i = 0;
 $i++;
 $modversion['templates'][$i]['file'] = 'impression_articleload.html';
 $modversion['templates'][$i]['description'] = '';
@@ -141,7 +142,7 @@ $modversion['templates'][$i]['file'] = 'impression_topten.html';
 $modversion['templates'][$i]['description'] = '';
 
 // Module config setting
-$i=0;
+$i = 0;
 $i++;
 $modversion['config'][$i]['name'] = 'popular';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_POPULAR';
