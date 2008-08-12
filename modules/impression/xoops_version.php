@@ -44,7 +44,7 @@ $modversion['tables'][3] = 'impression_altcat';
 
 // Launch additional install script to check
 $modversion['onInstall'] = '';
-$modversion['onUpdate'] = '';
+$modversion['onUpdate'] = 'include/update.php';
 
 // Admin things
 $modversion['hasAdmin'] = 1;
