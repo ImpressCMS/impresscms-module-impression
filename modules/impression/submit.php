@@ -150,12 +150,12 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     	ob_end_clean();
 
 // Article introtext form
-        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb );
+        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, '100%', '250px' );
         $introtext -> setDescription(  '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
         $sform -> addElement( $introtext, true );
 
 // Article description form
-        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb );
+        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, '100%', '600px' );
         $editor -> setDescription(  '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
         $sform -> addElement( $editor, false );
 
