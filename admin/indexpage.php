@@ -65,7 +65,7 @@ switch ( strtolower( $op ) ) {
         } 
         $sform -> addElement( $indeximage_tray );
 
-        $editor = impression_getWysiwygForm( _AM_IMPRESSION_IPAGE_CHEADING, 'indexheader', $indexheader, 15, 60 );
+        $editor = impression_getWysiwygForm( _AM_IMPRESSION_IPAGE_CHEADING, 'indexheader', $indexheader, '100%', '400px' );
         $sform -> addElement($editor, false);
 
         $headeralign_select = new XoopsFormSelect( _AM_IMPRESSION_IPAGE_CHEADINGA, "indexheaderalign", $indexheaderalign );

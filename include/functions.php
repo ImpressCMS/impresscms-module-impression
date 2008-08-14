@@ -674,7 +674,7 @@ function impression_articlelistpagenavleft( $pubrowamount, $start, $art = "art",
 }
 
 // Retreive an editor according to the module's option "form_options"
-function impression_getWysiwygForm( $caption, $name, $value = "" ) {
+function impression_getWysiwygForm( $caption, $name, $value = "", $width, $height ) {
         global $xoopsModuleConfig, $xoopsUser, $xoopsModule;
 
 	$editor = false;
@@ -685,8 +685,8 @@ function impression_getWysiwygForm( $caption, $name, $value = "" ) {
 	$editor_configs["caption"] = $caption;
 	$editor_configs["rows"] = 35;
 	$editor_configs["cols"] = 60;
-	$editor_configs["width"] = "100%";
-	$editor_configs["height"] = "500px";
+	$editor_configs["width"] = $width;
+	$editor_configs["height"] = $height;
 
 	$isadmin = ( ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) && $xoopsUser -> isAdmin( $xoopsModule -> mid() ) ) ? true : false;
         if ( $isadmin == true ) {
@@ -697,81 +697,89 @@ function impression_getWysiwygForm( $caption, $name, $value = "" ) {
 
 	switch($formuser) {
 	case "fck":
-	     if ( is_readable(ICMS_ROOT_PATH . "/editors/fckeditor/formfckeditor.php"))	{
-               include_once(ICMS_ROOT_PATH . "/editors/fckeditor/formfckeditor.php");
-               $editor = new XoopsFormFckeditor($editor_configs,true);
+	     if ( is_readable( ICMS_ROOT_PATH . "/editors/fckeditor/formfckeditor.php" ) )	{
+               include_once( ICMS_ROOT_PATH . "/editors/fckeditor/formfckeditor.php" );
+               $editor = new XoopsFormFckeditor( $editor_configs, true );
 	     } else {
                if ($dhtml) {
-                 $editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
+                 $editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, 20, 60 );
 	       } else {
-                 $editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
+                 $editor = new XoopsFormTextArea( $caption, $name, $value, 7, 60 );
                }
              }
 	     break;
 
 	case "htmlarea":
-             if ( is_readable(ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php")) {
-               include_once(ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php");
-               $editor = new XoopsFormHtmlarea($caption, $name, $value);
+             if ( is_readable( ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php" ) ) {
+               include_once( ICMS_ROOT_PATH . "/class/htmlarea/formhtmlarea.php" );
+               $editor = new XoopsFormHtmlarea( $caption, $name, $value );
 	     }
              break;
 
 	case "dhtml":
-	     $editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
+	     $editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, 20, 60 );
 	     break;
 
 	case "textarea":
-	     $editor = new XoopsFormTextArea($caption, $name, $value);
+	     $editor = new XoopsFormTextArea( $caption, $name, $value );
 	     break;
 
 	case "koivi":
-	     if ( is_readable(ICMS_ROOT_PATH . "/editors/koivi/formwysiwygtextarea.php")) {
-               include_once(ICMS_ROOT_PATH . "/editors/koivi/formwysiwygtextarea.php");
-	       $editor = new XoopsFormWysiwygTextArea($caption, $name, $value, '100%', '400px');
+	     if ( is_readable( ICMS_ROOT_PATH . "/editors/koivi/formwysiwygtextarea.php" ) ) {
+               include_once( ICMS_ROOT_PATH . "/editors/koivi/formwysiwygtextarea.php" );
+	       $editor = new XoopsFormWysiwygTextArea( $caption, $name, $value, $width, $height );
 	     } else { 
                if ($dhtml) {
-                 $editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
+                 $editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, 20, 60 );
 	       } else {
-                 $editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
+                 $editor = new XoopsFormTextArea( $caption, $name, $value, 7, 60 );
 	       }
 	     }
 	     break;
 
 	case "tinyeditor":
-             if ( is_readable(ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php")) {
-               include_once(ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php");
-               $editor = new XoopsFormTinyeditorTextArea(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'500px'));
+             if ( is_readable( ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php" ) ) {
+               include_once( ICMS_ROOT_PATH . "/class/xoopseditor/tinyeditor/formtinyeditortextarea.php" );
+               $editor = new XoopsFormTinyeditorTextArea( array(	'caption' => $caption, 
+																	'name' => $name, 
+																	'value' => $value, 
+																	'width' => $width, 
+																	'height' => $height ) );
              } else {
                if ($dhtml) {
-                 $editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 50, 60);
+                 $editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, 50, 60 );
                } else {
-                 $editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
+                 $editor = new XoopsFormTextArea( $caption, $name, $value, 7, 60 );
                }
              }
              break;
 
 	case "dhtmlext":
-             if ( is_readable(ICMS_ROOT_PATH . "/editors/dhtmlext/dhtmlext.php")) {
-               include_once(ICMS_ROOT_PATH . "/editors/dhtmlext/dhtmlext.php");
-	       $editor = new XoopsFormDhtmlTextAreaExtended($caption, $name, $value, 10, 50);
+             if ( is_readable( ICMS_ROOT_PATH . "/editors/dhtmlext/dhtmlext.php" ) ) {
+               include_once( ICMS_ROOT_PATH . "/editors/dhtmlext/dhtmlext.php" );
+	       $editor = new XoopsFormDhtmlTextAreaExtended( $caption, $name, $value, 10, 50 );
 	     } else {
                if ($dhtml) {
-                 $editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 50, 60);
+                 $editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, 50, 60 );
 	       } else {
-                 $editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
+                 $editor = new XoopsFormTextArea( $caption, $name, $value, 7, 60 );
                }
 	     }
 	     break;
 
 	case "tinymce":
-             if ( is_readable(ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php")) {
-               include_once(ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php");
-               $editor = new XoopsFormTinymce(array('caption'=>$caption, 'name'=>$name, 'value'=>$value, 'width'=>'100%', 'height'=>'500px'));
+             if ( is_readable( ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php" ) ) {
+               include_once( ICMS_ROOT_PATH . "/editors/tinymce/formtinymce.php" );
+               $editor = new XoopsFormTinymce( array(	'caption' => $caption, 
+														'name' => $name, 
+														'value' => $value, 
+														'width' => $width, 
+														'height' => $height ) );
              } else {
                if ($dhtml) {
-                 $editor = new XoopsFormDhtmlTextArea($caption, $name, $value, 20, 60);
+                 $editor = new XoopsFormDhtmlTextArea( $caption, $name, $value, 20, 60 );
                } else {
-                 $editor = new XoopsFormTextArea($caption, $name, $value, 7, 60);
+                 $editor = new XoopsFormTextArea( $caption, $name, $value, 7, 60 );
                }
              }
              break;

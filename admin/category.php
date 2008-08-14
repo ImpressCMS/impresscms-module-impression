@@ -83,7 +83,7 @@ function createcat($cid = 0) {
     } 
     $sform -> addElement($indeximage_tray);
 
-    $editor = impression_getWysiwygForm( _AM_IMPRESSION_FCATEGORY_DESCRIPTION, 'description', $description, 15, 60, '');
+    $editor = impression_getWysiwygForm( _AM_IMPRESSION_FCATEGORY_DESCRIPTION, 'description', $description, '100%', '400px' );
     $sform -> addElement( $editor, false );
 
     $sform -> addElement(new XoopsFormHidden('cid', $cid));
