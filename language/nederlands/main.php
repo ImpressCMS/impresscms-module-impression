@@ -1,8 +1,9 @@
-<?php
+﻿<?php
 /**
  * $Id: main.php
  * Module: Impression
- * Language: english
+ * Language: Dutch (Nederlands)
+ * Format: UTF-8
  * Author: McDonald
  */
 
@@ -37,7 +38,7 @@ define( "_MD_IMPRESSION_PUBLISHERC", "Inzender: " );
 define( "_MD_IMPRESSION_MODIFY", "Aanpassen" );
 define( "_MD_IMPRESSION_TELLAFRIEND", "Stuur dit artikel door" );
 define( "_MD_IMPRESSION_EDIT", "Aanpassen" );
-define( "_MD_IMPRESSION_THEREARE", "Er zijn <b>%s</b> <i>categorie&#0235;n</i> en <b>%s</b> <i>artikelen</i> geindexeerd" );
+define( "_MD_IMPRESSION_THEREARE", "Er zijn <b>%s</b> <i>categorieën</i> en <b>%s</b> <i>artikelen</i> geindexeerd" );
 define( "_MD_IMPRESSION_THEREIS", "Er is <b>%s</b> <i>categorie</i> en <b>%s</b> <i>artikel</i> geindexeerd" );
 define( "_MD_IMPRESSION_LATESTLIST", "Recent toegevoegde artikelen" );
 define( "_MD_IMPRESSION_FILETITLE", "Artikel titel: " );

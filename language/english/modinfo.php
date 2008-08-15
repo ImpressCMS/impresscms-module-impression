@@ -1,8 +1,9 @@
-<?php
+﻿<?php
 /**
  * $Id: modinfo.php
- * Module: XoopsTube
- * Language: english 
+ * Module: Impression
+ * Language: English
+ * Format: UTF-8 
  * Author: McDonald
  */
 
@@ -80,7 +81,7 @@ define('_MI_IMPRESSION_USESHOTS', 'Display Screenshot Images?');
 define('_MI_IMPRESSION_USESHOTSDSC', 'Select yes to display screenshot images for each article item');
 
 define('_MI_IMPRESSION_USETHUMBS', 'Use thumbnails:');
-define("_MI_IMPRESSION_USETHUMBSDSC", "Supported link types: JPG, GIF, PNG.<div style='padding-top: 8px;'>WF-Links will use thumb nails for images. Set to 'No' to use orginal image if the server does not support this option.</div>");
+define("_MI_IMPRESSION_USETHUMBSDSC", "Supported image types: JPG, GIF, PNG.<div style='padding-top: 8px;'>Impression will use thumb nails for images. Set to 'No' to use orginal image if the server does not support this option.</div>");
 
 define("_MI_IMPRESSION_IMGUPDATE", "Update thumbnails?");
 define("_MI_IMPRESSION_IMGUPDATEDSC", "If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br /><br />");
