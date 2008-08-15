@@ -3,9 +3,10 @@ Impression changelog:
 =========================================================
 xx.xx.2008   1.0 RC-2
 =========================================================
-- Added option to display Latest Articles on Index Page
+- Added option to display Latest Articles on Index Page [trabis & mcdonald]
 
 - Added Portuguese-Brazilian language files [gibaphp]
+- Converted Dutch & English language files to UTF-8
 
 - Fixed bug in blocks in case folder name was renamed
 - Fixed bug in output in case dhtml editor is used
