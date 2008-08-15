@@ -1,8 +1,9 @@
-<?php
+﻿<?php
 /**
  * $Id: modinfo.php
- * Module: XoopsTube
- * Language: english 
+ * Module: Impression
+ * Language: Dutch (Nederlands)
+ * Format: UTF-8 
  * Author: McDonald
  */
 
@@ -57,11 +58,11 @@ define("_MI_IMPRESSION_AMDMINPAGEDSC", "Aantal artikelen dat getoond wordt in de
 define("_MI_IMPRESSION_ARTICLESSORT", "Sorteer artikelen op:");
 define("_MI_IMPRESSION_ARTICLESSORTDSC", "Selekteer de standaard sorteer volgorde van de artikelen.");
 
-define("_MI_IMPRESSION_SORTCATS", "Sorteer categorie&#0235;n op:");
-define("_MI_IMPRESSION_SORTCATSDSC", "Selekteer de standaard sorteer volgorde van de categorie&#0235;n en sub-categorie&#0235;n.");
+define("_MI_IMPRESSION_SORTCATS", "Sorteer categorieën op:");
+define("_MI_IMPRESSION_SORTCATSDSC", "Selekteer de standaard sorteer volgorde van de categorieën en sub-categorieën.");
 
-define('_MI_IMPRESSION_SUBCATS', 'Sub-categorie&#0235;n tonen:');
-define('_MI_IMPRESSION_SUBCATSDSC', 'Selekteer Ja om sub-categorie&#0235;n te tonen. Selekteer Nee om sub-categorie&#0235;n te verbergen in de lijsten.');
+define('_MI_IMPRESSION_SUBCATS', 'Sub-categorieën tonen:');
+define('_MI_IMPRESSION_SUBCATSDSC', 'Selekteer Ja om sub-categorieën te tonen. Selekteer Nee om sub-categorieën te verbergen in de lijsten.');
 
 define('_MI_IMPRESSION_EDITOR', "Te gebruiken editor [admin]:");
 define('_MI_IMPRESSION_EDITORCHOICE', "Selekteer de te gebruiken editor voor gebruikers. Als u een eenvoudige installatie heeft (bijv. u gebruikt alleen de Xoops core editors), dan kunt u gewoon DHTML en Compact kiezen.");
@@ -101,7 +102,7 @@ define("_MI_IMPRESSION_TOTALCHARSDSC", "Set total amount of characters for descr
 define("_MI_IMPRESSION_OTHERARTICLES", "Laat andere artikelen zien van de inzender?");
 define("_MI_IMPRESSION_OTHERARTICLESDSC", "Selekteer Ja als andere artikelen van de inzender getoond mogen worden.");
 
-define("_MI_IMPRESSION_SHOWARTCOUNT", "Toon aantal artikelen in categorie&#0235;n lijst?");
+define("_MI_IMPRESSION_SHOWARTCOUNT", "Toon aantal artikelen in categorieën lijst?");
 define("_MI_IMPRESSION_SHOWARTCOUNTDSC", "Selekteer Ja als het aantal artikelen per categorie getoond dient te worden.");
 
 define("_MI_IMPRESSION_SHOWSBOOKMARKS", "Toon social bookmarks?");

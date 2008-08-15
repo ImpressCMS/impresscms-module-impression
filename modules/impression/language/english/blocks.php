@@ -1,8 +1,9 @@
-<?php
+﻿<?php
 /**
  * $Id: blocks.php
  * Module: Impression
- * Language: english
+ * Language: English
+ * Format: UTF-8
  * Author: McDonald
  */
  

@@ -1,8 +1,9 @@
 ﻿<?php
 /**
  * $Id: admin.php
- * Module: XoopsTube
- * Language: dutch
+ * Module: Impression
+ * Language: Dutch (Nederlands)
+ * Format: UTF-8
  * Author: McDonald
  */
 
