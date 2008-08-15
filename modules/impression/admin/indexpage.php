@@ -103,6 +103,7 @@ switch ( strtolower( $op ) ) {
 		$sform -> addElement(  new XoopsFormRadioYN( _AM_IMPRESSION_IPAGE_SHOWLATEST, 'lastarticlesyn', $lastarticlesyn, ' ' . _YES . '', ' ' . _NO . '' ) );
 
         $lastarticlestotalform = new XoopsFormText( _AM_IMPRESSION_IPAGE_LATESTTOTAL, 'lastarticlestotal', 2, 2, $lastarticlestotal );
+		$lastarticlestotalform -> setDescription( "<small>" . _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC . "</small>");
         $sform -> addElement( $lastarticlestotalform, false );
 
         $button_tray = new XoopsFormElementTray( '', '' );

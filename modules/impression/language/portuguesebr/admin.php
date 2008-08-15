@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * $Id: admin.php
  * Module: Impression
@@ -297,4 +297,5 @@ define( '_AM_IMPRESSION_NOTPUBLiSHED', 'Not Published' );
 
 define( "_AM_IMPRESSION_IPAGE_SHOWLATEST", "Show Latest Listings?" );
 define( "_AM_IMPRESSION_IPAGE_LATESTTOTAL", "How many articles to show?" );
+define( "_AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC", "0 Turns this option off." );
 ?>

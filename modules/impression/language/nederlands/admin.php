@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * $Id: admin.php
  * Module: XoopsTube
@@ -93,8 +93,8 @@ define( "_AM_IMPRESSION_IPAGE_CRIGHT", "Uitlijnen rechts" );
 define( "_AM_IMPRESSION_PERM_MANAGEMENT", "Rechten instellingen" );
 define( "_AM_IMPRESSION_PERM_PERMSNOTE", "<div><b>Opmerking:</b> Stel hier de juiste rechten in, anders kunnen gebruikersgroepen mogelijk bepaalde artikelen en blokken niet of juist wel zien. Let tevens op de module toegangsrechten! Om deze in te stellen ga naar <b>System admin > Groepen</b>, kies de gewenste groep en selekteer de checkboxen om de toegang te wijzigen.</div>" );
 define( "_AM_IMPRESSION_PERM_CPERMISSIONS", "Categorie rechten" );
-define( "_AM_IMPRESSION_PERM_CSELECTPERMISSIONS", "Selekteer categorie&#0235;n die alle groepen mogen zien" );
-define( "_AM_IMPRESSION_PERM_CNOCATEGORY", "Kan geen rechten instellen: Er zijn geen categorie&#0235;n aangemaakt!" );
+define( "_AM_IMPRESSION_PERM_CSELECTPERMISSIONS", "Selekteer categorieën die alle groepen mogen zien" );
+define( "_AM_IMPRESSION_PERM_CNOCATEGORY", "Kan geen rechten instellen: Er zijn geen categorieën aangemaakt!" );
 define( "_AM_IMPRESSION_PERM_FPERMISSIONS", "Artikel rechten" );
 define( "_AM_IMPRESSION_PERM_FNOFILES", "Kan geen rechten instellen: er zijn geen artikelen aangemaakt!" );
 define( "_AM_IMPRESSION_PERM_FSELECTPERMISSIONS", "Selekteer artikelen die alle groepen mogen zien" );
@@ -270,17 +270,17 @@ define( "_AM_IMPRESSION_MOD_URLRATING", "" );
 define( "_AM_IMPRESSION_ALTCAT_CREATEF", "Alternatieve categorie toevoegen" );
 define( "_AM_IMPRESSION_MALTCAT", "Alternatieve categorie management" );
 define( "_AM_IMPRESSION_ALTCAT_MODIFYF", "Alternatieve categorie management" );
-define( "_AM_IMPRESSION_ALTCAT_INFOTEXT", "<ul><li>Alternatieve categorie&#0235;n kunnen via dit formulier eenvoudig worden toegevoegd of verwijderd.</li></ul>" );
-define( '_AM_IMPRESSION_ALTCAT_CREATED', 'Alternatieve categorie(&#0235;n) is(zijn) opgeslagen!' );
+define( "_AM_IMPRESSION_ALTCAT_INFOTEXT", "<ul><li>Alternatieve categorieën kunnen via dit formulier eenvoudig worden toegevoegd of verwijderd.</li></ul>" );
+define( '_AM_IMPRESSION_ALTCAT_CREATED', 'Alternatieve categorie(ën) is(zijn) opgeslagen!' );
 
 define( "_AM_IMPRESSION_PERM_AUTOPERMISSIONS", "Artikelen automatisch goedkeuren" );
 define( "_AM_IMPRESSION_PERM_AUTOPERMISSIONS_TEXT", "Selekteer de groepen waarvan de ingezonden artikelen automatisch worden goedgekeurd." );
 
 define( "_AM_IMPRESSION_PERM_SPERMISSIONS", "Inzend rechten" );
-define( "_AM_IMPRESSION_PERM_SPERMISSIONS_TEXT", "Selekteer de groepen die nieuwe artikelen mogen inzenden in de geselekteerde categorie(&#0235;n)." );
+define( "_AM_IMPRESSION_PERM_SPERMISSIONS_TEXT", "Selekteer de groepen die nieuwe artikelen mogen inzenden in de geselekteerde categorie(ën)." );
 
 define( "_AM_IMPRESSION_PERM_APERMISSIONS", "Beheerder groepen" );
-define( "_AM_IMPRESSION_PERM_APERMISSIONS_TEXT", "Selekteer de groepen die beheerdersrechten hebben voor de geselekteerde categorie(&#0235;n)." );
+define( "_AM_IMPRESSION_PERM_APERMISSIONS_TEXT", "Selekteer de groepen die beheerdersrechten hebben voor de geselekteerde categorie(ën)." );
 
 define( "_AM_IMPRESSION_TIME", "Tijd:" );
 define( "_AM_IMPRESSION_KEYWORDS", "<b>Keywords:</b>" );
@@ -301,4 +301,5 @@ define( '_AM_IMPRESSION_NOTPUBLiSHED', 'Niet Gepubliceerd' );
 
 define( "_AM_IMPRESSION_IPAGE_SHOWLATEST", "Laat Laatste Artikelen zien?" );
 define( "_AM_IMPRESSION_IPAGE_LATESTTOTAL", "Hoeveel artikel dienen afgebeeld te worden?" );
+define( "_AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC", "0 Schakelt deze optie uit." );
 ?>
