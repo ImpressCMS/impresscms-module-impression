@@ -48,9 +48,13 @@
 <{/if}>
 
 <{if $showlatest}>
-
-	<div class="odd" style="margin-top: 50px; font-size: bigger; font-weight: bold;"><{$smarty.const._MD_IMPRESSION_LATESTLIST}></div>
+	<br /><br />
+	<div class="odd" style="font-size: bigger; font-weight: bold;"><{$smarty.const._MD_IMPRESSION_LATESTLIST}></div>
 	<br />
+	<{if $pagenav}>
+      <div><{$pagenav}></div>
+      <br />
+    <{/if}>
 	<table width="100%" cellspacing="0" cellpadding="10" border="0">
 		<tr>
 			<td width="100%">
@@ -62,4 +66,7 @@
 			</td>
 		</tr>
 	</table>
+	<{if $pagenav}>
+      <div align="right"><{$pagenav}></div>
+    <{/if}>
 <{/if}>

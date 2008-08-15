@@ -6,6 +6,9 @@
 
 include 'header.php';
 
+$start = impression_cleanRequestVars( $_REQUEST, 'start', 0 );
+$start = intval( $start );
+
 $xoopsOption['template_main'] = 'impression_index.html';
 include ICMS_ROOT_PATH . '/header.php';
 
@@ -121,11 +124,26 @@ $rss_mod = $modhandler -> getByDirName( 'rss' );
       $xoopsTpl -> assign( 'rss_icon', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>' );
     }
 	
+$time =	time();
+
 $sql = $xoopsDB -> query( "SELECT lastarticlesyn, lastarticlestotal FROM " . $xoopsDB -> prefix( 'impression_indexpage' ));
 $lastarticles = $xoopsDB -> fetchArray( $sql );
 
-if ($lastarticles['lastarticlesyn'] == 1) {
-  $result = $xoopsDB -> query( "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status=0 ORDER BY published DESC", $lastarticles['lastarticlestotal'], 0 );
+if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] > 0) {
+
+  $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 
+								AND published <= " . $time . " 
+								AND status = 0 
+								ORDER BY published DESC", 0, 0 );
+  list( $count ) = $xoopsDB -> fetchRow( $result );
+  
+  $count = (($count > $lastarticles['lastarticlestotal']) && ($lastarticles['lastarticlestotal'] != 0)) ? $lastarticles['lastarticlestotal'] : $count;
+  $limit = (($start + $xoopsModuleConfig['perpage']) > $count) ? ($count - $start ) : $xoopsModuleConfig['perpage'];
+  
+  $result = $xoopsDB -> query( "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 
+								AND published <= " . $time . " 
+								AND status=0 
+								ORDER BY published DESC", $limit , $start );
   while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
         $moderate = 0;
@@ -133,8 +151,13 @@ if ($lastarticles['lastarticlesyn'] == 1) {
         require XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
         $xoopsTpl -> append( 'article', $article );
   }
+  
+  $pagenav = new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start' );
+  $xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
+  
+  $xoopsTpl -> assign( 'showlatest', $lastarticles['lastarticlesyn'] );
 }
-$xoopsTpl -> assign( 'showlatest', $lastarticles['lastarticlesyn'] );	
+	
 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
 
