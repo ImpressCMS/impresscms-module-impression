@@ -148,7 +148,7 @@ if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] 
         $res_type = 0;
         $moderate = 0;
         $cid = $article_arr['cid'];
-        require XOOPS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
+        require ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
         $xoopsTpl -> append( 'article', $article );
   }
   
