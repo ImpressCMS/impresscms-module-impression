@@ -1,11 +1,11 @@
 Impression changelog:
 
 =========================================================
-xx.xx.2008   1.0 RC-2
+18.08.2008   1.0 RC-2
 =========================================================
 - Added option to display Latest Articles on Index Page [trabis & mcdonald]
+- Changed height of editor field for intro text & main text
 
-- Added Portuguese-Brazilian language files [gibaphp]
 - Converted Dutch & English language files to UTF-8
 
 - Fixed bug in blocks in case folder name was renamed

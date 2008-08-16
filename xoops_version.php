@@ -9,7 +9,7 @@ $mydirname = basename( dirname( __FILE__ ) );
 
 $modversion['name'] = _MI_IMPRESSION_NAME;
 $modversion['version'] = "1.00";
-$modversion['releasedate'] = "01 August 2008";
+$modversion['releasedate'] = "18 August 2008";
 $modversion['status'] = "RC-2";
 $modversion['description'] = _MI_IMPRESSION_DESC;
 $modversion['license'] = "GNU General Public License (GPL)";
