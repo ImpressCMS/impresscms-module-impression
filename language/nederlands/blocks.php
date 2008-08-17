@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * $Id: blocks.php
  * Module: Impression
