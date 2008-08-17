@@ -32,7 +32,6 @@ global $xoopsDB, $xoopsConfig, $xoopsModuleConfig, $xoopsUser;
 $aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
 $aid = intval($aid);
 
-
 $result = $xoopsDB -> query( "SELECT cid, title, submitter, published, introtext, description FROM " . $xoopsDB -> prefix('impression_articles') . " WHERE aid=" . $aid );
 $myrow = $xoopsDB -> fetchArray( $result );
 
@@ -40,19 +39,16 @@ $result2 = $xoopsDB -> query( "SELECT title FROM " . $xoopsDB -> prefix('impress
 $mycat = $xoopsDB -> fetchArray( $result2 );
 
 $date = formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] );
-$submitter = $xoopsUser -> uname();
 
 $myts =& MyTextSanitizer::getInstance();
 $title = $myts -> displayTarea( $myrow['title'] );
+$submitter = strip_tags( xoops_getLinkedUnameFromId( $myrow['submitter'] ) );
 $category = $mycat['title'];
 $whowhen = sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
-//$content = $myrow['introtext'] . '<br /><br />' . $myrow['description'];
 $content = $title . '<br /><br />' . $myts -> displayTarea( strip_p_tag($myrow['introtext']), 1, 1, 1, 1, 1 ) . $myts -> displayTarea( strip_p_tag( $myrow['description']), 1, 1, 1, 1, 1 );
 
 $slogan = $xoopsConfig['sitename'] . ' - ' . $xoopsConfig['slogan'];
-//$filename = preg_replace( "/[^0-9a-z\-_\.]/i",'', $title );
-$author = xoops_getLinkedUnameFromId( $myrow['submitter'] );
-$keywords = $title . ' ' . $category . ' ' . $author . ' ' . $slogan;
+$keywords = $title . ' ' . $category . ' ' . $submitter . ' ' . $slogan;
 $description = '';
 
 $htmltitle = '<font color=#3399CC><h1>' . $title . '</h1><h4>' . $category . '</font></h4><h5>' . $whowhen . '</h5><br>' . $description;
@@ -78,7 +74,7 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true);
 
 // set document information
 $pdf -> SetCreator(PDF_CREATOR);
-$pdf -> SetAuthor(PDF_AUTHOR);
+$pdf -> SetAuthor($submitter);
 $pdf -> SetTitle($title);
 $pdf -> SetSubject($title);
 $pdf -> SetKeywords($keywords);
