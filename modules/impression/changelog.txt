@@ -1,6 +1,15 @@
 Impression changelog:
 
 =========================================================
+xx.xx.2008   1.0 RC-x
+=========================================================
+- Set name of submitter as author in PDF instead of TCPDF
+
+- Converted language files to UTF-8 without BOM
+
+- Fixed bug for displaying name author in PDF
+
+=========================================================
 18.08.2008   1.0 RC-2
 =========================================================
 - Added option to display Latest Articles on Index Page [trabis & mcdonald]
