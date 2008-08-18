@@ -8,6 +8,7 @@ xx.xx.2008   1.0 RC-x
 - Converted language files to UTF-8 without BOM
 
 - Fixed bug for displaying name author in PDF
+- Fixed bug: altcat entries were not deleted when deleting article or cat
 
 =========================================================
 18.08.2008   1.0 RC-2
