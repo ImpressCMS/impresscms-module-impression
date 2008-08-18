@@ -247,6 +247,9 @@ switch ($op) {
                 // all links for each subcategory is deleted, now delete the subcategory data
                 $sql = sprintf("DELETE FROM %s WHERE cid = %u", $xoopsDB -> prefix('impression_cat'), $arr[$i]);
                 $xoopsDB -> query($sql);
+				// delete altcat entries
+                $sql = sprintf("DELETE FROM %s WHERE cid = %u", $xoopsDB -> prefix('impression_altcat'), $arr[$i]);
+                $xoopsDB -> query($sql);
             } 
             // all subcategory and associated data are deleted, now delete category data and its associated data
             $result = $xoopsDB -> query("SELECT aid FROM " . $xoopsDB -> prefix('impression_articles') . " WHERE cid=" . $cid . "");
@@ -254,6 +257,10 @@ switch ($op) {
                 $sql = sprintf("DELETE FROM %s WHERE aid = %u", $xoopsDB -> prefix('impression_articles'), $aid);
                 $xoopsDB -> query($sql);
             }
+			// delete altcat entries
+			$sql = sprintf("DELETE FROM %s WHERE cid = %u", $xoopsDB -> prefix('impression_altcat'), intval($cid));
+            $xoopsDB -> query($sql);
+			// delete category
             $sql = sprintf("DELETE FROM %s WHERE cid = %u", $xoopsDB -> prefix('impression_cat'), $cid);
             $error = _AM_IMPRESSION_DBERROR . ": <br /><br />" . $sql;
             xoops_groupperm_deletebymoditem ($xoopsModule -> getVar('mid'), 'ImpressionCatPerm', $cid);
