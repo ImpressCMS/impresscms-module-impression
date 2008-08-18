@@ -208,14 +208,23 @@ switch ( strtolower( $op ) ) {
     case "delete":
         if ( impression_cleanRequestVars( $_REQUEST, 'confirm', 0 ) ) {
             $title = impression_cleanRequestVars( $_REQUEST, 'title', 0 );
+			
+			// delete article
             $sql = 'DELETE FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
-            } 
+            }
+			
+			// delete altcat
+			$sql = 'DELETE FROM ' . $xoopsDB -> prefix( 'impression_altcat' ) . ' WHERE aid=' . $aid;
+            if ( !$result = $xoopsDB -> query( $sql ) ) {
+                XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+                return false;
+            }	
 
             // delete comments
-            xoops_comment_delete( $xoopsModule -> getVar( 'mid' ), $aid );
+            //xoops_comment_delete( $xoopsModule -> getVar( 'mid' ), $aid );
             redirect_header( "index.php", 1, sprintf( _AM_IMPRESSION_ARTICLE_FILEWASDELETED, $title ) );
             exit();
         } else {
