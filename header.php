@@ -14,9 +14,9 @@ include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/class_thumbnail
 include_once ICMS_ROOT_PATH . '/class/pagenav.php';
 include_once ICMS_ROOT_PATH . '/class/xoopstree.php';
 
-//if ( !file_exists( "language/" . $xoopsConfig['language'] . "/main.php" ) ) {
-//  include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/' . $xoopsConfig['language'] . '/main.php';
-//}
+if ( !file_exists( "language/" . $xoopsConfig['language'] . "/main.php" ) ) {
+  include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/' . $xoopsConfig['language'] . '/main.php';
+}
 
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
 $impressionmyts = new impressionTextSanitizer(); // MyTextSanitizer object
