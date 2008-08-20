@@ -9,7 +9,7 @@ include 'admin_header.php';
 global $xoopsModuleConfig;
 
 $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
-$aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
+$aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
 function makeTreeCheckTable( $xt, $itemid, $title, $checks, $order = "" ) {
     global $impressionmyts;
@@ -85,12 +85,13 @@ switch ( strtolower( $op ) ) {
     default:
         xoops_cp_header();
         impression_adminmenu( _AM_IMPRESSION_MALTCAT );
-        echo "		<fieldset><legend style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_ALTCAT_MODIFYF . "</legend>\n
-			<div style='padding: 8px;'>" . _AM_IMPRESSION_ALTCAT_INFOTEXT . "</div>\n
-			</fieldset>\n
+        echo "	<div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
+				<div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_ALTCAT_MODIFYF . "</div>\n
+				<div style='padding: 8px;'>" . _AM_IMPRESSION_ALTCAT_INFOTEXT . "</div>\n
+				</div>\n
 		";
 
-        echo "<div style='text-align: left;'><h3>=====> " . $_REQUEST['title'] . " <=====</h3></div>"; 
+        echo "<div style='text-align: left;'><h4>" . $impressionmyts -> htmlSpecialCharsStrip( trim( $_REQUEST['title'] ) ) . "</h4></div>"; 
         // Get an array of all alternate categories for this topic
         $sql = $xoopsDB -> query( "SELECT cid FROM " . $xoopsDB -> prefix( 'impression_altcat' ) . " WHERE aid='" . $aid . "' ORDER BY aid" );
         $altcats = array();
