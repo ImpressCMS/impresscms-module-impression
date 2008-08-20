@@ -620,7 +620,7 @@ function impression_articlelistbody( $published ) {
     }
     $icon = "<a href='index.php?op=edit&amp;aid=" . $aid . "' title='" . _AM_IMPRESSION_ICO_EDIT . "'>" . $imagearray['editimg'] . "&nbsp;</a>";
     $icon .= "<a href='index.php?op=delete&amp;aid=" . $aid . "' title='" . _AM_IMPRESSION_ICO_DELETE . "'>" . $imagearray['deleteimg'] . "&nbsp;</a>";
-    $icon .= "<a href='altcat.php?op=main&amp;cid=" . $cid . "&amp;aid=" . $aid . "&amp;title=" . $published['title'] . "' title='" . _AM_IMPRESSION_ALTCAT_CREATEF . "'>" . $imagearray['altcat'] . "</a>";
+    $icon .= "<a href='altcat.php?op=main&amp;cid=" . $cid . "&amp;aid=" . $aid . "&amp;title=" . $impressionmyts -> htmlSpecialChars( trim( $published['title'] ) ) . "' title='" . _AM_IMPRESSION_ALTCAT_CREATEF . "'>" . $imagearray['altcat'] . "</a>";
 
     echo " 	<tr>\n
 		<td class='head' style='text-align: center;white-space: nowrap;'><small>" . $aid . "</small></td>\n
