@@ -58,7 +58,7 @@ CREATE TABLE `impression_indexpage` (
 
 
 
-INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`nohtml`,`nosmiley`,`noxcodes`,`noimages`,`nobreak`,`indexheaderalign`,`indexfooteralign`) VALUES ('impression_bar.png','','Enjoy reading the articles in <em>Impression</em>','','0','0','0','0','1','left','left');
+INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`nohtml`,`nosmiley`,`noxcodes`,`noimages`,`nobreak`,`indexheaderalign`,`indexfooteralign`,`lastarticlesyn`,`lastarticlestotal`) VALUES ('impression_bar.png','','Enjoy reading the articles in <em>Impression</em>','','0','0','0','0','1','left','left','0','5');
 
 
 #
