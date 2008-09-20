@@ -55,12 +55,12 @@ $htmltitle = '<font color=#3399CC><h1>' . $title . '</h1><h4>' . $category . '</
 
 require_once ICMS_PDF_LIB_PATH.'/tcpdf.php';
 
-$filename = XOOPS_ROOT_PATH.'/modules/' . $mydirname . '/' . $xoopsConfig['language'] . '/main.php';
+$filename = ICMS_ROOT_PATH.'/modules/' . $mydirname . '/' . $xoopsConfig['language'] . '/main.php';
 
 if ( file_exists( $filename ) ) {
   include_once $filename;
 } else {
-  include_once XOOPS_ROOT_PATH . '/modules/' . $mydirname . '/language/english/main.php';
+  include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/english/main.php';
 }
 
 $filename = ICMS_PDF_LIB_PATH . '/config/lang/' . _LANGCODE . '.php';
