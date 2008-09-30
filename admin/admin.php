@@ -38,7 +38,7 @@ include "../../../mainfile.php";
 // include "../../mainfile.php"; GIJ
 include ICMS_ROOT_PATH . "/include/cp_functions.php";
 
-include_once ICMS_ROOT_PATH . "/class/xoopsmodule.php";
+include_once ICMS_ROOT_PATH . '/kernel/module.php';
 include_once "../include/gtickets.php" ; // GIJ
 
 $admintest = 0;
