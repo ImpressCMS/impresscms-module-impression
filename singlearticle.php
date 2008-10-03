@@ -78,7 +78,7 @@ $article['description'] = $impressionmyts -> displayTarea( $article_arr['descrip
 global $xoopsTpl, $xoTheme;
     $maxWords = 100;
     $words = array();
-    $words = explode(" ", impression_html2text($article_arr['description']));
+    $words = explode(" ", impression_html2text($article_arr['introtext']));
     $newWords = array();
     $i = 0;
     while ($i < $maxWords-1 && $i < count($words)) {
