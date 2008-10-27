@@ -36,7 +36,7 @@ function edit( $aid = 0 ) {
     $item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
 
     xoops_cp_header();
-    impression_adminmenu( 4, _AM_IMPRESSION_MARTICLES );
+    impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );
     if ( $aid ) {
         $text_info = "
 			<table width='100%'>

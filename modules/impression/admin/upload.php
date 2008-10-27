@@ -63,7 +63,7 @@ switch ( strtolower($op) ) {
         $namearray = array( 1 => _AM_IMPRESSION_ARTICLE_CATIMAGE , 2 => _AM_IMPRESSION_ARTICLE_MAINIMAGEDIR );
         $listarray = array( 1 => _AM_IMPRESSION_ARTICLE_FCATIMAGE , 2 => _AM_IMPRESSION_ARTICLE_FMAINIMAGEDIR );
 
-        impression_adminmenu( "<h4>" . _AM_IMPRESSION_MUPLOADS . "</h4>" );
+        impression_adminmenu( 5, _AM_IMPRESSION_MUPLOADS );
         impression_serverstats();
         if ( $rootpath > 0 ) {
             echo "<div><b>" . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . "</b> " . ICMS_ROOT_PATH . "/" . $dirarray[$rootpath] . "</div>\n";

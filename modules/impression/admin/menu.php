@@ -9,13 +9,17 @@ $impressiondir = basename( dirname( dirname( __FILE__ ) ) );
 include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/include/functions.php';
 
 $adminmenu[1]['title'] = _MI_IMPRESSION_BINDEX;
-$adminmenu[1]['link']="admin/index.php";
-$adminmenu[2]['title'] = _MI_IMPRESSION_INDEXPAGE;
-$adminmenu[2]['link']="admin/indexpage.php";
+$adminmenu[1]['link']  = 'admin/index.php';
+$adminmenu[2]['title'] = _MI_IMPRESSION_MARTICLES;
+$adminmenu[2]['link']  = 'admin/index.php?op=edit';
 $adminmenu[3]['title'] = _MI_IMPRESSION_MCATEGORY;
-$adminmenu[3]['link']="admin/category.php";
-$adminmenu[4]['title'] = _MI_IMPRESSION_MARTICLES;
-$adminmenu[4]['link']="admin/index.php?op=edit";
+$adminmenu[3]['link']  = 'admin/category.php';
+$adminmenu[4]['title'] = _MI_IMPRESSION_INDEXPAGE;
+$adminmenu[4]['link']  = 'admin/indexpage.php';
+$adminmenu[5]['title'] = _MI_IMPRESSION_MUPLOADS;
+$adminmenu[5]['link']  = 'admin/upload.php';
+$adminmenu[6]['title'] = _MI_IMPRESSION_BLOCKADMIN;
+$adminmenu[6]['link']  = 'admin/myblocksadmin.php';
 
 global $xoopsModule, $xoopsConfig;
 
@@ -40,6 +44,10 @@ if ( isset( $xoopsModule ) ) {
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMPRESSION_BUPDATE;
 	$headermenu[$i]['link']  = ICMS_URL . '/modules/system/admin.php?fct=modulesadmin&op=update&module=' . $impressiondir;
+	
+	$i++;
+	$headermenu[$i]['title'] = _AM_IMPRESSION_BPERMISSIONS;
+	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $impressiondir . '/admin/permissions.php';
 
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMPRESSION_ABOUT;
