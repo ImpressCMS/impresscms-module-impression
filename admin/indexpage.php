@@ -31,7 +31,7 @@ switch ( strtolower( $op ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
-        redirect_header( "index.php", 1, _AM_IMPRESSION_IPAGE_UPDATED );
+        redirect_header( 'index.php', 1, _AM_IMPRESSION_IPAGE_UPDATED );
         break;
 
     default:
@@ -43,7 +43,7 @@ switch ( strtolower( $op ) ) {
         list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastarticlesyn, $lastarticlestotal ) = $xoopsDB -> fetchrow( $result );
 
         xoops_cp_header();
-        impression_adminmenu( "<h4>" . _AM_IMPRESSION_INDEXPAGE . "</h4>" );
+        impression_adminmenu( 2, _AM_IMPRESSION_INDEXPAGE );
 
         echo "   <div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
 		 <span style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_IPAGE_INFORMATION . "</span>\n
