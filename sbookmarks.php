@@ -5,12 +5,12 @@
  * Module: Impression
  */
 
-function impression_sbmarks($aid) { 
+function impression_sbmarks( $aid, $title ) { 
     global $xoopsDB, $xoopsModule, $impressionmyts;
 
-    $sbmark_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( "SELECT title FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . intval($aid) . "" ) );
-    $sbmark_arr['title'] = $impressionmyts -> htmlSpecialCharsStrip( $sbmark_arr['title']);
-    $sbmark_arr['link'] = ICMS_URL . "/modules/" . $xoopsModule -> getvar( 'dirname' ) . "/singlearticle.php?aid=" . $aid;
+    $sbmark_arr = array();
+    $sbmark_arr['title'] = $title;
+    $sbmark_arr['link']  = ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/singlearticle.php?aid=' . $aid;
 
 //Definitions for social bookmarks
 

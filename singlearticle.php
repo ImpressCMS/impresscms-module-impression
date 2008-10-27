@@ -71,7 +71,8 @@ $pathstring .= $mytree -> getNicePathFromId( $cid, "title", "catview.php?op=" );
 $article['path'] = $pathstring;
 
 // Get Social Bookmarks
-$article['sbmarks'] = impression_sbmarks($article_arr['aid']);
+include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/sbookmarks.php';
+$article['sbmarks'] = impression_sbmarks( $article_arr['aid'], $article_arr['title'] );
 $article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, 1 );
 
 // Start of meta tags
