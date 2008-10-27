@@ -275,7 +275,7 @@ switch ( strtolower( $op ) ) {
 
         if ( $totalarticles > 0 ) {
 
-            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE date > 0 ORDER BY aid DESC";
+            $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 ORDER BY aid DESC";
             $published_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
             $published_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
             impression_articlelistheader( _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE );
