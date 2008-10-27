@@ -367,113 +367,12 @@ function impression_strrrchr( $haystack, $needle ) {
     return substr( $haystack, 0, strpos( $haystack, $needle ) + 1 );
 } 
 
-function impression_adminmenu( $header = '', $menu = '', $extra = '', $scount = 5 ) {
+function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '', $scount = 5 ) {
     global $xoopsConfig, $xoopsModule, $xoopsModuleConfig;
+	
+	$xoopsModule -> displayAdminMenu( $currentoption, $xoopsModule -> name() . " | " . $header );
 
-    $_named_url = xoops_getenv( 'PHP_SELF' );
-    if ( $_named_url )
-        $thispage = basename( $_named_url );
-
-    $op = ( isset( $_GET['op'] ) ) ? $op = "?op=" . $_GET['op'] : '';
-
-//        echo "<h4 style='color: #2F5376;'>" . _AM_IMPRESSION_MODULE_NAME . "</h4>";
-	echo "<table width='100%' cellspacing='0' cellpadding='0' border='0' class='outer'>\n
-		<tr>\n
-		<td style='font-size: 10px; text-align: left; color: #2F5376; padding: 2px 6px; line-height: 18px;'>\n
-		<a href='../../system/admin.php?fct=modulesadmin&op=update&module=" . $xoopsModule -> getVar( 'dirname' ) . "'>" . _AM_IMPRESSION_BUPDATE . "</a> | \n
-		<a href='../../system/admin.php?fct=preferences&op=showmod&mod=" . $xoopsModule -> getVar( 'mid' ) . "'>" . _AM_IMPRESSION_PREFS . "</a> | \n
-		<a href='../admin/index.php'>" . _AM_IMPRESSION_BINDEX . "</a> | \n
-		<a href='../admin/permissions.php'>" . _AM_IMPRESSION_BPERMISSIONS . "</a> | \n
-		<a href='../admin/myblocksadmin.php'>" . _AM_IMPRESSION_BLOCKADMIN . "</a> | \n
-		<a href='../index.php'>" . _AM_IMPRESSION_GOMODULE . "</a> | \n
-                <a href='../admin/about.php'>" . _AM_IMPRESSION_ABOUT . "</a>\n
-		</td>\n
-		</tr>\n
-		</table><br />\n
-		";
-
-    if ( empty( $menu ) ) {
-        // You can change this part to suit your own module. Defining this here will save you form having to do this each time.
-        $menu = array( _AM_IMPRESSION_INDEXPAGE => "indexpage.php",
-                       _AM_IMPRESSION_MCATEGORY => "category.php",
-                       _AM_IMPRESSION_MARTICLES => "index.php?op=edit",
-                       _AM_IMPRESSION_MUPLOADS => "upload.php"
-                       );
-    } 
-
-    if ( !is_array( $menu ) ) {
-        echo "<table width='100%' cellpadding= '2' cellspacing= '1' class='outer'>\n";
-        echo "<tr><td class ='even' align ='center'><b>" . _AM_IMPRESSION_NOMENUITEMS . "</b></td></tr></table><br />\n";
-        return false;
-    } 
-
-    $oddnum = array( 1 => "1", 3 => "3", 5 => "5", 7 => "7", 9 => "9", 11 => "11", 13 => "13" ); 
-    // number of rows per menu
-    $menurows = count( $menu ) / $scount; 
-    // total amount of rows to complete menu
-    $menurow = ceil( $menurows ) * $scount; 
-    // actual number of menuitems per row
-    $rowcount = $menurow / ceil( $menurows );
-    $count = 0;
-    for ( $i = count( $menu ); $i < $menurow; $i++ )
-    {
-        $tempArray = array( 1 => null );
-        $menu = array_merge( $menu, $tempArray );
-        $count++;
-    } 
-
-    // Sets up the width of each menu cell
-    $width = 100 / $scount;
-    $width = ceil( $width );
-
-    $menucount = 0;
-    $count = 0;
-    // Menu table output
-    echo "<table width='100%' cellpadding= '2' cellspacing= '1' class='outer'><tr>";
-    // Check to see if $menu is and array
-    if ( is_array( $menu ) ) {
-        $classcounts = 0;
-        $classcol[0] = "even";
-
-        for ( $i = 1; $i < $menurow; $i++ ) {
-            $classcounts++;
-            if ( $classcounts >= $scount ) {
-                if ( $classcol[$i-1] == 'odd' ) {
-                    $classcol[$i] = ( $classcol[$i-1] == 'odd' && in_array( $classcounts, $oddnum ) ) ? "even" : "odd";
-                } else {
-                    $classcol[$i] = ( $classcol[$i-1] == 'even' && in_array( $classcounts, $oddnum ) ) ? "odd" : "even";
-                } 
-                $classcounts = 0;
-            } else {
-                $classcol[$i] = ( $classcol[$i-1] == 'even' ) ? "odd" : "even";
-            } 
-        } 
-        unset( $classcounts );
-
-        foreach ( $menu as $menutitle => $menuarticle ) {
-            if ( $thispage . $op == $menuarticle ) {
-                $classcol[$count] = "outer";
-            } 
-            echo "<td class='" . $classcol[$count] . "' style='text-align: center;' valign='middle' width='$width%'>";
-            if ( is_string( $menuarticle ) ) {
-                echo "<a href='" . $menuarticle . "'><small>" . $menutitle . "</small></a></td>";
-            } else {
-                echo "&nbsp;</td>";
-            } 
-            $menucount++;
-            $count++;
-
-            // Break menu cells to start a new row if $count > $scount
-            if ( $menucount >= $scount )  {
-                echo "</tr>";
-                $menucount = 0;
-            } 
-        } 
-        echo "</table><br />";
-        unset( $count );
-        unset( $menucount );
-    } 
-    // ###### Output warn messages for security ######
+        // ###### Output warn messages for security ######
     if ( is_dir( ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update/" ) ) {
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL1, ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) );
         echo '<br />';

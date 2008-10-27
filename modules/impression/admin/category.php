@@ -135,7 +135,7 @@ switch ($op) {
             $cid = (isset($_POST['cid'])) ? $_POST['cid'] : $_GET['cid'];
 
             xoops_cp_header();
-            impression_adminmenu(_AM_IMPRESSION_MCATEGORY);
+            impression_adminmenu( 3, _AM_IMPRESSION_MCATEGORY );
 
             include_once ICMS_ROOT_PATH . '/class/xoopsformloader.php';
             $mytree = new XoopsTree($xoopsDB -> prefix('impression_cat'), "cid", "pid");
@@ -207,7 +207,7 @@ switch ($op) {
             $database_mess = _AM_IMPRESSION_CCATEGORY_CREATED;
         } else {
           if ($cid == $pid) {
-            redirect_header("category.php", 1, _AM_IMPRESSION_ERROR_CATISCAT);
+            redirect_header( 'category.php', 1, _AM_IMPRESSION_ERROR_CATISCAT );
             exit();
             }
             $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_cat' ) . " SET title ='$title', imgurl='$imgurl', pid =$pid, description='$descriptionb', weight='$weight' WHERE cid=" . $cid;
@@ -267,7 +267,7 @@ switch ($op) {
             if (!$result = $xoopsDB -> query($sql)) {
                 trigger_error($error, E_USER_ERROR);
             } 
-            redirect_header("category.php", 1, _AM_IMPRESSION_CCATEGORY_DELETED);
+            redirect_header( 'category.php', 1, _AM_IMPRESSION_CCATEGORY_DELETED );
             exit();
         } else {
             xoops_cp_header();
@@ -279,7 +279,7 @@ switch ($op) {
     case "modCat":
         $cid = (isset($_POST['cid'])) ? $_POST['cid'] : 0;
         xoops_cp_header();
-        impression_adminmenu(_AM_IMPRESSION_MCATEGORY);
+        impression_adminmenu( 3, _AM_IMPRESSION_MCATEGORY );
         createcat($cid);
         xoops_cp_footer();
         break;
@@ -287,7 +287,7 @@ switch ($op) {
     case 'main':
         default:
         xoops_cp_header();
-        impression_adminmenu( "<h4>" . _AM_IMPRESSION_MCATEGORY . "</h4>" );
+        impression_adminmenu( 3, _AM_IMPRESSION_MCATEGORY );
 
         include_once ICMS_ROOT_PATH . '/class/xoopsformloader.php';
         $mytree = new XoopsTree($xoopsDB -> prefix('impression_cat'), "cid", "pid");

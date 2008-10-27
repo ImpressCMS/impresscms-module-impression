@@ -36,7 +36,7 @@ function edit( $aid = 0 ) {
     $item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
 
     xoops_cp_header();
-    impression_adminmenu( "<h4>" . _AM_IMPRESSION_MARTICLES . "</h4>" );
+    impression_adminmenu( 4, _AM_IMPRESSION_MARTICLES );
     if ( $aid ) {
         $text_info = "
 			<table width='100%'>
@@ -263,7 +263,7 @@ switch ( strtolower( $op ) ) {
         list( $totalnewarticles ) = $xoopsDB -> fetchRow( $result2 );
 
         xoops_cp_header();
-        impression_adminmenu( "<h4>" . _AM_IMPRESSION_BINDEX . "</h4>" );
+        impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
         echo "		<div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
                         <div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</div>\n
 			<div style='padding: 8px;'><small>\n

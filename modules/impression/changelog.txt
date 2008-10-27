@@ -1,9 +1,10 @@
-Impression changelog:
-
 =========================================================
 xx.xx.2008   1.0 RC-x
 =========================================================
 - Set name of submitter as author in PDF instead of TCPDF
+- Revamped administration
+- New About page
+- Added: unofficial translations of GNU GPL License
 
 - Converted language files to UTF-8 without BOM
 
