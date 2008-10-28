@@ -259,4 +259,8 @@ define("_MI_IMPRESSION_LINKEDTERMS", "Link to terms in glossary?" );
 define("_MI_IMPRESSION_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Folder name of imGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
+define( '_MI_IMPRESSION_SELECTFEED', 'Use ICMS RSS feed?' );
+define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>No</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
+define( '_MI_IMPRESSION_FEEDSTOTAL', 'How many articles to display in RSS feed?' );
+define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. Default: <em>15</em>' );
 ?>
