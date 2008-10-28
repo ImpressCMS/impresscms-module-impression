@@ -8,7 +8,7 @@
  * Translator: GibaPhp - http://br.impresscms.org
  */
 
-define( "_MD_IMPRESSION_NOARTICLE", "This article does not exist!" );
+define( "_MD_IMPRESSION_NOARTICLE", "Este artigo ainda não existe!" );
 define( "_MD_IMPRESSION_SUBCATLISTING", "Category listing" );
 define( "_MD_IMPRESSION_ISADMINNOTICE", "Webmaster: There is a problem with this image." );
 define( "_MD_IMPRESSION_THANKSFORINFO", "Thank-you for your submission." );
