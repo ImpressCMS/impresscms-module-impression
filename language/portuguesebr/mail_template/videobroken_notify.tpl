@@ -1,19 +1,19 @@
-Hello {X_UNAME},
+Olá {X_UNAME},
 
-If you are the publisher of {X_TITLE} submitted on the date: {X_SUB_DATE}.
+Se você é o editor do {X_TITLE} apresentado na data: {X_SUB_DATE}.
 
-It has been brought to our attention that the video {X_TITLE} which you published on the {X_SUB_DATE}
-has now been reported as broken video at our website ({X_SITENAME}).
+Foi solicitado à nossa atenção para o vídeo {X_TITLE} que você publicou em {X_SUB_DATE}
+e agora está sendo relatado por alguns usuários como sendo um vídeo quebrado em nosso site ({X_SITENAME}).
 
-Can you please follow the video given below and update the current information we have in our database 
-concerning the resource you submitted to us.
+Você pode seguir o link de vídeo abaixo indicado e atualizar a informação actual que está em nossa base de dados
+e relacionado a este recurso que você enviou para nós.
 
-Visit: {X_LINKLOAD}
+Visite: {X_LINKLOAD}
 
-If you fail to update this information, we may remove your submission from our database in the future.
+Se você não conseguir atualizar essas informações, poderemos remover este arquivo de nosso banco de dados no futuro.
 
-If you have any problems, questions or need assistance in updating your submission information, please feel free 
-to contact us anytime and we will be only to happy to help you.
+Se tiver algum problema, dúvida ou precisar de assistência para atualizar as suas informações, sinta-se livre
+quando desejar para entrar em contato conosco e teremos o maior prazer em ajudá-lo.
 
 {X_SITENAME} ({X_SITEURL}) 
 webmaster
