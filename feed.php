@@ -37,7 +37,7 @@ $sql = $xoopsDB -> query( "SELECT aid, cid, title, published, introtext FROM " .
 			'title' 		=> $myrow['title'],
 			'link' 			=> ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval( $myrow['cid'] ) . '&amp;aid=' . intval( $myrow['aid'] ),
 			'description' 	=> $text,
-			'pubdate' 		=> $date,
+			'date' 		=> $date,
 			'guid' 			=> 'Impression'
 			);
 	}
