@@ -160,7 +160,7 @@ if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] 
 	
 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
-
+$xoopsTpl -> assign( 'impression_feed', '<a href="feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" /></a>' );
 $xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
  
 include ICMS_ROOT_PATH . '/footer.php';

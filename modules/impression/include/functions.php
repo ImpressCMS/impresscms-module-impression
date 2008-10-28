@@ -825,4 +825,59 @@ function impression_substr($str, $start, $length, $trimmarker = '...') {
 
 	return $str;
 }
+// Check if imGlossary module is installed
+function impression_imglossary_module_included() {
+  global $xoopsModuleConfig;
+  static $impression_imglossary_module_included;
+  if ( !isset( $impression_imglossary_module_included ) ) {
+    $modules_handler = xoops_gethandler( 'module' );
+    $news_mod = $modules_handler -> getByDirName( $xoopsModuleConfig['imglossarydir'] );
+    if ( !$news_mod ) {
+      $news_mod = false;
+    } else {
+      $impression_imglossary_module_included = $news_mod -> getVar( 'isactive' ) == 1;
+    }
+  }
+  return $impression_imglossary_module_included;
+}
+
+function impression_linkterms( $definition, $glossaryterm ) {
+	
+	global $xoopsModule, $xoopsDB;
+	
+	// Code to make links out of glossary terms
+		$parts = explode( "¤", $definition );
+
+		// First, retrieve all terms from the glossary...
+		$allterms = $xoopsDB -> query( "SELECT entryID, term FROM " . $xoopsDB -> prefix( 'imglossary_entries' ) . " WHERE submit=0 AND offline=0" );
+		while ( list( $entryID, $term ) = $xoopsDB -> fetchrow( $allterms ) ) {
+			foreach( $parts as $key => $part ) {
+				if ( $term != $glossaryterm ) {
+					// singular
+					$term_q = preg_quote( $term, '/' );
+					$search_term = "/\b$term_q\b/i";
+					$replace_term = "<span><b><a style='color: #2F5376;' href='" . ICMS_URL . "/modules/imglossary/entry.php?entryID=" . intval( $entryID ) . "'>" . $term . "</a></b></span>";
+					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
+
+					// plural
+					$term = $term . "s";
+					$term_q = preg_quote( $term, '/' );
+					$search_term = "/\b$term_q\b/i";
+					$replace_term = "<span><b><a style='color: #2F5376;' href='" . ICMS_URL . "/modules/imglossary/entry.php?entryID=" . intval( $entryID ) . "'>" . $term . "</a></b></span>";
+					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
+
+					// plural with e
+					$term = $term . "es";
+					$term_q = preg_quote( $term, '/' );
+					$search_term = "/\b$term_q\b/i";
+					$replace_term = "<span><b><a style='color: #2F5376;' href='" . ICMS_URL . "/modules/imglossary/entry.php?entryID=" . intval( $entryID ) . "'>" . $term . "</a></b></span>";
+					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
+
+				}
+			}
+		}
+	$definition = implode( "¤", $parts );
+
+	return $definition;
+}
 ?>
