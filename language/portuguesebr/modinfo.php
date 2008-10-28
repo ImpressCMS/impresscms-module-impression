@@ -1,9 +1,11 @@
 <?php
 /**
  * $Id: modinfo.php
- * Module: XoopsTube
- * Language: english 
+ * Module: ImPression
+ * Language: portuguesebr 
+ * Format: UTF-8
  * Author: McDonald
+ * Translator: GibaPhp - http://br.impresscms.org
  */
 
 // Module Info

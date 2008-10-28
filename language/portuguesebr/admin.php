@@ -1,9 +1,11 @@
 ﻿<?php
 /**
  * $Id: admin.php
- * Module: Impression
- * Language: english
+ * Module: ImPression
+ * Language: portuguesebr 
+ * Format: UTF-8
  * Author: McDonald
+ * Translator: GibaPhp - http://br.impresscms.org
  */
 
 define( "_AM_IMPRESSION_WARNINSTALL1", "WARNING: Directory %s exists on your server. <br />Please remove this directory for security reasons." );

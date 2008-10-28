@@ -1,9 +1,11 @@
 <?php
 /**
  * $Id: main.php
- * Module: Impression
- * Language: english
+ * Module: ImPression
+ * Language: portuguesebr 
+ * Format: UTF-8
  * Author: McDonald
+ * Translator: GibaPhp - http://br.impresscms.org
  */
 
 define( "_MD_IMPRESSION_NOARTICLE", "This article does not exist!" );
