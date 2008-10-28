@@ -1,9 +1,11 @@
 <?php
 /**
  * $Id: blocks.php
- * Module: Impression
- * Language: english
+ * Module: ImPression
+ * Language: portuguesebr 
+ * Format: UTF-8
  * Author: McDonald
+ * Translator: GibaPhp - http://br.impresscms.org
  */
  
 // Blocks
