@@ -138,4 +138,5 @@ define( "_MD_IMPRESSION_ADMINSECTION", "Administratie" );
 define( "_MD_IMPRESSION_ARTICLE", "Artikel titel" );
 define( "_MD_IMPRESSION_WHO_WHEN", "Gepubliceerd door %s op %s" );
 define( "_MD_IMPRESSION_RANK", "Rank" );
+define( '_MD_IMPRESSION_FEED', 'RSS feed' );
 ?>
