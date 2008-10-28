@@ -8,15 +8,15 @@
  * Translator: GibaPhp - http://br.impresscms.org
  */
 
-define( "_AM_IMPRESSION_WARNINSTALL1", "WARNING: Directory %s exists on your server. <br />Please remove this directory for security reasons." );
-define( "_AM_IMPRESSION_WARNINSTALL2", "WARNING: File %s exists on your server. <br />Please remove this directory for security reasons." );
-define( "_AM_IMPRESSION_WARNINSTALL3", "WARNING: Folder %s does not exists on your server. <br />This folder is required by Impression." );
+define( "_AM_IMPRESSION_WARNINSTALL1", "AVISO: O diretório %s existe no seu servidor. <br />por razões de segurança, você deve remover este diretório." );
+define( "_AM_IMPRESSION_WARNINSTALL2", "AVISO: O arquivo %s existe no seu servidor. <br />por razões de segurança, você deve remover este diretório." );
+define( "_AM_IMPRESSION_WARNINSTALL3", "AVISO: O diretorio %s não existe no seu servidor. <br />Este local é necessário para o ImPression." );
 
 define( "_AM_IMPRESSION_MODULE_NAME", "Impression" );
 
-define( "_AM_IMPRESSION_BMODIFY", "Modify" );
-define( "_AM_IMPRESSION_BDELETE", "Delete" );
-define( "_AM_IMPRESSION_BCREATE", "Create" );
+define( "_AM_IMPRESSION_BMODIFY", "Modificar" );
+define( "_AM_IMPRESSION_BDELETE", "Apagar" );
+define( "_AM_IMPRESSION_BCREATE", "Criar" );
 define( "_AM_IMPRESSION_BADD", "Incluir" );
 define( "_AM_IMPRESSION_BAPPROVE", "Aprovar" );
 define( "_AM_IMPRESSION_BIGNORE", "Ignorar" );
@@ -25,39 +25,39 @@ define( "_AM_IMPRESSION_BSAVE", "Salvar" );
 define( "_AM_IMPRESSION_BRESET", "Limpar" );
 define( "_AM_IMPRESSION_BMOVE", "Mover artigos" );
 define( "_AM_IMPRESSION_BUPLOAD", "Upload" );
-define( "_AM_IMPRESSION_BDELETEIMAGE", "Delete selected image" );
-define( "_AM_IMPRESSION_BRETURN", "Return to where you where!" );
-define( "_AM_IMPRESSION_DBERROR", "Database Access Error" );
+define( "_AM_IMPRESSION_BDELETEIMAGE", "Apagar imagens selecionadas" );
+define( "_AM_IMPRESSION_BRETURN", "Voltar para onde você estava!" );
+define( "_AM_IMPRESSION_DBERROR", "Acesso à Base de dados com erro" );
 // Other Options
-define( "_AM_IMPRESSION_TEXTOPTIONS", "Text options:" );
-define( "_AM_IMPRESSION_DISABLEHTML", " Disable HTML tags" );
-define( "_AM_IMPRESSION_DISABLESMILEY", " Disable smilie icons" );
-define( "_AM_IMPRESSION_DISABLEXCODE", " Disable XOOPS codes" );
-define( "_AM_IMPRESSION_DISABLEIMAGES", " Disable images" );
-define( "_AM_IMPRESSION_DISABLEBREAK", " Use XOOPS linebreak conversion?" );
-define( "_AM_IMPRESSION_UPLOADFILE", "Article uploaded successfully" );
-define( "_AM_IMPRESSION_NOMENUITEMS", "No menu items within the menu" );
+define( "_AM_IMPRESSION_TEXTOPTIONS", "Opções de texto:" );
+define( "_AM_IMPRESSION_DISABLEHTML", " Desabilitar Tags HTML" );
+define( "_AM_IMPRESSION_DISABLESMILEY", " Desabilitar icones de Smilie" );
+define( "_AM_IMPRESSION_DISABLEXCODE", " Desabilitar BBcodes" );
+define( "_AM_IMPRESSION_DISABLEIMAGES", " Desabilitar Imagens" );
+define( "_AM_IMPRESSION_DISABLEBREAK", " Converter 'quebra de linha' ?" );
+define( "_AM_IMPRESSION_UPLOADFILE", "Artigo atualizado com sucesso" );
+define( "_AM_IMPRESSION_NOMENUITEMS", "Nenhum sub-item dentro do menu" );
 // Admin Bread crumb
 define( "_AM_IMPRESSION_PREFS", "Preferências" );
-define( "_AM_IMPRESSION_BUPDATE", "Module Update" );
-define( "_AM_IMPRESSION_BINDEX", "Main Index" );
-define( "_AM_IMPRESSION_BPERMISSIONS", "Permissions" );
-define( "_AM_IMPRESSION_BLOCKADMIN", "Block settings" );
-define( "_AM_IMPRESSION_GOMODULE", "Go to module" );
-define( "_AM_IMPRESSION_ABOUT", "About" );
+define( "_AM_IMPRESSION_BUPDATE", "Atualizar módulo" );
+define( "_AM_IMPRESSION_BINDEX", "Página principal" );
+define( "_AM_IMPRESSION_BPERMISSIONS", "Permissões" );
+define( "_AM_IMPRESSION_BLOCKADMIN", "Config. Blocos" );
+define( "_AM_IMPRESSION_GOMODULE", "Ir ao módulo" );
+define( "_AM_IMPRESSION_ABOUT", "Sobre" );
 // Admin Summary
-define( "_AM_IMPRESSION_SCATEGORY", "Category: " );
-define( "_AM_IMPRESSION_SFILES", "Articles: " );
-define( "_AM_IMPRESSION_SNEWFILESVAL", "Submitted: " );
-define( "_AM_IMPRESSION_SMODREQUEST", "Modified: " );
-define( "_AM_IMPRESSION_SREVIEWS", "Reviews: " );
+define( "_AM_IMPRESSION_SCATEGORY", "Categoria: " );
+define( "_AM_IMPRESSION_SFILES", "Artigos: " );
+define( "_AM_IMPRESSION_SNEWFILESVAL", "Enviados: " );
+define( "_AM_IMPRESSION_SMODREQUEST", "Modificados: " );
+define( "_AM_IMPRESSION_SREVIEWS", "Revisões: " );
 // Admin Main Menu
-define( "_AM_IMPRESSION_MCATEGORY", "Category Management" );
-define( "_AM_IMPRESSION_MARTICLES", "Article Management" );
-define( "_AM_IMPRESSION_INDEXPAGE", "Index Page Management" );
-define( "_AM_IMPRESSION_MUPLOADS", "Image Upload" );
+define( "_AM_IMPRESSION_MCATEGORY", "Administração de categorias" );
+define( "_AM_IMPRESSION_MARTICLES", "Administrar Artigos" );
+define( "_AM_IMPRESSION_INDEXPAGE", "Página principal da administração" );
+define( "_AM_IMPRESSION_MUPLOADS", "Enviar imagem" );
 // Catgeory defines
-define( "_AM_IMPRESSION_CCATEGORY_CREATENEW", "Create New Category" );
+define( "_AM_IMPRESSION_CCATEGORY_CREATENEW", "Criar nova categoria" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY", "Modify Category" );
 define( "_AM_IMPRESSION_CCATEGORY_MOVE", "Move Category articles" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY_TITLE", "Category title:" );
