@@ -254,4 +254,8 @@ define("_MI_IMPRESSION_HEADLINES", "Headlines" );
 define("_MI_IMPRESSION_HEADLINESDSC", "Set the number of headlines to show.");
 define("_MI_IMPRESSION_BTAGCLOUD", "Impression Tag Cloud");
 define("_MI_IMPRESSION_BTOPTAG", "Impression Top Tags");
+define("_MI_IMPRESSION_LINKEDTERMS", "Link to terms in glossary?" );
+define("_MI_IMPRESSION_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
+define("_MI_IMPRESSION_IMGLOSSARYDIR", "Folder name of imGlossary:" );
+define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
 ?>

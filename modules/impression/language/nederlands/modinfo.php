@@ -255,5 +255,9 @@ define("_MI_IMPRESSION_HEADLINES", "Aantal koppen" );
 define("_MI_IMPRESSION_HEADLINESDSC", "Voer het aantal te tonen koppen in.");
 define("_MI_IMPRESSION_BTAGCLOUD", "Impression Tag Cloud");
 define("_MI_IMPRESSION_BTOPTAG", "Impression Top Tags");
+define("_MI_IMPRESSION_LINKEDTERMS", "Link naar termen in woordenlijst?" );
+define("_MI_IMPRESSION_LINKEDTERMSDSC", "De module imGlossary dient hiervoor geinstalleerd en aktief te zijn." );
+define("_MI_IMPRESSION_IMGLOSSARYDIR", "Map naam van imGlossary:" );
+define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "De naam van de map waarin imGlossary zich bevindt.<br />Standaard: <em>imglossary</em>" );
 
 ?>

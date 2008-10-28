@@ -145,4 +145,5 @@ define( "_MD_IMPRESSION_WHO_WHEN", "Published by %s on %s" );
 define( "_MD_IMPRESSION_RANK", "Rank" );
 //define( "_MD_IMPRESSION_EDIT", "Edit article" );
 //define( "_MD_IMPRESSION_DELETE", "Delete article" );
+define( '_MD_IMPRESSION_FEED', 'RSS feed' );
 ?>
