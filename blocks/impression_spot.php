@@ -26,29 +26,19 @@ function checkImpressionSpotgroups( $cid = 0, $permType = 'ImpressionCatPerm', $
     return true;
 }
 
-function b_impression_displayrssicons() {
+function b_impression_displayrssicons( $options ) {
     $mydirname = basename( dirname( dirname( __FILE__ ) ) );
-    $modhandler = xoops_gethandler( 'module' );
 	$icons='';
 	
-    // Display rss icons if RSSFit module is installed
-    // Plugin and sub-feed need to be activated!!
-    $rss_mod = $modhandler -> getByDirName( 'rss' );
-    if ( !$rss_mod ) {
-      $rss_mod = false;
-    } else {
-      $icons = '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" alt="Get RSS news feed" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>&nbsp;';
-      // Google
-      $icons .= '<a href="http://fusion.google.com/add?feedurl='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/google.png" alt="'._MB_IMPRESSION_ADDGOOGLE.'" title="'._MB_IMPRESSION_ADDGOOGLE.'" border="0"></a>&nbsp;';
-      // Yahoo
-      $icons .= '<a href="http://add.my.yahoo.com/rss?url='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/yahoo.png" border="0" alt="'._MB_IMPRESSION_ADDMYYAHOO.'" title="'._MB_IMPRESSION_ADDMYYAHOO.'"></a>&nbsp;';
-      // NewsGator
-      $icons .= '<a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/newsgator.png" alt="'._MB_IMPRESSION_ADDNEWSGATOR.'" title="'._MB_IMPRESSION_ADDNEWSGATOR.'" border="0"></a>&nbsp;';
-      // AOL
-      $icons .= '<a href="http://feeds.my.aol.com/add.jsp?url='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/aol2.png" alt="'._MB_IMPRESSION_ADDAOL.'" title="'._MB_IMPRESSION_ADDAOL.'" border="0"></a>&nbsp;';
-      // Windows Live
-      $icons .= '<a href="http://www.live.com/?add='. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '"><img style="width: 92px; height: 17px;" src="'. ICMS_URL . '/modules/' . $mydirname . '/images/rss_icons/windowslive.png" alt="'._MB_IMPRESSION_ADDMSLIVE.'" title="'._MB_IMPRESSION_ADDMSLIVE.'" border="0"></a>';
-    }
+    // $options[3] == 0  -> use icmsfeed
+    // $options[3] == 1  -> use RSSfit subfeed
+
+    if ( $options == 0 ) {
+		$icons = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed.png" border="0" alt="' . _MB_IMPRESSION_FEED . '" /></a>';
+	}
+    else {
+		$icons = '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed.png" border="0" alt="' . _MB_IMPRESSION_FEED . '" /></a>&nbsp;';
+	}
 
     return $icons;
 }
@@ -111,8 +101,7 @@ function b_impression_spot_show( $options ) {
         $articleload['submitter'] = xoops_getLinkedUnameFromId($myrow['submitter']);
         $articleload['introtext'] = $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 );
         $articleload['readmore'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . _MB_IMPRESSION_READMORE . '</a>';
-        $articleload['rssicons'] = $options[3];
-        $articleload['showrss'] = b_impression_displayrssicons();
+        $articleload['showrss'] = b_impression_displayrssicons($options[3]);
         $xoopsTpl -> assign( 'dirname', $mydirname );
         $block['article'][] = $articleload;
     }
@@ -133,16 +122,19 @@ function b_impression_spot_edit( $options ) {
     $form .= " />";
     $form .= "<input type='text' name='options[]' value='" . $options[1] . "' />&nbsp;" . _MB_IMPRESSION_FILES . "";
     $form .= "&nbsp;<br />" . _MB_IMPRESSION_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_DATEFORMATMANUAL;
+	
     $chk   = "";
 	if ($options[3] == 0) {
 		$chk = " checked='checked'";
 	}
-	$form .= "&nbsp;<br />" . _MB_IMPRESSION_SHOWRSSICONS . "&nbsp;<input type='radio' name='options[3]' value='0'".$chk." />&nbsp;"._NO."&nbsp;";
+	$form .= "&nbsp;<br />" . _MB_IMPRESSION_SELECTFEED . "&nbsp;<input type='radio' name='options[3]' value='0'".$chk." />&nbsp;" . _MB_IMPRESSION_ICMSFEED . "&nbsp;";
+	
 	$chk   = "";
 	if ($options[3] == 1) {
 		$chk = " checked='checked'";
 	}
-	$form .= "&nbsp;<input type='radio' name='options[3]' value='1'".$chk." />&nbsp;"._YES."&nbsp;&nbsp;"._MB_IMPRESSION_SHOWRSSICONS_DSC."";
+	$form .= "&nbsp;<input type='radio' name='options[3]' value='1'".$chk." />&nbsp;" . _MB_IMPRESSION_RSSFITFEED . "<br />" . _MB_IMPRESSION_SELECTFEED_DSC . "";
+	
     return $form;
 }
 ?>
