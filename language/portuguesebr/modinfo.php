@@ -13,7 +13,7 @@
 define("_MI_IMPRESSION_NAME","Impression");
 
 // A brief description of this module
-define("_MI_IMPRESSION_DESC","A simple module to create articles.");
+define("_MI_IMPRESSION_DESC","Um simples módulo para criar artigos.");
 
 // Names of blocks for this module (Not all module has blocks)
 define("_MI_IMPRESSION_BSPOT","Spotlight");

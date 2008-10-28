@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * $Id: admin.php
  * Module: ImPression
@@ -17,13 +17,13 @@ define( "_AM_IMPRESSION_MODULE_NAME", "Impression" );
 define( "_AM_IMPRESSION_BMODIFY", "Modify" );
 define( "_AM_IMPRESSION_BDELETE", "Delete" );
 define( "_AM_IMPRESSION_BCREATE", "Create" );
-define( "_AM_IMPRESSION_BADD", "Add" );
-define( "_AM_IMPRESSION_BAPPROVE", "Approve" );
-define( "_AM_IMPRESSION_BIGNORE", "Ignore" );
-define( "_AM_IMPRESSION_BCANCEL", "Cancel" );
-define( "_AM_IMPRESSION_BSAVE", "Save" );
-define( "_AM_IMPRESSION_BRESET", "Reset" );
-define( "_AM_IMPRESSION_BMOVE", "Move articles" );
+define( "_AM_IMPRESSION_BADD", "Incluir" );
+define( "_AM_IMPRESSION_BAPPROVE", "Aprovar" );
+define( "_AM_IMPRESSION_BIGNORE", "Ignorar" );
+define( "_AM_IMPRESSION_BCANCEL", "Cancelar" );
+define( "_AM_IMPRESSION_BSAVE", "Salvar" );
+define( "_AM_IMPRESSION_BRESET", "Limpar" );
+define( "_AM_IMPRESSION_BMOVE", "Mover artigos" );
 define( "_AM_IMPRESSION_BUPLOAD", "Upload" );
 define( "_AM_IMPRESSION_BDELETEIMAGE", "Delete selected image" );
 define( "_AM_IMPRESSION_BRETURN", "Return to where you where!" );
@@ -38,7 +38,7 @@ define( "_AM_IMPRESSION_DISABLEBREAK", " Use XOOPS linebreak conversion?" );
 define( "_AM_IMPRESSION_UPLOADFILE", "Article uploaded successfully" );
 define( "_AM_IMPRESSION_NOMENUITEMS", "No menu items within the menu" );
 // Admin Bread crumb
-define( "_AM_IMPRESSION_PREFS", "Preferences" );
+define( "_AM_IMPRESSION_PREFS", "Preferências" );
 define( "_AM_IMPRESSION_BUPDATE", "Module Update" );
 define( "_AM_IMPRESSION_BINDEX", "Main Index" );
 define( "_AM_IMPRESSION_BPERMISSIONS", "Permissions" );
