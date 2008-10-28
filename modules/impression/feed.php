@@ -27,7 +27,7 @@ $myFeed = new IcmsFeed ();
 
 $myFeed -> webMaster = '';  // Admin contact email as stated in general preferences.
 	
-$sql = $xoopsDB -> query( "SELECT aid, cid, title, published, introtext FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status=0 ORDER BY published DESC ", 15, 0 );
+$sql = $xoopsDB -> query( "SELECT aid, cid, title, published, introtext FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status=0 ORDER BY published DESC ", $xoopsModuleConfig['rssfeedtotal'], 0 );
     while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {	
 		
 		$date = formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] );
