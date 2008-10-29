@@ -244,23 +244,23 @@ define('_MI_IMPRESSION_WARNINGTEXT', "O SOFTWARE ESTÁ SENDO FORNECIDO PELO MCDO
  PUNIÇÕES, ESPECIAIS, INCIDENTAIS OU CONSEQUENTES, NO ENTANTO, PODEM SURGIR, E MESMO SE MCDONALD 
  TENHA SIDO PREVIAMENTE INFORMADO SOBRE A POSSIBILIDADE DE TAIS DANOS..");
 
-define('_MI_IMPRESSION_AUTHOR_CREDITSTEXT',"WF-Projects Equipe. Based on the module WF-Links & MyTube, thanks to the dream-team for some code snippits.");
-define('_MI_IMPRESSION_AUTHOR_BUGFIXES', "Bug Fix History");
+define('_MI_IMPRESSION_AUTHOR_CREDITSTEXT',"WF-Projects Equipe. Baseado no módulo WF-Links & MyTube, graças ao sonho-time para alguns códigos snippits.");
+define('_MI_IMPRESSION_AUTHOR_BUGFIXES', "Histórico sobre correções de erros");
 
 define('_MI_IMPRESSION_COPYRIGHTIMAGE', "");
 
-define("_MI_IMPRESSION_KEYLENGTH", "Enter max. characters for meta keywords:");
-define("_MI_IMPRESSION_KEYLENGTHDSC", "default is 255 characters");
-define("_MI_IMPRESSION_HEADLINES", "Headlines" );
-define("_MI_IMPRESSION_HEADLINESDSC", "Set the number of headlines to show.");
-define("_MI_IMPRESSION_BTAGCLOUD", "Impression Tag Cloud");
-define("_MI_IMPRESSION_BTOPTAG", "Impression Top Tags");
-define("_MI_IMPRESSION_LINKEDTERMS", "Link to terms in glossary?" );
-define("_MI_IMPRESSION_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
-define("_MI_IMPRESSION_IMGLOSSARYDIR", "Folder name of imGlossary:" );
-define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
-define( '_MI_IMPRESSION_SELECTFEED', 'Use ICMS RSS feed?' );
-define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>No</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
-define( '_MI_IMPRESSION_FEEDSTOTAL', 'How many articles to display in RSS feed?' );
-define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. Default: <em>15</em>' );
+define("_MI_IMPRESSION_KEYLENGTH", "Digite o número máximo de caracteres para a meta palavras-chave:");
+define("_MI_IMPRESSION_KEYLENGTHDSC", "padrão é de 255 caracteres");
+define("_MI_IMPRESSION_HEADLINES", "Em destaque" );
+define("_MI_IMPRESSION_HEADLINESDSC", "Definir o número de manchetes para mostrar.");
+define("_MI_IMPRESSION_BTAGCLOUD", "Tag Cloud");
+define("_MI_IMPRESSION_BTOPTAG", "Top Tags");
+define("_MI_IMPRESSION_LINKEDTERMS", "Link para termos no glossário?" );
+define("_MI_IMPRESSION_LINKEDTERMSDSC", "O módulo imGlossary precisa estar instalado e activo para este recurso funcionar corretamente." );
+define("_MI_IMPRESSION_IMGLOSSARYDIR", "Nome da pasta onde está o ImGlossary:" );
+define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "O nome da pasta dentro de <b>modules</b> onde está o módulo imGlossary <br /> O Padrão é: <em>imglossary</em>" );
+define( '_MI_IMPRESSION_SELECTFEED', 'Usar ICMS RSS?' );
+define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Escolha <em><b>Sim</b></em> e irá utilizar a classe nativa do ImpressCMS para RSS. Se escolher <em><b>Não</b></em> irá usar o módulo Brandycoke RSSfit (Este módulo precisa estar instalado e ativo para este recurso funcionar corretamente).'  );
+define( '_MI_IMPRESSION_FEEDSTOTAL', 'Quantos artigos para exibição no RSS?' );
+define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Este número só irá afetar se estiver usando a classe do ImpressCMS para RSS. Padrão é: <em>15</em>' );
 ?>
