@@ -10,8 +10,10 @@ xx.xx.2008   1.0 RC-x
 
 - Converted language files to UTF-8 without BOM
 
-- Fixed bug for displaying name author in PDF
-- Fixed bug: altcat entries were not deleted when deleting article or cat
+- Fixed: bug for displaying name author in PDF
+- Fixed: altcat entries were not deleted when deleting article or cat
+- Fixed: block settings [skenow]
+
 
 =========================================================
 18.08.2008   1.0 RC-2
@@ -23,6 +25,7 @@ xx.xx.2008   1.0 RC-x
 
 - Fixed bug in blocks in case folder name was renamed
 - Fixed bug in output in case dhtml editor is used
+
 
 
 =========================================================
