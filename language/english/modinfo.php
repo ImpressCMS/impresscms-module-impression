@@ -263,4 +263,5 @@ define( '_MI_IMPRESSION_SELECTFEED', 'Use ICMS RSS feed?' );
 define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>No</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
 define( '_MI_IMPRESSION_FEEDSTOTAL', 'How many articles to display in RSS feed?' );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. Default: <em>15</em>' );
+define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 ?>
