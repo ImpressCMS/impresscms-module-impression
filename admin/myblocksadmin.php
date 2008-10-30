@@ -236,7 +236,7 @@ include ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/i
 
 xoops_cp_header() ;
 
-impression_adminMenu( 6, _AM_IMPRESSION_BLOCKS );
+impression_adminMenu( 6, _AM_IMPRESSION_BLOCKADMIN );
 
 if ( file_exists( './mymenu.php' ) ) include( './mymenu.php' ) ;
 
