@@ -263,4 +263,5 @@ define( '_MI_IMPRESSION_SELECTFEED', 'Usar ICMS RSS?' );
 define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Escolha <em><b>Sim</b></em> e irá utilizar a classe nativa do ImpressCMS para RSS. Se escolher <em><b>Não</b></em> irá usar o módulo Brandycoke RSSfit (Este módulo precisa estar instalado e ativo para este recurso funcionar corretamente).'  );
 define( '_MI_IMPRESSION_FEEDSTOTAL', 'Quantos artigos para exibição no RSS?' );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Este número só irá afetar se estiver usando a classe do ImpressCMS para RSS. Padrão é: <em>15</em>' );
+define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 ?>
