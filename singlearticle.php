@@ -91,17 +91,17 @@ if ( $xoopsModuleConfig['linkedterms'] ) {
 global $xoopsTpl, $xoTheme;
     $maxWords = 100;
     $words = array();
-    $words = explode(" ", impression_html2text($article_arr['introtext']));
+    $words = explode(" ", icms_html2text( $article_arr['introtext'] ) );
     $newWords = array();
     $i = 0;
-    while ($i < $maxWords-1 && $i < count($words)) {
-      if (isset($words[$i])) {
-       $newWords[] = trim($words[$i]);
+    while ( $i < $maxWords-1 && $i < count( $words ) ) {
+      if ( isset($words[$i] ) ) {
+       $newWords[] = trim( $words[$i] );
       }
       $i++;
     }
-    $article_meta_description = implode(' ', $newWords);
-    if (is_object($xoTheme)) {
+    $article_meta_description = implode( ' ', $newWords );
+    if ( is_object( $xoTheme ) ) {
 	  $xoTheme -> addMeta( 'meta', 'keywords', $article_arr['meta_keywords'] );
 	  $xoTheme -> addMeta( 'meta', 'title', $article_arr['title'] );
 	  if ($xoopsModuleConfig['usemetadescr'] == 1) {
