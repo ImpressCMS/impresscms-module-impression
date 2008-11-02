@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: singlearticle.php
- * Module: Impression
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: singlearticle.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include 'header.php';
 
@@ -20,7 +42,7 @@ $sql2 = "SELECT count(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . 
 list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
 
 if ( false == impression_checkgroups( $cid ) && $count == 0 ) {
-    redirect_header( "index.php", 1, _MD_IMPRESSION_MUSTREGFIRST );
+    redirect_header( 'index.php', 1, _MD_IMPRESSION_MUSTREGFIRST );
     exit();
 } 
 
@@ -42,14 +64,14 @@ include ICMS_ROOT_PATH . '/header.php';
 
 // tags support
 if ( impression_tag_module_included() ) {
-  include_once ICMS_ROOT_PATH . "/modules/tag/include/tagbar.php";
+  include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
   $xoopsTpl -> assign('tagbar', tagBar($article_arr['aid'], 0));
 }
 
 $article['imageheader'] = impression_imageheader();
 $article['id'] = $article_arr['aid'];
 $article['cid'] = $article_arr['cid'];
-$article['submitter'] = xoops_getLinkedUnameFromId( $article_arr['submitter'] );
+$article['submitter'] = icms_getLinkedUnameFromId( $article_arr['submitter'] );
 
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
 $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
@@ -73,7 +95,6 @@ $article['path'] = $pathstring;
 // Get Social Bookmarks
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/sbookmarks.php';
 $article['sbmarks'] = impression_sbmarks( $article_arr['aid'], $article_arr['title'] );
-//$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, 1 );
 
 if ( $xoopsModuleConfig['linkedterms'] ) {
 	if ( impression_imglossary_module_included() ) {
@@ -91,7 +112,7 @@ if ( $xoopsModuleConfig['linkedterms'] ) {
 global $xoopsTpl, $xoTheme;
     $maxWords = 100;
     $words = array();
-    $words = explode(" ", icms_html2text( $article_arr['introtext'] ) );
+    $words = explode(' ', icms_html2text( $article_arr['introtext'] ) );
     $newWords = array();
     $i = 0;
     while ( $i < $maxWords-1 && $i < count( $words ) ) {
@@ -122,7 +143,7 @@ include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getvar( 'dirname' ) 
 
 // Increase hit-counter but not for admin
 if ( $article['isadmin'] == false  ) {
-    $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET hits=hits+1 WHERE aid=" . $aid;
+    $sql = 'UPDATE ' . $xoopsDB -> prefix( 'impression_articles' ) . ' SET hits=hits+1 WHERE aid=' . $aid;
     $result = $xoopsDB -> queryF( $sql );
 }
 

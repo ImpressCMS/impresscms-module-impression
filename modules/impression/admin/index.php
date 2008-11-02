@@ -1,9 +1,30 @@
 <?php
 /**
- * $Id: index.php v 1.00 21 June 2005 John N Exp $
- * Module: Impression
- * Licence: GNU
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: admin/index.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include 'admin_header.php';
 
@@ -47,7 +68,7 @@ function edit( $aid = 0 ) {
 
 			  </td>
 			  <td width='33%' valign='top'>
-			   <div><b>" . _AM_IMPRESSION_ARTICLE_PUBLISHER . " </b>" . xoops_getLinkedUnameFromId( $article_array['submitter'] ) . "</div>
+			   <div><b>" . _AM_IMPRESSION_ARTICLE_PUBLISHER . " </b>" . icms_getLinkedUnameFromId( $article_array['submitter'] ) . "</div>
 			   <div><b>" . _AM_IMPRESSION_ARTICLE_IP . " </b>" . $ipaddress . "</div>
 			  </td>
 			  <td width='33%' valign='top'>

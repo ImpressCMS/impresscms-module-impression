@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: articleloadinfo.php
- * Module: Impression
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: /include/articleloadinfo.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 $module_article = '';
 
@@ -26,7 +48,7 @@ $xoopsTpl -> assign( 'lang_subdate' , $is_updated );
 
 $article['updated'] = formatTimestamp( $time, $xoopsModuleConfig['dateformat'] );
 $article['introtext'] = $impressionmyts -> displayTarea( $article_arr['introtext'], 1, 1, 1, 1, 1 );
-$article['submitter'] = xoops_getLinkedUnameFromId( $article_arr['submitter'] );
+$article['submitter'] = icms_getLinkedUnameFromId( $article_arr['submitter'] );
 
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
 $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($article_arr['cid']) . '&aid=' . intval($article_arr['aid']) );

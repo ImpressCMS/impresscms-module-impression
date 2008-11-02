@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: functions.php
- * Module: Impression
- */
+* Impression - a light article management module for ImpressCMS
+*
+* Based upon WF-Links
+*
+* File: /include/functions.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 // wfs_gethandler()
 //
@@ -171,23 +193,23 @@ if ( !function_exists( 'impression_convertorderbyin' ) ) {
     // @return
     function impression_convertorderbyin( $orderby ) {
         switch ( trim( $orderby ) ) {
-            case "titleA":
-                $orderby = "title ASC";
+            case 'titleA':
+                $orderby = 'title ASC';
                 break;
-            case "dateA":
-                $orderby = "published ASC";
+            case 'dateA':
+                $orderby = 'published ASC';
                 break;
-            case "hitsA":
-                $orderby = "hits ASC";
+            case 'hitsA':
+                $orderby = 'hits ASC';
                 break;
-            case "titleD":
-                $orderby = "title DESC";
+            case 'titleD':
+                $orderby = 'title DESC';
                 break;
-            case "hitsD":
-                $orderby = "hits DESC";
+            case 'hitsD':
+                $orderby = 'hits DESC';
                 break;
-            case"dateD":
-                $orderby = "published DESC";
+            case 'dateD':
+                $orderby = 'published DESC';
                 break;
         }
         return $orderby;
@@ -195,23 +217,23 @@ if ( !function_exists( 'impression_convertorderbyin' ) ) {
 } 
 if ( !function_exists( 'impression_convertorderbytrans' ) ) {
     function impression_convertorderbytrans( $orderby ) {
-        if ( $orderby == "hits ASC" ) $orderbyTrans = _MD_IMPRESSION_POPULARITYLTOM;
-        if ( $orderby == "hits DESC" ) $orderbyTrans = _MD_IMPRESSION_POPULARITYMTOL;
-        if ( $orderby == "title ASC" ) $orderbyTrans = _MD_IMPRESSION_TITLEATOZ;
-        if ( $orderby == "title DESC" ) $orderbyTrans = _MD_IMPRESSION_TITLEZTOA;
-        if ( $orderby == "published ASC" ) $orderbyTrans = _MD_IMPRESSION_DATEOLD;
-        if ( $orderby == "published DESC" ) $orderbyTrans = _MD_IMPRESSION_DATENEW;
+        if ( $orderby == 'hits ASC' ) $orderbyTrans = _MD_IMPRESSION_POPULARITYLTOM;
+        if ( $orderby == 'hits DESC' ) $orderbyTrans = _MD_IMPRESSION_POPULARITYMTOL;
+        if ( $orderby == 'title ASC' ) $orderbyTrans = _MD_IMPRESSION_TITLEATOZ;
+        if ( $orderby == 'title DESC' ) $orderbyTrans = _MD_IMPRESSION_TITLEZTOA;
+        if ( $orderby == 'published ASC' ) $orderbyTrans = _MD_IMPRESSION_DATEOLD;
+        if ( $orderby == 'published DESC' ) $orderbyTrans = _MD_IMPRESSION_DATENEW;
         return $orderbyTrans;
     }
 } 
 if ( !function_exists( 'impression_convertorderbyout' ) ) {
     function impression_convertorderbyout( $orderby ) {
-        if ( $orderby == "title ASC" ) $orderby = "titleA";
-        if ( $orderby == "published ASC" ) $orderby = "dateA";
-        if ( $orderby == "hits ASC" ) $orderby = "hitsA";
-        if ( $orderby == "title DESC" ) $orderby = "titleD";
-        if ( $orderby == "published DESC" ) $orderby = "dateD";
-        if ( $orderby == "hits DESC" ) $orderby = "hitsD";
+        if ( $orderby == 'title ASC' ) $orderby = 'titleA';
+        if ( $orderby == 'published ASC' ) $orderby = 'dateA';
+        if ( $orderby == 'hits ASC' ) $orderby = 'hitsA';
+        if ( $orderby == 'title DESC' ) $orderby = 'titleD';
+        if ( $orderby == 'published DESC' ) $orderby = 'dateD';
+        if ( $orderby == 'hits DESC' ) $orderby = 'hitsD';
         return $orderby;
     } 
 } 
@@ -222,9 +244,9 @@ if ( !function_exists( 'impression_convertorderbyout' ) ) {
 function impression_totalcategory( $pid = 0 ) {
     global $xoopsDB;
 
-    $sql = "SELECT cid FROM " . $xoopsDB -> prefix( 'impression_cat' );
+    $sql = 'SELECT cid FROM ' . $xoopsDB -> prefix( 'impression_cat' );
     if ( $pid > 0 ) {
-        $sql .= " WHERE pid = 0";
+        $sql .= ' WHERE pid = 0';
     } 
     $result = $xoopsDB -> query( $sql );
     $catlisting = 0;
@@ -245,14 +267,14 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
     global $xoopsDB, $mytree, $_check_array;
 
     if ( $sel_id > 0 ) {
-        $sql = "SELECT DISTINCT a.aid, a.cid, a.published FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " a LEFT JOIN "
-         . $xoopsDB -> prefix( 'impression_altcat' ) . " b "
-         . "ON b.aid=a.aid "
-         . "WHERE a.published > 0 AND a.published <= " . time()
-         . " AND status = 0 "
-         . " AND (b.cid=a.cid OR (a.cid=" . $sel_id . " OR b.cid=" . $sel_id . ")) ";
+        $sql = 'SELECT DISTINCT a.aid, a.cid, a.published FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+         . $xoopsDB -> prefix( 'impression_altcat' ) . ' b'
+         . ' ON b.aid=a.aid'
+         . ' WHERE a.published > 0 AND a.published <= ' . time()
+         . ' AND status = 0 '
+         . ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))';
     } else {
-        $sql = "SELECT aid, cid, published from " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE status = 0 AND published > 0 AND published <= " . time();
+        $sql = 'SELECT aid, cid, published from ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE status = 0 AND published > 0 AND published <= ' . time();
     } 
     if ( $return_sql == 1 ) {
         return $sql;
@@ -275,12 +297,12 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
         $arr = $mytree -> getAllChildId( $sel_id );
         $size = count( $arr );
         for( $i = 0;$i < count( $arr );$i++ ) {
-            $query2 = "SELECT DISTINCT a.aid, a.published, a.cid FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " a LEFT JOIN "
-             . $xoopsDB -> prefix( 'impression_altcat' ) . " b "
-             . "ON b.aid=a.aid "
-             . "WHERE a.published > 0 AND a.published <= " . time()
-             . " AND status = 0 "
-             . " AND (b.cid=a.cid OR (a.cid=" . $arr[$i] . " OR b.cid=" . $arr[$i] . ")) ";
+            $query2 = 'SELECT DISTINCT a.aid, a.published, a.cid FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+             . $xoopsDB -> prefix( 'impression_altcat' ) . ' b'
+             . ' ON b.aid=a.aid'
+             . ' WHERE a.published > 0 AND a.published <= ' . time()
+             . ' AND status = 0 '
+             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . '))';
 
             $result2 = $xoopsDB -> query( $query2 );
             while ( list( $aid, $published ) = $xoopsDB -> fetchRow( $result2 ) ) {
@@ -301,7 +323,7 @@ function impression_imageheader( $indeximage = '', $indexheading = '' ) {
     global $xoopsDB, $xoopsModuleConfig;
 
     if ( $indeximage == '' ) {
-        $result = $xoopsDB -> query( "SELECT indeximage, indexheading FROM " . $xoopsDB -> prefix( 'impression_indexpage' ) );
+        $result = $xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . $xoopsDB -> prefix( 'impression_indexpage' ) );
         list( $indeximage, $indexheading ) = $xoopsDB -> fetchrow( $result );
     } 
 
@@ -321,7 +343,7 @@ function impression_displayimage( $image = '', $path = '', $imgsource = '', $alt
         $showimage = "<a href=" . $path . ">";
     } 
     // checks to see if the file is valid else displays default blank image
-    if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
+    if ( !is_dir( ICMS_ROOT_PATH . '/{$imgsource}/{$image}' ) && file_exists( ICMS_ROOT_PATH . '/{$imgsource}/{$image}' ) ) {
         $showimage .= "<img src='" . ICMS_URL . "/{$imgsource}/{$image}' border='0' title='" . $alttext . "' alt='" . $alttext . "' /></a>";
     } else {
         if ( $xoopsUser && $xoopsUser -> isAdmin( $xoopsModule -> getVar( 'mid' ) ) ) {
@@ -337,9 +359,9 @@ function impression_displayimage( $image = '', $path = '', $imgsource = '', $alt
 function impression_letters() {
     global $xoopsModule;
 
-    $letterchoice = "<div>" . _MD_IMPRESSION_BROWSETOTOPIC . "</div>";
-    $letterchoice .= "[  ";
-    $alphabet = array ( "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" );
+    $letterchoice = '<div>' . _MD_IMPRESSION_BROWSETOTOPIC . '</div>';
+    $letterchoice .= '[  ';
+    $alphabet = array ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' );
     $num = count( $alphabet ) - 1;
     $counter = 0;
     while ( list( , $ltr ) = each( $alphabet ) ) {
@@ -357,7 +379,7 @@ function impression_letters() {
 function impression_isnewimage( $published ) {
     global $xoopsModule, $xoopsDB;
 
-    $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.png";
+    $indicator['image'] = 'modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/folder.png';
     $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
     return $indicator;
@@ -370,15 +392,15 @@ function impression_strrrchr( $haystack, $needle ) {
 function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $extra = '', $scount = 5 ) {
     global $xoopsConfig, $xoopsModule, $xoopsModuleConfig;
 	
-	$xoopsModule -> displayAdminMenu( $currentoption, $xoopsModule -> name() . " | " . $header );
+	$xoopsModule -> displayAdminMenu( $currentoption, $xoopsModule -> name() . ' | ' . $header );
 
         // ###### Output warn messages for security ######
-    if ( is_dir( ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update/" ) ) {
+    if ( is_dir( ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) ) {
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL1, ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update/' ) );
         echo '<br />';
     } 
 
-    $_file = ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/update.php";
+    $_file = ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update.php';
     if ( file_exists( $_file ) ) {
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL2, ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/update.php' ) );
         echo '<br />';
@@ -395,20 +417,6 @@ function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $ex
         xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path1_t ) );
         echo '<br />';
     } 
-
-//    $path2 = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['screenshots'];
-//    if ( !is_dir( $path2 ) || !is_writable( $path2 ) )
-//    {
-//        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path2 ) );
-//        echo '<br />';
-//    } 
-
-//    $path2_t = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['screenshots'] . '/thumbs';
-//    if ( !is_dir( $path2_t ) || !is_writable( $path2_t ) )
-//    {
-//        xoops_error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path2_t ) );
-//        echo '<br />';
-//    }
 
     $path3 = ICMS_ROOT_PATH . '/' . $xoopsModuleConfig['catimage'];
     if ( !is_dir( $path3 ) || !is_writable( $path3 ) ) {
@@ -433,24 +441,24 @@ function impression_getDirSelectOption( $selected, $dirarray, $namearray ) {
     echo "<option value=''>--------------------------------------</option>";
     foreach( $namearray as $namearray => $workd ) {
         if ( $workd === $selected ) {
-            $opt_selected = "selected";
+            $opt_selected = 'selected';
         } else {
-            $opt_selected = "";
+            $opt_selected = '';
         } 
         echo "<option value='" . htmlspecialchars( $namearray, ENT_QUOTES ) . "' $opt_selected>" . $workd . "</option>";
     } 
     echo "</select>";
 } 
 
-function impression_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetypes = '', $redirecturl = "index.php", $num = 0, $redirect = 0, $usertype = 1 ) {
+function impression_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = '', $redirecturl = 'index.php', $num = 0, $redirect = 0, $usertype = 1 ) {
     global $_FILES, $xoopsConfig, $xoopsModuleConfig, $xoopsModule;
 
     $down = array();
-    include_once ICMS_ROOT_PATH . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/class/uploader.php";
+    include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/class/uploader.php';
     if ( empty( $allowed_mimetypes ) ) {
         $allowed_mimetypes = impression_retmime( $_FILES['userfile']['name'], $usertype );
     } 
-    $upload_dir = ICMS_ROOT_PATH . "/" . $uploaddir . "/";
+    $upload_dir = ICMS_ROOT_PATH . '/' . $uploaddir . '/';
 
     $maxfilesize = $xoopsModuleConfig['maxfilesize'];
     $maxfilewidth = $xoopsModuleConfig['maximgwidth'];
@@ -467,8 +475,8 @@ function impression_uploading( $_FILES, $uploaddir = "uploads", $allowed_mimetyp
                 redirect_header( $redirecturl, 1 , _AM_PDD_UPLOADFILE );
             } else {
                 if ( is_file( $uploader -> savedDestination ) ) {
-                    $down['url'] = ICMS_URL . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName );
-                    $down['size'] = filesize( ICMS_ROOT_PATH . "/" . $uploaddir . "/" . strtolower( $uploader -> savedFileName ) );
+                    $down['url'] = ICMS_URL . '/' . $uploaddir . '/' . strtolower( $uploader -> savedFileName );
+                    $down['size'] = filesize( ICMS_ROOT_PATH . '/' . $uploaddir . '/' . strtolower( $uploader -> savedFileName ) );
                 } 
                 return $down;
             } 
@@ -536,7 +544,7 @@ function impression_articlelistbody( $published ) {
 
 function impression_cattitle($catid) {
   global $xoopsDB;
-  $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $catid;
+  $sql = 'SELECT title FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $catid;
          $result = $xoopsDB -> query( $sql );
          $result = $xoopsDB -> fetchArray( $result );
          return $result['title'];
@@ -546,7 +554,7 @@ function impression_articlelistfooter() {
     echo "<tr style='text-align: center;'>\n<td class='head' colspan='7'>" . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . "</td>\n</tr>\n";
 } 
 
-function impression_articlelistpagenav( $pubrowamount, $start, $art = "art", $_this='' ) {
+function impression_articlelistpagenav( $pubrowamount, $start, $art = 'art', $_this='' ) {
     global $xoopsModuleConfig;
     echo "</table>\n";
     if ( ( $pubrowamount < $xoopsModuleConfig['admin_perpage'] ) ) {
@@ -560,7 +568,7 @@ function impression_articlelistpagenav( $pubrowamount, $start, $art = "art", $_t
     echo '<div align="right" style="padding: 8px;">' . $pagenav -> renderNav() . '</div>';
 }
 
-function impression_articlelistpagenavleft( $pubrowamount, $start, $art = "art", $_this='' ) {
+function impression_articlelistpagenavleft( $pubrowamount, $start, $art = 'art', $_this='' ) {
     global $xoopsModuleConfig;
     if ( ( $pubrowamount < $xoopsModuleConfig['admin_perpage'] ) ) {
         return false;
@@ -701,7 +709,7 @@ function impression_adminicons($aid, $dirname) {
 
 function impression_updateCounter($aid) {
          global $xoopsDB;
-	 $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET hits=hits+1 WHERE aid=" . intval($aid);
+	 $sql = 'UPDATE ' . $xoopsDB -> prefix( 'impression_articles' ) . ' SET hits=hits+1 WHERE aid=' . intval($aid);
          $result = $xoopsDB -> queryF( $sql );
 }
 
@@ -726,10 +734,10 @@ function impression_linkterms( $definition, $glossaryterm ) {
 	global $xoopsModule, $xoopsDB;
 	
 	// Code to make links out of glossary terms
-		$parts = explode( "¤", $definition );
+		$parts = explode( '¤', $definition );
 
 		// First, retrieve all terms from the glossary...
-		$allterms = $xoopsDB -> query( "SELECT entryID, term FROM " . $xoopsDB -> prefix( 'imglossary_entries' ) . " WHERE submit=0 AND offline=0" );
+		$allterms = $xoopsDB -> query( 'SELECT entryID, term FROM ' . $xoopsDB -> prefix( 'imglossary_entries' ) . ' WHERE submit=0 AND offline=0' );
 		while ( list( $entryID, $term ) = $xoopsDB -> fetchrow( $allterms ) ) {
 			foreach( $parts as $key => $part ) {
 				if ( $term != $glossaryterm ) {
@@ -740,14 +748,14 @@ function impression_linkterms( $definition, $glossaryterm ) {
 					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
 
 					// plural
-					$term = $term . "s";
+					$term = $term . 's';
 					$term_q = preg_quote( $term, '/' );
 					$search_term = "/\b$term_q\b/i";
 					$replace_term = "<span><b><a style='color: #2F5376;' href='" . ICMS_URL . "/modules/imglossary/entry.php?entryID=" . intval( $entryID ) . "'>" . $term . "</a></b></span>";
 					$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
 
 					// plural with e
-					$term = $term . "es";
+					$term = $term . 'es';
 					$term_q = preg_quote( $term, '/' );
 					$search_term = "/\b$term_q\b/i";
 					$replace_term = "<span><b><a style='color: #2F5376;' href='" . ICMS_URL . "/modules/imglossary/entry.php?entryID=" . intval( $entryID ) . "'>" . $term . "</a></b></span>";
@@ -756,7 +764,7 @@ function impression_linkterms( $definition, $glossaryterm ) {
 				}
 			}
 		}
-	$definition = implode( "¤", $parts );
+	$definition = implode( '¤', $parts );
 
 	return $definition;
 }

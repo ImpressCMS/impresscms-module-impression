@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: submit.php
- * Module: Impression
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: submit.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include 'header.php';
 include ICMS_ROOT_PATH . '/header.php';
@@ -17,7 +39,7 @@ $cid = intval($cid);
 $aid = intval($aid);
 
 if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
-    redirect_header( "index.php", 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
+    redirect_header( 'index.php', 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
     exit();
 } 
 
@@ -31,10 +53,10 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $submitter = ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) ? $xoopsUser -> getVar( 'uid' ) : 0;
         $offline = impression_cleanRequestVars( $_REQUEST, 'offline', 0 );
         $approve = impression_cleanRequestVars( $_REQUEST, 'approve', 0 );
-        $title = $impressionmyts -> addslashes( ltrim( $_REQUEST["title"] ) );
-        $introtextb = $impressionmyts -> addslashes( ltrim( $_REQUEST["introtextb"] ) );
-        $descriptionb = $impressionmyts -> addslashes( ltrim( $_REQUEST["descriptionb"] ) );
-        $meta_keywords = $impressionmyts -> addslashes( ltrim( $_REQUEST["meta_keywords"] ) );
+        $title = $impressionmyts -> addslashes( ltrim( $_REQUEST['title'] ) );
+        $introtextb = $impressionmyts -> addslashes( ltrim( $_REQUEST['introtextb'] ) );
+        $descriptionb = $impressionmyts -> addslashes( ltrim( $_REQUEST['descriptionb'] ) );
+        $meta_keywords = $impressionmyts -> addslashes( ltrim( $_REQUEST['meta_keywords'] ) );
         $date = time();
         $publishdate = time();
         $ipaddress = $_SERVER['REMOTE_ADDR'];
@@ -53,7 +75,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
             $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, date, introtext, description, ipaddress, meta_keywords) ";
             $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords')";
             if ( !$result = $xoopsDB -> query( $sql ) ) {
-                $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
+                $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
             } 
             $newid = $xoopsDB -> getInsertId();
@@ -65,7 +87,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 $updated = time();
                 $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords' WHERE aid=" . $aid;
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
-                    $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
+                    $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
                 } 
 
@@ -78,13 +100,13 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_mod' ) . " (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate)";
                 $sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate')";
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
-                    $_error = $xoopsDB -> error() . " : " . $xoopsDB -> errno();
+                    $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
                 } 
 
                 $_message = _MD_IMPRESSION_THANKSFORINFO;
             }
-            redirect_header( "index.php", 2, $_message );
+            redirect_header( 'index.php', 2, $_message );
         }
     } else {
         global $xoopsModuleConfig;
@@ -108,7 +130,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         echo "<br /><div style='text-align: center;'>" . impression_imageheader() . "</div><br />\n";
         echo "<div>" . _MD_IMPRESSION_SUB_SNEWMNAMEDESC . "</div>\n<br />\n";
 //        echo "<h2>" . _MD_IMPRESSION_SUBMITCATHEAD . "</h2>\n";
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . intval( $aid );
+        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . intval( $aid );
         $article_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
         $aid = $article_array['aid'] ? $article_array['aid'] : 0;
@@ -123,7 +145,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
         $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
 
-     	$sform = new XoopsThemeForm( _MD_IMPRESSION_SUBMITCATHEAD, "storyform", xoops_getenv( 'PHP_SELF' ) );
+     	$sform = new XoopsThemeForm( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', xoops_getenv( 'PHP_SELF' ) );
         $sform -> setExtra( 'enctype="multipart/form-data"' );
         
 // Article title
@@ -136,7 +158,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
         $submitcats = array();
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " ORDER BY title";
+        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' ORDER BY title';
         $result = $xoopsDB -> query( $sql );
         while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
             if ( true == impression_checkgroups( $myrow['cid'], 'ImpressionSubPerm' ) ) {
@@ -151,17 +173,17 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
 // Article introtext form
         $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, '100%', '250px' );
-        $introtext -> setDescription(  '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
+        $introtext -> setDescription( '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
         $sform -> addElement( $introtext, true );
 
 // Article description form
         $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, '100%', '600px' );
-        $editor -> setDescription(  '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
+        $editor -> setDescription( '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
         $sform -> addElement( $editor, false );
 
 // Meta meta_keywords form
-        $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 5, 50);
-        $keywords -> setDescription(  '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
+        $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 5, 50 );
+        $keywords -> setDescription( '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
         $sform -> addElement( $keywords, false );
 
         $button_tray = new XoopsFormElementTray( '', '' );

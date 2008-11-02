@@ -42,6 +42,6 @@ $sql = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext FROM ' .
 			);
 	}
 	
-$myFeed->render(); 
+$myFeed -> render(); 
 
 ?>
