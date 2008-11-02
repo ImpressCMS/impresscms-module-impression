@@ -1,14 +1,26 @@
 <?php
 /**
- * $Id: makepdf.php
- * Module: Impression
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: makepdf.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include_once 'header.php';
 
-if (!defined('ICMS_ROOT_PATH')) {
-	die("ICMS root path not defined");
-}
+if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
 function strip_p_tag($text) {
     $search = array(
@@ -21,7 +33,7 @@ function strip_p_tag($text) {
          "<br /><br />",
 	);
 
-	$text = preg_replace($search, $replace, $text);
+	$text = preg_replace( $search, $replace, $text );
     return $text;
 }
 
@@ -30,22 +42,22 @@ $mydirname = basename( dirname( __FILE__ ) );
 global $xoopsDB, $xoopsConfig, $xoopsModuleConfig, $xoopsUser;
 
 $aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
-$aid = intval($aid);
+$aid = intval( $aid );
 
-$result = $xoopsDB -> query( "SELECT cid, title, submitter, published, introtext, description FROM " . $xoopsDB -> prefix('impression_articles') . " WHERE aid=" . $aid );
+$result = $xoopsDB -> query( 'SELECT cid, title, submitter, published, introtext, description FROM ' . $xoopsDB -> prefix('impression_articles') . ' WHERE aid=' . $aid );
 $myrow = $xoopsDB -> fetchArray( $result );
 
-$result2 = $xoopsDB -> query( "SELECT title FROM " . $xoopsDB -> prefix('impression_cat') . " WHERE cid=" . $myrow['cid'] );
+$result2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix('impression_cat') . ' WHERE cid=' . $myrow['cid'] );
 $mycat = $xoopsDB -> fetchArray( $result2 );
 
 $date = formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] );
 
 $myts =& MyTextSanitizer::getInstance();
 $title = $myts -> displayTarea( $myrow['title'] );
-$submitter = strip_tags( xoops_getLinkedUnameFromId( $myrow['submitter'] ) );
+$submitter = strip_tags( icms_getLinkedUnameFromId( $myrow['submitter'] ) );
 $category = $mycat['title'];
 $whowhen = sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
-$content = $title . '<br /><br />' . $myts -> displayTarea( strip_p_tag($myrow['introtext']), 1, 1, 1, 1, 1 ) . $myts -> displayTarea( strip_p_tag( $myrow['description']), 1, 1, 1, 1, 1 );
+$content = $title . '<br /><br />' . $myts -> displayTarea( strip_p_tag( $myrow['introtext'] ), 1, 1, 1, 1, 1 ) . $myts -> displayTarea( strip_p_tag( $myrow['description'] ), 1, 1, 1, 1, 1 );
 
 $slogan = $xoopsConfig['sitename'] . ' - ' . $xoopsConfig['slogan'];
 $keywords = $title . ' ' . $category . ' ' . $submitter . ' ' . $slogan;
@@ -53,9 +65,9 @@ $description = '';
 
 $htmltitle = '<font color=#3399CC><h1>' . $title . '</h1><h4>' . $category . '</font></h4><h5>' . $whowhen . '</h5><br>' . $description;
 
-require_once ICMS_PDF_LIB_PATH.'/tcpdf.php';
+require_once ICMS_PDF_LIB_PATH . '/tcpdf.php';
 
-$filename = ICMS_ROOT_PATH.'/modules/' . $mydirname . '/' . $xoopsConfig['language'] . '/main.php';
+$filename = ICMS_ROOT_PATH . '/modules/' . $mydirname . '/' . $xoopsConfig['language'] . '/main.php';
 
 if ( file_exists( $filename ) ) {
   include_once $filename;
@@ -70,41 +82,41 @@ if( file_exists( $filename ) ) {
   include_once ICMS_PDF_LIB_PATH . '/config/lang/en.php';
 }
 
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true);
+$pdf = new TCPDF( PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true );
 
 // set document information
-$pdf -> SetCreator(PDF_CREATOR);
-$pdf -> SetAuthor($submitter);
-$pdf -> SetTitle($title);
-$pdf -> SetSubject($title);
-$pdf -> SetKeywords($keywords);
+$pdf -> SetCreator( PDF_CREATOR );
+$pdf -> SetAuthor( $submitter );
+$pdf -> SetTitle( $title );
+$pdf -> SetSubject( $title );
+$pdf -> SetKeywords( $keywords );
 
 $firstLine = $slogan;
 $secondLine =  $whowhen;
 
-$pdf -> SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $firstLine, $secondLine);
+$pdf -> SetHeaderData( PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $firstLine, $secondLine );
 
 //set margins
-$pdf -> SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf -> SetMargins( PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT );
 
 //set auto page breaks
-$pdf -> SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-$pdf -> SetHeaderMargin(PDF_MARGIN_HEADER);
-$pdf -> SetFooterMargin(PDF_MARGIN_FOOTER);
-$pdf -> setImageScale(PDF_IMAGE_SCALE_RATIO); //set image scale factor
+$pdf -> SetAutoPageBreak( TRUE, PDF_MARGIN_BOTTOM );
+$pdf -> SetHeaderMargin( PDF_MARGIN_HEADER );
+$pdf -> SetFooterMargin( PDF_MARGIN_FOOTER );
+$pdf -> setImageScale( PDF_IMAGE_SCALE_RATIO ); //set image scale factor
 
-$pdf -> setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-$pdf -> setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+$pdf -> setHeaderFont( Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN ) );
+$pdf -> setFooterFont( Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA ) );
 
 $pdf -> setLanguageArray($l); //set language items
 
 // set font
-$pdf -> SetFont("dejavusans", "BI", 10);
+$pdf -> SetFont( 'dejavusans', 'BI', 10 );
 
 //initialize document
 $pdf -> AliasNbPages();
 $pdf -> AddPage();
-$pdf -> writeHTML($content, true, 0);
+$pdf -> writeHTML( $content, true, 0 );
 $pdf -> Output();
 
 ?>

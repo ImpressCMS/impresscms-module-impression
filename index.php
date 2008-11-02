@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: index.php
- * Module: Impression
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: index.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include 'header.php';
 
@@ -17,7 +39,7 @@ global $xoopsModuleConfig;
 $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
 // Begin Main page Heading etc
-$sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_indexpage' );
+$sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_indexpage' );
 $head_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
 $catarray['imageheader'] = impression_imageheader( $head_arr['indeximage'], $head_arr['indexheading'] );
@@ -47,34 +69,34 @@ $listings = impression_getTotalItems();
 $total_cat = impression_totalcategory();
 
 $catsort = $xoopsModuleConfig['sortcats'];
-$sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE pid = 0 ORDER BY " . $catsort;
+$sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid = 0 ORDER BY ' . $catsort;
 $result = $xoopsDB -> query( $sql );
 while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
     $countin++;
     $subtotalarticleload = 0;
     $totalarticleload = impression_getTotalItems( $myrow['cid'], 1 );
 
-    $indicator['image'] = "modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/icon/folder.png";
+    $indicator['image'] = 'modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/folder.png';
     $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
     if ( impression_checkgroups( $myrow['cid'] ) ) {
         $title = $impressionmyts -> htmlSpecialCharsStrip( $myrow['title'] );
 
         $arr = array();
-        $arr = $mytree -> getFirstChild( $myrow['cid'], "title" );
+        $arr = $mytree -> getFirstChild( $myrow['cid'], 'title' );
 
         $space = $chcount = 1;
-        $subcategories = "";
+        $subcategories = '';
         foreach( $arr as $ele ) {
             if ( true == impression_checkgroups( $ele['cid'] ) ) {
                 if ( $xoopsModuleConfig['subcats'] == 1 ) {
                     $chtitle = $impressionmyts -> htmlSpecialCharsStrip( $ele['title'] );
                     if ( $chcount > 5 ) {
-                        $subcategories .= "...";
+                        $subcategories .= '...';
                         break;
                     } 
                     if ( $space > 0 ) {
-                        $subcategories .= "<br />";
+                        $subcategories .= '<br />';
                     }
                     $subcategories .= "<li><a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a></li>";
                     $space++;
@@ -83,7 +105,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
             }
         } 
 
-        $_image = ( $myrow['imgurl'] ) ? urldecode( $myrow['imgurl'] ) : "";
+        $_image = ( $myrow['imgurl'] ) ? urldecode( $myrow['imgurl'] ) : '';
 
         if ( empty( $_image ) || $_image == '' ) {
             $imgurl = $indicator['image'];
@@ -107,7 +129,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
     } 
 } 
 switch ( $total_cat ) {
-    case "1":
+    case '1':
         $lang_thereare = _MD_IMPRESSION_THEREIS;
         break;
     default:
@@ -126,24 +148,24 @@ $rss_mod = $modhandler -> getByDirName( 'rss' );
 	
 $time =	time();
 
-$sql = $xoopsDB -> query( "SELECT lastarticlesyn, lastarticlestotal FROM " . $xoopsDB -> prefix( 'impression_indexpage' ));
+$sql = $xoopsDB -> query( 'SELECT lastarticlesyn, lastarticlestotal FROM ' . $xoopsDB -> prefix( 'impression_indexpage' ) );
 $lastarticles = $xoopsDB -> fetchArray( $sql );
 
 if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] > 0) {
 
-  $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 
-								AND published <= " . $time . " 
+  $result = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
+								AND published <= ' . $time . ' 
 								AND status = 0 
-								ORDER BY published DESC", 0, 0 );
+								ORDER BY published DESC', 0, 0 );
   list( $count ) = $xoopsDB -> fetchRow( $result );
   
-  $count = (($count > $lastarticles['lastarticlestotal']) && ($lastarticles['lastarticlestotal'] != 0)) ? $lastarticles['lastarticlestotal'] : $count;
-  $limit = (($start + $xoopsModuleConfig['perpage']) > $count) ? ($count - $start ) : $xoopsModuleConfig['perpage'];
+  $count = ( ( $count > $lastarticles['lastarticlestotal'] ) && ( $lastarticles['lastarticlestotal'] != 0 ) ) ? $lastarticles['lastarticlestotal'] : $count;
+  $limit = ( ( $start + $xoopsModuleConfig['perpage'] ) > $count ) ? ( $count - $start ) : $xoopsModuleConfig['perpage'];
   
-  $result = $xoopsDB -> query( "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 
-								AND published <= " . $time . " 
+  $result = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
+								AND published <= ' . $time . ' 
 								AND status=0 
-								ORDER BY published DESC", $limit , $start );
+								ORDER BY published DESC', $limit, $start );
   while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
         $moderate = 0;
@@ -152,7 +174,7 @@ if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] 
         $xoopsTpl -> append( 'article', $article );
   }
   
-  $pagenav = new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start' );
+  $pagenav = new XoopsPageNav( $count, $xoopsModuleConfig['perpage'], $start, 'start' );
   $xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
   
   $xoopsTpl -> assign( 'showlatest', $lastarticles['lastarticlesyn'] );

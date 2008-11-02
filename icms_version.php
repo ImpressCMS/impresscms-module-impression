@@ -59,8 +59,9 @@ $modversion['submit_bug'] 		= "http://sourceforge.net/tracker/?group_id=205633&a
 // 	** Contributors **
 $modversion['people']['developers'] [] = "[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url]&nbsp;&nbsp;<span style='font-size: smaller;'>( pietjebell31 [at] hotmail [dot] com )</span>";
 $modversion['people']['testers']    [] = "[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url]";
-$modversion['people']['translators'][] = "[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url] (Dutch)";
+$modversion['people']['translators'][] = '[url=http://community.impresscms.org/userinfo.php?uid=10]sato-san[/url] (German)';
 $modversion['people']['translators'][] = "[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url] (Portuguese-Brazil)";
+$modversion['people']['translators'][] = "[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url] (Dutch)";
 $modversion['people']['other']      [] = "<a href='http://www.famfamfam.com' target='_blank'>famfamfam.org</a> (icons)";
 
 //	** If Release Candidate **
