@@ -1,29 +1,30 @@
 <?php
 /**
- * $Id: search.inc.php
- * Module: Impression
- */
-
-function impressioncheckSearchgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
-    global $xoopsUser;
-    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
-    $groups = is_object( $xoopsUser ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = &xoops_gethandler( 'groupperm' );
-
-    $module_handler = &xoops_gethandler( 'module' );
-    $module = &$module_handler -> getByDirname( $mydirname );
-
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
-        if ( $redirect == false ) {
-            return false;
-        } else {
-            redirect_header( 'index.php', 3, _NOPERM );
-            exit();
-        } 
-    } 
-    unset( $module );
-    return true;
-} 
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: /admin/search.inc.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
     global $xoopsDB, $xoopsUser;
@@ -34,7 +35,7 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
         $_search_check_array[$_search_group_check['cid']] = $_search_group_check;
     } 
 
-    $sql = "SELECT aid, cid, title, submitter, published, introtext, description FROM " . $xoopsDB -> prefix( 'impression_articles' );
+    $sql  = "SELECT aid, cid, title, submitter, published, introtext, description FROM " . $xoopsDB -> prefix( 'impression_articles' );
     $sql .= " WHERE published > 0 AND published <= " . time() . " AND status = 0 AND cid > 0";
 
     if ( $userid != 0 ) {
@@ -61,11 +62,8 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
     $i = 0;
 
     while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
-//        if ( false == impressioncheckSearchgroups( $myrow['cid'] ) ) {
-//            continue;
-//        }
-        $ret[$i]['image'] = "images/impression_search.png";
-        $ret[$i]['link'] = "singlearticle.php?cid=" . $myrow['cid'] . "&amp;aid=" . $myrow['aid'];
+        $ret[$i]['image'] = 'images/impression_search.png';
+        $ret[$i]['link'] = 'singlearticle.php?cid=' . $myrow['cid'] . '&amp;aid=' . $myrow['aid'];
         $ret[$i]['title'] = $myrow['title'];
         $ret[$i]['time'] = $myrow['published'];
         $ret[$i]['uid'] = $myrow['submitter'];
