@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06
 *
-* File: admin/index.php
+* File: /admin/index.php
 *
 * @copyright		http://www.xoops.org/ The XOOPS Project
 * @copyright		XOOPS_copyrights.txt
@@ -175,22 +175,22 @@ function edit( $aid = 0 ) {
 } 
 
 switch ( strtolower( $op ) ) {
-    case "edit":
+    case 'edit':
         edit( $aid );
         break;
 
-    case "save":
+    case 'save':
         $groups = isset( $_POST['groups'] ) ? $_POST['groups'] : array();
         $aid = ( !empty( $_POST['aid'] ) ) ? $_POST['aid'] : 0;
         $cid = ( !empty( $_POST['cid'] ) ) ? $_POST['cid'] : 0;
-        $status = $_POST["status"];
-        $title = $impressionmyts -> addslashes( trim( $_POST["title"] ) );
+        $status = $_POST['status'];
+        $title = $impressionmyts -> addslashes( trim( $_POST['title'] ) );
 
         // Get data from form
-        $introtextb = $impressionmyts -> addslashes( trim( $_POST["introtextb"] ) );
-        $descriptionb = $impressionmyts -> addslashes( trim( $_POST["descriptionb"] ) );
-        $meta_keywords = $impressionmyts -> addslashes( trim( $_POST["meta_keywords"] ) );
-        $item_tag = $impressionmyts -> addslashes( trim( $_POST["item_tag"] ) );
+        $introtextb = $impressionmyts -> addslashes( trim( $_POST['introtextb'] ) );
+        $descriptionb = $impressionmyts -> addslashes( trim( $_POST['descriptionb'] ) );
+        $meta_keywords = $impressionmyts -> addslashes( trim( $_POST['meta_keywords'] ) );
+        $item_tag = $impressionmyts -> addslashes( trim( $_POST['item_tag'] ) );
         $published =  strtotime($_POST['published']['date'] ) + $_POST['published']['time'];
         $submitter = $xoopsUser -> uid();
         $publisher = $xoopsUser -> uname();
@@ -215,18 +215,18 @@ switch ( strtolower( $op ) ) {
         
 // Add item_tag to Tag-module
         if ( !$aid ) {
-          $tagupdate = impression_tagupdate($newid, $item_tag);
+          $tagupdate = impression_tagupdate( $newid, $item_tag );
         } else {
-          $tagupdate = impression_tagupdate($aid, $item_tag);
+          $tagupdate = impression_tagupdate( $aid, $item_tag );
         }
 
         $message = ( !$aid ) ? _AM_IMPRESSION_ARTICLE_NEWFILEUPLOAD : _AM_IMPRESSION_ARTICLE_FILEMODIFIEDUPDATE ;
         $message = ( $aid && !$_POST['published'] && $approved ) ? _AM_IMPRESSION_ARTICLE_FILEAPPROVED : $message;
 
-        redirect_header( "index.php", 1, $message );
+        redirect_header( 'index.php', 1, $message );
         break;
 
-    case "delete":
+    case 'delete':
         if ( impression_cleanRequestVars( $_REQUEST, 'confirm', 0 ) ) {
             $title = impression_cleanRequestVars( $_REQUEST, 'title', 0 );
 			
@@ -246,10 +246,10 @@ switch ( strtolower( $op ) ) {
 
             // delete comments
             //xoops_comment_delete( $xoopsModule -> getVar( 'mid' ), $aid );
-            redirect_header( "index.php", 1, sprintf( _AM_IMPRESSION_ARTICLE_FILEWASDELETED, $title ) );
+            redirect_header( 'index.php', 1, sprintf( _AM_IMPRESSION_ARTICLE_FILEWASDELETED, $title ) );
             exit();
         } else {
-            $sql = "SELECT aid, title FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid = " . $aid;
+            $sql = 'SELECT aid, title FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid = ' . $aid;
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
                 return false;
@@ -258,7 +258,7 @@ switch ( strtolower( $op ) ) {
             $item_tag = $result['item_tag'];
             xoops_cp_header();
             impression_adminmenu( _AM_IMPRESSION_BINDEX );
-            xoops_confirm( array( 'op' => 'delete', 'aid' => $aid, 'confirm' => 1, 'title' => $title ), 'index.php', _AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS . "<br /><br>" . $title, _DELETE );
+            xoops_confirm( array( 'op' => 'delete', 'aid' => $aid, 'confirm' => 1, 'title' => $title ), 'index.php', _AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS . '<br /><br>' . $title, _DELETE );
 
             // Remove item_tag from Tag-module
             $tagupdate = impression_tagupdate($aid, $item_tag);
@@ -278,20 +278,19 @@ switch ( strtolower( $op ) ) {
         $start5 = impression_cleanRequestVars( $_REQUEST, 'start5', 0 );
         $totalcats = impression_totalcategory();
 
-        $result = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published>0" );
+        $result = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published>0' );
         list( $totalarticles ) = $xoopsDB -> fetchRow( $result );
-        $result2 = $xoopsDB -> query( "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE status=3" );
+        $result2 = $xoopsDB -> query( 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE status=3' );
         list( $totalnewarticles ) = $xoopsDB -> fetchRow( $result2 );
 
         xoops_cp_header();
         impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
-        echo "		<div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
-                        <div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</div>\n
+        echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . "</legend>\n
 			<div style='padding: 8px;'><small>\n
 			<a href='category.php'>" . _AM_IMPRESSION_SCATEGORY . "</a><b>" . $totalcats . "</b> | \n
 			<a href='index.php'>" . _AM_IMPRESSION_SFILES . "</a><b>" . $totalarticles . "</b> | \n
 			<a href='newarticles.php'>" . _AM_IMPRESSION_SNEWFILESVAL . "</a><b>" . $totalnewarticles . "</b> \n
-			</small></div></div><br />\n
+			</small></div></fieldset><br />\n
 	      ";
 
         if ( $totalarticles > 0 ) {

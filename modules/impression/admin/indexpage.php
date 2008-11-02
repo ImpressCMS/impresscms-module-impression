@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: indexpage.php
- * Module: Impression
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: /admin/indexpage.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include 'admin_header.php';
 
@@ -12,7 +34,7 @@ $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
 $cid = impression_cleanRequestVars( $_REQUEST, 'cid', 0 );
 
 switch ( strtolower( $op ) ) {
-    case "save":
+    case 'save':
         $indexheading = $impressionmyts -> addslashes( xoops_trim($_REQUEST['indexheading']) );
         $indexheader = $impressionmyts -> addslashes( xoops_trim($_REQUEST['indexheader']) );
         $indexfooter = $impressionmyts -> addslashes( xoops_trim($_REQUEST['indexfooter']) );
@@ -45,10 +67,9 @@ switch ( strtolower( $op ) ) {
         xoops_cp_header();
         impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
 
-        echo "   <div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
-		 <span style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_IPAGE_INFORMATION . "</span>\n
-		 <span style='padding: 8px;'>" . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . "</span>\n
-		 </div><br />\n
+        echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_IPAGE_INFORMATION . "</legend>\n
+		 <div style='padding: 8px;'>" . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . "</div>\n
+		 </fieldset><br />\n
 		";
         $sform = new XoopsThemeForm( _AM_IMPRESSION_IPAGE_MODIFY, "op", xoops_getenv( 'PHP_SELF' ) );
         $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_IPAGE_CTITLE, 'indexheading', 60, 60, $indexheading ), false );
