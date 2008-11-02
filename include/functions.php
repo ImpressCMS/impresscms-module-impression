@@ -122,9 +122,8 @@ function impression_toolbar( $cid = 0 ) {
 
 // impression_serverstats()
 function impression_serverstats() {
-    echo "  <div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
-            <span style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_ARTICLE_IMAGEINFO . "<br /><br /></span>\n
-	    <span style='padding: 12px;'>" . _AM_IMPRESSION_ARTICLE_SPHPINI . "<br /><br /><span>\n";
+    echo "  <fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_ARTICLE_IMAGEINFO . "</legend>\n
+	    <div style='padding: 12px;'>" . _AM_IMPRESSION_ARTICLE_SPHPINI . "<br /><br /><div>\n";
     $safemode = ( ini_get( 'safe_mode' ) ) ? _AM_IMPRESSION_ARTICLE_ON . _AM_IMPRESSION_ARTICLE_SAFEMODEPROBLEMS : _AM_IMPRESSION_ARTICLE_OFF;
     $registerglobals = ( ini_get( 'register_globals' ) == '' ) ? _AM_IMPRESSION_ARTICLE_OFF : _AM_IMPRESSION_ARTICLE_ON;
     $articles = ( ini_get( 'file_uploads' ) ) ? _AM_IMPRESSION_ARTICLE_ON : _AM_IMPRESSION_ARTICLE_OFF;
