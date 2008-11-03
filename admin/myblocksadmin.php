@@ -240,8 +240,8 @@ impression_adminMenu( 6, _AM_IMPRESSION_BLOCKADMIN );
 
 if ( file_exists( './mymenu.php' ) ) include( './mymenu.php' ) ;
 
-echo "<h3 style='text-align:left;'>" . $xoopsModule -> name() . "</h3>\n";
-echo "<h4 style='text-align:left;'>" . _AM_BADMIN . "</h4>\n";
+// echo "<h3 style='text-align:left;'>" . $xoopsModule -> name() . "</h3>\n";
+// echo "<h4 style='text-align:left;'>" . _AM_BADMIN . "</h4>\n";
 list_blocks();
 list_groups();
 xoops_cp_footer();
