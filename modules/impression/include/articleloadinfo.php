@@ -32,10 +32,10 @@ $article['id'] = intval( $article_arr['aid'] );
 $article['cid'] = intval( $article_arr['cid'] );
 $article['published'] = intval( $article_arr['published'] ) ? true : false;
 
-$path = $mytree -> getPathFromId( $article_arr['cid'], "title" );
+$path = $mytree -> getPathFromId( $article_arr['cid'], 'title' );
 $path = substr( $path, 1 );
 $path = basename( $path );
-$path = str_replace( "/", "", $path );
+$path = str_replace( '/', '', $path );
 $article['category'] = $path;
 
 $article['hits'] = sprintf( _MD_IMPRESSION_ARTICLEHITS, intval( $article_arr['hits'] ) ) ;
