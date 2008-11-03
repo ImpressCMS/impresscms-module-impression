@@ -78,10 +78,9 @@ function edit( $aid = 0 ) {
 			 </tr>
 			</table>";
         echo "
-                           <div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>\n
-                           <div style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_INFOMATION . "</div>\n
-			   <div style='font-size: smaller;'>$text_info</div>\n
-			   </div>\n
+                           <fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_INFOMATION . "</legend>\n
+			   <div style='padding: 8px;'>$text_info</div>\n
+			   </fieldset>\n
 
 			<br />\n";
     } 
