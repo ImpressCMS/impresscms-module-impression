@@ -1,18 +1,40 @@
 <?php
 /**
- * $Id: permissions.php
- * Module: Impression
- */
+* imLinks - a multicategory links management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: /admin/permissions.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				imLinks
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 include 'admin_header.php';
 include_once '../../../include/cp_header.php';
 include_once ICMS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
 
 xoops_cp_header();
-impression_adminmenu( "<h4>" . _AM_IMPRESSION_PERM_MANAGEMENT  . "</h4>" );
+impression_adminmenu( '<h4>' . _AM_IMPRESSION_PERM_MANAGEMENT  . '</h4>' );
 
-$permtoset = isset($_POST['permtoset']) ? intval($_POST['permtoset']) : 1;
-$selected = array('','','','','');
+$permtoset = isset( $_POST['permtoset'] ) ? intval( $_POST['permtoset'] ) : 1;
+$selected = array( '','','','','' );
 $selected[$permtoset-1] = ' selected';
 echo "<form method='post' name='fselperm' action='permissions.php'><table border=0><tr><td><select name='permtoset' onChange='javascript: document.fselperm.submit()'>
 <option value='1'" . $selected[0] . ">" . _AM_IMPRESSION_PERM_CPERMISSIONS . "</option>
@@ -33,11 +55,11 @@ switch($permtoset) {
 		$perm_name = 'ImpressionSubPerm';
 		$perm_desc = _AM_IMPRESSION_PERM_SPERMISSIONS_TEXT;
 		break;
-//	case 3:
-//		$title_of_form = _AM_IMPRESSION_PERM_APERMISSIONS;
-//		$perm_name = 'ImpressionAppPerm';
-//		$perm_desc = _AM_IMPRESSION_PERM_APERMISSIONS_TEXT;
-//		break;
+	case 3:
+		$title_of_form = _AM_IMPRESSION_PERM_APERMISSIONS;
+		$perm_name = 'ImpressionAppPerm';
+		$perm_desc = _AM_IMPRESSION_PERM_APERMISSIONS_TEXT;
+		break;
 	case 4:
 		$title_of_form = _AM_IMPRESSION_PERM_AUTOPERMISSIONS;
 		$perm_name = 'ImpressionAutoApp';

@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: menu.php
- * Module: Impression
- */
+* imLinks - a multicategory links management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: /admin/menu.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				imLinks
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 $impressiondir = basename( dirname( dirname( __FILE__ ) ) );
 
@@ -45,9 +67,7 @@ if ( isset( $xoopsModule ) ) {
 
 	if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' . $xoopsConfig['language'] . '/admin.php' ) ) {
 		include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' . $xoopsConfig['language'] . '/admin.php';
-	} else {
-		include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/english/admin.php';
-	}
+	} else { include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/english/admin.php'; }
 
 	$i = -1;
 
