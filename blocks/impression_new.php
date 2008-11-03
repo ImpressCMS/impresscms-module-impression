@@ -1,8 +1,30 @@
 <?php
 /**
- * $Id: impression_new.php
- * Module: Impression
- */
+* Impression - a 'light' article management module for ImpressCMS
+*
+* Based upon WF-Links 1.06
+*
+* File: /blocks/impression_new.php
+*
+* @copyright		http://www.xoops.org/ The XOOPS Project
+* @copyright		XOOPS_copyrights.txt
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* 				WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since			1.00
+* @author		McDonald
+* @version		$Id$
+*/
 
 //include ICMS_ROOT_PATH . '/modules/impression/include/functions.php';
 
@@ -106,17 +128,17 @@ function b_impression_new_show( $options ) {
         $result2 = $xoopsDB -> query( "SELECT title FROM " . $xoopsDB -> prefix('impression_cat') . " WHERE cid=".$myrow['cid']);
         $mycat = $xoopsDB -> fetchArray( $result2 );
 
-        $articlenew = array();
-        $articlenew['id'] = intval($myrow['aid']);
-        $articlenew['cid'] = intval($myrow['cid']);
-        $articlenew['title'] = '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $myrow['title'] . ' </a>';
-        $articlenew['cattitle'] = '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/catview.php?cid=' . intval($myrow['cid']).'">' . $mycat['title'] . ' </a>';
-        $articlenew['date'] = formatTimestamp( $myrow['published'], $options[2] );
-        $articlenew['newpopicons'] = b_impression_displaynewicons($myrow['published'], $myrow['status'], $myrow['hits']);
-        $articlenew['adminnewicons'] = b_impression_adminnewicons( intval($myrow['aid']),$impressionModule -> getVar( 'dirname' ));
+        $articlenew 					= array();
+        $articlenew['id'] 				= intval($myrow['aid']);
+        $articlenew['cid'] 				= intval($myrow['cid']);
+        $articlenew['title'] 			= '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval($myrow['cid']) . '&amp;aid=' . intval($myrow['aid']) . '">' . $myrow['title'] . ' </a>';
+        $articlenew['cattitle'] 		= '<a href="' . ICMS_URL . '/modules/' . $impressionModule -> getVar( 'dirname' ) . '/catview.php?cid=' . intval($myrow['cid']).'">' . $mycat['title'] . ' </a>';
+        $articlenew['date'] 			= formatTimestamp( $myrow['published'], $options[2] );
+        $articlenew['newpopicons'] 		= b_impression_displaynewicons($myrow['published'], $myrow['status'], $myrow['hits']);
+        $articlenew['adminnewicons'] 	= b_impression_adminnewicons( intval($myrow['aid']),$impressionModule -> getVar( 'dirname' ));
+		
         $xoopsTpl -> assign( 'dirname', $impressionModule -> getVar( 'dirname' ) );
         $block['articlenew'][] = $articlenew;
-
     }
     unset( $_block_check_array );
     return $block;
@@ -129,15 +151,15 @@ function b_impression_new_show( $options ) {
  * @return 
  **/
 function b_impression_new_edit( $options ) {
-    $form = "" . _MB_IMPRESSION_DISP . "&nbsp;";
-    $form .= "<input type='hidden' name='options[]' value='";
-    if ( $options[0] == "new" ) {
-        $form .= "new'";
+    $form = '' . _MB_IMPRESSION_DISP . '&nbsp;';
+    $form .= '<input type="hidden" name="options[]" value="';
+    if ( $options[0] == 'new' ) {
+        $form .= 'new"';
     }
-    $form .= " />";
-    $form .= "<input type='text' name='options[]' value='" . $options[1] . "' />&nbsp;" . _MB_IMPRESSION_HEADLINES . "";
+    $form .= ' />';
+    $form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMPRESSION_HEADLINES . '';
 //    $form .= "&nbsp;<br />" . _MB_IMPRESSION_CHARS . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_LENGTH . "";
-    $form .= "&nbsp;<br />" . _MB_IMPRESSION_DATEFORMAT . "&nbsp;<input type='text' name='options[]' value='" . $options[2] . "' />&nbsp;" . _MB_IMPRESSION_DATEFORMATMANUAL;
+    $form .= '&nbsp;<br />' . _MB_IMPRESSION_DATEFORMAT . '&nbsp;<input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMPRESSION_DATEFORMATMANUAL;
     return $form;
 }
 ?>
