@@ -31,7 +31,7 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
 
 function impression_tag_iteminfo( &$items ) {
-  
+
     $mydirname = basename( dirname( dirname( __FILE__ ) ) );
 
     if ( empty( $items ) || !is_array( $items ) ) {
@@ -64,7 +64,7 @@ function impression_tag_iteminfo( &$items ) {
                 'link'       => 'singlearticle.php?cid=' . $lcid . '&amp;aid=' . $item_id,
                 'time'       => $row['published'],
                 'tags'       => $row['item_tag'],
-                'content'    => $row['introtext']
+                'content'    => strip_tags( $row['introtext'] )
             ); 
         } 
     } 
