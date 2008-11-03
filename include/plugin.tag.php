@@ -10,7 +10,7 @@
  * @package		module::tag
  */
 
-if ( !defined( 'ICMSS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
+if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
 /**
  * Get item fields:
