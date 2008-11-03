@@ -3,7 +3,7 @@ xx.xx.2008   1.0 RC-x
 =========================================================
 - Set name of submitter as author in PDF instead of TCPDF
 - Revamped administration
-- New About page
+- New About page in administration
 - Activated Tag blocks and Tag bar in articles
 
 - Added: unofficial translations of GNU GPL License
