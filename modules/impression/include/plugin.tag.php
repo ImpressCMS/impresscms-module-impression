@@ -59,12 +59,12 @@ function impression_tag_iteminfo( &$items ) {
             $row = $xoopsDB -> fetchArray( $result );
             $lcid = $row['lcid'];
             $items[$cat_id][$item_id] = array(
-                "title"      => '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/impression.png" alt="" />&nbsp;' . $row['ltitle'],
-                "uid"        => $row['submitter'],
-                "link"       => 'singlearticle.php?cid=$lcid&amp;aid=$item_id',
-                "time"       => $row['published'],
-                "tags"       => $row['item_tag'],
-                "content"    => $row['introtext']
+                'title'      => '<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/impression.png" alt="" />&nbsp;' . $row['ltitle'],
+                'uid'        => $row['submitter'],
+                'link'       => 'singlearticle.php?cid=' . $lcid . '&amp;aid=' . $item_id,
+                'time'       => $row['published'],
+                'tags'       => $row['item_tag'],
+                'content'    => $row['introtext']
             ); 
         } 
     } 
