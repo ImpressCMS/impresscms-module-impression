@@ -93,7 +93,8 @@ tr.impression_even td {
 
 /* Bookmark tags */
 div.impression_socbookmark {
-  text-align: center; }
+  text-align: center;
+  padding-top: 10px;}
 
 div.impression_socbookmark a img {
   opacity: .4;
