@@ -328,7 +328,7 @@ function impression_imageheader( $indeximage = '', $indexheading = '' ) {
 
     $image = '';
     if ( !empty( $indeximage ) ) {
-        $image = impression_displayimage( $indeximage, "'index.php'", $xoopsModuleConfig['mainimagedir'], $indexheading );
+        $image = impression_displayimage( $indeximage, 'index.php', $xoopsModuleConfig['mainimagedir'], $indexheading );
     } 
     return $image;
 } 
@@ -339,16 +339,16 @@ function impression_displayimage( $image = '', $path = '', $imgsource = '', $alt
     $showimage = '';
     // Check to see if link is given
     if ( $path ) {
-        $showimage = "<a href=" . $path . ">";
+        $showimage = '<a href="' . $path . '">';
     } 
     // checks to see if the file is valid else displays default blank image
-    if ( !is_dir( ICMS_ROOT_PATH . '/{$imgsource}/{$image}' ) && file_exists( ICMS_ROOT_PATH . '/{$imgsource}/{$image}' ) ) {
+    if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
         $showimage .= "<img src='" . ICMS_URL . "/{$imgsource}/{$image}' border='0' title='" . $alttext . "' alt='" . $alttext . "' /></a>";
     } else {
         if ( $xoopsUser && $xoopsUser -> isAdmin( $xoopsModule -> getVar( 'mid' ) ) ) {
-            $showimage .= "<img src='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/brokenimg.png' alt='" . _MD_IMPRESSION_ISADMINNOTICE . "' /></a>";
+            $showimage .= '<img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/brokenimg.png" alt="' . _MD_IMPRESSION_ISADMINNOTICE . '" /></a>';
         } else {
-            $showimage .= "<img src='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/images/blank.gif' alt='" . $alttext . "' /></a>";
+            $showimage .= '<img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/blank.gif" alt="' . $alttext . '" /></a>';
         } 
     } 
     clearstatcache();
