@@ -400,7 +400,7 @@ $modversion['config'][$i]['title'] = '_MI_IMPRESSION_ITEMFOOTER';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_ITEMFOOTERDSC';
 $modversion['config'][$i]['formtype'] = 'textarea';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = ICMS_URL;
+$modversion['config'][$i]['default'] = '' . ICMS_URL . '';
 //$i++;
 //$modversion['config'][$i]['name'] = 'footerprint';
 //$modversion['config'][$i]['title'] = '_MI_IMPRESSION_FOOTERPRINT';
