@@ -34,36 +34,37 @@ if ( file_exists( ICMS_ROOT_PATH . '/language/'. $xoopsConfig['language'] . '/mo
 	include_once ICMS_ROOT_PATH . '/language/'. $xoopsConfig['language'] . '/moduleabout.php';
 } else { include_once ICMS_ROOT_PATH . '/language/english/moduleabout.php'; }
 
-$modversion['name'] = _MI_IMPRESSION_NAME;
-$modversion['version'] = "1.00";
-$modversion['date'] = "August 18, 2008";
-$modversion['status'] = "RC-2";
-$modversion['description'] = _MI_IMPRESSION_DESC;
-$modversion['license'] = _MI_IMPRESSION_ABOUTLICENSE;
-$modversion['official'] = 1;
-$modversion['dirname'] = $impressiondir;
-$modversion['image'] = "images/impression_ilogo.png";
-$modversion['iconsmall'] = "images/impression_iconsmall.png";
-$modversion['iconbig'] = "images/impression_iconbig.png";
+$modversion['name'] 			= _MI_IMPRESSION_NAME;
+$modversion['version'] 			= '1.00';
+$modversion['date'] 			= 'August 18, 2008';
+$modversion['status'] 			= 'RC-2';
+$modversion['status_version'] 	= 'RC-2';
+$modversion['description'] 		= _MI_IMPRESSION_DESC;
+$modversion['license'] 			= _MI_IMPRESSION_ABOUTLICENSE;
+$modversion['dirname'] 			= $impressiondir;
+$modversion['image'] 			= 'images/impression_ilogo.png';
+$modversion['iconsmall'] 		= 'images/impression_iconsmall.png';
+$modversion['iconbig'] 			= 'images/impression_iconbig.png';
 
 
-$modversion['author'] = "Version developer: John N";
-$modversion['credits'] = "WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.";
-$modversion['author_credits'] = _MI_IMPRESSION_AUTHOR_CREDITSTEXT;
-$modversion['developer_website_url'] = "http://members.lycos.nl/mcdonaldsstore/";
-$modversion['developer_website_name'] = "McDonalds Store";
-$modversion['support_site_url'] = "http://community.impresscms.org/modules/newbb/viewforum.php?forum=9";
-$modversion['support_site_name']= "ImpressCMS Community Forum - Modules Support";
-$modversion['submit_bug'] 		= "http://sourceforge.net/tracker/?group_id=205633&atid=1064496";
+$modversion['author'] 					= 'Version developer: John N';
+$modversion['credits'] 					= 'WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.';
+$modversion['author_credits'] 			= _MI_IMPRESSION_AUTHOR_CREDITSTEXT;
+$modversion['developer_website_url'] 	= 'http://members.lycos.nl/mcdonaldsstore/';
+$modversion['developer_website_name'] 	= 'McDonalds Store';
+$modversion['support_site_url'] 		= 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
+$modversion['support_site_name']		= 'ImpressCMS Community Forum - Modules Support';
+$modversion['submit_bug'] 				= 'http://sourceforge.net/tracker/?group_id=205633&atid=1064496';
 
 // 	** Contributors **
-$modversion['people']['developers'] [] = "[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url]&nbsp;&nbsp;<span style='font-size: smaller;'>( pietjebell31 [at] hotmail [dot] com )</span>";
-$modversion['people']['testers']    [] = "[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url]";
-$modversion['people']['translators'][] = '[url=http://community.impresscms.org/userinfo.php?uid=10]sato-san[/url] (German)';
-$modversion['people']['translators'][] = "[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url] (Portuguese-Brazil)";
-$modversion['people']['translators'][] = "[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url] (Dutch)";
-$modversion['people']['other']      [] = "<a href='http://www.famfamfam.com' target='_blank'>famfamfam.com</a> (icons)";
-$modversion['people']['other']      [] = "<a href='http://www.fixicon.com' target='_blank'>FixIcon</a> (module icon)";
+$modversion['people']['developers'] [] = '[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url]&nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
+$modversion['people']['testers']    [] = '[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url]';
+$modversion['people']['translators'][] = '&middot; [url=http://community.impresscms.org/userinfo.php?uid=10]sato-san[/url] (German)';
+$modversion['people']['translators'][] = '&middot; [url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url] (Portuguese-Brazil)';
+$modversion['people']['translators'][] = '&middot; [url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url] (Dutch)';
+$modversion['people']['other']		[] = '&middot; WF-Projects Team: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme';
+$modversion['people']['other']      [] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
+$modversion['people']['other']      [] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
 
 //	** If Release Candidate **
 //$modversion['warning'] = _MODABOUT_WARNING_RC;
@@ -73,7 +74,7 @@ $modversion['warning'] = _MODABOUT_WARNING_FINAL;
 
 // Sql file (must contain sql generated by phpMyAdmin or phpPgAdmin)
 // All tables should not have any prefix!
-$modversion['sqlfile']['mysql'] = "sql/impression.sql";
+$modversion['sqlfile']['mysql'] = 'sql/impression.sql';
 
 // Tables created by sql file (without prefix!)
 include_once 'include/config.php';
@@ -89,47 +90,47 @@ $modversion['onUpdate'] = 'include/update.php';
 
 // Admin things
 $modversion['hasAdmin'] = 1;
-$modversion['adminindex'] = "admin/index.php";
-$modversion['adminmenu'] = "admin/menu.php";
+$modversion['adminindex'] = 'admin/index.php';
+$modversion['adminmenu'] = 'admin/menu.php';
 
 // Blocks
 $i=0;
 $i++;
-$modversion['blocks'][$i]['file'] = "impression_spot.php";
+$modversion['blocks'][$i]['file'] = 'impression_spot.php';
 $modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BSPOT;
-$modversion['blocks'][$i]['description'] = "Shows recently added news in spotlight";
-$modversion['blocks'][$i]['show_func'] = "b_impression_spot_show";
-$modversion['blocks'][$i]['edit_func'] = "b_impression_spot_edit";
-$modversion['blocks'][$i]['options'] = "spot|10|d F Y|0";
+$modversion['blocks'][$i]['description'] = 'Shows recently added news in spotlight';
+$modversion['blocks'][$i]['show_func'] = 'b_impression_spot_show';
+$modversion['blocks'][$i]['edit_func'] = 'b_impression_spot_edit';
+$modversion['blocks'][$i]['options'] = 'spot|10|d F Y|0';
 $modversion['blocks'][$i]['template'] = 'impression_block_spot.html';
 $modversion['blocks'][$i]['can_clone'] = true ;
 $i++;
-$modversion['blocks'][$i]['file'] = "impression_new.php";
+$modversion['blocks'][$i]['file'] = 'impression_new.php';
 $modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BNEW;
-$modversion['blocks'][$i]['description'] = "Shows headlines of recently added articles";
-$modversion['blocks'][$i]['show_func'] = "b_impression_new_show";
-$modversion['blocks'][$i]['edit_func'] = "b_impression_new_edit";
-$modversion['blocks'][$i]['options'] = "new|25|d F Y";
+$modversion['blocks'][$i]['description'] = 'Shows headlines of recently added articles';
+$modversion['blocks'][$i]['show_func'] = 'b_impression_new_show';
+$modversion['blocks'][$i]['edit_func'] = 'b_impression_new_edit';
+$modversion['blocks'][$i]['options'] = 'new|25|d F Y';
 $modversion['blocks'][$i]['template'] = 'impression_block_new.html';
 $modversion['blocks'][$i]['can_clone'] = true ;
-//$i++;
-//$modversion['blocks'][$i]['file'] = "impression_block_tag.php";
-//$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTAGCLOUD;
-//$modversion['blocks'][$i]['description'] = "Show tag cloud";
-//$modversion['blocks'][$i]['show_func'] = "impression_tag_block_cloud_show";
-//$modversion['blocks'][$i]['edit_func'] = "impression_tag_block_cloud_edit";
-//$modversion['blocks'][$i]['options'] = "100|0|150|80";
-//$modversion['blocks'][$i]['template'] = 'impression_tag_block_cloud.html';
-//$modversion['blocks'][$i]['can_clone'] = true ;
-//$i++;
-//$modversion['blocks'][$i]['file'] = "impression_block_tag.php";
-//$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTOPTAG;
-//$modversion['blocks'][$i]['description'] = "Show top tag";
-//$modversion['blocks'][$i]['show_func'] = "impression_tag_block_top_show";
-//$modversion['blocks'][$i]['edit_func'] = "impression_tag_block_top_edit";
-//$modversion['blocks'][$i]['options'] = "50|30|c";
-//$modversion['blocks'][$i]['template'] = 'impression_tag_block_tag.html';
-//$modversion['blocks'][$i]['can_clone'] = true ;
+$i++;
+$modversion['blocks'][$i]['file'] = 'impression_block_tag.php';
+$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTAGCLOUD;
+$modversion['blocks'][$i]['description'] = 'Show tag cloud';
+$modversion['blocks'][$i]['show_func'] = 'impression_tag_block_cloud_show';
+$modversion['blocks'][$i]['edit_func'] = 'impression_tag_block_cloud_edit';
+$modversion['blocks'][$i]['options'] = '100|0|150|80';
+$modversion['blocks'][$i]['template'] = 'impression_tag_block_cloud.html';
+$modversion['blocks'][$i]['can_clone'] = true ;
+$i++;
+$modversion['blocks'][$i]['file'] = 'impression_block_tag.php';
+$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTOPTAG;
+$modversion['blocks'][$i]['description'] = 'Show top tag';
+$modversion['blocks'][$i]['show_func'] = 'impression_tag_block_top_show';
+$modversion['blocks'][$i]['edit_func'] = 'impression_tag_block_top_edit';
+$modversion['blocks'][$i]['options'] = '50|30|c';
+$modversion['blocks'][$i]['template'] = 'impression_tag_block_tag.html';
+$modversion['blocks'][$i]['can_clone'] = true ;
 
 
 // Menu
@@ -143,23 +144,23 @@ if ( is_object( $module ) ) {
     global $xoopsUser;
     $groups = ( is_object( $xoopsUser ) ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
     $gperm_handler = &xoops_gethandler( 'groupperm' );
-    if ( $gperm_handler -> checkRight( "ImpressionSubPerm", 0, $groups, $module -> getVar( 'mid' ) ) ) {
+    if ( $gperm_handler -> checkRight( 'ImpressionSubPerm', 0, $groups, $module -> getVar( 'mid' ) ) ) {
         $cansubmit = 1;
     }
 } 
 if ( $cansubmit == 1 ) {
     $modversion['sub'][0]['name'] = _MI_IMPRESSION_SMNAME1;
-    $modversion['sub'][0]['url'] = "submit.php";
+    $modversion['sub'][0]['url'] = 'submit.php';
 } 
 unset( $cansubmit );
 
 $modversion['sub'][1]['name'] = _MI_IMPRESSION_SMNAME2;
-$modversion['sub'][1]['url'] = "topten.php?list=hit";
+$modversion['sub'][1]['url'] = 'topten.php?list=hit';
 
 // Search
 $modversion['hasSearch'] = 1;
-$modversion['search']['file'] = "include/search.inc.php";
-$modversion['search']['func'] = "impression_search";
+$modversion['search']['file'] = 'include/search.inc.php';
+$modversion['search']['func'] = 'impression_search';
 
 // Templates
 $i = 0;
