@@ -41,7 +41,7 @@ define( "_AM_IMPRESSION_PREFS", "Preferences" );
 define( "_AM_IMPRESSION_BUPDATE", "Module Update" );
 define( "_AM_IMPRESSION_BINDEX", "Main Index" );
 define( "_AM_IMPRESSION_BPERMISSIONS", "Permissions" );
-define( "_AM_IMPRESSION_BLOCKADMIN", "Block settings" );
+define( "_AM_IMPRESSION_BLOCKADMIN", "Block Settings" );
 define( "_AM_IMPRESSION_GOMODULE", "Go to module" );
 define( "_AM_IMPRESSION_ABOUT", "About" );
 // Admin Summary
