@@ -17,11 +17,12 @@
 <div align="right"><small><{$smarty.const._MD_IMPRESSION_PUBLISHEDON}><{$article.updated|wordwrap:50:"\n":true}><{$smarty.const._MD_IMPRESSION_BY}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}></small></div>
 
 <div><b><{$article.introtext}></b></div>
+<br />
 <div><{$article.description}></div>
 
 
 <{if $tagbar}>
-  <div style="font-size: smaller;">
+  <div style="font-size: smaller; padding-top: 10px;">
     <{include file="db:tag_bar.html"}>
   </div>
 <{/if}> 
@@ -34,5 +35,3 @@
 
 </div>
 <div class="impression_articleFooter"><{$article.pdf}>&nbsp;<{$article.print}>&nbsp;<{$article.recommend}><{if $xoops_isadmin}> <small><{$article.adminarticle}></small><{/if}>&nbsp;</div>
-<br />
-<!-- <div align="center"><{if $xoops_isadmin}><{$admintools}><{/if}></div> -->
