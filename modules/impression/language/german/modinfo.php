@@ -91,10 +91,10 @@ define('_MI_IMPRESSION_MAINIMGDIR',"Hauptbilderverzeichnis");
 define('_MI_IMPRESSION_CATEGORYIMG',"Kategorie Bildhochladeverzeichnis");
 
 define('_MI_IMPRESSION_DATEFORMAT', "Zeitstempel:");
-define('_MI_IMPRESSION_DATEFORMATDSC', "vorgegebener Zeitstempel für Impression.<br />See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP Handbuch</a>");
+define('_MI_IMPRESSION_DATEFORMATDSC', "vorgegebener Zeitstempel für Impression.<br />See <a href='http://jp.php.net/manual/en/function.date.php' target='_blank'>PHP Handbuch</a>");
 
 define('_MI_IMPRESSION_DATEFORMATADMIN', "Zeitstempeladministration:");
-define('_MI_IMPRESSION_DATEFORMATADMINDSC', "vorgegebener Admininstrationszeitstempel für Impression.<br />siehe auch <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP Handbuch</a>");
+define('_MI_IMPRESSION_DATEFORMATADMINDSC', "vorgegebener Admininstrationszeitstempel für Impression.<br />siehe auch <a href='http://jp.php.net/manual/en/function.date.php' target='_blank'>PHP Handbuch</a>");
 
 define("_MI_IMPRESSION_TOTALCHARS", "angeben der Gesamtanzahl von Zeichen für die Beschreibung?");
 define("_MI_IMPRESSION_TOTALCHARSDSC", "geben Sie die Gesamtanzahl von Zeichen für die Beschreibung der Indexseite an.");
