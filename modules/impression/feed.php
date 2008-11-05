@@ -31,7 +31,7 @@ $sql = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext FROM ' .
     while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {	
 		
 		$title = htmlspecialchars( $myrow['title'] );
-		$date  = date( 'D, d M Y H:i:s', $myrow['published'] );
+		$date  = formatTimestamp( $myrow['published'], 'D, d M Y H:i:s' );
 		$text  = htmlspecialchars( $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 ) );
 		$link  = ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval( $myrow['cid'] ) . '&amp;aid=' . intval( $myrow['aid'] );
 
