@@ -30,15 +30,17 @@ $myFeed -> webMaster = '';  // Admin contact email as stated in general preferen
 $sql = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
     while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {	
 		
-		$date = formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] );
-		$text = $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 );
+		$title = htmlspecialchars( $myrow['title'] );
+		$date  = date( 'D, d M Y H:i:s', $myrow['published'] );
+		$text  = htmlspecialchars( $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 ) );
+		$link  = ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval( $myrow['cid'] ) . '&amp;aid=' . intval( $myrow['aid'] );
 
 		$myFeed -> feeds[] = array (
-			'title' 		=> $myrow['title'],
-			'link' 			=> ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval( $myrow['cid'] ) . '&amp;aid=' . intval( $myrow['aid'] ),
+			'title' 		=> $title,
+			'link' 			=> $link,
 			'description' 	=> $text,
 			'pubdate' 		=> $date,
-			'guid' 			=> ''
+			'guid' 			=> $link
 			);
 	}
 	
