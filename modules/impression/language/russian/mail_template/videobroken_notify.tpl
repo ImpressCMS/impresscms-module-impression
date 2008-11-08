@@ -1,4 +1,4 @@
-Hello {X_UNAME},
+Здравствуйте, {X_UNAME},
 
 If you are the publisher of {X_TITLE} submitted on the date: {X_SUB_DATE}.
 
@@ -16,5 +16,5 @@ If you have any problems, questions or need assistance in updating your submissi
 to contact us anytime and we will be only to happy to help you.
 
 {X_SITENAME} ({X_SITEURL}) 
-webmaster
+вэбмастер
 {X_ADMINMAIL}

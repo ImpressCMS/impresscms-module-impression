@@ -1,4 +1,4 @@
-Hello {X_UNAME},
+Здравствуйте, {X_UNAME},
 
 A new link "{VIDEO_NAME}" has been submitted at {X_SITENAME} and is awaiting approval.
 
@@ -17,5 +17,5 @@ Please do not reply to this message.
 -----------
 
 {X_SITENAME} ({X_SITEURL}) 
-webmaster
+вэбмастер
 {X_ADMINMAIL}
