@@ -36,14 +36,14 @@ $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $action_array 	= array( 'hit' => 0 );
 $list_array 	= array( 'hits' );
 $lang_array 	= array( _MD_IMPRESSION_HITS );
-$rankings 	= array();
+$rankings 		= array();
 
 $sort 		= 'hit';
 $sort_arr 	= $action_array[$sort];
 $sortDB 	= $list_array[$sort_arr];
 
 $arr = array();
-$result = $xoopsDB -> query( "SELECT cid, title, pid FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE pid=0" );
+$result = $xoopsDB -> query( "SELECT cid, title, pid FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE pid=0 ORDER BY " . $xoopsModuleConfig['sortcats'] );
 
 $e = 0;
 while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
@@ -71,11 +71,11 @@ while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
     }
 }
 
-$xoopsTpl -> assign( 'imageheader', impression_imageheader() );
-$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . XOOPS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/back.png" /></a>' );
+$xoopsTpl -> assign( 'imageheader', '<div class="impression_header">' . impression_imageheader() . '</div>' );
+$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . XOOPS_URL . '/modules/' . $mydirname . '/images/icon/back.png" /></a>' );
 $xoopsTpl -> assign( 'lang_sortby' , $lang_array[$sort_arr] );
 $xoopsTpl -> assign( 'rankings', $rankings );
-$xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'module_dir', $mydirname );
 
 include ICMS_ROOT_PATH . '/footer.php';
 

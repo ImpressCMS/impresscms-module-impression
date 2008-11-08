@@ -1,8 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<{$smarty.const.impression_url}>/impressionstyle.css" />
 
-<{if $article.imageheader != ""}>
-     <div class="impression_header"><{$article.imageheader}></div>
-<{/if}>
+<{$article.imageheader}>
 
 <div class="impression_path">
      <div style="float: left;">&nbsp;<{$article.path}></div>

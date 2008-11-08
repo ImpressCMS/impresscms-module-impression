@@ -36,9 +36,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/language/'. $xoopsConfig['language'] . '/mo
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
 $modversion['version'] 			= '1.00';
-$modversion['date'] 			= 'August 18, 2008';
-$modversion['status'] 			= 'RC-2';
-$modversion['status_version'] 	= 'RC-2';
+$modversion['date'] 			= 'November 4, 2008';
+$modversion['status'] 			= 'RC-3';
+$modversion['status_version'] 	= 'RC-3';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license'] 			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['dirname'] 			= $impressiondir;
@@ -57,11 +57,11 @@ $modversion['support_site_name']		= 'ImpressCMS Community Forum - Modules Suppor
 $modversion['submit_bug'] 				= 'http://sourceforge.net/tracker/?group_id=205633&atid=1064496';
 
 // 	** Contributors **
-$modversion['people']['developers'] [] = '[url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url]&nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
-$modversion['people']['testers']    [] = '[url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url]';
-$modversion['people']['translators'][] = '&middot; [url=http://community.impresscms.org/userinfo.php?uid=10]sato-san[/url] (German)';
-$modversion['people']['translators'][] = '&middot; [url=http://community.impresscms.org/userinfo.php?uid=14]GibaPhp[/url] (Portuguese-Brazil)';
-$modversion['people']['translators'][] = '&middot; [url=http://community.impresscms.org/userinfo.php?uid=179]McDonald[/url] (Dutch)';
+$modversion['people']['developers'] [] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a> &nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
+$modversion['people']['testers']    [] = '<a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a> ';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>  (Dutch)';
 $modversion['people']['other']		[] = '&middot; WF-Projects Team: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
