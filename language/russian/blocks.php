@@ -8,27 +8,27 @@
  */
  
 // Blocks
-define( '_MB_IMPRESSION_DISP', '<b>Display: </b>' );
-define( '_MB_IMPRESSION_FILES', 'Articles' );
-define( '_MB_IMPRESSION_CHARS', '<b>Length of the title: </b>' );
-define( '_MB_IMPRESSION_LENGTH', ' characters' );
-define( '_MB_IMPRESSION_EDIT', 'Edit article' );
-define( '_MB_IMPRESSION_DELETE', 'Delete article' );
-define( '_MB_IMPRESSION_APPROVE', 'Approve' );
-define( '_MB_IMPRESSION_CATEGORY', 'Category' );
-define( '_MB_IMPRESSION_ARTICLE', 'Article title' );
-define( '_MB_IMPRESSION_DATE', 'Date' );
+define( '_MB_IMPRESSION_DISP', 'Показ' );
+define( '_MB_IMPRESSION_FILES', 'Статьи' );
+define( '_MB_IMPRESSION_CHARS', 'Длина заголовка' );
+define( '_MB_IMPRESSION_LENGTH', ' символов' );
+define( '_MB_IMPRESSION_EDIT', 'Редактировать' );
+define( '_MB_IMPRESSION_DELETE', 'Удалить' );
+define( '_MB_IMPRESSION_APPROVE', 'Одобрить' );
+define( '_MB_IMPRESSION_CATEGORY', 'Категория' );
+define( '_MB_IMPRESSION_ARTICLE', 'Заголовок статьи' );
+define( '_MB_IMPRESSION_DATE', 'Дата' );
 define( '_MB_IMPRESSION_HEADLINES', 'headlines' );
-define( '_MB_IMPRESSION_ADMINSECTION', 'Administrative section' );
-define( '_MB_IMPRESSION_DATEFORMAT', '<b>Date format: </b>' );
+define( '_MB_IMPRESSION_ADMINSECTION', 'Администрировать' );
+define( '_MB_IMPRESSION_DATEFORMAT', 'Формат даты' );
 define( '_MB_IMPRESSION_DATEFORMATMANUAL', 'See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>' );
-define( '_MB_IMPRESSION_SELECTFEED', '<b>Select RSS feed: </b>' );
-define( '_MB_IMPRESSION_SELECTFEED_DSC', '<small><br /> - Select ICMS to use ImpressCMS RSS feed.<br /> - Select RSSfit to use Brandycoke\'s RSSfit module (subfeed needs to be activated).</small>'  );
-define( '_MB_IMPRESSION_READMORE', 'Read more' );
-define( "_MB_IMPRESSION_PUBLISHEDON", "Published on " );
-define( "_MB_IMPRESSION_BY", " by " );
-define( "_MB_IMPRESSION_ARTICLEHITS", "(%s reads)" );
-define( '_MB_IMPRESSION_FEED', 'RSS feed' );
+define( '_MB_IMPRESSION_SELECTFEED', 'Выбор RSS канала: ' );
+define( '_MB_IMPRESSION_SELECTFEED_DSC', '<small><br /> - Выберите ICMS, чтобы использовать ImpressCMS RSS канал.<br /> - Select RSSfit to use Brandycoke\'s RSSfit module (subfeed needs to be activated).</small>'  );
+define( '_MB_IMPRESSION_READMORE', 'Читать' );
+define( "_MB_IMPRESSION_PUBLISHEDON", "Опубликовано " );
+define( "_MB_IMPRESSION_BY", " " );
+define( "_MB_IMPRESSION_ARTICLEHITS", "(%s прочтений)" );
+define( '_MB_IMPRESSION_FEED', 'RSS канал' );
 define( '_MB_IMPRESSION_ICMSFEED', 'ICMS' );
 define( '_MB_IMPRESSION_RSSFITFEED', 'RSSfit' );
 ?>

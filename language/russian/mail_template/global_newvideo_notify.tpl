@@ -1,4 +1,4 @@
-Hello {X_UNAME},
+Здравствуйте, {X_UNAME},
 
 A new video "{LINK_NAME}" has been added at {X_SITENAME}.
 
@@ -17,5 +17,5 @@ Please do not reply to this message.
 -----------
 
 {X_SITENAME} ({X_SITEURL}) 
-webmaster
+вэбмастер
 {X_ADMINMAIL}
