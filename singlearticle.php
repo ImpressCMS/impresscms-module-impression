@@ -68,23 +68,23 @@ if ( impression_tag_module_included() ) {
   $xoopsTpl -> assign('tagbar', tagBar($article_arr['aid'], 0));
 }
 
-$article['imageheader'] = impression_imageheader();
+$article['imageheader'] = '<div class="impression_header">' . impression_imageheader() . '</div>';
 $article['id'] = $article_arr['aid'];
 $article['cid'] = $article_arr['cid'];
 $article['submitter'] = icms_getLinkedUnameFromId( $article_arr['submitter'] );
 
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
-$article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
+$article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
 
 // Recommend icon
-   $article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/email.png" alt="' . _MD_IMPRESSION_TELLAFRIEND . '" title="' . _MD_IMPRESSION_TELLAFRIEND . '" align="absmiddle" /></a>';
+   $article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" alt="' . _MD_IMPRESSION_TELLAFRIEND . '" title="' . _MD_IMPRESSION_TELLAFRIEND . '" align="absmiddle" /></a>';
 
 // Print icon
-   $article['print'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="' . _MD_IMPRESSION_PRINT . '" title="' . _MD_IMPRESSION_PRINT . '" align="absmiddle" /></a>';
+   $article['print'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/printer.png" alt="' . _MD_IMPRESSION_PRINT . '" title="' . _MD_IMPRESSION_PRINT . '" align="absmiddle" /></a>';
 
 // PDF icon
 if ( is_readable( ICMS_PDF_LIB_PATH . '/tcpdf.php') ) {
- $article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="' . _MD_IMPRESSION_PDF . '" title="' . _MD_IMPRESSION_PDF . '" align="absmiddle" /></a>';
+ $article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/page_acrobat.png" alt="' . _MD_IMPRESSION_PDF . '" title="' . _MD_IMPRESSION_PDF . '" align="absmiddle" /></a>';
 } 
 
 $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
@@ -139,7 +139,7 @@ global $xoopsTpl, $xoTheme;
 
 $moderate = 0;
 $res_type = 1;
-include_once ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/include/articleloadinfo.php';
+include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/articleloadinfo.php';
 
 // Increase hit-counter but not for admin
 if ( $article['isadmin'] == false  ) {
@@ -150,8 +150,8 @@ if ( $article['isadmin'] == false  ) {
 $article['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
 $xoopsTpl -> assign( 'article', $article );
 
-$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . ICMS_URL . '/modules/' . $xoopsModule -> getvar( 'dirname' ) . '/images/icon/back.png" /></a>' );
-$xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/back.png" /></a>' );
+$xoopsTpl -> assign( 'dirname', $mydirname );
 
 include ICMS_ROOT_PATH . '/footer.php';
 

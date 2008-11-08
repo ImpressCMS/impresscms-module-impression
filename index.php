@@ -42,8 +42,10 @@ $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_indexpage' );
 $head_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
-$catarray['imageheader'] = impression_imageheader( $head_arr['indeximage'], $head_arr['indexheading'] );
-$catarray['indexheading'] = $impressionmyts -> displayTarea( $head_arr['indexheading'] );
+if ( $head_arr['indeximage'] ) {
+$catarray['imageheader'] = '<div class="impression_header">' . impression_imageheader( $head_arr['indeximage'], $head_arr['indexheading'] ) . '</div>'; } 
+if ( $head_arr['indexheading'] ) {
+$catarray['indexheading'] = '<h4>' . $impressionmyts -> displayTarea( $head_arr['indexheading'] ) . '</h4>'; }
 $catarray['indexheaderalign'] = $impressionmyts -> htmlSpecialCharsStrip( $head_arr['indexheaderalign'] );
 $catarray['indexfooteralign'] = $impressionmyts -> htmlSpecialCharsStrip( $head_arr['indexfooteralign'] );
 
@@ -53,8 +55,8 @@ $catarray['indexfooteralign'] = $impressionmyts -> htmlSpecialCharsStrip( $head_
 //$images = ( $head_arr['noimages'] ) ? 0 : 1;
 //$breaks = ( $head_arr['nobreak'] ) ? 1 : 0;
 
-$catarray['indexheader'] = $head_arr['indexheader'];
-$catarray['indexfooter'] = $head_arr['indexfooter'];
+$catarray['indexheader'] = '<div style="text-align: '.$catarray['indexheaderalign'].'; padding-left: 8px; padding-top: 12px; padding-bottom: 12px;">' . $head_arr['indexheader'] . '</div>';
+$catarray['indexfooter'] = '<div style="clear: both; float: '.$catarray['indexfooteralign'].'; padding-left: 8px; padding-top: 12px; padding-bottom: 12px;">' . $head_arr['indexfooter'] . '</div>';
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 // End main page Headers
@@ -76,7 +78,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
     $subtotalarticleload = 0;
     $totalarticleload = impression_getTotalItems( $myrow['cid'], 1 );
 
-    $indicator['image'] = 'modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/folder.png';
+    $indicator['image'] = 'modules/' . $mydirname . '/images/icon/folder.png';
     $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
     if ( impression_checkgroups( $myrow['cid'] ) ) {
@@ -98,7 +100,7 @@ while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
                     if ( $space > 0 ) {
                         $subcategories .= '<br />';
                     }
-                    $subcategories .= "<li><a href='" . ICMS_URL . "/modules/" . $xoopsModule -> getVar( 'dirname' ) . "/catview.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a></li>";
+                    $subcategories .= "<li><a href='" . ICMS_URL . "/modules/" . $mydirname . "/catview.php?cid=" . $ele['cid'] . "'>" . $chtitle . "</a></li>";
                     $space++;
                     $chcount++;
                 } 
@@ -170,7 +172,7 @@ if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] 
         $res_type = 0;
         $moderate = 0;
         $cid = $article_arr['cid'];
-        require ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
+        require ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/articleloadinfo.php';
         $xoopsTpl -> append( 'article', $article );
   }
   
@@ -188,7 +190,7 @@ if ( $xoopsModuleConfig['rssfeed'] ) {
 } else {
 	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" /></a>' );
 }
-$xoopsTpl -> assign( 'dirname', $xoopsModule -> getVar( 'dirname' ) );
+$xoopsTpl -> assign( 'dirname', $mydirname );
  
 include ICMS_ROOT_PATH . '/footer.php';
 

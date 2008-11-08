@@ -50,7 +50,7 @@ include ICMS_ROOT_PATH . '/header.php';
 
 global $xoopsModuleConfig, $xoopsModule;
 
-$catarray['imageheader'] = impression_imageheader();
+$catarray['imageheader'] = '<div class="impression_header">' . impression_imageheader() . '</div>';
 $xoopsTpl -> assign( 'catarray', $catarray );
 
 // Breadcrumb
@@ -87,13 +87,13 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                 if ( $space > 0 )
                     $infercategories .= ', ';
 
-                $infercategories .= '<a href="' . ICMS_URL . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/catview.php?cid=' . $sub_ele['cid'] . '">' . $impressionmyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')';
+                $infercategories .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/catview.php?cid=' . $sub_ele['cid'] . '">' . $impressionmyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')';
                 $space++;
                 $chcount++;
             } 
         } 
         $totalarticles = impression_getTotalItems( $ele['cid'] );
-        $indicator['image'] = 'modules/' . $xoopsModule -> getVar( 'dirname' ) . '/images/icon/folder.png';
+        $indicator['image'] = 'modules/' . $mydirname . '/images/icon/folder.png';
         $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
         $_image = ( $ele['imgurl'] ) ? urldecode( $ele['imgurl'] ) : '';
@@ -116,7 +116,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                          'count' => $scount,
                          'alttext' => $ele['description'],
                          'showartcount' => $xoopsModuleConfig['showartcount'],
-                         'module_dir' => $xoopsModule -> getVar( 'dirname' ) )
+                         'module_dir' => $mydirname )
                          );
         $scount++;
     }
@@ -152,14 +152,14 @@ if ( $selectdate ) {
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
     $list_by = 'selectdate=' . $selectdate;
 } elseif ( $list ) {
-    $query = ' WHERE title LIKE $list% AND (published > 0 AND published <= ' . time() . ') AND status = 0 AND cid > 0';
+    $query = " WHERE title LIKE '$list%' AND (published > 0 AND published <= " . time() . ") AND status = 0 AND cid > 0";
 
     $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . $query . ' ORDER BY ' . $orderby;
     $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
 
     $sql = "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . $query;
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
-    $list_by = 'list=$list';
+    $list_by = 'list='.$list;
 } else {
     $sql = 'SELECT DISTINCT a.* FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
          . $xoopsDB -> prefix( 'impression_altcat' ) . ' b'
@@ -179,7 +179,7 @@ if ( $selectdate ) {
                                     . ' AND (b.cid=a.cid OR (a.cid=' . intval($cid) . ' OR b.cid=' . intval($cid) . '))';
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
     $order = impression_convertorderbyout($orderby);
-    $list_by = 'cid=' . intval($cid) . '&orderby=$order';
+    $list_by = 'cid=' . intval($cid) . '&orderby=' . $order;
 }
 $pagenav = new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start', $list_by );
 
@@ -188,7 +188,7 @@ if ( $count > 0 ) {
     $moderate = 0;
     while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
-        require ICMS_ROOT_PATH . '/modules/' . $xoopsModule -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
+        require ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/articleloadinfo.php';
         $xoopsTpl -> append( 'article', $article );
     }
 
@@ -206,7 +206,7 @@ if ( $count > 0 ) {
     $istrue = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
     $xoopsTpl -> assign( 'page_nav', $istrue );
     $xoopsTpl -> assign( 'pagenav', $page_nav );
-    $xoopsTpl -> assign( 'module_dir', $xoopsModule -> getVar( 'dirname' ) );
+    $xoopsTpl -> assign( 'module_dir', $mydirname );
     $xoopsTpl -> assign( 'showartcount', $xoopsModuleConfig['showartcount'] );
 }
 unset( $article_arr );

@@ -1,13 +1,7 @@
 <link href="<{$xoops_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
-<{if $catarray.imageheader != ""}>
-<div class="impression_header"><{$catarray.imageheader}></div>
-<{/if}> 
-<{if $catarray.indexheading != ""}> 
-<h4><{$catarray.indexheading}></h4>
-<{/if}>
-<{if $catarray.indexheader != ""}>
-<div style="text-align: <{$catarray.indexheaderalign}>; padding-left: 8px; padding-top: 12px; padding-bottom: 12px;"><{$catarray.indexheader}></div>
-<{/if}>
+<{$catarray.imageheader}>
+<{$catarray.indexheading}>
+<{$catarray.indexheader}>
 <{if count($categories) gt 0}> 
 <div class="even" style="font-weight: bold;"><{$smarty.const._MD_IMPRESSION_MAINLISTING}></div>
 
@@ -41,11 +35,8 @@
   <div style="float: right;"><{$impression_feed}></div>
 </div>
 
-<{if $catarray.indexfooter != ""}>
-  <div style="clear: both; float: <{$catarray.indexfooteralign}>; padding-left: 8px; padding-top: 12px; padding-bottom: 12px;">
-    <{$catarray.indexfooter}>
-  </div>
-<{/if}>
+<{$catarray.indexfooter}>
+
 <div align="center"></div>
 <{if $showlatest}>
 	<br /><br />

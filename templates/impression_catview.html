@@ -1,7 +1,5 @@
 <link href="<{$xoops_url}>/modules/<{$module_dir}>/impressionstyle.css" rel="stylesheet" type="text/css" />
-<{if $catarray.imageheader != ""}>
-	<br /><div align="center"><{$catarray.imageheader}></div><br />
-<{/if}>
+<{$catarray.imageheader}>
 <div style="font-size: smaller;"><{$description}></div><br />
 <div class='outer'><div class="even" style="font-size: smaller;"><b><{$category_path}></b></div></div><br />
 <{if $subcategories}>
