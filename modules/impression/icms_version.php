@@ -254,9 +254,8 @@ $modversion['config'][$i]['description'] = '_MI_IMPRESSION_SORTCATSDSC';
 $modversion['config'][$i]['formtype'] = 'select';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'title';
-$modversion['config'][$i]['options'] = array( 'Weight' => 'weight',
-                                              'Title' => 'title'
-                                              );
+$modversion['config'][$i]['options'] = array( _MI_IMPRESSION_TITLE => 'weight',
+                                              _MI_IMPRESSION_WEIGHT => 'title' );
 $i++;
 $modversion['config'][$i]['name'] = 'subcats';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_SUBCATS';
@@ -273,13 +272,12 @@ $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'dhtml';
 $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
                                                 _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
-						//_MI_IMPRESSION_FORM_COMPACT => 'textarea',
-						//_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
-						//_MI_IMPRESSION_FORM_KOIVI => 'koivi',
-						_MI_IMPRESSION_FORM_FCK => 'fck',
-						_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
-						_MI_IMPRESSION_FORM_TINYMCE => 'tinymce'
-                                              );
+												//_MI_IMPRESSION_FORM_COMPACT => 'textarea',
+												//_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
+												_MI_IMPRESSION_FORM_KOIVI => 'koivi',
+												_MI_IMPRESSION_FORM_FCK => 'fck',
+												_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
+												_MI_IMPRESSION_FORM_TINYMCE => 'tinymce' );
 $i++;
 $modversion['config'][$i]['name'] = 'form_optionsuser';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_EDITORUSER';
@@ -289,13 +287,12 @@ $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'dhtml';
 $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
                                                 _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
-					        //_MI_IMPRESSION_FORM_COMPACT => 'textarea',
-						//_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
-						//_MI_IMPRESSION_FORM_KOIVI => 'koivi',
-						_MI_IMPRESSION_FORM_FCK => 'fck',
-						_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
-						_MI_IMPRESSION_FORM_TINYMCE => 'tinymce'
-                                              );
+												//_MI_IMPRESSION_FORM_COMPACT => 'textarea',
+												//_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
+												_MI_IMPRESSION_FORM_KOIVI => 'koivi',
+												_MI_IMPRESSION_FORM_FCK => 'fck',
+												_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
+												_MI_IMPRESSION_FORM_TINYMCE => 'tinymce' );
 $i++;
 $modversion['config'][$i]['name'] = 'mainimagedir';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_MAINIMGDIR';
@@ -384,7 +381,7 @@ $i++;
 $modversion['config'][$i]['name'] = 'headerprint';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_HEADERPRINT';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_HEADERPRINTDSC';
-$modversion['config'][$i]['formtype'] = 'textarea';
+$modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = '';
 $i++;
@@ -398,7 +395,7 @@ $i++;
 $modversion['config'][$i]['name'] = 'itemfooter';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_ITEMFOOTER';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_ITEMFOOTERDSC';
-$modversion['config'][$i]['formtype'] = 'textarea';
+$modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = '' . ICMS_URL . '';
 //$i++;
@@ -423,7 +420,7 @@ $i++;
 $modversion['config'][$i]['name'] = 'disclaimer';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_DISCLAIMER';
 $modversion['config'][$i]['description'] = '_MI_IMPRESSION_DISCLAIMERDSC';
-$modversion['config'][$i]['formtype'] = 'textarea';
+$modversion['config'][$i]['formtype'] = 'textsarea';
 $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'We have the right, but not the obligation to monitor and review submissions submitted by users, to this website. We shall not be responsible for any of the content of these messages. We further reserve the right, to delete, move or edit submissions that we, in its exclusive discretion, deems abusive, defamatory, obscene or in violation of any Copyright or Trademark laws or otherwise objectionable.';
 //$i++;
