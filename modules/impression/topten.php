@@ -43,17 +43,17 @@ $sort_arr 	= $action_array[$sort];
 $sortDB 	= $list_array[$sort_arr];
 
 $arr = array();
-$result = $xoopsDB -> query( "SELECT cid, title, pid FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE pid=0 ORDER BY " . $xoopsModuleConfig['sortcats'] );
+$result = $xoopsDB -> query( 'SELECT cid, title, pid FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid=0 ORDER BY ' . $xoopsModuleConfig['sortcats'] );
 
 $e = 0;
 while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
     if ( true == impression_checkgroups( $cid ) ) {
-        $query = "SELECT aid, cid, title, hits FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE published > 0 AND published <= " . time() . " AND status = 0 AND (cid=" . intval($cid);
+        $query = 'SELECT aid, cid, title, hits FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status = 0 AND (cid=' . intval($cid);
         $arr = $mytree -> getAllChildId( $cid );
-        for( $i = 0;$i < count( $arr );$i++ ) {
-            $query .= " or cid=" . $arr[$i] . "";
+        for( $i = 0; $i < count( $arr ); $i++ ) {
+            $query .= ' or cid=' . $arr[$i] . '';
         }
-        $query .= ") order by " . $sortDB . " DESC";
+        $query .= ') order by ' . $sortDB . ' DESC';
         $result2 = $xoopsDB -> query( $query, 10, 0 );
         $filecount = $xoopsDB -> getRowsNum( $result2 );
 
@@ -61,9 +61,13 @@ while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
             $rankings[$e]['title'] = $impressionmyts -> htmlSpecialCharsStrip( $ctitle );
             $rank = 1;
             while ( list( $did, $dcid, $dtitle, $hits ) = $xoopsDB -> fetchRow( $result2 ) ) {
-                $catpath = basename( $mytree -> getPathFromId( $dcid, "title" ) );
+				
+				$result3 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $dcid );
+				$mycat = $xoopsDB -> fetchArray( $result3 );
+				
+                $category = $mycat['title'];
                 $dtitle = $impressionmyts -> htmlSpecialCharsStrip( $dtitle );
-                $rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $catpath, 'hits' => $hits );
+                $rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $category, 'hits' => $hits );
                 $rank++;
             }
             $e++;
