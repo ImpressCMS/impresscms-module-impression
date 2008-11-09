@@ -34,34 +34,34 @@ define("_MI_IMPRESSION_PERMISSIONS","Права доступа");
 define("_MI_IMPRESSION_BLOCKADMIN","Блоки");
 
 // Title of config items
-define('_MI_IMPRESSION_POPULAR', 'Число популярности');
-define('_MI_IMPRESSION_POPULARDSC', 'Количество обращений к статье до получения ей статуса полулярности.');
+define('_MI_IMPRESSION_POPULAR', 'Число популярности:');
+define('_MI_IMPRESSION_POPULARDSC', 'Количество обращений к статьям до получения ими статуса полулярности.');
 
-define("_MI_IMPRESSION_ICONDISPLAY","Отображение статей");
-define("_MI_IMPRESSION_DISPLAYICONDSC", "Выбрать способ отображения популярных и новых иконок в списке статей.");
+define("_MI_IMPRESSION_ICONDISPLAY","Отображение статусов статей:");
+define("_MI_IMPRESSION_DISPLAYICONDSC", "Выбрать способ отображения статусов популярных и новых статей в списке.");
 define("_MI_IMPRESSION_DISPLAYICON1", "Показывать как иконки");
 define("_MI_IMPRESSION_DISPLAYICON2", "Показывать как текст");
 define("_MI_IMPRESSION_DISPLAYICON3", "Не показывать");
 
-define("_MI_IMPRESSION_DAYSNEW","Новизна статьи");
-define("_MI_IMPRESSION_DAYSNEWDSC","Количество дней, в течение которых статья считается новой.");
+define("_MI_IMPRESSION_DAYSNEW","Новизна статей:");
+define("_MI_IMPRESSION_DAYSNEWDSC","Количество дней, в течение которых статьи считаются новыми.");
 
-define("_MI_IMPRESSION_DAYSUPDATED","Обновленность статьи");
-define("_MI_IMPRESSION_DAYSUPDATEDDSC","Количество дней, в течение которых статья будет считаться обновленной.");
+define("_MI_IMPRESSION_DAYSUPDATED","Обновленность статей:");
+define("_MI_IMPRESSION_DAYSUPDATEDDSC","Количество дней, в течение которых статьи будут считаться обновленными.");
 
-define('_MI_IMPRESSION_PERPAGE', 'Статей в списке');
+define('_MI_IMPRESSION_PERPAGE', 'Статей в списке:');
 define('_MI_IMPRESSION_PERPAGEDSC', 'Количество статей, показываемых в каждом списке категории.');
 
-define("_MI_IMPRESSION_ADMINPAGE", "Admin index articles count:");
-define("_MI_IMPRESSION_AMDMINPAGEDSC", "Number of new articles to display in module admin area.");
+define("_MI_IMPRESSION_ADMINPAGE", "Статей в списке для администратора:");
+define("_MI_IMPRESSION_AMDMINPAGEDSC", "Количество новых статей, отображамое в списке для администратора.");
 
-define("_MI_IMPRESSION_ARTICLESSORT", "Default article order:");
-define("_MI_IMPRESSION_ARTICLESSORTDSC", "Select the default order for the article listings.");
+define("_MI_IMPRESSION_ARTICLESSORT", "Сортировка статей по:");
+define("_MI_IMPRESSION_ARTICLESSORTDSC", "Выбор порядка сортировки статей в списке.");
 
-define("_MI_IMPRESSION_SORTCATS", "Сортировать категории по:");
+define("_MI_IMPRESSION_SORTCATS", "Сортировка категорий по:");
 define("_MI_IMPRESSION_SORTCATSDSC", "Выберите по какому параметру сортировать категории и подкатегории.");
 
-define('_MI_IMPRESSION_SUBCATS', 'Наличие подкатегорий');
+define('_MI_IMPRESSION_SUBCATS', 'Показывать подкатегории?');
 define('_MI_IMPRESSION_SUBCATSDSC', 'Выберите Да для отображения подкатегорий. Выберите Нет, чтобы не показывать подкатегории в списке');
 
 define('_MI_IMPRESSION_EDITOR', "Редактор для администратора:");
@@ -86,30 +86,30 @@ define("_MI_IMPRESSION_USETHUMBSDSC", "Поддерживаемые типы ф�
 define("_MI_IMPRESSION_IMGUPDATE", "Обновлять наброски?");
 define("_MI_IMPRESSION_IMGUPDATEDSC", "If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br /><br />");
 
-define('_MI_IMPRESSION_MAINIMGDIR','Основное изображение каталога');
+define('_MI_IMPRESSION_MAINIMGDIR','Основной каталог для изображений:');
 
-define('_MI_IMPRESSION_CATEGORYIMG','Каталог для загрузки изображений категории');
+define('_MI_IMPRESSION_CATEGORYIMG','Каталог для изображений категорий:');
 
-define('_MI_IMPRESSION_DATEFORMAT', 'Timestamp:');
-define('_MI_IMPRESSION_DATEFORMATDSC', 'Default timestamp for Impression.<br />See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>');
+define('_MI_IMPRESSION_DATEFORMAT', 'Формат даты:');
+define('_MI_IMPRESSION_DATEFORMATDSC', 'Формат даты по умолчанию для Impression.<br />Смотрите <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP руководство</a>');
 
 define('_MI_IMPRESSION_DATEFORMATADMIN', 'Формат даты для администратора:');
 define('_MI_IMPRESSION_DATEFORMATADMINDSC', 'Формат даты для администратора в Impression.<br />Смотрите <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP руководство</a>');
 
-define("_MI_IMPRESSION_TOTALCHARS", "Set total amount of characters for description?");
-define("_MI_IMPRESSION_TOTALCHARSDSC", "Set total amount of characters for description on Index Page.");
+define("_MI_IMPRESSION_TOTALCHARS", "Кол-во символов в описании:");
+define("_MI_IMPRESSION_TOTALCHARSDSC", "Установить общее количестко символов для описания на индексной странице.");
 
-define("_MI_IMPRESSION_OTHERARTICLES", "Show other articles submitted by Submitter?");
-define("_MI_IMPRESSION_OTHERARTICLESDSC", "Select Yes if other articles of the submitter should be displayed.");
+define("_MI_IMPRESSION_OTHERARTICLES", "Показывать другие размещенные статьи издателя?");
+define("_MI_IMPRESSION_OTHERARTICLESDSC", "Выберите Да, если хотите показывать другие размещенные статьи издателя.");
 
-define("_MI_IMPRESSION_SHOWARTCOUNT", "Show article count in category list?");
-define("_MI_IMPRESSION_SHOWARTCOUNTDSC", "Select Yes if you want the amount of articles per category have displayed.");
+define("_MI_IMPRESSION_SHOWARTCOUNT", "Показывать счетчик статей в списке категории?");
+define("_MI_IMPRESSION_SHOWARTCOUNTDSC", "Выберите Да, если хотите показывать количество статей в каждой категории.");
 
-define("_MI_IMPRESSION_SHOWSBOOKMARKS", "Show social bookmarks?");
-define("_MI_IMPRESSION_SHOWSBOOKMARKSDSC", "Select Yes if you want Social Bookmark icons to be displayed under article.");
+define("_MI_IMPRESSION_SHOWSBOOKMARKS", "Показывать социальные закладки?");
+define("_MI_IMPRESSION_SHOWSBOOKMARKSDSC", "Выберите Да, если Вы желаете показывать иконки социальных закладов под статьей.");
 
-define("_MI_IMPRESSION_USEMETADESCR", "Generate meta description:");
-define("_MI_IMPRESSION_USEMETADSC", "With this option the meta description will be based on the article introtext.");
+define("_MI_IMPRESSION_USEMETADESCR", "Генерировать мета-тэг description?");
+define("_MI_IMPRESSION_USEMETADSC", "При включении этой опции будет генерироваться мета-тэг description.");
 
 define('_MI_IMPRESSION_SHOWDISCLAIMER', 'Показать предупреждение об ответственности перед размещением статьи?');
 define('_MI_IMPRESSION_SHOWDISCLAIMERDSC', 'Перед тем, как пользователь сможет разместить статью могут быть показаны правила');
@@ -117,11 +117,11 @@ define('_MI_IMPRESSION_SHOWDISCLAIMERDSC', 'Перед тем, как польз
 define('_MI_IMPRESSION_DISCLAIMER', 'Текст предупреждения об ответственности при размещении статьи:');
 
 define('_MI_IMPRESSION_SHOWARTICLEDISCL', 'Показать сообщение об отвественности перед размещением статьи?');
-define('_MI_IMPRESSION_SHOWARTICLEDISCLDSC', 'Show article regulations перед открытием статьи?');
+define('_MI_IMPRESSION_SHOWARTICLEDISCLDSC', 'Показывать правила перед открытием статьи?');
 
 define('_MI_IMPRESSION_ARTICLEDISCLAIMER', 'Текст предупреждения об ответственности при создании статьи:');
 
-define('_MI_IMPRESSION_COPYRIGHT', 'Copyright notice:');
+define('_MI_IMPRESSION_COPYRIGHT', 'Сообщение об авторском праве:');
 define('_MI_IMPRESSION_COPYRIGHTDSC', 'Select to display a copyright notice on article page.');
 
 //define('_MI_IMPRESSION_REFERERS', 'These sites can directly article to your videos <br />Separate with #');
@@ -140,7 +140,7 @@ define('_MI_IMPRESSION_IMGHEIGHTDSC','Максимальная высота ка
 define('_MI_IMPRESSION_UPLOADDIR','Каталог для загрузки (без завершающего слэша)');
 define('_MI_IMPRESSION_ALLOWSUBMISS','User submissions:');
 define('_MI_IMPRESSION_ALLOWSUBMISSDSC','Разрешить пользователям размещать статьи?');
-define('_MI_IMPRESSION_ALLOWUPLOADS','User uploads:');
+define('_MI_IMPRESSION_ALLOWUPLOADS','Загрузок:');
 define('_MI_IMPRESSION_ALLOWUPLOADSDSC','Разрешить пользователям загружать статьи напрямую на Ваш сайт');
 define('_MI_IMPRESSION_SCREENSHOTS','Каталог для загрузки изображений экрана');
 
@@ -214,16 +214,16 @@ define('_MI_IMPRESSION_MODULE_INFO', "Информация о разработк
 define('_MI_IMPRESSION_MODULE_STATUS', "Статус разработки");
 define('_MI_IMPRESSION_MODULE_DEMO', "Демо сайт");
 define('_MI_IMPRESSION_MODULE_SUPPORT', "Официальный сайт поддержки");
-define('_MI_IMPRESSION_MODULE_BUG', "Report a bug for this module");
+define('_MI_IMPRESSION_MODULE_BUG', "Отчет об ошибках для этого модуля");
 define('_MI_IMPRESSION_MODULE_FEATURE', "Предложение новых свойств для этого модуля");
 define('_MI_IMPRESSION_MODULE_DISCLAIMER', "Предупреждение об ответственности");
 define('_MI_IMPRESSION_RELEASE', "Дата релиза: ");
 define('_MI_IMPRESSION_ICONS_CREDITS', "Иконки от:");
 
 define("_MI_IMPRESSION_HEADERPRINT","Заголовок на печатной странице");
-define("_MI_IMPRESSION_HEADERPRINTDSC","Header that will be printed for each article");
+define("_MI_IMPRESSION_HEADERPRINTDSC","Заголовок, который будет печататься перед каждой статьей");
 define("_MI_IMPRESSION_PRINTLOGOURL","Url логотипа на печатной странице");
-define("_MI_IMPRESSION_PRINTLOGOURLDSC","Url of the logo that will be printed at the top of the page");
+define("_MI_IMPRESSION_PRINTLOGOURLDSC","Url логотипа, который будет выводиться вверху каждой печатной страницы");
 define("_MI_IMPRESSION_FOOTERPRINT","Подпись на печатной странице");
 define("_MI_IMPRESSION_FOOTERPRINTDSC","Подпись, которая будет присутствовать на каждой странице статьи при печати");
 define("_MI_IMPRESSION_ITEMFOOTER_SEL", "Подписывать страницы статей?");
@@ -232,7 +232,7 @@ define("_MI_IMPRESSION_BOTH_FOOTERS","Обе подписи");
 define("_MI_IMPRESSION_NO_FOOTERS","Ничего");
 define("_MI_IMPRESSION_ITEMFOOTER", "Подпись на странице статьи");
 
-define('_MI_IMPRESSION_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY MCDONALD \"AS IS\" AND \"WITH ALL FAULTS.\"
+define('_MI_IMPRESSION_WARNINGTEXT', "ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ MCDONALD \"КАК ЕСТЬ\" И \"СО ВСЕМИ НЕДОСТАТКАМИ.\"
 MCDONALD MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
 THE QUALITY, SAFETY OR SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR
 IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF
@@ -250,18 +250,18 @@ define('_MI_IMPRESSION_AUTHOR_BUGFIXES', "Bug Fix History");
 define('_MI_IMPRESSION_COPYRIGHTIMAGE', "");
 
 define("_MI_IMPRESSION_KEYLENGTH", "Enter max. characters for meta keywords:");
-define("_MI_IMPRESSION_KEYLENGTHDSC", "default is 255 characters");
+define("_MI_IMPRESSION_KEYLENGTHDSC", "по умолчанию 255 символов");
 define("_MI_IMPRESSION_HEADLINES", "Заголовки" );
 define("_MI_IMPRESSION_HEADLINESDSC", "Set the number of headlines to show.");
 define("_MI_IMPRESSION_BTAGCLOUD", "Облако тэгов Impression");
 define("_MI_IMPRESSION_BTOPTAG", "Топ тэгов Impression");
 define("_MI_IMPRESSION_LINKEDTERMS", "Ссылаться на термины в глоссарии?" );
-define("_MI_IMPRESSION_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
+define("_MI_IMPRESSION_LINKEDTERMSDSC", "Для этого свойства необходимо установить и активировать модуль imGlossary." );
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Имя каталога imGlossary:" );
-define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
+define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "Имя каталога, где расположен модуль imGlossary.<br />По умолчанию: <em>imglossary</em>" );
 define( '_MI_IMPRESSION_SELECTFEED', 'Использовать ICMS RSS канал?' );
-define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS RSS feed. Select <em>No</em> to use Brandycoke\'s RSSfit module (subfeed needs to be activated).'  );
-define( '_MI_IMPRESSION_FEEDSTOTAL', 'Какое количество статей показывать в RSS канале' );
+define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Выберите <em>Да</em>, чтобы использовать ImpressCMS RSS канал. Выберите <em>Нет</em> для использования модуля Brandycoke\'s RSSfit (необходимо активировать подканалы).'  );
+define( '_MI_IMPRESSION_FEEDSTOTAL', 'Количество статей в RSS канале:' );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Это число имеет эффект только для ImpressCMS RSS канала. По умолчанию: <em>15</em>' );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 ?>
