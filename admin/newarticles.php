@@ -33,10 +33,10 @@ $aid = impression_cleanRequestVars( $_REQUEST, 'aid', '' );
 $requestid = impression_cleanRequestVars( $_REQUEST, 'requestid', 0 );
 
 switch ( strtolower( $op ) ) {
-    case "approve":
+    case 'approve':
 
         global $xoopsModule;
-        $sql = "SELECT cid, title, publisher FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE aid=" . $aid;
+        $sql = 'SELECT cid, title, publisher FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
@@ -44,10 +44,9 @@ switch ( strtolower( $op ) ) {
         list( $cid, $title, $publisher ) = $xoopsDB -> fetchRow( $result );
 
         // Update the database
-        $time = time();
-        $xoopsDB -> queryF( "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET published='$time.', status='0', publisher='$publisher' WHERE aid=" . $aid );
+        $xoopsDB -> queryF( 'UPDATE ' . $xoopsDB -> prefix( 'impression_articles' ) . ' SET published=' . time() .', status=0, publisher=' . $publisher . ' WHERE aid=' . $aid );
 
-        $sql = "SELECT title FROM " . $xoopsDB -> prefix( 'impression_cat' ) . " WHERE cid=" . $cid;
+        $sql = 'SELECT title FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $cid;
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
         } 
@@ -61,7 +60,7 @@ switch ( strtolower( $op ) ) {
         global $xoopsModuleConfig;
 
         $start = impression_cleanRequestVars( $_REQUEST, 'start', 0 );
-        $sql = "SELECT * FROM " . $xoopsDB -> prefix( 'impression_articles' ) . " WHERE status=3 ORDER BY aid DESC" ;
+        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE status=3 ORDER BY aid DESC';
         if ( !$result = $xoopsDB -> query( $sql ) ) {
             XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
@@ -70,16 +69,16 @@ switch ( strtolower( $op ) ) {
         $new_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
 
         xoops_cp_header();
-        impression_adminmenu( "<h4>" . _AM_IMPRESSION_SUB_SUBMITTEDFILES . "</h4>" );
+        impression_adminmenu( '', _AM_IMPRESSION_SUB_SUBMITTEDFILES );
 
-        echo "  <div style='padding:5px; background-color: #EEEEEE; border: 1px solid #D9D9D9;'>
-                <span style='font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_SUB_FILESWAITINGINFO . "<br /><br /></span>\n
-                <span style='padding: 12px;'>" . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . "<b>$new_array_count</b><br /><br /><span>\n
+        echo "  <fieldset style='border: #e8e8e8 1px solid;'>
+				<legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_SUB_FILESWAITINGINFO . "</legend>\n
+                <span style='padding: 12px;'><br />" . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . "<b>$new_array_count</b><br /><br /><span>\n
 
                 <div style='padding: 8px;'><li>&nbsp;&nbsp;" . $imagearray['approve'] . " " . _AM_IMPRESSION_SUB_APPROVEWAITINGFILE . "<br />
                 <li>&nbsp;&nbsp;" . $imagearray['editimg'] . " " . _AM_IMPRESSION_SUB_EDITWAITINGFILE . "<br />
                 <li>&nbsp;&nbsp;" . $imagearray['deleteimg'] . " " . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . "</div>\n
-                </div><br />\n
+                </fieldset><br />\n
               ";
 
         echo "<table width='100%' cellspacing='1' class='outer'>\n";
