@@ -44,7 +44,7 @@ global $xoopsDB, $xoopsConfig, $xoopsModuleConfig, $xoopsUser;
 $aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
 $aid = intval( $aid );
 
-$result = $xoopsDB -> query( 'SELECT cid, title, submitter, published, introtext, description, meta_keywords FROM ' . $xoopsDB -> prefix('impression_articles') . ' WHERE aid=' . $aid );
+$result = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix('impression_articles') . ' WHERE aid=' . $aid );
 $myrow = $xoopsDB -> fetchArray( $result );
 
 $result2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix('impression_cat') . ' WHERE cid=' . $myrow['cid'] );
@@ -57,7 +57,7 @@ $title = $myts -> makeTboxData4Show( $myrow['title'] );
 $submitter = strip_tags( icms_getLinkedUnameFromId( $myrow['submitter'] ) );
 $category = $mycat['title'];
 $whowhen = sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
-$content = '<h1>' . $title . '</h1><br /><br />' . $myts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 ) . $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, 1 );
+$content = '<h1>' . $title . '</h1><br /><br />' . $myts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, $myrow['nobreak'] ) . $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, $myrow['nobreak'] );
 
 $slogan = $xoopsConfig['sitename'] . ' - ' . $xoopsConfig['slogan'];
 $keywords = $myrow['meta_keywords'];

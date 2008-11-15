@@ -22,7 +22,7 @@ if ( $aid == 0 ) {
 }
 
 global $xoopsDB, $xoopsConfig, $xoopsModuleConfig;
-$result = $xoopsDB -> query( 'SELECT cid, title, submitter, published, introtext, description FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 AND aid=' . $aid );
+$result = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 AND aid=' . $aid );
 $myrow = $xoopsDB -> fetchArray( $result );
 
 $result2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix('impression_cat') . ' WHERE cid=' . $myrow['cid']);
@@ -38,8 +38,8 @@ $item['printheader'] = _MD_IMPRESSION_PUBLISHEDON . formatTimestamp( $myrow['pub
 $item['who_where'] = sprintf( _MD_IMPRESSION_WHO_WHEN, $myrow['submitter'], formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] ) );
 $item['categoryname'] = $mycat['title'];
 $item['title'] = $myrow['title'];
-$item['introtext'] = $myts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 );
-$item['description'] = $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, 1 );
+$item['introtext'] = $myts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, $myrow['nobreak'] );
+$item['description'] = $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, $myrow['nobreak'] );
 
 $xoopsTpl->assign('printtitle', $item['printtitle']);
 $xoopsTpl->assign('printlogourl', $xoopsModuleConfig['printlogourl']);
