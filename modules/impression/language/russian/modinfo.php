@@ -84,7 +84,7 @@ define('_MI_IMPRESSION_USETHUMBS', 'Использовать наброски (�
 define("_MI_IMPRESSION_USETHUMBSDSC", "Поддерживаемые типы файлов: JPG, GIF, PNG.<div style='padding-top: 8px;'>Impression будет использовать наброски для изображений. Установите 'Нет' для использования оригинального изображения в случае, если сервер не поддерживает эту опцию.</div>");
 
 define("_MI_IMPRESSION_IMGUPDATE", "Обновлять наброски?");
-define("_MI_IMPRESSION_IMGUPDATEDSC", "If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br /><br />");
+define("_MI_IMPRESSION_IMGUPDATEDSC", "Если выбрать эту опцию, то изображения набросков будут обновляться при каждом обращении к странице, иначе всегда будет использоваться первое изображение. <br /><br />");
 
 define('_MI_IMPRESSION_MAINIMGDIR','Основной каталог для изображений:');
 
@@ -138,13 +138,13 @@ define('_MI_IMPRESSION_IMGHEIGHT','Высота загружаемой карт�
 define('_MI_IMPRESSION_IMGHEIGHTDSC','Максимальная высота картинки, зарешенная для загрузки изображения статьи');
 
 define('_MI_IMPRESSION_UPLOADDIR','Каталог для загрузки (без завершающего слэша)');
-define('_MI_IMPRESSION_ALLOWSUBMISS','User submissions:');
+define('_MI_IMPRESSION_ALLOWSUBMISS','Размещения пользователей:');
 define('_MI_IMPRESSION_ALLOWSUBMISSDSC','Разрешить пользователям размещать статьи?');
 define('_MI_IMPRESSION_ALLOWUPLOADS','Загрузок:');
 define('_MI_IMPRESSION_ALLOWUPLOADSDSC','Разрешить пользователям загружать статьи напрямую на Ваш сайт');
 define('_MI_IMPRESSION_SCREENSHOTS','Каталог для загрузки изображений экрана');
 
-define("_MI_IMPRESSION_SUBMITART", "Article submission:");
+define("_MI_IMPRESSION_SUBMITART", "Размещение статьи:");
 define("_MI_IMPRESSION_SUBMITARTDSC", "Вбрать группы, пользователи которых могут размещать новые статьи.");
 
 define("_MI_IMPRESSION_QUALITY", "Качество набросков:");
@@ -244,15 +244,15 @@ EVENT WILL MCDONALD BE LIABLE FOR ANY INDIRECT, PUNITIVE, SPECIAL,
 INCIDENTAL OR CONSEQUENTIAL DAMAGES HOWEVER THEY MAY ARISE AND EVEN IF
 MCDONALD HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES..");
 
-define('_MI_IMPRESSION_AUTHOR_CREDITSTEXT',"WF-Projects Team. Based on the module WF-Links & MyTube, thanks to the dream-team for some code snippits.");
-define('_MI_IMPRESSION_AUTHOR_BUGFIXES', "Bug Fix History");
+define('_MI_IMPRESSION_AUTHOR_CREDITSTEXT',"Группа WF-Projects. Based on the module WF-Links & MyTube, thanks to the dream-team for some code snippits.");
+define('_MI_IMPRESSION_AUTHOR_BUGFIXES', "История утранения ошибок");
 
 define('_MI_IMPRESSION_COPYRIGHTIMAGE', "");
 
-define("_MI_IMPRESSION_KEYLENGTH", "Enter max. characters for meta keywords:");
+define("_MI_IMPRESSION_KEYLENGTH", "Введите макс. количество символов для мета-тэга keywords:");
 define("_MI_IMPRESSION_KEYLENGTHDSC", "по умолчанию 255 символов");
 define("_MI_IMPRESSION_HEADLINES", "Заголовки" );
-define("_MI_IMPRESSION_HEADLINESDSC", "Set the number of headlines to show.");
+define("_MI_IMPRESSION_HEADLINESDSC", "Установка количества заголовков для показа.");
 define("_MI_IMPRESSION_BTAGCLOUD", "Облако тэгов Impression");
 define("_MI_IMPRESSION_BTOPTAG", "Топ тэгов Impression");
 define("_MI_IMPRESSION_LINKEDTERMS", "Ссылаться на термины в глоссарии?" );
@@ -264,6 +264,6 @@ define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Выберите <em>Да</em>, что
 define( '_MI_IMPRESSION_FEEDSTOTAL', 'Количество статей в RSS канале:' );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Это число имеет эффект только для ImpressCMS RSS канала. По умолчанию: <em>15</em>' );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
-define( "_MI_IMPRESSION_CAPTCHA", "Use captcha in submit form?" );
-define( "_MI_IMPRESSION_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>" );
+define( "_MI_IMPRESSION_CAPTCHA", "Использовать captcha в форме для размещения?" );
+define( "_MI_IMPRESSION_CAPTCHADSC", "Выберите <em>Да</em> для использования captcha в формах для размещения статей.<br />По умолчанию: <em>Да</em>" );
 ?>
