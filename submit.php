@@ -45,6 +45,28 @@ if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
 if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     if ( impression_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
+		
+		if ( $xoopsModuleConfig['captcha'] ) {
+			// Captcha Hack
+			// Verify entered code 
+			if ( class_exists( 'XoopsFormCaptcha' ) ) { 
+				if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) {
+					$xoopsCaptcha = XoopsCaptcha::instance(); 
+					if ( ! $xoopsCaptcha -> verify( true ) ) { 
+						redirect_header( 'submit.php', 2, $xoopsCaptcha -> getMessage() ); 
+					} 
+				} 
+			} elseif ( class_exists( 'IcmsFormCaptcha' ) ) { 
+				if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) { 
+					$icmsCaptcha = IcmsCaptcha::instance(); 
+					if ( ! $icmsCaptcha -> verify( true ) ) { 
+						redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
+					} 
+				} 
+			}
+			// Captcha Hack
+		}
+		
         if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
             redirect_header( "index.php", 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
             exit();
@@ -57,6 +79,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $introtextb = $impressionmyts -> addslashes( ltrim( $_REQUEST['introtextb'] ) );
         $descriptionb = $impressionmyts -> addslashes( ltrim( $_REQUEST['descriptionb'] ) );
         $meta_keywords = $impressionmyts -> addslashes( ltrim( $_REQUEST['meta_keywords'] ) );
+		$nobreak = impression_cleanRequestVars( $_REQUEST, 'nobreak', 0 );
         $date = time();
         $publishdate = time();
         $ipaddress = $_SERVER['REMOTE_ADDR'];
@@ -72,8 +95,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
          //       $offline = 0;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, date, introtext, description, ipaddress, meta_keywords) ";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords')";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, date, introtext, description, ipaddress, meta_keywords, nobreak) ";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$nobreak')";
             if ( !$result = $xoopsDB -> query( $sql ) ) {
                 $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
                 XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -85,7 +108,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         } else {
             if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
                 $updated = time();
-                $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords' WHERE aid=" . $aid;
+                $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', nobreak='$nobreak' WHERE aid=" . $aid;
                 if ( !$result = $xoopsDB -> query( $sql ) ) {
                     $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
                     XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -144,6 +167,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $offline = $article_array['offline'] ? $article_array['offline'] : 0;
         $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
         $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
+		$nobreak = $article_array['nobreak'] ? $article_array['nobreak'] : 0;
 
      	$sform = new XoopsThemeForm( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', xoops_getenv( 'PHP_SELF' ) );
         $sform -> setExtra( 'enctype="multipart/form-data"' );
@@ -180,11 +204,28 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, '100%', '600px' );
         $editor -> setDescription( '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
         $sform -> addElement( $editor, false );
+		
+// Linebreak option
+	$options_tray = new XoopsFormElementTray( _MD_IMPRESSION_TEXTOPTIONS, '<br />' );
+    $breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
+    $breaks_checkbox -> addOption( 1, _MD_IMPRESSION_DISABLEBREAK );
+    $options_tray -> addElement( $breaks_checkbox );
+    $sform -> addElement( $options_tray );
 
 // Meta meta_keywords form
         $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 5, 50 );
         $keywords -> setDescription( '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
         $sform -> addElement( $keywords, false );
+		
+		if ( $xoopsModuleConfig['captcha'] ) {
+			// Captcha Hack
+			if ( class_exists( 'XoopsFormCaptcha' ) ) { 
+				$sform -> addElement( new XoopsFormCaptcha() ); 
+			} elseif ( class_exists( 'IcmsFormCaptcha' ) ) { 
+				$sform -> addElement( new IcmsFormCaptcha() ); 
+			}
+			// Captcha Hack 
+		}
 
         $button_tray = new XoopsFormElementTray( '', '' );
         $button_tray -> addElement( new XoopsFormButton( '', 'submit', _SUBMIT, 'submit' ) );

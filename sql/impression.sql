@@ -80,6 +80,7 @@ CREATE TABLE `impression_articles` (
   `ipaddress` varchar(120) NOT NULL default '0',
   `meta_keywords` varchar(255) NOT NULL default '',
   `item_tag` text NOT NULL,
+  `nobreak` int NOT NULL default 0,
   PRIMARY KEY  (`aid`),
   KEY `cid` (`cid`),
   KEY `status` (`status`),

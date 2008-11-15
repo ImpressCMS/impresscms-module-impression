@@ -55,6 +55,7 @@ function edit( $aid = 0 ) {
     $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
     $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
     $item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
+	$nobreak = $article_array['nobreak'] ? $article_array['nobreak'] : 0;
 
     xoops_cp_header();
     impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );
@@ -111,6 +112,13 @@ function edit( $aid = 0 ) {
     $editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb, '100%', '600px' );
     $editor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC . '</small>' );
     $sform -> addElement($editor, false);
+	
+// Linebreak option
+	$options_tray = new XoopsFormElementTray(_AM_IMPRESSION_TEXTOPTIONS, '<br />');
+    $breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
+    $breaks_checkbox -> addOption( 1, _AM_IMPRESSION_DISABLEBREAK );
+    $options_tray -> addElement( $breaks_checkbox );
+    $sform -> addElement( $options_tray );
 
 // Meta keywords form
     $keywords = new XoopsFormTextArea( _AM_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 7, 60);
@@ -184,6 +192,7 @@ switch ( strtolower( $op ) ) {
         $cid = ( !empty( $_POST['cid'] ) ) ? $_POST['cid'] : 0;
         $status = $_POST['status'];
         $title = $impressionmyts -> addslashes( trim( $_POST['title'] ) );
+		$nobreak = ( !empty( $_POST['nobreak'] ) ) ? $_POST['nobreak'] : 0;
 
         // Get data from form
         $introtextb = $impressionmyts -> addslashes( trim( $_POST['introtextb'] ) );
@@ -199,10 +208,10 @@ switch ( strtolower( $op ) ) {
         if ( !$aid ) {
             $date = time();
             $ipaddress = $_SERVER['REMOTE_ADDR'];
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, submitter, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, item_tag )";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag')";
+            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, submitter, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, item_tag, nobreak )";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$nobreak')";
         } else {
-            $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag' WHERE aid=" . $aid;
+            $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', nobreak='$nobreak' WHERE aid=" . $aid;
         }
 
         if ( !$result = $xoopsDB -> queryF( $sql ) ) {

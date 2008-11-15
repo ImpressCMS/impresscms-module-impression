@@ -100,12 +100,12 @@ if ( $xoopsModuleConfig['linkedterms'] ) {
 	if ( impression_imglossary_module_included() ) {
 		$glossaryterm = $impressionmyts -> makeTboxData4Show( $article_arr['title'] );
 		$description = impression_linkterms( $article_arr['description'], $glossaryterm );
-		$article['description'] = $impressionmyts -> displayTarea( $description, 1, 1, 1, 1, 1 );
+		$article['description'] = $impressionmyts -> displayTarea( $description, 1, 1, 1, 1, $article_arr['nobreak'] );
 	} else {
-		$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, 1 );
+		$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, $article_arr['nobreak'] );
 	}
 } else {
-	$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, 1 );
+	$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, $article_arr['nobreak'] );
 }
 
 // Start of meta tags
