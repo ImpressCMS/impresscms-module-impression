@@ -31,9 +31,9 @@ define( "_AM_IMPRESSION_DBERROR", "Database toegang fout: Rapporteer deze fout."
 define( "_AM_IMPRESSION_TEXTOPTIONS", "Tekst opties:" );
 define( "_AM_IMPRESSION_DISABLEHTML", " Uitschakelen HTML tags" );
 define( "_AM_IMPRESSION_DISABLESMILEY", " Uitschakelen smilies" );
-define( "_AM_IMPRESSION_DISABLEXCODE", " Uitschakelen XOOPS codes" );
+define( "_AM_IMPRESSION_DISABLEXCODE", " Uitschakelen ImpressCMS codes" );
 define( "_AM_IMPRESSION_DISABLEIMAGES", " Uitschakelen afbeeldingen" );
-define( "_AM_IMPRESSION_DISABLEBREAK", " Gebruik XOOPS linebreak omzetting?" );
+define( "_AM_IMPRESSION_DISABLEBREAK", " Gebruik ImpressCMS linebreak omzetting?" );
 define( "_AM_IMPRESSION_UPLOADFILE", "Artikel succesvol geupload" );
 define( "_AM_IMPRESSION_NOMENUITEMS", "Geen menu items in het menu" );
 // Admin Bread crumb

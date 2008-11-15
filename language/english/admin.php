@@ -31,9 +31,9 @@ define( "_AM_IMPRESSION_DBERROR", "Database Access Error" );
 define( "_AM_IMPRESSION_TEXTOPTIONS", "Text options:" );
 define( "_AM_IMPRESSION_DISABLEHTML", " Disable HTML tags" );
 define( "_AM_IMPRESSION_DISABLESMILEY", " Disable smilie icons" );
-define( "_AM_IMPRESSION_DISABLEXCODE", " Disable XOOPS codes" );
+define( "_AM_IMPRESSION_DISABLEXCODE", " Disable ICMS codes" );
 define( "_AM_IMPRESSION_DISABLEIMAGES", " Disable images" );
-define( "_AM_IMPRESSION_DISABLEBREAK", " Use XOOPS linebreak conversion?" );
+define( "_AM_IMPRESSION_DISABLEBREAK", " Use ICMS linebreak conversion?" );
 define( "_AM_IMPRESSION_UPLOADFILE", "Article uploaded successfully" );
 define( "_AM_IMPRESSION_NOMENUITEMS", "No menu items within the menu" );
 // Admin Bread crumb

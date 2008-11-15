@@ -147,4 +147,6 @@ define( "_MD_IMPRESSION_RANK", "Оценка" );
 //define( "_MD_IMPRESSION_EDIT", "Edit article" );
 //define( "_MD_IMPRESSION_DELETE", "Delete article" );
 define( '_MD_IMPRESSION_FEED', 'RSS канал' );
+define( '_MD_IMPRESSION_TEXTOPTIONS', 'Text options:' );
+define( '_MD_IMPRESSION_DISABLEBREAK', ' Use ICMS linebreak conversion?' );
 ?>
