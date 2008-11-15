@@ -105,7 +105,7 @@ define( "_MD_IMPRESSION_LINKTIMES", "Article times: " );
 define( "_MD_IMPRESSION_MAINTOTAL", "Всего статей: " );
 define( "_MD_IMPRESSION_ARTICLENOW", "Просмотреть статью" );
 define( "_MD_IMPRESSION_PAGES", "<b>Страниц</b>" );
-define( "_MD_IMPRESSION_SUBMITTER", "Submitter" );
+define( "_MD_IMPRESSION_SUBMITTER", "Кто разместил" );
 define( "_MD_IMPRESSION_ERROR", "Ошибка во время обновления базы данных: Информация не сохранена" );
 define( "_MD_IMPRESSION_COPYRIGHT", "copyright" );
 
@@ -120,7 +120,7 @@ define( "_MD_IMPRESSION_TODAY", "Новые размещения сегодня"
 define( "_MD_IMPRESSION_NO_FILES", "Пока нет статей" );
 
 define( "_MD_IMPRESSION_NOPERMISSIONTOPOST", "У Вас нет прав доступа в эту категорию." );
-define( "_MD_IMPRESSION_RESOURCES", "Resources" );
+define( "_MD_IMPRESSION_RESOURCES", "Ресурсы" );
 
 define( "_MD_IMPRESSION_PUBLISHDATE", "Издано" );
 define( "_MD_IMPRESSION_APPROVE", "Одобрить" );
@@ -131,10 +131,10 @@ define( "_MD_IMPRESSION_KEYWORDS", "Ключевые слова:" );
 define( "_MD_IMPRESSION_KEYWORDS_NOTE", "Ключевые слова должны быть разделены запятыми<br />(<i>keyword1, keyword2, keyword3, etc.</i>)" );
 define( "_MD_IMPRESSION_NOARTICLELOAD", "Спасибо за Ваше сообщение!" );
 define( "_MD_IMPRESSION_LINKID", "ID статьи" );
-define( "_MD_IMPRESSION_ADDTO", "Add to: " );
-define( "_MD_IMPRESSION_NEWARTICLES", "Latest articles" );
+define( "_MD_IMPRESSION_ADDTO", "Добавить к: " );
+define( "_MD_IMPRESSION_NEWARTICLES", "Последние статьи" );
 define( "_MD_IMPRESSION_TAKINGUBACK", "Taking you back." );
-define( "_MD_IMPRESSION_PRINT", "Print article" );
+define( "_MD_IMPRESSION_PRINT", "Печать" );
 define( "_MD_IMPRESSION_PDF", "PDF" );
 define( "_MD_IMPRESSION_PUBLISHEDON", "Опубликовал(а) " );
 define( "_MD_IMPRESSION_BY", " " );
@@ -147,6 +147,6 @@ define( "_MD_IMPRESSION_RANK", "Оценка" );
 //define( "_MD_IMPRESSION_EDIT", "Edit article" );
 //define( "_MD_IMPRESSION_DELETE", "Delete article" );
 define( '_MD_IMPRESSION_FEED', 'RSS канал' );
-define( '_MD_IMPRESSION_TEXTOPTIONS', 'Text options:' );
-define( '_MD_IMPRESSION_DISABLEBREAK', ' Use ICMS linebreak conversion?' );
+define( '_MD_IMPRESSION_TEXTOPTIONS', 'Опции текста:' );
+define( '_MD_IMPRESSION_DISABLEBREAK', ' Использовать конверсию разрыва строк ICMS?' );
 ?>
