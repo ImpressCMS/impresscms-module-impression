@@ -264,4 +264,6 @@ define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Select <em>Yes</em> to use ImpressCMS 
 define( '_MI_IMPRESSION_FEEDSTOTAL', 'How many articles to display in RSS feed?' );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'This number only affects the ImpressCMS RSS feed. Default: <em>15</em>' );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
+define( "_MI_IMPRESSION_CAPTCHA", "Use captcha in submit form?" );
+define( "_MI_IMPRESSION_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>" );
 ?>

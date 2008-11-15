@@ -31,7 +31,7 @@ define( "_AM_IMPRESSION_DBERROR", "Datenbankzugriffsfehler" );
 define( "_AM_IMPRESSION_TEXTOPTIONS", "Textoptionen:" );
 define( "_AM_IMPRESSION_DISABLEHTML", " deaktiviere HTML-Tags" );
 define( "_AM_IMPRESSION_DISABLESMILEY", " deaktiviere Smilieicons" );
-define( "_AM_IMPRESSION_DISABLEXCODE", " deaktiviere XOOPS-Code" );
+define( "_AM_IMPRESSION_DISABLEXCODE", " deaktiviere ImpressCMS-Code" );
 define( "_AM_IMPRESSION_DISABLEIMAGES", " deaktiviere Bilder" );
 define( "_AM_IMPRESSION_DISABLEBREAK", " benutze ImpressCMS-Absatzumwandlung?" );
 define( "_AM_IMPRESSION_UPLOADFILE", "Beitrag erfolgreich hochgeladen" );
