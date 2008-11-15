@@ -77,7 +77,7 @@ define("_MI_IMPRESSION_FORM_KOIVI","Koivi Editor");
 define("_MI_IMPRESSION_FORM_TINYEDITOR","TinyEditor");
 define('_MI_IMPRESSION_FORM_TINYMCE','TinyMCE');
 
-define('_MI_IMPRESSION_USESHOTS', 'Показывать картинку образа экрана?');
+define('_MI_IMPRESSION_USESHOTS', 'Показывать образ экрана?');
 define('_MI_IMPRESSION_USESHOTSDSC', 'Выбрать Да для показа образов экрана для каждой статьи');
 
 define('_MI_IMPRESSION_USETHUMBS', 'Использовать наброски (контрольки)?');
@@ -132,10 +132,10 @@ define('_MI_IMPRESSION_COPYRIGHTDSC', 'Select to display a copyright notice on a
 
 define('_MI_IMPRESSION_MAXFILESIZE','Размер загружаемого файла (KB)');
 define('_MI_IMPRESSION_MAXFILESIZEDSC','Максимальный размер статьи, разрешенный для загрузки.');
-define('_MI_IMPRESSION_IMGWIDTH','Ширина загружаемой картинки');
-define('_MI_IMPRESSION_IMGWIDTHDSC','Максимальный размер файла картинки, разрешенный для загрузки изображения статей');
-define('_MI_IMPRESSION_IMGHEIGHT','Высота загружаемой картинки');
-define('_MI_IMPRESSION_IMGHEIGHTDSC','Максимальная высота картинки, зарешенная для загрузки изображения статьи');
+define('_MI_IMPRESSION_IMGWIDTH','Ширина загружаемого изображения');
+define('_MI_IMPRESSION_IMGWIDTHDSC','Максимальный размер файла изображения, разрешенный для загрузки изображения статей');
+define('_MI_IMPRESSION_IMGHEIGHT','Высота загружаемого изображения');
+define('_MI_IMPRESSION_IMGHEIGHTDSC','Максимальная высота изображения, зарешенная для загрузки изображения статьи');
 
 define('_MI_IMPRESSION_UPLOADDIR','Каталог для загрузки (без завершающего слэша)');
 define('_MI_IMPRESSION_ALLOWSUBMISS','Размещения пользователей:');

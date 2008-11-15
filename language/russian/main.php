@@ -9,7 +9,7 @@
 
 define( "_MD_IMPRESSION_NOARTICLE", "Статья не существует!" );
 define( "_MD_IMPRESSION_SUBCATLISTING", "Список подкатегорий" );
-define( "_MD_IMPRESSION_ISADMINNOTICE", "Вэбмастер: Проблема с этой картинкой." );
+define( "_MD_IMPRESSION_ISADMINNOTICE", "Вэбмастер: Проблема с этим изображением." );
 define( "_MD_IMPRESSION_THANKSFORINFO", "Спасибо за Ваше сообщение." );
 define( "_MD_IMPRESSION_ISAPPROVED", "Спасибо за Ваше сообщение.<br />Your request has been approved and will now appear in our listing." );
 define( "_MD_IMPRESSION_THANKSFORHELP", "Спасибо за помощь в поддержании этого каталога в целостном состоянии." );
@@ -98,7 +98,7 @@ define( "_MD_IMPRESSION_REV_SNEWMNAMEDESC", "
 " );
 define( "_MD_IMPRESSION_ISNOTAPPROVED", "Ваше размещение должно быть сперва одобрено модератором." );
 define( "_MD_IMPRESSION_HOMEPAGETITLEC", "Заголовок главной страницы: " );
-define( "_MD_IMPRESSION_SCREENSHOTCLICK", "Показать всю картинку" );
+define( "_MD_IMPRESSION_SCREENSHOTCLICK", "Показать изображение целиком" );
 define( "_MD_IMPRESSION_OTHERBYUID", "Другие статьи от: " );
 define( "_MD_IMPRESSION_NOOTHERBYUID", "Нет дургих статей от: " );
 define( "_MD_IMPRESSION_LINKTIMES", "Article times: " );
