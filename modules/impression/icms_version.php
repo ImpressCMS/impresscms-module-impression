@@ -272,8 +272,6 @@ $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'dhtml';
 $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
                                                 _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
-												//_MI_IMPRESSION_FORM_COMPACT => 'textarea',
-												//_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
 												_MI_IMPRESSION_FORM_KOIVI => 'koivi',
 												_MI_IMPRESSION_FORM_FCK => 'fck',
 												_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
@@ -287,12 +285,17 @@ $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = 'dhtml';
 $modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
                                                 _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
-												//_MI_IMPRESSION_FORM_COMPACT => 'textarea',
-												//_MI_IMPRESSION_FORM_HTMLAREA => 'htmlarea',
 												_MI_IMPRESSION_FORM_KOIVI => 'koivi',
 												_MI_IMPRESSION_FORM_FCK => 'fck',
 												_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
 												_MI_IMPRESSION_FORM_TINYMCE => 'tinymce' );
+$i++;
+$modversion['config'][$i]['name'] = 'captcha';
+$modversion['config'][$i]['title'] = '_MI_IMPRESSION_CAPTCHA';
+$modversion['config'][$i]['description'] = '_MI_IMPRESSION_CAPTCHADSC';
+$modversion['config'][$i]['formtype'] = 'yesno';
+$modversion['config'][$i]['valuetype'] = 'int';
+$modversion['config'][$i]['default'] = 1;											
 $i++;
 $modversion['config'][$i]['name'] = 'mainimagedir';
 $modversion['config'][$i]['title'] = '_MI_IMPRESSION_MAINIMGDIR';
