@@ -125,11 +125,11 @@ define('_MI_IMPRESSION_ARTICLEDISCLAIMER', 'Digite o texto para os termos de uso
 define('_MI_IMPRESSION_COPYRIGHT', 'Aviso sobre Copyright:');
 define('_MI_IMPRESSION_COPYRIGHTDSC', 'Selecione esta opção para exibir um aviso sobre os direitos autorais deste artigo.');
 
-//define('_MI_IMPRESSION_REFERERS', 'These sites can directly article to your videos <br />Separate with #');
-//define("_MI_IMPRESSION_ANONPOST","Anonymous User Submission:");
-//define("_MI_IMPRESSION_ANONPOSTDSC","Allow Anonymous users to submit or upload to your website?");
-//define('_MI_IMPRESSION_AUTOAPPROVE','Auto Approve Submitted articles');
-//define('_MI_IMPRESSION_AUTOAPPROVEDSC','Select to approve submitted articles without moderation.');
+//define('_MI_IMPRESSION_REFERERS', 'Esses sites podem enviar diretamente artigos para os seus vídeos <br />Separado com #');
+//define("_MI_IMPRESSION_ANONPOST","Visitantes/Convidados podem enviar:");
+//define("_MI_IMPRESSION_ANONPOSTDSC","Permite que usuários anônimos/visitantes possam submeter ou enviar para o seu site?");
+//define('_MI_IMPRESSION_AUTOAPPROVE','Auto aprovar artigos submetidos');
+//define('_MI_IMPRESSION_AUTOAPPROVEDSC','Escolha este opção para aprovar artigos submetidos sem moderação. Use isto por sua conta e risco.');
 
 define('_MI_IMPRESSION_MAXFILESIZE','Tamanho do Upload em (KB)');
 define('_MI_IMPRESSION_MAXFILESIZEDSC','Tamanho máximo de arquivo permitido para os arquivos enviados.');
@@ -222,7 +222,7 @@ define('_MI_IMPRESSION_RELEASE', "Data de lançamento: ");
 define('_MI_IMPRESSION_ICONS_CREDITS', "Ícones por:");
 
 define("_MI_IMPRESSION_HEADERPRINT","[PRINT OPTIONS] Imprimir cabeçalho da página");
-define("_MI_IMPRESSION_HEADERPRINTDSC","Header that will be printed for each article");
+define("_MI_IMPRESSION_HEADERPRINTDSC","Cabeçalho que será impresso para cada artigo");
 define("_MI_IMPRESSION_PRINTLOGOURL","[PRINT OPTIONS] Imprimir url do Logo");
 define("_MI_IMPRESSION_PRINTLOGOURLDSC","Url do logotipo que será impresso na parte superior da página");
 define("_MI_IMPRESSION_FOOTERPRINT","[PRINT OPTIONS] Imprimir página do rodapé");
@@ -263,7 +263,7 @@ define( '_MI_IMPRESSION_SELECTFEED', 'Usar ICMS RSS?' );
 define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Escolha <em><b>Sim</b></em> e irá utilizar a classe nativa do ImpressCMS para RSS. Se escolher <em><b>Não</b></em> irá usar o módulo Brandycoke RSSfit (Este módulo precisa estar instalado e ativo para este recurso funcionar corretamente).'  );
 define( '_MI_IMPRESSION_FEEDSTOTAL', 'Quantos artigos para exibição no RSS?' );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Este número só irá afetar se estiver usando a classe do ImpressCMS para RSS. Padrão é: <em>15</em>' );
-define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
-define( "_MI_IMPRESSION_CAPTCHA", "Use captcha in submit form?" );
-define( "_MI_IMPRESSION_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>" );
+define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - uma cópia da licença GNU está amexada no arquivo (license.txt), presente neste módulo.' );
+define( "_MI_IMPRESSION_CAPTCHA", "Usar captcha nos formulários de envio?" );
+define( "_MI_IMPRESSION_CAPTCHADSC", "Escolha <em>Sim</em> para usar captcha quando o usuário for enviar uma informação para o site no formulário.<br />Padrão: <em>Sim</em>" );
 ?>

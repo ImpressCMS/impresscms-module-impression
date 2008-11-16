@@ -145,9 +145,9 @@ define( "_MD_IMPRESSION_ADMINSECTION", "Setor Administrativo" );
 define( "_MD_IMPRESSION_ARTICLE", "Título do artigo" );
 define( "_MD_IMPRESSION_WHO_WHEN", "Publicado por %s em %s" );
 define( "_MD_IMPRESSION_RANK", "Rank" );
-//define( "_MD_IMPRESSION_EDIT", "Edit article" );
-//define( "_MD_IMPRESSION_DELETE", "Delete article" );
+//define( "_MD_IMPRESSION_EDIT", "Editar artigo" );
+//define( "_MD_IMPRESSION_DELETE", "Apagar artigo" );
 define( '_MD_IMPRESSION_FEED', 'RSS feed' );
-define( '_MD_IMPRESSION_TEXTOPTIONS', 'Text options:' );
-define( '_MD_IMPRESSION_DISABLEBREAK', ' Use ICMS linebreak conversion?' );
+define( '_MD_IMPRESSION_TEXTOPTIONS', 'Opções do Texto:' );
+define( '_MD_IMPRESSION_DISABLEBREAK', ' Usar linebreak conversão?' );
 ?>
