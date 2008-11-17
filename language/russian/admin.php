@@ -83,7 +83,7 @@ define( "_AM_IMPRESSION_IPAGE_INFORMATION", "Информация об инде�
 define( "_AM_IMPRESSION_IPAGE_MODIFY", "Редактирование индексной страницы" );
 define( "_AM_IMPRESSION_IPAGE_CIMAGE", "Изображение на индексной странице:" );
 define( "_AM_IMPRESSION_IPAGE_CTITLE", "Заголовок на индексной странице:" );
-define( "_AM_IMPRESSION_IPAGE_CHEADING", "Тэг header индексной страницы:" );
+define( "_AM_IMPRESSION_IPAGE_CHEADING", "Текст шапки на индексной странице:" );
 define( "_AM_IMPRESSION_IPAGE_CHEADINGA", "Расположение заголовка:" );
 define( "_AM_IMPRESSION_IPAGE_CFOOTER", "Подпись на индексной странице:" );
 define( "_AM_IMPRESSION_IPAGE_CFOOTERA", "Расположение подписи:" );
@@ -218,7 +218,7 @@ define( "_AM_IMPRESSION_ARTICLE_SETNEWPUBLISHDATE", "<b>Установка но�
 define( "_AM_IMPRESSION_ARTICLE_SETPUBDATESETS", "<b>Установка даты публикации: </b><br />Опубликовать на дату:" );
 define( "_AM_IMPRESSION_ARTICLE_EXPIREDATESET", " Установка даты устаревания: " );
 define( "_AM_IMPRESSION_ARTICLE_SETEXPIREDATE", "<b>Установка даты устаревания: </b>" );
-define( "_AM_IMPRESSION_ARTICLE_DELEDITMESS", "Удалить отчеты об ошибках?<br /><br /><span style='font-weight: normal;'>When you choose <b>YES</b> the broken report will automatically deleted and you confirm that the article now works again.</span>" );
+define( "_AM_IMPRESSION_ARTICLE_DELEDITMESS", "Удалить отчеты об ошибках?<br /><br /><span style='font-weight: normal;'>Если Вы выберите <b>Да</b>, то отчеты о сбойных статьях будут удалены и будет выслано оповещение, что статьи снова актуальны.</span>" );
 define( "_AM_IMPRESSION_ARTICLE_MUSTBEVALID", "Изображение экрана должно быть корректным изображением статьи, находитящимся в каталоге %s (напр. shot.gif). Оставьте пустым, если нет ссылки на изображение." );
 define( "_AM_IMPRESSION_ARTICLE_EDITAPPROVE", "Одобрение статьи:" );
 define( "_AM_IMPRESSION_ARTICLE_NEWFILEUPLOAD", "Новая статья создана и база данных обновлена" );
