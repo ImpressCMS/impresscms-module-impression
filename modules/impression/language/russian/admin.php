@@ -199,7 +199,7 @@ define( "_AM_IMPRESSION_ARTICLE_CREATENEWFILE", "Создать новую ст�
 define( "_AM_IMPRESSION_ARTICLE_TITLE", "<b>Заголовок:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "<b>Вступительный текст статьи:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_INTROTEXT_DSC", "<br />Текст, введенный здесь будет отображаться как первый абзац статьи, а также в блоке Первый план" );
-define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "<b>Основной текстстатьи:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "<b>Основной текст статьи:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC", "<br />Текст, введенный здесь совместно со вступительным текстом представляет собой полный текст статьи" );
 define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "<b>Основная категория:</b>" );
 define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "<b>Статус статьи:</b>" );
