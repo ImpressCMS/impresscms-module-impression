@@ -161,7 +161,7 @@ if ( $selectdate ) {
     list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
     $list_by = 'list='.$list;
 } else {
-    $sql = 'SELECT a.* FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+    $sql = 'SELECT DISTINCT a.* FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
          . $xoopsDB -> prefix( 'impression_altcat' ) . ' b'
          . ' ON b.aid = a.aid'
          . ' WHERE a.published > 0 AND a.published <= ' . time()
