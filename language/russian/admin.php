@@ -343,7 +343,7 @@ define( '_AM_IMPRESSION_RSSOFFMSGDSC', 'Введите здесь пояснен
 define( '_AM_IMPRESSION_RSSOFFTITLE', 'RSS канал неактивен.' );
 define( '_AM_IMPRESSION_RSSOFFMSGDEF', 'RSS канал временно деактивирован для обслуживания.' );
 define( '_AM_IMPRESSION_COPYRIGHT', 'Copyright' );
-define( '_AM_IMPRESSION_ICO_CLONE', 'Clone article' );
-define( '_AM_IMPRESSION_CLONE', '**CLONE**' );
-define( '_AM_IMPRESSION_CLONEARTICLE', 'Clone Article' );
+define( '_AM_IMPRESSION_ICO_CLONE', 'Клонировать статью' );
+define( '_AM_IMPRESSION_CLONE', '**КЛОН**' );
+define( '_AM_IMPRESSION_CLONEARTICLE', 'Клонировать статью' );
 ?>
