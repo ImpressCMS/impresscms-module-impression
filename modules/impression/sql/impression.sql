@@ -87,3 +87,29 @@ CREATE TABLE `impression_articles` (
   KEY `title` (`title`(40))
 ) TYPE=MyISAM COMMENT='Impression by McDonald' AUTO_INCREMENT=1 ;
 
+#
+# Table structure for table 'imlinks_configs'
+#
+
+CREATE TABLE impression_configs (
+  rssactive INT(1) NOT NULL DEFAULT '1',
+  rsstitle VARCHAR(128) NOT NULL,
+  rsslink VARCHAR(128) NOT NULL,
+  rssdsc VARCHAR(128) NOT NULL,
+  rssimgurl VARCHAR(255) NOT NULL,
+  rsswidth TINYINT(8) NOT NULL DEFAULT '0',
+  rssheight TINYINT(8) NOT NULL DEFAULT '0',
+  rssimgtitle VARCHAR(128) NOT NULL,
+  rssimglink VARCHAR(255) NOT NULL,
+  rssttl TINYINT(8) NOT NULL DEFAULT '0',
+  rsswebmaster VARCHAR(255) NOT NULL,
+  rsseditor VARCHAR(255) NOT NULL,
+  rsscategory VARCHAR(128) NOT NULL,
+  rssgenerator VARCHAR(128) NOT NULL,
+  rsscopyright VARCHAR(128) NOT NULL,
+  rsstotal TINYINT(8) NOT NULL DEFAULT '0',
+  rssofftitle VARCHAR(128) NOT NULL DEFAULT '',
+  rssoffdsc VARCHAR(255) NOT NULL DEFAULT ''
+) TYPE=MYISAM COMMENT='Impression by McDonald';
+
+INSERT INTO impression_configs (rssactive,rsstitle,rsslink,rssdsc,rssimgurl,rsswidth,rssheight,rssimgtitle,rssimglink,rssttl,rsswebmaster,rsseditor,rsscategory,rssgenerator,rsscopyright,rsstotal,rssofftitle,rssoffdsc) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15', '', '');

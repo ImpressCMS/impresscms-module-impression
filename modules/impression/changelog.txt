@@ -8,6 +8,7 @@
 
 - Added: unofficial translations of GNU GPL License
 - Added: RSS feeds through icmsfeed.php
+- Added: RSS feed configuration form
 
 - German language files [prickel + sato-san]
 - Portuguese-Brazil language files [gibaphp]

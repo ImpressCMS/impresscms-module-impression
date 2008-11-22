@@ -259,11 +259,8 @@ define("_MI_IMPRESSION_LINKEDTERMS", "Link para termos no glossário?" );
 define("_MI_IMPRESSION_LINKEDTERMSDSC", "O módulo imGlossary precisa estar instalado e activo para este recurso funcionar corretamente." );
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Nome da pasta onde está o ImGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "O nome da pasta dentro de <b>modules</b> onde está o módulo imGlossary <br /> O Padrão é: <em>imglossary</em>" );
-define( '_MI_IMPRESSION_SELECTFEED', 'Usar ICMS RSS?' );
-define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Escolha <em><b>Sim</b></em> e irá utilizar a classe nativa do ImpressCMS para RSS. Se escolher <em><b>Não</b></em> irá usar o módulo Brandycoke RSSfit (Este módulo precisa estar instalado e ativo para este recurso funcionar corretamente).'  );
-define( '_MI_IMPRESSION_FEEDSTOTAL', 'Quantos artigos para exibição no RSS?' );
-define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Este número só irá afetar se estiver usando a classe do ImpressCMS para RSS. Padrão é: <em>15</em>' );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - uma cópia da licença GNU está amexada no arquivo (license.txt), presente neste módulo.' );
 define( "_MI_IMPRESSION_CAPTCHA", "Usar captcha nos formulários de envio?" );
 define( "_MI_IMPRESSION_CAPTCHADSC", "Escolha <em>Sim</em> para usar captcha quando o usuário for enviar uma informação para o site no formulário.<br />Padrão: <em>Sim</em>" );
+define( '_MI_IMPRESSION_RSSFEED', 'RSS Feed' );
 ?>

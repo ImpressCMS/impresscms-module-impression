@@ -18,21 +18,36 @@
 * @version		$Id$
 */
 
-include 'header.php';	
-include_once ICMS_ROOT_PATH . '/class/icmsfeed.php';
+include 'header.php';
 
-global $xoopsModuleConfig;
-
-$myFeed = new IcmsFeed();
-
-$myFeed -> webMaster = '';  // Admin contact email as stated in general preferences.
+global $xoopsModuleConfig, $xoopsModule;
 	
-$sql = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext, publisher FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
-    while ( $myrow = $xoopsDB -> fetchArray( $sql ) ) {	
+include_once ICMS_ROOT_PATH . '/class/icmsfeed.php'; 
+
+$sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_configs' );
+$config_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+
+if ( $config_arr['rssactive'] == 1 ) {
+	
+	$myFeed = new IcmsFeed();
+
+	$myFeed -> webMaster 	 = $config_arr['rsswebmaster'];
+	$myFeed -> channelEditor = $config_arr['rsseditor'];
+	$myFeed -> image 		 = array( 'url' => $config_arr['rssimgurl'] );
+	$myFeed -> width 		 = $config_arr['rsswidth'];
+	$myFeed -> height 		 = $config_arr['rssheight'];
+	$myFeed -> title 		 = $config_arr['rsstitle'];
+	$myFeed -> generator 	 = $config_arr['rssgenerator'];
+	$myFeed -> category 	 = $config_arr['rsscategory'];
+	$myFeed -> ttl 			 = $config_arr['rssttl'];
+	$myFeed -> copyright 	 = $config_arr['rsscopyright'];
+	
+	$sql2 = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext, publisher FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
+    while ( $myrow = $xoopsDB -> fetchArray( $sql2 ) ) {	
 		
 		// First get the main category title of the link
-		$sql2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix('impression_cat') . ' WHERE cid=' . $myrow['cid'] );
-        $mycat = $xoopsDB -> fetchArray( $sql2 );
+		$sql3 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix('impression_cat') . ' WHERE cid=' . $myrow['cid'] );
+        $mycat = $xoopsDB -> fetchArray( $sql3 );
 		$category = htmlspecialchars( $mycat['title'] );
 		
 		// Get date, title, definition (shortened), author and the url of the link
@@ -52,7 +67,14 @@ $sql = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext, publish
 			'guid' 			=> $link
 			);
 	}
-	
-$myFeed -> render(); 
 
+	$myFeed -> render(); 
+} else {
+	$myFeed = new IcmsFeed(); 
+	$myFeed -> feeds[] = array( 'title'       => $config_arr['rssofftitle'],
+								'link' 		  => ICMS_URL,
+								'description' => $config_arr['rssoffdsc']
+								);
+	$myFeed -> render(); 
+}
 ?>
