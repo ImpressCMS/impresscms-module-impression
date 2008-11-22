@@ -347,4 +347,7 @@ define( '_AM_IMLINKS_RSSOFFMSGDSC', 'Geef hier een verklaring waarom de RSS feed
 define( '_AM_IMLINKS_RSSOFFTITLE', 'RSS feed is gedeaktiveerd' );
 define( '_AM_IMLINKS_RSSOFFMSGDEF', 'De RSS feed is tijdelijk gedeaktiveerd in verband met onderhoud aan de server.' );
 define( '_AM_IMLINKS_COPYRIGHT', 'Copyright' );
+define( '_AM_IMPRESSION_ICO_CLONE', 'Kloon artikel' );
+define( '_AM_IMPRESSION_CLONE', '**KLOON**' );
+define( '_AM_IMPRESSION_CLONEARTICLE', 'Kloon Artikel' );
 ?>
