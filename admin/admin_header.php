@@ -60,7 +60,8 @@ $imagearray = array(
 	'ignore' 		=> '<img src="../images/icon/cross.png" alt="' . _AM_IMPRESSION_ICO_IGNORE . '" align="middle">',
 	'rejected' 		=> '<img src="../images/icon/cross.png" alt="' . _AM_IMPRESSION_ICO_REJECTED . '" align="middle">',
 	'submitted' 	=> '<img src="../images/icon/impression.png" alt="' . _AM_IMPRESSION_ICO_SUBMITTED . '" align="middle">',
-	'view' 			=> '<img src="../images/icon/view.png" alt="' . _AM_IMPRESSION_ICO_VIEW . '" align="middle">'
+	'view' 			=> '<img src="../images/icon/view.png" alt="' . _AM_IMPRESSION_ICO_VIEW . '" align="middle">',
+	'clone'			=> '<img src="../images/icon/page_clone.png" alt="' . _AM_IMPRESSION_ICO_CLONE . '" align="middle">'
 	);
 
 ?>

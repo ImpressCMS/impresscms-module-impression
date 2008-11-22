@@ -509,9 +509,9 @@ function impression_articlelistbody( $published ) {
     $aid = $published['aid'];
     $cid = $published['cid'];
     
-    $title = "<a href='../singlearticle.php?cid=" . $published['cid'] . "&amp;aid=" . $published['aid'] . "'>" . $impressionmyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . "</a>";;
+    $title = '<a href="../singlearticle.php?cid=' . $published['cid'] . '&amp;aid=' . $published['aid'] . '">' . $impressionmyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
     $maintitle = urlencode( $impressionmyts -> htmlSpecialChars( trim( $published['title'] ) ) );
-    $cattitle = impression_cattitle($published['cid']);
+    $cattitle = '<a href="../catview.php?cid=' . $published['cid'] . '">' . impression_cattitle($published['cid']) . '</a>';
     $submitter = xoops_getLinkedUnameFromId( $published['submitter'] );
     $submitted = formatTimestamp( $published['date'], $xoopsModuleConfig['dateformat'] );
     $publish = ( $published['published'] > 0 ) ? formatTimestamp( $published['published'], $xoopsModuleConfig['dateformatadmin'] ) : _AM_IMPRESSION_NOTPUBLiSHED;
@@ -528,6 +528,7 @@ function impression_articlelistbody( $published ) {
     }
     $icon = "<a href='index.php?op=edit&amp;aid=" . $aid . "' title='" . _AM_IMPRESSION_ICO_EDIT . "'>" . $imagearray['editimg'] . "&nbsp;</a>";
     $icon .= "<a href='index.php?op=delete&amp;aid=" . $aid . "' title='" . _AM_IMPRESSION_ICO_DELETE . "'>" . $imagearray['deleteimg'] . "&nbsp;</a>";
+	$icon .= '<a href="index.php?op=clone&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_CLONE . '">' . $imagearray['clone'] . '</a>&nbsp;';
     $icon .= "<a href='altcat.php?op=main&amp;cid=" . $cid . "&amp;aid=" . $aid . "&amp;title=" . $impressionmyts -> htmlSpecialChars( trim( $published['title'] ) ) . "' title='" . _AM_IMPRESSION_ALTCAT_CREATEF . "'>" . $imagearray['altcat'] . "</a>";
 
     echo " 	<tr>\n
@@ -537,7 +538,7 @@ function impression_articlelistbody( $published ) {
 		<td class='even' style='text-align: center;'><small>" . $submitter . "</small></td>\n
 		<td class='even' style='text-align: center; white-space: nowrap;'><small>" . $publish . "</small></td>\n
 		<td class='even' style='text-align: center; white-space: nowrap;'><small>" . $published_status . "</small></td>\n
-		<td class='even' style='text-align: center; width: 60px; white-space: nowrap;'>$icon</td>\n
+		<td class='even' style='text-align: center; width: 6%; white-space: nowrap;'>$icon</td>\n
 		</tr>\n
 		";
     unset( $published );

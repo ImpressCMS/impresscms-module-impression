@@ -33,7 +33,7 @@ $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
 $aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
 
-function edit( $aid = 0 ) {
+function edit( $aid = 0, $doclone = 0 ) {
    global $xoopsDB, $xoopsModuleConfig, $xoopsModule, $xoopsUser, $impressionmyts, $mytree;
 
     $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
@@ -42,14 +42,24 @@ function edit( $aid = 0 ) {
         return false;
     } 
     $article_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+	
+	if ( $doclone == 0 ) {
+		$aid = $article_array['aid'] ? $article_array['aid'] : 0;
+		$title = $article_array['title'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['title'] ) : '';
+		$published = $article_array['published'] ? $article_array['published'] : time();
+	} else {
+		$aid='';
+		$title = $article_array['title'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['title'] . '  ' . _AM_IMPRESSION_CLONE ) : '';
+		$published = time();
+	}
 
-    $aid = $article_array['aid'] ? $article_array['aid'] : 0;
+//    $aid = $article_array['aid'] ? $article_array['aid'] : 0;
     $cid = $article_array['cid'] ? $article_array['cid'] : 0;
-    $title = $article_array['title'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['title'] ) : '';
+//    $title = $article_array['title'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['title'] ) : '';
     $publisher = $article_array['publisher'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['publisher'] ) : '';
     $introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
     $descriptionb = $article_array['description'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['description'] ) : '';
-    $published = $article_array['published'] ? $article_array['published'] : time();
+//    $published = $article_array['published'] ? $article_array['published'] : time();
     $date = $article_array['date'];
     $status = $article_array['status'] ? $article_array['status'] : 0;
     $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
@@ -86,7 +96,11 @@ function edit( $aid = 0 ) {
 			<br />\n";
     } 
     
-    $caption = ( $aid ) ? _AM_IMPRESSION_ARTICLE_MODIFYFILE : _AM_IMPRESSION_ARTICLE_CREATENEWFILE;
+	if ( $doclone == 0 ) {
+		$caption = ( $aid ) ? _AM_IMPRESSION_ARTICLE_MODIFYFILE : _AM_IMPRESSION_ARTICLE_CREATENEWFILE;
+	} else {
+		$caption = _AM_IMPRESSION_CLONEARTICLE;
+	}
     $sform = new XoopsThemeForm( $caption, "storyform", xoops_getenv( 'PHP_SELF' ) );
     $sform -> setExtra( 'enctype="multipart / form - data"' );
 
@@ -183,8 +197,12 @@ function edit( $aid = 0 ) {
 
 switch ( strtolower( $op ) ) {
     case 'edit':
-        edit( $aid );
+        edit( intval( $aid ), 0 );
         break;
+		
+	case 'clone':
+		edit( intval( $aid ), 1 );
+		break;
 
     case 'save':
         $groups = isset( $_POST['groups'] ) ? $_POST['groups'] : array();

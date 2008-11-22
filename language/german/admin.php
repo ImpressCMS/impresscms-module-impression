@@ -343,4 +343,7 @@ define( '_AM_IMPRESSION_RSSOFFMSGDSC', 'Enter here an explanation for why the RS
 define( '_AM_IMPRESSION_RSSOFFTITLE', 'RSS feed has been deactivated.' );
 define( '_AM_IMPRESSION_RSSOFFMSGDEF', 'The RSS feed has been temporarily deactivated for maintenance.' );
 define( '_AM_IMPRESSION_COPYRIGHT', 'Copyright' );
+define( '_AM_IMPRESSION_ICO_CLONE', 'Clone article' );
+define( '_AM_IMPRESSION_CLONE', '**CLONE**' );
+define( '_AM_IMPRESSION_CLONEARTICLE', 'Clone Article' );
 ?>
