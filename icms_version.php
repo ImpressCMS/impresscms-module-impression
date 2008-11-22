@@ -62,6 +62,7 @@ $modversion['people']['testers']    [] = '<a href="http://community.impresscms.o
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>  (Dutch)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a> (Russian)';
 $modversion['people']['other']		[] = '&middot; WF-Projects Team: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
