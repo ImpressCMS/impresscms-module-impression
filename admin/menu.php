@@ -32,8 +32,8 @@ include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/include/functions
 
 $adminmenu[1]['title'] = _MI_IMPRESSION_BINDEX;
 $adminmenu[1]['link']  = 'admin/index.php';
-$adminmenu[1]['icon']  = 'images/impression_iconbig.png'; // 32x32 px for options bar (tabs) 
-$adminmenu[1]['small'] = 'images/impression_iconsmall.png'; // 16x16 px for drop down
+$adminmenu[1]['icon']  = 'images/icon/home.png'; // 32x32 px for options bar (tabs) 
+$adminmenu[1]['small'] = 'images/icon/home_small.png'; // 16x16 px for drop down
 
 $adminmenu[2]['title'] = _MI_IMPRESSION_MARTICLES;
 $adminmenu[2]['link']  = 'admin/index.php?op=edit';
@@ -74,14 +74,14 @@ if ( isset( $xoopsModule ) ) {
 	} else { include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/english/admin.php'; }
 
 	$i = -1;
+	
+	$i++;
+	$headermenu[$i]['title'] = _AM_IMPRESSION_GOMODULE;
+	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $impressiondir;
 
 	$i++;
 	$headermenu[$i]['title'] = _PREFERENCES;
 	$headermenu[$i]['link']  = '../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=' . $xoopsModule -> getVar( 'mid' );
-
-	$i++;
-	$headermenu[$i]['title'] = _AM_IMPRESSION_GOMODULE;
-	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $impressiondir;
 
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMPRESSION_BUPDATE;
