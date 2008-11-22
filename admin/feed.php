@@ -1,6 +1,6 @@
 <?php
 /**
-* imLinks - a multicategory links management module for ImpressCMS
+* Impression - a 'light' article management module for ImpressCMS
 *
 * Based upon WF-Link 1.06
 *
@@ -10,7 +10,7 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		imLinks
+* @package		Impression
 * @since			1.00
 * @author		McDonald
 * @version		$Id$

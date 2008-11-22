@@ -30,7 +30,6 @@ $config_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 if ( $config_arr['rssactive'] == 1 ) {
 	
 	$myFeed = new IcmsFeed();
-
 	$myFeed -> webMaster 	 = $config_arr['rsswebmaster'];
 	$myFeed -> channelEditor = $config_arr['rsseditor'];
 	$myFeed -> image 		 = array( 'url' => $config_arr['rssimgurl'] );
@@ -42,7 +41,7 @@ if ( $config_arr['rssactive'] == 1 ) {
 	$myFeed -> ttl 			 = $config_arr['rssttl'];
 	$myFeed -> copyright 	 = $config_arr['rsscopyright'];
 	
-	$sql2 = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext, publisher FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
+	$sql2 = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext, publisher, nobreak FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
     while ( $myrow = $xoopsDB -> fetchArray( $sql2 ) ) {	
 		
 		// First get the main category title of the link
@@ -54,7 +53,7 @@ if ( $config_arr['rssactive'] == 1 ) {
 		$author= $myrow['publisher'];
 		$title = htmlspecialchars( $myrow['title'] );
 		$date  = formatTimestamp( $myrow['published'], 'D, d M Y H:i:s' );
-		$text  = htmlspecialchars( $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 ) );
+		$text  = htmlspecialchars( $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, $myrow['nobreak'] ) );
 		$link  = ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval( $myrow['cid'] ) . '&amp;aid=' . intval( $myrow['aid'] );
 
 		$myFeed -> feeds[] = array (
@@ -67,7 +66,6 @@ if ( $config_arr['rssactive'] == 1 ) {
 			'guid' 			=> $link
 			);
 	}
-
 	$myFeed -> render(); 
 } else {
 	$myFeed = new IcmsFeed(); 
