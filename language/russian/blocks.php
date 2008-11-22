@@ -27,7 +27,7 @@ define( '_MB_IMPRESSION_SELECTFEED_DSC', '<small><br /> - Выберите ICMS,
 define( '_MB_IMPRESSION_READMORE', 'Читать' );
 define( "_MB_IMPRESSION_PUBLISHEDON", "Опубликовано " );
 define( "_MB_IMPRESSION_BY", " " );
-define( "_MB_IMPRESSION_ARTICLEHITS", "(%s прочтений)" );
+define( "_MB_IMPRESSION_ARTICLEHITS", "(%s прочт.)" );
 define( '_MB_IMPRESSION_FEED', 'RSS канал' );
 define( '_MB_IMPRESSION_ICMSFEED', 'ICMS' );
 define( '_MB_IMPRESSION_RSSFITFEED', 'RSSfit' );

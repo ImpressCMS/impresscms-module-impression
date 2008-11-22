@@ -33,7 +33,7 @@ define( "_MD_IMPRESSION_DESCRIPTIONC_DSC", "<br />Текст, введенный
 define( "_MD_IMPRESSION_CATEGORYC", "Категория: " );
 define( "_MD_IMPRESSION_VERSION", "Версия" );
 define( "_MD_IMPRESSION_SUBMITDATE", "Дата размещения" );
-define( "_MD_IMPRESSION_ARTICLEHITS", "(%s прочтений)" );
+define( "_MD_IMPRESSION_ARTICLEHITS", "(%s прочт.)" );
 define( "_MD_IMPRESSION_PUBLISHERC", "Издатель: " );
 define( "_MD_IMPRESSION_MODIFY", "Редактировать" );
 define( "_MD_IMPRESSION_SUBMITBROKEN", "Разместить" );
