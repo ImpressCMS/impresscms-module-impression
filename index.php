@@ -184,13 +184,15 @@ if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] 
 	
 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
-
-if ( $xoopsModuleConfig['rssfeed'] ) {
-	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/' . $mydirname . '/feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" /></a>' );
-} else {
-	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" /></a>' );
-}
 $xoopsTpl -> assign( 'dirname', $mydirname );
+
+$rsssql = 'SELECT rssactive FROM ' . $xoopsDB -> prefix( 'impression_configs' );
+list( $rssactive ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $rsssql ) );
+
+if ( $rssactive == 1 ) {
+	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/' . $mydirname . '/feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" title="' . _MD_IMPRESSION_FEED . '" /></a>');
+	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMPRESSION_FEED . '" href="feed.php">' );
+}
  
 include ICMS_ROOT_PATH . '/footer.php';
 

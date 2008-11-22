@@ -55,11 +55,15 @@ $adminmenu[5]['link']  = 'admin/upload.php';
 $adminmenu[5]['icon']  = 'images/icon/upload.png';
 $adminmenu[5]['small'] = 'images/icon/upload_small.png';
 
-
 $adminmenu[6]['title'] = _MI_IMPRESSION_BLOCKADMIN;
 $adminmenu[6]['link']  = 'admin/myblocksadmin.php';
 $adminmenu[6]['icon']  = 'images/icon/blocks.png';
 $adminmenu[6]['small'] = 'images/icon/blocks_small.png';
+
+$adminmenu[7]['title'] 	= _MI_IMPRESSION_RSSFEED;
+$adminmenu[7]['link']	= 'admin/feed.php?op=edit';
+$adminmenu[7]['icon']	= 'images/icon/feed32.png';
+$adminmenu[7]['small']	= 'images/icon/feed.png';
 
 global $xoopsModule, $xoopsConfig;
 

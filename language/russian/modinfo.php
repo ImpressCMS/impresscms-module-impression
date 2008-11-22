@@ -259,11 +259,8 @@ define("_MI_IMPRESSION_LINKEDTERMS", "Ссылаться на термины в 
 define("_MI_IMPRESSION_LINKEDTERMSDSC", "Для этого свойства необходимо установить и активировать модуль imGlossary." );
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Имя каталога imGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "Имя каталога, где расположен модуль imGlossary.<br />По умолчанию: <em>imglossary</em>" );
-define( '_MI_IMPRESSION_SELECTFEED', 'Использовать ICMS RSS канал?' );
-define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Выберите <em>Да</em>, чтобы использовать ImpressCMS RSS канал. Выберите <em>Нет</em> для использования модуля Brandycoke\'s RSSfit (необходимо активировать подканалы).'  );
-define( '_MI_IMPRESSION_FEEDSTOTAL', 'Количество статей в RSS канале:' );
-define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Это число имеет эффект только для ImpressCMS RSS канала. По умолчанию: <em>15</em>' );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( "_MI_IMPRESSION_CAPTCHA", "Использовать captcha в форме для размещения?" );
 define( "_MI_IMPRESSION_CAPTCHADSC", "Выберите <em>Да</em> для использования captcha в формах для размещения статей.<br />По умолчанию: <em>Да</em>" );
+define( '_MI_IMPRESSION_RSSFEED', 'RSS Feed' );
 ?>

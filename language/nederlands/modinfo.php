@@ -259,11 +259,9 @@ define("_MI_IMPRESSION_LINKEDTERMS", "Link naar termen in woordenlijst?" );
 define("_MI_IMPRESSION_LINKEDTERMSDSC", "De module imGlossary dient hiervoor geinstalleerd en aktief te zijn." );
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Map naam van imGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "De naam van de map waarin imGlossary zich bevindt.<br />Standaard: <em>imglossary</em>" );
-define( '_MI_IMPRESSION_SELECTFEED', 'Gebruik ICMS RSS feed?' );
-define( '_MI_IMPRESSION_SELECTFEED_DSC', 'Kies <em>Ja</em> om ImpressCMS RSS feed te gebruiken. Kies <em>Nee</em> om Brandycoke\'s RSSfit module te gebruiken (subfeed dient geaktiveerd te zijn).'  );
-define( '_MI_IMPRESSION_FEEDSTOTAL', 'Aantal weer te geven artikelen in RSS feed?' );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Dit aantal heeft alleen invloed op de ImpressCMS RSS feed. Standaard: <em>15</em>' );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - een kopie van de GNU licentie is bijgesloten (license.txt).' );
 define( "_MI_IMPRESSION_CAPTCHA", "Gebruik captcha in inzendformulier?" );
 define( "_MI_IMPRESSION_CAPTCHADSC", "Kies <em>Ja</em> om captcha in het inzendformulier te gebruiken.<br />Standaard: <em>Ja</em>" );
+define( '_MI_IMPRESSION_RSSFEED', 'RSS Feed' );
 ?>
