@@ -262,5 +262,5 @@ define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "Имя каталога, где ра�
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( "_MI_IMPRESSION_CAPTCHA", "Использовать captcha в форме для размещения?" );
 define( "_MI_IMPRESSION_CAPTCHADSC", "Выберите <em>Да</em> для использования captcha в формах для размещения статей.<br />По умолчанию: <em>Да</em>" );
-define( '_MI_IMPRESSION_RSSFEED', 'RSS Feed' );
+define( '_MI_IMPRESSION_RSSFEED', 'RSS канал' );
 ?>
