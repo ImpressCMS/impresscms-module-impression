@@ -12,11 +12,14 @@
 
 - German language files [prickel + sato-san]
 - Portuguese-Brazil language files [gibaphp]
+- Russian language files [algalochkin]
 - Converted uk / nl language files to UTF-8 without BOM
 
 - Fixed: bug for displaying name author in PDF
 - Fixed: altcat entries were not deleted when deleting article or cat
 - Fixed: block settings [skenow]
+
+- Removed: file admin/brokenarticle.php
 
 
 =========================================================
