@@ -123,16 +123,20 @@ global $xoopsTpl, $xoTheme;
     }
     $article_meta_description = implode( ' ', $newWords );
     if ( is_object( $xoTheme ) ) {
-	  $xoTheme -> addMeta( 'meta', 'keywords', $article_arr['meta_keywords'] );
-	  $xoTheme -> addMeta( 'meta', 'title', $article_arr['title'] );
-	  if ($xoopsModuleConfig['usemetadescr'] == 1) {
+		if ( $article_arr['meta_keywords'] != '' ) {
+			$xoTheme -> addMeta( 'meta', 'keywords', $article_arr['meta_keywords'] );
+		}
+		$xoTheme -> addMeta( 'meta', 'title', $article_arr['title'] );
+		if ($xoopsModuleConfig['usemetadescr'] == 1) {
             $xoTheme -> addMeta( 'meta', 'description', $article_meta_description );
-          }
+        }
     } else {
-	  $xoopsTpl -> assign( 'xoops_meta_keywords', $article_arr['meta_keywords'] );
-	  if ($xoopsModuleConfig['usemetadescr'] == 1) {
+		if ( $article_arr['meta_keywords'] != '' ) {
+			$xoopsTpl -> assign( 'xoops_meta_keywords', $article_arr['meta_keywords'] );
+		}
+		if ($xoopsModuleConfig['usemetadescr'] == 1) {
             $xoopsTpl -> assign( 'xoops_meta_description', $article_meta_description );
-          }
+        }
     }
 	  $xoopsTpl -> assign( 'xoops_pagetitle', $article_arr['title'] );
 // End of meta tags
