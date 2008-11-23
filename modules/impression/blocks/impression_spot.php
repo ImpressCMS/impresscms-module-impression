@@ -48,23 +48,6 @@ function checkImpressionSpotgroups( $cid = 0, $permType = 'ImpressionCatPerm', $
     return true;
 }
 
-function b_impression_displayrssicons( $options ) {
-    $mydirname = basename( dirname( dirname( __FILE__ ) ) );
-	$icons='';
-	
-    // $options[3] == 0  -> use icmsfeed
-    // $options[3] == 1  -> use RSSfit subfeed
-
-    if ( $options == 0 ) {
-		$icons = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/feed.php" target="_blank"><img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed.png" border="0" alt="' . _MB_IMPRESSION_FEED . '" /></a>';
-	}
-    else {
-		$icons = '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . $mydirname . '" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed.png" border="0" alt="' . _MB_IMPRESSION_FEED . '" /></a>&nbsp;';
-	}
-
-    return $icons;
-}
-
 function b_impression_spoticons($aid, $dirname) {
 
 	$iconsadmin = '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="' . _MB_IMPRESSION_ADMINSECTION . '" title="' . _MB_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>';
@@ -123,7 +106,13 @@ function b_impression_spot_show( $options ) {
         $articleload['submitter'] 	= xoops_getLinkedUnameFromId( $myrow['submitter'] );
         $articleload['introtext'] 	= $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, 1 );
         $articleload['readmore'] 	= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval( $myrow['cid'] ) . '&amp;aid=' . intval( $myrow['aid'] ) . '">' . _MB_IMPRESSION_READMORE . '</a>';
-        $articleload['showrss'] 	= b_impression_displayrssicons( $options[3] );
+		
+		$rsssql = 'SELECT rssactive FROM ' . $xoopsDB -> prefix( 'impression_configs' );
+		list( $rssactive ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $rsssql ) );
+		if ( $rssactive == 1 ) {
+			$articleload['impression_feed'] = '<a href="'. ICMS_URL . '/modules/' . $mydirname . '/feed.php" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed.png" border="0" alt="' . _MB_IMPRESSION_FEED . '" title="' . _MB_IMPRESSION_FEED . '" /></a>';
+			$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . $mydirname . '/feed.php">' );
+		}
 		
         $xoopsTpl -> assign( 'dirname', $mydirname );
         $block['article'][] = $articleload;
