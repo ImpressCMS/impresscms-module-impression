@@ -58,14 +58,12 @@ function rss_edit() {
 	xoops_cp_header();
 	impression_adminmenu( 8, _AM_IMPRESSION_RSSFEED );
 	
-	echo '
-			<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_RSSFEED . '</legend>
+	echo '	<fieldset style="border: #e8e8e8 1px solid;">
 			<div style="padding: 8px;">
 			<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 			' . _AM_IMPRESSION_RSSFEEDDSC . '
 			</div>
-			</fieldset><br />
-		';
+			</fieldset>';
 	
 	$sform = new XoopsThemeForm( _AM_IMPRESSION_RSSFEEDCFG, 'storyform', xoops_getenv( 'PHP_SELF' ) );
 	$sform -> setExtra( 'enctype="multipart / form - data"' );
