@@ -69,9 +69,7 @@ global $xoopsModule, $xoopsConfig;
 
 if ( isset( $xoopsModule ) ) {
 
-	if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' . $xoopsConfig['language'] . '/admin.php' ) ) {
-		include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' . $xoopsConfig['language'] . '/admin.php';
-	} else { include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/english/admin.php'; }
+	icms_loadLanguageFile( $impressiondir, 'admin' );
 
 	$i = -1;
 	
