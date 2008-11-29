@@ -149,4 +149,5 @@ define( "_MD_IMPRESSION_RANK", "Оценка" );
 define( '_MD_IMPRESSION_FEED', 'RSS канал' );
 define( '_MD_IMPRESSION_TEXTOPTIONS', 'Опции текста:' );
 define( '_MD_IMPRESSION_DISABLEBREAK', ' Использовать конверсию разрыва строк ICMS?' );
+define( '_MD_IMPRESSION_BACKBUTTON', 'Back' );
 ?>

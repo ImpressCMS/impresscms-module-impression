@@ -149,4 +149,5 @@ define( "_MD_IMPRESSION_RANK", "Rank" );
 define( '_MD_IMPRESSION_FEED', 'RSS feed' );
 define( '_MD_IMPRESSION_TEXTOPTIONS', 'Text options:' );
 define( '_MD_IMPRESSION_DISABLEBREAK', ' Use ICMS linebreak conversion?' );
+define( '_MD_IMPRESSION_BACKBUTTON', 'Back' );
 ?>

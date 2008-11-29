@@ -150,4 +150,5 @@ define( "_MD_IMPRESSION_RANK", "Rank" );
 define( '_MD_IMPRESSION_FEED', 'RSS feed' );
 define( '_MD_IMPRESSION_TEXTOPTIONS', 'Opções do Texto:' );
 define( '_MD_IMPRESSION_DISABLEBREAK', ' Usar linebreak conversão?' );
+define( '_MD_IMPRESSION_BACKBUTTON', 'Back' );
 ?>
