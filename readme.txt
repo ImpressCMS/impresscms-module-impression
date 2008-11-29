@@ -8,6 +8,20 @@ Installation
 You can install the module Impression as any other ImpressCMS module.
 
 
+RSS
+---
+Impression comes with it's own RSS feed class.
+
+With Impression comes also a plugin for Brandycoke's module RSSFit.
+You can download the module RSSFit here: http://www.brandycoke.com/products/rssfit/
+
+
+Sitemap
+-------
+A plugin for the Sitemap module is included.
+You ca download the module Sitemap from Gijoe's website: http://xoops.peak.ne.jp/
+
+
 imGlossary
 ----------
 To have words linked to imGlossary this module has to be installed.
