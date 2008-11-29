@@ -31,7 +31,7 @@ include_once '../../../include/cp_header.php';
 include_once ICMS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
 
 xoops_cp_header();
-impression_adminmenu( '<h4>' . _AM_IMPRESSION_PERM_MANAGEMENT  . '</h4>' );
+impression_adminmenu( '', _AM_IMPRESSION_PERM_MANAGEMENT );
 
 $permtoset = isset( $_POST['permtoset'] ) ? intval( $_POST['permtoset'] ) : 1;
 $selected = array( '','','','','' );
@@ -46,24 +46,28 @@ $module_id = $xoopsModule -> getVar('mid');
 
 switch($permtoset) {
 	case 1:
-		$title_of_form = _AM_IMPRESSION_PERM_CPERMISSIONS;
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
+		. _AM_IMPRESSION_PERM_CPERMISSIONS . '</legend>';
 		$perm_name = 'ImpressionCatPerm';
-		$perm_desc = _AM_IMPRESSION_PERM_CSELECTPERMISSIONS;
+		$perm_desc = _AM_IMPRESSION_PERM_CSELECTPERMISSIONS . '</fieldset>';
 		break;
 	case 2:
-		$title_of_form = _AM_IMPRESSION_PERM_SPERMISSIONS;
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
+		. _AM_IMPRESSION_PERM_SPERMISSIONS . '</legend>';
 		$perm_name = 'ImpressionSubPerm';
-		$perm_desc = _AM_IMPRESSION_PERM_SPERMISSIONS_TEXT;
+		$perm_desc = _AM_IMPRESSION_PERM_SPERMISSIONS_TEXT . '</fieldset>';
 		break;
 	case 3:
-		$title_of_form = _AM_IMPRESSION_PERM_APERMISSIONS;
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
+		. _AM_IMPRESSION_PERM_APERMISSIONS . '</legend>';
 		$perm_name = 'ImpressionAppPerm';
-		$perm_desc = _AM_IMPRESSION_PERM_APERMISSIONS_TEXT;
+		$perm_desc = _AM_IMPRESSION_PERM_APERMISSIONS_TEXT . '</fieldset>';
 		break;
 	case 4:
-		$title_of_form = _AM_IMPRESSION_PERM_AUTOPERMISSIONS;
+		$title_of_form = '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">'
+		. _AM_IMPRESSION_PERM_AUTOPERMISSIONS . '</legend>';
 		$perm_name = 'ImpressionAutoApp';
-		$perm_desc = _AM_IMPRESSION_PERM_AUTOPERMISSIONS_TEXT;
+		$perm_desc = _AM_IMPRESSION_PERM_AUTOPERMISSIONS_TEXT . '</fieldset>';
 		break;
 }
 
