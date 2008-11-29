@@ -6,8 +6,6 @@
 *
 * File: topten.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
 * @copyright		http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
@@ -76,7 +74,7 @@ while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
 }
 
 $xoopsTpl -> assign( 'imageheader', '<div class="impression_header">' . impression_imageheader() . '</div>' );
-$xoopsTpl -> assign( 'back' , '<a href="javascript:history.go(-1)"><img src="' . XOOPS_URL . '/modules/' . $mydirname . '/images/icon/back.png" /></a>' );
+$xoopsTpl -> assign( 'back', '<a class="impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );
 $xoopsTpl -> assign( 'lang_sortby' , $lang_array[$sort_arr] );
 $xoopsTpl -> assign( 'rankings', $rankings );
 $xoopsTpl -> assign( 'module_dir', $mydirname );

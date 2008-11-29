@@ -6,8 +6,6 @@
 *
 * File: feed.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
 * @copyright		http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
@@ -22,14 +20,14 @@ include 'header.php';
 
 global $xoopsModuleConfig, $xoopsModule;
 	
-include_once ICMS_ROOT_PATH . '/class/icmsfeed.php'; 
+include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/impressionfeed.php'; 
 
 $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_configs' );
 $config_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
 
 if ( $config_arr['rssactive'] == 1 ) {
 	
-	$myFeed = new IcmsFeed();
+	$myFeed = new ImpressionFeed();
 	$myFeed -> webMaster 	 = $config_arr['rsswebmaster'];
 	$myFeed -> channelEditor = $config_arr['rsseditor'];
 	$myFeed -> image 		 = array( 'url' => $config_arr['rssimgurl'] );
@@ -68,7 +66,7 @@ if ( $config_arr['rssactive'] == 1 ) {
 	}
 	$myFeed -> render(); 
 } else {
-	$myFeed = new IcmsFeed(); 
+	$myFeed = new ImpressionFeed(); 
 	$myFeed -> feeds[] = array( 'title'       => $config_arr['rssofftitle'],
 								'link' 		  => ICMS_URL,
 								'description' => $config_arr['rssoffdsc']

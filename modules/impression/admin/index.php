@@ -6,8 +6,6 @@
 *
 * File: /admin/index.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
 * @copyright		http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
@@ -120,12 +118,12 @@ function edit( $aid = 0, $doclone = 0 ) {
 // Article introtext form
     $introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT, 'introtextb', $introtextb, '100%', '250px' );
     $introeditor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC . '</small>' );
-    $sform -> addElement($introeditor, true);
+    $sform -> addElement( $introeditor, false );
 
 // Article description form 
     $editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb, '100%', '600px' );
     $editor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC . '</small>' );
-    $sform -> addElement($editor, false);
+    $sform -> addElement( $editor, false );
 	
 // Linebreak option
 	$options_tray = new XoopsFormElementTray(_AM_IMPRESSION_TEXTOPTIONS, '<br />');

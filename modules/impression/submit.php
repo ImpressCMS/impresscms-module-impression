@@ -6,8 +6,6 @@
 *
 * File: submit.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
 * @copyright		http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
@@ -68,7 +66,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		}
 		
         if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
-            redirect_header( "index.php", 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
+            redirect_header( 'index.php', 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
             exit();
         } 
 
@@ -206,11 +204,11 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $sform -> addElement( $editor, false );
 		
 // Linebreak option
-	$options_tray = new XoopsFormElementTray( _MD_IMPRESSION_TEXTOPTIONS, '<br />' );
-    $breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
-    $breaks_checkbox -> addOption( 1, _MD_IMPRESSION_DISABLEBREAK );
-    $options_tray -> addElement( $breaks_checkbox );
-    $sform -> addElement( $options_tray );
+		$options_tray = new XoopsFormElementTray( _MD_IMPRESSION_TEXTOPTIONS, '<br />' );
+		$breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
+		$breaks_checkbox -> addOption( 1, _MD_IMPRESSION_DISABLEBREAK );
+		$options_tray -> addElement( $breaks_checkbox );
+		$sform -> addElement( $options_tray );
 
 // Meta meta_keywords form
         $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 5, 50 );
@@ -240,5 +238,4 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     redirect_header( 'index.php', 2, _MD_IMPRESSION_NOPERMISSIONTOPOST );
     exit();
 } 
-
 ?>

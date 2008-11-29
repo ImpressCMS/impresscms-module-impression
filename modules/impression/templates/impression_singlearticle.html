@@ -2,11 +2,11 @@
 
 <{$article.imageheader}>
 
-<div class="impression_path">
-     <div style="float: left;">&nbsp;<{$article.path}></div>
-     <div style="float: right;"><{$back}>&nbsp;</div>
+<div>
+     <div style="float: left; margin-left: 4px; font-size: smaller;"><{$article.path}></div>
+     <div style="float: right; padding: 2px;"><{$back}></div>
 </div>
-<div>&nbsp;</div>
+<div style="clear: both;">&nbsp;</div>
 
 <div class="impression_articleTitle"><{$article.title}><{$article.icons}></div>
 <div class="impression_articleMain">
@@ -32,4 +32,4 @@
 <{/if}>
 
 </div>
-<div class="impression_articleFooter"><{$article.pdf}>&nbsp;<{$article.print}>&nbsp;<{$article.recommend}><{if $xoops_isadmin}> <small><{$article.adminarticle}></small><{/if}>&nbsp;</div>
+<div class="impression_articleFooter"><{$article.pdf}><{$article.print}><{$article.recommend}><{if $xoops_isadmin}> <small><{$article.adminarticle}></small><{/if}>&nbsp;</div>

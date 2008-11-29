@@ -6,8 +6,6 @@
 *
 * File: /include/functions.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
 * @copyright		http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
@@ -703,9 +701,15 @@ function impression_tagupdate( $aid, $item_tag ) {
 }
 
 function impression_adminicons($aid, $dirname) {
-        $iconadmin = '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="' . _MD_IMPRESSION_ADMINSECTION . '" title="' . _MD_IMPRESSION_ADMINSECTION . '" align="absmiddle"/></a>';
-        $iconadmin .= '&nbsp;<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=edit&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pageedit_small.png" alt="' . _MD_IMPRESSION_EDIT . '" title="' . _MD_IMPRESSION_EDIT . '" align="absmiddle"/></a>&nbsp;';
-        $iconadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=delete&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pagedelete_small.png" alt="' . _MD_IMPRESSION_DELETE . '" title="' . _MD_IMPRESSION_DELETE . '" align="absmiddle"/></a>&nbsp;';
+        $iconadmin = '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php">
+					  <img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="' . _MD_IMPRESSION_ADMINSECTION . '" title="' . _MD_IMPRESSION_ADMINSECTION . '" align="absmiddle"/>
+					  </a>';
+        $iconadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=edit&amp;aid=' . $aid . '">
+					   <img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pageedit_small.png" alt="' . _MD_IMPRESSION_EDIT . '" title="' . _MD_IMPRESSION_EDIT . '" align="absmiddle"/>
+					   </a>';
+        $iconadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=delete&amp;aid=' . $aid . '">
+					   <img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pagedelete_small.png" alt="' . _MD_IMPRESSION_DELETE . '" title="' . _MD_IMPRESSION_DELETE . '" align="absmiddle"/>
+					   </a>';
         return $iconadmin;
 }
 
