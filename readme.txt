@@ -31,10 +31,12 @@ Tags
 ----
 To use the tag feature with Impression your installation needs the following:
 - Frameworks library installed
-- Xoops Tag module installed and active, for example version 1.6.
+    http://addons.impresscms.org/modules/wfdownloads/singlefile.php?lid=170
+- Xoops Tag module installed and active, for example version 1.6. 
+    http://addons.impresscms.org/modules/wfdownloads/singlefile.php?cid=8&lid=1333
 
 Make sure that you use versions for Xoops 2.0.18 and not for Xoops 2.3
-If the Tag module is installed and active an extra form for entering the tags will be visible in the submit forms.
+If the Tag module is installed and active, an extra form for entering the tags will be visible in the submit forms.
 
 Note: Do NOT use the blocks Top Tag and Tag Cloud when the Tag module is not installed.
 
@@ -42,4 +44,4 @@ Note: Do NOT use the blocks Top Tag and Tag Cloud when the Tag module is not ins
 
     .::McDonald::.
 
-    http://members.lycos.nl/mcdonaldsstore/
+    http://code.google.com/p/mcdonaldsstore/downloads/list
