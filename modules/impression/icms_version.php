@@ -50,11 +50,11 @@ $modversion['iconbig'] 			= 'images/impression_iconbig.png';
 $modversion['author'] 					= 'Version developer: John N';
 $modversion['credits'] 					= 'WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.';
 $modversion['author_credits'] 			= _MI_IMPRESSION_AUTHOR_CREDITSTEXT;
-$modversion['developer_website_url'] 	= 'http://members.lycos.nl/mcdonaldsstore/';
-$modversion['developer_website_name'] 	= 'McDonalds Store';
-$modversion['support_site_url'] 		= 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
-$modversion['support_site_name']		= 'ImpressCMS Community Forum - Modules Support';
-$modversion['submit_bug'] 				= 'http://sourceforge.net/tracker/?group_id=205633&atid=1064496';
+//$modversion['developer_website_url'] 	= 'http://members.lycos.nl/mcdonaldsstore/';
+//$modversion['developer_website_name'] 	= 'McDonalds Store';
+//$modversion['support_site_url'] 		= 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
+//$modversion['support_site_name']		= 'ImpressCMS Community Forum - Modules Support';
+//$modversion['submit_bug'] 				= 'http://sourceforge.net/tracker/?group_id=205633&atid=1064496';
 
 // 	** Contributors **
 $modversion['people']['developers'] [] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a> &nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
