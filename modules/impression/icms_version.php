@@ -81,9 +81,9 @@ $modversion['sqlfile']['mysql'] = 'sql/impression.sql';
 include_once 'include/config.php';
 $modversion['tables'][0] = 'impression_cat';
 $modversion['tables'][1] = 'impression_articles';
-//$modversion['tables'][2] = 'impression_mod';
-$modversion['tables'][2] = 'impression_indexpage';
-$modversion['tables'][3] = 'impression_altcat';
+$modversion['tables'][2] = 'impression_configs';
+$modversion['tables'][3] = 'impression_indexpage';
+$modversion['tables'][4] = 'impression_altcat';
 
 // Launch additional install script to check
 $modversion['onInstall'] = '';
