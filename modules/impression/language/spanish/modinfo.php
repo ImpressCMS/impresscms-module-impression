@@ -66,9 +66,9 @@ define('_MI_IMPRESSION_SUBCATS', 'Subcategorías:');
 define('_MI_IMPRESSION_SUBCATSDSC', 'Seleccione Sí para mostrar las subcategorías. Si elige No, las mismas no serán mostradas en los listados de la categoría a la que pertenecen.');
 
 define('_MI_IMPRESSION_EDITOR', "Editor a usar (admin):");
-define('_MI_IMPRESSION_EDITORCHOICE', "Select the editor to use for administration. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
-define('_MI_IMPRESSION_EDITORUSER', "Editor to use (user):");
-define('_MI_IMPRESSION_EDITORCHOICEUSER', "Select the editor to use for user side. If you have a 'simple' install (e.g you use only XOOPS core editor class, provided in the standard xoops core package), then you can just select DHTML and Compact.");
+define('_MI_IMPRESSION_EDITORCHOICE', "Seleccione el editor que se usará en la administración. Si solo ha hecho una instalación normal de ImpressCMS (sin ningún extra), podrá seleccionar DHTML y TinyMCE.");
+define('_MI_IMPRESSION_EDITORUSER', "Editor a usar (usuarios)");
+define('_MI_IMPRESSION_EDITORCHOICEUSER', "Seleccione el editor que se usará en la administración. Si solo ha hecho una instalación normal de ImpressCMS (sin ningún extra), podrá seleccionar DHTML y TinyMCE.");
 define("_MI_IMPRESSION_FORM_DHTML","DHTML");
 define("_MI_IMPRESSION_FORM_DHTMLEXT", "DHTML Extended");
 define("_MI_IMPRESSION_FORM_COMPACT","Compact");
@@ -78,52 +78,52 @@ define("_MI_IMPRESSION_FORM_KOIVI","Koivi Editor");
 define("_MI_IMPRESSION_FORM_TINYEDITOR","TinyEditor");
 define('_MI_IMPRESSION_FORM_TINYMCE','TinyMCE');
 
-define('_MI_IMPRESSION_USESHOTS', 'Display Screenshot Images?');
-define('_MI_IMPRESSION_USESHOTSDSC', 'Select yes to display screenshot images for each artículo item');
+define('_MI_IMPRESSION_USESHOTS', '¿Mostrar capturas de pantalla?');
+define('_MI_IMPRESSION_USESHOTSDSC', 'Seleccione Sí para mostrarlas en cada artículo');
 
 define('_MI_IMPRESSION_USETHUMBS', 'Usar miniaturas:');
-define("_MI_IMPRESSION_USETHUMBSDSC", "Supported image types: JPG, GIF, PNG.<div style='padding-top: 8px;'>Impression will use thumb nails for images. Set to 'No' to use orginal image if the server does not support this option.</div>");
+define("_MI_IMPRESSION_USETHUMBSDSC", "Tipos de archivos de imagen admitidos: JPG, GIF, PNG.<div style='padding-top: 8px;'>Impression usará las miniauturas para las imágenes. Seleccione 'No' para usar la imagen original si el servidor no permite dicha opción.</div>");
 
 define("_MI_IMPRESSION_IMGUPDATE", "¿Actualizar miniaturas?");
-define("_MI_IMPRESSION_IMGUPDATEDSC", "If selected Thumbnail images will be updated at each page render, otherwise the first thumbnail image will be used regardless. <br /><br />");
+define("_MI_IMPRESSION_IMGUPDATEDSC", "Seleccionado esta opción, las imágenes serán actualizadas cada vez que se genere la página; en otro caso se usará siempre la primera miniatura. <br /><br />");
 
-define('_MI_IMPRESSION_MAINIMGDIR','Main image directory');
+define('_MI_IMPRESSION_MAINIMGDIR','Directorio para la imagen principal');
 
-define('_MI_IMPRESSION_CATEGORYIMG','Category image upload directory');
+define('_MI_IMPRESSION_CATEGORYIMG','Directorio para almacenar las imágenes de las categorías');
 
 define('_MI_IMPRESSION_DATEFORMAT', 'Formato de fecha:');
 define('_MI_IMPRESSION_DATEFORMATDSC', 'Formato de fecha predeterminado a usar en el módulo.<br />Lea el <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">manual de PHP</a> para más información');
 
 define('_MI_IMPRESSION_DATEFORMATADMIN', 'Administración del formato de fecha:');
-define('_MI_IMPRESSION_DATEFORMATADMINDSC', ' Default admininstration timestamp for Impression.<br />See <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">PHP manual</a>');
+define('_MI_IMPRESSION_DATEFORMATADMINDSC', '<br />Lea el <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">manual de PHP</a>');
 
-define("_MI_IMPRESSION_TOTALCHARS", "Set total amount of characters for description?");
-define("_MI_IMPRESSION_TOTALCHARSDSC", "Set total amount of characters for description on Index Page.");
+define("_MI_IMPRESSION_TOTALCHARS", "Establezca el total de caracteres para la descripción?");
+define("_MI_IMPRESSION_TOTALCHARSDSC", "El mismo será usado en las descripciones de los artículos en la página índice.");
 
 define("_MI_IMPRESSION_OTHERARTICLES", "¿Mostrar otros artículos del mismo autor?");
 define("_MI_IMPRESSION_OTHERARTICLESDSC", "Seleccione Sí para mostrar los demás artículos del mismo autor.");
 
-define("_MI_IMPRESSION_SHOWARTCOUNT", "Show artículo count in categoría list?");
-define("_MI_IMPRESSION_SHOWARTCOUNTDSC", "Select Yes if you want the amount of artículos per categoría have displayed.");
+define("_MI_IMPRESSION_SHOWARTCOUNT", "Mostrar el número de artículos en la vista por categorías?");
+define("_MI_IMPRESSION_SHOWARTCOUNTDSC", "Seleccione Sí para mostrar el número total de artículos.");
 
-define("_MI_IMPRESSION_SHOWSBOOKMARKS", "Show social bookmarks?");
-define("_MI_IMPRESSION_SHOWSBOOKMARKSDSC", "Select Yes if you want Social Bookmark icons to be displayed under artículo.");
+define("_MI_IMPRESSION_SHOWSBOOKMARKS", "¿Mostrar marcadores sociales?");
+define("_MI_IMPRESSION_SHOWSBOOKMARKSDSC", "Seleccione Sí si desea que dicho bloque sea mostrado en la parte inferior de cada artículo.");
 
-define("_MI_IMPRESSION_USEMETADESCR", "Generate meta description:");
-define("_MI_IMPRESSION_USEMETADSC", "With this option the meta description will be based on the artículo introtext.");
+define("_MI_IMPRESSION_USEMETADESCR", "Generar meta descripción:");
+define("_MI_IMPRESSION_USEMETADSC", "Con esta opción la misma estará basada en el texo de introducción del artículo.");
 
-define('_MI_IMPRESSION_SHOWDISCLAIMER', 'Mostrar la limitación de respondabilidad antes del envío del visitante o usuario?');
-define('_MI_IMPRESSION_SHOWDISCLAIMERDSC', 'Before a user can submit an artículo show the entry regulations?');
+define('_MI_IMPRESSION_SHOWDISCLAIMER', '¿Mostrar la limitación de responsabilidad antes del envío del visitante o usuario?');
+define('_MI_IMPRESSION_SHOWDISCLAIMERDSC', '');
 
 define('_MI_IMPRESSION_DISCLAIMER', 'Establezca el texto de la limitación de responsabilidad:');
 
-define('_MI_IMPRESSION_SHOWARTICLEDISCL', 'Show disclaimer before user artículo?');
-define('_MI_IMPRESSION_SHOWARTICLEDISCLDSC', 'Show artículo regulations before open an artículo?');
+define('_MI_IMPRESSION_SHOWARTICLEDISCL', 'Mostrar la limitación de responsabilidad antes del contenido de los artículos?');
+define('_MI_IMPRESSION_SHOWARTICLEDISCLDSC', 'Se mostrará antes de abrir el artículo correspondiente');
 
-define('_MI_IMPRESSION_ARTICLEDISCLAIMER', 'Enter artículo disclaimer text:');
+define('_MI_IMPRESSION_ARTICLEDISCLAIMER', 'Introduzca el texto de la limitación de responsabilidad:');
 
-define('_MI_IMPRESSION_COPYRIGHT', 'Copyright notice:');
-define('_MI_IMPRESSION_COPYRIGHTDSC', 'Select to display a copyright notice on artículo page.');
+define('_MI_IMPRESSION_COPYRIGHT', 'Contenido del copyright:');
+define('_MI_IMPRESSION_COPYRIGHTDSC', 'Seleccione si desea mostrar un aviso de copyright en los artículos.');
 
 //define('_MI_IMPRESSION_REFERERS', 'These sites can directly article to your videos <br />Separate with #');
 //define("_MI_IMPRESSION_ANONPOST","Anonymous User Submission:");
@@ -131,79 +131,72 @@ define('_MI_IMPRESSION_COPYRIGHTDSC', 'Select to display a copyright notice on a
 //define('_MI_IMPRESSION_AUTOAPPROVE','Auto Approve Submitted articles');
 //define('_MI_IMPRESSION_AUTOAPPROVEDSC','Select to approve submitted articles without moderation.');
 
-define('_MI_IMPRESSION_MAXFILESIZE','Tamaño máximo Upload size (KB)');
-define('_MI_IMPRESSION_MAXFILESIZEDSC','Maximum artículo size permitted with artículo uploads.');
-define('_MI_IMPRESSION_IMGWIDTH','Upload image width');
-define('_MI_IMPRESSION_IMGWIDTHDSC','Maximum image width permitted when uploading image artículos');
-define('_MI_IMPRESSION_IMGHEIGHT','Upload image height');
-define('_MI_IMPRESSION_IMGHEIGHTDSC','Maximum image height permitted when uploading image artículos');
+define('_MI_IMPRESSION_MAXFILESIZE','Tamaño máximo (KB)');
+define('_MI_IMPRESSION_MAXFILESIZEDSC','Tamaño máximo permitido para que el artículo pueda ser enviado al sitio.');
+define('_MI_IMPRESSION_IMGWIDTH','Anchura de las imágenes');
+define('_MI_IMPRESSION_IMGWIDTHDSC','Ancho máximo permitido para las imágenes que se suban con artículos');
+define('_MI_IMPRESSION_IMGHEIGHT','Altura de las imágenes');
+define('_MI_IMPRESSION_IMGHEIGHTDSC','Altura máxima permitida cuando se suban imágenes en los artículos');
 
-define('_MI_IMPRESSION_UPLOADDIR','Upload directory (no trailing slash)');
-define('_MI_IMPRESSION_ALLOWSUBMISS','User submissions:');
-define('_MI_IMPRESSION_ALLOWSUBMISSDSC','Allow users to submit new artículos');
-define('_MI_IMPRESSION_ALLOWUPLOADS','User uploads:');
-define('_MI_IMPRESSION_ALLOWUPLOADSDSC','Allow users to upload artículos directly to your website');
-define('_MI_IMPRESSION_SCREENSHOTS','Screenshots upload directory');
+define('_MI_IMPRESSION_UPLOADDIR','Directorio para almacenar (no trailing slash)');
+define('_MI_IMPRESSION_ALLOWSUBMISS','Envíos de usuarios:');
+define('_MI_IMPRESSION_ALLOWSUBMISSDSC','Permitir a los usuarios enviar nuevos artículos');
+define('_MI_IMPRESSION_ALLOWUPLOADS','Subidas de usuarios:');
+define('_MI_IMPRESSION_ALLOWUPLOADSDSC','Permitir a los usuarios guardar artículos directamente en el sitio web');
+define('_MI_IMPRESSION_SCREENSHOTS','Directorio para almacenar las capturas de pantalla');
 
 define("_MI_IMPRESSION_SUBMITART", "Envío de artículos:");
 define("_MI_IMPRESSION_SUBMITARTDSC", "Seleccione los grupos que podrán enviar nuevos artículos.");
 
-define("_MI_IMPRESSION_QUALITY", "Thumb Nail Quality:");
-define("_MI_IMPRESSION_QUALITYDSC", "Quality Lowest: 0 Highest: 100");
-define("_MI_IMPRESSION_KEEPASPECT", "Keep Image Aspect Ratio?");
+define("_MI_IMPRESSION_QUALITY", "Calidad de las miniaturas:");
+define("_MI_IMPRESSION_QUALITYDSC", "Más baja: 0; Más alta: 100");
+define("_MI_IMPRESSION_KEEPASPECT", "¿Mantener la ratio para el aspecto de la imagen?");
 define("_MI_IMPRESSION_KEEPASPECTDSC", "");
 
 define("_MI_IMPRESSION_TITLE", "Título");
 define("_MI_IMPRESSION_WEIGHT", "Importancia");
-define("_MI_IMPRESSION_POPULARITY", "Readings");
+define("_MI_IMPRESSION_POPULARITY", "Lecturas");
 define("_MI_IMPRESSION_SUBMITTED2", "Fecha del envío");
 
 // Text for notifications
 define('_MI_IMPRESSION_GLOBAL_NOTIFY', 'Global');
-define('_MI_IMPRESSION_GLOBAL_NOTIFYDSC', 'Global artículos notification options.');
-define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Category');
-define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Notification options that apply to the current artículo categoría.');
-define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'artículo');
-define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Notification options that apply to the current artículo.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'Nueva Category');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Notify me when a new artículo categoría is created.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Receive notification when a new artículo categoría is created.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificacióncle categoría');
-
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Modify artículo Requested');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Notify me of any artículo modification request.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Receive notification when any video modification request is submitted.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificación : artículo Modification Requested');
-
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFY', 'Broken artículo Submitted');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYCAP', 'Notify me of any broken artículo report.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYDSC', 'Receive notification when any broken artículo report is submitted.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificación : Broken Video Reported');
-
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'Video Submitted');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Notify me when any new video is submitted (awaiting approval).');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC', 'Receive notification when any new video is submitted (awaiting approval).');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificación : New video submitted');
-
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY', 'New Video');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP', 'Notify me when any new video is posted.');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC', 'Receive notification when any new video is posted.');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificación : New video');
-
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY', 'Video Submitted');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Notify me when a new video is submitted (awaiting approval) to the current categoría.');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Receive notification when a new video is submitted (awaiting approval) to the current categoría.');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificación : New video submitted in categoría');
-
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY', 'New Video');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP', 'Notify me when a new video is posted to the current categoría.');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC', 'Receive notification when a new video is posted to the current categoría.');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificación : New video in categoría');
-
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY', 'Video Approved');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'Notify me when this Video is approved.');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Receive notification when this video is approved.');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificación : Video Approved');
+define('_MI_IMPRESSION_GLOBAL_NOTIFYDSC', 'Opciones globales de notificación de artículos.');
+define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Categoría');
+define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Opciones de notificación que se aplicarán en la categoría actual.');
+define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'Artículos');
+define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Opciones de notificación que se aplicarán en el artículo actual.');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'Nuevas Categorías');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Notificarme cuando una nueva categoría es creada.');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Recibir notificación cuando una nueva categoría es creada.');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevas categorías');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Solicitud de modificación de artículos');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Notificarme de cualquier solicitud de modificación de artículo.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Recibir notificación cuando se reciba cualquier solicitud de modificación de artículo.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : solicitud de modificación de artículos');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFY', 'Reporte de artículo erróneo');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYCAP', 'Notificarme de cualquier reporte de artículo erróneo.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYDSC', 'Recibir notificación cuando se reciba un reporte de artículo erróneo.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : reporte de artículo erróneo');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'Enlace enviado');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Notificarme cuando cualquier nuevo artículo sea enviado y este aguardando aprobación.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC', 'Recibir notificación de cualquier nuevo artículo enviado que este aguardando aprobación.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo enviado');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY', 'Nuevo artículo');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP', 'Notificarme cuando un nuevo artículo es publicado.');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC', 'Recibir notificación cuando un nuevo artículo es publicado.');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY', 'Enlace enviado');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Notificarme cuando cualquier nuevo artículo sea enviado en esta categoría y este aguardando aprobación.');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Recibir notificación de cualquier nuevo artículo enviado en esta categoría y que este aguardando aprobación.');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo enviado en la nategoría');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY', 'Nuevo artículo');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP', 'Notificarme cuando un nuevo artículo es publicado en esta categoría.');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC', 'Recibir notificación cuando un nuevo artículo es publicado en esta categoría.');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo publicado en la categoría');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY', 'Artículo aprobado');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'Notificarme cuando este artículo sea aprobado.');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Recibir notificación cuando este artículo sea aprobado.');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : artículo aprobado');
 
 define('_MI_IMPRESSION_AUTHOR_INFO', "Developer information");
 define('_MI_IMPRESSION_AUTHOR_NAME', "Developer");
@@ -221,17 +214,17 @@ define('_MI_IMPRESSION_MODULE_DISCLAIMER', "Disclaimer");
 define('_MI_IMPRESSION_RELEASE', "Release date: ");
 define('_MI_IMPRESSION_ICONS_CREDITS', "Icons by:");
 
-define("_MI_IMPRESSION_HEADERPRINT","[Opciones de impresión] header");
-define("_MI_IMPRESSION_HEADERPRINTDSC","Header that will be printed for each artículo");
-define("_MI_IMPRESSION_PRINTLOGOURL","[Opciones de impresión] Logo print url");
-define("_MI_IMPRESSION_PRINTLOGOURLDSC","Url of the logo that will be printed at the top of the page");
-define("_MI_IMPRESSION_FOOTERPRINT","[Opciones de impresión] Print page footer");
-define("_MI_IMPRESSION_FOOTERPRINTDSC","Footer that will be printed for each artículo");
-define("_MI_IMPRESSION_ITEMFOOTER_SEL", "Item footer");
-define("_MI_IMPRESSION_INDEXFOOTER_SEL","Index footer");
-define("_MI_IMPRESSION_BOTH_FOOTERS","Both footers");
-define("_MI_IMPRESSION_NO_FOOTERS","None");
-define("_MI_IMPRESSION_ITEMFOOTER", "[Opciones de impresión] Item footer");
+define("_MI_IMPRESSION_HEADERPRINT","[Opciones de impresión] Cabecera");
+define("_MI_IMPRESSION_HEADERPRINTDSC","Cabecera que se imprimirá en cada artíclo");
+define("_MI_IMPRESSION_PRINTLOGOURL","[Opciones de impresión] URL del logo a imprimir");
+define("_MI_IMPRESSION_PRINTLOGOURLDSC","Se imprimirá al principio de la página");
+define("_MI_IMPRESSION_FOOTERPRINT","[Opciones de impresión] Pie de página");
+define("_MI_IMPRESSION_FOOTERPRINTDSC","Pie de página que se imprimirá para cada artículo");
+define("_MI_IMPRESSION_ITEMFOOTER_SEL", "Pie de página de cada ítem");
+define("_MI_IMPRESSION_INDEXFOOTER_SEL","Pie de página del índice");
+define("_MI_IMPRESSION_BOTH_FOOTERS","Ambos pies de página");
+define("_MI_IMPRESSION_NO_FOOTERS","Ninguno");
+define("_MI_IMPRESSION_ITEMFOOTER", "[Opciones de impresión] Ítem del pie de página");
 
 define('_MI_IMPRESSION_WARNINGTEXT', "THE SOFTWARE IS PROVIDED BY MCDONALD \"AS IS\" AND \"WITH ALL FAULTS.\"
 MCDONALD MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING
@@ -248,18 +241,18 @@ MCDONALD HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES..");
 define('_MI_IMPRESSION_AUTHOR_CREDITSTEXT',"WF-Projects Team. Based on the module WF-Links & MyTube, thanks to the dream-team for some code snippits.");
 define('_MI_IMPRESSION_AUTHOR_BUGFIXES', "Bug Fix History");
 
-define('_MI_IMPRESSION_COPYRIGHTIMAGE', "");
+define('_MI_IMPRESSION_COPYRIGHTIMAGE', "Imagen del copyright");
 
 define("_MI_IMPRESSION_KEYLENGTH", "Máximo de caracteres para las palabras clave:");
-define("_MI_IMPRESSION_KEYLENGTHDSC", "predeterminado es 255 caracteres");
+define("_MI_IMPRESSION_KEYLENGTHDSC", "valor predeterminado: 255 caracteres");
 define("_MI_IMPRESSION_HEADLINES", "Titulares" );
 define("_MI_IMPRESSION_HEADLINESDSC", "Establezca el número de titulares a mostrar.");
-define("_MI_IMPRESSION_BTAGCLOUD", "Impression Tag Cloud");
-define("_MI_IMPRESSION_BTOPTAG", "Impression Top Tags");
-define("_MI_IMPRESSION_LINKEDTERMS", "Link to terms in glossary?" );
-define("_MI_IMPRESSION_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
-define("_MI_IMPRESSION_IMGLOSSARYDIR", "Folder name of imGlossary:" );
-define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
+define("_MI_IMPRESSION_BTAGCLOUD", "Nube de etiquetas de Impression");
+define("_MI_IMPRESSION_BTOPTAG", "Etiquetas más frecuentes de Impression");
+define("_MI_IMPRESSION_LINKEDTERMS", "¿Enlazar a los términos del glosario?" );
+define("_MI_IMPRESSION_LINKEDTERMSDSC", "El módulo imGlossary necesita estar instalado para activar esta característica." );
+define("_MI_IMPRESSION_IMGLOSSARYDIR", "Nombre de la carpeta de imGlossary:" );
+define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "Nombre de la carpeta en la que está instalado imGlossary.<br />Predeterminado: <em>imglossary</em>" );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
 define( "_MI_IMPRESSION_CAPTCHA", "¿Usar Captcha en el formulario de envío?" );
 define( "_MI_IMPRESSION_CAPTCHADSC", "Seleccione <em>Sí</em> para usar Captcha en el mismo.<br /> Predeterminado: <em>Sí</em>" );
