@@ -1,6 +1,6 @@
 <?php
 /**
-* imLinks - a multicategory links management module for ImpressCMS
+* Impression - a 'light' article management module for ImpressCMS
 *
 * Based upon WF-Links 1.06
 *
@@ -20,15 +20,17 @@
 * @since			1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
-* 				imLinks
+* 				Impression
 * @since			1.00
 * @author		McDonald
 * @version		$Id$
 */
 
-$impressiondir = basename( dirname( dirname( __FILE__ ) ) );
+//$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 
-include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/include/functions.php';
+//include_once ICMS_ROOT_PATH . '../include/functions.php';
+
+global $icmsConfig;
 
 $adminmenu[1]['title'] = _MI_IMPRESSION_BINDEX;
 $adminmenu[1]['link']  = 'admin/index.php';
@@ -55,43 +57,43 @@ $adminmenu[5]['link']  = 'admin/upload.php';
 $adminmenu[5]['icon']  = 'images/icon/upload.png';
 $adminmenu[5]['small'] = 'images/icon/upload_small.png';
 
-$adminmenu[6]['title'] = _MI_IMPRESSION_BLOCKADMIN;
-$adminmenu[6]['link']  = 'admin/myblocksadmin.php';
-$adminmenu[6]['icon']  = 'images/icon/blocks.png';
-$adminmenu[6]['small'] = 'images/icon/blocks_small.png';
+$adminmenu[6]['title'] 	= _MI_IMPRESSION_RSSFEED;
+$adminmenu[6]['link']	= 'admin/feed.php?op=edit';
+$adminmenu[6]['icon']	= 'images/icon/feed32.png';
+$adminmenu[6]['small']	= 'images/icon/feed.png';
 
-$adminmenu[7]['title'] 	= _MI_IMPRESSION_RSSFEED;
-$adminmenu[7]['link']	= 'admin/feed.php?op=edit';
-$adminmenu[7]['icon']	= 'images/icon/feed32.png';
-$adminmenu[7]['small']	= 'images/icon/feed.png';
+if ( isset( icms::$module ) ) {
 
-global $xoopsModule, $xoopsConfig;
-
-if ( isset( $xoopsModule ) ) {
-
-	icms_loadLanguageFile( $impressiondir, 'admin' );
+	icms_loadLanguageFile( basename( dirname( dirname( __FILE__ ) ) ), 'admin' );
 
 	$i = -1;
 	
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMPRESSION_GOMODULE;
-	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $impressiondir;
+	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' );
 
 	$i++;
 	$headermenu[$i]['title'] = _PREFERENCES;
-	$headermenu[$i]['link']  = '../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=' . $xoopsModule -> getVar( 'mid' );
+	$headermenu[$i]['link']  = '../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=' . icms::$module -> getVar( 'mid' );
 
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMPRESSION_BUPDATE;
-	$headermenu[$i]['link']  = ICMS_URL . '/modules/system/admin.php?fct=modulesadmin&op=update&module=' . $impressiondir;
+	$headermenu[$i]['link']  = ICMS_URL . '/modules/system/admin.php?fct=modulesadmin&op=update&module=' . icms::$module -> getVar( 'dirname' );
 	
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMPRESSION_BPERMISSIONS;
-	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $impressiondir . '/admin/permissions.php';
+	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/permissions.php';
+	
+	$i++;
+	$headermenu[$i]['title'] = _COMMENTS;
+	$headermenu[$i]['link']	 = '../../system/admin.php?module=' . icms::$module -> getVar( 'mid' ) . '&status=0&limit=100&fct=comments&selsubmit=Go';
+	
+	$i++;
+	$headermenu[$i]['title'] = _AM_IMPRESSION_PRUNE;
+	$headermenu[$i]['link']	 = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/prune.php';
 
 	$i++;
 	$headermenu[$i]['title'] = _AM_IMPRESSION_ABOUT;
-	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . $impressiondir . '/admin/about.php';
+	$headermenu[$i]['link']  = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/about.php';
 }
-
 ?>

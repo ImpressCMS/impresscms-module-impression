@@ -164,45 +164,41 @@ define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Kategorie');
 define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Benachrichtigungsoptionen, welche die aktuelle Beitragskategorie betreffen.');
 define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'Beitrag');
 define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Benachrichtigungsoptionen, welche den aktuellen Beitrag betreffen.');
+
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'neue Kategorie');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Benachrichtigen Sie mich, wenn eine neue Beitragskategorie erstellt wurde.');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Mitteilung erhalten, wenn eine neue Beitragskategorie erstellt wurde.');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : Neue Beitragskategorie');
 
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Beitragsänderung angefordert');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Benachrichtigen Sie mich über jede Beitragsänderungsaufforderung.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Mitteilung erhalten, wenn eine Aufforderung zur Beitragsänderung eingereicht wurde.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : zur Beitragsänderung aufgefordert');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Änderung eines Artikels wurde beantragt');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Benachrichtigen Sie mich, wenn ein Antrag zu einer Änderung eines Artikels aussteht.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Mitteilung erhalten, wenn ein Antrag zu einer Änderung eines Artikels aussteht.');
+define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : Artikeländerung beantragt');
 
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFY', 'unvollständiger Beitrag eingereicht');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYCAP', 'Benachrichtigen Sie mich über jeden unvollständigen Beitrag.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYDSC', 'Mitteilung erhalten, wenn ein unvollständiger Beitrag eingereicht wurde.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : unvollständiger ArtikelBroken Video Reported');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'eingereichtes Artikel');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Benachrichtigen Sie mich, wenn ein neues Artikel eingereicht wurde (Überprüfung abwartend).');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC', 'Mitteilung erhalten, wenn ein Artikel eingereicht wurde (Überprüfung abwartend).');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Artikel eingereicht');
 
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'eingereichtes Video');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Benachrichtigen Sie mich, wenn ein neues Video eingereicht wurde (Überprüfung abwartend).');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC', 'Mitteilung erhalten, wenn ein Video eingereicht wurde (Überprüfung abwartend).');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Video eingereicht');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY', 'Neues Artikel');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP', 'Benachrichtigen Sie mich, wenn ein neues Artikel gepostet wurde.');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC', 'Mitteilung erhalten, wenn ein neues Artikel gepostet wurde.');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Artikel');
 
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY', 'Neues Video');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP', 'Benachrichtigen Sie mich, wenn ein neues Video gepostet wurde.');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC', 'Mitteilung erhalten, wenn ein neues Video gepostet wurde.');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Video');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY', 'eingereichtes Artikel');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP', 'benachrichtigen Sie mich, wenn ein neues Artikel eingestellt wurde (Überprüfung abwartend) to the current category.');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Mitteilung erhalten, wenn ein neues Artikel eingereicht wurde (Überprüfung abwartend) in der aktuellen Kategorie.');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Artikel eingereicht in der Kategorie');
 
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY', 'eingereichtes Video');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP', 'benachrichtigen Sie mich, wenn ein neues Video eingestellt wurde (Überprüfung abwartend) to the current category.');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Mitteilung erhalten, wenn ein neues Video eingereicht wurde (Überprüfung abwartend) in der aktuellen Kategorie.');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Video eingereicht in der Kategorie');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY', 'neues Artikel');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP', 'benachrichtigen Sie mich, wenn ein neues Artikel in der aktuellen Kategorie eingestellt wurde.');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC', 'Mitteilung erhalten, wenn ein neues Artikel in der aktuellen Kategorie geposted wurde.');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Artikel in der Kategorie');
 
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY', 'neues Video');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP', 'benachrichtigen Sie mich, wenn ein neues Video in der aktuellen Kategorie eingestellt wurde.');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC', 'Mitteilung erhalten, wenn ein neues Video in der aktuellen Kategorie geposted wurde.');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : neues Video in der Kategorie');
-
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY', 'Video geprüft');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'benachrichtigen Sie mich, wenn dieses Video überprüft wurde.');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Mitteilung erhalten, wenn dieses Video überprüft wurde.');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : Video überprüft');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY', 'Artikel geprüft');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'benachrichtigen Sie mich, wenn dieses Artikel überprüft wurde.');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Mitteilung erhalten, wenn dieses Artikel überprüft wurde.');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} automatische Benachrichtigung : Artikel überprüft');
 
 define('_MI_IMPRESSION_AUTHOR_INFO', "Entwicklerinformation");
 define('_MI_IMPRESSION_AUTHOR_NAME', "Entwickler");
@@ -254,13 +250,30 @@ define("_MI_IMPRESSION_KEYLENGTHDSC", "Vorgabe ist 255 Zeichen");
 define("_MI_IMPRESSION_HEADLINES", "Schlagzeilen" );
 define("_MI_IMPRESSION_HEADLINESDSC", "Geben sie die Anzahl der Schlagzeilen an, welche angezeigt werden sollen.");
 define("_MI_IMPRESSION_BTAGCLOUD", "Impression Tagwolke");
-define("_MI_IMPRESSION_BTOPTAG", "Impression Top Tags");
-define("_MI_IMPRESSION_LINKEDTERMS", "Link to terms in glossary?" );
-define("_MI_IMPRESSION_LINKEDTERMSDSC", "The module imGlossary needs to be installed and active for this feature." );
-define("_MI_IMPRESSION_IMGLOSSARYDIR", "Folder name of imGlossary:" );
-define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "The name of the folder where imGlossary is in.<br />Default: <em>imglossary</em>" );
+define("_MI_IMPRESSION_BTOPTAG", "Impression Top Wörter");
+define("_MI_IMPRESSION_LINKEDTERMS", "Link zum Glossar Begriff?" );
+define("_MI_IMPRESSION_LINKEDTERMSDSC", "Das Modul imGlossary muss installiert und aktiviert sein für diese Funktion. Diese Funktion geht nur im Modul innerhalb des Haupttextes." );
+define("_MI_IMPRESSION_IMGLOSSARYDIR", "Verzeichnisname von imGlossary:" );
+define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "Geben Sie den Verzeichnisname an indem das Modul imGlossary liegt.<br />Voreinstellung: <em>imglossary</em>" );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
-define( "_MI_IMPRESSION_CAPTCHA", "Use captcha in submit form?" );
-define( "_MI_IMPRESSION_CAPTCHADSC", "Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>" );
 define( '_MI_IMPRESSION_RSSFEED', 'RSS Feed' );
+
+define( '_MI_IMPRESSION_SHOWSUBMITTER', 'Zeige den Einsender?' );
+define( '_MI_IMPRESSION_SHOWSUBMITTERDSC', 'Wählen Sie <em>Ja</em> um den Namen des Einsenders anzuzeigen.' );
+define( '_MI_IMPRESSION_USERTAGDESCR', 'Benutzer können Tags einreichen:' );
+define( '_MI_IMPRESSION_USERTAGDSC', 'Wählen Sie <em>Ja</em> wenn Benutzer Tags einreichen dürfen.' );
+define( '_MI_IMPRESSION_NICEURL', 'Nutze schöne URLs?' );
+define( '_MI_IMPRESSION_NICEURLDSC', 'Nutze schöne URLs für Artikel.(SEO)' );
+
+// Impression 1.1.0
+define( '_MI_IMPRESSION_CAPTCHA', 'Eine Verifizierung (Captcha) einschalten?' );
+define( '_MI_IMPRESSION_CAPTCHADSC', 'Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>' );
+define( '_MI_IMPRESSION_BYTESYN', 'Zeige im Fussbereich:' );
+define( '_MI_IMPRESSION_BYTESDESC', 'Zeige Extra-Information im Fussbereich nach <em>Weiter lesen</em>.' );
+define( '_MI_IMPRESSION_BYTES', 'Bytes' );
+define( '_MI_IMPRESSION_WORDS', 'Wörter' );
+define( '_MI_IMPRESSION_CHARSF', 'Zeichen' );
+define( '_MI_IMPRESSION_BNEWS', 'Beiträge nach Kategorie');
+define( '_MI_IMPRESSION_TEXTWIDTH', 'Set width of title boxes in administration:' );
+define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Select the width of the text boxes used for titles in submit forms. Default is 128.' );
 ?>

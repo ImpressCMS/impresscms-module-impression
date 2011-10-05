@@ -29,96 +29,111 @@
 include 'admin_header.php';
 
 $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
-$aid = impression_cleanRequestVars( $_REQUEST, 'aid', '' );
-$requestid = impression_cleanRequestVars( $_REQUEST, 'requestid', 0 );
+$aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', '' ) );
+$requestid = intval( impression_cleanRequestVars( $_REQUEST, 'requestid', 0 ) );
 
 switch ( strtolower( $op ) ) {
     case 'approve':
 
-        global $xoopsModule;
-        $sql = 'SELECT cid, title, publisher FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
-        if ( !$result = $xoopsDB -> query( $sql ) ) {
-            XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+        $sql = 'SELECT cid, title, notifypub FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
+        if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
-        list( $cid, $title, $publisher ) = $xoopsDB -> fetchRow( $result );
-
+        list( $cid, $title, $notifypub ) = icms::$xoopsDB -> fetchRow( $result );
+		
+		$publisher = icms::$user -> getVar('uname');
         // Update the database
-        $xoopsDB -> queryF( 'UPDATE ' . $xoopsDB -> prefix( 'impression_articles' ) . ' SET published=' . time() .', status=0, publisher=' . $publisher . ' WHERE aid=' . $aid );
+        $sql2 = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET published=" . time() .", status='0', publisher='$publisher' WHERE aid=" . $aid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql2 ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+            return false;
+        }
 
-        $sql = 'SELECT title FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $cid;
-        if ( !$result = $xoopsDB -> query( $sql ) ) {
-            XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
-        } 
-
+		$tags = array();
+        $tags['ARTICLE_NAME'] = $title;
+        $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?aid=' . $aid;
+		
+        $sql3 = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $cid;
+        if ( !$result = icms::$xoopsDB -> query( $sql3 ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+        } else {
+            $row = icms::$xoopsDB -> fetchArray( $result );
+            $tags['CATEGORY_NAME'] = $row['title'];
+            $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/viewcat.php?cid=' . $cid;
+            $notification_handler = icms::handler( 'icms_data_notification' );
+            $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
+            $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );
+            if ( intval( $notifypub ) == 1 ) {
+                $notification_handler -> triggerEvent( 'article', $aid, 'approve', $tags );
+            } 
+        }
         redirect_header( 'newarticles.php', 1, _AM_IMPRESSION_SUB_NEWFILECREATED );
         break;
 
     case 'main':
     default:
 
-        global $xoopsModuleConfig;
-
         $start = impression_cleanRequestVars( $_REQUEST, 'start', 0 );
-        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE status=3 ORDER BY aid DESC';
-        if ( !$result = $xoopsDB -> query( $sql ) ) {
-            XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+        $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE status=3 ORDER BY aid DESC';
+        if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
-        $new_array = $xoopsDB -> query( $sql, $xoopsModuleConfig['admin_perpage'], $start );
-        $new_array_count = $xoopsDB -> getRowsNum( $xoopsDB -> query( $sql ) );
+        $new_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
+        $new_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
 
-        xoops_cp_header();
+        icms_cp_header();
         impression_adminmenu( '', _AM_IMPRESSION_SUB_SUBMITTEDFILES );
 
-        echo "  <fieldset style='border: #e8e8e8 1px solid;'>
-				<legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_SUB_FILESWAITINGINFO . "</legend>\n
-                <span style='padding: 12px;'><br />" . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . "<b>$new_array_count</b><br /><br /><span>\n
+        echo '  <fieldset style="border: #e8e8e8 1px solid;">
+				<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_SUB_FILESWAITINGINFO . '</legend>
+				<div style="padding: 8px;">
+                <span>' . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . '<b>' . $new_array_count . '</b><br /><br /><span>
 
-                <div style='padding: 8px;'><li>&nbsp;&nbsp;" . $imagearray['approve'] . " " . _AM_IMPRESSION_SUB_APPROVEWAITINGFILE . "<br />
-                <li>&nbsp;&nbsp;" . $imagearray['editimg'] . " " . _AM_IMPRESSION_SUB_EDITWAITINGFILE . "<br />
-                <li>&nbsp;&nbsp;" . $imagearray['deleteimg'] . " " . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . "</div>\n
-                </fieldset><br />\n
-              ";
+                <span>
+				' . $imagearray['approve'] . ' ' . _AM_IMPRESSION_SUB_APPROVEWAITINGFILE . '<br />
+                ' . $imagearray['editimg'] . ' ' . _AM_IMPRESSION_SUB_EDITWAITINGFILE . '<br />
+                ' . $imagearray['deleteimg'] . ' ' . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . '</span>
+                </div></fieldset><br />';
 
-        echo "<table width='100%' cellspacing='1' class='outer'>\n";
-        echo "<tr style='text-align: center;'>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_ID . "</small></th>\n";
-        echo "<th style='text-align: left;'><small>" . _AM_IMPRESSION_MINDEX_TITLE . "</small></th>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_POSTER . "</small></th>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_SUBMITTED . "</small></th>\n";
-        echo "<th><small>" . _AM_IMPRESSION_MINDEX_ACTION . "</small></th>\n";
-        echo "</tr>\n";
+        echo '<table width="100%" cellspacing="1" class="outer">';
+        echo '<tr style="text-align: center;">';
+        echo '<th><small>' . _AM_IMPRESSION_MINDEX_ID . '</small></th>';
+        echo '<th style="text-align: left;"><small>' . _AM_IMPRESSION_MINDEX_TITLE . '</small></th>';
+        echo '<th><small>' . _AM_IMPRESSION_MINDEX_POSTER . '</small></th>';
+        echo '<th><small>' . _AM_IMPRESSION_MINDEX_SUBMITTED . '</small></th>';
+        echo '<th><small>' . _AM_IMPRESSION_MINDEX_ACTION . '</small></th>';
+        echo '</tr>';
         if ( $new_array_count > 0 ) {
-            while ( $new = $xoopsDB -> fetchArray( $new_array ) ) {
+            while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
                 $aid = intval( $new['aid'] );
                 $title = $impressionmyts -> htmlSpecialCharsStrip( $new['title'] );
-                $submitter = icms_getLinkedUnameFromId( $new['submitter'] );
-                $datetime = formatTimestamp( $new['date'], $xoopsModuleConfig['dateformat'] );
+                $submitter = icms_member_user_Handler::getUserLink( $new['uid'] );
+                $datetime = impression_time( formatTimestamp( $new['date'], icms::$module -> config['dateformat'] ) );
 
-                $icon = ( $new['published'] ) ? $approved : "<a href='newarticles.php?op=approve&amp;aid=" . $aid . "'>" . $imagearray['approve'] . "</a>&nbsp;";
-                $icon .= "<a href='index.php?op=edit&amp;aid=" . $aid . "'>" . $imagearray['editimg'] . "</a>&nbsp;";
-                $icon .= "<a href='index.php?op=delete&amp;aid=" . $aid . "'>" . $imagearray['deleteimg'] . "</a>";
+                $icon = ( $new['published'] ) ? $approved : '<a href="newarticles.php?op=approve&amp;aid=' . $aid . '">' . $imagearray['approve'] . '</a>&nbsp;';
+                $icon .= '<a href="index.php?op=edit&amp;aid=' . $aid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
+                $icon .= '<a href="index.php?op=delete&amp;aid=' . $aid . '">' . $imagearray['deleteimg'] . '</a>';
 
-                echo "<tr>\n";
-                echo "<td class='head' style='text-align: center;'><small>$aid</small></td>\n";
-                echo "<td class='even' nowrap><a href='newarticles.php?op=edit&amp;aid=" . $aid . "'><small>$title</small></a></td>\n";
-                echo "<td class='even' style='text-align: center;' nowrap><small>$submitter</small></td>\n";
-                echo "<td class='even' style='text-align: center;'><small>$datetime</small></td>\n";
-                echo "<td class='even' style='text-align: center;' nowrap>$icon</td>\n";
-                echo "</tr>\n";
+                echo '<tr>';
+                echo '<td class="head" style="text-align: center;"><small>'. $aid . '</small></td>';
+                echo '<td class="even" nowrap><a href="newarticles.php?op=edit&amp;aid=' . $aid . '"><small>' . $title. '</small></a></td>';
+                echo '<td class="even" style="text-align: center;" nowrap><small>' . $submitter . '</small></td>';
+                echo '<td class="even" style="text-align: center;"><small>' . $datetime . '</small></td>';
+                echo '<td class="even" style="text-align: center;" nowrap>' . $icon . '</td>';
+                echo '</tr>';
             } 
         } else {
-          echo "<tr><td style='text-align: center;' class='head' colspan='6'>" . _AM_IMPRESSION_SUB_NOFILESWAITING . "</td></tr>";
+          echo '<tr><td style="text-align: center;" class="head" colspan="6">' . _AM_IMPRESSION_SUB_NOFILESWAITING . '</td></tr>';
         } 
-        echo "</table>\n";
+        echo '</table>';
 
-        include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-        $page = ( $new_array_count > $xoopsModuleConfig['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
-        $pagenav = new XoopsPageNav( $new_array_count, $xoopsModuleConfig['admin_perpage'], $start, 'start' );
+        include_once ICMS_ROOT_PATH . '/class/pagenav.php';
+        $page = ( $new_array_count > icms::$module -> config['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
+        $pagenav = new icms_view_PageNav( $new_array_count, icms::$module -> config['admin_perpage'], $start, 'start' );
         echo '<div align="right" style="padding: 8px;">' . $page . '' . $pagenav -> renderNav() . '</div>';
-        xoops_cp_footer();
+        icms_cp_footer();
         break;
 } 
-
 ?>

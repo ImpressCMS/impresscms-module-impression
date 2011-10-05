@@ -28,113 +28,82 @@
 
 include 'admin_header.php';
 
-global $xoopsModuleConfig;
-
 $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
-$cid = impression_cleanRequestVars( $_REQUEST, 'cid', 0 );
+$cid = intval( impression_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
 
 switch ( strtolower( $op ) ) {
     case 'save':
-        $indexheading = $impressionmyts -> addslashes( xoops_trim($_REQUEST['indexheading']) );
-        $indexheader = $impressionmyts -> addslashes( xoops_trim($_REQUEST['indexheader']) );
-        $indexfooter = $impressionmyts -> addslashes( xoops_trim($_REQUEST['indexfooter']) );
-        $indeximage = $impressionmyts -> addslashes( $_REQUEST['indeximage'] );
-//        $nohtml = isset( $_REQUEST['nohtml'] ) ? 1 : 0;
-//        $nosmiley = isset( $_REQUEST['nosmiley'] ) ? 1 : 0;
-//        $noxcodes = isset( $_REQUEST['noxcodes'] ) ? 1 : 0;
-//        $noimages = isset( $_REQUEST['noimages'] ) ? 1 : 0;
-//        $nobreak = isset( $_REQUEST['nobreak'] ) ? 1 : 0;
-        $indexheaderalign = $impressionmyts -> addslashes( $_REQUEST['indexheaderalign'] );
-        $indexfooteralign = $impressionmyts -> addslashes( $_REQUEST['indexfooteralign'] );
+        $indexheading = icms_core_DataFilter::addSlashes( trim($_REQUEST['indexheading']) );
+        $indexheader = icms_core_DataFilter::addSlashes( trim($_REQUEST['indexheader']) );
+        $indexfooter = icms_core_DataFilter::addSlashes( trim($_REQUEST['indexfooter']) );
+        $indeximage = icms_core_DataFilter::addSlashes( $_REQUEST['indeximage'] );
+        $indexheaderalign = icms_core_DataFilter::addSlashes( $_REQUEST['indexheaderalign'] );
+        $indexfooteralign = icms_core_DataFilter::addSlashes( $_REQUEST['indexfooteralign'] );
 		$lastarticlesyn = $_REQUEST['lastarticlesyn'];
-        $lastarticlestotal = $impressionmyts -> addslashes( $_REQUEST['lastarticlestotal'] );
-        $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlesyn='$lastarticlesyn', lastarticlestotal='$lastarticlestotal'";
-        if ( !$result = $xoopsDB -> query( $sql ) ) {
-            XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+        $lastarticlestotal = icms_core_DataFilter::addSlashes( $_REQUEST['lastarticlestotal'] );
+        $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlesyn='$lastarticlesyn', lastarticlestotal='$lastarticlestotal'";
+        if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
         redirect_header( 'index.php', 1, _AM_IMPRESSION_IPAGE_UPDATED );
         break;
 
     default:
-        $sql = "SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastarticlesyn, lastarticlestotal FROM " . $xoopsDB -> prefix( 'impression_indexpage' );
-        if ( !$result = $xoopsDB -> query( $sql ) ) {
-            XoopsErrorHandler_HandleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+        $sql = 'SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastarticlesyn, lastarticlestotal FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' );
+        if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+            icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
             return false;
         } 
-        list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastarticlesyn, $lastarticlestotal ) = $xoopsDB -> fetchrow( $result );
+        list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastarticlesyn, $lastarticlestotal ) = icms::$xoopsDB -> fetchrow( $result );
 
-        xoops_cp_header();
+        icms_cp_header();
         impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
 
-        echo "<fieldset style='border: #e8e8e8 1px solid;'><legend style='display: inline; font-weight: bold; color: #0A3760;'>" . _AM_IMPRESSION_IPAGE_INFORMATION . "</legend>\n
-		 <div style='padding: 8px;'>" . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . "</div>\n
-		 </fieldset><br />\n
-		";
-        $sform = new XoopsThemeForm( _AM_IMPRESSION_IPAGE_MODIFY, "op", xoops_getenv( 'PHP_SELF' ) );
-        $sform -> addElement( new XoopsFormText( _AM_IMPRESSION_IPAGE_CTITLE, 'indexheading', 60, 60, $indexheading ), false );
-        $graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . "/" . $xoopsModuleConfig['mainimagedir'], $type = "images" );
-        $indeximage_select = new XoopsFormSelect( '', 'indeximage', $indeximage );
+        echo '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_IPAGE_INFORMATION . '</legend>
+		 <div style="padding: 8px;"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />' . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . '</div>
+		 </fieldset><br />';
+        $sform = new icms_form_Theme( _AM_IMPRESSION_IPAGE_MODIFY, 'op', '' );
+		
+        $sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_CTITLE, 'indexheading', icms::$module -> config['txt_width'], 128, $indexheading ), false );
+        $graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . '/' . icms::$module -> config['mainimagedir'], $type = 'images' );
+        $indeximage_select = new icms_form_elements_Select( '', 'indeximage', $indeximage );
         $indeximage_select -> addOptionArray( $graph_array );
-        $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"indeximage\", \"" . $xoopsModuleConfig['mainimagedir'] . "\", \"\", \"" . ICMS_URL . "\")'" );
-        $indeximage_tray = new XoopsFormElementTray( _AM_IMPRESSION_IPAGE_CIMAGE, '&nbsp;' );
+        $indeximage_select -> setExtra( "onchange='showImgSelected(\"image\", \"indeximage\", \"" . icms::$module -> config['mainimagedir'] . "\", \"\", \"" . ICMS_URL . "\")'" );
+        $indeximage_tray = new icms_form_elements_Tray( _AM_IMPRESSION_IPAGE_CIMAGE, '&nbsp;' );
         $indeximage_tray -> addElement( $indeximage_select );
         if ( !empty( $indeximage ) ) {
-            $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/" . $xoopsModuleConfig['mainimagedir'] . "/" . $indeximage . "' name='image' id='image' alt='' />" ) );
+            $indeximage_tray -> addElement( new icms_form_elements_Label( '', '<br /><br /><img src="' . ICMS_URL . '/' . icms::$module -> config['mainimagedir'] . '/' . $indeximage . '" name="image" id="image" alt="" />' ) );
         } else {
-            $indeximage_tray -> addElement( new XoopsFormLabel( '', "<br /><br /><img src='" . ICMS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
+            $indeximage_tray -> addElement( new icms_form_elements_Label( '', "<br /><br /><img src='" . ICMS_URL . "/uploads/blank.gif' name='image' id='image' alt='' />" ) );
         } 
         $sform -> addElement( $indeximage_tray );
 
-        $editor = impression_getWysiwygForm( _AM_IMPRESSION_IPAGE_CHEADING, 'indexheader', $indexheader, '100%', '400px' );
-        $sform -> addElement($editor, false);
+        $editor = impression_getWysiwygForm( _AM_IMPRESSION_IPAGE_CHEADING, 'indexheader', $indexheader, 250, 10 );
+        $sform -> addElement( $editor, false );
 
-        $headeralign_select = new XoopsFormSelect( _AM_IMPRESSION_IPAGE_CHEADINGA, "indexheaderalign", $indexheaderalign );
-        $headeralign_select -> addOptionArray( array( "left" => _AM_IMPRESSION_IPAGE_CLEFT, "right" => _AM_IMPRESSION_IPAGE_CRIGHT, "center" => _AM_IMPRESSION_IPAGE_CCENTER ) );
+        $headeralign_select = new icms_form_elements_Select( _AM_IMPRESSION_IPAGE_CHEADINGA, 'indexheaderalign', $indexheaderalign );
+        $headeralign_select -> addOptionArray( array( 'left' => _AM_IMPRESSION_IPAGE_CLEFT, 'right' => _AM_IMPRESSION_IPAGE_CRIGHT, 'center' => _AM_IMPRESSION_IPAGE_CCENTER ) );
         $sform -> addElement( $headeralign_select );
 
-        $sform -> addElement( new XoopsFormTextArea( _AM_IMPRESSION_IPAGE_CFOOTER, 'indexfooter', $indexfooter, 10, 60 ) );
-        $footeralign_select = new XoopsFormSelect( _AM_IMPRESSION_IPAGE_CFOOTERA, "indexfooteralign", $indexfooteralign );
-        $footeralign_select -> addOptionArray( array( "left" => _AM_IMPRESSION_IPAGE_CLEFT, "right" => _AM_IMPRESSION_IPAGE_CRIGHT, "center" => _AM_IMPRESSION_IPAGE_CCENTER ) );
+        $sform -> addElement( new icms_form_elements_Textarea( _AM_IMPRESSION_IPAGE_CFOOTER, 'indexfooter', $indexfooter, 5, 60 ) );
+        $footeralign_select = new icms_form_elements_Select( _AM_IMPRESSION_IPAGE_CFOOTERA, 'indexfooteralign', $indexfooteralign );
+        $footeralign_select -> addOptionArray( array( 'left' => _AM_IMPRESSION_IPAGE_CLEFT, 'right' => _AM_IMPRESSION_IPAGE_CRIGHT, 'center' => _AM_IMPRESSION_IPAGE_CCENTER ) );
         $sform -> addElement( $footeralign_select );
 
-//        $options_tray = new XoopsFormElementTray( _AM_IMPRESSION_TEXTOPTIONS, '<br />' );
-		//html option
-//        $html_checkbox = new XoopsFormCheckBox( '', 'nohtml', $nohtml );
-//        $html_checkbox -> addOption( 1, _AM_IMPRESSION_DISABLEHTML );
-//        $options_tray -> addElement( $html_checkbox );
-		//smiley option
-//        $smiley_checkbox = new XoopsFormCheckBox( '', 'nosmiley', $nosmiley );
-//        $smiley_checkbox -> addOption( 1, _AM_IMPRESSION_DISABLESMILEY );
-//        $options_tray -> addElement( $smiley_checkbox );
-		//xcodes option
-//        $xcodes_checkbox = new XoopsFormCheckBox( '', 'noxcodes', $noxcodes );
-//        $xcodes_checkbox -> addOption( 1, _AM_IMPRESSION_DISABLEXCODE );
-//        $options_tray -> addElement( $xcodes_checkbox );
-		//noimages option
-//        $noimages_checkbox = new XoopsFormCheckBox( '', 'noimages', $noimages );
-//        $noimages_checkbox -> addOption( 1, _AM_IMPRESSION_DISABLEIMAGES );
-//        $options_tray -> addElement( $noimages_checkbox );
-		//breaks option
-//        $breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
-//        $breaks_checkbox -> addOption( 1, _AM_IMPRESSION_DISABLEBREAK );
-//        $options_tray -> addElement( $breaks_checkbox );
-//        $sform -> addElement( $options_tray );
+		$sform -> addElement(  new icms_form_elements_Radioyn( _AM_IMPRESSION_IPAGE_SHOWLATEST, 'lastarticlesyn', $lastarticlesyn, ' ' . _YES . '', ' ' . _NO . '' ) );
 
-		$sform -> addElement(  new XoopsFormRadioYN( _AM_IMPRESSION_IPAGE_SHOWLATEST, 'lastarticlesyn', $lastarticlesyn, ' ' . _YES . '', ' ' . _NO . '' ) );
-
-        $lastarticlestotalform = new XoopsFormText( _AM_IMPRESSION_IPAGE_LATESTTOTAL, 'lastarticlestotal', 2, 2, $lastarticlestotal );
-		$lastarticlestotalform -> setDescription( "<small>" . _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC . "</small>");
+        $lastarticlestotalform = new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_LATESTTOTAL, 'lastarticlestotal', 2, 2, $lastarticlestotal );
+		$lastarticlestotalform -> setDescription( '<small>' . _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC . '</small>' );
         $sform -> addElement( $lastarticlestotalform, false );
 
-        $button_tray = new XoopsFormElementTray( '', '' );
-        $hidden = new XoopsFormHidden( 'op', 'save' );
+        $button_tray = new icms_form_elements_Tray( '', '' );
+        $hidden = new icms_form_elements_Hidden( 'op', 'save' );
         $button_tray -> addElement( $hidden );
-        $button_tray -> addElement( new XoopsFormButton( '', 'post', _AM_IMPRESSION_BSAVE, 'submit' ) );
+        $button_tray -> addElement( new icms_form_elements_Button( '', 'post', _AM_IMPRESSION_BSAVE, 'submit' ) );
         $sform -> addElement( $button_tray );
         $sform -> display();
         break;
 } 
-xoops_cp_footer();
-
+icms_cp_footer();
 ?>

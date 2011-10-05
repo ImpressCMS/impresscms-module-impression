@@ -29,7 +29,7 @@ include 'header.php';
 $xoopsOption['template_main'] = 'impression_topten.html';
 include ICMS_ROOT_PATH . '/header.php';
 
-$mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
+$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
 $action_array 	= array( 'hit' => 0 );
 $list_array 	= array( 'hits' );
@@ -41,31 +41,31 @@ $sort_arr 	= $action_array[$sort];
 $sortDB 	= $list_array[$sort_arr];
 
 $arr = array();
-$result = $xoopsDB -> query( 'SELECT cid, title, pid FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid=0 ORDER BY ' . $xoopsModuleConfig['sortcats'] );
+$result = icms::$xoopsDB -> query( 'SELECT cid, title, pid FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid=0 ORDER BY ' . icms::$module -> config['sortcats'] );
 
 $e = 0;
-while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
+while ( list( $cid, $ctitle ) = icms::$xoopsDB -> fetchRow( $result ) ) {
     if ( true == impression_checkgroups( $cid ) ) {
-        $query = 'SELECT aid, cid, title, hits FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status = 0 AND (cid=' . intval($cid);
+        $query = 'SELECT aid, cid, title, hits, nice_url FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status = 0 AND (cid=' . intval( $cid );
         $arr = $mytree -> getAllChildId( $cid );
         for( $i = 0; $i < count( $arr ); $i++ ) {
             $query .= ' or cid=' . $arr[$i] . '';
         }
         $query .= ') order by ' . $sortDB . ' DESC';
-        $result2 = $xoopsDB -> query( $query, 10, 0 );
-        $filecount = $xoopsDB -> getRowsNum( $result2 );
+        $result2 = icms::$xoopsDB -> query( $query, 10, 0 );
+        $filecount = icms::$xoopsDB -> getRowsNum( $result2 );
 
         if ( $filecount > 0 ) {
             $rankings[$e]['title'] = $impressionmyts -> htmlSpecialCharsStrip( $ctitle );
             $rank = 1;
-            while ( list( $did, $dcid, $dtitle, $hits ) = $xoopsDB -> fetchRow( $result2 ) ) {
+            while ( list( $did, $dcid, $dtitlea, $hits, $nice_url ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
 				
-				$result3 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $dcid );
-				$mycat = $xoopsDB -> fetchArray( $result3 );
-				
+				$result3 = icms::$xoopsDB -> query( 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $dcid );
+				$mycat = icms::$xoopsDB -> fetchArray( $result3 );	
                 $category = $mycat['title'];
-                $dtitle = $impressionmyts -> htmlSpecialCharsStrip( $dtitle );
-                $rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $category, 'hits' => $hits );
+                $dtitle = $impressionmyts -> htmlSpecialCharsStrip( $dtitlea );
+				$nice_link = impression_nicelink( $dtitlea, $nice_url );
+                $rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $category, 'hits' => $hits, 'nice_link' => $nice_link );
                 $rank++;
             }
             $e++;
@@ -73,12 +73,14 @@ while ( list( $cid, $ctitle ) = $xoopsDB -> fetchRow( $result ) ) {
     }
 }
 
-$xoopsTpl -> assign( 'imageheader', '<div class="impression_header">' . impression_imageheader() . '</div>' );
+if ( impression_imageheader() ) {
+	$xoopsTpl -> assign( 'imageheader', '<div class="impression_header">' . impression_imageheader() . '</div>' );
+}
 $xoopsTpl -> assign( 'back', '<a class="impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );
 $xoopsTpl -> assign( 'lang_sortby' , $lang_array[$sort_arr] );
 $xoopsTpl -> assign( 'rankings', $rankings );
-$xoopsTpl -> assign( 'module_dir', $mydirname );
+$xoopsTpl -> assign( 'nice_url', icms::$module -> config['niceurl'] );
+$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 
 include ICMS_ROOT_PATH . '/footer.php';
-
 ?>

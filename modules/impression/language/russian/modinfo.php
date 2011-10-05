@@ -164,20 +164,11 @@ define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Категория');
 define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Опции оповещений, которые добавляются к текущей категории статей.');
 define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'Статья');
 define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Опции оповещений, которые добавляются к текущей статье.');
+
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'Новая категория');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Оповестить меня, когда будет создана новая категория статей.');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Получить оповещение, когда будет создана новая категория статей.');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Новая категория статей');
-
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Запрос о редактировании статьи');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Оповестить меня о запросе на редактирование любой статьи.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Получить оповещение, когда будет размещен запрос на редактирование любой статьи.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Запрос на редактирование статьи');
-
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFY', 'Обнаружена некорректная статья');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYCAP', 'Оповестить меня, когда будет сообщено о любой некоррктной статье.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYDSC', 'Получить оповещение, когда будет размещен запрос о любой некорректной статье.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} автооповещение : Сообщение о некорректной статье');
 
 define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'Размещено видео');
 define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Notify me when any new video is submitted (awaiting approval).');
@@ -260,7 +251,24 @@ define("_MI_IMPRESSION_LINKEDTERMSDSC", "Для этого свойства не
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Имя каталога imGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "Имя каталога, где расположен модуль imGlossary.<br />По умолчанию: <em>imglossary</em>" );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
-define( "_MI_IMPRESSION_CAPTCHA", "Использовать captcha в форме для размещения?" );
-define( "_MI_IMPRESSION_CAPTCHADSC", "Выберите <em>Да</em> для использования captcha в формах для размещения статей.<br />По умолчанию: <em>Да</em>" );
 define( '_MI_IMPRESSION_RSSFEED', 'RSS канал' );
+
+define( '_MI_IMPRESSION_SHOWSUBMITTER', 'Show submitter?' );
+define( '_MI_IMPRESSION_SHOWSUBMITTERDSC', 'Select <em>Yes</em> to have the submitters name printed above the artice.' );
+define( '_MI_IMPRESSION_USERTAGDESCR', 'Пользователь может размещать тэги?' );
+define( '_MI_IMPRESSION_USERTAGDSC', 'Выберите <em>Да</em>, если пользователю разрешено размещать тэги.' );
+define( '_MI_IMPRESSION_NICEURL', 'Use nice urls?' );
+define( '_MI_IMPRESSION_NICEURLDSC', 'Use nice urls for articles.' );
+
+// Impression 1.1.0
+define( '_MI_IMPRESSION_CAPTCHA', 'Use captcha in submit form?' );
+define( '_MI_IMPRESSION_CAPTCHADSC', 'Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>' );
+define( '_MI_IMPRESSION_BYTESYN', 'Display in footer:' );
+define( '_MI_IMPRESSION_BYTESDESC', 'Displays extra information in the footer after <em>Read more</em>.' );
+define( '_MI_IMPRESSION_BYTES', 'Bytes' );
+define( '_MI_IMPRESSION_WORDS', 'Words' );
+define( '_MI_IMPRESSION_CHARSF', 'Characters' );
+define( '_MI_IMPRESSION_BNEWS', 'News by category');
+define( '_MI_IMPRESSION_TEXTWIDTH', 'Set width of title boxes in administration:' );
+define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Select the width of the text boxes used for titles in submit forms. Default is 128.' );
 ?>

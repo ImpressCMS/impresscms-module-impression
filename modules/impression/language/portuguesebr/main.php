@@ -143,7 +143,7 @@ define( "_MD_IMPRESSION_NOITEMSELECTED", "Você não selecionou um artigo válid
 define( "_MD_IMPRESSION_ARTICLESCAT", " Artigos" );
 define( "_MD_IMPRESSION_ADMINSECTION", "Setor Administrativo" );
 define( "_MD_IMPRESSION_ARTICLE", "Título do artigo" );
-define( "_MD_IMPRESSION_WHO_WHEN", "Publicado por %s em %s" );
+define( "_MD_IMPRESSION_WHO_WHEN", "Publicado %s em %s" );
 define( "_MD_IMPRESSION_RANK", "Rank" );
 //define( "_MD_IMPRESSION_EDIT", "Editar artigo" );
 //define( "_MD_IMPRESSION_DELETE", "Apagar artigo" );
@@ -151,4 +151,14 @@ define( '_MD_IMPRESSION_FEED', 'RSS feed' );
 define( '_MD_IMPRESSION_TEXTOPTIONS', 'Opções do Texto:' );
 define( '_MD_IMPRESSION_DISABLEBREAK', ' Usar linebreak conversão?' );
 define( '_MD_IMPRESSION_BACKBUTTON', 'Back' );
+define( '_MD_IMPRESSION_NEW', 'New' );
+define( '_MD_IMPRESSION_UPDATE', 'Update' );
+define( '_MD_IMPRESSION_GETFEED', 'Get RSS news feed' );
+
+// Impression 1.1.0
+define( '_MD_IMPRESSION_BYTESMORE', 'bytes more' );
+define( '_MD_IMPRESSION_WORDSMORE', 'words more' );
+define( '_MD_IMPRESSION_CHARSMORE', 'characters more' );
+define( '_MD_IMPRESSION_PDF_PAGE', 'Page ' );
+define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Sorry, you do not have permission to view this category.' );
 ?>

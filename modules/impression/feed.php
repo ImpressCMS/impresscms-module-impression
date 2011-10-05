@@ -17,13 +17,10 @@
 */
 
 include 'header.php';
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/impressionfeed.php'; 
 
-global $xoopsModuleConfig, $xoopsModule;
-	
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/impressionfeed.php'; 
-
-$sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'imlinks_configs' );
-$config_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_configs' );
+$config_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
 if ( $config_arr['rssactive'] == 1 ) {
 	
@@ -39,20 +36,19 @@ if ( $config_arr['rssactive'] == 1 ) {
 	$myFeed -> ttl 			 = $config_arr['rssttl'];
 	$myFeed -> copyright 	 = $config_arr['rsscopyright'];
 	
-	$sql2 = $xoopsDB -> query( 'SELECT aid, cid, title, published, introtext, publisher, nobreak FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 ORDER BY published DESC ', $xoopsModuleConfig['rssfeedtotal'], 0 );
-    while ( $myrow = $xoopsDB -> fetchArray( $sql2 ) ) {	
+	$sql2 = icms::$xoopsDB -> query( 'SELECT aid, cid, title, published, introtext, nice_url FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status=0 ORDER BY published DESC ', $config_arr['rsstotal'], 0 );
+    while ( $myrow = icms::$xoopsDB -> fetchArray( $sql2 ) ) {	
 		
 		// First get the main category title of the link
-		$sql3 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix('impression_cat') . ' WHERE cid=' . $myrow['cid'] );
-        $mycat = $xoopsDB -> fetchArray( $sql3 );
+		$sql3 = icms::$xoopsDB -> query( 'SELECT title FROM ' . icms::$xoopsDB -> prefix('impression_cat') . ' WHERE cid=' . $myrow['cid'] );
+        $mycat = icms::$xoopsDB -> fetchArray( $sql3 );
 		$category = htmlspecialchars( $mycat['title'] );
 		
-		// Get date, title, definition (shortened), author and the url of the link
-		$author= $myrow['publisher'];
-		$title = htmlspecialchars( $myrow['title'] );
-		$date  = formatTimestamp( $myrow['published'], 'D, d M Y H:i:s' );
-		$text  = htmlspecialchars( $impressionmyts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, $myrow['nobreak'] ) );
-		$link  = ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . intval( $myrow['cid'] ) . '&amp;aid=' . intval( $myrow['aid'] );
+		// Get date, title, definition (shortened) and the url of the link
+		$title  = htmlspecialchars( $myrow['title'] );
+		$date   = formatTimestamp( $myrow['published'], 'r' );
+		$text   = htmlspecialchars( $myrow['introtext'] );
+		$link   = impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], icms::$module -> config['niceurl'] );
 
 		$myFeed -> feeds[] = array (
 			'title' 		=> $title,
@@ -60,7 +56,6 @@ if ( $config_arr['rssactive'] == 1 ) {
 			'description' 	=> $text,
 			'pubdate' 		=> $date,
 			'category'		=> $category,
-			'author'		=> $author,
 			'guid' 			=> $link
 			);
 	}

@@ -16,7 +16,7 @@ define("_MI_IMPRESSION_DESC", "Een eenvoudige module om artikelen mee maken en t
 
 // Names of blocks for this module (Not all module has blocks)
 define("_MI_IMPRESSION_BSPOT", "Spotlight");
-define("_MI_IMPRESSION_BNEW", "Recente koppen");
+define("_MI_IMPRESSION_BNEW", "Recente Titels");
 
 // Sub menu titles
 define("_MI_IMPRESSION_SMNAME1", "Zend een artikel in");
@@ -158,51 +158,42 @@ define("_MI_IMPRESSION_POPULARITY", "Aantal keer gelezen");
 define("_MI_IMPRESSION_SUBMITTED2", "Inzend datum");
 
 // Text for notifications
-define('_MI_IMPRESSION_GLOBAL_NOTIFY', 'Global');
-define('_MI_IMPRESSION_GLOBAL_NOTIFYDSC', 'Global articles notification options.');
-define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Category');
-define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Notification options that apply to the current article category.');
-define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'Article');
-define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Notification options that apply to the current article.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'New Category');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Notify me when a new article category is created.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Receive notification when a new article category is created.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New article category');
+define('_MI_IMPRESSION_GLOBAL_NOTIFY', 'Globaal');
+define('_MI_IMPRESSION_GLOBAL_NOTIFYDSC', 'Globale artikel bericht opties.');
+define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Categorie');
+define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Bericht opties van toepassing op de huidige categorie.');
+define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'Artikel');
+define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Bericht opties van toepassing op het huidige artikel.');
 
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Modify Article Requested');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Notify me of any article modification request.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Receive notification when any video modification request is submitted.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Article Modification Requested');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'Nieuwe categorie');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Bericht me wanneer een nieuwe categorie is aangemaakt.');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Ontvang een bericht wanneer een nieuwe categorie is aangemaakt.');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Nieuwe categorie');
 
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFY', 'Broken Article Submitted');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYCAP', 'Notify me of any broken article report.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYDSC', 'Receive notification when any broken article report is submitted.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Broken Video Reported');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'Artikel ingezonden');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Bericht me wanneer een nieuw artikel is ingezonden (wachtend op goedkeuring).');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC', 'Ontvang een bericht wanneer een nieuw artikel is ingezonden (wachtend op goedkeuring).');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Nieuw artikel ingezonden');
 
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'Video Submitted');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Notify me when any new video is submitted (awaiting approval).');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC', 'Receive notification when any new video is submitted (awaiting approval).');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New video submitted');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY', 'Nieuw artikel');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP', 'Bericht me wanneer een nieuw artikel is ingezonden.');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC', 'Ontvang een bericht wanneer een nieuw artikel is ingezonden.');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Nieuw artikel');
 
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY', 'New Video');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP', 'Notify me when any new video is posted.');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC', 'Receive notification when any new video is posted.');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New video');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY', 'Artikel ingezonden');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Bericht me wanneer een nieuw artikel is ingezonden (wachtend op goedkeuring) in de huidige categorie.');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Ontvang een bericht wanneer een nieuw artikel is ingezonden (wachtend op goedkeuring) in de huidige categorie.');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Nieuw artikel ingezonden in categorie');
 
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY', 'Video Submitted');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Notify me when a new video is submitted (awaiting approval) to the current category.');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Receive notification when a new video is submitted (awaiting approval) to the current category.');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New video submitted in category');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY', 'Nieuw artikel');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP', 'Bericht me wanneer een nieuw artikel is in de huidige categorie.');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC', 'Ontvang een bericht wanneer een nieuw artikel is in de huidige categorie.');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Nieuw artikel in categorie');
 
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY', 'New Video');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP', 'Notify me when a new video is posted to the current category.');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC', 'Receive notification when a new video is posted to the current category.');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New video in category');
-
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY', 'Video Approved');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'Notify me when this Video is approved.');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Receive notification when this video is approved.');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Video Approved');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY', 'Artikel goedgekeurd');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'Bericht me wanneer dit artikel is goedgekeurd.');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Ontvang een bericht wanneer dit artikel is goedgekeurd.');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : Artikel goedgekeurd');
 
 define('_MI_IMPRESSION_AUTHOR_INFO', "Ontwikkelaar informatie");
 define('_MI_IMPRESSION_AUTHOR_NAME', "Ontwikkelaar");
@@ -261,7 +252,24 @@ define("_MI_IMPRESSION_IMGLOSSARYDIR", "Map naam van imGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "De naam van de map waarin imGlossary zich bevindt.<br />Standaard: <em>imglossary</em>" );
 define( '_MI_IMPRESSION_FEEDSTOTALDSC', 'Dit aantal heeft alleen invloed op de ImpressCMS RSS feed. Standaard: <em>15</em>' );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - een kopie van de GNU licentie is bijgesloten (license.txt).' );
-define( "_MI_IMPRESSION_CAPTCHA", "Gebruik captcha in inzendformulier?" );
-define( "_MI_IMPRESSION_CAPTCHADSC", "Kies <em>Ja</em> om captcha in het inzendformulier te gebruiken.<br />Standaard: <em>Ja</em>" );
 define( '_MI_IMPRESSION_RSSFEED', 'RSS Feed' );
+
+define( '_MI_IMPRESSION_SHOWSUBMITTER', 'Laat naam inzender zien?' );
+define( '_MI_IMPRESSION_SHOWSUBMITTERDSC', 'Kies <em>Ja</em> om de naam van de inzender boven de artikelen te laten zien.' );
+define( '_MI_IMPRESSION_USERTAGDESCR', 'Gebruiker kan Tags invoeren?' );
+define( '_MI_IMPRESSION_USERTAGDSC', 'Kies <em>Ja</em> als de gebruiker tags mag inzenden.' );
+define( '_MI_IMPRESSION_NICEURL', 'Gebruik nette urls?' );
+define( '_MI_IMPRESSION_NICEURLDSC', 'Gebruik nette urls voor artikelen.' );
+
+// Impression 1.1.0
+define( "_MI_IMPRESSION_CAPTCHA", "Gebruik captcha in het Inzend formulier?" );
+define( "_MI_IMPRESSION_CAPTCHADSC", "Kies <em>Ja</em> om captcha in het Inzend formulier te gebruiken.<br />Standaard: <em>Ja</em>" );
+define( '_MI_IMPRESSION_BYTESYN', 'Weergeven in voettekst:' );
+define( '_MI_IMPRESSION_BYTESDESC', 'Geef extra informatie in de voettekst na <em>Lees meer</em>.' );
+define( '_MI_IMPRESSION_BYTES', 'Bytes' );
+define( '_MI_IMPRESSION_WORDS', 'Woorden' );
+define( '_MI_IMPRESSION_CHARSF', 'Karakters' );
+define( '_MI_IMPRESSION_BNEWS', 'Nieuws per categorie');
+define( '_MI_IMPRESSION_TEXTWIDTH', 'Kies breedte van de titel vakken in de administratie:' );
+define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Kies de breedte van de tekst vakken die o.a. gebruikt worden voor de titels in Inzend formulieren. Standaard is 128.' );
 ?>

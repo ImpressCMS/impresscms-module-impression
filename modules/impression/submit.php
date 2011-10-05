@@ -25,16 +25,11 @@
 */
 
 include 'header.php';
-include ICMS_ROOT_PATH . '/header.php';
-include ICMS_ROOT_PATH . '/class/xoopsformloader.php';
 
-$mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
-global $xoopsModule, $impressionmyts, $xoopsModuleConfig;
+$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
-$cid = impression_cleanRequestVars( $_REQUEST, 'cid', 0 );
-$aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
-$cid = intval($cid);
-$aid = intval($aid);
+$cid = intval( impression_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
+$aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
 if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     redirect_header( 'index.php', 1, _MD_IMPRESSION_NOPERMISSIONTOPOST );
@@ -44,25 +39,12 @@ if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     if ( impression_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
 		
-		if ( $xoopsModuleConfig['captcha'] ) {
-			// Captcha Hack
-			// Verify entered code 
-			if ( class_exists( 'XoopsFormCaptcha' ) ) { 
-				if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) {
-					$xoopsCaptcha = XoopsCaptcha::instance(); 
-					if ( ! $xoopsCaptcha -> verify( true ) ) { 
-						redirect_header( 'submit.php', 2, $xoopsCaptcha -> getMessage() ); 
-					} 
-				} 
-			} elseif ( class_exists( 'IcmsFormCaptcha' ) ) { 
-				if ( @include_once ICMS_ROOT_PATH . '/class/captcha/captcha.php' ) { 
-					$icmsCaptcha = IcmsCaptcha::instance(); 
-					if ( ! $icmsCaptcha -> verify( true ) ) { 
-						redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
-					} 
-				} 
-			}
-			// Captcha Hack
+		// Verify captcha code
+		if ( $icmsConfigUser['use_captcha'] == true ) { 
+			$icmsCaptcha = icms_form_elements_captcha_Object::instance(); 
+			if ( !$icmsCaptcha -> verify( true ) ) { 
+				redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
+			} 
 		}
 		
         if ( false == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
@@ -70,17 +52,22 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
             exit();
         } 
 
-        $submitter = ( is_object( $xoopsUser ) && !empty( $xoopsUser ) ) ? $xoopsUser -> getVar( 'uid' ) : 0;
+        $submitter = ( is_object( icms::$user ) && !empty( icms::$user ) ) ? icms::$user -> getVar( 'uid' ) : 0;
         $offline = impression_cleanRequestVars( $_REQUEST, 'offline', 0 );
         $approve = impression_cleanRequestVars( $_REQUEST, 'approve', 0 );
-        $title = $impressionmyts -> addslashes( ltrim( $_REQUEST['title'] ) );
-        $introtextb = $impressionmyts -> addslashes( ltrim( $_REQUEST['introtextb'] ) );
-        $descriptionb = $impressionmyts -> addslashes( ltrim( $_REQUEST['descriptionb'] ) );
-        $meta_keywords = $impressionmyts -> addslashes( ltrim( $_REQUEST['meta_keywords'] ) );
-		$nobreak = impression_cleanRequestVars( $_REQUEST, 'nobreak', 0 );
+        $title = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['title'] ) );
+        $introtextb = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['introtextb'] ) );
+        $descriptionb = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['descriptionb'] ) );
+        $meta_keywords = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['meta_keywords'] ) );
+		$notifypub = impression_cleanRequestVars( $_REQUEST, 'notifypub', 0 );
         $date = time();
-        $publishdate = time();
         $ipaddress = $_SERVER['REMOTE_ADDR'];
+		
+		if ( icms::$module -> config['usercantag'] ) {
+          $item_tag = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['item_tag'] ) );
+        } else {
+          $item_tag = '';
+        }
 
         if ( $aid == 0 ) {
             $status = 3;
@@ -93,66 +80,123 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
          //       $offline = 0;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
-            $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, submitter, status, date, introtext, description, ipaddress, meta_keywords, nobreak) ";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$nobreak')";
-            if ( !$result = $xoopsDB -> query( $sql ) ) {
-                $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
-                XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
+            $sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, uid, status, date, introtext, description, ipaddress, meta_keywords, item_tag, notifypub) ";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$notifypub')";
+            if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+                $_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
+                icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
             } 
-            $newid = $xoopsDB -> getInsertId();
+            $newaid = icms::$xoopsDB -> getInsertId();
 
-                redirect_header( 'index.php', 2, _MD_IMPRESSION_THANKSFORINFO );
+// Notify of new link (anywhere) and new link in category
+            $notification_handler = icms::handler('icms_data_notification');
+
+            $tags = array();
+            $tags['ARTICLE_NAME'] = $title;
+            $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval( $cid ) . '&amp;aid=' . intval( $newaid );
+            
+            $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . intval( $cid );
+            $result = icms::$xoopsDB -> query( $sql );
+            $row = icms::$xoopsDB -> fetchArray( $result );
+
+            $tags['CATEGORY_NAME'] = $row['title'];
+            $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . intval( $cid );
+            if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) ) {
+                $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
+                $notification_handler -> triggerEvent( 'category', $cid, 'new_article', $tags );
+                redirect_header( 'index.php', 2, _MD_IMPRESSION_ISAPPROVED );
+            } else {
+                $tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/newarticles.php';
+                $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
+                $notification_handler -> triggerEvent( 'category', $cid, 'article_submit', $tags );
+                if ( $notifypub ) {
+                    include_once ICMS_ROOT_PATH . '/include/notification_constants.php';
+                    $notification_handler -> subscribe( 'article', $newaid, 'approve', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE );
+                } 
+                redirect_header( 'index.php', 2, _MD_IMPRESSION_ISAPPROVED );
+            }
 
         } else {
             if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
                 $updated = time();
-                $sql = "UPDATE " . $xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', nobreak='$nobreak' WHERE aid=" . $aid;
-                if ( !$result = $xoopsDB -> query( $sql ) ) {
-                    $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
-                    XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
+                $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$publisher', status='0', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', notifypub='$notifypub' WHERE aid=" . $aid;
+                if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+                    $_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
+                    icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
                 } 
+				
+				$notification_handler = icms::handler('icms_data_notification');
+                $tags = array();
+                $tags['ARTICLE_NAME'] = $title;
+                $tags['ARTICLE_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . intval( $cid ) . '&amp;aid=' . intval( $aid );
+                $sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . intval( $cid );
+                $result = icms::$xoopsDB -> query( $sql );
+                $row = icms::$xoopsDB -> fetchArray( $result );
+                $tags['CATEGORY_NAME'] = $row['title'];
+                $tags['CATEGORY_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . intval( $cid );
 
+                $notification_handler -> triggerEvent( 'global', 0, 'new_article', $tags );
+                $notification_handler -> triggerEvent( 'category', intval( $cid ), 'new_article', $tags );
                 $_message = _MD_IMPRESSION_ISAPPROVED;
-            } else {
-                $modifysubmitter = $xoopsUser -> uid();
+			} else {
+                $modifysubmitter = icms::$user -> getVar('uid');
                 $requestid = $modifysubmitter;
                 $requestdate = time();
                 $updated = impression_cleanRequestVars( $_REQUEST, 'up_dated', time() );
-                $sql = "INSERT INTO " . $xoopsDB -> prefix( 'impression_mod' ) . " (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate)";
-                $sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate')";
-                if ( !$result = $xoopsDB -> query( $sql ) ) {
-                    $_error = $xoopsDB -> error() . ' : ' . $xoopsDB -> errno();
-                    XoopsErrorHandler_HandleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
+                $sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate, meta_keywords, item_tag)';
+                $sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate', '$meta_keywords', '$item_tag')";
+                if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
+                    $_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
+                    icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
                 } 
 
-                $_message = _MD_IMPRESSION_THANKSFORINFO;
-            }
+                $tags = array();
+                $tags['MODIFYREPORTS_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=listModReq';
+                $notification_handler = icms::handler('icms_data_notification');
+                $notification_handler -> triggerEvent( 'global', 0, 'article_modify', $tags );
+
+                $tags['WAITINGFILES_URL'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=listNewarticles';
+                $notification_handler -> triggerEvent( 'global', 0, 'article_submit', $tags );
+                $notification_handler -> triggerEvent( 'category', intval( $cid ), 'article_submit', $tags );
+                if ( $notifypub ) {
+                    include_once ICMS_ROOT_PATH . '/include/notification_constants.php';
+                    $notification_handler -> subscribe( 'article', $newid, 'approve', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE );
+                }
+				$_message = _MD_IMPRESSION_THANKSFORINFO;
+			}
             redirect_header( 'index.php', 2, $_message );
         }
     } else {
-        global $xoopsModuleConfig;
-
         $approve = impression_cleanRequestVars( $_REQUEST, 'approve', 0 );
 
-	// Show disclaimer
-        if ( $xoopsModuleConfig['showdisclaimer'] && !isset( $_GET['agree'] ) && $approve == 0 ) {
-            echo "<br /><div style='text-align: center;'>" . impression_imageheader() . "</div><br />\n";
-            echo "<h4>" . _MD_IMPRESSION_DISCLAIMERAGREEMENT . "</h4>\n";
-            echo "<div>" . $impressionmyts -> displayTarea( $xoopsModuleConfig['disclaimer'], 1, 1, 1, 1, 1 ) . "</div>\n";
-            echo "<form action='submit.php' method='post'>\n";
-            echo "<div style='text-align: center;'>" . _MD_IMPRESSION_DOYOUAGREE . "</b><br /><br />\n";
-            echo "<input type='button' onclick='location=\"submit.php?agree=1\"' class='formButton' value='" . _MD_IMPRESSION_AGREE . "' alt='" . _MD_IMPRESSION_AGREE . "' />\n";
-            echo "&nbsp;\n";
-            echo "<input type='button' onclick='location=\"index.php\"' class='formButton' value='" . _CANCEL . "' alt='" . _CANCEL . "' />\n";
-            echo "</div></form>\n";
-            include ICMS_ROOT_PATH . '/footer.php';
-            exit();
-        }
-        echo "<br /><div style='text-align: center;'>" . impression_imageheader() . "</div><br />\n";
-        echo "<div>" . _MD_IMPRESSION_SUB_SNEWMNAMEDESC . "</div>\n<br />\n";
-//        echo "<h2>" . _MD_IMPRESSION_SUBMITCATHEAD . "</h2>\n";
-        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . intval( $aid );
-        $article_array = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
+// Show disclaimer
+        if ( icms::$module -> config['showdisclaimer'] && !isset( $_GET['agree'] ) && $approve == 0 ) {
+		
+			$xoopsOption['template_main'] = 'impression_disclaimer.html';
+			include_once ICMS_ROOT_PATH . '/header.php';	
+		
+			$xoopsTpl -> assign( 'image_header', impression_imageheader() );
+			$xoopsTpl -> assign( 'disclaimer', icms_core_DataFilter::checkVar( icms::$module -> config['disclaimer'], 'text' ) );
+			$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php' );
+			$xoopsTpl -> assign( 'article_disclaimer', false );
+			$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar('dirname') );
+			if ( !isset( $_REQUEST['aid'] ) ) {
+				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?agree=1' );
+			} elseif ( isset( $_REQUEST['aid'] ) ) {
+				$aid = intval( $_REQUEST['aid'] );
+				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?agree=1&amp;aid=' . intval( $aid ) );
+			}
+	        include ICMS_ROOT_PATH . '/footer.php';
+	        exit();
+		}
+
+// Submit form
+		include_once ICMS_ROOT_PATH . '/header.php';		
+        echo '<div style="clear: both; text-align: center; padding: 10px 0 10px 0;">' . impression_imageheader() . '</div>';
+        echo '<div>' . _MD_IMPRESSION_SUB_SNEWMNAMEDESC . '</div><br />';
+
+        $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . intval( $aid );
+        $article_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
         $aid = $article_array['aid'] ? $article_array['aid'] : 0;
         $cid = $article_array['cid'] ? $article_array['cid'] : 0;
@@ -161,77 +205,97 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
         $descriptionb = $article_array['description'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['description'] ) : '';
         $published = $article_array['published'] ? $article_array['published'] : 0;
-        $updated = $article_array['updated'] ? $article_array['updated'] : 0;
-        $offline = $article_array['offline'] ? $article_array['offline'] : 0;
         $ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
         $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
-		$nobreak = $article_array['nobreak'] ? $article_array['nobreak'] : 0;
+		$item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
+		$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
 
-     	$sform = new XoopsThemeForm( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', xoops_getenv( 'PHP_SELF' ) );
+     	$sform = new icms_form_Theme( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', '' );
         $sform -> setExtra( 'enctype="multipart/form-data"' );
         
 // Article title
-        $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_FILETITLE, 'title', 70, 255, $title ), true );
-
-// Article publisher
-//    $sform -> addElement( new XoopsFormText( _MD_IMPRESSION_ARTICLE_PUBLISHER, 'publisher', 50, 255, $publisher ), true );
+        $sform -> addElement( new icms_form_elements_Text( _MD_IMPRESSION_FILETITLE, 'title', 55, 128, $title ), true );
 
 // Select category
-        $mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
+        $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
         $submitcats = array();
-        $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' ORDER BY title';
-        $result = $xoopsDB -> query( $sql );
-        while ( $myrow = $xoopsDB -> fetchArray( $result ) ) {
+        $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' ORDER BY title';
+        $result = icms::$xoopsDB -> query( $sql );
+        while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
             if ( true == impression_checkgroups( $myrow['cid'], 'ImpressionSubPerm' ) ) {
                 $submitcats[$myrow['cid']] = $myrow['title'];
             } 
         }
         
         ob_start();
-    	        $mytree -> makeMySelBox( 'title', 'title', $cid, 0 );
-    	        $sform -> addElement( new XoopsFormLabel( _MD_IMPRESSION_CATEGORYC, ob_get_contents() ) );
+			$mytree -> makeMySelBox( 'title', 'title', $cid, 0 );
+			$sform -> addElement( new icms_form_elements_Label( _MD_IMPRESSION_CATEGORYC, ob_get_contents() ) );
     	ob_end_clean();
 
 // Article introtext form
-        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, '100%', '250px' );
+        $introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, 250, 10 );
         $introtext -> setDescription( '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
-        $sform -> addElement( $introtext, true );
+        $sform -> addElement( $introtext, false );
 
 // Article description form
-        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, '100%', '600px' );
+        $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 500, 35 );
         $editor -> setDescription( '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
         $sform -> addElement( $editor, false );
-		
-// Linebreak option
-		$options_tray = new XoopsFormElementTray( _MD_IMPRESSION_TEXTOPTIONS, '<br />' );
-		$breaks_checkbox = new XoopsFormCheckBox( '', 'nobreak', $nobreak );
-		$breaks_checkbox -> addOption( 1, _MD_IMPRESSION_DISABLEBREAK );
-		$options_tray -> addElement( $breaks_checkbox );
-		$sform -> addElement( $options_tray );
 
 // Meta meta_keywords form
-        $keywords = new XoopsFormTextArea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 5, 50 );
+        $keywords = new icms_form_elements_Textarea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 4, 60 );
         $keywords -> setDescription( '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
         $sform -> addElement( $keywords, false );
 		
-		if ( $xoopsModuleConfig['captcha'] ) {
-			// Captcha Hack
-			if ( class_exists( 'XoopsFormCaptcha' ) ) { 
-				$sform -> addElement( new XoopsFormCaptcha() ); 
-			} elseif ( class_exists( 'IcmsFormCaptcha' ) ) { 
-				$sform -> addElement( new IcmsFormCaptcha() ); 
+// Insert tags if Tag-module is installed and if user is allowed
+		if ( icms::$module -> config['usercantag'] ) {
+			if ( impression_tag_module_included() ) {
+				include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
+				$text_tags = new XoopsFormTag('item_tag', 70, 255, $article_array['item_tag'], 0);
+				$sform -> addElement( $text_tags );
+			} else {
+				$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $article_array['item_tag'] ) ) ;
 			}
-			// Captcha Hack 
+		}
+		
+// Notify form
+		$submitter2 = ( is_object( icms::$user ) && !empty( icms::$user ) ) ? icms::$user -> getVar( 'uid' ) : 0;
+		if ( $submitter2 > 0 ) {
+			$option_tray = new icms_form_elements_Tray( _MD_IMPRESSION_OPTIONS, '<br />' );
+				if ( !$approve ) {
+					$notify_checkbox = new icms_form_elements_Checkbox( '', 'notifypub' );
+					$notify_checkbox -> addOption( 1, _MD_IMPRESSION_NOTIFYAPPROVE );
+					$option_tray -> addElement( $notify_checkbox );
+				} else {
+					$sform -> addElement( new icms_form_elements_Hidden( 'notifypub', 0 ) );
+				} 
+		}
+	
+		if ( true == impression_checkgroups( $cid, 'ImpressionAppPerm' ) && $aid > 0 ) {
+			$approve_checkbox = new icms_form_elements_Checkbox( '', 'approve', $approve );
+			$approve_checkbox -> addOption( 1, _MD_IMPRESSION_APPROVE );
+			$option_tray -> addElement( $approve_checkbox );
+		} else if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) ) {
+			$sform -> addElement( new icms_form_elements_Hidden( 'approve', 1 ) );
+		} else {
+			$sform -> addElement( new icms_form_elements_Hidden( 'approve', 0 ) );
+		}
+		$sform -> addElement( $option_tray );
+		
+		// Captcha
+		if ( $icmsConfigUser['use_captcha'] == true ) {
+			$sform -> addElement( new icms_form_elements_Captcha( _SECURITYIMAGE_GETCODE, 'scode' ), true ); 
 		}
 
-        $button_tray = new XoopsFormElementTray( '', '' );
-        $button_tray -> addElement( new XoopsFormButton( '', 'submit', _SUBMIT, 'submit' ) );
-        $button_tray -> addElement( new XoopsFormHidden( 'aid', $aid ) );
-
+        $button_tray = new icms_form_elements_Tray( '', '' );
+        $button_tray -> addElement( new icms_form_elements_Button( '', 'submit', _SUBMIT, 'submit' ) );
+        $button_tray -> addElement( new icms_form_elements_Hidden( 'aid', $aid ) );
         $sform -> addElement( $button_tray );
-        $sform -> display();
+        
+		$sform -> display();
 
+		impression_noindexnofollow();
         include ICMS_ROOT_PATH . '/footer.php';
     }
 } else {

@@ -52,7 +52,7 @@ define( "_MD_IMPRESSION_PRICEFREE", "frei" );
 define( "_MD_IMPRESSION_READMORE", "weiterlesen" );
 define( "_MD_IMPRESSION_OPTIONS", 'Optionen: ' );
 define( "_MD_IMPRESSION_NOTIFYAPPROVE", 'Informieren Sie mich, wenn dieser Beitrag freigegeben wurde' );
-define( "_MD_IMPRESSION_INTFILEFOUND", "Hier ist ein interessanter Beitrag zum Anschauen %s" ); // %s is your site name
+define( "_MD_IMPRESSION_INTFILEFOUND", "Hier ist ein interessanter Beitrag zum Anschauen bei %s" ); // %s is your site name
 define( "_MD_IMPRESSION_CATEGORY", "Kategorie" );
 define( "_MD_IMPRESSION_HITS", "Ansichten" );
 define( "_MD_IMPRESSION_SORTBY", "Sortiert nach:" );
@@ -112,23 +112,20 @@ define( "_MD_IMPRESSION_COPYRIGHT", "Copyright" );
 // added frankblack
 define( "_MD_IMPRESSION_NOTALLOWESTOSUBMIT", "Sie sind nicht berechtigt, Beiträge einzureichen" );
 define( "_MD_IMPRESSION_INFONOSAVEDB", "Information nicht in der Datenbank gespeichert: <br /><br />" );
-
 define( "_MD_IMPRESSION_NEWLAST", "neu eingereicht vorletzte Woche" );
 define( "_MD_IMPRESSION_NEWTHIS", "neu eingereicht diese Woche" );
 define( "_MD_IMPRESSION_THREE", "neu eingereicht in den letzten 3 Tagen" );
 define( "_MD_IMPRESSION_TODAY", "heute neu eingereicht" );
 define( "_MD_IMPRESSION_NO_FILES", "derzeit keine Beiträge" );
-
 define( "_MD_IMPRESSION_NOPERMISSIONTOPOST", "Sie haben keine Berechtigung, um Beiträge in dieser Kategorie zu erstellen." );
-define( "_MD_IMPRESSION_RESOURCES", "Resourcen" );
-
+define( "_MD_IMPRESSION_RESOURCES", "Ressourcen" );
 define( "_MD_IMPRESSION_PUBLISHDATE", "Veröffentlicht" );
 define( "_MD_IMPRESSION_APPROVE", "überprüfen" );
 define( "_MD_IMPRESSION_MODERATOR_OPTIONS", "Moderatorenoptionen" );
 
 // added by McDonald
-define( "_MD_IMPRESSION_KEYWORDS", "Stichwörter:" );
-define( "_MD_IMPRESSION_KEYWORDS_NOTE", "Stichwörter sollten durch ein Komma getrennt werden<br />(<i>Stichwort1, Stichwort2, Stichwort3, etc.</i>)" );
+define( "_MD_IMPRESSION_KEYWORDS", "Keywords:" );
+define( "_MD_IMPRESSION_KEYWORDS_NOTE", "Schlüsselwörter sollten durch ein Komma getrennt werden<br />(<i>Stichwort1, Stichwort2, Stichwort3, etc.</i>)" );
 define( "_MD_IMPRESSION_NOARTICLELOAD", "Vielen Dank für Ihren Beitrag!" );
 define( "_MD_IMPRESSION_LINKID", "Artikel-ID" );
 define( "_MD_IMPRESSION_ADDTO", "hinzufügen zu: " );
@@ -142,12 +139,22 @@ define( "_MD_IMPRESSION_NOITEMSELECTED", "Sie haben keinen gültigen Beitrag aus
 define( "_MD_IMPRESSION_ARTICLESCAT", " Beitrag" );
 define( "_MD_IMPRESSION_ADMINSECTION", "administrativer Bereich" );
 define( "_MD_IMPRESSION_ARTICLE", "Beitragstitel" );
-define( "_MD_IMPRESSION_WHO_WHEN", "Veröffentlicht durch %s am %s" );
+define( "_MD_IMPRESSION_WHO_WHEN", "Veröffentlicht %s am %s" );
 define( "_MD_IMPRESSION_RANK", "Rangliste" );
 //define( "_MD_IMPRESSION_EDIT", "Edit article" );
 //define( "_MD_IMPRESSION_DELETE", "Delete article" );
-define( '_MD_IMPRESSION_FEED', 'RSS feed' );
-define( '_MD_IMPRESSION_TEXTOPTIONS', 'Text options:' );
-define( '_MD_IMPRESSION_DISABLEBREAK', ' Use ICMS linebreak conversion?' );
-define( '_MD_IMPRESSION_BACKBUTTON', 'Back' );
+define( '_MD_IMPRESSION_FEED', 'RSS Feed' );
+define( '_MD_IMPRESSION_TEXTOPTIONS', 'Text Optionen:' );
+define( '_MD_IMPRESSION_DISABLEBREAK', ' Benutze ImpressCMS Zeilenumbruch?' );
+define( '_MD_IMPRESSION_BACKBUTTON', 'Zurück' );
+define( '_MD_IMPRESSION_NEW', 'Neu' );
+define( '_MD_IMPRESSION_UPDATE', 'Aktualisieren' );
+define( '_MD_IMPRESSION_GETFEED', 'Holen Sie sich den RSS Newsfeed' );
+
+// Impression 1.1.0
+define( '_MD_IMPRESSION_BYTESMORE', 'Bytes mehr' );
+define( '_MD_IMPRESSION_WORDSMORE', 'Wörter mehr' );
+define( '_MD_IMPRESSION_CHARSMORE', 'Zeichen mehr' );
+define( '_MD_IMPRESSION_PDF_PAGE', 'Seite ' );
+define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Sorry, you do not have permission to view this category.' );
 ?>

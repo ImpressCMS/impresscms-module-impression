@@ -1,25 +1,106 @@
 =========================================================
-04.11.2008   1.0 RC-3
+25.09.2011 - Version 1.1
+=========================================================
+- Updated for ImpressCMS 1.3
+
+Added:
+- 'bytes more' feature for Spotlight block
+- 'bytes more' feature for category view
+- option to have categories displayed in blocks yes/no
+- captcha feature in Submit form
+- icons to indicate if article/category is displayed in blocks
+- block to display a specific category
+- folders uploads/impression/category and uploads/impression/images will be created upon installation [#778]
+- option to set width text boxes in administration
+
+Removed:
+- Simpy and Spurl from social bookmarks
+- support for Brandycoke's module RSSFit
+- link to Submit a Bug in About page
+
+Removed files:
+- xoops_version.php
+- class/impression_datetime.php
+- images/sbookmarks/simpy.png
+- images/sbookmarks/spurl.png
+- images/screenshots
+- include/config.php
+
+Fixed:
+- empty articles displayed due to faulty Spotlight block
+- clicking comment icon directs to top of page [#707]
+- comment icon visible in blocks and articleload
+- comment icon visible when there is one or more comments only
+- article count incorrect for sub categories
+- sub categories not visible [#776]
+- submit form not working in frontend [#685]
+
+=========================================================
+01.10.2010 - Version 1.0.1 RC-2
+=========================================================
+- Fixed: meta-tags not working
+- Fixed: filtering special characters for Nice URLS
+
+=========================================================
+21.09.2010   1.0.1 RC-1
+=========================================================
+- Fixed: modify feature of articles
+- Fixed: RSS feed now passes validation
+
+- Cleaned up code of tag plugin
+
+=========================================================
+01.08.2010   1.0 Final
+=========================================================
+- Fixed: Tag plugin
+
+- Replaced block arrays with older version style
+
+=========================================================
+25.05.2010   1.0 RC-4
+=========================================================
+- Added: tag form to user submit form
+- Added: use of nice urls for articles
+- Added: Waiting plugin
+- Added: pagination
+
+- Fixed: rss feed
+- Fixed: captcha in submit form
+- Fixed: admin/modifications.php
+
+- Modified: sql tables impression_altcat, impression_articles & impression_mod
+- Modified: license.txt files are in language folders now
+
+- Removed: file blocks/impression_blockfunctions.php
+- Removed: folder license
+
+
+=========================================================
+03.08.2009   1.0 RC-3
 =========================================================
 - Set name of submitter as author in PDF instead of TCPDF
 - Revamped administration
 - New About page in administration
 - Activated Tag blocks and Tag bar in articles
+- Timestamp is multi language compatible
 
 - Added: unofficial translations of GNU GPL License
 - Added: RSS feeds through icmsfeed.php
 - Added: RSS feed configuration form
+- Added: comments feature
+- Added: notification feature
+- Added: prune option
 
 - German language files [prickel + sato-san]
 - Portuguese-Brazil language files [gibaphp]
 - Russian language files [algalochkin]
-- Converted uk / nl language files to UTF-8 without BOM
 
 - Fixed: bug for displaying name author in PDF
 - Fixed: altcat entries were not deleted when deleting article or cat
-- Fixed: block settings [skenow]
 
 - Removed: file admin/brokenarticle.php
+- Removed: file class/class_lists.php
+- Removed: block settings feature
 
 
 =========================================================

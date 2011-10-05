@@ -19,17 +19,15 @@
 */
 
 function impression_tag_block_cloud_show( $options ) {
-    $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
 	if ( impression_tag_module_included() ) {
 		include_once ICMS_ROOT_PATH . '/modules/tag/blocks/block.php';
-		return tag_block_cloud_show( $options, $mydirname );
+		return tag_block_cloud_show( $options, basename( dirname(  dirname( __FILE__ ) ) ) );
 	}
 }
 
 function impression_tag_block_cloud_edit( $options ) {
-	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
 	if ( impression_tag_module_included() ) {
 		include_once ICMS_ROOT_PATH . '/modules/tag/blocks/block.php';
 		return tag_block_cloud_edit( $options );
@@ -37,21 +35,18 @@ function impression_tag_block_cloud_edit( $options ) {
 }
 
 function impression_tag_block_top_show( $options ) {
-    $mydirname = basename( dirname(  dirname( __FILE__ ) ) );
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
 	if ( impression_tag_module_included() ) {
 		include_once ICMS_ROOT_PATH . '/modules/tag/blocks/block.php';
-		return tag_block_top_show( $options, $mydirname );
+		return tag_block_top_show( $options, basename( dirname(  dirname( __FILE__ ) ) ) );
 	}
 }
 
 function impression_tag_block_top_edit( $options ) {
-	$mydirname = basename( dirname(  dirname( __FILE__ ) ) );
-	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
 	if ( impression_tag_module_included() ) {
         include_once ICMS_ROOT_PATH . '/modules/tag/blocks/block.php';
 		return tag_block_top_edit( $options );
 	}
 }
-
 ?>

@@ -1,35 +1,68 @@
-<link rel="stylesheet" type="text/css" href="<{$smarty.const.impression_url}>/impressionstyle.css" />
+<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/impressionstyle.css" />
 
 <{$article.imageheader}>
 
 <div>
-     <div style="float: left; margin-left: 4px; font-size: smaller;"><{$article.path}></div>
-     <div style="float: right; padding: 2px;"><{$back}></div>
+     <span class="impression_articlepath"><{$article.path}></span>
+     <span style="float: right; padding: 2px;"><{$back}></span>
 </div>
+
 <div style="clear: both;">&nbsp;</div>
 
 <div class="impression_articleTitle"><{$article.title}><{$article.icons}></div>
-<div class="impression_articleMain">
 
+<div id="impression_main" class="impression_articleMain">
 
-<div align="right"><small><{$smarty.const._MD_IMPRESSION_PUBLISHEDON}><{$article.updated|wordwrap:50:"\n":true}><{$smarty.const._MD_IMPRESSION_BY}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}></small></div>
+	<div style="text-align: right; font-size: .75em;">
+		<{$smarty.const._MD_IMPRESSION_PUBLISHEDON}><{$article.updated|wordwrap:50:"\n":true}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>
+	</div>
 
-<div><b><{$article.introtext}></b></div>
-<br />
-<div><{$article.description}></div>
+	<{if $article.page == 0 }>
+		<{$article.introtext}>
+	<{/if}>
 
+	<{$article.description2}>
 
-<{if $tagbar}>
-  <div style="font-size: smaller; padding-top: 10px;">
-    <{include file="db:tag_bar.html"}>
-  </div>
-<{/if}> 
+	<{$pagenav}>
+	
+	<{if $tagbar}>
+		<div class="impression_tags"><{include file="db:tag_bar.html"}></div>
+	<{/if}> 
 
-<{if $article.showsbookmarx > 0}>
-  <div class="impression_socbookmark">
-    <{$article.sbmarks}>
-  </div>
-<{/if}>
+	<{if $article.showsbookmarx > 0}>
+		<div class="impression_socbookmark"><{$article.sbmarks}></div>
+	<{/if}>
 
 </div>
-<div class="impression_articleFooter"><{$article.pdf}><{$article.print}><{$article.recommend}><{if $xoops_isadmin}> <small><{$article.adminarticle}></small><{/if}>&nbsp;</div>
+
+<div class="impression_articleFooter">
+	<{$article.pdf}>
+	<{$article.print}>
+	<{$article.recommend}>
+	<{if $article.comment_rules > 0 and $article.comments > 0}>
+		<{$article.comment2}>
+	<{/if}>
+	<{if $icms_isadmin}>
+		<small><{$article.adminarticle}></small>
+	<{/if}>
+	<{if $article.useradminarticle}>
+		<{$article.usermodify}>
+	<{/if}>
+	&nbsp;
+</div>
+
+<div style="text-align: center; margin-top: 10px;">
+	<{$commentsnav}><{$lang_notice}> 
+</div>
+
+<!-- start comments loop -->
+<{if $comment_mode == "flat"}> 
+	<a name="comments"><{include file="db:system_comments_flat.html"}></a> 
+<{elseif $comment_mode == "thread"}> 
+	<a name="comments"><{include file="db:system_comments_thread.html"}></a>
+<{elseif $comment_mode == "nest"}> 
+	<a name="comments"><{include file="db:system_comments_nest.html"}></a>
+<{/if}> 
+<!-- end comments loop -->
+
+<{include file="db:system_notification_select.html"}>

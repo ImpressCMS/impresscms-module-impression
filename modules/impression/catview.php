@@ -27,12 +27,16 @@
 include 'header.php';
 
 // Begin Main page Heading etc
-$cid = impression_cleanRequestVars( $_REQUEST, 'cid', 0 );
+$cid = intval( impression_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
+if ( $cid == '' ) {
+	redirect_header( 'index.php', 2, '' );
+    exit();
+}
 $selectdate = impression_cleanRequestVars( $_REQUEST, 'selectdate', '' );
 $list = impression_cleanRequestVars( $_REQUEST, 'list', '' );
-$cid = intval($cid);
-$catsort = $xoopsModuleConfig['sortcats'];
-$mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
+
+$catsort = icms::$module -> config['sortcats'];
+$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $arr = $mytree -> getFirstChild( $cid, $catsort );
 
 if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
@@ -43,13 +47,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 }
 
 $xoopsOption['template_main'] = 'impression_catview.html';
-
 include ICMS_ROOT_PATH . '/header.php';
-
-global $xoopsModuleConfig, $xoopsModule;
-
-$catarray['imageheader'] = '<div class="impression_header">' . impression_imageheader() . '</div>';
-$xoopsTpl -> assign( 'catarray', $catarray );
 
 // Breadcrumb
 $pathstring = '<a href="index.php">' . _MD_IMPRESSION_MAIN . '</a>&nbsp;:&nbsp;';
@@ -70,38 +68,33 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
         $chcount = 1;
         $infercategories = '';
         foreach( $sub_arr as $sub_ele ) {
-
             // Subitem file count
-            $hassubitems = impression_getTotalItems( $sub_ele['cid'] );
-
+            $hassubitems = impression_getTotalItems( $sub_ele['cid'], 1 );
             // Filter group permissions
             if ( true == impression_checkgroups( $sub_ele['cid'] ) ) {
-
                 // If subcategory count > 5 then finish adding subcats to $infercategories and end
                 if ( $chcount > 5 ) {
                     $infercategories .= '...';
                     break;
                 } 
                 if ( $space > 0 )
-                    $infercategories .= ', ';
-
-                $infercategories .= '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/catview.php?cid=' . $sub_ele['cid'] . '">' . $impressionmyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')';
+                $infercategories .= '&bull;&nbsp;<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . $sub_ele['cid'] . '">' . $impressionmyts -> htmlSpecialCharsStrip( $sub_ele['title'] ) . '</a> (' . $hassubitems['count'] . ')';
+				$infercategories .= '<br />';
                 $space++;
                 $chcount++;
             } 
         } 
-        $totalarticles = impression_getTotalItems( $ele['cid'] );
-        $indicator['image'] = 'modules/' . $mydirname . '/images/icon/folder.png';
+        $totalarticles = impression_getTotalItems( $ele['cid'], 1 );
+        $indicator['image'] = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/folder.png';
         $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 
         $_image = ( $ele['imgurl'] ) ? urldecode( $ele['imgurl'] ) : '';
-        
         if ( empty( $_image ) || $_image == '' ) {
             $imgurl = $indicator['image'];
             $_width = 33;
             $_height = 24;
         } else {
-            $imgurl = "{$xoopsModuleConfig['catimage']}/$_image";
+            $imgurl = icms::$module -> config['catimage'] . "/$_image";
         }
 	// End
 
@@ -113,83 +106,79 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
                          'totalarticles' => $totalarticles['count'],
                          'count' => $scount,
                          'alttext' => $ele['description'],
-                         'showartcount' => $xoopsModuleConfig['showartcount'],
-                         'module_dir' => $mydirname )
+                         'showartcount' => icms::$module -> config['showartcount'],
+                         'module_dir' => icms::$module -> getVar( 'dirname' ) )
                          );
         $scount++;
     }
 }
 
 // Show Description for Category listing
-$sql = 'SELECT title, description, imgurl FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . intval( $cid );
-$head_arr = $xoopsDB -> fetchArray( $xoopsDB -> query( $sql ) );
-//$description = $head_arr['description'];
+$sql = 'SELECT title, description, imgurl FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $cid;
+$head_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 $xoopsTpl -> assign( 'description', $head_arr['description'] );
-$xoopsTpl -> assign( 'xoops_pagetitle', $head_arr['title'] );
+$xoopsTpl -> assign( 'icms_pagetitle', $head_arr['title'] );
+
+if ( impression_imageheader() ) { 
+	$catarray['imageheader'] = '<div class="impression_header" style="padding-bottom: 12px; text-align: center;">' . impression_imageheader() . '</div>';
+	$xoopsTpl -> assign( 'catarray', $catarray );
+}
 
 // Extract articleload information from database
 $xoopsTpl -> assign( 'show_categort_title', true );
 
 $start = impression_cleanRequestVars( $_REQUEST, 'start', 0 );
-$orderby = ( isset( $_REQUEST['orderby'] ) && !empty( $_REQUEST['orderby'] ) ) ? impression_convertorderbyin( htmlspecialchars($_REQUEST['orderby']) ) : impression_convertorderbyin( $xoopsModuleConfig['articlexorder'] );
+$orderby = ( isset( $_REQUEST['orderby'] ) && !empty( $_REQUEST['orderby'] ) ) ? impression_convertorderbyin( $impressionmyts -> htmlSpecialCharsStrip($_REQUEST['orderby']) ) : impression_convertorderbyin( icms::$module -> config['articlexorder'] );
 
 if ( $selectdate ) {
     $d = date( 'j', $selectdate );
     $m = date( 'm', $selectdate );
     $y = date( 'Y', $selectdate );
-
     $stat_begin = mktime ( 0, 0, 0, $m, $d, $y );
     $stat_end = mktime ( 23, 59, 59, $m, $d, $y );
 
     $query = ' WHERE published >= ' . $stat_begin . ' AND published <= ' . $stat_end . ' AND status = 0 AND cid > 0';
 
-    $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . $query . ' ORDER BY ' . $orderby;
-    $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
+    $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . $query . ' ORDER BY ' . $orderby;
+    $result = icms::$xoopsDB -> query( $sql, icms::$module -> config['perpage'] , $start );
 
-    $sql = 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . $query;
-    list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
+    $sql = 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . $query;
+    list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql ) );
     $list_by = 'selectdate=' . $selectdate;
 } elseif ( $list ) {
-    $query = " WHERE title LIKE '$list%' AND (published > 0 AND published <= " . time() . ") AND status = 0 AND cid > 0";
+    $query = ' WHERE title LIKE "' . $list . '%" AND (published > 0 AND published <= ' . time() . ') AND status = 0 AND cid > 0';
 
-    $sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . $query . ' ORDER BY ' . $orderby;
-    $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
+    $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . $query . ' ORDER BY ' . $orderby;
+    $result = icms::$xoopsDB -> query( $sql, icms::$module -> config['perpage'] , $start );
 
-    $sql = "SELECT COUNT(*) FROM " . $xoopsDB -> prefix( 'impression_articles' ) . $query;
-    list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql ) );
-    $list_by = 'list='.$list;
+    $sql = "SELECT COUNT(*) FROM " . icms::$xoopsDB -> prefix( 'impression_articles' ) . $query;
+    list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql ) );
+    $list_by = 'list=' . $list;
 } else {
-    $sql = 'SELECT DISTINCT a.* FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
-         . $xoopsDB -> prefix( 'impression_altcat' ) . ' b'
+    $sql = 'SELECT DISTINCT a.* FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+         . icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
          . ' ON b.aid = a.aid'
          . ' WHERE a.published > 0 AND a.published <= ' . time()
          . ' AND a.status = 0'
-         . ' AND (b.cid=a.cid OR (a.cid=' . intval($cid) . ' OR b.cid=' . intval($cid) . '))'
+         . ' AND (b.cid=a.cid OR (a.cid=' . $cid . ' OR b.cid=' . $cid . '))'
          . ' ORDER BY ' . $orderby;
-    $result = $xoopsDB -> query( $sql, $xoopsModuleConfig['perpage'] , $start );
+    $result = icms::$xoopsDB -> query( $sql, icms::$module -> config['perpage'] , $start );
     $xoopsTpl -> assign( 'show_categort_title', false );
-
-    $sql2 = 'SELECT COUNT(*) FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
-                                    . $xoopsDB -> prefix( 'impression_altcat' ) . ' b'
-                                    . ' ON b.aid = a.aid'
-                                    . ' WHERE a.published > 0 AND a.published <= ' . time()
-                                    . ' AND a.status = 0'
-                                    . ' AND (b.cid=a.cid OR (a.cid=' . intval($cid) . ' OR b.cid=' . intval($cid) . '))';
-    list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
-    $order = impression_convertorderbyout($orderby);
-    $list_by = 'cid=' . intval($cid) . '&orderby=' . $order;
+    $gettotalitems = impression_getTotalItems( $cid );
+	$count = $gettotalitems['count'];
+    $order = impression_convertorderbyout( $orderby );
+    $list_by = 'cid=' . $cid . '&orderby=' . $order;
 }
-$pagenav = new XoopsPageNav( $count, $xoopsModuleConfig['perpage'] , $start, 'start', $list_by );
+$pagenav = new icms_view_PageNav( $count, icms::$module -> config['perpage'] , $start, 'start', $list_by );
 
 // Show articles
 if ( $count > 0 ) {
     $moderate = 0;
-    while ( $article_arr = $xoopsDB -> fetchArray( $result ) ) {
+    while ( $article_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
         $res_type = 0;
-        require ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/articleloadinfo.php';
+        require ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
         $xoopsTpl -> append( 'article', $article );
     }
-
     // Show order box
     $xoopsTpl -> assign( 'show_articles', false );
     if ( $count > 1 && $cid != 0 ) {
@@ -198,17 +187,15 @@ if ( $count > 0 ) {
         $xoopsTpl -> assign( 'lang_cursortedby', sprintf( _MD_IMPRESSION_CURSORTBY, impression_convertorderbytrans( $orderby ) ) );
         $orderby = impression_convertorderbyout( $orderby );
     } 
-
     // Nav page render
     $page_nav = $pagenav -> renderNav();
     $istrue = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
     $xoopsTpl -> assign( 'page_nav', $istrue );
     $xoopsTpl -> assign( 'pagenav', $page_nav );
-    $xoopsTpl -> assign( 'module_dir', $mydirname );
-    $xoopsTpl -> assign( 'showartcount', $xoopsModuleConfig['showartcount'] );
+    $xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
+    $xoopsTpl -> assign( 'showartcount', icms::$module -> config['showartcount'] );
 }
 unset( $article_arr );
 
 include ICMS_ROOT_PATH . '/footer.php';
-
 ?>

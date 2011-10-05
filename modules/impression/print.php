@@ -16,12 +16,12 @@
 * @version		$Id$
 */
 
-if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
+//if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
 include_once 'header.php';
 require_once ICMS_ROOT_PATH . '/class/template.php';
 
-$aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
+$aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
 $error_message = _MD_IMPRESSION_NOITEMSELECTED;
 
@@ -30,33 +30,37 @@ if ( $aid == 0 ) {
 	exit();
 }
 
-global $xoopsDB, $xoopsConfig, $xoopsModuleConfig;
+$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published>0 AND published<=' . time() . ' AND status=0 AND aid=' . intval( $aid ) );
+$myrow = icms::$xoopsDB -> fetchArray( $result );
 
-$result = $xoopsDB -> query( 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published>0 AND published<=' . time() . ' AND status=0 AND aid=' . intval( $aid ) );
-$myrow = $xoopsDB -> fetchArray( $result );
+$result2 = icms::$xoopsDB -> query( 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $myrow['cid'] );
+$mycat = icms::$xoopsDB -> fetchArray( $result2 );
 
-$result2 = $xoopsDB -> query( 'SELECT title FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $myrow['cid'] );
-$mycat = $xoopsDB -> fetchArray( $result2 );
+$xoopsTpl = new icms_view_Tpl();
 
-$xoopsTpl = new XoopsTpl();
-$myts = MyTextSanitizer::getInstance();
+if ( icms::$module -> config['showsubmitter'] ) {
+	$submitter = _MD_IMPRESSION_BY . strip_tags( icms_member_user_Handler::getUserLink( $myrow['uid'] ) );
+} else {
+	$submitter = '';
+}
+
+$date = formatTimestamp( $myrow['published'], icms::$module -> config['dateformat'] );
 
 $item = array();
-$item['printtitle']  = $xoopsConfig['sitename'] . ' - ' . $myts -> displayTarea( $myrow['title'] );
-$item['printheader'] = _MD_IMPRESSION_PUBLISHEDON . formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] );
-$item['who_where']   = sprintf( _MD_IMPRESSION_WHO_WHEN, $myrow['submitter'], formatTimestamp( $myrow['published'], $xoopsModuleConfig['dateformat'] ) );
+$item['printtitle']  = $icmsConfig['sitename'] . ' - ' . $impressionmyts -> htmlSpecialCharsStrip( $myrow['title'] );
+$item['printheader'] = icms::$module -> config['headerprint'];
+$who_when    = sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
 $item['categoryname']= $mycat['title'];
 $item['title']       = $myrow['title'];
-$item['introtext']   = $myts -> displayTarea( $myrow['introtext'], 1, 1, 1, 1, $myrow['nobreak'] );
-$item['description'] = $myts -> displayTarea( $myrow['description'], 1, 1, 1, 1, $myrow['nobreak'] );
+$item['introtext']   = $myrow['introtext'];
+$item['description'] = $myrow['description'];
 
 $xoopsTpl -> assign( 'printtitle', $item['printtitle'] );
-$xoopsTpl -> assign( 'printlogourl', $xoopsModuleConfig['printlogourl'] );
+$xoopsTpl -> assign( 'printlogourl', icms::$module -> config['printlogourl'] );
 $xoopsTpl -> assign( 'printheader', $item['printheader'] );
 $xoopsTpl -> assign( 'lang_category', _MD_IMPRESSION_CATEGORY );
-$xoopsTpl -> assign( 'lang_author_date', $item['who_where'] );
+$xoopsTpl -> assign( 'lang_author_date', $who_when );
 $xoopsTpl -> assign( 'item', $item );
-$xoopsTpl -> assign( 'itemfooter', $myts -> displayTarea( $xoopsModuleConfig['itemfooter'] ) );
+$xoopsTpl -> assign( 'itemfooter', strip_tags( $impressionmyts -> htmlSpecialCharsStrip( icms::$module -> config['itemfooter'] ) ) );
 $xoopsTpl -> display( 'db:impression_print.html' );
-
 ?>

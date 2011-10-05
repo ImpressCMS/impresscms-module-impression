@@ -136,10 +136,20 @@ define( "_MD_IMPRESSION_NOITEMSELECTED", "U hebt geen geldig artikel gekozen!");
 define( "_MD_IMPRESSION_ARTICLESCAT", " artikelen" );
 define( "_MD_IMPRESSION_ADMINSECTION", "Administratie" );
 define( "_MD_IMPRESSION_ARTICLE", "Artikel titel" );
-define( "_MD_IMPRESSION_WHO_WHEN", "Gepubliceerd door %s op %s" );
+define( "_MD_IMPRESSION_WHO_WHEN", "Gepubliceerd %s op %s" );
 define( "_MD_IMPRESSION_RANK", "Rank" );
 define( '_MD_IMPRESSION_FEED', 'RSS feed' );
 define( '_MD_IMPRESSION_TEXTOPTIONS', 'Tekst opties:' );
 define( '_MD_IMPRESSION_DISABLEBREAK', ' Gebruik ICMS linebreak conversie?' );
 define( '_MD_IMPRESSION_BACKBUTTON', 'Terug' );
+define( '_MD_IMPRESSION_NEW', 'Nieuw' );
+define( '_MD_IMPRESSION_UPDATE', 'Update' );
+define( '_MD_IMPRESSION_GETFEED', 'Krijg RSS nieuws feed' );
+
+// Impression 1.1.0
+define( '_MD_IMPRESSION_BYTESMORE', 'bytes meer' );
+define( '_MD_IMPRESSION_WORDSMORE', 'woorden meer' );
+define( '_MD_IMPRESSION_CHARSMORE', 'karakters meer' );
+define( '_MD_IMPRESSION_PDF_PAGE', 'Pagina ' );
+define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Sorry, u heeft geen toestemming om deze categorie te bekijken.' );
 ?>
