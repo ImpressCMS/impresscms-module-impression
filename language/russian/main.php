@@ -150,4 +150,14 @@ define( '_MD_IMPRESSION_FEED', 'RSS канал' );
 define( '_MD_IMPRESSION_TEXTOPTIONS', 'Опции текста:' );
 define( '_MD_IMPRESSION_DISABLEBREAK', ' Использовать конверсию разрыва строк ICMS?' );
 define( '_MD_IMPRESSION_BACKBUTTON', 'Back' );
+define( '_MD_IMPRESSION_NEW', 'New' );
+define( '_MD_IMPRESSION_UPDATE', 'Update' );
+define( '_MD_IMPRESSION_GETFEED', 'Get RSS news feed' );
+
+// Impression 1.1.0
+define( '_MD_IMPRESSION_BYTESMORE', 'bytes more' );
+define( '_MD_IMPRESSION_WORDSMORE', 'words more' );
+define( '_MD_IMPRESSION_CHARSMORE', 'characters more' );
+define( '_MD_IMPRESSION_PDF_PAGE', 'Page ' );
+define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Sorry, you do not have permission to view this category.' );
 ?>

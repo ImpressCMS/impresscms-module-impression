@@ -1,8 +1,8 @@
 <?php
 /**
-* imGlossary - a multicategory glossary for ImpressCMS
+* Impression - a 'light' article management module for ImpressCMS
 *
-* Based upon Wordbook 1.16
+* Based upon WF-Links 1.06
 *
 * File: admin/about.php
 *
@@ -12,17 +12,14 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		imGlossary - a multicategory glossary
+* @package		Impression
 * @since			1.00
 * @author		McDonald
 * @version		$Id$
 */
 
 include_once 'admin_header.php';
-
-include_once ICMS_ROOT_PATH . '/kernel/icmsmoduleabout.php';
-
-$aboutObj = new IcmsModuleAbout();
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/impression_moduleabout.php';
+$aboutObj = new ImpressionModuleAbout();
 $aboutObj -> render();
-
 ?>

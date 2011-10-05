@@ -1,59 +1,69 @@
 /**
-* $Id: impressionstyle.css
-* Module: Impression
+* Impression - a 'light' article management module for ImpressCMS
+*
+*
+* File: impressionstyle.css
+*
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
+* @license		GNU General Public License (GPL)
+*				a copy of the GNU license is enclosed.
+* ----------------------------------------------------------------------------------------------------------
+* 				Impression
+* @since		1.00
+* @author		McDonald
+* @version		$Id$
 */
 
+
 .impression_even {
-  background-color: #DEE3E7; 
-  padding: 5px;}
+  background-color: #E8E6E2; 
+  padding: 4px;}
   
 tr.impression_even td {
-  background-color: #DEE3E7; 
+  background-color: #E8E6E2; 
   padding: 5px;}
   
 .impression_legend {
-  font-weight: bold; 
-  color: #639ACE; }
+  font-weight: bold;
+  padding-bottom: 5px;}
 
 .impression_articleTitle {
   background-color: #E8E6E2;
-  font-size: 13px;
   font-weight: bold;
   text-align: left;
-  display: block;
-  padding: 5px;}
+  padding: 3px;}
 
 .impression_articleFooter {
   background-color: #E8E6E2;
-  height: 18px;
-  font-size: 12px; 
-  font-weight: bold;
+  height: 16px;
+  font-size: .7em;
   text-align: right;
-  display: block;
-  padding: 2px;}
+  padding: 3px;
+  vertical-align: text-bottom; }
 
 .impression_articleMain {
-  display: table;
-  padding-left:6px;
-  padding-right:6px;
-  padding-bottom: 6px;
+  overflow: auto;
+  padding: 2px 4px 2px 4px;
+  background-color: #FFF;
   border-left: 1px solid #E8E6E2;
   border-right: 1px solid #E8E6E2; }
+  
+#impression_main ul {margin-left: 15px; padding-left: 20px; list-style: disc outside; text-align: left;}
+#impression_main ol {margin-left: 20px; padding-left: 20px; list-style: decimal outside; text-align: left;}
 
 .impression_header {
   text-align: center;
   line-height: 120%;
-  padding-bottom: 12px; }
+  padding: 10px 0 10px 0;
+  clear: both; }
 
 .impression_path {
-  text-align: left;
-  font-size: smaller;
-  line-height: 120%; 
-  padding-top: 12px; 
-  padding-bottom: 12px; }
+  background-color: #E8E6E2; 
+  padding: 4px;
+  border: 1px solid #ccc; }
   
 .impression_singletitle {
-  font-size: 16px; 
+  font-size: 1em; 
   font-weight: bold; 
   color: #72B8FF;
   background-color:#D9D9D9;
@@ -61,7 +71,7 @@ tr.impression_even td {
   
 .impression_articleloadtitle {
   text-align: left;
-  font-size: 16px; 
+  font-size: 1em; 
   font-weight: bold; 
   color: #72B8FF; }
   
@@ -78,24 +88,27 @@ tr.impression_even td {
   padding: 4px; 
   background-color:#393939;
   border: 1px solid #999999; }
+  
+.impression_tags {
+  font-size: .8em;
+  clear: both;  }
+  
+.impression_articlepath {
+  float: left; 
+  margin-left: 4px; 
+  font-size: .8em; }
 
 .impression_background {
   text-align: left;
-  font-size: 14px;
+  font-size: .9em;
   font-weight: bold; 
-  color: #ffffff;
+  color: #FFFFFF;
   background-color:#393939;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 4px;
   vertical-align: middle; }
   
 .impression_button {
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-  padding-bottom: 3px;
-  padding-top: 2px;
+  padding: 2px 0.5em 3px 0.5em;
   background-image: url(images/icon/backgnd.png);
   background-position: center center;
   background-repeat: repeat-x;
@@ -103,12 +116,40 @@ tr.impression_even td {
   font-size: smaller;
   font-weight: bold;
   cursor: pointer;
-  border: outset 1px #ccc; }
+  border: outset 1px #CCC; }
+  
+ .impression_minibutton {
+  padding: 2px 0.5em 2px 0.5em;
+  background-image: url(images/icon/backgnd.png);
+  background-position: center center;
+  background-repeat: repeat-x;
+  color: #444;
+  font-size: .75em;
+  font-weight: normal;
+  white-space: nowrap;
+  border: outset 1px #CCC;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;	
+  -moz-border-radius: 4px;
+  border-radius: 4px;  }
+  
+ .impression_microbutton {
+  padding: 1px 0.5em 1px 0.5em;
+  background-image: url(images/icon/backgnd.png);
+  background-position: center center;
+  background-repeat: repeat-x;
+  color: #000;
+  height: 1.2em;
+  font-size: .85em;
+  font-weight: normal;
+  border: outset 1px #CCC;
+  vertical-align: middle;  }
 
 /* Bookmark tags */
 div.impression_socbookmark {
+  clear: both;
   text-align: center;
-  padding-top: 10px;}
+  padding: 10px 0 5px 0; }
 
 div.impression_socbookmark a img {
   opacity: .4;
@@ -119,6 +160,4 @@ div.impression_socbookmark a:hover img {
   opacity: 1;
   -moz-opacity: 1;
   filter: alpha(opacity=100); }
-
 /* end bd */
-

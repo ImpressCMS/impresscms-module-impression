@@ -1,11 +1,11 @@
 Hallo {X_UNAME},
 
-Eine neue Videokategorie "{CATEGORY_NAME}" wurde auf {X_SITENAME} erstellt.
+Eine neue Kategorie "{CATEGORY_NAME}" wurde auf {X_SITENAME} erstellt.
 
-Folgen Sie diesm Link, um sich diese Videokategorie anzuschauen:
+Folgen Sie diesm Link, um sich diese Kategorie anzuschauen:
 {CATEGORY_URL}
 
-Folgen Sie diesm Link, um sich den Videoindex anzuschauen:
+Folgen Sie diesm Link, um sich den Index der Kategorie anzuschauen:
 {X_MODULE_URL}
 
 -----------

@@ -119,8 +119,8 @@ define( "_AM_IMPRESSION_ARTICLE_GDLIBSTATUS", "Поддержка GD библи�
 define( "_AM_IMPRESSION_ARTICLE_GDLIBVERSION", "Версия GD библиотеки: " );
 define( "_AM_IMPRESSION_ARTICLE_GDON", "<b>Вкл</b> (контрольки доступны)" );
 define( "_AM_IMPRESSION_ARTICLE_GDOFF", "<b>Откл</b> (контрольки не доступны)" );
-define( "_AM_IMPRESSION_ARTICLE_OFF", "<b>Откл</b>" );
-define( "_AM_IMPRESSION_ARTICLE_ON", "<b>Вкл</b>" );
+define( "_AM_IMPRESSION_ARTICLE_OFF", "Откл" );
+define( "_AM_IMPRESSION_ARTICLE_ON", "Вкл" );
 define( "_AM_IMPRESSION_ARTICLE_CATIMAGE", "Изображение категории" );
 define( "_AM_IMPRESSION_ARTICLE_SCREENSHOTS", "Образы экрана" );
 define( "_AM_IMPRESSION_ARTICLE_MAINIMAGEDIR", "Основные изображения" );
@@ -153,7 +153,7 @@ define( "_AM_IMPRESSION_MINDEX_NOTSET", "Дата не установлена" )
 define( "_AM_IMPRESSION_MINDEX_SUBMITTED", "Дата размещения" );
 define( "_AM_IMPRESSION_MINDEX_ACTION", "Действие" );
 define( "_AM_IMPRESSION_MINDEX_NOARTICLESFOUND", "СООБЩЕНИЕ: Нет статей, соответствующих этому критерию" );
-define( "_AM_IMPRESSION_MINDEX_PAGE", "<b>Страница:<b> " );
+define( "_AM_IMPRESSION_MINDEX_PAGE", "Страница: " );
 define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '<ul><li>Подробности главной страницы Impression.</li><li>Вы можете просто изменить логотип, заголовок, шапку и подпись на индексной странице по своему желанию</li></ul><br />Внимание: Выбранный логотип будет использован во всем модуле Impression.' );
 // Submitted Articles
 define( "_AM_IMPRESSION_SUB_SUBMITTEDFILES", "Размещенные статьи" );
@@ -190,20 +190,22 @@ define( "_AM_IMPRESSION_MOD_ORIGINAL", "Подробности оригинал�
 define( "_AM_IMPRESSION_MOD_REQDELETED", "Запрос на редактирование удален из базы данных" );
 define( "_AM_IMPRESSION_MOD_REQUPDATED", "Выбранная статья отредактирована и база данных обновлена" );
 define( '_AM_IMPRESSION_MOD_VIEW', 'View' );
+define( "_AM_IMPRESSION_MOD_META_KEYWORDS", "Keywords:" );
+define( "_AM_IMPRESSION_MOD_ITEM_TAG", "Tags:" );
 // Article management
 define( "_AM_IMPRESSION_ARTICLE_ID", "ID статьи: " );
 define( "_AM_IMPRESSION_ARTICLE_IP", "IP адрес: " );
 define( "_AM_IMPRESSION_ARTICLE_ALLOWEDAMIME", "<div style='padding-top: 4px; padding-bottom: 4px;'><b>Allowed admin article extensions</b>:</div>" );
 define( "_AM_IMPRESSION_ARTICLE_MODIFYFILE", "Редактирование информации о статье" );
 define( "_AM_IMPRESSION_ARTICLE_CREATENEWFILE", "Создать новую статью" );
-define( "_AM_IMPRESSION_ARTICLE_TITLE", "<b>Заголовок:</b>" );
-define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "<b>Вступительный текст статьи:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_TITLE", "Заголовок:" );
+define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "Вступительный текст статьи:" );
 define( "_AM_IMPRESSION_ARTICLE_INTROTEXT_DSC", "<br />Текст, введенный здесь будет отображаться как первый абзац статьи, а также в блоке Первый план" );
-define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "<b>Основной текст статьи:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "Основной текст статьи:" );
 define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC", "<br />Текст, введенный здесь совместно со вступительным текстом представляет собой полный текст статьи" );
-define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "<b>Основная категория:</b>" );
-define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "<b>Статус статьи:</b>" );
-define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC", "<small>Установка статуса статьи опубликовано/отключено/отвергнуто</small>" );
+define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "Основная категория:" );
+define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "Статус статьи:" );
+define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC", "Установка статуса статьи опубликовано/отключено/отвергнуто" );
 define( "_AM_IMPRESSION_ARTICLE_SETASAPPROVED", "Одобрить статью?" );
 define( "_AM_IMPRESSION_ARTICLE_PUBLISHDATE", "Дата публикации статьи:" );
 define( "_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC", "<small>Выбор даты публикации</small>");
@@ -226,7 +228,7 @@ define( "_AM_IMPRESSION_ARTICLE_FILEMODIFIEDUPDATE", "Выбранная ста�
 define( "_AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS", "Действительно удалить выбранную статью?" );
 define( "_AM_IMPRESSION_ARTICLE_FILEWASDELETED", "Статья %s удалена из базы данных!" );
 define( "_AM_IMPRESSION_ARTICLE_FILEAPPROVED", "Статья одобрена и база данных обновлена" );
-define( "_AM_IMPRESSION_ARTICLE_PUBLISHER", "<b>Издатель:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_PUBLISHER", "Издатель:" );
 // About defines
 define( "_AM_IMPRESSION_BY", " " );
 // Block defines
@@ -262,7 +264,6 @@ define( "_AM_IMPRESSION_ICO_IGNORE", "Игнорировать" );
 define( "_AM_IMPRESSION_ICO_REJECTED", "Rejected" );
 define( "_AM_IMPRESSION_ICO_SUBMITTED", "Submitted" );
 define( "_AM_IMPRESSION_ICO_RES", "Edit Resources/Articles for this Item" );
-define( "_AM_IMPRESSION_MOD_URLRATING", "Оценка Interent-контента:" );
 // Alternate category
 define( "_AM_IMPRESSION_ALTCAT_CREATEF", "Добавить альтенативную категорию" );
 define( "_AM_IMPRESSION_MALTCAT", "Управление альтернативной категорией" );
@@ -280,7 +281,7 @@ define( "_AM_IMPRESSION_PERM_APERMISSIONS", "Группы модераторов
 define( "_AM_IMPRESSION_PERM_APERMISSIONS_TEXT", "Группы, пользователи которых имеют привилегии модератора для выбранных категорий." );
 
 define( "_AM_IMPRESSION_TIME", "Время:" );
-define( "_AM_IMPRESSION_KEYWORDS", "<b>Ключевые слова:</b>" );
+define( "_AM_IMPRESSION_KEYWORDS", "Ключевые слова:" );
 define( "_AM_IMPRESSION_KEYWORDS_NOTE", "Ключевые слова должны быть разделены запятыми <br />(<i>keyword1, keyword2, keyword3, etc.</i>)" );
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION", "Мета-тэг description");
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION_DSC", "Для помощи поисковым системам и лучшей индексации статей. Вы можете настроить мета-тэг description для этой статьи. Если Вы оставите это поле пустым при создании статьи, оно будет автоматически заполнено из поля Резюме этой статьи.");
@@ -342,8 +343,25 @@ define( '_AM_IMPRESSION_RSSOFFMSG', 'Сообщение об отключенн�
 define( '_AM_IMPRESSION_RSSOFFMSGDSC', 'Введите здесь пояснение, почему RSS канал деактивирован.' );
 define( '_AM_IMPRESSION_RSSOFFTITLE', 'RSS канал неактивен.' );
 define( '_AM_IMPRESSION_RSSOFFMSGDEF', 'RSS канал временно деактивирован для обслуживания.' );
+define( '_AM_IMPRESSION_RSSCLICKSUBMIT', 'Для сохранения в базе всех данных формы, пожалуйста, нажмите кнопку Подтвердить.' );
 define( '_AM_IMPRESSION_COPYRIGHT', 'Copyright' );
 define( '_AM_IMPRESSION_ICO_CLONE', 'Клонировать статью' );
 define( '_AM_IMPRESSION_CLONE', '**КЛОН**' );
 define( '_AM_IMPRESSION_CLONEARTICLE', 'Клонировать статью' );
+define( '_AM_IMPRESSION_SHOWNOIMAGE' , 'Show no image' );
+define( '_AM_IMPRESSION_NOSELECTION', 'No selection' );
+define( '_AM_IMPRESSION_NOFILESELECT', 'No selected file' );
+define( '_AM_IMPRESSION_PRUNE', 'Prune' );
+define( '_AM_IMPRESSION_PRUNEINFO', 'Prune Information' );
+define( '_AM_IMPRESSION_PRUNEWARN', 'This form gives you the opportunity to delete articles that are published before the selected date.<br />Also comments associated with these articles will be deleted.<br />Please note that this action can <strong>NOT</strong> be undone. That\'s why it\'s advised to make a backup of your database first.' );
+define( '_AM_IMPRESSION_PRUNEDELETED', 'Articles successfully removed from the database!' );
+define( '_AM_IMPRESSION_PRUNEDATE', 'Select date:' );
+define( '_AM_IMPRESSION_PRUNEDATEDSC', 'All articles before the selected date will be deleted.' );
+define( '_AM_IMPRESSION_PRUNEFORM', 'Delete old articles' );
+define( '_AM_IMPRESSION_NICEURL', 'Alternative title for url:' );
+define( '_AM_IMPRESSION_NICEURLDSC', 'Enter an alternative title for the article to be used in the url. When the option <em>Use nice urls</em> from Preferences is selected and this field is left empty, than the title of the article will be used.' );
+define( '_AM_IMPRESSION_ARTICLE_INBLOCKS', 'Display article in blocks?' );
+define( '_AM_IMPRESSION_ARTICLE_INBLOCKS_DSC', 'Select <em>Yes</em> to have the article displayed in the Spotlight and Recent Headlines blocks. If you select <em>No</em> the article will not be displayed in the two blocks.' );
+define( '_AM_IMPRESSION_ICO_INBLOCKN', 'Not displayed in blocks' );
+define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Displayed in blocks' );
 ?>

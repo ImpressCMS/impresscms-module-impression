@@ -1,20 +1,29 @@
-<link href="<{$xoops_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
-
 <{if $show_categort_title == true}>
-<div style="margin-bottom: 4px;"><b><{$smarty.const._MD_IMPRESSION_CATEGORYC}></b><{$article.category}></div>
+	<div style="margin-bottom: 4px;"><b><{$smarty.const._MD_IMPRESSION_CATEGORYC}></b><{$article.category}></div>
 <{/if}> 
-<div class="impression_articleTitle"><{$article.readarticle}><{$article.icons}></div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="impression_articleMain">
-  <tr>
-    <td><div align="right"><small><{$smarty.const._MD_IMPRESSION_PUBLISHEDON}><{$article.updated|wordwrap:50:"\n":true}><{$smarty.const._MD_IMPRESSION_BY}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>&nbsp;</small></div></td>
-  </tr>
-  <tr>
-    <td><div style="padding: 5px;" valign="top"><{$article.introtext}></div></td>
-  </tr>
-</table>
 
-    <div class="impression_articleFooter">
-    <div style="float: left; margin-left: 2px;"><small><b><i><{$article.readmore}></small></b></i></div>
-    <div style="float: right;"><span><{if $xoops_isadmin}><small><{$article.adminarticle}></small><{/if}></span>&nbsp;</div>
-    </div>
-<div style="height: 4px;">&nbsp;</div>
+<div class="impression_articleTitle"><{$article.readarticle}><{$article.icons}></div>
+
+<div id="impression_main" class="impression_articleMain">
+  <div style="text-align: right; font-size: .75em; margin-right: 5px;">
+	<{$smarty.const._MD_IMPRESSION_PUBLISHEDON}><{$article.updated|wordwrap:50:"\n":true}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>
+  </div>
+  <{$article.introtext}>
+</div>
+
+<div class="impression_articleFooter"> 
+  <span style="float: left;"> 
+    <{if $article.bytesmore > 0}>&nbsp;<em><{$article.readmore}></em> 
+        <{if $article.options == 1}>&nbsp;|&nbsp;<{$article.bytesmore}>&nbsp;<{$smarty.const._MD_IMPRESSION_BYTESMORE}><{/if}> 
+        <{if $article.options == 2}>&nbsp;|&nbsp;<{$article.description|count_words}>&nbsp;<{$smarty.const._MD_IMPRESSION_WORDSMORE}><{/if}> 
+        <{if $article.options == 3}>&nbsp;|&nbsp;<{$article.description|count_characters}>&nbsp;<{$smarty.const._MD_IMPRESSION_CHARSMORE}><{/if}>     
+    <{/if}> 
+  </span> 
+  <span style="float: right;"> 
+    <{if $article.comment_rules > 0 and $article.comments > 0}> 
+        <{$article.comment1}> 
+    <{/if}> 
+  </span> 
+  <div style="float: right; padding-right: 2px;"><{if $icms_isadmin}><small><{$article.adminarticle}></small><{/if}></div>
+</div>
+<div style="clear: both; height: 4px;">&nbsp;</div>

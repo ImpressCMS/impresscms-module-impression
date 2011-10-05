@@ -197,7 +197,6 @@ class impressionThumbsNails {
      * @return 
      */
     function do_resize() {
-        global $xoopsModuleConfig; 
         // $this->_img_info = info array to the image being resized
         // $this->_img_info[0] == width
         // $this->_img_info[1] == height
@@ -233,7 +232,7 @@ class impressionThumbsNails {
 
         switch ( $this -> _image_type ) {
             case "im":
-                if ( !empty( $xoopsModuleConfig['path_magick'] ) && is_dir( $xoopsModuleConfig['path_magick'] ) ) {
+                if ( !empty( icms::$module -> config['path_magick'] ) && is_dir( icms::$module -> config['path_magick'] ) ) {
                     if ( preg_match( "#[A-Z]:|\\\\#Ai", __FILE__ ) ) {
                         $cur_dir = dirname( __FILE__ );
                         $src_file_im = '"' . $cur_dir . '\\' . strtr( $this -> _source_image, '/', '\\' ) . '"';
@@ -242,7 +241,7 @@ class impressionThumbsNails {
                         $src_file_im = escapeshellarg( $this -> _source_image );
                         $new_file_im = escapeshellarg( $this -> _save_image );
                     } 
-                    $magick_command = $xoopsModuleConfig['path_magick'] . '/convert -quality {$xoopsModuleConfig["imagequality"]} -antialias -sample {$newWidth}x{$newHeight} {$src_file_im} +profile "*" ' . str_replace( '\\', '/', $new_file_im ) . '';
+                    $magick_command = icms::$module -> config['path_magick'] . '/convert -quality {icms::$module -> config["imagequality"]} -antialias -sample {$newWidth}x{$newHeight} {$src_file_im} +profile "*" ' . str_replace( '\\', '/', $new_file_im ) . '';
                     passthru( $magick_command );
                     return $this -> _source_url . "/{$this->_img_savepath}/{$savefile}";
                 } else
@@ -357,5 +356,4 @@ class impressionThumbsNails {
         return false;
     } 
 } 
-
 ?>

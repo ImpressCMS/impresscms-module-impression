@@ -1,30 +1,24 @@
 ==============
-IMPRESSION 1.0
+IMPRESSION 1.1
 ==============
 
 
 Installation
 ------------
 You can install the module Impression as any other ImpressCMS module.
+Upon installing the uploads/impression will be created automatically upon installation.
+For instructions about installing modules see the ImpressCMS Wiki: http://wiki.impresscms.org/index.php?title=Adding_Modules
 
 
-RSS
----
-Impression comes with it's own RSS feed class.
-
-With Impression comes also a plugin for Brandycoke's module RSSFit.
-You can download the module RSSFit here: http://www.brandycoke.com/products/rssfit/
-
-
-Sitemap
+Waiting
 -------
-A plugin for the Sitemap module is included.
-You ca download the module Sitemap from Gijoe's website: http://xoops.peak.ne.jp/
+The 'plugins' contains a plugin for the Waiting Contents block.
 
 
 imGlossary
 ----------
 To have words linked to imGlossary this module has to be installed.
+You can download the latest version from the ImpressCMS Addons website or McDonalds Store.
 
 
 Tags
@@ -42,6 +36,6 @@ Note: Do NOT use the blocks Top Tag and Tag Cloud when the Tag module is not ins
 
 
 
-    .::McDonald::.
+.::McDonald::.
 
-    http://code.google.com/p/mcdonaldsstore/downloads/list
+http://code.google.com/p/mcdonaldsstore/downloads/list

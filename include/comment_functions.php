@@ -28,9 +28,8 @@
 // comment callback functions
 
 function impression_com_update( $articleload_id, $total_num ) {
-	$db =& XoopsDatabaseFactory::getdatabaseconnection();
-	$sql = 'UPDATE ' . $db -> prefix( 'impression_articles' ) . ' SET comments=' . $total_num . ' WHERE aid=' . $articleload_id;
-	$db -> query($sql);
+	$sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' SET comments=' . $total_num . ' WHERE aid=' . $articleload_id;
+	icms::$xoopsDB -> query( $sql );
 }
 
 function impression_com_approve( &$comment ) {

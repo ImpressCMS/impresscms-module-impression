@@ -28,7 +28,7 @@
 
 mt_srand((double) microtime() * 1000000);
 
-class XoopsMediaUploader {
+class ImpressionMediaUploader {
     var $mediaName;
     var $mediaType;
     var $mediaSize;
@@ -60,7 +60,7 @@ class XoopsMediaUploader {
      * @param int $maxHeight 
      * @param int $cmodvalue 
      */
-    function XoopsMediaUploader( $uploadDir, $allowedMimeTypes = 0, $maxFileSize, $maxWidth = 0, $maxHeight = 0 ) {
+    function ImpressionMediaUploader( $uploadDir, $allowedMimeTypes = 0, $maxFileSize, $maxWidth = 0, $maxHeight = 0 ) {
         if ( is_array( $allowedMimeTypes ) ) {
             $this -> allowedMimeTypes = &$allowedMimeTypes;
         } 

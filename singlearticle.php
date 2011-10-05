@@ -26,30 +26,41 @@
 
 include 'header.php';
 
-$aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
-$cid = impression_cleanRequestVars( $_REQUEST, 'cid', 0 );
-$aid = intval($aid);
-$cid = intval($cid);
+$ptitle = impression_cleanRequestVars( $_REQUEST, 'title', '' );
+$page = intval( impression_cleanRequestVars( $_REQUEST, 'page', 0 ) );
+$aid  = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
-$sql2 = 'SELECT count(*) FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
- . $xoopsDB -> prefix( 'impression_altcat' ) . ' b'
- . ' ON b.aid = a.aid'
- . ' WHERE a.published > 0 AND a.published <= ' . time()
- . ' AND a.status = 0'
- . ' AND (b.cid=a.cid OR (a.cid=' . intval($cid) . ' OR b.cid=' . intval($cid) . '))';
-list( $count ) = $xoopsDB -> fetchRow( $xoopsDB -> query( $sql2 ) );
+if ( !$ptitle ) {
+	$cid = impression_cleanRequestVars( $_REQUEST, 'cid', 0 );
+} else {
+	$sql3 = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
+	list( $cid ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql3 ) );
+}
+
+if  ( false == impression_checkgroups( $cid ) ) {
+        redirect_header( 'index.php', 1, _MD_IMPRESSION_NOPERMISSIONTOVIEW );
+        exit();
+}
+
+$sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+	. icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
+	. ' ON b.aid = a.aid'
+	. ' WHERE a.published > 0 AND a.published <= ' . time()
+	. ' AND a.status = 0'
+	. ' AND (b.cid=a.cid OR (a.cid=' . intval( $cid ) . ' OR b.cid=' . intval( $cid ) . '))';
+list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql2 ) );
 
 if ( false == impression_checkgroups( $cid ) && $count == 0 ) {
-    redirect_header( 'index.php', 1, _MD_IMPRESSION_MUSTREGFIRST );
+	redirect_header( 'index.php', 1, _MD_IMPRESSION_MUSTREGFIRST );
     exit();
 } 
 
-$sql = 'SELECT * FROM ' . $xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . intval($aid) . '
+$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . intval( $aid ) . '
 		AND (published > 0 AND published <= ' . time() . ')
 		AND status = 0
 		AND cid > 0';
-$result = $xoopsDB -> query( $sql );
-$article_arr = $xoopsDB -> fetchArray( $result );
+$result = icms::$xoopsDB -> query( $sql );
+$article_arr = icms::$xoopsDB -> fetchArray( $result );
 
 if ( !is_array( $article_arr ) ) {
     redirect_header( 'index.php', 1, _MD_IMPRESSION_NOARTICLELOAD );
@@ -57,7 +68,6 @@ if ( !is_array( $article_arr ) ) {
 } 
 
 $xoopsOption['template_main'] = 'impression_singlearticle.html';
-
 include ICMS_ROOT_PATH . '/header.php';
 
 // tags support
@@ -66,50 +76,64 @@ if ( impression_tag_module_included() ) {
   $xoopsTpl -> assign( 'tagbar', tagBar( $article_arr['aid'], 0 ) );
 }
 
-$article['imageheader'] = '<div class="impression_header">' . impression_imageheader() . '</div>';
-$article['id'] = $article_arr['aid'];
-$article['cid'] = $article_arr['cid'];
-$article['submitter'] = icms_getLinkedUnameFromId( $article_arr['submitter'] );
+if ( impression_imageheader() ) {
+	$article['imageheader'] = '<div class="impression_header">' . impression_imageheader() . '</div>';
+}
+$article['id'] = intval( $article_arr['aid'] );
+$article['cid'] = intval( $article_arr['cid'] );
+//$article['comments'] = $article_arr['comments'];
+//$article['comment_rules'] = icms::$module -> config['com_rule'];
 
-$article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) );
-$article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $xoopsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . $mydirname . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
+$article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) );
+$article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
 
 // Recommend icon
    $article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top">
-							<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/email.png" alt="' . _MD_IMPRESSION_TELLAFRIEND . '" title="' . _MD_IMPRESSION_TELLAFRIEND . '" align="absmiddle" />
+							<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/email.png" alt="" title="' . _MD_IMPRESSION_TELLAFRIEND . '" />
 							</a>';
 
 // Print icon
-   $article['print'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank">
-						<img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/printer.png" alt="' . _MD_IMPRESSION_PRINT . '" title="' . _MD_IMPRESSION_PRINT . '" align="absmiddle" />
+   $article['print'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank">
+						<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="" title="' . _MD_IMPRESSION_PRINT . '" />
 						</a>';
 
 // PDF icon
 if ( is_readable( ICMS_PDF_LIB_PATH . '/tcpdf.php' ) ) {
-	$article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . $mydirname . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank">
-					   <img src="' . ICMS_URL . '/modules/' . $mydirname . '/images/icon/page_acrobat.png" alt="' . _MD_IMPRESSION_PDF . '" title="' . _MD_IMPRESSION_PDF . '" align="absmiddle" />
+	$article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank">
+					   <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="" title="' . _MD_IMPRESSION_PDF . '" />
 					   </a>';
 } 
 
-$mytree = new XoopsTree( $xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
+$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $pathstring = '<a href="index.php">' . _MD_IMPRESSION_MAIN . '</a>&nbsp;:&nbsp;';
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'catview.php?op=' );
 $article['path'] = $pathstring;
 
 // Get Social Bookmarks
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/sbookmarks.php';
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
 $article['sbmarks'] = impression_sbmarks( $article_arr['aid'], $article_arr['title'] );
 
-if ( $xoopsModuleConfig['linkedterms'] ) {
+$article['page'] = $page;
+$page_arr = ( explode( '<!-- pagebreak -->', $article_arr['description'] ) );
+$tpages  = count( $page_arr );
+
+// Link to imGlossary terms
+if ( icms::$module -> config['linkedterms'] ) {
 	if ( impression_imglossary_module_included() ) {
-		$glossaryterm = $impressionmyts -> makeTboxData4Show( $article_arr['title'] );
-		$description = impression_linkterms( $article_arr['description'], $glossaryterm );
-		$article['description'] = $impressionmyts -> displayTarea( $description, 1, 1, 1, 1, $article_arr['nobreak'] );
+		$glossaryterm = $article_arr['title'];
+		$description = impression_linkterms( $page_arr[$page], $glossaryterm );
+		$article['description2'] = $description;
 	} else {
-		$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, $article_arr['nobreak'] );
+		$article['description2'] = $page_arr[$page];
 	}
 } else {
-	$article['description'] = $impressionmyts -> displayTarea( $article_arr['description'], 1, 1, 1, 1, $article_arr['nobreak'] );
+	$article['description2'] = $page_arr[$page];
+}
+
+// Render page navigation
+if ( $tpages > 1 ) {
+	$pagenav = new icms_view_PageNav( $tpages, 1, $page, 'aid=' . $article_arr['aid'] . '&amp;page' );
+	$xoopsTpl -> assign( 'pagenav', '<div style="clear: both; float: right;">' . $pagenav -> renderNav(3) . '</div>' );
 }
 
 // Start of meta tags
@@ -131,36 +155,49 @@ global $xoopsTpl, $xoTheme;
 			$xoTheme -> addMeta( 'meta', 'keywords', $article_arr['meta_keywords'] );
 		}
 		$xoTheme -> addMeta( 'meta', 'title', $article_arr['title'] );
-		if ($xoopsModuleConfig['usemetadescr'] == 1) {
+		if (icms::$module -> config['usemetadescr'] == 1) {
             $xoTheme -> addMeta( 'meta', 'description', $article_meta_description );
         }
     } else {
 		if ( $article_arr['meta_keywords'] != '' ) {
-			$xoopsTpl -> assign( 'xoops_meta_keywords', $article_arr['meta_keywords'] );
+			$xoopsTpl -> assign( 'icms_meta_keywords', $article_arr['meta_keywords'] );
 		}
-		if ($xoopsModuleConfig['usemetadescr'] == 1) {
-            $xoopsTpl -> assign( 'xoops_meta_description', $article_meta_description );
+		if (icms::$module -> config['usemetadescr'] == 1) {
+            $xoopsTpl -> assign( 'icms_meta_description', $article_meta_description );
         }
     }
-	$xoopsTpl -> assign( 'xoops_pagetitle', $article_arr['title'] );
+	$xoopsTpl -> assign( 'icms_pagetitle', $article_arr['title'] );
 // End of meta tags
 
 $moderate = 0;
 $res_type = 1;
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/articleloadinfo.php';
+include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
 
 // Increase hit-counter but not for admin
 if ( icms_userIsAdmin() == false  ) {
-    $sql = 'UPDATE ' . $xoopsDB -> prefix( 'impression_articles' ) . ' SET hits=hits+1 WHERE aid=' . $aid;
-    $result = $xoopsDB -> queryF( $sql );
+	if ( $page == 0 ) {
+		$sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' SET hits=hits+1 WHERE aid=' . $aid;
+		$result = icms::$xoopsDB -> queryF( $sql );
+	}
 }
 
-$article['showsbookmarx'] = $xoopsModuleConfig['showsbookmarks'];
+$article['useradminarticle'] = 0;
+if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
+	$_user_submitter = ( icms::$user -> getVar( 'uid' ) == $article_arr['uid'] ) ? true : false;
+	if ( true == impression_checkgroups( $cid ) ) {
+		$article['useradminarticle'] = 1;
+		if ( icms::$user -> getVar( 'uid' ) == $article_arr['uid'] ) {
+			$article['usermodify'] = '<a class="button" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?aid=' . $article_arr['aid'] . '"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_modify.png" alt="" title="' . _MD_IMPRESSION_MODIFY . '" /></a>';
+		}
+	}
+}
+
+$article['showsbookmarx'] = icms::$module -> config['showsbookmarks'];
 $xoopsTpl -> assign( 'article', $article );
 
 $xoopsTpl -> assign( 'back', '<a class="impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );
-$xoopsTpl -> assign( 'dirname', $mydirname );
+$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 
+include ICMS_ROOT_PATH . '/include/comment_view.php';
 include ICMS_ROOT_PATH . '/footer.php';
-
 ?>

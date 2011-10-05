@@ -6,39 +6,39 @@
 *
 * File: icms_version.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
  
 $impressiondir = basename( dirname( __FILE__ ) );
 
-global $xoopsUser, $xoopsDB, $xoopsModule, $xoopsConfig;
+global $icmsConfig;
 
-if ( file_exists( ICMS_ROOT_PATH . '/language/'. $xoopsConfig['language'] . '/moduleabout.php' ) ) {
-	include_once ICMS_ROOT_PATH . '/language/'. $xoopsConfig['language'] . '/moduleabout.php';
+if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' . $icmsConfig['language'] . '/moduleabout.php' ) ) {
+	include_once ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' . $icmsConfig['language'] . '/moduleabout.php';
 } else { include_once ICMS_ROOT_PATH . '/language/english/moduleabout.php'; }
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
-$modversion['version'] 			= '1.00';
-$modversion['date'] 			= 'November 4, 2008';
-$modversion['status'] 			= 'RC-3';
-$modversion['status_version'] 	= 'RC-3';
+$modversion['version'] 			= '1.1';
+$modversion['date'] 			= '25 September 2011';
+$modversion['status'] 			= 'Final';
+$modversion['status_version'] 	= 'Final';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license'] 			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['dirname'] 			= $impressiondir;
@@ -46,47 +46,52 @@ $modversion['image'] 			= 'images/impression_ilogo.png';
 $modversion['iconsmall'] 		= 'images/impression_iconsmall.png';
 $modversion['iconbig'] 			= 'images/impression_iconbig.png';
 
+$modversion['author'] 				= 'Version developer: McDonald';
+$modversion['credits'] 				= 'WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.';
+$modversion['author_credits'] 		= _MI_IMPRESSION_AUTHOR_CREDITSTEXT;
+$modversion['author_website_url'] 	= 'http://code.google.com/p/mcdonaldsstore/';
+$modversion['author_website_name'] 	= 'McDonalds Store';
 
-$modversion['author'] 					= 'Version developer: John N';
-$modversion['credits'] 					= 'WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.';
-$modversion['author_credits'] 			= _MI_IMPRESSION_AUTHOR_CREDITSTEXT;
-//$modversion['developer_website_url'] 	= 'http://members.lycos.nl/mcdonaldsstore/';
-//$modversion['developer_website_name'] 	= 'McDonalds Store';
-//$modversion['support_site_url'] 		= 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
-//$modversion['support_site_name']		= 'ImpressCMS Community Forum - Modules Support';
-//$modversion['submit_bug'] 				= 'http://sourceforge.net/tracker/?group_id=205633&atid=1064496';
+$modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
+$modversion['support_site_name']= '<a href="http://community.impresscms.org/modules/newbb/viewforum.php?forum=9" target="_blank">ImpressCMS Community Forum - Modules Support</a>';
 
 // 	** Contributors **
 $modversion['people']['developers'] [] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a> &nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
-$modversion['people']['testers']    [] = '<a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a> ';
-$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> (German)';
+
+$modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a>';
+$modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>';
+
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a> & Prickel (German)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>  (Portuguese-Brazil)';
+$modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=97" target="_blank">debianus</a> (Spanish)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>  (Dutch)';
 $modversion['people']['translators'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=480" target="_blank">algalochkin</a> (Russian)';
+
 $modversion['people']['other']		[] = '&middot; WF-Projects Team: amayer, bender, david, dqflyer, draven, frankblack, gladiac, hervet, jackj, mercibe, John N, phppp, predator, reliableSol, tom, xpider, xtheme';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
+$modversion['people']['other']		[] = '&middot; <a href="http://www.icons-land.com" target=_blank">Icons-Land</a> (icons)';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
 
 //	** If Release Candidate **
-//$modversion['warning'] = _MODABOUT_WARNING_RC;
+//  $modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_RC;
 
 //	** If Final  **
-$modversion['warning'] = _MODABOUT_WARNING_FINAL;
+$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_FINAL;
 
 // Sql file (must contain sql generated by phpMyAdmin or phpPgAdmin)
 // All tables should not have any prefix!
 $modversion['sqlfile']['mysql'] = 'sql/impression.sql';
 
 // Tables created by sql file (without prefix!)
-include_once 'include/config.php';
 $modversion['tables'][0] = 'impression_cat';
 $modversion['tables'][1] = 'impression_articles';
 $modversion['tables'][2] = 'impression_configs';
 $modversion['tables'][3] = 'impression_indexpage';
 $modversion['tables'][4] = 'impression_altcat';
+$modversion['tables'][5] = 'impression_mod';
 
 // Launch additional install script to check
-$modversion['onInstall'] = '';
+$modversion['onInstall'] = 'include/install.php';
 $modversion['onUpdate'] = 'include/update.php';
 
 // Admin things
@@ -96,55 +101,72 @@ $modversion['adminmenu'] = 'admin/menu.php';
 
 // Blocks
 $i=0;
-$i++;
-$modversion['blocks'][$i]['file'] = 'impression_spot.php';
-$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BSPOT;
-$modversion['blocks'][$i]['description'] = 'Shows recently added news in spotlight';
-$modversion['blocks'][$i]['show_func'] = 'b_impression_spot_show';
-$modversion['blocks'][$i]['edit_func'] = 'b_impression_spot_edit';
-$modversion['blocks'][$i]['options'] = 'spot|10|d F Y|0';
-$modversion['blocks'][$i]['template'] = 'impression_block_spot.html';
-$modversion['blocks'][$i]['can_clone'] = true ;
-$i++;
-$modversion['blocks'][$i]['file'] = 'impression_new.php';
-$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BNEW;
-$modversion['blocks'][$i]['description'] = 'Shows headlines of recently added articles';
-$modversion['blocks'][$i]['show_func'] = 'b_impression_new_show';
-$modversion['blocks'][$i]['edit_func'] = 'b_impression_new_edit';
-$modversion['blocks'][$i]['options'] = 'new|25|d F Y';
-$modversion['blocks'][$i]['template'] = 'impression_block_new.html';
-$modversion['blocks'][$i]['can_clone'] = true ;
-$i++;
-$modversion['blocks'][$i]['file'] = 'impression_block_tag.php';
-$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTAGCLOUD;
-$modversion['blocks'][$i]['description'] = 'Show tag cloud';
-$modversion['blocks'][$i]['show_func'] = 'impression_tag_block_cloud_show';
-$modversion['blocks'][$i]['edit_func'] = 'impression_tag_block_cloud_edit';
-$modversion['blocks'][$i]['options'] = '100|0|150|80';
-$modversion['blocks'][$i]['template'] = 'impression_tag_block_cloud.html';
-$modversion['blocks'][$i]['can_clone'] = true ;
-$i++;
-$modversion['blocks'][$i]['file'] = 'impression_block_tag.php';
-$modversion['blocks'][$i]['name'] = _MI_IMPRESSION_BTOPTAG;
-$modversion['blocks'][$i]['description'] = 'Show top tag';
-$modversion['blocks'][$i]['show_func'] = 'impression_tag_block_top_show';
-$modversion['blocks'][$i]['edit_func'] = 'impression_tag_block_top_edit';
-$modversion['blocks'][$i]['options'] = '50|30|c';
-$modversion['blocks'][$i]['template'] = 'impression_tag_block_tag.html';
-$modversion['blocks'][$i]['can_clone'] = true ;
 
+// Spotlight block
+$i++;
+$modversion['blocks'][$i]['file']			= 'impression_spot.php';
+$modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BSPOT;
+$modversion['blocks'][$i]['description']	= 'Shows recently added news in spotlight';
+$modversion['blocks'][$i]['show_func']		= 'b_impression_spot_show';
+$modversion['blocks'][$i]['edit_func']		= 'b_impression_spot_edit';
+$modversion['blocks'][$i]['options']		= 'spot|10|d F Y|0|0';
+$modversion['blocks'][$i]['template']		= 'impression_block_spot.html';
+$modversion['blocks'][$i]['can_clone']		= true ;
+
+// Recent Headlines block
+$i++;
+$modversion['blocks'][$i]['file']			= 'impression_new.php';
+$modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BNEW;
+$modversion['blocks'][$i]['description']	= 'Shows headlines of recently added articles';
+$modversion['blocks'][$i]['show_func']		= 'b_impression_new_show';
+$modversion['blocks'][$i]['edit_func']		= 'b_impression_new_edit';
+$modversion['blocks'][$i]['options']		= 'new|25|d F Y';
+$modversion['blocks'][$i]['template']		= 'impression_block_new.html';
+$modversion['blocks'][$i]['can_clone']		= true ;
+
+// Recent News block
+$i++;
+$modversion['blocks'][$i]['file']			= 'impression_news.php';
+$modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BNEWS;
+$modversion['blocks'][$i]['description']	= 'Shows articles from selected categories';
+$modversion['blocks'][$i]['show_func']		= 'b_impression_news_show';
+$modversion['blocks'][$i]['edit_func']		= 'b_impression_news_edit';
+$modversion['blocks'][$i]['options']		= 'news|10|d F Y|0|0';
+$modversion['blocks'][$i]['template']		= 'impression_block_news.html';
+$modversion['blocks'][$i]['can_clone']		= true;
+
+// Tag Cloud block
+$i++;
+$modversion['blocks'][$i]['file']			= 'impression_block_tag.php';
+$modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BTAGCLOUD;
+$modversion['blocks'][$i]['description']	= 'Show tag cloud';
+$modversion['blocks'][$i]['show_func']		= 'impression_tag_block_cloud_show';
+$modversion['blocks'][$i]['edit_func']		= 'impression_tag_block_cloud_edit';
+$modversion['blocks'][$i]['options']		= '100|0|150|80';
+$modversion['blocks'][$i]['template']		= 'impression_tag_block_cloud.html';
+$modversion['blocks'][$i]['can_clone']		= true ;
+
+// Top Tags block
+$i++;
+$modversion['blocks'][$i]['file']			= 'impression_block_tag.php';
+$modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BTOPTAG;
+$modversion['blocks'][$i]['description']	= 'Show top tag';
+$modversion['blocks'][$i]['show_func']		= 'impression_tag_block_top_show';
+$modversion['blocks'][$i]['edit_func']		= 'impression_tag_block_top_edit';
+$modversion['blocks'][$i]['options']		= '50|30|c';
+$modversion['blocks'][$i]['template']		= 'impression_tag_block_tag.html';
+$modversion['blocks'][$i]['can_clone']		= true ;
 
 // Menu
 $modversion['hasMain'] = 1;
 
-// This part inserts the selected topics as sub items in the Xoops main menu
-$module_handler = &xoops_gethandler( 'module' );
+// This part inserts the selected topics as sub items in the ICMS main menu
+$module_handler = &icms::handler( 'icms_module' );
 $module = &$module_handler -> getByDirname( $modversion['dirname'] );
 $cansubmit = 0;
 if ( is_object( $module ) ) {
-    global $xoopsUser;
-    $groups = ( is_object( $xoopsUser ) ) ? $xoopsUser -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = &xoops_gethandler( 'groupperm' );
+    $groups = ( is_object( icms::$user ) ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
+    $gperm_handler = icms::handler('icms_member_groupperm');
     if ( $gperm_handler -> checkRight( 'ImpressionSubPerm', 0, $groups, $module -> getVar( 'mid' ) ) ) {
         $cansubmit = 1;
     }
@@ -163,283 +185,425 @@ $modversion['hasSearch'] = 1;
 $modversion['search']['file'] = 'include/search.inc.php';
 $modversion['search']['func'] = 'impression_search';
 
+// Comments
+$modversion['hasComments'] = 1;
+$modversion['comments']['itemName'] = 'aid';
+$modversion['comments']['pageName'] = 'singlearticle.php';
+$modversion['comments']['extraParams'] = array( 'cid' );
+
+// Comment callback functions
+$modversion['comments']['callbackFile'] = 'include/comment_functions.php';
+$modversion['comments']['callback']['approve'] = 'impression_com_approve';
+$modversion['comments']['callback']['update'] = 'impression_com_update';
+
 // Templates
-$i = 0;
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_articleload.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_index.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_singlearticle.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_catview.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_print.html';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file'] = 'impression_topten.html';
-$modversion['templates'][$i]['description'] = '';
+$modversion['templates'][] = array(
+	'file'			=> 'impression_articleload.html',
+	'description'	=> '' );
+
+$modversion['templates'][] = array(
+	'file'			=> 'impression_index.html',
+	'description'	=> '' );
+
+$modversion['templates'][] = array(
+	'file'			=> 'impression_singlearticle.html',
+	'description'	=> '' );
+
+$modversion['templates'][] = array(
+	'file'			=> 'impression_catview.html',
+	'description'	=> '' );
+
+$modversion['templates'][] = array(
+	'file'			=> 'impression_print.html',
+	'description'	=> '' );
+
+$modversion['templates'][] = array(
+	'file'			=> 'impression_topten.html',
+	'description'	=> '' );
+
+$modversion['templates'][] = array(
+	'file'			=> 'impression_moduleabout.html',
+	'description'	=> '' );
+	
+$modversion['templates'][] = array(
+	'file'			=> 'impression_rss.html',
+	'description'	=> '' );
+	
+$modversion['templates'][] = array(
+	'file'			=> 'impression_disclaimer.html',
+	'description'	=> '' );
 
 // Module config setting
-$i = 0;
-$i++;
-$modversion['config'][$i]['name'] = 'popular';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_POPULAR';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_POPULARDSC';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 100;
-$modversion['config'][$i]['options'] = array( '5' => 5, '10' => 10, '50' => 50, '100' => 100, '200' => 200, '500' => 500, '1000' => 1000 );
-$i++;
-$modversion['config'][$i]['name'] = 'displayicons';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_ICONDISPLAY';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DISPLAYICONDSC';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 1;
-$modversion['config'][$i]['options'] = array( '_MI_IMPRESSION_DISPLAYICON1' => 1, '_MI_IMPRESSION_DISPLAYICON2' => 2, '_MI_IMPRESSION_DISPLAYICON3' => 3 );
-$i++;
-$modversion['config'][$i]['name'] = 'daysnew';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_DAYSNEW';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DAYSNEWDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 10;
-//$i++;
-//$modversion['config'][$i]['name'] = 'daysupdated';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_DAYSUPDATED';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DAYSUPDATEDDSC';
-//$modversion['config'][$i]['formtype'] = 'textbox';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 10;
-$i++;
-$modversion['config'][$i]['name'] = 'perpage';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_PERPAGE';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_PERPAGEDSC';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 10;
-$modversion['config'][$i]['options'] = array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50 );
-$i++;
-$modversion['config'][$i]['name'] = 'admin_perpage';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_ADMINPAGE';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_AMDMINPAGEDSC';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 10;
-$modversion['config'][$i]['options'] = array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100 );
-$i++;
+$modversion['config'][] = array(
+	'name'			=> 'popular',
+	'title'			=> '_MI_IMPRESSION_POPULAR',
+	'description'	=> '_MI_IMPRESSION_POPULARDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'int',
+	'default'		=> 100,
+	'options'		=> array( '5' => 5, '10' => 10, '50' => 50, '100' => 100, '200' => 200, '500' => 500, '1000' => 1000 ) );
+
+$modversion['config'][] = array(
+	'name'			=> 'displayicons',
+	'title'			=> '_MI_IMPRESSION_ICONDISPLAY',
+	'description'	=> '_MI_IMPRESSION_DISPLAYICONDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'int',
+	'default'		=> 1,
+	'options'		=> array( '_MI_IMPRESSION_DISPLAYICON1' => 1, '_MI_IMPRESSION_DISPLAYICON2' => 2, '_MI_IMPRESSION_DISPLAYICON3' => 3 ) );
+
+$modversion['config'][] = array(
+	'name'			=> 'daysnew',
+	'title'			=> '_MI_IMPRESSION_DAYSNEW',
+	'description'	=> '_MI_IMPRESSION_DAYSNEWDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'int',
+	'default'		=> 10 );
+
+$modversion['config'][] = array(
+	'name'			=> 'perpage',
+	'title'			=> '_MI_IMPRESSION_PERPAGE',
+	'description'	=> '_MI_IMPRESSION_PERPAGEDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'int',
+	'default'		=> 10,
+	'options'		=> array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50 ) );
+
+$modversion['config'][] = array(
+	'name'			=> 'admin_perpage',
+	'title'			=> '_MI_IMPRESSION_ADMINPAGE',
+	'description'	=> '_MI_IMPRESSION_AMDMINPAGEDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'int',
+	'default'		=> 50,
+	'options'		=> array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100, '200' => 200 ) );
+	
+$modversion['config'][] = array(
+	'name'			=> 'txt_width',
+	'title'			=> '_MI_IMPRESSION_TEXTWIDTH',
+	'description'	=> '_MI_IMPRESSION_TEXTWIDTHDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'int',
+	'default'		=> 128,
+	'options'		=> array( '25' => 25, '50' => 50, '75' => 75, '100' => 100, '128' => 128 ) );
+
 $qa = ' (A)';
 $qd = ' (D)';
-$modversion['config'][$i]['name'] = 'articlexorder';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_ARTICLESSORT';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_ARTICLESSORTDSC';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'published DESC';
-$modversion['config'][$i]['options'] = array( _MI_IMPRESSION_TITLE . $qa => 'title ASC',
-                                              _MI_IMPRESSION_TITLE . $qd => 'title DESC',
-                                              _MI_IMPRESSION_SUBMITTED2 . $qa => 'published ASC' ,
-                                              _MI_IMPRESSION_SUBMITTED2 . $qd => 'published DESC',
-                                              _MI_IMPRESSION_POPULARITY . $qa => 'hits ASC',
-                                              _MI_IMPRESSION_POPULARITY . $qd => 'hits DESC'
-                                             );
-$i++;
-$modversion['config'][$i]['name'] = 'sortcats';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SORTCATS';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SORTCATSDSC';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'title';
-$modversion['config'][$i]['options'] = array( _MI_IMPRESSION_TITLE => 'weight',
-                                              _MI_IMPRESSION_WEIGHT => 'title' );
-$i++;
-$modversion['config'][$i]['name'] = 'subcats';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SUBCATS';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SUBCATSDSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 0;
-$i++;
-$modversion['config'][$i]['name'] = 'form_options';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_EDITOR';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_EDITORCHOICE';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'dhtml';
-$modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
-                                                _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
-												_MI_IMPRESSION_FORM_KOIVI => 'koivi',
-												_MI_IMPRESSION_FORM_FCK => 'fck',
-												_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
-												_MI_IMPRESSION_FORM_TINYMCE => 'tinymce' );
-$i++;
-$modversion['config'][$i]['name'] = 'form_optionsuser';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_EDITORUSER';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_EDITORCHOICEUSER';
-$modversion['config'][$i]['formtype'] = 'select';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'dhtml';
-$modversion['config'][$i]['options'] =  array(  _MI_IMPRESSION_FORM_DHTML => 'dhtml',
-                                                _MI_IMPRESSION_FORM_DHTMLEXT => 'dhtmlext',
-												_MI_IMPRESSION_FORM_KOIVI => 'koivi',
-												_MI_IMPRESSION_FORM_FCK => 'fck',
-												_MI_IMPRESSION_FORM_TINYEDITOR => 'tinyeditor',
-												_MI_IMPRESSION_FORM_TINYMCE => 'tinymce' );
-$i++;
-$modversion['config'][$i]['name'] = 'captcha';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_CAPTCHA';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_CAPTCHADSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 1;											
-$i++;
-$modversion['config'][$i]['name'] = 'mainimagedir';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_MAINIMGDIR';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_MAINIMGDIRDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'modules/' . $impressiondir . '/images';
-$i++;
-$modversion['config'][$i]['name'] = 'catimage';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_CATEGORYIMG';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_CATEGORYIMGDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'modules/' . $impressiondir . '/images/category';
-$i++;
-$modversion['config'][$i]['name'] = 'dateformat';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_DATEFORMAT';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DATEFORMATDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'd F Y';
-$i++;
-$modversion['config'][$i]['name'] = 'dateformatadmin';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_DATEFORMATADMIN';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DATEFORMATADMINDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'l, d F Y - G:i';
-$i++;
-$modversion['config'][$i]['name'] = 'showartcount';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWARTCOUNT';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOWARTCOUNTDSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 1;
-$i++;
-$modversion['config'][$i]['name'] = 'otherarticles';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_OTHERARTICLES';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_OTHERARTICLESDSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 1;
-$i++;
-$modversion['config'][$i]['name'] = 'showsbookmarks';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWSBOOKMARKS';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOWSBOOKMARKSDSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 1;
-$i++;
-$modversion['config'][$i]['name'] = 'usemetadescr';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_USEMETADESCR';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_USEMETADSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 1;
-$i++;
-$modversion['config'][$i]['name'] = 'linkedterms';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_LINKEDTERMS';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_LINKEDTERMSDSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 0;
-$i++;
-$modversion['config'][$i]['name'] = 'imglossarydir';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_IMGLOSSARYDIR';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_IMGLOSSARYDIRDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'imglossary';
-$i++;
-$modversion['config'][$i]['name'] = 'headerprint';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_HEADERPRINT';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_HEADERPRINTDSC';
-$modversion['config'][$i]['formtype'] = 'textsarea';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = '';
-$i++;
-$modversion['config'][$i]['name'] = 'printlogourl';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_PRINTLOGOURL';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_PRINTLOGOURLDSC';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = ICMS_URL . '/images/logo.gif';
-$i++;
-$modversion['config'][$i]['name'] = 'itemfooter';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_ITEMFOOTER';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_ITEMFOOTERDSC';
-$modversion['config'][$i]['formtype'] = 'textsarea';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = '' . ICMS_URL . '';
-//$i++;
-//$modversion['config'][$i]['name'] = 'footerprint';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_FOOTERPRINT';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_FOOTERPRINTDSC';
-//$modversion['config'][$i]['formtype'] = 'select';
-//$modversion['config'][$i]['valuetype'] = 'text';
-//$modversion['config'][$i]['default'] = 'item footer';
-//$modversion['config'][$i]['options'] = array( _MI_IMPRESSION_ITEMFOOTER_SEL  => 'item footer',
-//                                   	      _MI_IMPRESSION_INDEXFOOTER_SEL   => 'index footer',
-//                                              _MI_IMPRESSION_BOTH_FOOTERS => 'both',
-//                                  	      _MI_IMPRESSION_NO_FOOTERS => 'none');
-$i++;
-$modversion['config'][$i]['name'] = 'showdisclaimer';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWDISCLAIMER';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOWDISCLAIMERDSC';
-$modversion['config'][$i]['formtype'] = 'yesno';
-$modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 0;
-$i++;
-$modversion['config'][$i]['name'] = 'disclaimer';
-$modversion['config'][$i]['title'] = '_MI_IMPRESSION_DISCLAIMER';
-$modversion['config'][$i]['description'] = '_MI_IMPRESSION_DISCLAIMERDSC';
-$modversion['config'][$i]['formtype'] = 'textsarea';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = 'We have the right, but not the obligation to monitor and review submissions submitted by users, to this website. We shall not be responsible for any of the content of these messages. We further reserve the right, to delete, move or edit submissions that we, in its exclusive discretion, deems abusive, defamatory, obscene or in violation of any Copyright or Trademark laws or otherwise objectionable.';
-//$i++;
-//$modversion['config'][$i]['name'] = 'showarticledisclaimer';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_SHOWARTICLEDISCL';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_SHOWARTICLEDISCLDSC';
-//$modversion['config'][$i]['formtype'] = 'yesno';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 0;
-//$i++;
-//$modversion['config'][$i]['name'] = 'articledisclaimer';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_ARTICLEDISCLAIMER';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_ARTICLEDISCLAIMERDSC';
-//$modversion['config'][$i]['formtype'] = 'textarea';
-//$modversion['config'][$i]['valuetype'] = 'text';
-//$modversion['config'][$i]['default'] = 'The articles on this site are provided as is without warranty either expressed or implied. If you have a question concerning a particular piece article, feel free to contact the administrator of this website.<br /><br />Contact us if you have questions concerning this disclaimer.';
-//$i++;
-//$modversion['config'][$i]['name'] = 'copyright';
-//$modversion['config'][$i]['title'] = '_MI_IMPRESSION_COPYRIGHT';
-//$modversion['config'][$i]['description'] = '_MI_IMPRESSION_COPYRIGHTDSC';
-//$modversion['config'][$i]['formtype'] = 'yesno';
-//$modversion['config'][$i]['valuetype'] = 'int';
-//$modversion['config'][$i]['default'] = 1;
-//$i++;
+$modversion['config'][] = array(
+	'name'			=> 'articlexorder',
+	'title'			=> '_MI_IMPRESSION_ARTICLESSORT',
+	'description'	=> '_MI_IMPRESSION_ARTICLESSORTDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 'published DESC',
+	'options'		=> array(	_MI_IMPRESSION_TITLE . $qa => 'title ASC',
+								_MI_IMPRESSION_TITLE . $qd => 'title DESC',
+								_MI_IMPRESSION_SUBMITTED2 . $qa => 'published ASC' ,
+								_MI_IMPRESSION_SUBMITTED2 . $qd => 'published DESC',
+								_MI_IMPRESSION_POPULARITY . $qa => 'hits ASC',
+								_MI_IMPRESSION_POPULARITY . $qd => 'hits DESC' ) );
 
-// On Update
-if ( ! empty( $_POST['fct'] ) && ! empty( $_POST['op'] ) && $_POST['fct'] == 'modulesadmin' && $_POST['op'] == 'update_ok' && $_POST['dirname'] == $modversion['dirname'] )
-{
-    include dirname( __FILE__ ) . "/include/onupdate.inc.php" ;
-} 
+$modversion['config'][] = array(
+	'name'			=> 'sortcats',
+	'title'			=> '_MI_IMPRESSION_SORTCATS',
+	'description'	=> '_MI_IMPRESSION_SORTCATSDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 'title',
+	'options'		=> array( 	_MI_IMPRESSION_TITLE => 'title',
+								_MI_IMPRESSION_WEIGHT => 'weight' ) );
 
+$modversion['config'][] = array(
+	'name'			=> 'subcats',
+	'title'			=> '_MI_IMPRESSION_SUBCATS',
+	'description'	=> '_MI_IMPRESSION_SUBCATSDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 0 );
+
+$modversion['config'][] = array(
+	'name'			=> 'form_options',
+	'title'			=> '_MI_IMPRESSION_EDITOR',
+	'description'	=> '_MI_IMPRESSION_EDITORCHOICE',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 'tinymce',
+	'options'		=>  array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
+								_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
+								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
+
+$modversion['config'][] = array(
+	'name'			=> 'form_optionsuser',
+	'title'			=> '_MI_IMPRESSION_EDITORUSER',
+	'description'	=> '_MI_IMPRESSION_EDITORCHOICEUSER',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 'tinymce',
+	'options'		=>  array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
+								_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
+								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );	
+
+$modversion['config'][] = array(
+	'name'			=> 'captcha',
+	'title'			=> '_MI_IMPRESSION_CAPTCHA',
+	'description'	=> '_MI_IMPRESSION_CAPTCHADSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );								
+
+$modversion['config'][] = array(
+	'name'			=> 'mainimagedir',
+	'title'			=> '_MI_IMPRESSION_MAINIMGDIR',
+	'description'	=> '_MI_IMPRESSION_MAINIMGDIRDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'text',
+	'default'		=> 'uploads/impression/images' );
+
+$modversion['config'][] = array(
+	'name'			=> 'catimage',
+	'title'			=> '_MI_IMPRESSION_CATEGORYIMG',
+	'description'	=> '_MI_IMPRESSION_CATEGORYIMGDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'text',
+	'default'		=> 'uploads/impression/category' );
+
+$modversion['config'][] = array(
+	'name'			=> 'maxfilesize',
+	'title'			=> '_MI_IMPRESSION_MAXFILESIZE',
+	'description'	=> '_MI_IMPRESSION_MAXFILESIZEDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'int',
+	'default'		=> 200000 );
+
+$modversion['config'][] = array(
+	'name'			=> 'maximgwidth',
+	'title'			=> '_MI_IMPRESSION_IMGWIDTH',
+	'description'	=> '_MI_IMPRESSION_IMGWIDTHDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'int',
+	'default'		=> 36 );
+
+$modversion['config'][] = array(
+	'name'			=> 'maximgheight',
+	'title'			=> '_MI_IMPRESSION_IMGHEIGHT',
+	'description'	=> '_MI_IMPRESSION_IMGHEIGHTDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'int',
+	'default'		=> 32 );
+
+$modversion['config'][] = array(
+	'name'			=> 'dateformat',
+	'title'			=> '_MI_IMPRESSION_DATEFORMAT',
+	'description'	=> '_MI_IMPRESSION_DATEFORMATDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'text',
+	'default'		=> 'd F Y' );
+
+$modversion['config'][] = array(
+	'name'			=> 'dateformatadmin',
+	'title'			=> '_MI_IMPRESSION_DATEFORMATADMIN',
+	'description'	=> '_MI_IMPRESSION_DATEFORMATADMINDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'text',
+	'default'		=> 'l, d F Y - G:i' );
+
+$modversion['config'][] = array(
+	'name'			=> 'showartcount',
+	'title'			=> '_MI_IMPRESSION_SHOWARTCOUNT',
+	'description'	=> '_MI_IMPRESSION_SHOWARTCOUNTDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );
+
+$modversion['config'][] = array(
+	'name'			=> 'showsubmitter',
+	'title'			=> '_MI_IMPRESSION_SHOWSUBMITTER',
+	'description'	=> '_MI_IMPRESSION_SHOWSUBMITTERDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );
+	
+$modversion['config'][] = array(
+	'name'			=> 'form_bytesyn',
+	'title'			=> '_MI_IMPRESSION_BYTESYN',
+	'description'	=> '_MI_IMPRESSION_BYTESDESC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 'tinymce',
+	'options'		=>  array(	_NONE					=> 0,
+								_MI_IMPRESSION_BYTES	=> 1,
+								_MI_IMPRESSION_WORDS	=> 2,
+								_MI_IMPRESSION_CHARSF	=> 3 ) );	
+
+$modversion['config'][] = array(
+	'name'			=> 'showsbookmarks',
+	'title'			=> '_MI_IMPRESSION_SHOWSBOOKMARKS',
+	'description'	=> '_MI_IMPRESSION_SHOWSBOOKMARKSDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );
+
+$modversion['config'][] = array(
+	'name'			=> 'usemetadescr',
+	'title'			=> '_MI_IMPRESSION_USEMETADESCR',
+	'description'	=> '_MI_IMPRESSION_USEMETADSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );
+
+$modversion['config'][] = array(
+	'name'			=> 'usercantag',
+	'title'			=> '_MI_IMPRESSION_USERTAGDESCR',
+	'description'	=> '_MI_IMPRESSION_USERTAGDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 0 );
+
+$modversion['config'][] = array(
+	'name'			=> 'linkedterms',
+	'title'			=> '_MI_IMPRESSION_LINKEDTERMS',
+	'description'	=> '_MI_IMPRESSION_LINKEDTERMSDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 0 );
+
+$modversion['config'][] = array(
+	'name'			=> 'imglossarydir',
+	'title'			=> '_MI_IMPRESSION_IMGLOSSARYDIR',
+	'description'	=> '_MI_IMPRESSION_IMGLOSSARYDIRDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'text',
+	'default'		=> 'imglossary' );
+
+$modversion['config'][] = array(
+	'name'			=> 'niceurl',
+	'title'			=> '_MI_IMPRESSION_NICEURL',
+	'description'	=> '_MI_IMPRESSION_NICEURLDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );
+
+$modversion['config'][] = array(
+	'name'			=> 'headerprint',
+	'title'			=> '_MI_IMPRESSION_HEADERPRINT',
+	'description'	=> '_MI_IMPRESSION_HEADERPRINTDSC',
+	'formtype'		=> 'textsarea',
+	'valuetype'		=> 'text',
+	'default'		=> '' );
+
+$modversion['config'][] = array(
+	'name'			=> 'printlogourl',
+	'title'			=> '_MI_IMPRESSION_PRINTLOGOURL',
+	'description'	=> '_MI_IMPRESSION_PRINTLOGOURLDSC',
+	'formtype'		=> 'textbox',
+	'valuetype'		=> 'text',
+	'default'		=> ICMS_URL . '/images/logo.gif' );
+
+$modversion['config'][] = array(
+	'name'			=> 'itemfooter',
+	'title'			=> '_MI_IMPRESSION_ITEMFOOTER',
+	'description'	=> '_MI_IMPRESSION_ITEMFOOTERDSC',
+	'formtype'		=> 'textsarea',
+	'valuetype'		=> 'text',
+	'default'		=> '' . ICMS_URL . '' );
+
+$modversion['config'][] = array(
+	'name'			=> 'showdisclaimer',
+	'title'			=> '_MI_IMPRESSION_SHOWDISCLAIMER',
+	'description'	=> '_MI_IMPRESSION_SHOWDISCLAIMERDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 0 );
+
+$modversion['config'][] = array(
+	'name'			=> 'disclaimer',
+	'title'			=> '_MI_IMPRESSION_DISCLAIMER',
+	'description'	=> '_MI_IMPRESSION_DISCLAIMERDSC',
+	'formtype'		=> 'textsarea',
+	'valuetype'		=> 'text',
+	'default'		=> 'We have the right, but not the obligation to monitor and review submissions submitted by users, to this website. We shall not be responsible for any of the content of these messages. We further reserve the right, to delete, move or edit submissions that we, in its exclusive discretion, deems abusive, defamatory, obscene or in violation of any Copyright or Trademark laws or otherwise objectionable.' );
+
+// Notification
+$modversion['hasNotification'] = 1;
+$modversion['notification']['lookup_file'] = 'include/notification.inc.php';
+$modversion['notification']['lookup_func'] = 'impression_notify_iteminfo';
+
+$modversion['notification']['category'][] = array(
+	'name'				=> 'global',
+	'title'				=> _MI_IMPRESSION_GLOBAL_NOTIFY,
+	'description'		=> _MI_IMPRESSION_GLOBAL_NOTIFYDSC,
+	'subscribe_from'	=> array( 'index.php', 'catview.php', 'singlearticle.php' ) );
+
+$modversion['notification']['category'][] = array(
+	'name'				=> 'category',
+	'title'				=> _MI_IMPRESSION_CATEGORY_NOTIFY,
+	'description'		=> _MI_IMPRESSION_CATEGORY_NOTIFYDSC,
+	'subscribe_from'	=> array( 'catview.php', 'singlearticle.php' ),
+	'item_name'			=> 'cid',
+	'allow_bookmark'	=> 1 );
+
+$modversion['notification']['category'][] = array(
+	'name'				=> 'article',
+	'title'				=> _MI_IMPRESSION_ARTICLE_NOTIFY,
+	'description'		=> _MI_IMPRESSION_FILE_NOTIFYDSC,
+	'subscribe_from'	=> 'singlearticle.php',
+	'item_name'			=> 'aid',
+	'allow_bookmark'	=> 1 );
+
+$modversion['notification']['event'][] = array(
+	'name'				=> 'new_category',
+	'category'			=> 'global',
+	'title'				=> _MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY,
+	'caption'			=> _MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP,
+	'description'		=> _MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC,
+	'mail_template'		=> 'global_newcategory_notify',
+	'mail_subject'		=> _MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ );
+
+$modversion['notification']['event'][] = array(
+	'name'				=> 'article_submit',
+	'category'			=> 'global',
+	'admin_only'		=> 1,
+	'title'				=> _MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY,
+	'caption'			=> _MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP,
+	'description'		=> _MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC,
+	'mail_template'		=> 'global_articlesubmit_notify',
+	'mail_subject'		=> _MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ );
+
+$modversion['notification']['event'][] = array(
+	'name'				=> 'new_article',
+	'category'			=> 'global',
+	'title'				=> _MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY,
+	'caption'			=> _MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP,
+	'description'		=> _MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC,
+	'mail_template'		=> 'global_newfile_notify',
+	'mail_subject'		=> _MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ );
+
+$modversion['notification']['event'][] = array(
+	'name'				=> 'article_submit',
+	'category'			=> 'category',
+	'admin_only'		=> 1,
+	'title'				=> _MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY,
+	'caption'			=> _MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP,
+	'description'		=> _MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC,
+	'mail_template'		=> 'category_articlesubmit_notify',
+	'mail_subject'		=> _MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ );
+
+$modversion['notification']['event'][] = array(
+	'name'				=> 'new_article',
+	'category'			=> 'category',
+	'title'				=> _MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY,
+	'caption'			=> _MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP,
+	'description'		=> _MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC,
+	'mail_template'		=> 'category_newfile_notify',
+	'mail_subject'		=> _MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ );
+
+$modversion['notification']['event'][] = array(
+	'name'				=> 'approve',
+	'category'			=> 'article',
+	'invisible'			=> 1,
+	'title'				=> _MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY,
+	'caption'			=> _MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP,
+	'description'		=> _MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC,
+	'mail_template'		=> 'article_approve_notify',
+	'mail_subject'		=> _MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ );
 ?>

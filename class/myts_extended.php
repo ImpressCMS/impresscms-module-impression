@@ -30,7 +30,7 @@ class impressionTextSanitizer extends MyTextSanitizer {
     function impressionTextSanitizer() {
     } 
 	function htmlSpecialCharsStrip( $text ) {
-		return $this -> htmlSpecialChars( $this -> stripSlashesGPC( $text) );
+		return icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $text) );
     } 
 } 
 

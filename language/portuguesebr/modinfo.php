@@ -165,20 +165,11 @@ define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Categoria');
 define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Opções de notificações correspondentes apenas à categoria corrente.');
 define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'Artigo');
 define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Opções de notificações aplicadas ao artigo atual.');
+
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'Nova Categoria');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Avise-me quando uma nova categoria de artigo for criada.');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Receber uma notificação sobre todo pedidos para uma nova categoria de artigo for criada.');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} Notificação-Automática : Nova categoria de artigo');
-
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Pedido de modificação do artigo');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Avise-me quando qualquer modificação de artigo for enviada.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Receber notificações para todo pedido de modificação de artigo.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} Notificação-Automática : Novo pedido de modificação de artigo');
-
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFY', 'Notificação de Artigo corrompindo');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYCAP', 'Avise-me sobre relatórios de artigos quebrados.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYDSC', 'Receber notificações quando qualquer relatório de artigo quebrado for enviado.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} Notificação-Automática : Relatório de Artigo quebrado');
 
 define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'Artigo Enviado');
 define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Avise-me sobre todos os Artigos enviados (aguardando aprovação).');
@@ -260,7 +251,24 @@ define("_MI_IMPRESSION_LINKEDTERMSDSC", "O módulo imGlossary precisa estar inst
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Nome da pasta onde está o ImGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "O nome da pasta dentro de <b>modules</b> onde está o módulo imGlossary <br /> O Padrão é: <em>imglossary</em>" );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - uma cópia da licença GNU está amexada no arquivo (license.txt), presente neste módulo.' );
-define( "_MI_IMPRESSION_CAPTCHA", "Usar captcha nos formulários de envio?" );
-define( "_MI_IMPRESSION_CAPTCHADSC", "Escolha <em>Sim</em> para usar captcha quando o usuário for enviar uma informação para o site no formulário.<br />Padrão: <em>Sim</em>" );
 define( '_MI_IMPRESSION_RSSFEED', 'RSS Feed' );
+
+define( '_MI_IMPRESSION_SHOWSUBMITTER', 'Show submitter?' );
+define( '_MI_IMPRESSION_SHOWSUBMITTERDSC', 'Select <em>Yes</em> to have the submitters name printed above the artice.' );
+define( '_MI_IMPRESSION_USERTAGDESCR', 'Usuário pode enviar Tags:' );
+define( '_MI_IMPRESSION_USERTAGDSC', 'Selecione <em>Sim</em> para autorizar o usuário a enviar tags.' );
+define( '_MI_IMPRESSION_NICEURL', 'Use nice urls?' );
+define( '_MI_IMPRESSION_NICEURLDSC', 'Use nice urls for articles.' );
+
+// Impression 1.1.0
+define( '_MI_IMPRESSION_CAPTCHA', 'Use captcha in submit form?' );
+define( '_MI_IMPRESSION_CAPTCHADSC', 'Select <em>Yes</em> to use captcha in the submit form.<br />Default: <em>Yes</em>' );
+define( '_MI_IMPRESSION_BYTESYN', 'Display in footer:' );
+define( '_MI_IMPRESSION_BYTESDESC', 'Displays extra information in the footer after <em>Read more</em>.' );
+define( '_MI_IMPRESSION_BYTES', 'Bytes' );
+define( '_MI_IMPRESSION_WORDS', 'Words' );
+define( '_MI_IMPRESSION_CHARSF', 'Characters' );
+define( '_MI_IMPRESSION_BNEWS', 'News by category');
+define( '_MI_IMPRESSION_TEXTWIDTH', 'Set width of title boxes in administration:' );
+define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Select the width of the text boxes used for titles in submit forms. Default is 128.' );
 ?>

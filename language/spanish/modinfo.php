@@ -26,7 +26,7 @@ define("_MI_IMPRESSION_SMNAME3","Mejor valorado");
 define("_MI_IMPRESSION_SMNAME4","Últimos publicados");//Latest Listings
 
 // Names of admin menu items
-define("_MI_IMPRESSION_BINDEX","Índice de la administración");
+define("_MI_IMPRESSION_BINDEX","Índice");
 define("_MI_IMPRESSION_INDEXPAGE","Página principal");
 define("_MI_IMPRESSION_MCATEGORY","Categorías");
 define("_MI_IMPRESSION_MARTICLES","Artículos");
@@ -65,10 +65,10 @@ define("_MI_IMPRESSION_SORTCATSDSC", "Seleccione cómo las categorías y las sub
 define('_MI_IMPRESSION_SUBCATS', 'Subcategorías:');
 define('_MI_IMPRESSION_SUBCATSDSC', 'Seleccione Sí para mostrar las subcategorías. Si elige No, las mismas no serán mostradas en los listados de la categoría a la que pertenecen.');
 
-define('_MI_IMPRESSION_EDITOR', "Editor a usar (admin):");
-define('_MI_IMPRESSION_EDITORCHOICE', "Seleccione el editor que se usará en la administración. Si solo ha hecho una instalación normal de ImpressCMS (sin ningún extra), podrá seleccionar DHTML y TinyMCE.");
-define('_MI_IMPRESSION_EDITORUSER', "Editor a usar (usuarios)");
-define('_MI_IMPRESSION_EDITORCHOICEUSER', "Seleccione el editor que se usará en la administración. Si solo ha hecho una instalación normal de ImpressCMS (sin ningún extra), podrá seleccionar DHTML y TinyMCE.");
+define('_MI_IMPRESSION_EDITOR', "Editor a usar por los administradores):");
+define('_MI_IMPRESSION_EDITORCHOICE', "Seleccione el editor que se usará en la administración. Si sólo ha hecho una instalación normal de ImpressCMS (sin ningún extra), podrá seleccionar DHTML y TinyMCE.");
+define('_MI_IMPRESSION_EDITORUSER', "Editor a usar por los usuarios)");
+define('_MI_IMPRESSION_EDITORCHOICEUSER', "Seleccione el editor que se usará en la administración. Si sólo ha hecho una instalación normal de ImpressCMS (sin ningún extra), podrá seleccionar DHTML y TinyMCE.");
 define("_MI_IMPRESSION_FORM_DHTML","DHTML");
 define("_MI_IMPRESSION_FORM_DHTMLEXT", "DHTML Extended");
 define("_MI_IMPRESSION_FORM_COMPACT","Compact");
@@ -91,10 +91,10 @@ define('_MI_IMPRESSION_MAINIMGDIR','Directorio para la imagen principal');
 
 define('_MI_IMPRESSION_CATEGORYIMG','Directorio para almacenar las imágenes de las categorías');
 
-define('_MI_IMPRESSION_DATEFORMAT', 'Formato de fecha:');
+define('_MI_IMPRESSION_DATEFORMAT', 'Formato de fecha (para los usuarios):');
 define('_MI_IMPRESSION_DATEFORMATDSC', 'Formato de fecha predeterminado a usar en el módulo.<br />Lea el <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">manual de PHP</a> para más información');
 
-define('_MI_IMPRESSION_DATEFORMATADMIN', 'Administración del formato de fecha:');
+define('_MI_IMPRESSION_DATEFORMATADMIN', 'Formato de fecha (en la Administración del módulo):');
 define('_MI_IMPRESSION_DATEFORMATADMINDSC', '<br />Lea el <a href="http://jp.php.net/manual/es/function.date.php" target="_blank">manual de PHP</a>');
 
 define("_MI_IMPRESSION_TOTALCHARS", "Establezca el total de caracteres para la descripción?");
@@ -165,38 +165,30 @@ define('_MI_IMPRESSION_CATEGORY_NOTIFY', 'Categoría');
 define('_MI_IMPRESSION_CATEGORY_NOTIFYDSC', 'Opciones de notificación que se aplicarán en la categoría actual.');
 define('_MI_IMPRESSION_ARTICLE_NOTIFY', 'Artículos');
 define('_MI_IMPRESSION_FILE_NOTIFYDSC', 'Opciones de notificación que se aplicarán en el artículo actual.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'Nuevas Categorías');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFY', 'Nuevas categorías');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYCAP', 'Notificarme cuando una nueva categoría es creada.');
 define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYDSC', 'Recibir notificación cuando una nueva categoría es creada.');
-define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevas categorías');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFY', 'Solicitud de modificación de artículos');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYCAP', 'Notificarme de cualquier solicitud de modificación de artículo.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYDSC', 'Recibir notificación cuando se reciba cualquier solicitud de modificación de artículo.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEMODIFY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : solicitud de modificación de artículos');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFY', 'Reporte de artículo erróneo');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYCAP', 'Notificarme de cualquier reporte de artículo erróneo.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYDSC', 'Recibir notificación cuando se reciba un reporte de artículo erróneo.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLEBROKEN_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : reporte de artículo erróneo');
+define('_MI_IMPRESSION_GLOBAL_NEWCATEGORY_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar: nuevas categorías');
 define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFY', 'Enlace enviado');
 define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYCAP', 'Notificarme cuando cualquier nuevo artículo sea enviado y este aguardando aprobación.');
 define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYDSC', 'Recibir notificación de cualquier nuevo artículo enviado que este aguardando aprobación.');
-define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo enviado');
+define('_MI_IMPRESSION_GLOBAL_ARTICLESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar: nuevo artículo enviado');
 define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFY', 'Nuevo artículo');
 define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYCAP', 'Notificarme cuando un nuevo artículo es publicado.');
 define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYDSC', 'Recibir notificación cuando un nuevo artículo es publicado.');
-define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo');
+define('_MI_IMPRESSION_GLOBAL_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar: nuevo artículo');
 define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFY', 'Enlace enviado');
 define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYCAP', 'Notificarme cuando cualquier nuevo artículo sea enviado en esta categoría y este aguardando aprobación.');
 define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYDSC', 'Recibir notificación de cualquier nuevo artículo enviado en esta categoría y que este aguardando aprobación.');
-define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo enviado en la nategoría');
+define('_MI_IMPRESSION_CATEGORY_FILESUBMIT_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar: nuevo artículo enviado en la nategoría');
 define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFY', 'Nuevo artículo');
 define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYCAP', 'Notificarme cuando un nuevo artículo es publicado en esta categoría.');
 define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYDSC', 'Recibir notificación cuando un nuevo artículo es publicado en esta categoría.');
-define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : nuevo artículo publicado en la categoría');
+define('_MI_IMPRESSION_CATEGORY_NEWARTICLE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar: nuevo artículo publicado en la categoría');
 define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFY', 'Artículo aprobado');
 define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYCAP', 'Notificarme cuando este artículo sea aprobado.');
 define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYDSC', 'Recibir notificación cuando este artículo sea aprobado.');
-define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar : artículo aprobado');
+define('_MI_IMPRESSION_ARTICLE_APPROVE_NOTIFYSBJ', '[{X_SITENAME}] {X_MODULE} autonotificar: artículo aprobado');
 
 define('_MI_IMPRESSION_AUTHOR_INFO', "Developer information");
 define('_MI_IMPRESSION_AUTHOR_NAME', "Developer");
@@ -212,7 +204,7 @@ define('_MI_IMPRESSION_MODULE_BUG', "Report a bug for this module");
 define('_MI_IMPRESSION_MODULE_FEATURE', "Suggest a new feature for this module");
 define('_MI_IMPRESSION_MODULE_DISCLAIMER', "Disclaimer");
 define('_MI_IMPRESSION_RELEASE', "Release date: ");
-define('_MI_IMPRESSION_ICONS_CREDITS', "Icons by:");
+define('_MI_IMPRESSION_ICONS_CREDITS', "Iconos por:");
 
 define("_MI_IMPRESSION_HEADERPRINT","[Opciones de impresión] Cabecera");
 define("_MI_IMPRESSION_HEADERPRINTDSC","Cabecera que se imprimirá en cada artíclo");
@@ -254,7 +246,24 @@ define("_MI_IMPRESSION_LINKEDTERMSDSC", "El módulo imGlossary necesita estar in
 define("_MI_IMPRESSION_IMGLOSSARYDIR", "Nombre de la carpeta de imGlossary:" );
 define("_MI_IMPRESSION_IMGLOSSARYDIRDSC", "Nombre de la carpeta en la que está instalado imGlossary.<br />Predeterminado: <em>imglossary</em>" );
 define( '_MI_IMPRESSION_ABOUTLICENSE', 'GNU General Public License (GPL) - a copy of the GNU license is enclosed (license.txt).' );
-define( "_MI_IMPRESSION_CAPTCHA", "¿Usar Captcha en el formulario de envío?" );
-define( "_MI_IMPRESSION_CAPTCHADSC", "Seleccione <em>Sí</em> para usar Captcha en el mismo.<br /> Predeterminado: <em>Sí</em>" );
-define( '_MI_IMPRESSION_RSSFEED', 'Orígen de RSS' );
+define( '_MI_IMPRESSION_RSSFEED', 'Origen de RSS' );
+
+define( '_MI_IMPRESSION_SHOWSUBMITTER', '¿Mostrar nombre de quien hizo el envío?' );
+define( '_MI_IMPRESSION_SHOWSUBMITTERDSC', 'Seleccione <em>Sí</em> para que aparezca el mismo al imprimir el documento.' );
+define( '_MI_IMPRESSION_USERTAGDESCR', 'Los usuarios pueden enviar etiquetas (tags):' );
+define( '_MI_IMPRESSION_USERTAGDSC', 'Selecione si los usuarios pueden o no enviar solapas.' );
+define( '_MI_IMPRESSION_NICEURL', '¿Usar URL abreviados para los artículos?' );
+define( '_MI_IMPRESSION_NICEURLDSC', 'Activando esta característica podrá personalizar el URL de la página' );
+
+// Impression 1.1.0
+define( '_MI_IMPRESSION_CAPTCHA', '¿Usar captcha en el formulario de redacción?' );
+define( '_MI_IMPRESSION_CAPTCHADSC', 'Seleccione <em>Sí</em> para usar captcha en el formulario de redacción de contenido.<br />Predeterminado: <em>Sí</em>' );
+define( '_MI_IMPRESSION_BYTESYN', 'Mostrar en pie de página:' );
+define( '_MI_IMPRESSION_BYTESDESC', 'Mostrar la información extra en el pie de página, después de <em>Leer más</em>.' );
+define( '_MI_IMPRESSION_BYTES', 'Bytes' );
+define( '_MI_IMPRESSION_WORDS', 'Palabras' );
+define( '_MI_IMPRESSION_CHARSF', 'Caracteres' );
+define( '_MI_IMPRESSION_BNEWS', 'Artículos por categoría');
+define( '_MI_IMPRESSION_TEXTWIDTH', 'Set width of title boxes in administration:' );
+define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Select the width of the text boxes used for titles in submit forms. Default is 128.' );
 ?>

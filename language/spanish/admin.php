@@ -10,7 +10,7 @@
 
 define( "_AM_IMPRESSION_WARNINSTALL1", "Advertencia: el directorio %s existe en su servidor. <br />Por favor, elimínelo por seguridad." );
 define( "_AM_IMPRESSION_WARNINSTALL2", "Aviso: el archivo %s existe en tu servidor. <br />Por favor, por razones de seguridad elimine este archivo." );
-define( "_AM_IMPRESSION_WARNINSTALL3", "Aviso: la carpeta %s no existe en su servidor. <br />Esta carpeta es necesaria para el funcionamiento de  Impression." );
+define( "_AM_IMPRESSION_WARNINSTALL3", "Aviso: la carpeta %s no existe en su servidor. <br />Esta carpeta es necesaria para el funcionamiento de Impression." );
 
 define( "_AM_IMPRESSION_MODULE_NAME", "Impression" );
 
@@ -36,7 +36,7 @@ define( "_AM_IMPRESSION_DISABLEXCODE", "Desactivar códigos de iCMS" );
 define( "_AM_IMPRESSION_DISABLEIMAGES", "Desactivar imágenes" );
 define( "_AM_IMPRESSION_DISABLEBREAK", "¿Usar conversión del salto de línea de iCMS?" );
 define( "_AM_IMPRESSION_UPLOADFILE", "El artículo fue guardado con éxito en el servidor" );
-define( "_AM_IMPRESSION_NOMENUITEMS", "No hay items del menu" );
+define( "_AM_IMPRESSION_NOMENUITEMS", "No hay items del menú" );
 // Admin Bread crumb
 define( "_AM_IMPRESSION_PREFS", "Preferencias" );
 define( "_AM_IMPRESSION_BUPDATE", "Actualizar el módulo" );
@@ -55,7 +55,7 @@ define( "_AM_IMPRESSION_SREVIEWS", "Revisiones: " );
 define( "_AM_IMPRESSION_MCATEGORY", "Gestión de categorías" );
 define( "_AM_IMPRESSION_MARTICLES", "Gestión de artículos" );
 define( "_AM_IMPRESSION_INDEXPAGE", "Gestión de la página índice" );
-define( "_AM_IMPRESSION_MUPLOADS", "Subir imágenes" );
+define( "_AM_IMPRESSION_MUPLOADS", "Gestión de las imágenes del módulo" );
 // Catgeory defines
 define( "_AM_IMPRESSION_CCATEGORY_CREATENEW", "Crear nueva categoría" );
 define( "_AM_IMPRESSION_CCATEGORY_MODIFY", "Modificar categoría" );
@@ -120,8 +120,8 @@ define( "_AM_IMPRESSION_ARTICLE_GDLIBSTATUS", "Soporte de la libería GD: " );
 define( "_AM_IMPRESSION_ARTICLE_GDLIBVERSION", "Versión de la librería GD: " );
 define( "_AM_IMPRESSION_ARTICLE_GDON", "<b>Habilitado</b> (Miniaturas habilitadas)" );
 define( "_AM_IMPRESSION_ARTICLE_GDOFF", "<b>Inhabilitado</b> (Miniaturas deshabilitadas)" );
-define( "_AM_IMPRESSION_ARTICLE_OFF", "<b>Inactivo</b>" );
-define( "_AM_IMPRESSION_ARTICLE_ON", "<b>Activo</b>" );
+define( "_AM_IMPRESSION_ARTICLE_OFF", "Inactivo" );
+define( "_AM_IMPRESSION_ARTICLE_ON", "Activo" );
 define( "_AM_IMPRESSION_ARTICLE_CATIMAGE", "Usar en categorías" );
 define( "_AM_IMPRESSION_ARTICLE_SCREENSHOTS", "Usar como capturas" );
 define( "_AM_IMPRESSION_ARTICLE_MAINIMAGEDIR", "Usar como imagen principal" );
@@ -143,19 +143,19 @@ define( "_AM_IMPRESSION_MINDEX_AUTOEXPIRE", "Autoexpirar artículos:" );
 define( "_AM_IMPRESSION_MINDEX_EXPIRED", "Artículos expirados:" );
 define( "_AM_IMPRESSION_MINDEX_OFFLINEARTICLE", "Artículos no activos:" );
 define( "_AM_IMPRESSION_MINDEX_ID", "ID" );
-define( "_AM_IMPRESSION_MINDEX_TITLE", "Título de artículo" );
-define( "_AM_IMPRESSION_MINDEX_CATTITLE", "Categorías" );
+define( "_AM_IMPRESSION_MINDEX_TITLE", "Título" );
+define( "_AM_IMPRESSION_MINDEX_CATTITLE", "Categoría" );
 define( "_AM_IMPRESSION_MINDEX_POSTER", "Autor" );
 define( "_AM_IMPRESSION_MINDEX_ONLINE", "Estado" );
 define( "_AM_IMPRESSION_MINDEX_ONLINESTATUS", "Activo" );
-define( "_AM_IMPRESSION_MINDEX_PUBLISH", "Publicados" );
+define( "_AM_IMPRESSION_MINDEX_PUBLISH", "Publicado" );
 define( "_AM_IMPRESSION_MINDEX_PUBLISHED", "Publicados" );
 define( "_AM_IMPRESSION_MINDEX_EXPIRE", "Expirados" );
 define( "_AM_IMPRESSION_MINDEX_NOTSET", "Fecha no fijada" );
 define( "_AM_IMPRESSION_MINDEX_SUBMITTED", "Enviados" );//Date submitted
 define( "_AM_IMPRESSION_MINDEX_ACTION", "Acción" );
 define( "_AM_IMPRESSION_MINDEX_NOARTICLESFOUND", "Aviso: no hay artículos que coincidan con este criterio" );
-define( "_AM_IMPRESSION_MINDEX_PAGE", "<b>Página:<b> " );
+define( "_AM_IMPRESSION_MINDEX_PAGE", "Página: " );
 define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '<ul><li>Detalles de la página principal del módulo Impression.</li><li>Puede cambiar de forma sencilla la imagen del logo, el encabezado principal y el pié de página así como la alineación de los mismos.</li></ul><br />Nota: La imagen del logo que elija será usada en el módulo.' );
 define( "_AM_IMPRESSION_MINDEX_RESPONSE", "Tiempo de respuesta" );
 // Submitted Links
@@ -193,20 +193,22 @@ define( "_AM_IMPRESSION_MOD_ORIGINAL", "Detalles del artículo original" );
 define( "_AM_IMPRESSION_MOD_REQDELETED", "Solicitud de modificación eliminada de la base de datos" );
 define( "_AM_IMPRESSION_MOD_REQUPDATED", "Los artículos seleccionados han sido modificados y la base de datos modificada con éxito." );
 define( '_AM_IMPRESSION_MOD_VIEW', 'Ver' );//View
+define( "_AM_IMPRESSION_MOD_META_KEYWORDS", "Keywords:" );
+define( "_AM_IMPRESSION_MOD_ITEM_TAG", "Tags:" );
 // Article management
 define( "_AM_IMPRESSION_ARTICLE_ID", "ID: " );
 define( "_AM_IMPRESSION_ARTICLE_IP", "Dirección IP: " );
 define( "_AM_IMPRESSION_ARTICLE_ALLOWEDAMIME", "<div style='padding-top: 4px; padding-bottom: 4px;'><b>Administración de las extensiones de tipos de archivos permitidos</b>:</div>" );
 define( "_AM_IMPRESSION_ARTICLE_MODIFYFILE", "Modificar la información de artículo" );
 define( "_AM_IMPRESSION_ARTICLE_CREATENEWFILE", "Crear nuevo artículo" );
-define( "_AM_IMPRESSION_ARTICLE_TITLE", "<b>Título:</b>" );
-define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "<b>Texto de introducción:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_TITLE", "Título:" );
+define( "_AM_IMPRESSION_ARTICLE_INTROTEXT", "Texto de introducción:" );
 define( "_AM_IMPRESSION_ARTICLE_INTROTEXT_DSC", "<br />Este texto será la primera parte o cabecera del artículo y será mostrado en el bloque de titulares." );
-define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "<b>Texto principal:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION", "Texto principal:" );
 define( "_AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC", "<br />Este texto, junto con el anterior, formarán el completo contenido del artículo" );
-define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "<b>Categoría principal:</b>" );
-define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "<b>Establecer estado del artículo:</b>" );
-define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC", "<small>Establecer el estado del artículo como publicado/no activo/rechazado</small>" );
+define( "_AM_IMPRESSION_ARTICLE_CATEGORY", "Categoría principal:" );
+define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS", "Establecer estado del artículo:" );
+define( "_AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC", "Establecer el estado del artículo como publicado/no activo/rechazado" );
 define( "_AM_IMPRESSION_ARTICLE_SETASAPPROVED", "¿Fijar el estado del artículo como aprobado?" );
 define( "_AM_IMPRESSION_ARTICLE_PUBLISHDATE", "Fecha de publicación:" );
 define( "_AM_IMPRESSION_ARTICLE_EXPIREDATE", "Fecha de expiración:" );
@@ -229,7 +231,7 @@ define( "_AM_IMPRESSION_ARTICLE_FILEMODIFIEDUPDATE", "Artículo modificado y bas
 define( "_AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS", "¿Realmente desea eliminar el artículo seleccionado?" );
 define( "_AM_IMPRESSION_ARTICLE_FILEWASDELETED", "Artículo %s eliminado de la base de datos satisfactoriamente" );
 define( "_AM_IMPRESSION_ARTICLE_FILEAPPROVED", "Artículo aprobado y base de datos actualizada satisfactoriamente" );
-define( "_AM_IMPRESSION_ARTICLE_PUBLISHER", "<b>Nombre del autor:</b>" );
+define( "_AM_IMPRESSION_ARTICLE_PUBLISHER", "Nombre del autor:" );
 // About defines
 define( "_AM_IMPRESSION_BY", "por" );
 // Block defines
@@ -266,7 +268,6 @@ define( "_AM_IMPRESSION_ICO_IGNORE", "Ignorar" );
 define( "_AM_IMPRESSION_ICO_REJECTED", "Rechazar" );
 define( "_AM_IMPRESSION_ICO_SUBMITTED", "Enviado" );
 define( "_AM_IMPRESSION_ICO_RES", "Modificar recursos/artículos para este ítem" );
-define( "_AM_IMPRESSION_MOD_URLRATING", "Valoración del URL:" );//Interent Content Rating
 // Alternate category
 define( "_AM_IMPRESSION_ALTCAT_CREATEF", "Añadir categoría alternativa" );
 define( "_AM_IMPRESSION_MALTCAT", "Gestión de categorías alternativas" );
@@ -284,7 +285,7 @@ define( "_AM_IMPRESSION_PERM_APERMISSIONS", "Grupos que pueden moderar" );
 define( "_AM_IMPRESSION_PERM_APERMISSIONS_TEXT", "Seleccione los grupos que tendrán permisos de moderación en las categorías seleccionadas." );
 
 define( "_AM_IMPRESSION_TIME", "Fecha:" );
-define( "_AM_IMPRESSION_KEYWORDS", "<b>Palabras clave:</b>" );
+define( "_AM_IMPRESSION_KEYWORDS", "Palabras clave:" );
 define( "_AM_IMPRESSION_KEYWORDS_NOTE", "Las palabras clave deben estar separadas con una coma <br />(<i>palabra clave1, palabra clave2, palabra clave3, etc.</i>)" );
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION", "Meta descripción");
 define( "_AM_IMPRESSION_ARTICLE_META_DESCRIPTION_DSC", "Para tener más éxito en las máquinas de búsqueda, puede personalizar la meta descripción que le gustaría usar para este artículo. Si deja el campo en blanco, se usará automáticamente el campo del texto de introducción del artículo.");
@@ -346,8 +347,29 @@ define( '_AM_IMPRESSION_RSSOFFMSG', 'Mensaje cuando el origen de RSS esté desac
 define( '_AM_IMPRESSION_RSSOFFMSGDSC', 'El mismo será usado como explicación del porqué de dicha circunstancia.' );
 define( '_AM_IMPRESSION_RSSOFFTITLE', 'Este origen de RSS ha sido desactivado.' );
 define( '_AM_IMPRESSION_RSSOFFMSGDEF', 'El origen de RSS ha sido temporalmente desactivado por necesidades de mantenimiento.' );
+define( '_AM_IMPRESSION_RSSCLICKSUBMIT', 'Por favor, haga clic en <em>Enviar</em> para almacenar todos los valores del formulario en la base de datos' );
 define( '_AM_IMPRESSION_COPYRIGHT', 'Copyright' );
 define( '_AM_IMPRESSION_ICO_CLONE', 'Duplicar artículo' );
 define( '_AM_IMPRESSION_CLONE', '**Duplicar**' );
 define( '_AM_IMPRESSION_CLONEARTICLE', 'Duplicar artículo' );
+define( '_AM_IMPRESSION_SHOWNOIMAGE' , 'No mostrar imagen' );
+define( '_AM_IMPRESSION_NOSELECTION', 'No hay selección' );
+define( '_AM_IMPRESSION_NOFILESELECT', 'No ha seleccionado ningún archivo' );
+define( '_AM_IMPRESSION_PRUNE', 'Purgar' );
+define( '_AM_IMPRESSION_PRUNEINFO', 'Purgar información' );
+define( '_AM_IMPRESSION_PRUNEWARN', 'Puede eliminar artículos que están publicados antes de la fecha que elija.<br />Los comentarios de los mismos también serán eliminados.<br />Tenga en cuenta que esta acción <strong>es definitiva</strong> y no podrá recuperar la información eliminada: si tiene dudas, haga una copia de su base de datos con anterioridad.' );
+define( '_AM_IMPRESSION_PRUNEDELETED', 'Los artículos fueron eliminados con éxito de la base de datos.' );
+define( '_AM_IMPRESSION_PRUNEDATE', 'Seleccionar fecha:' );
+define( '_AM_IMPRESSION_PRUNEDATEDSC', 'Todos los artículos anteriores a la fecha que seleccione serán eliminados.' );
+define( '_AM_IMPRESSION_PRUNEFORM', 'Eliminar artículos antiguos' );
+define( '_AM_IMPRESSION_NICEURL', 'Usar URL abreviado:' );
+define( '_AM_IMPRESSION_NICEURLDSC', 'Use sólo letras y evite caracteres como <em><b>;:/&$?!%</b></em> Tampoco se visualizan correctamente los caracteres especiales del castellano, como la ñ o los acentos. Cuando la opción <em>Usar URL abreviado</em> en las preferencias del módulo está seleccionada y este campo está vacío, se usará el título del artículo.
+' );
+define( '_AM_IMPRESSION_ARTICLE_INBLOCKS', '¿Mostrar el articulo en los bloques?' );
+define( '_AM_IMPRESSION_ARTICLE_INBLOCKS_DSC', 'Seleccione <em>Sí</em> para que se muestre en los bloques de Titulares y Artículos recientes. Si selecciona <em>No</em> no se mostrará en ninguno de ellos.' );
+define( '_AM_IMPRESSION_MOD_INTROTEXT', 'Texto de introducción:' ); 
+define( '_AM_IMPRESSION_CAT_INBLOCKS', '¿Mostrar la categoría del artículo en los bloques?' );
+define( '_AM_IMPRESSION_CAT_INBLOCKS_DSC', 'Seleccione <em>Sí</em> para mostrar la categoría de cada artículo en los bloques del módulo. Si selecciona <em>No</em> se omitirá la misma en el contenido del bloque.' );
+define( '_AM_IMPRESSION_ICO_INBLOCKN', 'No mostrar en los bloques' );
+define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Mostrar en los bloques' );
 ?>
