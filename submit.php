@@ -6,20 +6,20 @@
 *
 * File: submit.php
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -58,6 +58,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $title = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['title'] ) );
         $introtextb = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['introtextb'] ) );
         $descriptionb = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['descriptionb'] ) );
+		$source = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['source'] ) );
+		$sourceurl = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['sourceurl'] ) );
         $meta_keywords = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['meta_keywords'] ) );
 		$notifypub = impression_cleanRequestVars( $_REQUEST, 'notifypub', 0 );
         $date = time();
@@ -80,8 +82,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
          //       $offline = 0;
                 $message = _MD_IMPRESSION_ISAPPROVED;
             } 
-            $sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, uid, status, date, introtext, description, ipaddress, meta_keywords, item_tag, notifypub) ";
-            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$notifypub')";
+            $sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, uid, status, date, introtext, description, ipaddress, meta_keywords, item_tag, notifypub, source, sourceurl) ";
+            $sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$notifypub', '$source', '$sourceurl')";
             if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
                 $_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
                 icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -119,7 +121,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         } else {
             if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
                 $updated = time();
-                $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$publisher', status='0', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', notifypub='$notifypub' WHERE aid=" . $aid;
+                $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$publisher', status='0', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', notifypub='$notifypub', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
                 if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
                     $_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
                     icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -143,8 +145,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
                 $requestid = $modifysubmitter;
                 $requestdate = time();
                 $updated = impression_cleanRequestVars( $_REQUEST, 'up_dated', time() );
-                $sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate, meta_keywords, item_tag)';
-                $sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate', '$meta_keywords', '$item_tag')";
+                $sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate, meta_keywords, item_tag, source, sourceurl)';
+                $sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate', '$meta_keywords', '$item_tag', '$source', '$sourceurl')";
                 if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
                     $_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
                     icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -209,6 +211,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
         $meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
 		$item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
 		$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
+		$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
+		$sourceurl = $article_array['sourceurl'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['sourceurl'] ) : '';
 
      	$sform = new icms_form_Theme( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', '' );
         $sform -> setExtra( 'enctype="multipart/form-data"' );
@@ -241,7 +245,22 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 // Article description form
         $editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 500, 35 );
         $editor -> setDescription( '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
-        $sform -> addElement( $editor, false );
+        $sform -> addElement( $editor, false );	
+
+// Article source
+		$source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
+		$source_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCE, '' );
+		$source_tray -> SetDescription( '<small>' . _MD_IMPRESSION_SOURCEDSC . '</small>' );
+		$source_tray -> addElement( $source_text, false) ;
+		$sform -> addElement( $source_tray );
+	
+// Article source url
+		$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
+		$sourceurl_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCEURL, '' );
+		$sourceurl_tray -> SetDescription( '<small>' . _MD_IMPRESSION_SOURCEURLDSC . '</small>' );
+		$sourceurl_tray -> addElement( $sourceurl_text, false) ;
+		$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _MD_IMPRESSION_CHECKURL . "' title='" . _MD_IMPRESSION_CHECKURL . "' />" ) );
+		$sform -> addElement( $sourceurl_tray );
 
 // Meta meta_keywords form
         $keywords = new icms_form_elements_Textarea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 4, 60 );

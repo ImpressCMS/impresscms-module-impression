@@ -84,6 +84,14 @@ $article['cid'] = intval( $article_arr['cid'] );
 //$article['comments'] = $article_arr['comments'];
 //$article['comment_rules'] = icms::$module -> config['com_rule'];
 
+if ( $article_arr['source'] && $article_arr['sourceurl'] ) {
+	$article['source'] = '<br />' . _MD_IMPRESSION_SOURCE . ' <a href="' . $article_arr['sourceurl'] . '" target="_blank">' . $article_arr['source'] . '</a>';
+} elseif ( $article_arr['source'] && !$article_arr['sourceurl'] ) {
+	$article['source'] = '<br />' . _MD_IMPRESSION_SOURCE . ' ' . $article_arr['source'];
+} elseif ( !$article_arr['source'] && $article_arr['sourceurl'] ) {
+	$article['source'] = '<br />' . _MD_IMPRESSION_SOURCE . ' <a href="' . $article_arr['sourceurl'] . '" target="_blank">' . $article_arr['sourceurl'] . '</a>';
+}
+
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) );
 $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
 

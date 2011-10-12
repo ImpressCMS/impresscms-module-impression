@@ -62,6 +62,8 @@ function edit( $aid = 0, $doclone = 0 ) {
     $item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
 	$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
 	$nice_url = $article_array['nice_url'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['nice_url'] ) : '';
+	$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
+	$sourceurl = $article_array['sourceurl'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['sourceurl'] ) : '';
 
     icms_cp_header();
     impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );
@@ -143,6 +145,21 @@ function edit( $aid = 0, $doclone = 0 ) {
     $editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb, 500, 35 );
     $editor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC . '</small>' );
     $sform -> addElement( $editor, false );
+	
+// Article source
+    $source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
+	$source_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCE, '' );
+	$source_tray -> SetDescription( '<small>' . _AM_IMPRESSION_SOURCEDSC . '</small>' );
+    $source_tray -> addElement( $source_text, false) ;
+	$sform -> addElement( $source_tray );
+	
+// Article source url
+    $sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
+	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL, '' );
+	$sourceurl_tray -> SetDescription( '<small>' . _AM_IMPRESSION_SOURCEURLDSC . '</small>' );
+    $sourceurl_tray -> addElement( $sourceurl_text, false) ;
+    $sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _AM_IMPRESSION_CHECKURL . "' title='" . _AM_IMPRESSION_CHECKURL . "' />" ) );
+    $sform -> addElement( $sourceurl_tray );
 
 // Meta keywords form
     $keywords = new icms_form_elements_Textarea( _AM_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 7, 60);
@@ -231,6 +248,8 @@ switch ( strtolower( $op ) ) {
         // Get data from form
         $introtextb = icms_core_DataFilter::addSlashes( trim( $_POST['introtextb'] ) );
         $descriptionb = icms_core_DataFilter::addSlashes( trim( $_POST['descriptionb'] ) );
+		$source = icms_core_DataFilter::addSlashes( trim( $_POST['source'] ) );
+		$sourceurl = icms_core_DataFilter::addSlashes( trim( $_POST['sourceurl'] ) );
         $meta_keywords = icms_core_DataFilter::addSlashes( trim( $_POST['meta_keywords'] ) );
         $item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
         $published =  strtotime($_POST['published']['date'] ) + $_POST['published']['time'];
@@ -243,10 +262,10 @@ switch ( strtolower( $op ) ) {
         if ( !$aid ) {
             $date = time();
             $ipaddress = $_SERVER['REMOTE_ADDR'];
-            $sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, item_tag, notifypub, nice_url, inblocks)";
-            $sql .= " VALUES 	('', $cid, '$title', '$uid', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$notifypub', '$nice_url', '$inblocks')";
+            $sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, item_tag, notifypub, nice_url, inblocks, source, sourceurl)";
+            $sql .= " VALUES 	('', $cid, '$title', '$uid', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$notifypub', '$nice_url', '$inblocks', '$source', '$sourceurl')";
         } else {
-            $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$uid', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', notifypub='$notifypub', nice_url='$nice_url', inblocks='$inblocks' WHERE aid=" . $aid;
+            $sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$uid', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', notifypub='$notifypub', nice_url='$nice_url', inblocks='$inblocks', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
         }
 
         if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {

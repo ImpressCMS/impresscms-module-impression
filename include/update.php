@@ -154,5 +154,37 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 		$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_mod') . " DROP nobreak" );
 		$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
 	}
+	
+	$check = checkDBfield( 'impression_articles', 'source' );
+	if ( $check == 0 ) {
+		$i++;
+		$ret[$i] = true;
+		$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN source VARCHAR(255) NOT NULL default ''" );
+		$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
+	}
+	
+	$check = checkDBfield( 'impression_articles', 'sourceurl' );
+	if ( $check == 0 ) {
+		$i++;
+		$ret[$i] = true;
+		$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN sourceurl VARCHAR(255) NOT NULL default ''" );
+		$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
+	}
+	
+	$check = checkDBfield( 'impression_mod', 'source' );
+	if ( $check == 0 ) {
+		$i++;
+		$ret[$i] = true;
+		$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_mod') . " ADD COLUMN source VARCHAR(255) NOT NULL default ''" );
+		$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
+	}
+	
+	$check = checkDBfield( 'impression_mod', 'sourceurl' );
+	if ( $check == 0 ) {
+		$i++;
+		$ret[$i] = true;
+		$query[$i] = sprintf( "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_mod') . " ADD COLUMN sourceurl VARCHAR(255) NOT NULL default ''" );
+		$ret[$i] = $ret[$i] && icms::$xoopsDB -> query( $query[$i] );
+	}
 }
 ?>
