@@ -74,6 +74,8 @@ CREATE TABLE `impression_articles` (
   `notifypub` int(1) NOT NULL default '0',
   `nice_url` varchar(128) NOT NULL default '',
   `inblocks` tinyint(1) NOT NULL default '1',
+  `source` varchar(255) NOT NULL default '',
+  `sourceurl` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`aid`),
   KEY `cid` (`cid`),
   KEY `status` (`status`),
@@ -105,6 +107,8 @@ CREATE TABLE `impression_mod` (
   `inblocks` tinyint(1) NOT NULL default '1',
   `modifysubmitter` int(11) DEFAULT '0' NOT NULL,
   `requestdate` int(11) DEFAULT '0' NOT NULL,
+  `source` varchar(255) NOT NULL default '',
+  `sourceurl` varchar(255) NOT NULL default '',
    PRIMARY KEY (requestid) 
 ) TYPE=MyISAM COMMENT='Impression by McDonald' AUTO_INCREMENT=1 ;
 

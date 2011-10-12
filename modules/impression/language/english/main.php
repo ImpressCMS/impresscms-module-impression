@@ -175,4 +175,10 @@ define( '_MD_IMPRESSION_WORDSMORE', 'words more' );
 define( '_MD_IMPRESSION_CHARSMORE', 'characters more' );
 define( '_MD_IMPRESSION_PDF_PAGE', 'Page ' );
 define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Sorry, you do not have permission to view this category.' );
+
+define( '_MD_IMPRESSION_SOURCE', 'Source:' );
+define( '_MD_IMPRESSION_SOURCEDSC', 'Enter the name of the source' );
+define( '_MD_IMPRESSION_SOURCEURL', 'URL of source:' );
+define( '_MD_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
+define( '_MD_IMPRESSION_CHECKURL', 'Check URL' );
 ?>

@@ -381,4 +381,10 @@ define( '_AM_IMPRESSION_CAT_INBLOCKS', 'Display category in blocks?' );
 define( '_AM_IMPRESSION_CAT_INBLOCKS_DSC', 'Select <em>Yes</em> to have the category displayed in the Spotlight and Recent Headlines blocks. If you select <em>No</em> the category will not be displayed in the two blocks.' );
 define( '_AM_IMPRESSION_ICO_INBLOCKN', 'Not displayed in blocks' );
 define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Displayed in blocks' );
+
+define( '_AM_IMPRESSION_SOURCE', 'Source:' );
+define( '_AM_IMPRESSION_SOURCEDSC', 'Enter the name of the source' );
+define( '_AM_IMPRESSION_SOURCEURL', 'URL of source:' );
+define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
+define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
 ?>
