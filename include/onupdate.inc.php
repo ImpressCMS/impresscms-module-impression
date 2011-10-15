@@ -12,14 +12,6 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
-* @since		1.03
-* @author		John N
-* ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
-* @since		1.03b and 1.03c
-* @author		McDonald
-* ----------------------------------------------------------------------------------------------------------
 * 				impression
 * @since		1.00
 * @author		McDonald
@@ -40,5 +32,5 @@ function icms_module_install_impression( $module ) {
 		icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 		return false;
 	}
-	return TRUE;
+	return true;
 }
