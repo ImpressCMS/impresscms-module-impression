@@ -25,26 +25,27 @@ class mod_impression_Mod extends icms_ipf_seo_Object {
 	public function __construct( &$handler ) {
 		icms_ipf_object::__construct( $handler );
 
-		$this -> quickInitVar( 'requestid', XOBJ_DTYPE_INT, TRUE );
-		$this -> quickInitVar( 'aid', XOBJ_DTYPE_INT, FALSE );
-		$this -> quickInitVar( 'cid', XOBJ_DTYPE_INT, FALSE );
-		$this -> quickInitVar( 'title', XOBJ_DTYPE_TXTBOX );
-		$this -> quickInitVar( 'publisher', XOBJ_DTYPE_TXTBOX );
-		$this -> quickInitVar( 'status', XOBJ_DTYPE_INT, FALSE );
-		$this -> quickInitVar( 'date', XOBJ_DTYPE_INT, FALSE );
-		$this -> quickInitVar( 'hits', XOBJ_DTYPE_INT, FALSE );
-		$this -> quickInitVar( 'published', XOBJ_DTYPE_INT, FALSE );
-		$this -> quickInitVar( 'introtext', XOBJ_DTYPE_TXTAREA, FALSE );
-		$this -> quickInitVar( 'description', XOBJ_DTYPE_TXTAREA, FALSE );
-		$this -> quickInitVar( 'meta_keywords', XOBJ_DTYPE_TXTBOX );
-		$this -> quickInitVar( 'item_tag', XOBJ_DTYPE_TXTAREA, FALSE );
-		$this -> quickInitVar( 'comments', XOBJ_DTYPE_INT, FALSE, 0 );
-		$this -> quickInitVar( 'notifypub', XOBJ_DTYPE_INT, FALSE, 0 );
-		$this -> quickInitVar( 'nice_url', XOBJ_DTYPE_TXTBOX );
-		$this -> quickInitVar( 'inblocks', XOBJ_DTYPE_INT, TRUE, FALSE, FALSE, 1 );
-		$this -> quickInitVar( 'modifysubmitter', XOBJ_DTYPE_INT, FALSE, 0 );
-		$this -> quickInitVar( 'requestdate', XOBJ_DTYPE_INT, FALSE, 0 );
-		$this -> quickInitVar( 'source', XOBJ_DTYPE_TXTBOX );
-		$this -> quickInitVar( 'sourceurl', XOBJ_DTYPE_TXTBOX );
+		$this -> quickInitVar( 'requestid', XOBJ_DTYPE_INT, true );
+		$this -> quickInitVar( 'aid', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'cid', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'title', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'uid', XOBJ_DTYPE_INT, false, '', '', 1 );
+		$this -> quickInitVar( 'publisher', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'status', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'date', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'hits', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'published', XOBJ_DTYPE_INT, false, '', '', 0  );
+		$this -> quickInitVar( 'introtext', XOBJ_DTYPE_TXTAREA, false );
+		$this -> quickInitVar( 'description', XOBJ_DTYPE_TXTAREA, false );
+		$this -> quickInitVar( 'meta_keywords', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'item_tag', XOBJ_DTYPE_TXTAREA, false );
+		$this -> quickInitVar( 'comments', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'notifypub', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'nice_url', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'inblocks', XOBJ_DTYPE_INT, true, '', '', 1 );
+		$this -> quickInitVar( 'modifysubmitter', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'requestdate', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'source', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'sourceurl', XOBJ_DTYPE_TXTBOX, false );
 	}
 }

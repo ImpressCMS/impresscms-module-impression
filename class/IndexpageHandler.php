@@ -22,6 +22,6 @@ defined( 'ICMS_ROOT_PATH' ) or die( 'ICMS root path not defined' );
 
 class mod_impression_IndexpageHandler extends icms_ipf_Handler {
 	public function __construct( &$db ) {
-		parent::__construct( $db, 'indexpage', array('lastarticlesyn'), '', '', 'impression' );
+		parent::__construct( $db, 'indexpage', 'dummy_key', '', '', basename( dirname( dirname( __FILE__ ) ) ) );
 	}
 }

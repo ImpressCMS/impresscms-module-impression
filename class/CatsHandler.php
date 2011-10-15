@@ -22,6 +22,6 @@ defined( 'ICMS_ROOT_PATH' ) or die ( 'ICMS root path not defined' );
 
 class mod_impression_CatsHandler extends icms_ipf_Handler {
 	public function __construct( &$db ) {
-		parent::__construct( $db, 'cats', 'cid', 'pid', '', 'impression' );
+		parent::__construct( $db, 'cats', 'cid', '', '', basename( dirname( dirname( __FILE__ ) ) ) );
 	}
 }
