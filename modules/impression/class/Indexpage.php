@@ -25,13 +25,14 @@ class mod_impression_Indexpage extends icms_ipf_seo_Object {
 	public function __construct( &$handler ) {
 		icms_ipf_object::__construct( $handler );
 
-		$this -> quickInitVar( 'indeximage', XOBJ_DTYPE_TXTBOX, TRUE, FALSE, FALSE, 'blank.gif' );
-		$this -> quickInitVar( 'indexheading', XOBJ_DTYPE_TXTBOX, FALSE, FALSE, FALSE, 'Impression' );
-		$this -> quickInitVar( 'indexheader', XOBJ_DTYPE_TXTBOX, FALSE );
-		$this -> quickInitVar( 'indexfooter', XOBJ_DTYPE_TXTBOX, FALSE );
-		$this -> quickInitVar( 'indexheaderalign', XOBJ_DTYPE_TXTBOX, FALSE, FALSE, FALSE, 'left' );
-		$this -> quickInitVar( 'indexfooteralign', XOBJ_DTYPE_TXTBOX, FALSE, FALSE, FALSE, 'center' );
-		$this -> quickInitVar( 'lastarticlesyn', XOBJ_DTYPE_INT, TRUE, FALSE, FALSE, '0' );
-		$this -> quickInitVar( 'lastarticlestotal', XOBJ_DTYPE_TXTBOX, FALSE, FALSE, FALSE, '5' );
+		$this -> quickInitVar( 'dummy_key', XOBJ_DTYPE_INT, false );
+		$this -> quickInitVar( 'indeximage', XOBJ_DTYPE_TXTBOX, false, '', '', 'blank.gif' );
+		$this -> quickInitVar( 'indexheading', XOBJ_DTYPE_TXTBOX, false, '', '', 'Impression' );
+		$this -> quickInitVar( 'indexheader', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'indexfooter', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'indexheaderalign', XOBJ_DTYPE_TXTBOX, false, '', '', 'left' );
+		$this -> quickInitVar( 'indexfooteralign', XOBJ_DTYPE_TXTBOX, false, '', '', 'center' );
+		$this -> quickInitVar( 'lastarticlesyn', XOBJ_DTYPE_INT, false, '', '', '0' );
+		$this -> quickInitVar( 'lastarticlestotal', XOBJ_DTYPE_TXTBOX, false, '', '', '5' );
 	}
 }

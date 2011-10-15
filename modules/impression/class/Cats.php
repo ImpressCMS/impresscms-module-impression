@@ -25,13 +25,13 @@ class mod_impression_Cats extends icms_ipf_seo_Object {
 	public function __construct( &$handler ) {
 		icms_ipf_object::__construct( $handler );
 
-		$this -> quickInitVar( 'cid', XOBJ_DTYPE_INT, TRUE );
-		$this -> quickInitVar( 'pid', XOBJ_DTYPE_INT, TRUE );
+		$this -> quickInitVar( 'cid', XOBJ_DTYPE_INT, true );
+		$this -> quickInitVar( 'pid', XOBJ_DTYPE_INT, true, '', '', 0 );
 		$this -> quickInitVar( 'title', XOBJ_DTYPE_TXTBOX );
 		$this -> quickInitVar( 'imgurl', XOBJ_DTYPE_TXTBOX );
-		$this -> quickInitVar( 'description', XOBJ_DTYPE_TXTAREA, FALSE );
-		$this -> quickInitVar( 'total', XOBJ_DTYPE_INT, TRUE );
-		$this -> quickInitVar( 'weight', XOBJ_DTYPE_INT, TRUE );
-		$this -> quickInitVar( 'inblocks', XOBJ_DTYPE_INT, TRUE, FALSE, FALSE, 1 );
+		$this -> quickInitVar( 'description', XOBJ_DTYPE_TXTAREA, false );
+		$this -> quickInitVar( 'total', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'weight', XOBJ_DTYPE_INT, false, '', '', 0 );
+		$this -> quickInitVar( 'inblocks', XOBJ_DTYPE_INT, false, '', '', 1 );
 	}
 }

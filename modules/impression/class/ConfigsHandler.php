@@ -22,6 +22,6 @@ defined( 'ICMS_ROOT_PATH' ) or die ( 'ICMS root path not defined' );
 
 class mod_impression_ConfigsHandler extends icms_ipf_Handler {
 	public function __construct( &$db ) {
-		parent::__construct( $db, 'configs', Array('rssactive'), '', '', 'impression' );
+		parent::__construct( $db, 'configs', 'dummy_key', '', '', basename( dirname( dirname( __FILE__ ) ) ) );
 	}
 }
