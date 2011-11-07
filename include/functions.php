@@ -422,20 +422,6 @@ function impression_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetyp
     } 
 } 
 
-function impression_articlelistheader( $heading ) {
-    echo '<h4 style="font-weight: bold; color: #0A3760;">' . $heading . '</h4>
-		  <table width="100%" cellspacing="1" style="text-align: center;" class="outer" summary>
-		  <tr>
-		  <th><small>' . _AM_IMPRESSION_MINDEX_ID . '</small></th>
-		  <th style="text-align: left;">&nbsp;<b><small>' . _AM_IMPRESSION_MINDEX_TITLE . '</small></th>
-		  <th style="text-align: left;">&nbsp;<b><small>' . _AM_IMPRESSION_MINDEX_CATTITLE . '</small></th>
-		  <th><small>' . _AM_IMPRESSION_MINDEX_POSTER . '</small></th>
-		  <th><small>' . _AM_IMPRESSION_MINDEX_PUBLISH . '</small></th>
-		  <th><small>' . _AM_IMPRESSION_MINDEX_ONLINE . '</small></th>
-		  <th><small>' . _AM_IMPRESSION_MINDEX_ACTION . '</small></th>
-		  </tr>';
-} 
-
 function impression_articlelistbody( $published ) {
     global $imagearray, $impressionmyts;
     $aid = $published['aid'];
@@ -495,19 +481,13 @@ global $imagearray;
          return $ret;
 }
 
-function impression_articlelistfooter() {
-    echo '<tr style="text-align: center;">
-			<td class="head" colspan="7">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</td>
-		  </tr>';
-} 
-
 function impression_articlelistpagenav( $pubrowamount, $start, $art = 'art', $_this='', $align ) {
     if ( ( $pubrowamount < icms::$module -> config['admin_perpage'] ) ) {
         return false;
     } 
     // Display Page Nav if published is > total display pages amount.
     $pagenav = new icms_view_PageNav( $pubrowamount, icms::$module -> config['admin_perpage'], $start, 'st' . $art, $_this );
-    echo '<div style="float: ' . $align . '; font-size: 0.9em;">' . $pagenav -> renderNav() . '</div>';
+    echo '<span style="float: ' . $align . '; font-size: 0.9em;">' . $pagenav -> renderNav() . '</span>';
 }
 
 // Retreive an editor according to the module's option "form_options"
