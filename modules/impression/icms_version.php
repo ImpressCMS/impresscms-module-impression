@@ -45,7 +45,7 @@ $modversion['dirname'] 			= basename( dirname( __FILE__ ) );
 $modversion['image'] 			= 'images/impression_ilogo.png';
 $modversion['iconsmall'] 		= 'images/impression_iconsmall.png';
 $modversion['iconbig'] 			= 'images/impression_iconbig.png';
-$modversion['modname'] 			= 'impression';
+$modversion['modname'] 			= basename( dirname( __FILE__ ) );
 
 $modversion['author'] 				= 'Version developer: McDonald';
 $modversion['credits'] 				= 'WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.';
