@@ -401,15 +401,26 @@ switch ( strtolower( $op ) ) {
             $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' ORDER BY aid DESC';
             $published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
             $published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
-            impression_articlelistheader( _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE );
-            impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' );
+			echo '<div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>' . impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
+            echo '<table width="100%" cellspacing="1" style="text-align: center;" class="outer" summary>
+					<tr>
+					<th><small>' . _AM_IMPRESSION_MINDEX_ID . '</small></th>
+					<th style="text-align: left;">&nbsp;<b><small>' . _AM_IMPRESSION_MINDEX_TITLE . '</small></th>
+					<th style="text-align: left;">&nbsp;<b><small>' . _AM_IMPRESSION_MINDEX_CATTITLE . '</small></th>
+					<th><small>' . _AM_IMPRESSION_MINDEX_POSTER . '</small></th>
+					<th><small>' . _AM_IMPRESSION_MINDEX_PUBLISH . '</small></th>
+					<th><small>' . _AM_IMPRESSION_MINDEX_ONLINE . '</small></th>
+					<th><small>' . _AM_IMPRESSION_MINDEX_ACTION . '</small></th>
+					</tr>';
             if ( $published_array_count > 0 ) {
                 while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
                     impression_articlelistbody( $published );
                 } 
 				echo '</table>';
             } else {
-                impression_articlelistfooter();
+                echo '<tr style="text-align: center;">
+						<td class="head" colspan="7">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</td>
+					  </tr>';
             } 
             impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' );
         }
