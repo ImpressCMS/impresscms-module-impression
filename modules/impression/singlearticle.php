@@ -200,7 +200,61 @@ if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
 	}
 }
 
-$article['showsbookmarx'] = icms::$module -> config['showsbookmarks'];
+if ( icms::$module -> config['twitt_bttn'] == 1 ) {
+	$twcount = 'none';
+} elseif ( icms::$module -> config['twitt_bttn'] == 2 ) {
+	$twcount = 'horizontal';
+} elseif ( icms::$module -> config['twitt_bttn'] == 3 ) {
+	$twcount = 'vertical';
+}
+
+if ( icms::$module -> config['twitt_bttn'] > 0 ) {
+	$twitter = '<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+				<span>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-count="' . $twcount . '">' . _MI_IMPRESSION_TWEET . '</a>
+				</span>';
+}
+
+if ( icms::$module -> config['faceb_bttn'] == 1 ) {
+	$fbcount = 'standard';
+} elseif ( icms::$module -> config['faceb_bttn'] == 2 ) {
+	$fbcount = 'button_count';
+} elseif ( icms::$module -> config['faceb_bttn'] == 3 ) {
+	$fbcount = 'box_count';
+}
+
+if ( icms::$module -> config['faceb_bttn'] > 0 ) {
+	$facebook = '<span id="fb-root"></span>';
+	$facebook = "<script>
+					(function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id)) {return;}
+						js = d.createElement(s); js.id = id;
+						js.src = '//connect.facebook.net/en_US/all.js#xfbml=1';
+						fjs.parentNode.insertBefore(js, fjs);
+					}
+					(document, 'script', 'facebook-jssdk'));
+				 </script>";
+	$facebook .= '<span class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-width="450" data-show-faces="false"></span>';
+}
+
+$plusone = "<g:plusone></g:plusone>
+			<script type='text/javascript'>
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+			</script>";
+
+if ( icms::$module -> config['showsbookmarks'] == 0 ) {
+	$article['socialbutton'] = '';
+} elseif ( icms::$module -> config['showsbookmarks'] == 1 ) {
+	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
+} elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {
+	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '">' . $twitter . ' ' . $facebook . '</div>';
+}
+
 $xoopsTpl -> assign( 'article', $article );
 
 $xoopsTpl -> assign( 'back', '<a class="impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );

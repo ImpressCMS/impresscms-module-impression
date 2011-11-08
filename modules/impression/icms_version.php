@@ -482,6 +482,33 @@ $modversion['config'][] = array(
 	'formtype'		=> 'yesno',
 	'valuetype'		=> 'int',
 	'default'		=> 1 );
+	
+$modversion['config'][] = array(
+	'name'			=> 'showsbookmarks',
+	'title'			=> '_MI_IMPRESSION_SOCIALBTTNS',
+	'description'	=> '_MI_IMPRESSION_SOCIALBTTNSDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 0,
+	'options'		=> array( _NONE => 0, _IM_IMPRESSION_SOCBOOK => 1, _IM_IMPRESSION_SOCMEDIA => 2 ) );
+	
+$modversion['config'][] = array(
+	'name'			=> 'twitt_bttn',
+	'title'			=> '_MI_IMPRESSION_TWITTERBTTN',
+	'description'	=> '_MI_IMPRESSION_TWITTERBTTNDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 0,
+	'options'		=> array( _NONE => 0, _MI_IMPRESSION_DEFAULT => 1, _MI_IMPRESSION_HORICNT => 2, _MI_IMPRESSION_VERTCNT => 3 ) );	
+	
+$modversion['config'][] = array(
+	'name'			=> 'faceb_bttn',
+	'title'			=> '_MI_IMPRESSION_FACEBOOKBTTN',
+	'description'	=> '_MI_IMPRESSION_FACEBOOKBTTNDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 0,
+	'options'		=> array(_NONE => 0, _MI_IMPRESSION_DEFAULT => 1, _MI_IMPRESSION_HORICNT => 2, _MI_IMPRESSION_VERTCNT => 3) );
 
 $modversion['config'][] = array(
 	'name'			=> 'headerprint',
