@@ -305,7 +305,9 @@ define( '_MI_IMPRESSION_VERTCNT', 'Vert. counter' );
 define( '_MI_IMPRESSION_TWITTER', 'Twitter' );
 define( '_MI_IMPRESSION_TWEET', 'Tweet' );
 define( '_MI_IMPRESSION_TWITTERBTTN', 'Twitter button' );
-define( '_MI_IMPRESSION_TWITTERBTTNDSC', 'Choose a Twitter button style' );
+define( '_MI_IMPRESSION_TWITTERBTTNDSC', 'Choose a Twitter button style.' );
 define( '_MI_IMPRESSION_FACEBOOKBTTN', 'Facebook "I Like" button' );
-define( '_MI_IMPRESSION_FACEBOOKBTTNDSC', 'Choose a Facebook button style' );
+define( '_MI_IMPRESSION_FACEBOOKBTTNDSC', 'Choose a Facebook button style.' );
+define( '_MI_IMPRESSION_PLUSONEBTTN', 'Google +1 button' );
+define( '_MI_IMPRESSION_PLUSONEBTTNDSC', 'Choose a Google +1 button style.' );
 ?>

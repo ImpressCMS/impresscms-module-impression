@@ -509,6 +509,15 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'text',
 	'default'		=> 0,
 	'options'		=> array( _NONE => 0, _MI_IMPRESSION_HORICNT => 1, _MI_IMPRESSION_VERTCNT => 2 ) );
+	
+$modversion['config'][] = array(
+	'name'			=> 'plusone_bttn',
+	'title'			=> '_MI_IMPRESSION_PLUSONEBTTN',
+	'description'	=> '_MI_IMPRESSION_PLUSONEBTTNDSC',
+	'formtype'		=> 'select',
+	'valuetype'		=> 'text',
+	'default'		=> 0,
+	'options'		=> array( _NONE => 0, _MI_IMPRESSION_DEFAULT => 1, _MI_IMPRESSION_HORICNT => 2 ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'headerprint',

@@ -175,6 +175,7 @@ global $xoopsTpl, $xoTheme;
         }
     }
 	$xoopsTpl -> assign( 'icms_pagetitle', $article_arr['title'] );
+	$xoopsTpl -> assign( 'og_url', impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] ) );
 // End of meta tags
 
 $moderate = 0;
@@ -223,34 +224,23 @@ if ( icms::$module -> config['faceb_bttn'] == 1 ) {
 
 if ( icms::$module -> config['faceb_bttn'] > 0 ) {
 	$facebook = '<span id="fb-root"></span>';
-	$facebook = "<script>
-					(function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (d.getElementById(id)) {return;}
-						js = d.createElement(s); js.id = id;
-						js.src = '//connect.facebook.net/en_US/all.js#xfbml=1';
-						fjs.parentNode.insertBefore(js, fjs);
-					}
-					(document, 'script', 'facebook-jssdk'));
-				 </script>";
 	$facebook .= '<span class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-width="450" data-show-faces="false"></span>';
 }
 
-$plusone = "<g:plusone></g:plusone>
-			<script type='text/javascript'>
-			(function() {
-				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-				po.src = 'https://apis.google.com/js/plusone.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			})();
-			</script>";
+if ( icms::$module -> config['plusone_bttn'] == 0 ) {
+	$plusone = '';
+} elseif ( icms::$module -> config['plusone_bttn'] == 1 ) {
+	$plusone = '<g:plusone size="medium" annotation="none"></g:plusone>';
+} elseif ( icms::$module -> config['plusone_bttn'] == 2 ) {
+	$plusone = '<g:plusone size="medium" annotation="bubble"></g:plusone>';
+}
 
 if ( icms::$module -> config['showsbookmarks'] == 0 ) {
 	$article['socialbutton'] = '';
 } elseif ( icms::$module -> config['showsbookmarks'] == 1 ) {
 	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
 } elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {
-	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . ';position:relative;">' . $twitter . $facebook . '</div>';
+	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $plusone . $twitter . $facebook . '</div>';
 }
 
 $xoopsTpl -> assign( 'article', $article );
