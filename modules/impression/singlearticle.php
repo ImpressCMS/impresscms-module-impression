@@ -216,10 +216,8 @@ if ( icms::$module -> config['twitt_bttn'] > 0 ) {
 }
 
 if ( icms::$module -> config['faceb_bttn'] == 1 ) {
-	$fbcount = 'standard';
-} elseif ( icms::$module -> config['faceb_bttn'] == 2 ) {
 	$fbcount = 'button_count';
-} elseif ( icms::$module -> config['faceb_bttn'] == 3 ) {
+} elseif ( icms::$module -> config['faceb_bttn'] == 2 ) {
 	$fbcount = 'box_count';
 }
 
@@ -252,7 +250,7 @@ if ( icms::$module -> config['showsbookmarks'] == 0 ) {
 } elseif ( icms::$module -> config['showsbookmarks'] == 1 ) {
 	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
 } elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {
-	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '">' . $twitter . ' ' . $facebook . '</div>';
+	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . ';position:relative;">' . $twitter . $facebook . '</div>';
 }
 
 $xoopsTpl -> assign( 'article', $article );
