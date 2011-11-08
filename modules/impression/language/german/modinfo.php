@@ -1,11 +1,29 @@
 <?php
 /**
- * $Id: modinfo.php
- * Module: Impression
- * Language: German
- * Format: UTF-8 
- * Author: Author: Prickel + sato-san
- */
+* Impression - a light content management module for ImpressCMS
+*
+* Based upon WF-Links 1.06 and imLinks
+*
+* File: language/english/modinfo.php
+*
+* @copyright		
+* @copyright		
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* @package		Impression
+* @since			1.00
+* @author		sato-san
+* @version		$Id$
+*/
 
 // Module Info
 // The name of this module
@@ -274,6 +292,20 @@ define( '_MI_IMPRESSION_BYTES', 'Bytes' );
 define( '_MI_IMPRESSION_WORDS', 'Wörter' );
 define( '_MI_IMPRESSION_CHARSF', 'Zeichen' );
 define( '_MI_IMPRESSION_BNEWS', 'Beiträge nach Kategorie');
-define( '_MI_IMPRESSION_TEXTWIDTH', 'Set width of title boxes in administration:' );
-define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Select the width of the text boxes used for titles in submit forms. Default is 128.' );
+define( '_MI_IMPRESSION_TEXTWIDTH', 'Breite des input Feldes zum Titel in der Administration:' );
+define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Es kann vorkommen, das die Darstellung zu groß ist, dann benutzen Sie den Wert 50. Voreinstellung ist der Wert 128.' );
+
+define( '_MI_IMPRESSION_SOCIALBTTNS', 'Show Social Media buttons' );
+define( '_MI_IMPRESSION_SOCIALBTTNSDSC', 'Select if you want to have Social Bookmarks (old style) or Social Media buttons.' );
+define( '_IM_IMPRESSION_SOCBOOK', 'Social Bookmarks' );
+define( '_IM_IMPRESSION_SOCMEDIA', 'Social Media' );
+define( '_MI_IMPRESSION_DEFAULT', 'Default' );
+define( '_MI_IMPRESSION_HORICNT', 'Hor. counter' );
+define( '_MI_IMPRESSION_VERTCNT', 'Vert. counter' );
+define( '_MI_IMPRESSION_TWITTER', 'Twitter' );
+define( '_MI_IMPRESSION_TWEET', 'Tweet' );
+define( '_MI_IMPRESSION_TWITTERBTTN', 'Twitter button' );
+define( '_MI_IMPRESSION_TWITTERBTTNDSC', 'Choose a Twitter button style' );
+define( '_MI_IMPRESSION_FACEBOOKBTTN', 'Facebook "I Like" button' );
+define( '_MI_IMPRESSION_FACEBOOKBTTNDSC', 'Choose a Facebook button style' );
 ?>
