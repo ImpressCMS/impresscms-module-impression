@@ -1,11 +1,29 @@
 <?php
 /**
- * $Id: main.php
- * Module: Impression
- * Language: German
- * Format: UTF-8
- * Author: Author: Prickel + sato-san
- */
+* Impression - a light content management module for ImpressCMS
+*
+* Based upon WF-Links 1.06 and imLinks
+*
+* File: language/english/main.php
+*
+* @copyright		
+* @copyright		
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* @package		Impression
+* @since			1.00
+* @author		sato-san
+* @version		$Id$
+*/
 
 define( "_MD_IMPRESSION_NOARTICLE", "Dieser Beitrag existiert nicht!" );
 define( "_MD_IMPRESSION_SUBCATLISTING", "Kategorienauflistung" );
@@ -156,5 +174,11 @@ define( '_MD_IMPRESSION_BYTESMORE', 'Bytes mehr' );
 define( '_MD_IMPRESSION_WORDSMORE', 'Wörter mehr' );
 define( '_MD_IMPRESSION_CHARSMORE', 'Zeichen mehr' );
 define( '_MD_IMPRESSION_PDF_PAGE', 'Seite ' );
-define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Sorry, you do not have permission to view this category.' );
+define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Entschuldigung, Sie haben keine Berechtigung für diese Kategorie.' );
+
+define( '_MD_IMPRESSION_SOURCE', 'Quelle:' );
+define( '_MD_IMPRESSION_SOURCEDSC', 'Geben Sie den Namen der Quelle ein' );
+define( '_MD_IMPRESSION_SOURCEURL', 'URL der Quelle:' );
+define( '_MD_IMPRESSION_SOURCEURLDSC', 'Geben Sie den URL der Quelle ein' );
+define( '_MD_IMPRESSION_CHECKURL', 'URL prüfen' );
 ?>

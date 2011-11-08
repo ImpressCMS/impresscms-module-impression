@@ -1,12 +1,27 @@
 <?php
 /**
- * $Id: modinfo.php
- * Module: Impression
- * Language: German
- * Format: UTF-8 
- * Author: Author: sato-san
- */
-
+* Impression - a light content management module for ImpressCMS
+*
+* Based upon WF-Links 1.06 and imLinks
+*
+* File: language/english/admin.php
+*
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* @package		Impression
+* @since			1.00
+* @author		sato-san
+* @version		$Id$
+*/
 define('_MODABOUT_IMPRESSION_DEVELOPER_CONTRIBUTOR', 'Mitwirkende');
 define('_MODABOUT_IMPRESSION_DEVELOPER_CREDITS', 'Kredits');
 define('_MODABOUT_IMPRESSION_DEVELOPER_EMAIL', 'Email');

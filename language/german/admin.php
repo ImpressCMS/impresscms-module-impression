@@ -1,11 +1,29 @@
 <?php
 /**
- * $Id: admin.php
- * Module: Impression
- * Language: German
- * Format: UTF-8
- * Author: sato-san + Prickel
- */
+* Impression - a light content management module for ImpressCMS
+*
+* Based upon WF-Links 1.06 and imLinks
+*
+* File: language/english/admin.php
+*
+* @copyright		
+* @copyright		
+* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03
+* @author		John N
+* ----------------------------------------------------------------------------------------------------------
+* @package		WF-Links 
+* @since			1.03b and 1.03c
+* @author		McDonald
+* ----------------------------------------------------------------------------------------------------------
+* @package		Impression
+* @since			1.00
+* @author		sato-san
+* @version		$Id$
+*/
 
 define( "_AM_IMPRESSION_WARNINSTALL1", "WARNING: Verzeichnis %s ist auf Ihrem Server vorhanden. <br />Bitte entfernen Sie dieses Verzeichnis aus Sicherheitsgründen." );
 define( "_AM_IMPRESSION_WARNINSTALL2", "WARNING: Datei %s ist auf Ihrem Server vorhanden. <br />Bitte entfernen Sie diese Datei aus Sicherheitsgründen." );
@@ -154,7 +172,7 @@ define( "_AM_IMPRESSION_MINDEX_SUBMITTED", "Datum bestätigt" );
 define( "_AM_IMPRESSION_MINDEX_ACTION", "Aktion" );
 define( "_AM_IMPRESSION_MINDEX_NOARTICLESFOUND", "BITTE BEACHTEN: Es sind keine Beiträge vorhanden, die den Kriterien entsprechen" );
 define( "_AM_IMPRESSION_MINDEX_PAGE", "Seite: " );
-define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '<ul><li>Impression Hauptseitendetails.</li><li>du kannst das Bilderlogo, die Schlagzeile, Hauptindexkopf und Fußtext leicht ändern, um sie nach deinem eigenen Stil anzupassen</li></ul><br />Note: Das ausgewählte Logobild wird durchgängig von Impression verwendet.' );
+define( '_AM_IMPRESSION_MINDEX_PAGEINFOTXT', '&bull;&nbsp;Impression Hauptseitendetails.<br />&bull;&nbsp;du kannst das Bilderlogo, die Schlagzeile, Hauptindexkopf und Fußtext leicht ändern, um sie nach deinem eigenen Stil anzupassen<br /><br />Note: Das ausgewählte Logobild wird durchgängig von Impression verwendet.' );
 // Submitted Articles
 define( "_AM_IMPRESSION_SUB_SUBMITTEDFILES", "eingereichte Beiträge" );
 define( "_AM_IMPRESSION_SUB_FILESWAITINGINFO", "wartende Beitragsinformation" );
@@ -363,4 +381,10 @@ define( '_AM_IMPRESSION_CAT_INBLOCKS', 'Zeige Kategorie in Blöcken an?' );
 define( '_AM_IMPRESSION_CAT_INBLOCKS_DSC', 'Wähle <em>Ja</em> to have the category displayed in the Spotlight and Recent Headlines blocks. If you select <em>No</em> the category will not be displayed in the two blocks.' );
 define( '_AM_IMPRESSION_ICO_INBLOCKN', 'Nicht in Blöcken anzeigen' );
 define( '_AM_IMPRESSION_ICO_INBLOCKY', 'In Blöcken anzeigen' );
+
+define( '_AM_IMPRESSION_SOURCE', 'Quelle:' );
+define( '_AM_IMPRESSION_SOURCEDSC', 'Geben Sie den Namen der Quelle ein' );
+define( '_AM_IMPRESSION_SOURCEURL', 'URL der Quelle:' );
+define( '_AM_IMPRESSION_SOURCEURLDSC', 'Geben Sie die URL der Quelle ein' );
+define( '_AM_IMPRESSION_CHECKURL', 'URL prüfen' );
 ?>
