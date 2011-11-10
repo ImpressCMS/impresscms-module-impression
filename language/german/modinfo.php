@@ -295,17 +295,19 @@ define( '_MI_IMPRESSION_BNEWS', 'Beiträge nach Kategorie');
 define( '_MI_IMPRESSION_TEXTWIDTH', 'Breite des input Feldes zum Titel in der Administration:' );
 define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Es kann vorkommen, das die Darstellung zu groß ist, dann benutzen Sie den Wert 50. Voreinstellung ist der Wert 128.' );
 
-define( '_MI_IMPRESSION_SOCIALBTTNS', 'Show Social Media buttons' );
-define( '_MI_IMPRESSION_SOCIALBTTNSDSC', 'Select if you want to have Social Bookmarks (old style) or Social Media buttons.' );
+define( '_MI_IMPRESSION_SOCIALBTTNS', 'Zeige Social Media Buttons' );
+define( '_MI_IMPRESSION_SOCIALBTTNSDSC', 'Wählen Sie zwischen den Social Bookmarks (veraltet) oder den Social Media Buttons.' );
 define( '_IM_IMPRESSION_SOCBOOK', 'Social Bookmarks' );
 define( '_IM_IMPRESSION_SOCMEDIA', 'Social Media' );
-define( '_MI_IMPRESSION_DEFAULT', 'Default' );
-define( '_MI_IMPRESSION_HORICNT', 'Hor. counter' );
-define( '_MI_IMPRESSION_VERTCNT', 'Vert. counter' );
+define( '_MI_IMPRESSION_DEFAULT', 'Voreinstellung' );
+define( '_MI_IMPRESSION_HORICNT', 'Hor. Counter' );
+define( '_MI_IMPRESSION_VERTCNT', 'Vert. Counter' );
 define( '_MI_IMPRESSION_TWITTER', 'Twitter' );
 define( '_MI_IMPRESSION_TWEET', 'Tweet' );
-define( '_MI_IMPRESSION_TWITTERBTTN', 'Twitter button' );
-define( '_MI_IMPRESSION_TWITTERBTTNDSC', 'Choose a Twitter button style' );
-define( '_MI_IMPRESSION_FACEBOOKBTTN', 'Facebook "I Like" button' );
-define( '_MI_IMPRESSION_FACEBOOKBTTNDSC', 'Choose a Facebook button style' );
+define( '_MI_IMPRESSION_TWITTERBTTN', 'Twitter Button' );
+define( '_MI_IMPRESSION_TWITTERBTTNDSC', 'Wählen Sie eine Twitter Stilrichtung' );
+define( '_MI_IMPRESSION_FACEBOOKBTTN', 'Facebook "I Like" Button' );
+define( '_MI_IMPRESSION_FACEBOOKBTTNDSC', 'Wählen Sie eine Facebook Stilrichtung' );
+define( '_MI_IMPRESSION_PLUSONEBTTN', 'Google +1 Button' );
+define( '_MI_IMPRESSION_PLUSONEBTTNDSC', 'Wählen Sie eine Google +1 Stilrichtung.' );
 ?>
