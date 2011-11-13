@@ -380,7 +380,7 @@ switch ( strtolower( $op ) ) {
         impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
 		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 1px; font-size: smaller;';
         echo '<fieldset style="border: #E8E8E8 1px solid;">
-			  <legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</legend>
+			  <legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</legend>
 			  <div style="padding: 10px;">
 			  <span style="' . $style . '">
 				<a href="category.php">' . _AM_IMPRESSION_SCATEGORY . '</a><b>' . $totalcats . '</b> 
@@ -401,30 +401,28 @@ switch ( strtolower( $op ) ) {
             $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' ORDER BY aid DESC';
             $published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
             $published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
-			echo '<div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>' . impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
+			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>' . impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
             echo '<table width="100%" cellspacing="1" style="text-align: center;" class="outer" summary>
-					<tr>
-					<th><small>' . _AM_IMPRESSION_MINDEX_ID . '</small></th>
-					<th style="text-align: left;">&nbsp;<b><small>' . _AM_IMPRESSION_MINDEX_TITLE . '</small></th>
-					<th style="text-align: left;">&nbsp;<b><small>' . _AM_IMPRESSION_MINDEX_CATTITLE . '</small></th>
-					<th><small>' . _AM_IMPRESSION_MINDEX_POSTER . '</small></th>
-					<th><small>' . _AM_IMPRESSION_MINDEX_PUBLISH . '</small></th>
-					<th><small>' . _AM_IMPRESSION_MINDEX_ONLINE . '</small></th>
-					<th><small>' . _AM_IMPRESSION_MINDEX_ACTION . '</small></th>
+					<tr style="font-size: smaller;">
+					  <th>' . _AM_IMPRESSION_MINDEX_ID . '</th>
+					  <th style="text-align: left;">&nbsp;<b>' . _AM_IMPRESSION_MINDEX_TITLE . '</th>
+					  <th style="text-align: left;">&nbsp;<b>' . _AM_IMPRESSION_MINDEX_CATTITLE . '</th>
+					  <th>' . _AM_IMPRESSION_MINDEX_POSTER . '</th>
+					  <th>' . _AM_IMPRESSION_MINDEX_PUBLISH . '</th>
+					  <th>' . _AM_IMPRESSION_MINDEX_ONLINE . '</th>
+					  <th>' . _AM_IMPRESSION_MINDEX_ACTION . '</th>
 					</tr>';
             if ( $published_array_count > 0 ) {
                 while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
                     impression_articlelistbody( $published );
                 } 
 				echo '</table>';
+				impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' );
             } else {
-                echo '<tr style="text-align: center;">
-						<td class="head" colspan="7">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</td>
-					  </tr>';
-            } 
-            impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' );
+                echo '<tr style="text-align: center;"><td class="head" colspan="7">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</td></tr>';
+            }
         }
         icms_cp_footer();
         break;
-} 
+}
 ?>

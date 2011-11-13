@@ -155,18 +155,17 @@ switch ( strtolower( $op ) ) {
 		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" />';
 		
         echo '<fieldset style="border: #E8E8E8 1px solid;">
-		      <legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MOD_MODREQUESTSINFO . '</legend>';
-        echo '<div style="padding: 8px;">' . _AM_IMPRESSION_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>';
-        echo '</fieldset>';
-
-        echo '<table width="100%" cellspacing="1" class="outer">';
-        echo '<tr style="text-align: center; font-size: smaller;">';
-        echo '<th>' . _AM_IMPRESSION_MOD_MODID . '</th>';
-        echo '<th style="text-align: left;">&nbsp;' . _AM_IMPRESSION_MOD_MODTITLE . '</th>';
-        echo '<th>' . _AM_IMPRESSION_MOD_MODIFYSUBMIT . '</th>';
-        echo '<th>' . _AM_IMPRESSION_MOD_DATE . '</th>';
-        echo '<th>' . _AM_IMPRESSION_MINDEX_ACTION . '</th>';
-        echo '</tr>';
+		      <legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MOD_MODREQUESTSINFO . '</legend>
+				<div style="padding: 8px;">' . _AM_IMPRESSION_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>
+			</fieldset>
+			<table width="100%" cellspacing="1" class="outer">
+			<tr style="text-align: center; font-size: smaller;">
+				<th>' . _AM_IMPRESSION_MOD_MODID . '</th>
+				<th style="text-align: left;">&nbsp;' . _AM_IMPRESSION_MOD_MODTITLE . '</th>
+				<th>' . _AM_IMPRESSION_MOD_MODIFYSUBMIT . '</th>
+				<th>' . _AM_IMPRESSION_MOD_DATE . '</th>
+				<th>' . _AM_IMPRESSION_MINDEX_ACTION . '</th>
+			</tr>';
         if ( $totalmodrequests > 0 ) {
             while ( $article_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
                 $path = $mytree -> getNicePathFromId( $article_arr['requestid'], 'title', 'modifications.php?op=listmodreqshow&requestid' );
@@ -176,18 +175,18 @@ switch ( strtolower( $op ) ) {
                 $submitter = icms_member_user_Handler::getUserLink( $article_arr['modifysubmitter'] );;
                 $requestdate = formatTimestamp( $article_arr['requestdate'], icms::$module -> config['dateformatadmin'] );
 
-                echo '<tr style="text-align: center; height: 18px;">';
-                echo '<td class="head" style="font-size: smaller;">' . $article_arr['requestid'] . '</td>';
-                echo '<td class="even" style="text-align: left; font-size: smaller;">' . $title . '</td>';
-                echo '<td class="even" style="font-size: smaller;">' . $submitter . '</td>';
-                echo '<td class="even" style="font-size: smaller;">' . $requestdate . '</td>';
-                echo '<td class="even">
-						<a href="modifications.php?op=listmodreqshow&amp;requestid=' . $article_arr['requestid'] . '">' . $imagearray['view'] . '</a>
-					  </td>';
-                echo '</tr>';
+                echo '<tr style="text-align: center; height: 18px; font-size: smaller;">
+						<td class="head">' . $article_arr['requestid'] . '</td>
+						<td class="even" style="text-align: left;">' . $title . '</td>
+						<td class="even">' . $submitter . '</td>
+						<td class="even">' . $requestdate . '</td>
+						<td class="even">
+							<a href="modifications.php?op=listmodreqshow&amp;requestid=' . $article_arr['requestid'] . '">' . $imagearray['view'] . '</a>
+						</td>
+					  </tr>';
             } 
         } else {
-            echo '<tr style="text-align: center;"><td class="head" colspan="7">' . _AM_IMPRESSION_MOD_NOMODREQUEST . '</td></tr>';
+            echo '<tr style="text-align: center;"><td class="head" colspan="5">' . _AM_IMPRESSION_MOD_NOMODREQUEST . '</td></tr>';
         } 
         echo '</table>';
 

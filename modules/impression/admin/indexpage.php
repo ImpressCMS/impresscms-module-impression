@@ -60,9 +60,10 @@ switch ( strtolower( $op ) ) {
         icms_cp_header();
         impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
 
-        echo '<fieldset style="border: #e8e8e8 1px solid;"><legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_IPAGE_INFORMATION . '</legend>
-		 <div style="padding: 8px;"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />' . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . '</div>
-		 </fieldset><br />';
+        echo '<fieldset style="border: #e8e8e8 1px solid;">
+				<legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_IPAGE_INFORMATION . '</legend>
+				<div style="padding: 8px;"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />' . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . '</div>
+			  </fieldset><br />';
         $sform = new icms_form_Theme( _AM_IMPRESSION_IPAGE_MODIFY, 'op', '' );
 		
         $sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_CTITLE, 'indexheading', icms::$module -> config['txt_width'], 128, $indexheading ), false );
