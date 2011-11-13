@@ -57,7 +57,7 @@ switch ( strtolower( $op ) ) {
 		impression_adminmenu( '', _AM_IMPRESSION_PRUNE );
 		
 		echo '<fieldset style="border: #e8e8e8 1px solid;">
-			  <legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_PRUNEINFO . '</legend>
+			  <legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_PRUNEINFO . '</legend>
 			  <div style="padding: 8px;">
 			  <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/warning.png" alt="" style="float: left; padding-right: 10px;" />
 			  <div style="padding-left: 45px;">' . _AM_IMPRESSION_PRUNEWARN . '</div>

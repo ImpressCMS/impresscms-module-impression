@@ -87,7 +87,7 @@ switch ( strtolower( $op ) ) {
         impression_adminmenu( '', _AM_IMPRESSION_SUB_SUBMITTEDFILES );
 
         echo '  <fieldset style="border: #e8e8e8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_SUB_FILESWAITINGINFO . '</legend>
+				<legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_SUB_FILESWAITINGINFO . '</legend>
 				<div style="padding: 8px;">
                 <span>' . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . '<b>' . $new_array_count . '</b><br /><br /><span>
 
@@ -97,14 +97,14 @@ switch ( strtolower( $op ) ) {
                 ' . $imagearray['deleteimg'] . ' ' . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . '</span>
                 </div></fieldset><br />';
 
-        echo '<table width="100%" cellspacing="1" class="outer">';
-        echo '<tr style="text-align: center;">';
-        echo '<th><small>' . _AM_IMPRESSION_MINDEX_ID . '</small></th>';
-        echo '<th style="text-align: left;"><small>' . _AM_IMPRESSION_MINDEX_TITLE . '</small></th>';
-        echo '<th><small>' . _AM_IMPRESSION_MINDEX_POSTER . '</small></th>';
-        echo '<th><small>' . _AM_IMPRESSION_MINDEX_SUBMITTED . '</small></th>';
-        echo '<th><small>' . _AM_IMPRESSION_MINDEX_ACTION . '</small></th>';
-        echo '</tr>';
+        echo '<table width="100%" cellspacing="1" class="outer">
+				<tr style="text-align: center; font-size: smaller;">
+					<th>' . _AM_IMPRESSION_MINDEX_ID . '</th>
+					<th style="text-align: left;">&nbsp;' . _AM_IMPRESSION_MINDEX_TITLE . '</th>
+					<th>' . _AM_IMPRESSION_MINDEX_POSTER . '</th>
+					<th>' . _AM_IMPRESSION_MINDEX_SUBMITTED . '</th>
+					<th>' . _AM_IMPRESSION_MINDEX_ACTION . '</th>
+				</tr>';
         if ( $new_array_count > 0 ) {
             while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
                 $aid = intval( $new['aid'] );
@@ -116,16 +116,16 @@ switch ( strtolower( $op ) ) {
                 $icon .= '<a href="index.php?op=edit&amp;aid=' . $aid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
                 $icon .= '<a href="index.php?op=delete&amp;aid=' . $aid . '">' . $imagearray['deleteimg'] . '</a>';
 
-                echo '<tr>';
-                echo '<td class="head" style="text-align: center;"><small>'. $aid . '</small></td>';
-                echo '<td class="even" nowrap><a href="newarticles.php?op=edit&amp;aid=' . $aid . '"><small>' . $title. '</small></a></td>';
-                echo '<td class="even" style="text-align: center;" nowrap><small>' . $submitter . '</small></td>';
-                echo '<td class="even" style="text-align: center;"><small>' . $datetime . '</small></td>';
-                echo '<td class="even" style="text-align: center;" nowrap>' . $icon . '</td>';
-                echo '</tr>';
+                echo '<tr style="font-size: smaller;">
+						<td class="head" style="text-align: center;">'. $aid . '</td>
+						<td class="even" nowrap><a href="newarticles.php?op=edit&amp;aid=' . $aid . '">' . $title. '</a></td>
+						<td class="even" style="text-align: center;" nowrap>' . $submitter . '</td>
+						<td class="even" style="text-align: center;">' . $datetime . '</td>
+						<td class="even" style="text-align: center;" nowrap>' . $icon . '</td>
+						</tr>';
             } 
         } else {
-          echo '<tr><td style="text-align: center;" class="head" colspan="6">' . _AM_IMPRESSION_SUB_NOFILESWAITING . '</td></tr>';
+          echo '<tr><td style="text-align: center;" class="head" colspan="5">' . _AM_IMPRESSION_SUB_NOFILESWAITING . '</td></tr>';
         } 
         echo '</table>';
 

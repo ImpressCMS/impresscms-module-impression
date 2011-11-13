@@ -81,18 +81,19 @@ switch ( strtolower($op) ) {
         impression_adminmenu( 5, _AM_IMPRESSION_MUPLOADS );
         impression_serverstats();
         if ( $rootpath > 0 ) {
-			echo '<fieldset style="border: #e8e8e8 1px solid;">';
-            echo '<div style="padding: 8px;">';
-			echo '<b>' . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . '</b> ' . ICMS_ROOT_PATH . '/' . $dirarray[$rootpath] . '<br />';
-            echo '<b>' . _AM_IMPRESSION_ARTICLE_FUPLOADURL . '</b> ' . ICMS_URL . '/' . $dirarray[$rootpath];
-			echo '</div>';
-			echo '</fieldset>';
+			echo '<fieldset style="border: #e8e8e8 1px solid;">
+					<div style="padding: 8px;">
+					<div><b>' . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . '</b> ' . ICMS_ROOT_PATH . '/' . $dirarray[$rootpath] . '<br />
+					<b>' . _AM_IMPRESSION_ARTICLE_FUPLOADURL . '</b> ' . ICMS_URL . '/' . $dirarray[$rootpath] . '</div><br />
+					</div>
+				  </fieldset>';
         }
         $pathlist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
         $namelist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
 
         $iform = new icms_form_Theme( _AM_IMPRESSION_ARTICLE_FUPLOADIMAGETO . $pathlist, 'op', '' );
         $iform -> setExtra( 'enctype="multipart/form-data"' );
+		
         ob_start();
 			$iform -> addElement( new icms_form_elements_Hidden( 'dir', $rootpath ) );
 			impression_getDirSelectOption( $namelist, $dirarray, $namearray );
