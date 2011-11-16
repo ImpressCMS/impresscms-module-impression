@@ -26,6 +26,8 @@
 
 include 'header.php';
 
+global $icmsConfigUser;
+
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
 $cid = intval( impression_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
@@ -40,7 +42,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
     if ( impression_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
 		
 		// Verify captcha code
-		if ( $icmsConfigUser['use_captcha'] == true ) { 
+		if ( icms::$module -> config['captcha'] == true && $icmsConfigUser['use_captcha'] == true ) { 
 			$icmsCaptcha = icms_form_elements_captcha_Object::instance(); 
 			if ( !$icmsCaptcha -> verify( true ) ) { 
 				redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() ); 
@@ -303,7 +305,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$sform -> addElement( $option_tray );
 		
 		// Captcha
-		if ( $icmsConfigUser['use_captcha'] == true ) {
+		if ( icms::$module -> config['captcha'] == true && $icmsConfigUser['use_captcha'] == true ) {
 			$sform -> addElement( new icms_form_elements_Captcha( _SECURITYIMAGE_GETCODE, 'scode' ), true ); 
 		}
 
