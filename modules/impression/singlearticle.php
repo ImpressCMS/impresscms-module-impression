@@ -117,10 +117,6 @@ $pathstring = '<a href="index.php">' . _MD_IMPRESSION_MAIN . '</a>&nbsp;:&nbsp;'
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'catview.php?op=' );
 $article['path'] = $pathstring;
 
-// Get Social Bookmarks
-include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
-$article['sbmarks'] = impression_sbmarks( $article_arr['aid'], $article_arr['title'] );
-
 $article['page'] = $page;
 $page_arr = ( explode( '<!-- pagebreak -->', $article_arr['description'] ) );
 $tpages  = count( $page_arr );
@@ -235,9 +231,13 @@ if ( icms::$module -> config['plusone_bttn'] == 0 ) {
 	$plusone = '<g:plusone size="medium" annotation="bubble"></g:plusone>';
 }
 
+$article['showsbookmarks'] = icms::$module -> config['showsbookmarks'];
+
 if ( icms::$module -> config['showsbookmarks'] == 0 ) {
 	$article['socialbutton'] = '';
 } elseif ( icms::$module -> config['showsbookmarks'] == 1 ) {
+	// Get Social Bookmarks
+	include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
 	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
 } elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {
 	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $plusone . $twitter . $facebook . '</div>';

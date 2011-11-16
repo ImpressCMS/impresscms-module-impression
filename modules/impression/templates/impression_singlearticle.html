@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/impressionstyle.css" />
 
+<{if $article.showsbookmarks == 2}>
 <!-- Google Plus One script -->
 <script type="text/javascript">
   (function() {
@@ -20,6 +21,7 @@
   }
   (document, 'script', 'facebook-jssdk'));
 </script>
+<{/if}>
 
 <{$article.imageheader}>
 
@@ -33,31 +35,15 @@
 <div class="impression_articleTitle"><{$article.title}><{$article.icons}></div>
 
 <div id="impression_main" class="impression_articleMain">
-
 	<div style="text-align: right; font-size: .75em;">
 		<{$smarty.const._MD_IMPRESSION_PUBLISHEDON}><{$article.updated|wordwrap:50:"\n":true}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>
 	</div>
-
-	<{if $article.page == 0 }>
-		<{$article.introtext}>
-	<{/if}>
-
+	<{if $article.page == 0 }><{$article.introtext}><{/if}>
 	<{$article.description2}>
-
 	<{$pagenav}>
-	
 	<{$article.source}>
-	
+	<{if $tagbar}><div class="impression_tags"><{include file="db:tag_bar.html"}></div><{/if}>
 	<{$article.socialbutton}>
-
-	<{if $tagbar}>
-		<div class="impression_tags"><{include file="db:tag_bar.html"}></div>
-	<{/if}> 
-
-	<{if $article.showsbookmarx > 0}>
-		<div class="impression_socbookmark"><{$article.sbmarks}></div>
-	<{/if}>
-
 </div>
 
 <div class="impression_articleFooter">
@@ -76,9 +62,7 @@
 	&nbsp;
 </div>
 
-<div style="text-align: center; margin-top: 10px;">
-	<{$commentsnav}><{$lang_notice}> 
-</div>
+<div style="text-align: center; margin-top: 10px;"><{$commentsnav}><{$lang_notice}></div>
 
 <!-- start comments loop -->
 <{if $comment_mode == "flat"}> 
