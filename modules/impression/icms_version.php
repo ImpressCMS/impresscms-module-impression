@@ -35,10 +35,10 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 } else { include_once ICMS_ROOT_PATH . '/language/english/moduleabout.php'; }
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
-$modversion['version'] 			= 1.1;
+$modversion['version'] 			= 1.11;
 $modversion['date'] 			= 'xx xxxxx 2011';
-$modversion['status'] 			= '';
-$modversion['status_version'] 	= '';
+$modversion['status'] 			= 'Trunk';
+$modversion['status_version'] 	= 'Trunk';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license'] 			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['dirname'] 			= basename( dirname( __FILE__ ) );
@@ -433,15 +433,7 @@ $modversion['config'][] = array(
 	'options'		=>  array(	_NONE					=> 0,
 								_MI_IMPRESSION_BYTES	=> 1,
 								_MI_IMPRESSION_WORDS	=> 2,
-								_MI_IMPRESSION_CHARSF	=> 3 ) );	
-
-$modversion['config'][] = array(
-	'name'			=> 'showsbookmarks',
-	'title'			=> '_MI_IMPRESSION_SHOWSBOOKMARKS',
-	'description'	=> '_MI_IMPRESSION_SHOWSBOOKMARKSDSC',
-	'formtype'		=> 'yesno',
-	'valuetype'		=> 'int',
-	'default'		=> 1 );
+								_MI_IMPRESSION_CHARSF	=> 3 ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'usemetadescr',
