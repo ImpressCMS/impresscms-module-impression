@@ -1,11 +1,11 @@
 =========================================================
 xx.xx.2011 - Version 1.x
 =========================================================
-Removed files:
-- include/update.php
-- sql (folder)
-- sql/impression.sql
-- sql/index.html
+Added:
+- Social media buttons for Facebook, Google 1+ and Twitter
+
+Fixed:
+- Captcha in Submit form causes issues
 
 =========================================================
 25.09.2011 - Version 1.1
