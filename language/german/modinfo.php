@@ -299,6 +299,7 @@ define( '_MI_IMPRESSION_SOCIALBTTNS', 'Zeige Social Media Buttons' );
 define( '_MI_IMPRESSION_SOCIALBTTNSDSC', 'Wählen Sie zwischen den Social Bookmarks (veraltet) oder den Social Media Buttons.' );
 define( '_IM_IMPRESSION_SOCBOOK', 'Social Bookmarks' );
 define( '_IM_IMPRESSION_SOCMEDIA', 'Social Media' );
+define( '_IM_IMPRESSION_SOCMEDIAPRIVE', 'Social Share Privacy' );
 define( '_MI_IMPRESSION_DEFAULT', 'Voreinstellung' );
 define( '_MI_IMPRESSION_HORICNT', 'Hor. Counter' );
 define( '_MI_IMPRESSION_VERTCNT', 'Vert. Counter' );

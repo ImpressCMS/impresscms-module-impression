@@ -241,6 +241,8 @@ if ( icms::$module -> config['showsbookmarks'] == 0 ) {
 	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
 } elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {
 	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $plusone . $twitter . $facebook . '</div>';
+} elseif ( icms::$module -> config['showsbookmarks'] == 3 ) {
+	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;" id="socialshareprivacy"></div>';
 }
 
 $xoopsTpl -> assign( 'article', $article );

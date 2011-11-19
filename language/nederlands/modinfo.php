@@ -272,4 +272,21 @@ define( '_MI_IMPRESSION_CHARSF', 'Karakters' );
 define( '_MI_IMPRESSION_BNEWS', 'Nieuws per categorie');
 define( '_MI_IMPRESSION_TEXTWIDTH', 'Kies breedte van de titel vakken in de administratie:' );
 define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Kies de breedte van de tekst vakken die o.a. gebruikt worden voor de titels in Inzend formulieren. Standaard is 128.' );
+
+define( '_MI_IMPRESSION_SOCIALBTTNS', 'Show Social Media buttons' );
+define( '_MI_IMPRESSION_SOCIALBTTNSDSC', 'Select if you want to have Social Bookmarks (old style), Social Media buttons or Social Media buttons with privacy switch (German only). If you select <i>Social Share Privacy</i> the type of button is not taken into account.' );
+define( '_IM_IMPRESSION_SOCBOOK', 'Social Bookmarks' );
+define( '_IM_IMPRESSION_SOCMEDIA', 'Social Media' );
+define( '_IM_IMPRESSION_SOCMEDIAPRIVE', 'Social Share Privacy' );
+define( '_MI_IMPRESSION_DEFAULT', 'Default' );
+define( '_MI_IMPRESSION_HORICNT', 'Hor. counter' );
+define( '_MI_IMPRESSION_VERTCNT', 'Vert. counter' );
+define( '_MI_IMPRESSION_TWITTER', 'Twitter' );
+define( '_MI_IMPRESSION_TWEET', 'Tweet' );
+define( '_MI_IMPRESSION_TWITTERBTTN', 'Twitter button' );
+define( '_MI_IMPRESSION_TWITTERBTTNDSC', 'Choose a Twitter button style.' );
+define( '_MI_IMPRESSION_FACEBOOKBTTN', 'Facebook "I Like" button' );
+define( '_MI_IMPRESSION_FACEBOOKBTTNDSC', 'Choose a Facebook button style.' );
+define( '_MI_IMPRESSION_PLUSONEBTTN', 'Google +1 button' );
+define( '_MI_IMPRESSION_PLUSONEBTTNDSC', 'Choose a Google +1 button style.' );
 ?>

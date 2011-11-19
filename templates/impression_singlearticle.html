@@ -21,6 +21,11 @@
   }
   (document, 'script', 'facebook-jssdk'));
 </script>
+<{elseif $article.showsbookmarks == 3}>
+<!-- Social Share Privacy -->
+<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/socialshareprivacy.css" />
+<script type="text/javascript" src="<{$icms_url}>/modules/<{$module_dir}>/include/jquery.socialshareprivacy.js"></script>
+<script type="text/javascript"> jQuery(document).ready(function($){ if($('#socialshareprivacy').length > 0){ $('#socialshareprivacy').socialSharePrivacy(); } }); </script>
 <{/if}>
 
 <{$article.imageheader}>

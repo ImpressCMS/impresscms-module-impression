@@ -296,9 +296,10 @@ define( '_MI_IMPRESSION_TEXTWIDTH', 'Set width of title boxes in administration:
 define( '_MI_IMPRESSION_TEXTWIDTHDSC', 'Select the width of the text boxes used for titles in submit forms. Default is 128.' );
 
 define( '_MI_IMPRESSION_SOCIALBTTNS', 'Show Social Media buttons' );
-define( '_MI_IMPRESSION_SOCIALBTTNSDSC', 'Select if you want to have Social Bookmarks (old style) or Social Media buttons.' );
+define( '_MI_IMPRESSION_SOCIALBTTNSDSC', 'Select if you want to have Social Bookmarks (old style), Social Media buttons or Social Media buttons with privacy switch (German only). If you select <i>Social Share Privacy</i> the type of button is not taken into account.' );
 define( '_IM_IMPRESSION_SOCBOOK', 'Social Bookmarks' );
 define( '_IM_IMPRESSION_SOCMEDIA', 'Social Media' );
+define( '_IM_IMPRESSION_SOCMEDIAPRIVE', 'Social Share Privacy' );
 define( '_MI_IMPRESSION_DEFAULT', 'Default' );
 define( '_MI_IMPRESSION_HORICNT', 'Hor. counter' );
 define( '_MI_IMPRESSION_VERTCNT', 'Vert. counter' );
