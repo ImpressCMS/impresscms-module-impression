@@ -71,6 +71,7 @@ $modversion['people']['other']		[] = '&middot; WF-Projects Team: amayer, bender,
 $modversion['people']['other']      [] = '&middot; <a href="http://www.famfamfam.com" target="_blank">famfamfam.com</a> (icons)';
 $modversion['people']['other']		[] = '&middot; <a href="http://www.icons-land.com" target=_blank">Icons-Land</a> (icons)';
 $modversion['people']['other']      [] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
+$modversion['people']['other']      [] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
 
 //	** If Release Candidate **
 $modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_RC;
@@ -482,7 +483,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 0,
-	'options'		=> array( _NONE => 0, _IM_IMPRESSION_SOCBOOK => 1, _IM_IMPRESSION_SOCMEDIA => 2 ) );
+	'options'		=> array( _NONE => 0, _IM_IMPRESSION_SOCBOOK => 1, _IM_IMPRESSION_SOCMEDIA => 2, _IM_IMPRESSION_SOCMEDIAPRIVE => 3 ) );
 	
 $modversion['config'][] = array(
 	'name'			=> 'twitt_bttn',
