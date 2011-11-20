@@ -172,6 +172,7 @@ global $xoopsTpl, $xoTheme;
     }
 	$xoopsTpl -> assign( 'icms_pagetitle', $article_arr['title'] );
 	$xoopsTpl -> assign( 'og_url', impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] ) );
+	$xoopsTpl -> assign( 'og_image', ICMS_URL . '/modules/' . $mydirname . '/images/impression_ilogo.png' );
 // End of meta tags
 
 $moderate = 0;
