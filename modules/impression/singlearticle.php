@@ -171,6 +171,7 @@ global $xoopsTpl, $xoTheme;
         }
     }
 	$xoopsTpl -> assign( 'icms_pagetitle', $article_arr['title'] );
+	// Open Graph
 	$xoopsTpl -> assign( 'og_url', impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] ) );
 	$xoopsTpl -> assign( 'og_image', ICMS_URL . '/modules/' . $mydirname . '/images/impression_ilogo.png' );
 // End of meta tags
@@ -221,7 +222,7 @@ if ( icms::$module -> config['faceb_bttn'] == 1 ) {
 
 if ( icms::$module -> config['faceb_bttn'] > 0 ) {
 	$facebook = '<span id="fb-root"></span>';
-	$facebook .= '<span class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-width="450" data-show-faces="false"></span>';
+	$facebook .= '<span class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-show-faces="false"></span>';
 }
 
 if ( icms::$module -> config['plusone_bttn'] == 0 ) {
@@ -241,7 +242,7 @@ if ( icms::$module -> config['showsbookmarks'] == 0 ) {
 	include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
 	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
 } elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {
-	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $plusone . $twitter . $facebook . '</div>';
+	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $twitter . $facebook . $plusone . '</div>';
 } elseif ( icms::$module -> config['showsbookmarks'] == 3 ) {
 	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;" id="socialshareprivacy"></div>';
 }
