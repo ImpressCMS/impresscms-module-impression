@@ -70,6 +70,7 @@
 /* Tooltips begin */
 .social_share_privacy_area li.help_info {
     position: relative; 
+    list-style: none outside none;
 }
 .social_share_privacy_area li.help_info .info, 
 .social_share_privacy_area li .help_info.icon .info {
@@ -138,6 +139,7 @@
 .social_share_privacy_area li.settings_info {
 	position: relative;
 	top: -2px;
+	list-style: none outside none;
 }
 .social_share_privacy_area li.settings_info a {
 	text-decoration: none;
