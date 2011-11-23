@@ -57,6 +57,15 @@ In case you're using a module on the frontpage, for example Impression, and the 
 	
 To test if the above code is working you can test it by passing the website url and an url to an Impression article to the Facebook Debugger: http://developers.facebook.com/tools/debug
 
+Further, in the file theme.html you have to replace this line
+
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$icms_langcode}>">
+	
+with this one:
+
+	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" xml:lang="<{$icms_langcode}>">
+
+
 More information about the Open Graph Protocol can be found here:
 - http://ogp.me/
 - http://developers.facebook.com/docs/beta/
