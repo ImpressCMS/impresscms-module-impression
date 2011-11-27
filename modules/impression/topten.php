@@ -6,20 +6,20 @@
 *
 * File: topten.php
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
-* @since			1.03
+* @package		WF-Links
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
-* @since			1.03b and 1.03c
+* 				WF-Links
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -31,46 +31,46 @@ include ICMS_ROOT_PATH . '/header.php';
 
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
-$action_array 	= array( 'hit' => 0 );
-$list_array 	= array( 'hits' );
-$lang_array 	= array( _MD_IMPRESSION_HITS );
-$rankings 		= array();
+$action_array	= array( 'hit' => 0 );
+$list_array		= array( 'hits' );
+$lang_array		= array( _MD_IMPRESSION_HITS );
+$rankings		= array();
 
-$sort 		= 'hit';
-$sort_arr 	= $action_array[$sort];
-$sortDB 	= $list_array[$sort_arr];
+$sort		= 'hit';
+$sort_arr	= $action_array[$sort];
+$sortDB		= $list_array[$sort_arr];
 
 $arr = array();
 $result = icms::$xoopsDB -> query( 'SELECT cid, title, pid FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid=0 ORDER BY ' . icms::$module -> config['sortcats'] );
 
 $e = 0;
 while ( list( $cid, $ctitle ) = icms::$xoopsDB -> fetchRow( $result ) ) {
-    if ( true == impression_checkgroups( $cid ) ) {
-        $query = 'SELECT aid, cid, title, hits, nice_url FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status = 0 AND (cid=' . intval( $cid );
-        $arr = $mytree -> getAllChildId( $cid );
-        for( $i = 0; $i < count( $arr ); $i++ ) {
-            $query .= ' or cid=' . $arr[$i] . '';
-        }
-        $query .= ') order by ' . $sortDB . ' DESC';
-        $result2 = icms::$xoopsDB -> query( $query, 10, 0 );
-        $filecount = icms::$xoopsDB -> getRowsNum( $result2 );
+	if ( true == impression_checkgroups( $cid ) ) {
+		$query = 'SELECT aid, cid, title, hits, nice_url FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 AND published <= ' . time() . ' AND status = 0 AND (cid=' . intval( $cid );
+		$arr = $mytree -> getAllChildId( $cid );
+		for( $i = 0; $i < count( $arr ); $i++ ) {
+			$query .= ' or cid=' . $arr[$i] . '';
+		}
+		$query .= ') order by ' . $sortDB . ' DESC';
+		$result2 = icms::$xoopsDB -> query( $query, 10, 0 );
+		$filecount = icms::$xoopsDB -> getRowsNum( $result2 );
 
-        if ( $filecount > 0 ) {
-            $rankings[$e]['title'] = $impressionmyts -> htmlSpecialCharsStrip( $ctitle );
-            $rank = 1;
-            while ( list( $did, $dcid, $dtitlea, $hits, $nice_url ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
+		if ( $filecount > 0 ) {
+			$rankings[$e]['title'] = $impressionmyts -> htmlSpecialCharsStrip( $ctitle );
+			$rank = 1;
+			while ( list( $did, $dcid, $dtitlea, $hits, $nice_url ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
 				
 				$result3 = icms::$xoopsDB -> query( 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $dcid );
 				$mycat = icms::$xoopsDB -> fetchArray( $result3 );	
-                $category = $mycat['title'];
-                $dtitle = $impressionmyts -> htmlSpecialCharsStrip( $dtitlea );
+				$category = $mycat['title'];
+				$dtitle = $impressionmyts -> htmlSpecialCharsStrip( $dtitlea );
 				$nice_link = impression_nicelink( $dtitlea, $nice_url );
-                $rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $category, 'hits' => $hits, 'nice_link' => $nice_link );
-                $rank++;
-            }
-            $e++;
-        }
-    }
+				$rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $category, 'hits' => $hits, 'nice_link' => $nice_link );
+				$rank++;
+			}
+			$e++;
+		}
+	}
 }
 
 if ( impression_imageheader() ) {

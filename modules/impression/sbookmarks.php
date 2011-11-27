@@ -6,14 +6,14 @@
 *
 * File: sbookmarks.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -174,55 +174,55 @@ $sbmarks['info'] = '<a href="http://en.wikipedia.org/wiki/Social_bookmarking" ta
 // Make list of selected social bookmarks
 // Comment out thosr social bookmarks which should not be visible
 
-$sbmarks['sbmarks'] = //$sbmarks['blackflip'] . " " .
-                      //$sbmark['bibsonomy'] . " " .
-                        $sbmarks['blinklist'] . " " .
-                      //$sbmark['blogmark'] . " " .
-                      //$sbmark['citeulike'] . " " .
-                      //$sbmarks['connotea'] . " " .
-                        $sbmarks['delicio'] . " " .
-                        $sbmarks['digg'] . " " .
-                      //$sbmarks['diigo'] . " " .
-                      //$sbmarks['dzone'] . " " .
-                      //$sbmarks['earthlink'] . " " .
-                      //$sbmarks['eatmyhamster'] . " " .
-                        $sbmarks['facebook'] . " " .
-                      //$sbmarks['fantacular'] . " " .
-                      //$sbmarks['fark'] . " " .
-                      //$sbmarks['feedmarker'] . " " .
-                      //$sbmarks['feedmelinks'] . " " .
-                        $sbmarks['furl'] . " " .
-                        $sbmarks['google'] . " " .
-                      //$sbmarks['gravee'] . " " .
-                      //$sbmarks['igooi'] . " " .
-                      //$sbmarks['italknews'] . " " .
-                      //$sbmarks['jookster'] . " " .
-                      //$sbmarks['kinja'] . " " .
-                      //$sbmarks['linkagogo'] . " " .
-                      //$sbmarks['linkroll'] . " " .
-                      //$sbmarks['linuxquestions'] . " " .
-                      //$sbmarks['live'] . " " .         <==== Don't use doesn't work properly
-                      //$sbmarks['lookmarks'] . " " .
-                      //$sbmarks['lycos'] . " " .
-                      //$sbmarks['magnolia'] . " " .
-                      //$sbmarks['markabboo'] . " " .
-                      //$sbmarks['netscape'] . " " .
-                      //$sbmarks['netvouz'] . " " .
-                      //$sbmarks['newsvine'] . " " .
-                      //$sbmarks['ning'] . " " .
-                      //$sbmarks['nowpublic'] . " " .
-                      //$sbmarks['rawsugar'] . " " .
-                        $sbmarks['reddit'] . " " .
-                      //$sbmarks['riffs'] . " " .
-                      //$sbmarks['rojo'] . " " .
-                      //$sbmarks['shadow'] . " " .
-                      //$sbmarks['squidoo'] . " " .
-                        $sbmarks['stumble'] . " " .
-                      //$sbmarks['tagtooga'] . " " .
-                      //$sbmarks['techno'] . " " .
-                        $sbmarks['wink'] . " " .
-                        $sbmarks['yahoo'] . " " .
-                        $sbmarks['info'];
+$sbmarks['sbmarks'] =	//$sbmarks['blackflip'] . " " .
+						//$sbmark['bibsonomy'] . " " .
+						$sbmarks['blinklist'] . " " .
+						//$sbmark['blogmark'] . " " .
+						//$sbmark['citeulike'] . " " .
+						//$sbmarks['connotea'] . " " .
+						$sbmarks['delicio'] . " " .
+						$sbmarks['digg'] . " " .
+						//$sbmarks['diigo'] . " " .
+						//$sbmarks['dzone'] . " " .
+						//$sbmarks['earthlink'] . " " .
+						//$sbmarks['eatmyhamster'] . " " .
+						$sbmarks['facebook'] . " " .
+						//$sbmarks['fantacular'] . " " .
+						//$sbmarks['fark'] . " " .
+						//$sbmarks['feedmarker'] . " " .
+						//$sbmarks['feedmelinks'] . " " .
+						$sbmarks['furl'] . " " .
+						$sbmarks['google'] . " " .
+						//$sbmarks['gravee'] . " " .
+						//$sbmarks['igooi'] . " " .
+						//$sbmarks['italknews'] . " " .
+						//$sbmarks['jookster'] . " " .
+						//$sbmarks['kinja'] . " " .
+						//$sbmarks['linkagogo'] . " " .
+						//$sbmarks['linkroll'] . " " .
+						//$sbmarks['linuxquestions'] . " " .
+						//$sbmarks['live'] . " " .         <==== Don't use doesn't work properly
+						//$sbmarks['lookmarks'] . " " .
+						//$sbmarks['lycos'] . " " .
+						//$sbmarks['magnolia'] . " " .
+						//$sbmarks['markabboo'] . " " .
+						//$sbmarks['netscape'] . " " .
+						//$sbmarks['netvouz'] . " " .
+						//$sbmarks['newsvine'] . " " .
+						//$sbmarks['ning'] . " " .
+						//$sbmarks['nowpublic'] . " " .
+						//$sbmarks['rawsugar'] . " " .
+						$sbmarks['reddit'] . " " .
+						//$sbmarks['riffs'] . " " .
+						//$sbmarks['rojo'] . " " .
+						//$sbmarks['shadow'] . " " .
+						//$sbmarks['squidoo'] . " " .
+						$sbmarks['stumble'] . " " .
+						//$sbmarks['tagtooga'] . " " .
+						//$sbmarks['techno'] . " " .
+						$sbmarks['wink'] . " " .
+						$sbmarks['yahoo'] . " " .
+						$sbmarks['info'];
 
 return $sbmarks['sbmarks'];
 }

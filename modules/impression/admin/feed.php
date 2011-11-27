@@ -6,12 +6,12 @@
 *
 * File: admin/feed.php
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -25,13 +25,13 @@ function rss_edit() {
 
 	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_configs' );
 	$feed_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
-	
+
 	$webmaster  = $icmsConfig['adminmail'] . ' (' . icms::$module -> getVar( 'name' ) . ') ';
 	$modulename = icms::$module -> getVar( 'name' );
 	$modulevers = number_format( icms::$module -> getVar( 'version' ) / 100 , 2, '.', '' );
 	$generator  = ICMS_VERSION_NAME . ' ( module: ' . $modulename . ' ' . $modulevers . ' )';
 	$copyright  = _AM_IMPRESSION_COPYRIGHT . ' ' . formatTimestamp( time(), 'Y' ) . ' - ' . $icmsConfig['sitename'];
-		
+
 	$rssactive   = $feed_array['rssactive'];
 	$rsstitle    = $feed_array['rsstitle'] ? htmlspecialchars( $feed_array['rsstitle'] ) : $icmsConfig['sitename'];
 	$rsslink     = $feed_array['rsslink'] ? htmlspecialchars( $feed_array['rsslink'] ) : ICMS_URL;
@@ -150,13 +150,13 @@ function rss_edit() {
 	$sform -> display();
 	unset( $hidden ); 
 	
-    icms_cp_footer();
+	icms_cp_footer();
 }
 
 switch ( strtolower( $op ) ) {
 	case 'edit':
-        rss_edit();
-        break;
+		rss_edit();
+		break;
 		
 	case 'saverss':
 		$rssactive   = ( $_POST['rssactive'] == 1 ) ? 1 : 0;
@@ -180,11 +180,11 @@ switch ( strtolower( $op ) ) {
 	
 		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal', rssofftitle='$rssofftitle', rssoffdsc='$rssoffdsc'";
 		$result = icms::$xoopsDB -> queryF( $sql );
-        $error = _AM_IMPRESSION_DBERROR . ': <br /><br />' . $sql;
-        if ( !$result ) {
-           trigger_error( $error, E_USER_ERROR );
-        } 
+		$error = _AM_IMPRESSION_DBERROR . ': <br /><br />' . $sql;
+		if ( !$result ) {
+			trigger_error( $error, E_USER_ERROR );
+		}
 		redirect_header( 'index.php', 1, _AM_IMPRESSION_RSSDBUPDATED );
-        break;
+		break;
 }
 ?>

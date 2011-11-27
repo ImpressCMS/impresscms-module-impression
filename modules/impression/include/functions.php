@@ -6,86 +6,86 @@
 *
 * File: /include/functions.php
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
-* @since			1.03
+* @package		WF-Links
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
-* @since			1.03b and 1.03c
+* 				WF-Links
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
 
 function impression_checkgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
-    $groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = icms::handler('icms_member_groupperm');;
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, icms::$module -> getVar( 'mid' ) ) ) {
-        if ( $redirect == false ) {
-            return false;
-        } else  {
-            redirect_header( 'index.php', 3, _NOPERM );
-            exit();
-        } 
-    } 
+	$groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
+	$gperm_handler = icms::handler('icms_member_groupperm');
+	if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, icms::$module -> getVar( 'mid' ) ) ) {
+		if ( $redirect == false ) {
+			return false;
+		} else {
+			redirect_header( 'index.php', 3, _NOPERM );
+			exit();
+		}
+    }
     return true;
-} 
+}
 
 function impression_cleanRequestVars( &$array, $name = null, $def = null, $strict = false, $lengthcheck = 15 ) {
 
-    unset( $array['usercookie'] );
-    unset( $array['PHPSESSID'] );
+	unset( $array['usercookie'] );
+	unset( $array['PHPSESSID'] );
 
-    if ( is_array( $array ) && $name == null ) {
-        $globals = array();
-        foreach ( array_keys( $array ) as $k ) {
-            $value = strip_tags( trim( $array[$k] ) );
-            if ( strlen( $value >= $lengthcheck ) ) {
-                return null;
-            } 
-            if ( ctype_digit( $value ) ) {
-                $value = intval( $value );
-            } else {
-                if ( $strict == true ) {
-                    $value = preg_replace( '/\W/', '', trim( $value ) );
-                } 
-                $value = strtolower( strval( $value ) );
-            } 
-            $globals[$k] = $value;
-        } 
-        return $globals;
-    } 
-    if ( !isset( $array[$name] ) || !array_key_exists( $name, $array ) ) {
-        return $def;
-    } else {
-        $value = strip_tags( trim( $array[$name] ) );
-    } 
-    if ( ctype_digit( $value ) ) {
-        $value = intval( $value );
-    } else {
-        if ( $strict == true ) {
-            $value = preg_replace( '/\W/', '', trim( $value ) );
-        } 
-        $value = strtolower( strval( $value ) );
-    } 
-    return $value;
-} 
+	if ( is_array( $array ) && $name == null ) {
+		$globals = array();
+		foreach ( array_keys( $array ) as $k ) {
+			$value = strip_tags( trim( $array[$k] ) );
+			if ( strlen( $value >= $lengthcheck ) ) {
+				return null;
+			}
+			if ( ctype_digit( $value ) ) {
+				$value = intval( $value );
+			} else {
+				if ( $strict == true ) {
+					$value = preg_replace( '/\W/', '', trim( $value ) );
+				}
+				$value = strtolower( strval( $value ) );
+			}
+			$globals[$k] = $value;
+		}
+		return $globals;
+	}
+	if ( !isset( $array[$name] ) || !array_key_exists( $name, $array ) ) {
+		return $def;
+	} else {
+		$value = strip_tags( trim( $array[$name] ) );
+	}
+	if ( ctype_digit( $value ) ) {
+		$value = intval( $value );
+	} else {
+		if ( $strict == true ) {
+			$value = preg_replace( '/\W/', '', trim( $value ) );
+		}
+		$value = strtolower( strval( $value ) );
+	}
+	return $value;
+}
 
 // toolbar()
 function impression_toolbar( $cid = 0 ) {
-    $toolbar = '[ ';
-    if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
-        $toolbar .= '<a href="submit.php?cid=' . $cid . '">' . _MD_IMPRESSION_SUBMITARTICLE . '</a> | ';
-    } 
-    $toolbar .= '<a href="newlist.php?newarticleshowdays=7">' . _MD_IMPRESSION_LATESTLIST . '</a> | <a href="topten.php?list=hit">' . _MD_IMPRESSION_POPULARITY . '</a> ]';
-    return $toolbar;
+	$toolbar = '[ ';
+	if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
+		$toolbar .= '<a href="submit.php?cid=' . $cid . '">' . _MD_IMPRESSION_SUBMITARTICLE . '</a> | ';
+	}
+	$toolbar .= '<a href="newlist.php?newarticleshowdays=7">' . _MD_IMPRESSION_LATESTLIST . '</a> | <a href="topten.php?list=hit">' . _MD_IMPRESSION_POPULARITY . '</a> ]';
+	return $toolbar;
 }
 
 // displayicons()
@@ -95,103 +95,103 @@ function impression_toolbar( $cid = 0 ) {
 // @param integer $counter
 // @return
 function impression_displayicons( $time, $status = 0, $counter = 0 ) {
-    $new = '';
-    $pop = '';
-    $newdate = ( time() - ( 86400 * intval( icms::$module -> config['daysnew'] ) ) );
-    $popdate = ( time() - 864000 ) ;
-    if ( icms::$module -> config['displayicons'] != 3 ) {
-        if ( $newdate < $time ) {
-            if ( intval( $status ) > 1 ) {
-                if ( icms::$module -> config['displayicons'] == 1 )
-                    $new = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_UPDATE . "</span>";
-                if ( icms::$module -> config['displayicons'] == 2 )
-                    $new = '<i>' . _MD_IMPRESSION_UPDATE . '!</i>';
-            } else {
-                if ( icms::$module -> config['displayicons'] == 1 )
-                    $new = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/flag_blue.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_NEW . "</span>";
-                if ( icms::$module -> config['displayicons'] == 2 )
-                    $new = '<i>' . _MD_IMPRESSION_NEW . '!</i>';
-            }
-        } 
-        if ( $popdate > $time ) {
-            if ( $counter >= icms::$module -> config['popular'] ) {
-                if ( icms::$module -> config['displayicons'] == 1 )
-                    $pop = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/star.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_POPULAR . "</span>";
-                if ( icms::$module -> config['displayicons'] == 2 )
-                    $pop = '<i>' . _MD_IMPRESSION_POPULAR . '!</i>';
-            } 
-        } 
-    } 
-    $icons = $new . ' ' . $pop;
-    return $icons;
+	$new = '';
+	$pop = '';
+	$newdate = ( time() - ( 86400 * intval( icms::$module -> config['daysnew'] ) ) );
+	$popdate = ( time() - 864000 ) ;
+	if ( icms::$module -> config['displayicons'] != 3 ) {
+		if ( $newdate < $time ) {
+			if ( intval( $status ) > 1 ) {
+				if ( icms::$module -> config['displayicons'] == 1 )
+					$new = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_UPDATE . "</span>";
+				if ( icms::$module -> config['displayicons'] == 2 )
+					$new = '<i>' . _MD_IMPRESSION_UPDATE . '!</i>';
+			} else {
+				if ( icms::$module -> config['displayicons'] == 1 )
+					$new = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/flag_blue.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_NEW . "</span>";
+				if ( icms::$module -> config['displayicons'] == 2 )
+					$new = '<i>' . _MD_IMPRESSION_NEW . '!</i>';
+				}
+		}
+		if ( $popdate > $time ) {
+			if ( $counter >= icms::$module -> config['popular'] ) {
+				if ( icms::$module -> config['displayicons'] == 1 )
+					$pop = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/star.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_POPULAR . "</span>";
+					if ( icms::$module -> config['displayicons'] == 2 )
+						$pop = '<i>' . _MD_IMPRESSION_POPULAR . '!</i>';
+			}
+		}
+	}
+	$icons = $new . ' ' . $pop;
+	return $icons;
 }
 
 if ( !function_exists( 'impression_convertorderbyin' ) ) {
-    // Reusable Link Sorting Functions
-    // impression_convertorderbyin()
-    // @param  $orderby
-    // @return
-    function impression_convertorderbyin( $orderby ) {
-        switch ( trim( $orderby ) ) {
-            case 'titleA':
-                $orderby = 'title ASC';
-                break;
-            case 'dateA':
-                $orderby = 'published ASC';
-                break;
-            case 'hitsA':
-                $orderby = 'hits ASC';
-                break;
-            case 'titleD':
-                $orderby = 'title DESC';
-                break;
-            case 'hitsD':
-                $orderby = 'hits DESC';
-                break;
-            case 'dateD':
-                $orderby = 'published DESC';
-                break;
-        }
-        return $orderby;
-    } 
+	// Reusable Link Sorting Functions
+	// impression_convertorderbyin()
+	// @param  $orderby
+	// @return
+	function impression_convertorderbyin( $orderby ) {
+		switch ( trim( $orderby ) ) {
+			case 'titleA':
+				$orderby = 'title ASC';
+				break;
+			case 'dateA':
+				$orderby = 'published ASC';
+				break;
+			case 'hitsA':
+				$orderby = 'hits ASC';
+				break;
+			case 'titleD':
+				$orderby = 'title DESC';
+				break;
+			case 'hitsD':
+				$orderby = 'hits DESC';
+				break;
+			case 'dateD':
+				$orderby = 'published DESC';
+				break;
+		}
+		return $orderby;
+	}
 } 
 if ( !function_exists( 'impression_convertorderbytrans' ) ) {
-    function impression_convertorderbytrans( $orderby ) {
-        if ( $orderby == 'hits ASC' ) $orderbyTrans = _MD_IMPRESSION_POPULARITYLTOM;
-        if ( $orderby == 'hits DESC' ) $orderbyTrans = _MD_IMPRESSION_POPULARITYMTOL;
-        if ( $orderby == 'title ASC' ) $orderbyTrans = _MD_IMPRESSION_TITLEATOZ;
-        if ( $orderby == 'title DESC' ) $orderbyTrans = _MD_IMPRESSION_TITLEZTOA;
-        if ( $orderby == 'published ASC' ) $orderbyTrans = _MD_IMPRESSION_DATEOLD;
-        if ( $orderby == 'published DESC' ) $orderbyTrans = _MD_IMPRESSION_DATENEW;
-        return $orderbyTrans;
-    }
-} 
+	function impression_convertorderbytrans( $orderby ) {
+		if ( $orderby == 'hits ASC' ) $orderbyTrans = _MD_IMPRESSION_POPULARITYLTOM;
+		if ( $orderby == 'hits DESC' ) $orderbyTrans = _MD_IMPRESSION_POPULARITYMTOL;
+		if ( $orderby == 'title ASC' ) $orderbyTrans = _MD_IMPRESSION_TITLEATOZ;
+		if ( $orderby == 'title DESC' ) $orderbyTrans = _MD_IMPRESSION_TITLEZTOA;
+		if ( $orderby == 'published ASC' ) $orderbyTrans = _MD_IMPRESSION_DATEOLD;
+		if ( $orderby == 'published DESC' ) $orderbyTrans = _MD_IMPRESSION_DATENEW;
+		return $orderbyTrans;
+	}
+}
 if ( !function_exists( 'impression_convertorderbyout' ) ) {
-    function impression_convertorderbyout( $orderby ) {
-        if ( $orderby == 'title ASC' ) $orderby = 'titleA';
-        if ( $orderby == 'published ASC' ) $orderby = 'dateA';
-        if ( $orderby == 'hits ASC' ) $orderby = 'hitsA';
-        if ( $orderby == 'title DESC' ) $orderby = 'titleD';
-        if ( $orderby == 'published DESC' ) $orderby = 'dateD';
-        if ( $orderby == 'hits DESC' ) $orderby = 'hitsD';
-        return $orderby;
-    } 
+	function impression_convertorderbyout( $orderby ) {
+		if ( $orderby == 'title ASC' ) $orderby = 'titleA';
+		if ( $orderby == 'published ASC' ) $orderby = 'dateA';
+		if ( $orderby == 'hits ASC' ) $orderby = 'hitsA';
+		if ( $orderby == 'title DESC' ) $orderby = 'titleD';
+		if ( $orderby == 'published DESC' ) $orderby = 'dateD';
+		if ( $orderby == 'hits DESC' ) $orderby = 'hitsD';
+		return $orderby;
+	}
 } 
 
 // totalcategory()
 // @param integer $pid
 // @return
 function impression_totalcategory( $pid = 0 ) {
-    $sql = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' );
-    if ( $pid > 0 ) { $sql .= ' WHERE pid=0'; } 
-    $result = icms::$xoopsDB -> query( $sql );
-    $catlisting = 0;
-    while ( list( $cid ) = icms::$xoopsDB -> fetchRow( $result ) ) {
-        if ( impression_checkgroups( $cid ) ) {
-            $catlisting++;
-        }
-    }
-    return $catlisting;
+	$sql = 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' );
+	if ( $pid > 0 ) { $sql .= ' WHERE pid=0'; }
+	$result = icms::$xoopsDB -> query( $sql );
+	$catlisting = 0;
+	while ( list( $cid ) = icms::$xoopsDB -> fetchRow( $result ) ) {
+		if ( impression_checkgroups( $cid ) ) {
+			$catlisting++;
+		}
+	}
+	return $catlisting;
 }
 
 // impression_getTotalItems()
@@ -200,113 +200,113 @@ function impression_totalcategory( $pid = 0 ) {
 // @param integer $return_sql
 // @return
 function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 ) {
-    global $mytree;
-    if ( $sel_id > 0 ) {
-        $sql = 'SELECT a.aid, a.cid, a.published FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
-         . icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
-         . ' ON b.aid=a.aid'
-         . ' WHERE a.published > 0 AND a.published <= ' . time()
-         . ' AND status = 0 '
-         . ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))' 
+	global $mytree;
+	if ( $sel_id > 0 ) {
+		$sql = 'SELECT a.aid, a.cid, a.published FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+		. icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
+		. ' ON b.aid=a.aid'
+		. ' WHERE a.published > 0 AND a.published <= ' . time()
+		. ' AND status = 0 '
+		. ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))' 
 		 . ' GROUP BY a.aid, a.cid, a.published';
-    } else {
-        $sql = 'SELECT aid, cid, published FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE status = 0 AND published > 0 AND published <= ' . time();
-    } 
-    if ( $return_sql == 1 ) {
-        return $sql;
-    } 
-    $count = 0;
-    $published_date = 0;
-    $arr = array();
-    $result = icms::$xoopsDB -> query( $sql );
-    while ( list( $aid, $cid, $published ) = icms::$xoopsDB -> fetchRow( $result ) ) {
-        if ( true == impression_checkgroups() ) {
-            $count++;
-            $published_date = ( $published > $published_date ) ? $published : $published_date;
-        } 
-    } 
-    $child_count = 0;
-    if ( $get_child == 1 ) {
-        $arr = $mytree -> getAllChildId( $sel_id );
-        $size = count( $arr );
-        for( $i = 0;$i < count( $arr );$i++ ) {
-            $query2 = 'SELECT a.aid, a.published, a.cid FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
-             . icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
-             . ' ON b.aid=a.aid'
-             . ' WHERE a.published > 0 AND a.published <= ' . time()
-             . ' AND status = 0 '
-             . ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . '))'
-			 . ' GROUP BY a.aid, a.published, a.cid';
-            $result2 = icms::$xoopsDB -> query( $query2 );
-            while ( list( $aid, $published ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
-                if ( $published == 0 ) {
-                    continue;
-                } 
-                $published_date = ( $published > $published_date ) ? $published : $published_date;
-                $child_count++;
-            } 
-        } 
-    } 
-    $info['count'] = $count + $child_count;
-    $info['published'] = $published_date;
-    return $info;
-} 
+	} else {
+		$sql = 'SELECT aid, cid, published FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE status = 0 AND published > 0 AND published <= ' . time();
+	} 
+	if ( $return_sql == 1 ) {
+		return $sql;
+	}
+	$count = 0;
+	$published_date = 0;
+	$arr = array();
+	$result = icms::$xoopsDB -> query( $sql );
+	while ( list( $aid, $cid, $published ) = icms::$xoopsDB -> fetchRow( $result ) ) {
+		if ( true == impression_checkgroups() ) {
+			$count++;
+			$published_date = ( $published > $published_date ) ? $published : $published_date;
+		}
+	}
+	$child_count = 0;
+	if ( $get_child == 1 ) {
+		$arr = $mytree -> getAllChildId( $sel_id );
+		$size = count( $arr );
+		for( $i = 0;$i < count( $arr );$i++ ) {
+			$query2 = 'SELECT a.aid, a.published, a.cid FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+				. icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
+				. ' ON b.aid=a.aid'
+				. ' WHERE a.published > 0 AND a.published <= ' . time()
+				. ' AND status = 0 '
+				. ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . '))'
+				. ' GROUP BY a.aid, a.published, a.cid';
+			$result2 = icms::$xoopsDB -> query( $query2 );
+			while ( list( $aid, $published ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
+				if ( $published == 0 ) {
+					continue;
+				}
+				$published_date = ( $published > $published_date ) ? $published : $published_date;
+				$child_count++;
+			}
+		}
+	}
+	$info['count'] = $count + $child_count;
+	$info['published'] = $published_date;
+	return $info;
+}
 
 function impression_imageheader( $indeximage = '', $indexheading = '' ) {
-    if ( $indeximage == '' ) {
-        $result = icms::$xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) );
-        list( $indeximage, $indexheading ) = icms::$xoopsDB -> fetchrow( $result );
-    } 
-    $image = '';
-    if ( !empty( $indeximage ) ) {
-        $image = impression_displayimage( $indeximage, 'index.php', icms::$module -> config['mainimagedir'], $indexheading );
-    } 
-    return $image;
+	if ( $indeximage == '' ) {
+		$result = icms::$xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) );
+		list( $indeximage, $indexheading ) = icms::$xoopsDB -> fetchrow( $result );
+	}
+	$image = '';
+	if ( !empty( $indeximage ) ) {
+		$image = impression_displayimage( $indeximage, 'index.php', icms::$module -> config['mainimagedir'], $indexheading );
+	}
+	return $image;
 } 
 
 function impression_displayimage( $image = '', $path = '', $imgsource = '', $alttext = '' ) {
-    $showimage = '';
-    // Check to see if link is given
-    if ( $path ) {
-        $showimage = '<a href="' . $path . '">';
-    } 
-    // checks to see if the file is valid else displays default blank image
-    if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
-        $showimage .= '<img src="' . ICMS_URL . '/' . $imgsource . '/' . $image . '" border="0" title="' . $alttext . '" alt="" /></a>';
-    } else {
-        if ( icms::$user && icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) {
-            $showimage .= '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/brokenimg.png" alt="" title="' . _MD_IMPRESSION_ISADMINNOTICE . '" /></a>';
-        } else {
-            $showimage .= '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/blank.gif" alt="" title="' . $alttext . '" /></a>';
-        } 
-    } 
-    clearstatcache();
-    return $showimage;
-} 
+	$showimage = '';
+	// Check to see if link is given
+	if ( $path ) {
+		$showimage = '<a href="' . $path . '">';
+	}
+	// checks to see if the file is valid else displays default blank image
+	if ( !is_dir( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) && file_exists( ICMS_ROOT_PATH . "/{$imgsource}/{$image}" ) ) {
+		$showimage .= '<img src="' . ICMS_URL . '/' . $imgsource . '/' . $image . '" border="0" title="' . $alttext . '" alt="" /></a>';
+	} else {
+		if ( icms::$user && icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) {
+			$showimage .= '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/brokenimg.png" alt="" title="' . _MD_IMPRESSION_ISADMINNOTICE . '" /></a>';
+		} else {
+			$showimage .= '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/blank.gif" alt="" title="' . $alttext . '" /></a>';
+		}
+	}
+	clearstatcache();
+	return $showimage;
+}
 
 function impression_isnewimage( $published ) {
-    $indicator['image'] = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/folder.png';
-    $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
-    return $indicator;
-} 
+	$indicator['image'] = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/folder.png';
+	$indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
+	return $indicator;
+}
 
 function impression_strrrchr( $haystack, $needle ) {
-    return substr( $haystack, 0, strpos( $haystack, $needle ) + 1 );
-} 
+	return substr( $haystack, 0, strpos( $haystack, $needle ) + 1 );
+}
 
 function impression_getDirSelectOption( $selected, $dirarray, $namearray ) {
 	global $impressionmyts;
-    echo "<select size='1' name='workd' onchange='location.href=\"upload.php?rootpath=\"+this.options[this.selectedIndex].value'>";
-    echo "<option value=''>--------------------------------------</option>";
-    foreach( $namearray as $namearray => $workd ) {
-        if ( $workd === $selected ) {
-            $opt_selected = 'selected';
-        } else {
-            $opt_selected = '';
-        } 
-        echo "<option value='" . $impressionmyts -> htmlSpecialCharsStrip( $namearray, ENT_QUOTES ) . "' $opt_selected>" . $workd . "</option>";
-    } 
-    echo "</select>";
+	echo "<select size='1' name='workd' onchange='location.href=\"upload.php?rootpath=\"+this.options[this.selectedIndex].value'>";
+	echo "<option value=''>--------------------------------------</option>";
+	foreach( $namearray as $namearray => $workd ) {
+		if ( $workd === $selected ) {
+			$opt_selected = 'selected';
+		} else {
+			$opt_selected = '';
+		}
+		echo "<option value='" . $impressionmyts -> htmlSpecialCharsStrip( $namearray, ENT_QUOTES ) . "' $opt_selected>" . $workd . "</option>";
+	}
+	echo "</select>";
 }
 
 // Retreive an editor according to the module's option "form_options"
@@ -397,17 +397,17 @@ function impression_updateCounter( $aid ) {
 
 // Check if imGlossary module is installed
 function impression_imglossary_module_included() {
-  static $impression_imglossary_module_included;
-  if ( !isset( $impression_imglossary_module_included ) ) {
-    $modules_handler = icms::handler( 'icms_module' );
-    $news_mod = $modules_handler -> getByDirName( icms::$module -> config['imglossarydir'] );
-    if ( !$news_mod ) {
-      $news_mod = false;
-    } else {
-      $impression_imglossary_module_included = $news_mod -> getVar( 'isactive' ) == 1;
-    }
-  }
-  return $impression_imglossary_module_included;
+	static $impression_imglossary_module_included;
+	if ( !isset( $impression_imglossary_module_included ) ) {
+		$modules_handler = icms::handler( 'icms_module' );
+		$news_mod = $modules_handler -> getByDirName( icms::$module -> config['imglossarydir'] );
+		if ( !$news_mod ) {
+			$news_mod = false;
+		} else {
+			$impression_imglossary_module_included = $news_mod -> getVar( 'isactive' ) == 1;
+		}
+	}
+	return $impression_imglossary_module_included;
 }
 
 function impression_linkterms( $definition, $glossaryterm ) {
@@ -447,12 +447,12 @@ function impression_linkterms( $definition, $glossaryterm ) {
 }
 
 function impression_noindexnofollow() { 
-    global $xoTheme, $xoopsTpl; 
-    if ( is_object( $xoTheme ) ) { 
-        $xoTheme -> addMeta( 'meta', 'robots', 'noindex,nofollow' ); 
-    } else { 
-        $xoopsTpl -> assign( 'icms_meta_robots', 'noindex,nofollow' ); 
-    } 
+	global $xoTheme, $xoopsTpl; 
+	if ( is_object( $xoTheme ) ) { 
+		$xoTheme -> addMeta( 'meta', 'robots', 'noindex,nofollow' ); 
+	} else { 
+		$xoopsTpl -> assign( 'icms_meta_robots', 'noindex,nofollow' ); 
+	} 
 }
 
 function impression_time( $time ) {
@@ -523,59 +523,59 @@ function impression_niceurl( $aid, $title, $niceurl, $nice_url ) {
 }
 
 function impression_charrepl( $string ) {
-    $find = array( 'À','Á','Â','Ã','Ä','Å','Ā','Ă','Ą','Æ','Ç','Ć','Ĉ','Ċ','Č','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ń','Ņ','Ň','Ò','Ó','Ô','Õ','Ö','Œ','Ø','Ŕ','Ŗ','Ř','Ś','Ŝ','Ş','Š','Ù','Ú','Û','Ü','Ũ','Ů','Ű','Ý','Ŷ','Ÿ','à','á','â','ã','ä','å','ā','ă','ą','æ','ç','ć','ĉ','ċ','č','è','é','ê','ë','ì','í','î','ï','ð','ñ','ń','ŉ','ņ','ň','ò','ó','ô','õ','ö','œ','ø','ŕ','ŗ','ř','ś','ŝ','ş','š','ũ','ú','û','ü','ů','ű','ß','ý','ŷ','ÿ','²','³' );
+	$find = array( 'À','Á','Â','Ã','Ä','Å','Ā','Ă','Ą','Æ','Ç','Ć','Ĉ','Ċ','Č','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ń','Ņ','Ň','Ò','Ó','Ô','Õ','Ö','Œ','Ø','Ŕ','Ŗ','Ř','Ś','Ŝ','Ş','Š','Ù','Ú','Û','Ü','Ũ','Ů','Ű','Ý','Ŷ','Ÿ','à','á','â','ã','ä','å','ā','ă','ą','æ','ç','ć','ĉ','ċ','č','è','é','ê','ë','ì','í','î','ï','ð','ñ','ń','ŉ','ņ','ň','ò','ó','ô','õ','ö','œ','ø','ŕ','ŗ','ř','ś','ŝ','ş','š','ũ','ú','û','ü','ů','ű','ß','ý','ŷ','ÿ','²','³' );
 	$repl = array( 'A','A','A','A','A','A','A','A','A','AE','C','C','C','C','C','E','E','E','E','I','I','I','I','D','N','N','N','N','O','O','O','O','O','O','O','R','R','R','S','S','S','S','U','U','U','U','U','U','U','Y','Y','Y','a','a','a','a','a','a','a','a','a','ae','c','c','c','c','c','e','e','e','e','i','i','i','i','d','n','n','n','n','n','o','o','o','o','o','o','o','o','r','r','r','s','s','s','s','u','u','u','u','u','u','s','y','y','y','2','3' );
 	$text1 = str_replace( $find, $repl, $string );
 	// Now remove unwanted characters from the title
 	$search = array (
-         '/\'/',
-		 '/\"/',
-         '/\$/',
-		 '/\£/',
-		 '/\¥/',
-		 '/\¢/',
-		 '/\¤/',
-		 '/\%/',
-         '/\@/',
-		 '/\&/',
-		 '/\#/',
-		 '/\*/',
-		 '/\~/',
-		 '/\^/',
-		 '/\`/',
-		 '/\´/',
-		 '/\,/',
-		 '/\./',
-		 '/\(/',
-		 '/\)/',
-		 '/\[/',
-		 '/\]/',
-		 '/\{/',
-		 '/\}/',
-		 '/\|/',
-		 '/\</',
-		 '/\>/',
-		 '/\?/',
-		 '/\!/',
-		 '/\//',
-		 '/\;/',
-		 '/\:/',
-		 '/\©/',
-		 '/\®/',
-		 '/\¼/',
-		 '/\½/',
-		 '/\¾/',
-		 '/\¹/',
-		 '/\²/',
-		 '/\³/',
-		 '/\¿/',
-		 '/\×/',
-		 '/\¡/',
-		 '/\°/',
-		 '/\µ/',
-		 '/\÷/',
-		 '/\+/' );
+		'/\'/',
+		'/\"/',
+		'/\$/',
+		'/\£/',
+		'/\¥/',
+		'/\¢/',
+		'/\¤/',
+		'/\%/',
+		'/\@/',
+		'/\&/',
+		'/\#/',
+		'/\*/',
+		'/\~/',
+		'/\^/',
+		'/\`/',
+		'/\´/',
+		'/\,/',
+		'/\./',
+		'/\(/',
+		'/\)/',
+		'/\[/',
+		'/\]/',
+		'/\{/',
+		'/\}/',
+		'/\|/',
+		'/\</',
+		'/\>/',
+		'/\?/',
+		'/\!/',
+		'/\//',
+		'/\;/',
+		'/\:/',
+		'/\©/',
+		'/\®/',
+		'/\¼/',
+		'/\½/',
+		'/\¾/',
+		'/\¹/',
+		'/\²/',
+		'/\³/',
+		'/\¿/',
+		'/\×/',
+		'/\¡/',
+		'/\°/',
+		'/\µ/',
+		'/\÷/',
+		'/\+/' );
 	$text = preg_replace( $search, '', $text1 );
-    return $text;
+	return $text;
 }
 ?>

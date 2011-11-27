@@ -6,41 +6,41 @@
 *
 * File: /blocks/impression_new.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
 
 function checkImpressionNewsBlockgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
-    $groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = icms::handler( 'icms_member_groupperm' );
-    $module_handler = icms::handler( 'icms_module' );
-    $module = &$module_handler -> getByDirname( basename( dirname(  dirname( __FILE__ ) ) ) );
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
-        if ( $redirect == false ) {
-            return false;
-        } else {
-            redirect_header( 'index.php', 3, _NOPERM );
-            exit();
-        } 
-    } 
-    unset( $module );
-    return true;
+	$groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
+	$gperm_handler = icms::handler( 'icms_member_groupperm' );
+	$module_handler = icms::handler( 'icms_module' );
+	$module = &$module_handler -> getByDirname( basename( dirname(  dirname( __FILE__ ) ) ) );
+	if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
+		if ( $redirect == false ) {
+			return false;
+		} else {
+			redirect_header( 'index.php', 3, _NOPERM );
+			exit();
+		}
+	}
+	unset( $module );
+	return true;
 }
 
 function b_impression_adminnewsicons( $aid, $dirname ) {
@@ -51,53 +51,53 @@ function b_impression_adminnewsicons( $aid, $dirname ) {
 }
 
 // Function: b_impression_new_show
-// Input   : $options[0] = date for the most recent articles
-// 			             hits for the most popular articles
-//           $block['content'] = The optional above content
-//           $options[1] = How many videos are displayes
+// Input   : $options[0] = 	date for the most recent articles
+// 							hits for the most popular articles
+// 			$block['content'] = The optional above content
+// 			$options[1] = How many videos are displayes
 // Output  : Returns the most recent or most popular articles
 function b_impression_news_show( $options ) {
-    global $xoopsTpl;
-    $block = array();
-    $modhandler = icms::handler( 'icms_module' );
-    $impressionModule = $modhandler -> getByDirname( basename( dirname(  dirname( __FILE__ ) ) ) );
-    $config_handler = icms::$config;
-    $impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
-    $moderate = 0;
+	global $xoopsTpl;
+	$block = array();
+	$modhandler = icms::handler( 'icms_module' );
+	$impressionModule = $modhandler -> getByDirname( basename( dirname(  dirname( __FILE__ ) ) ) );
+	$config_handler = icms::$config;
+	$impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
+	$moderate = 0;
 
 	$sql = icms::$xoopsDB -> query( 'SELECT l.aid, l.cid, l.title, l.published, l.nice_url, l.published, l.uid, l.hits, l.introtext, l.description, l.inblocks, l.comments, c.cid, c.inblocks FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' l, ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' c WHERE l.cid=c.cid AND l.published > 0 AND l.published <= ' . time() . ' AND l.status=0 AND l.inblocks=1 AND c.inblocks=1 AND l.cid=' . $options[5] . ' ORDER BY l.published DESC ', $options[1], 0 );
-    while ( $myrow = icms::$xoopsDB -> fetchArray( $sql ) ) {
-        if ( false == checkImpressionNewsBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
-            continue;
-        }
+	while ( $myrow = icms::$xoopsDB -> fetchArray( $sql ) ) {
+		if ( false == checkImpressionNewsBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
+			continue;
+		}
 		include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
-        $articlenews = array();
-        $title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
-        $articlenews['isadmin'] = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $impressionModule -> getVar( 'mid' ) ) ) ? true : false;
-        $articlenews['adminarticle'] = '';
-		
-        if ( $articlenews['isadmin'] == true && $moderate == 0 ) {
+		$articlenews = array();
+		$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
+		$articlenews['isadmin'] = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( $impressionModule -> getVar( 'mid' ) ) ) ? true : false;
+		$articlenews['adminarticle'] = '';
+
+		if ( $articlenews['isadmin'] == true && $moderate == 0 ) {
 			$articlenews['adminarticle'] = b_impression_adminnewsicons( $myrow['aid'], basename( dirname(  dirname( __FILE__ ) ) ) );
-        } else {
+		} else {
 			$articlenews['adminarticle'] = '[ <a href="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/submit.php?op=edit&amp;aid=' . $myrow['aid'] . '&approve=1">' . _MB_IMPRESSION_APPROVE . '</a> | ';
 			$articlenews['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/submit.php?op=delete&amp;aid=' . $myrow['aid'] . '">' . _MB_IMPRESSION_DELETE . '</a> ]';
-        }
+		}
 		
-        $articlenews['id'] 			= intval( $myrow['aid'] );
-        $articlenews['cid'] 		= intval( $myrow['cid'] );
+		$articlenews['id'] 			= intval( $myrow['aid'] );
+		$articlenews['cid'] 		= intval( $myrow['cid'] );
 		$nice_link					= impression_nicelink( $myrow['title'], $myrow['nice_url'] );
 		$url						= impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], $impressionModuleConfig['niceurl'] );
-        $articlenews['title'] 		= '<a href="' . $url . '">' . $title . ' </a>';
-        $articlenews['date'] 		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
-        $articlenews['hits'] 		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
-        $articlenews['submitter'] 	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
-        $articlenews['introtext'] 	= $myrow['introtext'];
-        $articlenews['description'] = $myrow['description'];
+		$articlenews['title'] 		= '<a href="' . $url . '">' . $title . ' </a>';
+		$articlenews['date'] 		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
+		$articlenews['hits'] 		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
+		$articlenews['submitter'] 	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
+		$articlenews['introtext'] 	= $myrow['introtext'];
+		$articlenews['description'] = $myrow['description'];
 		$articlenews['bytesmore']	= mb_strlen( $myrow['description'] );
-		$articlenews['comments'] 	= $myrow['comments']; 
-		$articlenews['comment_rules'] = $impressionModuleConfig['com_rule']; 
+		$articlenews['comments'] 	= $myrow['comments'];
+		$articlenews['comment_rules'] = $impressionModuleConfig['com_rule'];
 		$articlenews['commentz'] 	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $myrow['comments'] . ')" />';
-		if ( mb_strlen( $myrow['description'] ) > 0 ) {	
+		if ( mb_strlen( $myrow['description'] ) > 0 ) {
 			$articlenews['readmore'] = '<a href="' . $url . '"><b><i>' . _MB_IMPRESSION_READMORE . '</i></b></a>';
 			$articlenews['options']	= $options[4];
 		} else {
@@ -111,12 +111,12 @@ function b_impression_news_show( $options ) {
 			$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php">' );
 		}
 		
-        $xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
-        $block['articlenews'][] = $articlenews;
-    }
-    unset( $_block_check_array );
+		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
+		$block['articlenews'][] = $articlenews;
+	}
+	unset( $_block_check_array );
 
-    return $block;
+	return $block;
 } 
 
 // b_impression_new_edit()
@@ -124,18 +124,18 @@ function b_impression_news_show( $options ) {
 // @return 
 function b_impression_news_edit( $options ) {
 	$form = '<table cellspacing="5">';
-    $form .= '<tr><td width="200px"><b>' . _MB_IMPRESSION_DISP . '</b></td>';
-    $form .= '<td><input type="hidden" name="options[]" value="';
-    if ( $options[0] == 'news' ) {
-        $form .= 'news"';
-    }
-    $form .= ' />';
-    $form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMPRESSION_FILES . '</td></tr>';
+	$form .= '<tr><td width="200px"><b>' . _MB_IMPRESSION_DISP . '</b></td>';
+	$form .= '<td><input type="hidden" name="options[]" value="';
+	if ( $options[0] == 'news' ) {
+		$form .= 'news"';
+	}
+	$form .= ' />';
+	$form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMPRESSION_FILES . '</td></tr>';
 	
-// Date format	
-    $form .= '<tr><td><b>' . _MB_IMPRESSION_DATEFORMAT . '</b></td><td><input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMPRESSION_DATEFORMATMANUAL . '</td></tr>';
+// Date format
+	$form .= '<tr><td><b>' . _MB_IMPRESSION_DATEFORMAT . '</b></td><td><input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMPRESSION_DATEFORMATMANUAL . '</td></tr>';
 	
-// Bytes more	
+// Bytes more
 	$chk   = '';
 	if ( $options[4] == 0 ) {
 		$chk = ' checked="checked"';
@@ -160,10 +160,10 @@ function b_impression_news_edit( $options ) {
 	}
 	$form .= '&nbsp;<input type="radio" name="options[4]" value="3"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_CHARSF . '</td></tr>';
 
-    $cat_arr = array();
-    $xt = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
-    $cat_arr = $xt -> getChildTreeArray( 0, 'title');
-    $form .= '<tr><td><b>' . _MB_IMPRESSION_SELECTCAT . '</b></td><br /><td><select name="options[]" size="8">';
+	$cat_arr = array();
+	$xt = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
+	$cat_arr = $xt -> getChildTreeArray( 0, 'title');
+	$form .= '<tr><td><b>' . _MB_IMPRESSION_SELECTCAT . '</b></td><br /><td><select name="options[]" size="8">';
 	foreach( $cat_arr as $catlist ) {
 	$selected = '';
 		if ( $options[5] == $catlist['cid']  ) {
@@ -171,8 +171,8 @@ function b_impression_news_edit( $options ) {
 		}
 		$form .= '<option value="' . $catlist['cid'] . '"' . $selected . '>&nbsp;' . $catlist['title'] . '&nbsp;</option>';
 	}
-    $form .= '</select>';
+	$form .= '</select>';
 	$form .= '</td></tr></table>';
-    return $form;
+	return $form;
 }
 ?>
