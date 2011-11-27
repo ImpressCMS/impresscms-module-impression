@@ -6,22 +6,22 @@
 *
 * File: /admin/permissions.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -86,12 +86,12 @@ switch($permtoset) {
 $permform = new icms_form_Groupperm( $title_of_form, $module_id, $perm_name, '', 'admin/permissions.php' );
 $result = icms::$xoopsDB -> query( 'SELECT cid, pid, title FROM ' . $xoopsDB -> prefix( 'impression_cat' ) . ' ORDER BY title ASC' );
 if ( icms::$xoopsDB -> getRowsNum( $result ) ) {
-    while ( $permrow = icms::$xoopsDB -> fetcharray( $result ) ) {
-        $permform -> addItem( $permrow['cid'], '&nbsp;' . $permrow['title'], $permrow['pid'] );
-    }
-    echo $permform -> render();
+	while ( $permrow = icms::$xoopsDB -> fetcharray( $result ) ) {
+		$permform -> addItem( $permrow['cid'], '&nbsp;' . $permrow['title'], $permrow['pid'] );
+	}
+	echo $permform -> render();
 } else {
-    echo '<div><b>' . _AM_IMPRESSION_PERM_CNOCATEGORY . '</b></div>';
+	echo '<div><b>' . _AM_IMPRESSION_PERM_CNOCATEGORY . '</b></div>';
 } 
 unset ( $permform );
 

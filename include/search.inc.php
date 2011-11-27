@@ -27,58 +27,58 @@
 */
 
 function impressioncheckSearchgroups( $cid = 0, $permType = 'ImpressionCatPerm', $redirect = false ) {
-    $groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-    $gperm_handler = icms::handler('icms_member_groupperm');
-    $module_handler = &icms::handler( 'icms_module' );
-    $module = &$module_handler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
-    if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
-        if ( $redirect == false ) {
-            return false;
-        } else {
-            redirect_header( 'index.php', 3, _NOPERM );
-            exit();
-        } 
-    } 
-    unset( $module );
-    return true;
+	$groups = is_object( icms::$user ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
+	$gperm_handler = icms::handler('icms_member_groupperm');
+	$module_handler = &icms::handler( 'icms_module' );
+	$module = &$module_handler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
+	if ( !$gperm_handler -> checkRight( $permType, $cid, $groups, $module -> getVar( 'mid' ) ) ) {
+		if ( $redirect == false ) {
+			return false;
+		} else {
+			redirect_header( 'index.php', 3, _NOPERM );
+			exit();
+		}
+	}
+	unset( $module );
+	return true;
 } 
 
 function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
 	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/include/functions.php';
 	$modhandler = icms::handler( 'icms_module' );
-    $impressionModule = $modhandler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
-    $config_handler = icms::$config;
-    $impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
-    $sql = 'SELECT cid, pid FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' );
-    $result = icms::$xoopsDB -> query( $sql );
-    while ( $_search_group_check = icms::$xoopsDB -> fetchArray( $result ) ) {
-        $_search_check_array[$_search_group_check['cid']] = $_search_group_check;
-    } 
+	$impressionModule = $modhandler -> getByDirname( basename( dirname( dirname( __FILE__ ) ) ) );
+	$config_handler = icms::$config;
+	$impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
+	$sql = 'SELECT cid, pid FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' );
+	$result = icms::$xoopsDB -> query( $sql );
+	while ( $_search_group_check = icms::$xoopsDB -> fetchArray( $result ) ) {
+		$_search_check_array[$_search_group_check['cid']] = $_search_group_check;
+	}
 
-    $sql  = 'SELECT aid, cid, title, uid, published, introtext, description, nice_url FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published>0 AND published<=' . time() . ' AND status=0 AND cid>0';
+	$sql  = 'SELECT aid, cid, title, uid, published, introtext, description, nice_url FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published>0 AND published<=' . time() . ' AND status=0 AND cid>0';
 
-    if ( $userid != 0 ) { $sql .= ' AND uid=' . $userid . ' '; } 
+	if ( $userid != 0 ) { $sql .= ' AND uid=' . $userid . ' '; } 
 
-    // because count() returns 1 even if a supplied variable
-    // is not an array, we must check if $querryarray is really an array
-    if ( is_array( $queryarray ) && $count = count( $queryarray ) ) {
-        $sql .= " AND ((title LIKE LOWER('%$queryarray[0]%') OR LOWER(introtext) 
+	// because count() returns 1 even if a supplied variable
+	// is not an array, we must check if $querryarray is really an array
+	if ( is_array( $queryarray ) && $count = count( $queryarray ) ) {
+		$sql .= " AND ((title LIKE LOWER('%$queryarray[0]%') OR LOWER(introtext) 
 							  LIKE LOWER('%$queryarray[0]%') OR LOWER(description) 
 							  LIKE LOWER('%$queryarray[0]%'))";
-        for( $i = 1;$i < $count;$i++ ) {
-            $sql .= " $andor ";
-            $sql .= "(title LIKE LOWER('%$queryarray[$i]%') OR LOWER(introtext) 
+		for( $i = 1;$i < $count;$i++ ) {
+			$sql .= " $andor ";
+			$sql .= "(title LIKE LOWER('%$queryarray[$i]%') OR LOWER(introtext) 
 							LIKE LOWER('%$queryarray[$i]%') OR LOWER(description) 
 							LIKE LOWER('%$queryarray[$i]%'))";
-        } 
-        $sql .= ') ';
-    } 
-    $sql .= 'ORDER BY published DESC';
-    $result = icms::$xoopsDB -> query( $sql, $limit, $offset );
-    $ret = array();
-    $i = 0;
+		}
+		$sql .= ') ';
+	}
+	$sql .= 'ORDER BY published DESC';
+	$result = icms::$xoopsDB -> query( $sql, $limit, $offset );
+	$ret = array();
+	$i = 0;
 	
-    while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
+	while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 		if ( false == impressioncheckSearchgroups( $myrow['cid'] ) ) {
 			continue;
 		}
@@ -88,13 +88,13 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
 		} else {
 			$ret[$i]['link'] = 'singlearticle.php?aid=' . intval( $myrow['aid'] );
 		}
-        $ret[$i]['image'] = 'images/impression_search.png';
-        $ret[$i]['title'] = $myrow['title'];
-        $ret[$i]['time']  = $myrow['published'];
+		$ret[$i]['image'] = 'images/impression_search.png';
+		$ret[$i]['title'] = $myrow['title'];
+		$ret[$i]['time']  = $myrow['published'];
 		$ret[$i]['uid'] = $myrow['uid'];
-        $i++;
-    } 
-    unset( $_search_check_array );
-    return $ret;
-} 
+		$i++;
+	}
+	unset( $_search_check_array );
+	return $ret;
+}
 ?>

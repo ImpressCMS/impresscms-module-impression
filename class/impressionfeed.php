@@ -1,12 +1,12 @@
 <?php
 /**
 *
-* Module RSS Feed Class 
+* Module RSS Feed Class
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project 
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * @package		core
-* @since			1.1
+* @since		1.1
 * @author		Ignacio Segura, "Nachenko"
 * @version		$Id: icmsfeed.php 6991 2008-11-16 20:37:32Z mcdonald3072 $
 */
@@ -48,9 +48,9 @@ class ImpressionFeed {
 		$this -> channelEditor = $icmsConfig['adminmail'];
 		$this -> generator = ICMS_VERSION_NAME;
 		$this -> copyright = 'Copyright ' . formatTimestamp( time(), 'Y' ) . ' ' . $icmsConfig['sitename'];
-		$this -> width  = 88;
-		$this -> height = 31;
-		$this -> ttl    = 60;
+		$this -> width	= 88;
+		$this -> height	= 31;
+		$this -> ttl	= 60;
 		$this -> image = array (
 			'title' => $this -> title,
 			'url' => ICMS_URL . '/images/logo.gif',

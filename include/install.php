@@ -40,8 +40,8 @@ if ( !is_dir( $category . '/thumbs' ) ) {
 	$array = array( 'folder', 'generic', 'generic_black', 'generic_blue', 'generic_brown', 'generic_green', 'generic_orange', 'generic_red', 'generic_violet', 'generic_white', 'generic_yellow', 'my_documents' );
 	foreach ( $array as $value ) {
 		$contentx =@file_get_contents( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/images/category/' . $value . '.png' );
-		$openedfile = fopen( $category . '/' . $value . '.png', "w" ); 
-		fwrite( $openedfile, $contentx ); 
+		$openedfile = fopen( $category . '/' . $value . '.png', "w" );
+		fwrite( $openedfile, $contentx );
 		fclose( $openedfile );
 	}
 }
@@ -50,8 +50,8 @@ if ( !is_dir( $images . '/thumbs' ) ) {
 	copy( ICMS_ROOT_PATH . '/uploads/index.html', $images . '/index.html' );
 	copy( ICMS_ROOT_PATH . '/uploads/index.html', $images . '/thumbs/index.html' );
 	$contentx =@file_get_contents( ICMS_ROOT_PATH . '/modules/' . $mydirname . '/images/impression_bar.png' );
-		$openedfile = fopen( $images . '/impression_bar.png', "w" ); 
-		fwrite( $openedfile, $contentx ); 
+		$openedfile = fopen( $images . '/impression_bar.png', "w" );
+		fwrite( $openedfile, $contentx );
 		fclose( $openedfile );
 }
 ?>

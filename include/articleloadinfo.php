@@ -6,20 +6,20 @@
 *
 * File: /include/articleloadinfo.php
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -54,26 +54,26 @@ $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icm
 
 $article['adminarticle'] = '';
 if ( icms_userIsAdmin() == true && $moderate == 0 ) {
-    $article['adminarticle'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php">
+	$article['adminarticle'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php">
 								<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/computer.png" alt="" title="' . _MD_IMPRESSION_ADMINSECTION . '" />
 								</a>';
-    $article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=edit&amp;aid=' . intval($article_arr['aid']) . '">
+	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=edit&amp;aid=' . intval($article_arr['aid']) . '">
 								 <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_edit.png" alt="" title="' . _MD_IMPRESSION_EDIT . '" />
 								 </a>';
-    $article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=delete&amp;aid=' . intval($article_arr['aid']) . '">
+	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=delete&amp;aid=' . intval($article_arr['aid']) . '">
 								 <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_delete.png" alt="" title="' . _MD_IMPRESSION_DELETE . '" />
 								 </a>';
 } else {
-    $article['adminarticle'] = '[ <a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;aid=' . intval($article_arr['aid']) . '&approve=1">' . _MD_IMPRESSION_APPROVE . '</a> | ';
-    $article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;aid=' . intval($article_arr['aid']) . '">' . _MD_IMPRESSION_DELETE . '</a> ]';
-} 
+	$article['adminarticle'] = '[ <a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;aid=' . intval($article_arr['aid']) . '&approve=1">' . _MD_IMPRESSION_APPROVE . '</a> | ';
+	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;aid=' . intval($article_arr['aid']) . '">' . _MD_IMPRESSION_DELETE . '</a> ]';
+}
 
 if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
-    $article['useradminarticle'] = 0;
-    $_user_submitter = ( icms::$user -> getVar( 'uid' ) == $article_arr['uid'] ) ? true : false;
-    if ( true == impression_checkgroups( $cid ) ) {
-        $article['useradminarticle'] = 1;
-    } 
+	$article['useradminarticle'] = 0;
+	$_user_submitter = ( icms::$user -> getVar( 'uid' ) == $article_arr['uid'] ) ? true : false;
+	if ( true == impression_checkgroups( $cid ) ) {
+		$article['useradminarticle'] = 1;
+	}
 } 
 
 $url = impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] );
@@ -87,7 +87,7 @@ if ( mb_strlen( $article_arr['description'] ) > 0 ) {
 			$article['readmore'] = '';
 		};
 
-// Comment icon         
+// Comment icon
 $article['comments'] = $article_arr['comments']; 
 $article['comment_rules'] = icms::$module -> config['com_rule']; 
 $article['comment1'] = '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $article_arr['comments'] . ')" />';
@@ -96,5 +96,4 @@ $article['comment2'] = '<a href="#comments"><img src="' . ICMS_URL . '/modules/'
 $article['icons'] 		= impression_displayicons( $article_arr['published'], $article_arr['status'], $article_arr['hits'] );
 $article['dirname'] 	= icms::$module -> getVar( 'dirname' );
 $article['readarticle'] = '<a href="' . $url . '">' . $article_arr['title'] . ' </a>';
-//$article['readmore'] 	= '<a href="' . $url . '">' . _MD_IMPRESSION_READMORE . ' </a>';
 ?>

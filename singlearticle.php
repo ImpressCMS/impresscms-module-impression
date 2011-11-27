@@ -6,20 +6,20 @@
 *
 * File: singlearticle.php
 *
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -37,9 +37,9 @@ if ( !$ptitle ) {
 	list( $cid ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql3 ) );
 }
 
-if  ( false == impression_checkgroups( $cid ) ) {
-        redirect_header( 'index.php', 1, _MD_IMPRESSION_NOPERMISSIONTOVIEW );
-        exit();
+if ( false == impression_checkgroups( $cid ) ) {
+	redirect_header( 'index.php', 1, _MD_IMPRESSION_NOPERMISSIONTOVIEW );
+	exit();
 }
 
 $sql2 = 'SELECT count(*) FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
@@ -52,7 +52,7 @@ list( $count ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $sql2 ) );
 
 if ( false == impression_checkgroups( $cid ) && $count == 0 ) {
 	redirect_header( 'index.php', 1, _MD_IMPRESSION_MUSTREGFIRST );
-    exit();
+	exit();
 } 
 
 $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . intval( $aid ) . '
@@ -63,8 +63,8 @@ $result = icms::$xoopsDB -> query( $sql );
 $article_arr = icms::$xoopsDB -> fetchArray( $result );
 
 if ( !is_array( $article_arr ) ) {
-    redirect_header( 'index.php', 1, _MD_IMPRESSION_NOARTICLELOAD );
-    exit();
+	redirect_header( 'index.php', 1, _MD_IMPRESSION_NOARTICLELOAD );
+	exit();
 } 
 
 $xoopsOption['template_main'] = 'impression_singlearticle.html';
@@ -72,8 +72,8 @@ include ICMS_ROOT_PATH . '/header.php';
 
 // tags support
 if ( impression_tag_module_included() ) {
-  include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
-  $xoopsTpl -> assign( 'tagbar', tagBar( $article_arr['aid'], 0 ) );
+	include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
+	$xoopsTpl -> assign( 'tagbar', tagBar( $article_arr['aid'], 0 ) );
 }
 
 if ( impression_imageheader() ) {
@@ -96,20 +96,20 @@ $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $
 $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
 
 // Recommend icon
-   $article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top">
+	$article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top">
 							<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/email.png" alt="" title="' . _MD_IMPRESSION_TELLAFRIEND . '" />
 							</a>';
 
 // Print icon
-   $article['print'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank">
+	$article['print'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank">
 						<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="" title="' . _MD_IMPRESSION_PRINT . '" />
 						</a>';
 
 // PDF icon
 if ( is_readable( ICMS_PDF_LIB_PATH . '/tcpdf.php' ) ) {
 	$article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank">
-					   <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="" title="' . _MD_IMPRESSION_PDF . '" />
-					   </a>';
+						<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="" title="' . _MD_IMPRESSION_PDF . '" />
+						</a>';
 } 
 
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
@@ -142,34 +142,34 @@ if ( $tpages > 1 ) {
 
 // Start of meta tags
 global $xoopsTpl, $xoTheme;
-    $maxWords = 100;
-    $words = array();
-    $words = explode( ' ', icms_html2text( $article_arr['introtext'] ) );
-    $newWords = array();
-    $i = 0;
-    while ( $i < $maxWords-1 && $i < count( $words ) ) {
-      if ( isset( $words[$i] ) ) {
-		$newWords[] = trim( $words[$i] );
-      }
-      $i++;
-    }
-    $article_meta_description = implode( ' ', $newWords );
-    if ( is_object( $xoTheme ) ) {
+	$maxWords = 100;
+	$words = array();
+	$words = explode( ' ', icms_html2text( $article_arr['introtext'] ) );
+	$newWords = array();
+	$i = 0;
+	while ( $i < $maxWords-1 && $i < count( $words ) ) {
+		if ( isset( $words[$i] ) ) {
+			$newWords[] = trim( $words[$i] );
+		}
+		$i++;
+	}
+	$article_meta_description = implode( ' ', $newWords );
+	if ( is_object( $xoTheme ) ) {
 		if ( $article_arr['meta_keywords'] != '' ) {
 			$xoTheme -> addMeta( 'meta', 'keywords', $article_arr['meta_keywords'] );
 		}
 		$xoTheme -> addMeta( 'meta', 'title', $article_arr['title'] );
 		if (icms::$module -> config['usemetadescr'] == 1) {
-            $xoTheme -> addMeta( 'meta', 'description', $article_meta_description );
-        }
-    } else {
+			$xoTheme -> addMeta( 'meta', 'description', $article_meta_description );
+		}
+	} else {
 		if ( $article_arr['meta_keywords'] != '' ) {
 			$xoopsTpl -> assign( 'icms_meta_keywords', $article_arr['meta_keywords'] );
 		}
 		if (icms::$module -> config['usemetadescr'] == 1) {
-            $xoopsTpl -> assign( 'icms_meta_description', $article_meta_description );
-        }
-    }
+			$xoopsTpl -> assign( 'icms_meta_description', $article_meta_description );
+		}
+	}
 	$xoopsTpl -> assign( 'icms_pagetitle', $article_arr['title'] );
 	// Open Graph
 	$xoopsTpl -> assign( 'og_url', impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] ) );

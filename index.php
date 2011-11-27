@@ -6,22 +6,22 @@
 *
 * File: index.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * 				WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * 				Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -39,9 +39,9 @@ $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid
 $sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' );
 $head_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
-if ( $head_arr['indeximage'] ) { 
+if ( $head_arr['indeximage'] ) {
 	$catarray['imageheader'] = '<div class="impression_header">' . impression_imageheader( $head_arr['indeximage'], $head_arr['indexheading'] ) . '</div>';
-} 
+}
 if ( $head_arr['indexheading'] ) {
 	$catarray['indexheading'] = '<div style="padding: 12px 3px 12px 8px;">' . $head_arr['indexheading'] . '</div>';
 }
@@ -62,69 +62,68 @@ $countin = 0;
 $catsort = icms::$module -> config['sortcats'];
 $result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid = 0 ORDER BY ' . $catsort );
 while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
-    $countin++;
-    $totalarticleload = impression_getTotalItems( $myrow['cid'], 1 );
-    $indicator['image'] = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/folder.png';
-    $indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
-    if ( impression_checkgroups( $myrow['cid'] ) ) {
-        $title = $impressionmyts -> htmlSpecialCharsStrip( $myrow['title'] );
-        $arr = array();
-        $arr = $mytree -> getFirstChild( $myrow['cid'], 'title' );
-        $space = $chcount = 1;
-        $subcategories = '';
-        foreach( $arr as $ele ) {
+	$countin++;
+	$totalarticleload = impression_getTotalItems( $myrow['cid'], 1 );
+	$indicator['image'] = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/folder.png';
+	$indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
+	if ( impression_checkgroups( $myrow['cid'] ) ) {
+		$title = $impressionmyts -> htmlSpecialCharsStrip( $myrow['title'] );
+		$arr = array();
+		$arr = $mytree -> getFirstChild( $myrow['cid'], 'title' );
+		$space = $chcount = 1;
+		$subcategories = '';
+		foreach( $arr as $ele ) {
 			$hassubitems = impression_getTotalItems( $ele['cid'], 1 );
-            if ( true == impression_checkgroups( $ele['cid'] ) ) {
-                if ( icms::$module -> config['subcats'] == 1 ) {
-                    $chtitle = $impressionmyts -> htmlSpecialCharsStrip( $ele['title'] );
-                    if ( $chcount > 5 ) {
-                        $subcategories .= '...';
-                        break;
-                    } 
-                    if ( $space > 1 ) {
-                        $subcategories .= '<br />';
-                    }
-                    $subcategories .= '&bull;&nbsp;<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . $ele['cid'] . '">' . $chtitle . '</a> (' . $hassubitems['count'] . ')';
-                    $space++;
-                    $chcount++;
-                } 
-            }
-        } 
+			if ( true == impression_checkgroups( $ele['cid'] ) ) {
+				if ( icms::$module -> config['subcats'] == 1 ) {
+					$chtitle = $impressionmyts -> htmlSpecialCharsStrip( $ele['title'] );
+					if ( $chcount > 5 ) {
+						$subcategories .= '...';
+						break;
+					} 
+					if ( $space > 1 ) {
+						$subcategories .= '<br />';
+					}
+					$subcategories .= '&bull;&nbsp;<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . $ele['cid'] . '">' . $chtitle . '</a> (' . $hassubitems['count'] . ')';
+					$space++;
+					$chcount++;
+				}
+			}
+		}
 
-        $_image = ( $myrow['imgurl'] ) ? urldecode( $myrow['imgurl'] ) : '';
-        if ( empty( $_image ) || $_image == '' ) {
-            $imgurl = $indicator['image'];
-            $_width = 33;
-            $_height = 24;
-        } else {
-            $imgurl = icms::$module -> config['catimage'] . "/$_image";
-        }
-        // End
+		$_image = ( $myrow['imgurl'] ) ? urldecode( $myrow['imgurl'] ) : '';
+		if ( empty( $_image ) || $_image == '' ) {
+			$imgurl = $indicator['image'];
+			$_width = 33;
+			$_height = 24;
+		} else {
+			$imgurl = icms::$module -> config['catimage'] . "/$_image";
+		}
 
-        $xoopsTpl -> append( 'categories', array( 'image' => ICMS_URL . "/$imgurl",
-                                                  'id' => $myrow['cid'],
-                                                  'title' => $title,
-                                                  'subcategories' => $subcategories,
-                                                  'totalarticles' => $totalarticleload['count'],
-                                                  'count' => $count,
-                                                  'alttext' => $myrow['description'],
-                                                  'showartcount' => icms::$module -> config['showartcount'] )
-                                                  );
-        $count++;
-    } 
-} 
+		$xoopsTpl -> append( 'categories', array(	'image' => ICMS_URL . "/$imgurl",
+													'id' => $myrow['cid'],
+													'title' => $title,
+													'subcategories' => $subcategories,
+													'totalarticles' => $totalarticleload['count'],
+													'count' => $count,
+													'alttext' => $myrow['description'],
+													'showartcount' => icms::$module -> config['showartcount'] )
+							);
+		$count++;
+	}
+}
 
 // get total amount of articles and categories
 $listings = impression_getTotalItems();
 $total_cat = impression_totalcategory();
 
 switch ( $total_cat ) {
-    case '1':
-        $lang_thereare = _MD_IMPRESSION_THEREIS;
-        break;
-    default:
-        $lang_thereare = _MD_IMPRESSION_THEREARE;
-        break;
+	case '1':
+		$lang_thereare = _MD_IMPRESSION_THEREIS;
+		break;
+	default:
+		$lang_thereare = _MD_IMPRESSION_THEREARE;
+		break;
 }
 
 $modhandler = icms::handler( 'icms_module' );
@@ -143,31 +142,31 @@ $lastarticles = icms::$xoopsDB -> fetchArray( $sql );
 
 if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] > 0) {
 
-  $result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
-								AND published <= ' . $time . ' 
-								AND status = 0 
-								ORDER BY published DESC', 0, 0 );
-  list( $count ) = icms::$xoopsDB -> fetchRow( $result );
-  
-  $count = ( ( $count > $lastarticles['lastarticlestotal'] ) && ( $lastarticles['lastarticlestotal'] != 0 ) ) ? $lastarticles['lastarticlestotal'] : $count;
-  $limit = ( ( $start + icms::$module -> config['perpage'] ) > $count ) ? ( $count - $start ) : icms::$module -> config['perpage'];
-  
-  $result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
-								AND published <= ' . $time . ' 
-								AND status=0 
-								ORDER BY published DESC', $limit, $start );
-  while ( $article_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
-        $res_type = 0;
-        $moderate = 0;
-        $cid = $article_arr['cid'];
-        require ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
-        $xoopsTpl -> append( 'article', $article );
-  }
-  $pagenav = new icms_view_PageNav( $count, icms::$module -> config['perpage'], $start, 'start' );
-  $xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
-  $xoopsTpl -> assign( 'showlatest', $lastarticles['lastarticlesyn'] );
+	$result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
+										AND published <= ' . $time . ' 
+										AND status = 0 
+										ORDER BY published DESC', 0, 0 );
+	list( $count ) = icms::$xoopsDB -> fetchRow( $result );
+
+	$count = ( ( $count > $lastarticles['lastarticlestotal'] ) && ( $lastarticles['lastarticlestotal'] != 0 ) ) ? $lastarticles['lastarticlestotal'] : $count;
+	$limit = ( ( $start + icms::$module -> config['perpage'] ) > $count ) ? ( $count - $start ) : icms::$module -> config['perpage'];
+
+	$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
+										AND published <= ' . $time . ' 
+										AND status=0 
+										ORDER BY published DESC', $limit, $start );
+	while ( $article_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
+		$res_type = 0;
+		$moderate = 0;
+		$cid = $article_arr['cid'];
+		require ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
+		$xoopsTpl -> append( 'article', $article );
+	}
+	$pagenav = new icms_view_PageNav( $count, icms::$module -> config['perpage'], $start, 'start' );
+	$xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
+	$xoopsTpl -> assign( 'showlatest', $lastarticles['lastarticlesyn'] );
 }
-	
+
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
 $xoopsTpl -> assign( 'dirname', icms::$module -> getVar( 'dirname' ) );
 
@@ -178,6 +177,6 @@ if ( $rssactive == 1 ) {
 	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" title="' . _MD_IMPRESSION_FEED . '" /></a>');
 	$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMPRESSION_FEED . '" href="feed.php">' );
 }
- 
+
 include ICMS_ROOT_PATH . '/footer.php';
 ?>
