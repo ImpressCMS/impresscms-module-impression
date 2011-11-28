@@ -30,7 +30,7 @@ $mydirname = basename( dirname( __FILE__ ) );
 
 include_once '../../mainfile.php';
 include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
-include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/class_thumbnail.php';
+//include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/class_thumbnail.php';
 include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/class/myts_extended.php';
 
 $impressionmyts = new impressionTextSanitizer(); // MyTextSanitizer object
