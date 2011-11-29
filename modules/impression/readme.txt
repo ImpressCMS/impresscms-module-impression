@@ -55,7 +55,7 @@ In case you're using a module on the frontpage, for example Impression, and the 
 
 	<{if $og_url !=''}><meta property="og:url" content="<{$og_url}>" /><{else}><meta property="og:url" content="<{$icms_url}>/modules/impression/" /><{/if}>
 	
-To test if the above code is working you can test it by passing the website url and an url to an Impression article to the Facebook Debugger: http://developers.facebook.com/tools/debug
+To test if the above code is working you can test it by passing the website url or an url to an Impression article to the Facebook Debugger: http://developers.facebook.com/tools/debug
 
 Further, in the file theme.html you have to replace this line
 
