@@ -7,6 +7,9 @@ Added:
 Fixed:
 - Captcha in Submit form causes issues
 
+Removed files:
+- class/class_thumbnail.php
+
 =========================================================
 25.09.2011 - Version 1.1
 =========================================================
