@@ -10,11 +10,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -81,8 +81,6 @@ if ( impression_imageheader() ) {
 }
 $article['id'] = intval( $article_arr['aid'] );
 $article['cid'] = intval( $article_arr['cid'] );
-//$article['comments'] = $article_arr['comments'];
-//$article['comment_rules'] = icms::$module -> config['com_rule'];
 
 if ( $article_arr['source'] && $article_arr['sourceurl'] ) {
 	$article['source'] = '<br />' . _MD_IMPRESSION_SOURCE . ' <a href="' . $article_arr['sourceurl'] . '" target="_blank">' . $article_arr['source'] . '</a>';
@@ -96,21 +94,15 @@ $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $
 $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
 
 // Recommend icon
-	$article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top">
-							<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/email.png" alt="" title="' . _MD_IMPRESSION_TELLAFRIEND . '" />
-							</a>';
+	$article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/email.png" alt="" title="' . _MD_IMPRESSION_TELLAFRIEND . '" /></a>';
 
 // Print icon
-	$article['print'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank">
-						<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="" title="' . _MD_IMPRESSION_PRINT . '" />
-						</a>';
+	$article['print'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="" title="' . _MD_IMPRESSION_PRINT . '" /></a>';
 
 // PDF icon
 if ( is_readable( ICMS_PDF_LIB_PATH . '/tcpdf.php' ) ) {
-	$article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank">
-						<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="" title="' . _MD_IMPRESSION_PDF . '" />
-						</a>';
-} 
+	$article['pdf'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/makepdf.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_acrobat.png" alt="" title="' . _MD_IMPRESSION_PDF . '" /></a>';
+}
 
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 $pathstring = '<a href="index.php">' . _MD_IMPRESSION_MAIN . '</a>&nbsp;:&nbsp;';
@@ -209,9 +201,7 @@ if ( icms::$module -> config['twitt_bttn'] == 1 ) {
 
 if ( icms::$module -> config['twitt_bttn'] > 0 ) {
 	$twitter = '<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-				<span>
-					<a href="https://twitter.com/share" class="twitter-share-button" data-count="' . $twcount . '">' . _MI_IMPRESSION_TWEET . '</a>
-				</span>';
+				<span><a href="https://twitter.com/share" class="twitter-share-button" data-count="' . $twcount . '">' . _MI_IMPRESSION_TWEET . '</a></span>';
 }
 
 if ( icms::$module -> config['faceb_bttn'] == 1 ) {
@@ -238,7 +228,6 @@ $article['showsbookmarks'] = icms::$module -> config['showsbookmarks'];
 if ( icms::$module -> config['showsbookmarks'] == 0 ) {
 	$article['socialbutton'] = '';
 } elseif ( icms::$module -> config['showsbookmarks'] == 1 ) {
-	// Get Social Bookmarks
 	include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
 	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
 } elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {

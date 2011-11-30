@@ -10,11 +10,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -74,13 +74,13 @@ if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
 	if ( true == impression_checkgroups( $cid ) ) {
 		$article['useradminarticle'] = 1;
 	}
-} 
+}
 
 $url = impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] );
 
 $article['description'] = $article_arr['description'];
 $article['bytesmore']	= mb_strlen( $article_arr['description'] );
-if ( mb_strlen( $article_arr['description'] ) > 0 ) {	
+if ( mb_strlen( $article_arr['description'] ) > 0 ) {
 			$article['readmore'] = '<a href="' . $url . '">' . _MD_IMPRESSION_READMORE . '</a>';
 			$article['options']	= icms::$module -> config['form_bytesyn'];
 		} else {
@@ -93,7 +93,7 @@ $article['comment_rules'] = icms::$module -> config['com_rule'];
 $article['comment1'] = '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $article_arr['comments'] . ')" />';
 $article['comment2'] = '<a href="#comments"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $article_arr['comments'] . ')" /></a>';			
 		
-$article['icons'] 		= impression_displayicons( $article_arr['published'], $article_arr['status'], $article_arr['hits'] );
-$article['dirname'] 	= icms::$module -> getVar( 'dirname' );
+$article['icons']		= impression_displayicons( $article_arr['published'], $article_arr['status'], $article_arr['hits'] );
+$article['dirname']		= icms::$module -> getVar( 'dirname' );
 $article['readarticle'] = '<a href="' . $url . '">' . $article_arr['title'] . ' </a>';
 ?>

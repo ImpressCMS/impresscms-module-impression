@@ -25,14 +25,10 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
 
-// comment callback functions
-
 function impression_com_update( $articleload_id, $total_num ) {
 	$sql = 'UPDATE ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' SET comments=' . $total_num . ' WHERE aid=' . $articleload_id;
 	icms::$xoopsDB -> query( $sql );
 }
 
-function impression_com_approve( &$comment ) {
-	// notification mail here
-}
+function impression_com_approve( &$comment ) {}
 ?>

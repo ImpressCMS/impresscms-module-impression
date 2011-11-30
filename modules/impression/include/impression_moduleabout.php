@@ -38,15 +38,6 @@ class ImpressionModuleAbout {
 	var $_lang_by;
 	var $_tpl;
 
-	/**
-	 * Constructor
-	 *
-	 * Initiate the object, based on icms::$module
-	 * 
-	 * @param string $aboutTitle text used in the extreme right caption of the menu
-	 * @return IcmsModuleAbout
-	 */
-	
 	function ImpressionModuleAbout( $aboutTitle='About' ) {
 		global $icmsConfig;
 
@@ -73,20 +64,10 @@ class ImpressionModuleAbout {
 		$this -> _lang_version_history = _MODABOUT_IMPRESSION_VERSION_HISTORY;
 	}
 
-	/**
-	 * Santizie a value 
-	 *
-	 * @param string $value to be sanitized
-	 * @return string santizied value
-	 */
 	function sanitize( $value ) {
 		return icms_core_DataFilter::checkVar( $value, 'html' );
 	}
 
-	/**
-	 * Render the whole About page of a module
-	 *
-	 */
 	function render() {
 		global $icmsConfig;
 
@@ -135,7 +116,6 @@ class ImpressionModuleAbout {
 			$this -> _tpl -> assign( 'module_people_documenters', isset( $people['documenters'] ) ? array_map( array( $this, 'sanitize' ), $people['documenters'] ) : false );
 			$this -> _tpl -> assign( 'module_people_other', isset( $people['other'] ) ? array_map( array( $this, 'sanitize' ), $people['other'] ) : false );
 		}
-		//$this->_tpl->assign('module_developers', $versioninfo->getInfo('developer_email'));
 
 		// Module Development information
 		$this -> _tpl->assign( 'module_date', $versioninfo -> getInfo( 'date' ) );
@@ -146,7 +126,7 @@ class ImpressionModuleAbout {
 		$this -> _tpl->assign( 'module_support_site_name', $versioninfo -> getInfo( 'support_site_name' ) );
 		$this -> _tpl->assign( 'module_submit_bug', $versioninfo -> getInfo( 'submit_bug' ) );
 		$this -> _tpl->assign( 'module_submit_feature', $versioninfo -> getInfo( 'submit_feature' ) );
-		
+
 		// Manual
 		$manual =$versioninfo -> getInfo( 'manual' );
 		if ( $manual ) {
@@ -166,8 +146,8 @@ class ImpressionModuleAbout {
 			$handle = fopen( $filename, 'r' );
 			$this -> _tpl -> assign( 'module_version_history', icms_core_DataFilter::checkVar( fread( $handle, $filesize ), 'text', 'output' ) );
 			fclose( $handle );
-	    }
-		
+		}
+
 		// For license thanks to 3Dev
 		if ( file_exists( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/language/'  . $icmsConfig['language'] . '/' . 'license.txt' ) ) {
 			$filename = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/language/' . $icmsConfig['language'] . '/' . 'license.txt';
