@@ -39,10 +39,8 @@ function impression_checkgroups( $cid = 0, $permType = 'ImpressionCatPerm', $red
 }
 
 function impression_cleanRequestVars( &$array, $name = null, $def = null, $strict = false, $lengthcheck = 15 ) {
-
 	unset( $array['usercookie'] );
 	unset( $array['PHPSESSID'] );
-
 	if ( is_array( $array ) && $name == null ) {
 		$globals = array();
 		foreach ( array_keys( $array ) as $k ) {
@@ -78,7 +76,6 @@ function impression_cleanRequestVars( &$array, $name = null, $def = null, $stric
 	return $value;
 }
 
-// toolbar()
 function impression_toolbar( $cid = 0 ) {
 	$toolbar = '[ ';
 	if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
@@ -89,7 +86,6 @@ function impression_toolbar( $cid = 0 ) {
 }
 
 // displayicons()
-//
 // @param  $time
 // @param integer $status
 // @param integer $counter
@@ -411,10 +407,8 @@ function impression_imglossary_module_included() {
 }
 
 function impression_linkterms( $definition, $glossaryterm ) {
-	
 	// Code to make links out of glossary terms
 	$parts = explode( '¤', $definition );
-
 	// First, retrieve all terms from the glossary...
 	$allterms = icms::$xoopsDB -> query( 'SELECT entryID, term FROM ' . icms::$xoopsDB -> prefix( 'imglossary_entries' ) . ' WHERE submit=0 AND offline=0' );
 	while ( list( $entryID, $term ) = icms::$xoopsDB -> fetchrow( $allterms ) ) {
@@ -425,14 +419,12 @@ function impression_linkterms( $definition, $glossaryterm ) {
 				$search_term = "/\b$term_q\b/i";
 				$replace_term = '<span><b><a style="color: #2F5376; cursor: help;" href="' . ICMS_URL . '/modules/imglossary/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></b></span>';
 				$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
-
 				// plural
 				$term = $term . 's';
 				$term_q = preg_quote( $term, '/' );
 				$search_term = "/\b$term_q\b/i";
 				$replace_term = '<span><b><a style="color: #2F5376; cursor: help;" href="' . ICMS_URL . '/modules/imglossary/entry.php?entryID=' . intval( $entryID ) . '">' . $term . '</a></b></span>';
 				$parts[$key] = preg_replace( $search_term, $replace_term, $parts[$key] );
-
 				// plural with e
 				$term = $term . 'es';
 				$term_q = preg_quote( $term, '/' );

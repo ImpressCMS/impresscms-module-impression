@@ -12,11 +12,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -54,13 +54,8 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
 	while ( $_search_group_check = icms::$xoopsDB -> fetchArray( $result ) ) {
 		$_search_check_array[$_search_group_check['cid']] = $_search_group_check;
 	}
-
 	$sql  = 'SELECT aid, cid, title, uid, published, introtext, description, nice_url FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published>0 AND published<=' . time() . ' AND status=0 AND cid>0';
-
-	if ( $userid != 0 ) { $sql .= ' AND uid=' . $userid . ' '; } 
-
-	// because count() returns 1 even if a supplied variable
-	// is not an array, we must check if $querryarray is really an array
+	if ( $userid != 0 ) { $sql .= ' AND uid=' . $userid . ' '; }
 	if ( is_array( $queryarray ) && $count = count( $queryarray ) ) {
 		$sql .= " AND ((title LIKE LOWER('%$queryarray[0]%') OR LOWER(introtext) 
 							  LIKE LOWER('%$queryarray[0]%') OR LOWER(description) 
@@ -77,7 +72,6 @@ function impression_search( $queryarray, $andor, $limit, $offset, $userid ) {
 	$result = icms::$xoopsDB -> query( $sql, $limit, $offset );
 	$ret = array();
 	$i = 0;
-	
 	while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 		if ( false == impressioncheckSearchgroups( $myrow['cid'] ) ) {
 			continue;

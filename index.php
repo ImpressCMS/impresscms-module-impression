@@ -134,8 +134,8 @@ if ( !$rss_mod ) {
 } else {
 	$xoopsTpl -> assign( 'rss_icon', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . icms::$module -> getVar( 'dirname' ) . '" alt="' . _MD_IMPRESSION_GETFEED . '" title="' . _MD_IMPRESSION_GETFEED . '" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>' );
 }
-	
-$time =	time();
+
+$time = time();
 
 $sql = icms::$xoopsDB -> query( 'SELECT lastarticlesyn, lastarticlestotal FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) );
 $lastarticles = icms::$xoopsDB -> fetchArray( $sql );

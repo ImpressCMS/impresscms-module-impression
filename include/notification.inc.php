@@ -10,11 +10,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -27,40 +27,31 @@
 function impression_notify_iteminfo( $category, $item_id ) {
 	$mydirname = basename( dirname( dirname( __FILE__ ) ) );
 	include_once ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
-	
 	if ( empty( icms::$module ) || icms::$module -> getVar( 'dirname' ) != 'impression' ) {
 		$module_handler = icms::handler( 'icms_module' );
 		$module = $module_handler -> getByDirname( $mydirname );
 		$config_handler = icms::$config;
 		$config = $config_handler -> getConfigsByCat( 0, $module -> getVar( 'mid' ) );
-//	} else {
-//		$module = icms::$module;
-//		$config = icms::$config;
 	}
-
 	if ( $category == 'global' ) {
 		$item['name'] = '';
 		$item['url']  = '';
 		return $item;
 	}
-
 	if ( $category == 'category' ) {
-		// Assume we have a valid category id
 		$sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $item_id;
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
-		    return false;
+			return false;
 		}
-		$result_array = icms::$xoopsDB -> fetchArray( $result );
-		$item['name'] = $result_array['title'];
-		$item['url']  = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . $item_id;
+		$result_array	= icms::$xoopsDB -> fetchArray( $result );
+		$item['name']	= $result_array['title'];
+		$item['url']	= ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . $item_id;
 		return $item;
 	}
-
 	if ( $category == 'article' ) {
-		// Assume we have a valid file id
 		$sql = 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $item_id;
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
-		    return false;
+			return false;
 		}
 		$result_array = icms::$xoopsDB -> fetchArray( $result );
 		$item['url'] = ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?aid=' . $item_id;
