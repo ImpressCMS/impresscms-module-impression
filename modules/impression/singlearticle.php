@@ -94,10 +94,10 @@ $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $
 $article['mail_body'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) . ':  ' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/singlearticle.php?cid=' . $article_arr['cid'] . '&aid=' . $article_arr['aid'] );
 
 // Recommend icon
-	$article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/email.png" alt="" title="' . _MD_IMPRESSION_TELLAFRIEND . '" /></a>';
+$article['recommend'] = '<a href="mailto:?subject='.$article['mail_subject'].'&body='.$article['mail_body'].'" target="_top"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/email.png" alt="" title="' . _MD_IMPRESSION_TELLAFRIEND . '" /></a>';
 
 // Print icon
-	$article['print'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="" title="' . _MD_IMPRESSION_PRINT . '" /></a>';
+$article['print'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/print.php?aid=' . $article_arr['aid'] . '"  target="_blank"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/printer.png" alt="" title="' . _MD_IMPRESSION_PRINT . '" /></a>';
 
 // PDF icon
 if ( is_readable( ICMS_PDF_LIB_PATH . '/tcpdf.php' ) ) {
@@ -132,6 +132,8 @@ if ( $tpages > 1 ) {
 	$xoopsTpl -> assign( 'pagenav', '<div style="clear: both; float: right;">' . $pagenav -> renderNav(3) . '</div>' );
 }
 
+$article_url = impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] );
+
 // Start of meta tags
 global $xoopsTpl, $xoTheme;
 	$maxWords = 100;
@@ -163,8 +165,8 @@ global $xoopsTpl, $xoTheme;
 		}
 	}
 	$xoopsTpl -> assign( 'icms_pagetitle', $article_arr['title'] );
-	// Open Graph
-	$xoopsTpl -> assign( 'og_url', impression_niceurl( $article_arr['aid'], $article_arr['title'], $article_arr['nice_url'], icms::$module -> config['niceurl'] ) );
+	// Open Graph tags
+	$xoopsTpl -> assign( 'og_url', $article_url );
 	$xoopsTpl -> assign( 'og_image', ICMS_URL . '/modules/' . $mydirname . '/images/impression_ilogo.png' );
 // End of meta tags
 
@@ -191,50 +193,71 @@ if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
 	}
 }
 
-if ( icms::$module -> config['twitt_bttn'] == 1 ) {
-	$twcount = 'none';
-} elseif ( icms::$module -> config['twitt_bttn'] == 2 ) {
-	$twcount = 'horizontal';
-} elseif ( icms::$module -> config['twitt_bttn'] == 3 ) {
-	$twcount = 'vertical';
+//Twitter button
+switch ( icms::$module -> config['twitt_bttn'] ) {
+	case 1:
+		$twcount = 'none';
+		break;
+	case 2:
+		$twcount = 'horizontal';
+		break;
+	case 3:
+		$twcount = 'vertical';
+		break;
 }
 
 if ( icms::$module -> config['twitt_bttn'] > 0 ) {
 	$twitter = '<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-				<span><a href="https://twitter.com/share" class="twitter-share-button" data-count="' . $twcount . '">' . _MI_IMPRESSION_TWEET . '</a></span>';
+				<span style="margin-right: 10px;"><a href="https://twitter.com/share" class="twitter-share-button" data-count="' . $twcount . '">' . _MI_IMPRESSION_TWEET . '</a></span>';
 }
 
-if ( icms::$module -> config['faceb_bttn'] == 1 ) {
-	$fbcount = 'button_count';
-} elseif ( icms::$module -> config['faceb_bttn'] == 2 ) {
-	$fbcount = 'box_count';
+//Facebook button
+switch ( icms::$module -> config['faceb_bttn'] ) {
+	case 1:
+		$fbcount = 'button_count';
+		break;
+	case 2:
+		$fbcount = 'box_count';
+		break;
 }
 
 if ( icms::$module -> config['faceb_bttn'] > 0 ) {
 	$facebook = '<span id="fb-root"></span>';
-	$facebook .= '<span class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-show-faces="false"></span>';
+	$facebook .= '<span data-href="' . $article_url . '" class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-show-faces="false"></span>';
 }
 
-if ( icms::$module -> config['plusone_bttn'] == 0 ) {
-	$plusone = '';
-} elseif ( icms::$module -> config['plusone_bttn'] == 1 ) {
-	$plusone = '<g:plusone size="medium" annotation="none"></g:plusone>';
-} elseif ( icms::$module -> config['plusone_bttn'] == 2 ) {
-	$plusone = '<g:plusone size="medium" annotation="bubble"></g:plusone>';
+//Google +1 button
+switch ( icms::$module -> config['plusone_bttn'] ) {
+	case 0:
+		$plusone = '';
+		break;
+	case 1:
+		$plusone = '<g:plusone size="medium" annotation="none"></g:plusone>';
+		break;
+	case 2:
+		$plusone = '<span style="margin: 0; padding: 0;"><g:plusone size="medium" annotation="bubble"></g:plusone></span>';
+		break;
 }
 
+//Social bookmarks
 $article['showsbookmarks'] = icms::$module -> config['showsbookmarks'];
 
-if ( icms::$module -> config['showsbookmarks'] == 0 ) {
-	$article['socialbutton'] = '';
-} elseif ( icms::$module -> config['showsbookmarks'] == 1 ) {
-	include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
-	$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
-} elseif ( icms::$module -> config['showsbookmarks'] == 2 ) {
-	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $twitter . $facebook . $plusone . '</div>';
-} elseif ( icms::$module -> config['showsbookmarks'] == 3 ) {
-	$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;" id="socialshareprivacy"></div>';
+switch ( icms::$module -> config['showsbookmarks'] ) {
+	case 0:
+		$article['socialbutton'] = '';
+		break;
+	case 1:
+		include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
+		$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
+		break;
+	case 2:
+		$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $twitter . $facebook . $plusone . '</div>';
+		break;
+	case 3:
+		$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;" id="socialshareprivacy"></div>';
+		break;
 }
+//End Social buttons
 
 $xoopsTpl -> assign( 'article', $article );
 
