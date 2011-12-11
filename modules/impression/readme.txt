@@ -43,6 +43,7 @@ When an article (singlearticle.php) is being read Impression passes the followin
 For this it is advised to add the following to the header of the file theme.html of your theme. Preferbly after the meta-tags.
 
 <!-- Open Graph -->
+	<meta property="fb:admins" content="0123456789" />
 	<meta property="og:title" content="<{if $icms_pagetitle !=''}><{$icms_pagetitle}><{else}><{$icms_sitename}><{/if}>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="<{$icms_meta_description}>" />
@@ -50,6 +51,8 @@ For this it is advised to add the following to the header of the file theme.html
 	<meta property="og:locale" content="en_US" />
 	<{if $og_image !=''}><meta property="og:image" content="<{$og_image}>" /><{else}><meta property="og:image" content="<{$icms_url}>/images/s_poweredby.gif" /><{/if}>
 	<{if $og_url !=''}><meta property="og:url" content="<{$og_url}>" /><{/if}>
+	
+Replace in the first line 0123456789 with a comma-separated list of the Facebook IDs of page administrators. At a minimum, include only your own Facebook ID.
 	
 In case you're using a module on the frontpage, for example Impression, and the url to your website looks like www.website.com/modules/impression/ the last line should look like this:
 
