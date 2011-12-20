@@ -44,7 +44,7 @@ function impression_makeTreeCheckTable( $xt, $itemid, $title, $checks, $cidd ) {
 		$checked = array_key_exists( $cid, $checks ) ? 'checked="checked"' : '';
 		$disabled = ( $cid == $cidd ) ? 'disabled="yes"' : '';
 		$level = 1;
-		echo '	<tr style="text-align: left;">
+		echo '<tr style="text-align: left;">
 		<td width="30%" class="head">' . $name . '</td>
 		<td class="head">
 			<input type="checkbox" name="cid-' . $cid . '" value="0" ' . $checked . ' ' . $disabled . '/>
@@ -58,21 +58,21 @@ function impression_makeTreeCheckTable( $xt, $itemid, $title, $checks, $cidd ) {
 			$checked = array_key_exists( $cat['cid'], $checks ) ? 'checked="checked"' : '';
 			$disabled = ( $cat['cid'] == $cidd ) ? 'disabled="yes"' : '';
 			$level = substr_count( $cat['prefix'], '-' ) + 1;
-		echo '   <tr style="text-align: left;">
-		<td width="30%" class="even">' . $catpath . '</td>
-		<td class="even">
-			<input type="checkbox" name="cid-' . $cat['cid'] . '" value="0" ' . $checked . ' ' . $disabled . '/>
-		</td>
-		</tr>';
+		echo '<tr style="text-align: left;">
+				<td width="30%" class="even">' . $catpath . '</td>
+				<td class="even">
+					<input type="checkbox" name="cid-' . $cat['cid'] . '" value="0" ' . $checked . ' ' . $disabled . '/>
+				</td>
+			</tr>';
 		}
 	}
-	echo '	<tr>
-				<td width="30%" class="head"></td>
-				<td class="even" style="text-align: left;">
-					<input type="submit" class="mainbutton" value="save" />
-					<input type="hidden" name="op" value="save" />
-					<input type="hidden" name="aid" value="' . $itemid . '"/>
-				</td>
+	echo '<tr>
+			<td width="30%" class="head"></td>
+			<td class="even" style="text-align: left;">
+				<input type="submit" class="mainbutton" value="save" />
+				<input type="hidden" name="op" value="save" />
+				<input type="hidden" name="aid" value="' . $itemid . '"/>
+			</td>
 			</tr>';
 	echo '</table></form></div>';
 }
