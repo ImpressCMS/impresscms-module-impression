@@ -31,14 +31,10 @@ include 'admin_header.php';
 $op = '';
 
 if ( isset( $_POST ) ) {
-	foreach ( $_POST as $k => $v ) {
-		${$k} = $v;
-	}
+	foreach ( $_POST as $k => $v ) { ${$k} = $v; }
 } 
 if ( isset( $_GET ) ) {
-	foreach ( $_GET as $k => $v ) {
-		${$k} = $v;
-	}
+	foreach ( $_GET as $k => $v ) { ${$k} = $v; }
 }
 
 function createcat($cid = 0) {
@@ -68,9 +64,8 @@ function createcat($cid = 0) {
 
 		$gperm_handler = icms::handler('icms_member_groupperm');
 		$groups = $gperm_handler -> getGroupIds( 'ImpressionCatPerm', $cid, icms::$module -> getVar( 'mid' ) );
-		$groups = $groups;
 	} else {
-	$groups = true;
+		$groups = true;
 	}
 
 	$sform = new icms_form_Theme( $heading, 'op', '' );
@@ -108,7 +103,7 @@ function createcat($cid = 0) {
 
 	$editor = impression_getWysiwygForm( _AM_IMPRESSION_FCATEGORY_DESCRIPTION, 'description', $description, 250, 10 );
 	$sform -> addElement( $editor, false );
-    
+
 // Display in blocks
 	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_CAT_INBLOCKS, 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
 	$inblocks_yn -> setDescription( '<small>' . _AM_IMPRESSION_CAT_INBLOCKS_DSC . '</small>' );
@@ -206,14 +201,14 @@ switch ( $op ) {
 
 	case 'addCat':
 
-		$groups = isset( $_REQUEST['groups'] ) ? $_REQUEST['groups'] : array();
-		$cid = ( isset( $_REQUEST['cid'] ) ) ? $_REQUEST['cid'] : 0;
-		$pid = ( isset( $_REQUEST['pid'] ) ) ? $_REQUEST['pid'] : 0;
-		$weight = ( isset( $_REQUEST['weight'] ) && $_REQUEST['weight'] > 0 ) ? $_REQUEST['weight'] : 0;
-		$inblocks = ( isset( $_REQUEST['inblocks'] ) ) ? $_REQUEST['inblocks'] : 1;
-		$title = addslashes( $_REQUEST['title'] );
-		$descriptionb = addslashes( $_REQUEST['description'] );
-		$imgurl = ( $_REQUEST['imgurl'] && $_REQUEST['imgurl'] != 'blank.gif' ) ? addslashes( $_REQUEST['imgurl'] ) : '';  
+		$groups = isset( $_POST['groups'] ) ? $_POST['groups'] : array();
+		$cid = ( isset( $_POST['cid'] ) ) ? $_POST['cid'] : 0;
+		$pid = ( isset( $_POST['pid'] ) ) ? $_POST['pid'] : 0;
+		$weight = ( isset( $_POST['weight'] ) && $_POST['weight'] > 0 ) ? $_POST['weight'] : 0;
+		$inblocks = ( isset( $_POST['inblocks'] ) ) ? $_POST['inblocks'] : 1;
+		$title = icms_core_DataFilter::addSlashes( $_POST['title'] );
+		$descriptionb = icms_core_DataFilter::addSlashes( trim( $_POST['description'] ) );
+		$imgurl = ( $_POST['imgurl'] && $_POST['imgurl'] != 'blank.gif' ) ? icms_core_DataFilter::addSlashes( $_POST['imgurl'] ) : '';  
 
 		if ( !$cid ) {
 			$cid = 0;
