@@ -37,11 +37,7 @@ $article['hits'] = sprintf( _MD_IMPRESSION_ARTICLEHITS, intval( $article_arr['hi
 $publisher = ( isset( $article_arr['publisher'] ) && !empty( $article_arr['publisher'] ) ) ? $impressionmyts -> htmlSpecialCharsStrip( $article_arr['publisher'] ) : _MD_IMPRESSION_NOTSPECIFIED;
 $article['title'] = $impressionmyts -> htmlSpecialCharsStrip( $article_arr['title'] );
 
-$time = $article_arr['published'];
-$is_updated = _MD_IMPRESSION_SUBMITDATE;
-$xoopsTpl -> assign( 'lang_subdate' , $is_updated );
-
-$article['updated'] = impression_time( formatTimestamp( $time, icms::$module -> config['dateformat'] ) );
+$article['updated'] = impression_time( formatTimestamp( $article_arr['published'], icms::$module -> config['dateformat'] ) );
 $article['introtext'] = $article_arr['introtext'];
 if ( icms::$module -> config['showsubmitter'] ) {
 	$article['submitter'] = _MD_IMPRESSION_BY . icms_member_user_Handler::getUserLink( $article_arr['uid'] );
