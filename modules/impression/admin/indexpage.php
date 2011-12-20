@@ -33,14 +33,14 @@ $cid = intval( impression_cleanRequestVars( $_REQUEST, 'cid', 0 ) );
 
 switch ( strtolower( $op ) ) {
 	case 'save':
-		$indexheading = icms_core_DataFilter::addSlashes( trim($_REQUEST['indexheading']) );
-		$indexheader = icms_core_DataFilter::addSlashes( trim($_REQUEST['indexheader']) );
-		$indexfooter = icms_core_DataFilter::addSlashes( trim($_REQUEST['indexfooter']) );
-		$indeximage = icms_core_DataFilter::addSlashes( $_REQUEST['indeximage'] );
-		$indexheaderalign = icms_core_DataFilter::addSlashes( $_REQUEST['indexheaderalign'] );
-		$indexfooteralign = icms_core_DataFilter::addSlashes( $_REQUEST['indexfooteralign'] );
-		$lastarticlesyn = $_REQUEST['lastarticlesyn'];
-		$lastarticlestotal = icms_core_DataFilter::addSlashes( $_REQUEST['lastarticlestotal'] );
+		$indexheading = icms_core_DataFilter::addSlashes( trim($_POST['indexheading']) );
+		$indexheader = icms_core_DataFilter::addSlashes( trim($_POST['indexheader']) );
+		$indexfooter = icms_core_DataFilter::addSlashes( trim($_POST['indexfooter']) );
+		$indeximage = icms_core_DataFilter::addSlashes( $_POST['indeximage'] );
+		$indexheaderalign = icms_core_DataFilter::addSlashes( $_POST['indexheaderalign'] );
+		$indexfooteralign = icms_core_DataFilter::addSlashes( $_POST['indexfooteralign'] );
+		$lastarticlesyn = $_POST['lastarticlesyn'];
+		$lastarticlestotal = icms_core_DataFilter::addSlashes( $_POST['lastarticlestotal'] );
 		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlesyn='$lastarticlesyn', lastarticlestotal='$lastarticlestotal'";
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
