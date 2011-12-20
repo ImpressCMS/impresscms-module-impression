@@ -171,7 +171,6 @@ global $xoopsTpl, $xoTheme;
 // End of meta tags
 
 $moderate = 0;
-$res_type = 1;
 include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/articleloadinfo.php';
 
 // Increase hit-counter but not for admin
