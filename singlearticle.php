@@ -221,8 +221,7 @@ switch ( icms::$module -> config['faceb_bttn'] ) {
 }
 
 if ( icms::$module -> config['faceb_bttn'] > 0 ) {
-	$facebook = '<span id="fb-root"></span>';
-	$facebook .= '<span data-href="' . $article_url . '" class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-show-faces="false"></span>';
+	$facebook = '<div data-href="' . $article_url . '" class="fb-like" data-send="false" data-layout="' . $fbcount . '" data-show-faces="false"></div>';
 }
 
 //Google +1 button
@@ -235,6 +234,9 @@ switch ( icms::$module -> config['plusone_bttn'] ) {
 		break;
 	case 2:
 		$plusone = '<span style="margin: 0; padding: 0;"><g:plusone size="medium" annotation="bubble"></g:plusone></span>';
+		break;
+	case 3:
+		$plusone = '<span style="margin: 0; padding: 0;"><g:plusone size="tall" annotation="bubble"></g:plusone></span>';
 		break;
 }
 
