@@ -219,7 +219,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
 // Article title
-		$sform -> addElement( new icms_form_elements_Text( _MD_IMPRESSION_FILETITLE, 'title', 55, 128, $title ), true );
+		$sform -> addElement( new icms_form_elements_Text( _MD_IMPRESSION_FILETITLE, 'title', 55, 255, $title ), true );
 
 // Select category
 		$mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );

@@ -50,7 +50,6 @@ function edit( $aid = 0, $doclone = 0 ) {
 	}
 
 	$cid = $article_array['cid'] ? $article_array['cid'] : 0;
-//    $publisher = $article_array['publisher'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['publisher'] ) : '';
 	$submitter = $article_array['uid'] ? $article_array['uid'] : 1;
 	$uid = $article_array['uid'] ? $article_array['uid'] : 'Anonymous';
 	$introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
@@ -102,19 +101,12 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$sform -> setExtra( 'enctype="multipart/form-data"' );
 
 // Article title
-	$sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_ARTICLE_TITLE, 'title', icms::$module -> config['txt_width'], 128, $title ), true );
+	$sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_ARTICLE_TITLE, 'title', icms::$module -> config['txt_width'], 255, $title ), true );
 
 // Article nice url	
-	$niceform = new icms_form_elements_Text( _AM_IMPRESSION_NICEURL, 'nice_url', icms::$module -> config['txt_width'], 128, $nice_url );
+	$niceform = new icms_form_elements_Text( _AM_IMPRESSION_NICEURL, 'nice_url', icms::$module -> config['txt_width'], 255, $nice_url );
 	$niceform -> setDescription(  '<small>' . _AM_IMPRESSION_NICEURLDSC . '</small>' );
 	$sform -> addElement( $niceform, false );
-
-//    if ($publisher) {
-//      $sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_ARTICLE_PUBLISHER, 'publisher', 70, 255, $publisher ) );
-//    } else {
-//      $publisher = $icmsUser -> uname();
-//      $sform -> addElement( new icms_form_elements_Hidden( 'publisher', $publisher ) );
-//    }
 
 // Article submitter
 	if ( $uid ) {
