@@ -65,7 +65,7 @@ function b_impression_news_show( $options ) {
 	$impressionModuleConfig = $config_handler -> getConfigsByCat( 0, $impressionModule -> getVar( 'mid' ) );
 	$moderate = 0;
 
-	$sql = icms::$xoopsDB -> query( 'SELECT l.aid, l.cid, l.title, l.published, l.nice_url, l.published, l.uid, l.hits, l.introtext, l.description, l.inblocks, l.comments, c.cid, c.inblocks FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' l, ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' c WHERE l.cid=c.cid AND l.published > 0 AND l.published <= ' . time() . ' AND l.status=0 AND l.inblocks=1 AND c.inblocks=1 AND l.cid=' . $options[5] . ' ORDER BY l.published DESC ', $options[1], 0 );
+	$sql = icms::$xoopsDB -> query( 'SELECT l.aid, l.cid, l.title, l.published, l.nice_url, l.published, l.uid, l.hits, l.introtext, l.description, l.inblocks, l.comments, c.cid, c.inblocks FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' l, ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' c WHERE l.cid=c.cid AND l.published > 0 AND l.published <= ' . time() . ' AND l.status=0 AND l.inblocks=1 AND c.inblocks=1 AND l.cid=' . $options[4] . ' ORDER BY l.published DESC ', $options[1], 0 );
 	while ( $myrow = icms::$xoopsDB -> fetchArray( $sql ) ) {
 		if ( false == checkImpressionNewsBlockgroups( $myrow['cid'] ) || $myrow['cid'] == 0 ) {
 			continue;
@@ -99,7 +99,7 @@ function b_impression_news_show( $options ) {
 		$articlenews['commentz'] 	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $myrow['comments'] . ')" />';
 		if ( mb_strlen( $myrow['description'] ) > 0 ) {
 			$articlenews['readmore'] = '<a href="' . $url . '"><b><i>' . _MB_IMPRESSION_READMORE . '</i></b></a>';
-			$articlenews['options']	= $options[4];
+			$articlenews['options']	= $options[3];
 		} else {
 			$articlenews['readmore'] = '';
 		};
@@ -137,28 +137,28 @@ function b_impression_news_edit( $options ) {
 	
 // Bytes more
 	$chk   = '';
-	if ( $options[4] == 0 ) {
+	if ( $options[3] == 0 ) {
 		$chk = ' checked="checked"';
 	}
-	$form .= '<tr><td><b>' . _MB_IMPRESSION_BYTESYN . '</b></td><td><input type="radio" name="options[4]" value="0"' . $chk . ' />&nbsp;' . _NONE . '&nbsp;';
+	$form .= '<tr><td><b>' . _MB_IMPRESSION_BYTESYN . '</b></td><td><input type="radio" name="options[3]" value="0"' . $chk . ' />&nbsp;' . _NONE . '&nbsp;';
 	
 	$chk   = '';
-	if ( $options[4] == 1 ) {
+	if ( $options[3] == 1 ) {
 		$chk = ' checked="checked"';
 	}
-	$form .= '&nbsp;<input type="radio" name="options[4]" value="1"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_BYTES . '&nbsp;';
+	$form .= '&nbsp;<input type="radio" name="options[3]" value="1"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_BYTES . '&nbsp;';
 
 	$chk   = '';
-	if ( $options[4] == 2 ) {
+	if ( $options[3] == 2 ) {
 		$chk = ' checked="checked"';
 	}
-	$form .= '&nbsp;<input type="radio" name="options[4]" value="2"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_WORDS . '&nbsp;';	
+	$form .= '&nbsp;<input type="radio" name="options[3]" value="2"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_WORDS . '&nbsp;';	
 	
 	$chk   = '';
-	if ( $options[4] == 3 ) {
+	if ( $options[3] == 3 ) {
 		$chk = ' checked="checked"';
 	}
-	$form .= '&nbsp;<input type="radio" name="options[4]" value="3"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_CHARSF . '</td></tr>';
+	$form .= '&nbsp;<input type="radio" name="options[3]" value="3"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_CHARSF . '</td></tr>';
 
 	$cat_arr = array();
 	$xt = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
@@ -166,7 +166,7 @@ function b_impression_news_edit( $options ) {
 	$form .= '<tr><td><b>' . _MB_IMPRESSION_SELECTCAT . '</b></td><br /><td><select name="options[]" size="8">';
 	foreach( $cat_arr as $catlist ) {
 	$selected = '';
-		if ( $options[5] == $catlist['cid']  ) {
+		if ( $options[4] == $catlist['cid']  ) {
 			$selected = ' selected';
 		}
 		$form .= '<option value="' . $catlist['cid'] . '"' . $selected . '>&nbsp;' . $catlist['title'] . '&nbsp;</option>';
