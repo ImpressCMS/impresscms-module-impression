@@ -55,12 +55,12 @@ $imagearray = array(
 	'submitted'		=> '<img src="../images/icon/impression.png" alt="" title="' . _AM_IMPRESSION_ICO_SUBMITTED . '" style="vertical-align: middle;" />',
 	'view'			=> '<span class="impression_button"><img src="../images/icon/find.png" alt="" title="' . _AM_IMPRESSION_ICO_VIEW . '" style="vertical-align: middle;" /> ' . _AM_IMPRESSION_ICO_VIEW . '</span>',
 	'clone'			=> '<img src="../images/icon/page_clone.png" alt="" title="' . _AM_IMPRESSION_ICO_CLONE . '" style="vertical-align: middle;" />',
-	'blckred'		=> '<img src="../images/icon/box_red.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKN . '" style="vertical-align: middle;" />',
-	'blckgreen'		=> '<img src="../images/icon/box_green.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" style="vertical-align: middle;" />',
-	'blckorange'	=> '<img src="../images/icon/box_orange.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKN . '" style="vertical-align: middle;" />',
-	'blckgrey'		=> '<img src="../images/icon/box_grey.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" style="vertical-align: middle;" />',
-	'blckyellow'	=> '<img src="../images/icon/box_yellow.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" style="vertical-align: middle;" />',
-	'blckblue'		=> '<img src="../images/icon/box_blue.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" style="vertical-align: middle;" />'
+	'blckred'		=> '<img src="../images/icon/box_red.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKN . '" />',
+	'blckgreen'		=> '<img src="../images/icon/box_green.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" />',
+	'blckorange'	=> '<img src="../images/icon/box_orange.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKN . '" />',
+	'blckgrey'		=> '<img src="../images/icon/box_grey.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" />',
+	'blckyellow'	=> '<img src="../images/icon/box_yellow.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" />',
+	'blckblue'		=> '<img src="../images/icon/box_blue.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" />'
 );
 
 global $impressionmyts;
