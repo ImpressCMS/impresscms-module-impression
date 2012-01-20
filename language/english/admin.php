@@ -281,7 +281,7 @@ define( '_AM_IMPRESSION_ICO_RES', 'Edit Resources/Articles for this Item' );
 define( '_AM_IMPRESSION_ALTCAT_CREATEF', 'Add alternate category' );
 define( '_AM_IMPRESSION_MALTCAT', 'Alternate category management' );
 define( '_AM_IMPRESSION_ALTCAT_MODIFYF', 'Alternate category information' );
-define( '_AM_IMPRESSION_ALTCAT_INFOTEXT', '<ul><li>Alternate categories can be added or removed easily via this form.</li></ul>' );
+define( '_AM_IMPRESSION_ALTCAT_INFOTEXT', 'Alternate categories can be added or removed easily via this form.' );
 define( '_AM_IMPRESSION_ALTCAT_CREATED', 'Alternate categories was saved!' );
 
 define( '_AM_IMPRESSION_PERM_AUTOPERMISSIONS', 'Auto approve articles' );
