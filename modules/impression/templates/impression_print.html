@@ -1,44 +1,37 @@
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=<{$icms_charset}>" />
-<meta http-equiv="content-language" content="<{$icms_langcode}>" />
-<meta name="robots" content="noindex,nofollow" />
-<meta name="keywords" content="<{$icms_meta_keywords}>" />
-<meta name="description" content="<{$icms_meta_description}>" />
-<meta name="rating" content="<{$icms_meta_rating}>" />
-<meta name="author" content="<{$icms_meta_author}>" />
-<meta name="copyright" content="<{$icms_meta_copyright}>" />
-<meta name="generator" content="<{$icms_sitename}>" />
-<title><{$printtitle}></title>
+	<title><{$printtitle}></title>
+	<meta http-equiv="content-type" content="text/html; charset=<{$icms_charset}>" />
+	<meta http-equiv="content-language" content="<{$icms_langcode}>" />
+	<meta name="robots" content="noindex,nofollow" />
+	<meta name="keywords" content="<{$icms_meta_keywords}>" />
+	<meta name="description" content="<{$icms_meta_description}>" />
+	<meta name="rating" content="<{$icms_meta_rating}>" />
+	<meta name="author" content="<{$icms_meta_author}>" />
+	<meta name="copyright" content="<{$icms_meta_copyright}>" />
+	<meta name="generator" content="<{$icms_sitename}>" />
 </head>
-
-<body style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 12px;" bgcolor="#ffffff" text="#000000">
-<script for=window event=onload language="javascript">
-    window.print();
-</script>
-
-<div style="width: 650px; padding: 20px;">
-  <div style="text-align: left; display: block; margin: 0 0 6px 0;">
-    <div style="text-align: center;"><img src="<{$printlogourl}>" border="0" alt="" /></div>
-	<div style="font-size: 90%; padding: 4px;"><{$printheader}></div>
-
-    <div style="margin-top: 10px; background-color: #E8E6E2; padding: 4px; font-size: smaller;">
-    <div style="float: left;"><{$lang_category}> : <{$item.categoryname}></div>
-    <div style="float: right;"><{$lang_author_date}></div><br />
-    </div>
-    <br />
-    <div style="padding-top: 5px; font-size: 22px; font-weight: bold"><{$item.title}></div>
-
-  </div>
-  <div style="padding-top: 8px;"><{$item.introtext}></div>
-  <div style="text-align: left"><{$item.description}></div>
-  <{if $itemfooter}>
-       <div style="text-align: center; font-weight: bold; background-color: #E8E6E2; padding: 4px; margin-top: 10px;"><{$itemfooter}></div>
-  <{/if}>
-  <{if $indexfooter}>
-       <div style="text-align: center; margin-top: 10px; background-color: #E8E6E2; padding: 4px;"><{$indexfooter}></div>
-  <{/if}>
-</div>
-
+<body style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 12px; color: #000; background-color: #FFF">
+	<script for=window event=onload language="javascript">window.print();</script>
+	<div style="width: 650px; padding: 20px;">
+		<div style="text-align: left; display: block; margin: 0 0 6px 0;">
+			<div style="text-align: center;"><img src="<{$printlogourl}>" border="0" alt="" /></div>
+			<div style="font-size: 90%; padding: 4px;"><{$printheader}></div>
+			<div style="margin-top: 10px; background-color: #E8E6E2; padding: 4px; font-size: smaller;">
+				<div style="float: left;"><{$lang_category}> : <{$item.categoryname}></div>
+				<div style="float: right;"><{$lang_author_date}></div><br />
+			</div>
+			<br />
+			<div style="padding-top: 5px; font-size: 22px; font-weight: bold"><{$item.title}></div>
+		</div>
+		<div style="padding-top: 8px;"><{$item.introtext}></div>
+		<div style="text-align: left"><{$item.description}></div>
+		<{if $itemfooter}>
+			<div style="text-align: center; font-weight: bold; background-color: #E8E6E2; padding: 4px; margin-top: 10px;"><{$itemfooter}></div>
+		<{/if}>
+		<{if $indexfooter}>
+			<div style="text-align: center; margin-top: 10px; background-color: #E8E6E2; padding: 4px;"><{$indexfooter}></div>
+		<{/if}>
+	</div>
 </body>
 </html>

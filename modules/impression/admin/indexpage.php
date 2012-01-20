@@ -60,7 +60,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
 
-		echo '<div style="border: #e8e8e8 1px solid; padding: 8px;">
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_IPAGE_INFORMATION . '</div>
 				<div style="padding: 8px;"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />' . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . '</div>
 			  </div><br />';

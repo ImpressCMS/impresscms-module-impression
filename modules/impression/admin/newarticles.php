@@ -84,7 +84,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_SUB_SUBMITTEDFILES );
 
-		echo '<div style="border: #e8e8e8 1px solid; padding: 8px;">
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_SUB_FILESWAITINGINFO . '</div>
 				<span>' . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . '<b>' . $new_array_count . '</b><br /><br /></span>
 

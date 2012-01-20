@@ -1,13 +1,13 @@
 <script language="javascript" src="<{$icms_url}>/include/linkexternal.js"></script>
 <link href="<{$icms_url}>/modules/<{$module_dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
 
-<div style="margin-top: 15px; margin-bottom: 10px;">
+<div style="margin-top: 15px; margin-bottom: 15px; border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 	<img src="<{$module_url}><{$module_image}>" alt="<{$module_name}>" style="float: <{$smarty.const._GLOBAL_LEFT}>; margin-right: 10px;" />
-	<div style="color: #33538e; margin-bottom: 4px; font-size: 18px; font-weight: bold; padding-left: 50px;">
+	<div style="color: #33538e; margin-bottom: 4px; font-size: 18px; font-weight: bold; padding-<{$smarty.const._GLOBAL_LEFT}>: 50px;">
 		<{$module_name}> version <{$module_version}><{if $module_status_version}> (<{$module_status_version}>)<{/if}>
 	</div>
-	<div style="font-weight: bold; padding-left: 50px;">	<{$smarty.const._MODABOUT_IMPRESSION_BY}> <{$module_author_name}></div>
-	<div style="padding-left: 50px;"><{$module_license}></div>
+	<div style="font-weight: bold; padding-<{$smarty.const._GLOBAL_LEFT}>: 50px;">	<{$smarty.const._MODABOUT_IMPRESSION_BY}> <{$module_author_name}></div>
+	<div style="padding-<{$smarty.const._GLOBAL_LEFT}>: 50px;"><{$module_license}></div>
 </div>
 
 <{if $module_credits}>

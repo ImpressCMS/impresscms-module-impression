@@ -6,7 +6,7 @@
 <{if count($categories) gt 0}>
 
 <div class="impression_path" style="font-weight: bold;"><{$smarty.const._MD_IMPRESSION_MAINLISTING}></div>
-<div style="display: table; width: 100%; padding: 5px;">
+<div style="display: table; width: 100%; padding: 5px; ">
 	<!-- Start category loop -->
 	<{foreach item=category from=$categories}>
 
@@ -38,7 +38,7 @@
 </div>
 <{/if}>
 
-<div style="padding: 8px;">
+<div style="padding: 0 8px; 8px 8px">
 	<span style="float: left; font-size: .75em;"><{$lang_thereare}></span>
 	<span style="float: right;"><{$impression_feed}></span>
 </div>
