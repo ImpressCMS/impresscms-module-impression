@@ -1,11 +1,8 @@
 <link href="<{$icms_url}>/modules/<{$module_dir}>/impressionstyle.css" rel="stylesheet" type="text/css" />
 
 <{$catarray.imageheader}>
-
-<div style="font-size: smaller; overflow: auto;"><{$description}></div>
-<br />
-<div class="impression_path" style="font-size: .8em; font-weight: bold;"><{$category_path}></div>
-<br />
+<{$description}>
+<{$category_path}>
 
 <{if $subcategories}>
 <div class="impression_path" style="font-weight: bold;"><{$smarty.const._MD_IMPRESSION_SUBCATLISTING}></div>

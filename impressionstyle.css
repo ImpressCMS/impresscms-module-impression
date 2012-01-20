@@ -16,148 +16,182 @@
 
 
 .impression_even {
-  background-color: #E8E6E2; 
-  padding: 4px;}
-  
+	background-color: #E8E6E2;
+	padding: 4px;}
+
 tr.impression_even td {
-  background-color: #E8E6E2; 
-  padding: 5px;}
-  
+	background-color: #E8E6E2;
+	padding: 5px;}
+
 .impression_legend {
-  font-weight: bold;
-  padding-bottom: 5px;}
+	font-weight: bold;
+	padding-bottom: 5px;}
 
 .impression_articleTitle {
-  background-color: #E8E6E2;
-  font-weight: bold;
-  text-align: left;
-  padding: 3px;}
+	background-color: #E8E6E2;
+	font-weight: bold;
+	text-align: left;
+	padding: 3px;}
 
 .impression_articleFooter {
-  background-color: #E8E6E2;
-  height: 16px;
-  font-size: .7em;
-  text-align: right;
-  padding: 3px;
-  vertical-align: text-bottom; }
+	background-color: #E8E6E2;
+	height: 16px;
+	font-size: .7em;
+	text-align: right;
+	padding: 3px;
+	margin-bottom: 2px;
+	vertical-align: text-bottom; }
 
 .impression_articleMain {
-  display: inline-block;
-  padding: 2px 4px 2px 4px;
-  background-color: #FFF;
-  border-left: 1px solid #E8E6E2;
-  border-right: 1px solid #E8E6E2; }
-  
+	display: inline-block;
+	padding: 2px 4px 2px 4px;
+	background-color: #FFF;
+	border-left: 1px solid #E8E6E2;
+	border-right: 1px solid #E8E6E2; }
+
 #impression_main ul {margin-left: 15px; padding-left: 20px; list-style: disc outside; text-align: left;}
 #impression_main ol {margin-left: 20px; padding-left: 20px; list-style: decimal outside; text-align: left;}
 
 .impression_header {
-  text-align: center;
-  line-height: 120%;
-  padding: 10px 0 10px 0;
-  clear: both; }
+	text-align: center;
+	line-height: 120%;
+	padding: 10px 0 10px 0;
+	clear: both; }
 
 .impression_path {
-  background-color: #E8E6E2; 
-  padding: 4px;
-  border: 1px solid #ccc; }
-  
+	background-color: #E8E6E2;
+	padding: 4px;
+	border: 1px solid #ccc; }
+
 .impression_singletitle {
-  font-size: 1em; 
-  font-weight: bold; 
-  color: #72B8FF;
-  background-color:#D9D9D9;
-  padding: 5px; }
-  
+	font-size: 1em;
+	font-weight: bold;
+	color: #72B8FF;
+	background-color:#D9D9D9;
+	padding: 5px; }
+
 .impression_articleloadtitle {
-  text-align: left;
-  font-size: 1em; 
-  font-weight: bold; 
-  color: #72B8FF; }
-  
+	text-align: left;
+	font-size: 1em;
+	font-weight: bold;
+	color: #72B8FF; }
+
 .impression_summary {
-  margin-left: 10px; 
-  margin-right: 10px;
-  padding: 4px; 
-  background-color:#393939; 
-  border: 1px solid #999999; }
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 4px;
+	background-color:#393939;
+	border: 1px solid #999999; }
 
 .impression_description {
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 4px; 
-  background-color:#393939;
-  border: 1px solid #999999; }
-  
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 4px; 
+	background-color:#393939;
+	border: 1px solid #999999; }
+
 .impression_tags {
-  font-size: .8em;
-  clear: both;  }
-  
+	font-size: .8em;
+	clear: both; }
+
 .impression_articlepath {
-  float: left; 
-  margin-left: 4px; 
-  font-size: .8em; }
+	float: left;
+	margin-left: 4px;
+	font-size: .8em; }
 
 .impression_background {
-  text-align: left;
-  font-size: .9em;
-  font-weight: bold; 
-  color: #FFFFFF;
-  background-color:#393939;
-  padding: 4px;
-  vertical-align: middle; }
-  
+	text-align: left;
+	font-size: .9em;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color:#393939;
+	padding: 4px;
+	vertical-align: middle; }
+
 .impression_button {
-  padding: 2px 0.5em 3px 0.5em;
-  background-image: url(images/icon/backgnd.png);
-  background-position: center center;
-  background-repeat: repeat-x;
-  color: #444;
-  font-size: smaller;
-  font-weight: bold;
-  cursor: pointer;
-  border: outset 1px #CCC; }
-  
- .impression_minibutton {
-  padding: 2px 0.5em 2px 0.5em;
-  background-image: url(images/icon/backgnd.png);
-  background-position: center center;
-  background-repeat: repeat-x;
-  color: #444;
-  font-size: .75em;
-  font-weight: normal;
-  white-space: nowrap;
-  border: outset 1px #CCC;
-  -webkit-border-radius: 4px;
-  -khtml-border-radius: 4px;	
-  -moz-border-radius: 4px;
-  border-radius: 4px;  }
-  
- .impression_microbutton {
-  padding: 1px 0.5em 1px 0.5em;
-  background-image: url(images/icon/backgnd.png);
-  background-position: center center;
-  background-repeat: repeat-x;
-  color: #000;
-  height: 1.2em;
-  font-size: .85em;
-  font-weight: normal;
-  border: outset 1px #CCC;
-  vertical-align: middle;  }
+	padding: 2px 0.5em 3px 0.5em;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center center;
+	background-repeat: repeat-x;
+	color: #444;
+	font-size: smaller;
+	font-weight: bold;
+	cursor: pointer;
+	border: outset 1px #CCC; }
+
+.impression_minibutton {
+	padding: 2px 0.5em 2px 0.5em;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center center;
+	background-repeat: repeat-x;
+	color: #444;
+	font-size: .75em;
+	font-weight: normal;
+	white-space: nowrap;
+	border: outset 1px #CCC;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px; }
+
+.impression_microbutton {
+	padding: 1px 0.5em 1px 0.5em;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center center;
+	background-repeat: repeat-x;
+	color: #000;
+	height: 1.2em;
+	font-size: .85em;
+	font-weight: normal;
+	border: outset 1px #CCC;
+	vertical-align: middle; }
+
+.impression_table {
+	display: table;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-collapse: collapse; }
+
+.impression_tblhdrrow {
+	display: table-header-group;
+	font-weight: bold;
+	padding: 3px;
+	background-repeat: repeat-x;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center center;
+	background-size: contain; }
+
+.impression_tblrow {
+	display: table-row;
+	padding: 3px;}
+
+.impression_tblcell {
+	display: table-cell;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 3px; }
+
+.impression_tblhdrcell {
+	display: table-cell;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	font-weight: bold;
+	background-color: #f5e9cd;
+	padding: 3px; }
 
 /* Bookmark tags */
 div.impression_socbookmark {
-  clear: both;
-  text-align: center;
-  padding: 10px 0 5px 0; }
+	clear: both;
+	text-align: center;
+	padding: 10px 0 5px 0; }
 
 div.impression_socbookmark a img {
-  opacity: .4;
-  -moz-opacity: .4;
-  filter: alpha(opacity=40); }
+	opacity: .4;
+	-moz-opacity: .4;
+	filter: alpha(opacity=40); }
 
 div.impression_socbookmark a:hover img {
-  opacity: 1;
-  -moz-opacity: 1;
-  filter: alpha(opacity=100); }
+	opacity: 1;
+	-moz-opacity: 1;
+	filter: alpha(opacity=100); }
 /* end bd */
