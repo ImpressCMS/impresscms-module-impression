@@ -152,10 +152,10 @@ switch ( strtolower( $op ) ) {
 		impression_adminmenu( '', _AM_IMPRESSION_MOD_MODREQUESTS );
 
 		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" />';
-		echo '<fieldset style="border: #E8E8E8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MOD_MODREQUESTSINFO . '</legend>
+		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;">
+				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MOD_MODREQUESTSINFO . '</div>
 				<div style="padding: 8px;">' . _AM_IMPRESSION_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>
-			</fieldset>
+			</div><br/>
 			<table width="100%" cellspacing="1" class="outer">
 			<tr style="text-align: center; font-size: smaller;">
 				<th>' . _AM_IMPRESSION_MOD_MODID . '</th>

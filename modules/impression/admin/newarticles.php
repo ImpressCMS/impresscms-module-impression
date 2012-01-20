@@ -84,16 +84,15 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_SUB_SUBMITTEDFILES );
 
-		echo '<fieldset style="border: #e8e8e8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_SUB_FILESWAITINGINFO . '</legend>
-				<div style="padding: 8px;">
-				<span>' . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . '<b>' . $new_array_count . '</b><br /><br /><span>
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px;">
+				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_SUB_FILESWAITINGINFO . '</div>
+				<span>' . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . '<b>' . $new_array_count . '</b><br /><br /></span>
 
-				<span>
+				<div style="padding-left: 8px;">
 				' . $imagearray['approve'] . ' ' . _AM_IMPRESSION_SUB_APPROVEWAITINGFILE . '<br />
 				' . $imagearray['editimg'] . ' ' . _AM_IMPRESSION_SUB_EDITWAITINGFILE . '<br />
-				' . $imagearray['deleteimg'] . ' ' . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . '</span>
-				</div></fieldset><br />';
+				' . $imagearray['deleteimg'] . ' ' . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . '</div>
+				</div></div><br />';
 
 		echo '<table width="100%" cellspacing="1" class="outer">
 				<tr style="text-align: center; font-size: smaller;">
