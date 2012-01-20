@@ -178,7 +178,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 			$xoopsOption['template_main'] = 'impression_disclaimer.html';
 			include_once ICMS_ROOT_PATH . '/header.php';	
 
-			$xoopsTpl -> assign( 'image_header', impression_imageheader() );
+			$xoopsTpl -> assign( 'image_header', '<div align="center">' . impression_imageheader() . '</div>' );
 			$xoopsTpl -> assign( 'disclaimer', icms_core_DataFilter::checkVar( icms::$module -> config['disclaimer'], 'text' ) );
 			$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php' );
 			$xoopsTpl -> assign( 'article_disclaimer', false );
