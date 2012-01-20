@@ -272,7 +272,7 @@ define( "_AM_IMPRESSION_ICO_RES", "Edit Resources/Articles for this Item" );
 define( "_AM_IMPRESSION_ALTCAT_CREATEF", "Alternatieve categorie toevoegen" );
 define( "_AM_IMPRESSION_MALTCAT", "Alternatieve categorie management" );
 define( "_AM_IMPRESSION_ALTCAT_MODIFYF", "Alternatieve categorie management" );
-define( "_AM_IMPRESSION_ALTCAT_INFOTEXT", "<ul><li>Alternatieve categorieën kunnen via dit formulier eenvoudig worden toegevoegd of verwijderd.</li></ul>" );
+define( "_AM_IMPRESSION_ALTCAT_INFOTEXT", "Alternatieve categorieën kunnen via dit formulier eenvoudig worden toegevoegd of verwijderd." );
 define( '_AM_IMPRESSION_ALTCAT_CREATED', 'Alternatieve categorie(ën) is(zijn) opgeslagen!' );
 
 define( "_AM_IMPRESSION_PERM_AUTOPERMISSIONS", "Artikelen automatisch goedkeuren" );
