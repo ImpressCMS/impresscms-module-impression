@@ -12,7 +12,7 @@
 		</div>
 		<!-- Start files loop --> 
 		<{foreach item=file from=$ranking.file}>
-			<div class="impression_tblrow">
+			<div class="impression_tblrow" style="font-size: .9em;">
 				<div class="impression_tblhdrcell" style="text-align: center;"><{$file.rank}></div>
 				<{if $nice_url}>
 					<div class="impression_tblcell"><a href="singlearticle.php?aid=<{$file.id}>&amp;title=<{$file.nice_link}>"><{$file.title}></a></div>
