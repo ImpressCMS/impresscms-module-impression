@@ -81,7 +81,7 @@ switch ( strtolower($op) ) {
 		impression_adminmenu( 5, _AM_IMPRESSION_MUPLOADS );
 		impression_serverstats();
 		if ( $rootpath > 0 ) {
-			echo '<div style="border: #e8e8e8 1px solid; padding: 8px;">
+			echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 					<div><b>' . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . '</b> ' . ICMS_ROOT_PATH . '/' . $dirarray[$rootpath] . '<br />
 					<b>' . _AM_IMPRESSION_ARTICLE_FUPLOADURL . '</b> ' . ICMS_URL . '/' . $dirarray[$rootpath] . '</div>
 				  </div><br />';

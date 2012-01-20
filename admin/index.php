@@ -85,7 +85,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 					</td>
 				</tr>
 			</table>';
-		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;">
+		echo '<div style="border: #E8E8E8 1px solid; padding: 8px; border-radius: 3px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_INFOMATION . '</div>
 				<div>' . $text_info . '</div>
 				</div>
@@ -367,22 +367,22 @@ switch ( strtolower( $op ) ) {
 
 		icms_cp_header();
 		impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
-		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 2px; font-size: smaller; border-radius: 5px;';
-		echo '<div style="border: #E8E8E8 1px solid; padding: 8px">
+		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 2px; font-size: smaller; border-radius: 5px; box-shadow:1px 1px 2px #aaaaaa;';
+		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;  border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
 				<div style="padding: 10px;">
-				<span style="' . $style . '">
-				<a href="category.php">' . _AM_IMPRESSION_SCATEGORY . '</a><b>' . $totalcats . '</b> 
-				</span> 
-				<span style="' . $style . '">
-				<a href="index.php">' . _AM_IMPRESSION_SFILES . '</a><b>' . $totalarticles . '</b>
-				</span> 
-				<span style="' . $style . '">
-				<a href="newarticles.php">' . _AM_IMPRESSION_SNEWFILESVAL . '</a><b>' . $totalnewarticles . '</b>
-				</span> 
-				<span style="' . $style . '">
-					<a href="modifications.php">' . _AM_IMPRESSION_SMODREQUEST . '</a>' . $totalmodrequests . '
-				</span>
+					<a href="category.php">
+						<span style="' . $style . '">' . _AM_IMPRESSION_SCATEGORY . $totalcats . '</span>
+					</a>
+					<a href="index.php">
+						<span style="' . $style . '">' . _AM_IMPRESSION_SFILES . $totalarticles . '</span> 
+					</a>
+					<a href="newarticles.php">
+						<span style="' . $style . '">' . _AM_IMPRESSION_SNEWFILESVAL . $totalnewarticles . '</span>
+					</a>
+					<a href="modifications.php">
+						<span style="' . $style . '">' . _AM_IMPRESSION_SMODREQUEST . $totalmodrequests . '</span>
+					</a>
 				</div>
 			 </div>';
 

@@ -105,12 +105,12 @@ switch ( strtolower( $op ) ) {
 		impression_adminmenu( '', _AM_IMPRESSION_MALTCAT );
 		$sql = icms::$xoopsDB -> query( 'SELECT cid, title FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid );
 		list( $cid, $title ) = icms::$xoopsDB -> fetchRow( $sql );
-		echo '	<div style="border: #e8e8e8 1px solid; padding: 8px;">
+		echo '	<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 					<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_ALTCAT_MODIFYF . '</div>
-					<div>' . _AM_IMPRESSION_ALTCAT_INFOTEXT . '</div>
+					<div style="padding: 8px;">' . _AM_IMPRESSION_ALTCAT_INFOTEXT . '</div>
 				</div>';
 
-		echo '<div style="text-align: left; font-size: larger;"><h4>' . $impressionmyts -> htmlSpecialCharsStrip( $title ) . '</h4></div>'; 
+		echo '<div style="text-align: left; font-size: 14px; font-weight: bold; margin: 15px 0 10px 5px;">' . $impressionmyts -> htmlSpecialCharsStrip( $title ) . '</div>'; 
 		// Get an array of all alternate categories for this topic
 		$sql2 = icms::$xoopsDB -> query( 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' WHERE aid=' . $aid . ' ORDER BY aid' );
 		$altcats = array();

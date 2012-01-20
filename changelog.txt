@@ -2,10 +2,11 @@
 xx.xx.2011 - Version 1.x
 =========================================================
 Added:
-- Social media buttons for Facebook, Google 1+ and Twitter
+- social media buttons for Facebook, Google 1+ and Twitter
 
 Fixed:
-- Captcha in Submit form causes issues
+- captcha in Submit form causes issues
+- block news by category
 
 Removed files:
 - class/class_thumbnail.php
