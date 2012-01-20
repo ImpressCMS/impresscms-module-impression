@@ -71,24 +71,24 @@ function edit( $aid = 0, $doclone = 0 ) {
 		$text_info = '
 			<table width="100%">
 				<tr>
-					<td width="33%" valign="top">
+					<td style="width: 26%; vertical-align: top; padding: 8px;">
 						<div><b>' . _AM_IMPRESSION_ARTICLE_ID . ' </b>' . $aid . '</div>
 						<div><b>' . _AM_IMPRESSION_READS . ' </b>' . $article_array['hits']. '</div>
 					</td>
-					<td width="33%" valign="top">
+					<td  style="width: 34%; vertical-align: top; padding: 8px;">
 						<div><b>' . _AM_IMPRESSION_ARTICLE_PUBLISHER . ' </b>' . icms_member_user_Handler::getUserLink( $article_array['uid'] ) . '</div>
 						<div><b>' . _AM_IMPRESSION_ARTICLE_IP . ' </b>' . $ipaddress . '</div>
 					</td>
-					<td width="33%" valign="top">
+					<td  style="width: 40%; vertical-align: top; padding: 8px;">
 						<div><b>' . _AM_IMPRESSION_MINDEX_SUBMITTED . ': </b>' . impression_time( formatTimestamp( $article_array['date'], icms::$module -> config['dateformatadmin'] ) ) . '</div>
 						<div><b>' . _AM_IMPRESSION_DATESUB . ': </b>' . impression_time( formatTimestamp( $article_array['published'], icms::$module -> config['dateformatadmin'] ) ) . '</div>
 					</td>
 				</tr>
 			</table>';
-		echo '<fieldset style="border: #E8E8E8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_INFOMATION . '</legend>
-				<div style="padding: 8px;">' . $text_info . '</div>
-				</fieldset>
+		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;">
+				<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_INFOMATION . '</div>
+				<div>' . $text_info . '</div>
+				</div>
 				<br />';
 	} else { $inblocks = 1; }
 
@@ -367,9 +367,9 @@ switch ( strtolower( $op ) ) {
 
 		icms_cp_header();
 		impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
-		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 1px; font-size: smaller;';
-		echo '<fieldset style="border: #E8E8E8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</legend>
+		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 2px; font-size: smaller; border-radius: 5px;';
+		echo '<div style="border: #E8E8E8 1px solid; padding: 8px">
+				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
 				<div style="padding: 10px;">
 				<span style="' . $style . '">
 				<a href="category.php">' . _AM_IMPRESSION_SCATEGORY . '</a><b>' . $totalcats . '</b> 
@@ -384,7 +384,7 @@ switch ( strtolower( $op ) ) {
 					<a href="modifications.php">' . _AM_IMPRESSION_SMODREQUEST . '</a>' . $totalmodrequests . '
 				</span>
 				</div>
-			 </fieldset>';
+			 </div>';
 
 		if ( $totalarticles > 0 ) {
 			$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' ORDER BY aid DESC';

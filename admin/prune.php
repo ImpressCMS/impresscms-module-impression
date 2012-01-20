@@ -55,13 +55,11 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_PRUNE );
 
-		echo '<fieldset style="border: #e8e8e8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_PRUNEINFO . '</legend>
-				<div style="padding: 8px;">
+		echo '<div style="border: #e8e8e8 1px solid; padding: 8px;">
 				<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/warning.png" alt="" style="float: left; padding-right: 10px;" />
+				<div style="padding-left: 45px; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_PRUNEINFO . '</div>
 				<div style="padding-left: 45px;">' . _AM_IMPRESSION_PRUNEWARN . '</div>
-				</div>
-				</fieldset>';
+			  </div><br />';
 
 		$sform = new icms_form_Theme( _AM_IMPRESSION_PRUNEFORM, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );

@@ -26,9 +26,8 @@
 
 // impression_serverstats()
 function impression_serverstats() {
-	echo '<fieldset style="border: #e8e8e8 1px solid;">
-			<legend style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_ARTICLE_IMAGEINFO . '</legend>
-			<div style="padding: 8px;">
+	echo '<div style="border: #e8e8e8 1px solid; padding: 8px;">
+			<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_ARTICLE_IMAGEINFO . '</div>
 			<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/server.png" alt="" style="float: left; padding-right: 10px;" />
 			<div>' . _AM_IMPRESSION_ARTICLE_SPHPINI . '</div>';
 
@@ -49,7 +48,7 @@ function impression_serverstats() {
 	echo '&bull;&nbsp;' . _AM_IMPRESSION_ARTICLE_SAFEMODESTATUS . $safemode . '<br />';
 	echo '&bull;&nbsp;' . _AM_IMPRESSION_ARTICLE_REGISTERGLOBALS . $registerglobals . '<br />';
 	echo '&bull;&nbsp;' . _AM_IMPRESSION_ARTICLE_SERVERUPLOADSTATUS . $articles;
-	echo '</div></div></fieldset>';
+	echo '</div></div><br />';
 }
 
 function impression_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = '', $redirecturl = 'index.php', $num = 0, $redirect = 0, $usertype = 1 ) {

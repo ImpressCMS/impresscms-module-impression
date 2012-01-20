@@ -105,10 +105,10 @@ switch ( strtolower( $op ) ) {
 		impression_adminmenu( '', _AM_IMPRESSION_MALTCAT );
 		$sql = icms::$xoopsDB -> query( 'SELECT cid, title FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid );
 		list( $cid, $title ) = icms::$xoopsDB -> fetchRow( $sql );
-		echo '	<fieldset style="border: #e8e8e8 1px solid;">
-				<legend style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_ALTCAT_MODIFYF . '</legend>
-				<div style="padding: 8px;">' . _AM_IMPRESSION_ALTCAT_INFOTEXT . '</div>
-				</fieldset>';
+		echo '	<div style="border: #e8e8e8 1px solid; padding: 8px;">
+					<div style="display: inline; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_ALTCAT_MODIFYF . '</div>
+					<div>' . _AM_IMPRESSION_ALTCAT_INFOTEXT . '</div>
+				</div>';
 
 		echo '<div style="text-align: left; font-size: larger;"><h4>' . $impressionmyts -> htmlSpecialCharsStrip( $title ) . '</h4></div>'; 
 		// Get an array of all alternate categories for this topic

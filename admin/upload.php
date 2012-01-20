@@ -81,12 +81,10 @@ switch ( strtolower($op) ) {
 		impression_adminmenu( 5, _AM_IMPRESSION_MUPLOADS );
 		impression_serverstats();
 		if ( $rootpath > 0 ) {
-			echo '<fieldset style="border: #e8e8e8 1px solid;">
-					<div style="padding: 8px;">
+			echo '<div style="border: #e8e8e8 1px solid; padding: 8px;">
 					<div><b>' . _AM_IMPRESSION_ARTICLE_FUPLOADPATH . '</b> ' . ICMS_ROOT_PATH . '/' . $dirarray[$rootpath] . '<br />
-					<b>' . _AM_IMPRESSION_ARTICLE_FUPLOADURL . '</b> ' . ICMS_URL . '/' . $dirarray[$rootpath] . '</div><br />
-					</div>
-				  </fieldset>';
+					<b>' . _AM_IMPRESSION_ARTICLE_FUPLOADURL . '</b> ' . ICMS_URL . '/' . $dirarray[$rootpath] . '</div>
+				  </div><br />';
 		}
 		$pathlist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
 		$namelist = ( isset( $listarray[$rootpath] ) ) ? $namearray[$rootpath] : '';
