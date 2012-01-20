@@ -87,6 +87,7 @@ class ImpressionModuleAbout {
 		$this -> _tpl -> assign( 'module_name', $versioninfo -> getInfo( 'name' ) );
 		$this -> _tpl -> assign( 'module_version', $versioninfo -> getInfo( 'version' ) );
 		$this -> _tpl -> assign( 'module_status_version', $versioninfo -> getInfo( 'status_version' ) );
+		$this -> _tpl -> assign( 'module_dirname', icms::$module -> getVar( 'dirname' ) );
 
 		// Left headings...
 		if ( $versioninfo -> getInfo( 'author_realname' ) != '' ) {

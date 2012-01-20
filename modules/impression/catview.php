@@ -52,7 +52,7 @@ include ICMS_ROOT_PATH . '/header.php';
 // Breadcrumb
 $pathstring = '<a href="index.php">' . _MD_IMPRESSION_MAIN . '</a>&nbsp;:&nbsp;';
 $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'catview.php?op=' );
-$xoopsTpl -> assign( 'category_path', $pathstring );
+$xoopsTpl -> assign( 'category_path', '<div class="impression_path" style="font-size: .8em; font-weight: bold;">' . $pathstring . '</div><br />' );
 $xoopsTpl -> assign( 'category_id', $cid );
 
 // Display Sub-categories for selected Category
@@ -116,7 +116,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 // Show Description for Category listing
 $sql = 'SELECT title, description, imgurl FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $cid;
 $head_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
-$xoopsTpl -> assign( 'description', $head_arr['description'] );
+$xoopsTpl -> assign( 'description', '<div style="font-size: smaller; overflow: auto;">' . $head_arr['description'] . '</div><br />' );
 $xoopsTpl -> assign( 'icms_pagetitle', $head_arr['title'] );
 
 if ( impression_imageheader() ) {
