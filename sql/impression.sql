@@ -11,7 +11,7 @@ CREATE TABLE `impression_altcat` (
 	`cid` int(5) unsigned NOT NULL default '0',
 	KEY `aid` (`aid`),
 	KEY `cid` (`cid`)
-) TYPE=MyISAM COMMENT='Impression by McDonald';
+);
 
 #
 # Table structure for table 'impression_cat'
@@ -28,7 +28,7 @@ CREATE TABLE `impression_cat` (
 	inblocks tinyint(1) NOT NULL default '1',
 	PRIMARY KEY  (cid),
 	KEY pid (pid)
-) TYPE=MyISAM COMMENT='Impression by McDonald' AUTO_INCREMENT=1;
+) AUTO_INCREMENT=1;
 
 #
 # Table structure for table 'impression_indexpage'
@@ -42,11 +42,8 @@ CREATE TABLE `impression_indexpage` (
 	`indexheaderalign` varchar(25) NOT NULL default 'left',
 	`indexfooteralign` varchar(25) NOT NULL default 'center',
 	`lastarticlesyn` tinyint(1) NOT NULL default '0',
-	`lastarticlestotal` varchar(5) NOT NULL default '5',
-	FULLTEXT KEY `indexheading` (`indexheading`),
-	FULLTEXT KEY `indexheader` (`indexheader`),
-	FULLTEXT KEY `indexfooter` (`indexfooter`)
-) TYPE=MyISAM COMMENT='Impression by McDonald';
+	`lastarticlestotal` varchar(5) NOT NULL default '5'
+);
 
 INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastarticlesyn`,`lastarticlestotal`) VALUES ('impression_bar.png','Impression header','Enjoy reading the articles in <em>Impression</em>','Impression footer','left','left','0','5');
 
@@ -80,7 +77,7 @@ CREATE TABLE `impression_articles` (
 	KEY `cid` (`cid`),
 	KEY `status` (`status`),
 	KEY `title` (`title`(40))
-) TYPE=MyISAM COMMENT='Impression by McDonald' AUTO_INCREMENT=1;
+) AUTO_INCREMENT=1;
 
 #
 # Table structure for table 'impression_mods'
@@ -110,7 +107,7 @@ CREATE TABLE `impression_mod` (
 	`source` varchar(255) NOT NULL default '',
 	`sourceurl` varchar(255) NOT NULL default '',
 	PRIMARY KEY (requestid) 
-) TYPE=MyISAM COMMENT='Impression by McDonald' AUTO_INCREMENT=1;
+) AUTO_INCREMENT=1;
 
 #
 # Table structure for table 'impression_configs'
@@ -135,6 +132,6 @@ CREATE TABLE `impression_configs` (
 	`rsstotal` tinyint(8) NOT NULL default '0',
 	`rssofftitle` varchar(128) NOT NULL default '',
 	`rssoffdsc` varchar(255) NOT NULL default ''
-) TYPE=MYISAM COMMENT='Impression by McDonald';
+);
 
 INSERT INTO impression_configs (rssactive,rsstitle,rsslink,rssdsc,rssimgurl,rsswidth,rssheight,rssimgtitle,rssimglink,rssttl,rsswebmaster,rsseditor,rsscategory,rssgenerator,rsscopyright,rsstotal,rssofftitle,rssoffdsc) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15', '', '');

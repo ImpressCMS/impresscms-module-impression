@@ -168,15 +168,15 @@ function impression_articlelistbody( $published ) {
 	$icon .= '<a href="index.php?op=clone&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_CLONE . '">' . $imagearray['clone'] . '</a>&nbsp;';
 	$icon .= '<a href="altcat.php?op=main&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>';
 
-	echo '<tr style="font-size: smaller;">
-			<td class="head" style="text-align: center;white-space: nowrap;">' . $aid . '</td>
-			<td class="even" style="text-align: left;">' . $title . '</td>
-			<td class="even" style="text-align: left;white-space: nowrap;">' . $cattitle . '</td>
-			<td class="even" style="text-align: center;">' . $submitter . '</td>
-			<td class="even" style="text-align: center; white-space: nowrap;">' . $publish . '</td>
-			<td class="even" style="text-align: center; white-space: nowrap;">' . $published_status . '</td>
-			<td class="even" style="text-align: center; white-space: nowrap;">' . $icon . '</td>
-		</tr>';
+	echo '<div class="impression_tblrow">
+			<div class="impression_tblhdrcell" style="text-align: center;">' . $aid . '</div>
+			<div class="impression_tblcell">' . $title . '</div>
+			<div class="impression_tblcell" style="white-space: nowrap;">' . $cattitle . '</div>
+			<div class="impression_tblcell" style="text-align: center;">' . $submitter . '</div>
+			<div class="impression_tblcell" style="text-align: center;">' . $publish . '</div>
+			<div class="impression_tblcell" style="text-align: center;">' . $published_status . '</div>
+			<div class="impression_tblcell" style="white-space: nowrap; text-align: center;">' . $icon . '</div>
+		</div>';
 	unset( $published );
 }
 
