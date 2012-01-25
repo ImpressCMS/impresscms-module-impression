@@ -135,24 +135,19 @@ if ( !$rss_mod ) {
 	$xoopsTpl -> assign( 'rss_icon', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . icms::$module -> getVar( 'dirname' ) . '" alt="' . _MD_IMPRESSION_GETFEED . '" title="' . _MD_IMPRESSION_GETFEED . '" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>' );
 }
 
-$time = time();
-
-$sql = icms::$xoopsDB -> query( 'SELECT lastarticlesyn, lastarticlestotal FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) );
-$lastarticles = icms::$xoopsDB -> fetchArray( $sql );
-
-if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] > 0) {
+if ($head_arr['lastarticlesyn'] == 1  && $head_arr['lastarticlestotal'] > 0) {
 
 	$result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
-										AND published <= ' . $time . ' 
+										AND published <= ' . time() . ' 
 										AND status = 0 
 										ORDER BY published DESC', 0, 0 );
 	list( $count ) = icms::$xoopsDB -> fetchRow( $result );
 
-	$count = ( ( $count > $lastarticles['lastarticlestotal'] ) && ( $lastarticles['lastarticlestotal'] != 0 ) ) ? $lastarticles['lastarticlestotal'] : $count;
+	$count = ( ( $count > $head_arr['lastarticlestotal'] ) && ( $head_arr['lastarticlestotal'] != 0 ) ) ? $head_arr['lastarticlestotal'] : $count;
 	$limit = ( ( $start + icms::$module -> config['perpage'] ) > $count ) ? ( $count - $start ) : icms::$module -> config['perpage'];
 
 	$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
-										AND published <= ' . $time . ' 
+										AND published <= ' . time() . ' 
 										AND status=0 
 										ORDER BY published DESC', $limit, $start );
 	while ( $article_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
@@ -164,7 +159,7 @@ if ($lastarticles['lastarticlesyn'] == 1  && $lastarticles['lastarticlestotal'] 
 	}
 	$pagenav = new icms_view_PageNav( $count, icms::$module -> config['perpage'], $start, 'start' );
 	$xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
-	$xoopsTpl -> assign( 'showlatest', $lastarticles['lastarticlesyn'] );
+	$xoopsTpl -> assign( 'showlatest', $head_arr['lastarticlesyn'] );
 }
 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
