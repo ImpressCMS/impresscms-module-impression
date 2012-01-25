@@ -367,22 +367,15 @@ switch ( strtolower( $op ) ) {
 
 		icms_cp_header();
 		impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
-		$style = 'border: #CCCCCC 1px solid; padding: 4px; background-color: #E8E8E8; font-weight: bold; margin: 2px; font-size: smaller; border-radius: 5px; box-shadow:1px 1px 2px #aaaaaa;';
+		
+		echo '<link href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" rel="stylesheet" type="text/css" />';
 		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;  border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
 				<div style="padding: 10px;">
-					<a href="category.php">
-						<span style="' . $style . '">' . _AM_IMPRESSION_SCATEGORY . $totalcats . '</span>
-					</a>
-					<a href="index.php">
-						<span style="' . $style . '">' . _AM_IMPRESSION_SFILES . $totalarticles . '</span> 
-					</a>
-					<a href="newarticles.php">
-						<span style="' . $style . '">' . _AM_IMPRESSION_SNEWFILESVAL . $totalnewarticles . '</span>
-					</a>
-					<a href="modifications.php">
-						<span style="' . $style . '">' . _AM_IMPRESSION_SMODREQUEST . $totalmodrequests . '</span>
-					</a>
+					<a class="impression_button" href="category.php">' . _AM_IMPRESSION_SCATEGORY . $totalcats . '</a>
+					<a class="impression_button" href="index.php">' . _AM_IMPRESSION_SFILES . $totalarticles . '</a>
+					<a class="impression_button" href="newarticles.php">' . _AM_IMPRESSION_SNEWFILESVAL . $totalnewarticles . '</a>
+					<a class="impression_button" href="modifications.php">' . _AM_IMPRESSION_SMODREQUEST . $totalmodrequests . '</a>
 				</div>
 			 </div>';
 
@@ -391,24 +384,24 @@ switch ( strtolower( $op ) ) {
 			$published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
 			$published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
 			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>' . impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
-			echo '<table width="100%" cellspacing="1" style="text-align: center;" class="outer" summary>
-					<tr style="font-size: smaller;">
-						<th>' . _AM_IMPRESSION_MINDEX_ID . '</th>
-						<th style="text-align: left;">&nbsp;<b>' . _AM_IMPRESSION_MINDEX_TITLE . '</th>
-						<th style="text-align: left;">&nbsp;<b>' . _AM_IMPRESSION_MINDEX_CATTITLE . '</th>
-						<th>' . _AM_IMPRESSION_MINDEX_POSTER . '</th>
-						<th>' . _AM_IMPRESSION_MINDEX_PUBLISH . '</th>
-						<th>' . _AM_IMPRESSION_MINDEX_ONLINE . '</th>
-						<th>' . _AM_IMPRESSION_MINDEX_ACTION . '</th>
-					</tr>';
+			echo '<div class="impression_table" style="font-size: 10px;">
+					<div class="impression_tblhdrrow">
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ID . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_TITLE . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_CATTITLE . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_POSTER . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_PUBLISH . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ONLINE . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_ACTION . '</div>
+					</div>';
 			if ( $published_array_count > 0 ) {
 				while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
 					impression_articlelistbody( $published );
 				}
-				echo '</table>';
+				echo '</div>';
 				impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' );
 			} else {
-				echo '<tr style="text-align: center;"><td class="head" colspan="7">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</td></tr>';
+				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold;">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</div>';
 			}
 		}
 		icms_cp_footer();

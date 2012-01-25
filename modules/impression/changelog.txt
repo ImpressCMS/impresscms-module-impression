@@ -1,5 +1,5 @@
 =========================================================
-xx.xx.2011 - Version 1.x
+xx.xx.2012 - Version 1.x
 =========================================================
 Added:
 - social media buttons for Facebook, Google 1+ and Twitter

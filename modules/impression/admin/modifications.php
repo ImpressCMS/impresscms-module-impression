@@ -152,19 +152,21 @@ switch ( strtolower( $op ) ) {
 		impression_adminmenu( '', _AM_IMPRESSION_MOD_MODREQUESTS );
 
 		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" />';
+
 		echo '<div style="border: #E8E8E8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MOD_MODREQUESTSINFO . '</div>
 				<div style="padding: 8px;">' . _AM_IMPRESSION_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>
-			</div><br/>
-			<table width="100%" cellspacing="1" class="outer">
-			<tr style="text-align: center; font-size: smaller;">
-				<th>' . _AM_IMPRESSION_MOD_MODID . '</th>
-				<th style="text-align: left;">&nbsp;' . _AM_IMPRESSION_MOD_MODTITLE . '</th>
-				<th>' . _AM_IMPRESSION_MOD_MODIFYSUBMIT . '</th>
-				<th>' . _AM_IMPRESSION_MOD_DATE . '</th>
-				<th>' . _AM_IMPRESSION_MINDEX_ACTION . '</th>
-			</tr>';
+			</div><br/>';
+
 		if ( $totalmodrequests > 0 ) {
+			echo '<div class="impression_table" style="font-size: 10px;">
+				<div class="impression_tblhdrrow">
+					<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MOD_MODID . '</div>
+					<div class="impression_tblcell">' . _AM_IMPRESSION_MOD_MODTITLE . '</div>
+					<div class="impression_tblcell">' . _AM_IMPRESSION_MOD_MODIFYSUBMIT . '</div>
+					<div class="impression_tblcell">' . _AM_IMPRESSION_MOD_DATE . '</div>
+					<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_ACTION . '</div>
+				</div>';
 			while ( $article_arr = icms::$xoopsDB -> fetchArray( $result ) ) {
 				$path = $mytree -> getNicePathFromId( $article_arr['requestid'], 'title', 'modifications.php?op=listmodreqshow&requestid' );
 				$path = str_replace( '/', '', $path );
@@ -173,20 +175,20 @@ switch ( strtolower( $op ) ) {
 				$submitter = icms_member_user_Handler::getUserLink( $article_arr['modifysubmitter'] );;
 				$requestdate = formatTimestamp( $article_arr['requestdate'], icms::$module -> config['dateformatadmin'] );
 
-				echo '<tr style="text-align: center; height: 18px; font-size: smaller;">
-						<td class="head">' . $article_arr['requestid'] . '</td>
-						<td class="even" style="text-align: left;">' . $title . '</td>
-						<td class="even">' . $submitter . '</td>
-						<td class="even">' . $requestdate . '</td>
-						<td class="even">
+				echo '<div class="impression_tblrow">
+						<div class="impression_tblhdrcell" style="text-align: center;">' . $article_arr['requestid'] . '</div>
+						<div class="impression_tblcell">' . $title . '</div>
+						<div class="impression_tblcell">' . $submitter . '</div>
+						<div class="impression_tblcell">' . $requestdate . '</div>
+						<div class="impression_tblcell">
 							<a href="modifications.php?op=listmodreqshow&amp;requestid=' . $article_arr['requestid'] . '">' . $imagearray['view'] . '</a>
-						</td>
-					  </tr>';
+						</div>
+					  </div>';
 			}
+			echo '</div>';
 		} else {
-			echo '<tr style="text-align: center;"><td class="head" colspan="5">' . _AM_IMPRESSION_MOD_NOMODREQUEST . '</td></tr>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMPRESSION_MOD_NOMODREQUEST . '</div>';
 		}
-		echo '</table>';
 
 		include_once ICMS_ROOT_PATH . '/class/pagenav.php';
 		$pagenav = new icms_view_PageNav( $totalmodrequests, icms::$module -> config['admin_perpage'], $start, 'start' );

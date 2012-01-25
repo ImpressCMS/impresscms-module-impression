@@ -12,11 +12,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -87,22 +87,24 @@ switch ( strtolower( $op ) ) {
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_SUB_FILESWAITINGINFO . '</div>
 				<span>' . _AM_IMPRESSION_SUB_FILESWAITINGVALIDATION . '<b>' . $new_array_count . '</b><br /><br /></span>
-
 				<div style="padding-left: 8px;">
-				' . $imagearray['approve'] . ' ' . _AM_IMPRESSION_SUB_APPROVEWAITINGFILE . '<br />
-				' . $imagearray['editimg'] . ' ' . _AM_IMPRESSION_SUB_EDITWAITINGFILE . '<br />
-				' . $imagearray['deleteimg'] . ' ' . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . '</div>
-				</div></div><br />';
+					' . $imagearray['approve'] . ' ' . _AM_IMPRESSION_SUB_APPROVEWAITINGFILE . '<br />
+					' . $imagearray['editimg'] . ' ' . _AM_IMPRESSION_SUB_EDITWAITINGFILE . '<br />
+					' . $imagearray['deleteimg'] . ' ' . _AM_IMPRESSION_SUB_DELETEWAITINGFILE . '
+				</div>
+			  </div><br />';
 
-		echo '<table width="100%" cellspacing="1" class="outer">
-				<tr style="text-align: center; font-size: smaller;">
-					<th>' . _AM_IMPRESSION_MINDEX_ID . '</th>
-					<th style="text-align: left;">&nbsp;' . _AM_IMPRESSION_MINDEX_TITLE . '</th>
-					<th>' . _AM_IMPRESSION_MINDEX_POSTER . '</th>
-					<th>' . _AM_IMPRESSION_MINDEX_SUBMITTED . '</th>
-					<th>' . _AM_IMPRESSION_MINDEX_ACTION . '</th>
-				</tr>';
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
+
 		if ( $new_array_count > 0 ) {
+			echo '<div class="impression_table" style="font-size: 10px;">
+					<div class="impression_tblhdrrow">
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ID . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_TITLE . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_POSTER . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_SUBMITTED . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_ACTION . '</div>
+					</div>';
 			while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
 				$aid = intval( $new['aid'] );
 				$title = $impressionmyts -> htmlSpecialCharsStrip( $new['title'] );
@@ -113,18 +115,18 @@ switch ( strtolower( $op ) ) {
 				$icon .= '<a href="index.php?op=edit&amp;aid=' . $aid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
 				$icon .= '<a href="index.php?op=delete&amp;aid=' . $aid . '">' . $imagearray['deleteimg'] . '</a>';
 
-				echo '<tr style="font-size: smaller;">
-						<td class="head" style="text-align: center;">'. $aid . '</td>
-						<td class="even" nowrap><a href="newarticles.php?op=edit&amp;aid=' . $aid . '">' . $title. '</a></td>
-						<td class="even" style="text-align: center;" nowrap>' . $submitter . '</td>
-						<td class="even" style="text-align: center;">' . $datetime . '</td>
-						<td class="even" style="text-align: center;" nowrap>' . $icon . '</td>
-						</tr>';
+				echo '<div class="impression_tblrow">
+						<div class="impression_tblhdrcell" style="text-align: center;">'. $aid . '</div>
+						<div class="impression_tblcell"><a href="newarticles.php?op=edit&amp;aid=' . $aid . '">' . $title. '</a></div>
+						<div class="impression_tblcell" style="text-align: center;">' . $submitter . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . $datetime . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . $icon . '</div>
+					  </div>';
 			}
+			echo '</div>';
 		} else {
-			echo '<tr><td style="text-align: center;" class="head" colspan="5">' . _AM_IMPRESSION_SUB_NOFILESWAITING . '</td></tr>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMPRESSION_SUB_NOFILESWAITING . '</div>';
 		}
-		echo '</table>';
 
 		include_once ICMS_ROOT_PATH . '/class/pagenav.php';
 		$page = ( $new_array_count > icms::$module -> config['admin_perpage'] ) ? _AM_IMPRESSION_MINDEX_PAGE : '';
