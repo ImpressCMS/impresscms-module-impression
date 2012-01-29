@@ -105,8 +105,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_ARTICLE_TITLE, 'title', icms::$module -> config['txt_width'], 255, $title ), true );
 
 // Article nice url	
-	$niceform = new icms_form_elements_Text( _AM_IMPRESSION_NICEURL, 'nice_url', icms::$module -> config['txt_width'], 255, $nice_url );
-	$niceform -> setDescription(  '<small>' . _AM_IMPRESSION_NICEURLDSC . '</small>' );
+	$niceform = new icms_form_elements_Text( _AM_IMPRESSION_NICEURL . impression_helptip( _AM_IMPRESSION_NICEURLDSC ), 'nice_url', icms::$module -> config['txt_width'], 255, $nice_url );
 	$sform -> addElement( $niceform, false );
 
 // Article submitter
@@ -129,33 +128,28 @@ function edit( $aid = 0, $doclone = 0 ) {
 	ob_end_clean();
 
 // Article introtext form
-	$introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT, 'introtextb', $introtextb, 250, 10 );
-	$introeditor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC . '</small>' );
+	$introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT . impression_helptip( _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC ), 'introtextb', $introtextb, 250, 10 );
 	$sform -> addElement( $introeditor, false );
 
 // Article description form 
-	$editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION, 'descriptionb', $descriptionb, 500, 35 );
-	$editor -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC . '</small>' );
+	$editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION . impression_helptip( _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC ), 'descriptionb', $descriptionb, 500, 35 );
 	$sform -> addElement( $editor, false );
 
 // Article source
 	$source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
-	$source_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCE, '' );
-	$source_tray -> SetDescription( '<small>' . _AM_IMPRESSION_SOURCEDSC . '</small>' );
+	$source_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCE . impression_helptip( _AM_IMPRESSION_SOURCEDSC ), '' );
 	$source_tray -> addElement( $source_text, false) ;
 	$sform -> addElement( $source_tray );
 
 // Article source url
 	$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
-	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL, '' );
-	$sourceurl_tray -> SetDescription( '<small>' . _AM_IMPRESSION_SOURCEURLDSC . '</small>' );
+	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL . impression_helptip( _AM_IMPRESSION_SOURCEURLDSC ), '' );
 	$sourceurl_tray -> addElement( $sourceurl_text, false) ;
 	$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _AM_IMPRESSION_CHECKURL . "' title='" . _AM_IMPRESSION_CHECKURL . "' />" ) );
 	$sform -> addElement( $sourceurl_tray );
 
 // Meta keywords form
-	$keywords = new icms_form_elements_Textarea( _AM_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 7, 60);
-	$keywords -> setDescription(  '<small>' . _AM_IMPRESSION_KEYWORDS_NOTE . '</small>' );
+	$keywords = new icms_form_elements_Textarea( _AM_IMPRESSION_KEYWORDS . impression_helptip( _AM_IMPRESSION_KEYWORDS_NOTE ), 'meta_keywords', $meta_keywords, 7, 60);
 	$sform -> addElement( $keywords, false );
 
 // Insert tags if Tag-module is installed
@@ -167,8 +161,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	}
 
 // Publish date
-	$datesub_datetime = new icms_form_elements_Datetime(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE, 'published', $size = 15, $published);
-	$datesub_datetime -> setDescription(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC);
+	$datesub_datetime = new icms_form_elements_Datetime(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE . impression_helptip( _AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC ), 'published', $size = 15, $published);
 	$sform -> addElement( $datesub_datetime );
 
 // Set Status
@@ -182,14 +175,12 @@ function edit( $aid = 0, $doclone = 0 ) {
 								1 => _AM_IMPRESSION_OFFLINE,
 								2 => _AM_IMPRESSION_REJECTED );
 	}
-	$status_select = new icms_form_elements_Select( _AM_IMPRESSION_ARTICLE_FILESSTATUS, 'status', $status );
+	$status_select = new icms_form_elements_Select( _AM_IMPRESSION_ARTICLE_FILESSTATUS . impression_helptip( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC ), 'status', $status );
 	$status_select -> addOptionArray( $status_array );
-	$status_select -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC . '</small>' );
 	$sform -> addElement( $status_select );
 	
 // Display in blocks
-	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_ARTICLE_INBLOCKS, 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
-	$inblocks_yn -> setDescription( '<small>' . _AM_IMPRESSION_ARTICLE_INBLOCKS_DSC . '</small>' );
+	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_ARTICLE_INBLOCKS . impression_helptip( _AM_IMPRESSION_ARTICLE_INBLOCKS_DSC ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
 	$sform -> addElement( $inblocks_yn );	
 
 	if ( !$aid ) {

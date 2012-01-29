@@ -94,8 +94,7 @@ switch ( strtolower( $op ) ) {
 
 		$sform -> addElement(  new icms_form_elements_Radioyn( _AM_IMPRESSION_IPAGE_SHOWLATEST, 'lastarticlesyn', $lastarticlesyn, ' ' . _YES . '', ' ' . _NO . '' ) );
 
-		$lastarticlestotalform = new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_LATESTTOTAL, 'lastarticlestotal', 2, 2, $lastarticlestotal );
-		$lastarticlestotalform -> setDescription( '<small>' . _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC . '</small>' );
+		$lastarticlestotalform = new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_LATESTTOTAL . impression_helptip( _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC ), 'lastarticlestotal', 2, 2, $lastarticlestotal );
 		$sform -> addElement( $lastarticlestotalform, false );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );

@@ -3,6 +3,7 @@ xx.xx.2012 - Version 1.x
 =========================================================
 Added:
 - social media buttons for Facebook, Google 1+ and Twitter
+- help tips to forms
 
 Fixed:
 - captcha in Submit form causes issues

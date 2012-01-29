@@ -10,11 +10,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -215,6 +215,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
 		$sourceurl = $article_array['sourceurl'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['sourceurl'] ) : '';
 
+		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" />';
+
 		$sform = new icms_form_Theme( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
@@ -239,35 +241,31 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		ob_end_clean();
 
 // Article introtext form
-		$introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC, 'introtextb', $introtextb, 250, 10 );
-		$introtext -> setDescription( '<small>' . _MD_IMPRESSION_INTROTEXTC_DSC . '</small>' );
+		$introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC . impression_helptip( _MD_IMPRESSION_INTROTEXTC_DSC ), 'introtextb', $introtextb, 250, 10 );
 		$sform -> addElement( $introtext, false );
 
 // Article description form
-		$editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC, 'descriptionb', $descriptionb, 500, 35 );
-		$editor -> setDescription( '<small>' . _MD_IMPRESSION_DESCRIPTIONC_DSC . '</small>' );
+		$editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC . impression_helptip( _MD_IMPRESSION_DESCRIPTIONC_DSC ), 'descriptionb', $descriptionb, 500, 35 );
 		$sform -> addElement( $editor, false );
 
 // Article source
 		$source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
-		$source_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCE, '' );
-		$source_tray -> SetDescription( '<small>' . _MD_IMPRESSION_SOURCEDSC . '</small>' );
+		$source_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCE . impression_helptip( _MD_IMPRESSION_SOURCEDSC ), '' );
 		$source_tray -> addElement( $source_text, false) ;
 		$sform -> addElement( $source_tray );
-	
+
 // Article source url
 		$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
-		$sourceurl_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCEURL, '' );
-		$sourceurl_tray -> SetDescription( '<small>' . _MD_IMPRESSION_SOURCEURLDSC . '</small>' );
+		$sourceurl_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCEURL . impression_helptip( _MD_IMPRESSION_SOURCEURLDSC ), '' );
+
 		$sourceurl_tray -> addElement( $sourceurl_text, false) ;
 		$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _MD_IMPRESSION_CHECKURL . "' title='" . _MD_IMPRESSION_CHECKURL . "' />" ) );
 		$sform -> addElement( $sourceurl_tray );
 
 // Meta meta_keywords form
-		$keywords = new icms_form_elements_Textarea( _MD_IMPRESSION_KEYWORDS, 'meta_keywords', $meta_keywords, 4, 60 );
-		$keywords -> setDescription( '<small>' . _MD_IMPRESSION_KEYWORDS_NOTE . '</small>' );
+		$keywords = new icms_form_elements_Textarea( _MD_IMPRESSION_KEYWORDS . impression_helptip( _MD_IMPRESSION_KEYWORDS_NOTE ), 'meta_keywords', $meta_keywords, 4, 60 );
 		$sform -> addElement( $keywords, false );
-		
+
 // Insert tags if Tag-module is installed and if user is allowed
 		if ( icms::$module -> config['usercantag'] ) {
 			if ( impression_tag_module_included() ) {

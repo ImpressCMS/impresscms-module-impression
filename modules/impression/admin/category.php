@@ -105,8 +105,7 @@ function createcat($cid = 0) {
 	$sform -> addElement( $editor, false );
 
 // Display in blocks
-	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_CAT_INBLOCKS, 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
-	$inblocks_yn -> setDescription( '<small>' . _AM_IMPRESSION_CAT_INBLOCKS_DSC . '</small>' );
+	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_CAT_INBLOCKS . impression_helptip( _AM_IMPRESSION_CAT_INBLOCKS_DSC ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
 	$sform -> addElement( $inblocks_yn );
 
 	$sform -> addElement(new icms_form_elements_Hidden( 'cid', $cid ) );

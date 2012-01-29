@@ -64,8 +64,7 @@ switch ( strtolower( $op ) ) {
 		$sform = new icms_form_Theme( _AM_IMPRESSION_PRUNEFORM, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
-		$datesub_datetime = new icms_form_elements_Date( _AM_IMPRESSION_PRUNEDATE, 'published', 15, time() );
-		$datesub_datetime -> setDescription( _AM_IMPRESSION_PRUNEDATEDSC );
+		$datesub_datetime = new icms_form_elements_Date( _AM_IMPRESSION_PRUNEDATE . impression_helptip( _AM_IMPRESSION_PRUNEDATEDSC ), 'published', 15, time() );
 		$sform -> addElement( $datesub_datetime );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );

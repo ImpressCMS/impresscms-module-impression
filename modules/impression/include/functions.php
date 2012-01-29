@@ -578,4 +578,9 @@ function hascomments( $aid ) {
 	list( $count ) = icms::$xoopsDB -> fetchRow( $sql );
 	return $count;
 }
+
+function impression_helptip( $description ) {
+	$helptip = '<img class="helptip" src="'. ICMS_IMAGES_SET_URL . '/actions/acp_help.png" alt="View help text" title="View help text" /><span class="helptext">' . $description . '</span>';
+	return $helptip;
+}
 ?>
