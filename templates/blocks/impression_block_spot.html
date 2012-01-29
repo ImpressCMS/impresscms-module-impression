@@ -15,11 +15,9 @@
 				<{if $articlespot.options == 3}>&nbsp;|&nbsp;<{$articlespot.description|count_characters}>&nbsp;<{$smarty.const._MB_IMPRESSION_CHARSMORE}><{/if}>
 			<{/if}>
 		</span>
-		<span style="float: right;">
-			<{if $articlespot.comment_rules > 0 and $articlespot.comments > 0}>
-				<{$articlespot.commentz}>
-			<{/if}>
-		</span>
+		<{if $articlespot.comment_rules > 0 and $articlespot.comments > 0}>
+			<span style="float: right;"><{$articlespot.commentz}></span>
+		<{/if}>
 		<div style="float: right;"><span><{if $icms_isadmin}> <small><{$articlespot.adminarticle}>&nbsp;</small><{/if}></span></div>
 	</div>
 <{/foreach}>

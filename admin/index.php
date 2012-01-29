@@ -74,6 +74,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 					<td style="width: 26%; vertical-align: top; padding: 8px;">
 						<div><b>' . _AM_IMPRESSION_ARTICLE_ID . ' </b>' . $aid . '</div>
 						<div><b>' . _AM_IMPRESSION_READS . ' </b>' . $article_array['hits']. '</div>
+						<div><b>' . _COMMENTS . ': </b>' . hascomments( $article_array['aid'] ) . '</div>
 					</td>
 					<td  style="width: 34%; vertical-align: top; padding: 8px;">
 						<div><b>' . _AM_IMPRESSION_ARTICLE_PUBLISHER . ' </b>' . icms_member_user_Handler::getUserLink( $article_array['uid'] ) . '</div>
@@ -141,9 +142,9 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
 	$source_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCE, '' );
 	$source_tray -> SetDescription( '<small>' . _AM_IMPRESSION_SOURCEDSC . '</small>' );
-    $source_tray -> addElement( $source_text, false) ;
+	$source_tray -> addElement( $source_text, false) ;
 	$sform -> addElement( $source_tray );
-	
+
 // Article source url
 	$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
 	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL, '' );
