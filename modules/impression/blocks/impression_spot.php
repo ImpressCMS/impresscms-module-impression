@@ -81,12 +81,12 @@ function b_impression_spot_show( $options ) {
 
 		if ( $articlespot['isadmin'] == true && $moderate == 0 ) {
 			$articlespot['adminarticle'] = b_impression_spoticons( $myrow['aid'], basename( dirname(  dirname( __FILE__ ) ) ) );
-        } else {
+		} else {
 			$articlespot['adminarticle'] = '[ <a href="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/submit.php?op=edit&amp;aid=' . $myrow['aid'] . '&approve=1">' . _MB_IMPRESSION_APPROVE . '</a> | ';
 			$articlespot['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/submit.php?op=delete&amp;aid=' . $myrow['aid'] . '">' . _MB_IMPRESSION_DELETE . '</a> ]';
 		}
-		
-		$articlespot['id'] 			= intval( $myrow['aid'] );
+
+		$articlespot['id']			= intval( $myrow['aid'] );
 		$articlespot['cid'] 		= intval( $myrow['cid'] );
 		$nice_link					= impression_nicelink( $myrow['title'], $myrow['nice_url'] );
 		$url						= impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], $impressionModuleConfig['niceurl'] );
@@ -95,10 +95,10 @@ function b_impression_spot_show( $options ) {
 		$articlespot['hits']		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
 		$articlespot['submitter']	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
 		$articlespot['introtext']	= $myrow['introtext'];
-		$articlespot['description'] = $myrow['description'];     
-		$articlespot['comments']	= $myrow['comments'];
+		$articlespot['description'] = $myrow['description'];
+		$articlespot['comments']	= hascomments( $myrow['aid'] );
 		$articlespot['comment_rules'] = $impressionModuleConfig['com_rule'];
-		$articlespot['commentz']	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $myrow['comments'] . ')" />';
+		$articlespot['commentz']	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . hascomments( $myrow['aid'] ) . ')" />';
 		$articlespot['bytesmore']	= mb_strlen( $myrow['description'] );
 		if ( mb_strlen( $myrow['description'] ) > 0 ) {
 			$articlespot['readmore'] = '<a href="' . $url . '"><b><i>' . _MB_IMPRESSION_READMORE . '</i></b></a>';
@@ -106,7 +106,7 @@ function b_impression_spot_show( $options ) {
 		} else {
 			$articlespot['readmore'] = '';
 		};
-		
+
 		$rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'impression_configs' );
 		list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
 		if ( $rssactive == 1 ) {
@@ -136,8 +136,8 @@ function b_impression_spot_edit( $options ) {
 	
 // Date format	
 	$form .= '<tr><td><b>' . _MB_IMPRESSION_DATEFORMAT . '</b></td><td><input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMPRESSION_DATEFORMATMANUAL . '</td></tr>';
-	
-// Bytes more	
+
+// Bytes more
 	$chk   = '';
 	if ( $options[3] == 0 ) {
 		$chk = ' checked="checked"';
@@ -155,14 +155,14 @@ function b_impression_spot_edit( $options ) {
 		$chk = ' checked="checked"';
 	}
 	$form .= '&nbsp;<input type="radio" name="options[3]" value="2"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_WORDS . '&nbsp;';	
-	
+
 	$chk   = '';
 	if ( $options[3] == 3 ) {
 		$chk = ' checked="checked"';
 	}
 	$form .= '&nbsp;<input type="radio" name="options[3]" value="3"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_CHARSF . '</td></tr>';
-	
+
 	$form .= '</table>';
-    return $form;
+	return $form;
 }
 ?>

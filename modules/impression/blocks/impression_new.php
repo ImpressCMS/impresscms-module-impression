@@ -12,7 +12,7 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
@@ -113,19 +113,19 @@ function b_impression_new_show( $options ) {
 		$mycat = icms::$xoopsDB -> fetchArray( $result2 );
 
 		$articlenew 					= array();
-		$articlenew['id'] 				= intval( $myrow['aid'] );
-		$articlenew['cid'] 				= intval( $myrow['cid'] );
-		$title 							= icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
+		$articlenew['id']				= intval( $myrow['aid'] );
+		$articlenew['cid']				= intval( $myrow['cid'] );
+		$title							= icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
 		$url 							= impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], $impressionModuleConfig['niceurl'] );
-		$articlenew['title'] 			= '<a href="' . $url . '">' . $myrow['title'] . ' </a>';
+		$articlenew['title']			= '<a href="' . $url . '">' . $myrow['title'] . ' </a>';
 		$articlenew['cattitle'] 		= '<a href="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/catview.php?cid=' . $myrow['cid'] . '">' . $mycat['title'] . ' </a>';
-		$articlenew['date'] 			= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
-		$articlenew['newpopicons'] 		= b_impression_displaynewicons( $myrow['published'], $myrow['status'], $myrow['hits'] );
-		$articlenew['adminnewicons'] 	= b_impression_adminnewicons( intval( $myrow['aid'] ), basename( dirname(  dirname( __FILE__ ) ) ) );
-		$articlenew['comments'] 		= $myrow['comments']; 
-		$articlenew['comment_rules'] 	= $impressionModuleConfig['com_rule']; 
-		$articlenew['commentz'] 		= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comment.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $myrow['comments'] . ')" />';
-		
+		$articlenew['date']				= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
+		$articlenew['newpopicons']		= b_impression_displaynewicons( $myrow['published'], $myrow['status'], $myrow['hits'] );
+		$articlenew['adminnewicons']	= b_impression_adminnewicons( intval( $myrow['aid'] ), basename( dirname(  dirname( __FILE__ ) ) ) );
+		$articlenew['comments'] 		= hascomments( $myrow['aid'] );
+		$articlenew['comment_rules']	= $impressionModuleConfig['com_rule'];
+		$articlenew['commentz'] 		= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comment.png" alt="" title="' . _COMMENTS . '&nbsp;(' . hascomments( $myrow['aid'] ) . ')" />';
+
 		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
 		$block['articlenew'][] = $articlenew;
 	}

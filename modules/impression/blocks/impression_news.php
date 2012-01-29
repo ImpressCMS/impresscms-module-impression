@@ -83,20 +83,20 @@ function b_impression_news_show( $options ) {
 			$articlenews['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/submit.php?op=delete&amp;aid=' . $myrow['aid'] . '">' . _MB_IMPRESSION_DELETE . '</a> ]';
 		}
 		
-		$articlenews['id'] 			= intval( $myrow['aid'] );
+		$articlenews['id']			= intval( $myrow['aid'] );
 		$articlenews['cid'] 		= intval( $myrow['cid'] );
 		$nice_link					= impression_nicelink( $myrow['title'], $myrow['nice_url'] );
 		$url						= impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], $impressionModuleConfig['niceurl'] );
-		$articlenews['title'] 		= '<a href="' . $url . '">' . $title . ' </a>';
-		$articlenews['date'] 		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
-		$articlenews['hits'] 		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
-		$articlenews['submitter'] 	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
-		$articlenews['introtext'] 	= $myrow['introtext'];
+		$articlenews['title']		= '<a href="' . $url . '">' . $title . ' </a>';
+		$articlenews['date']		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
+		$articlenews['hits']		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
+		$articlenews['submitter']	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
+		$articlenews['introtext']	= $myrow['introtext'];
 		$articlenews['description'] = $myrow['description'];
 		$articlenews['bytesmore']	= mb_strlen( $myrow['description'] );
-		$articlenews['comments'] 	= $myrow['comments'];
+		$articlenews['comments']	= hascomments( $myrow['aid'] );
 		$articlenews['comment_rules'] = $impressionModuleConfig['com_rule'];
-		$articlenews['commentz'] 	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $myrow['comments'] . ')" />';
+		$articlenews['commentz']	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . hascomments( $myrow['aid'] ) . ')" />';
 		if ( mb_strlen( $myrow['description'] ) > 0 ) {
 			$articlenews['readmore'] = '<a href="' . $url . '"><b><i>' . _MB_IMPRESSION_READMORE . '</i></b></a>';
 			$articlenews['options']	= $options[3];

@@ -84,11 +84,11 @@ if ( mb_strlen( $article_arr['description'] ) > 0 ) {
 		};
 
 // Comment icon
-$article['comments'] = $article_arr['comments']; 
+$article['comments'] = hascomments( $article_arr['aid'] ); 
 $article['comment_rules'] = icms::$module -> config['com_rule']; 
-$article['comment1'] = '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $article_arr['comments'] . ')" />';
-$article['comment2'] = '<a href="#comments"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . $article_arr['comments'] . ')" /></a>';			
-		
+$article['comment1'] = '<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . hascomments( $article_arr['aid'], icms::$module -> getVar( 'mid' ) ) . ')" />';
+$article['comment2'] = '<a href="#comments"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . hascomments( $article_arr['aid'] ) . ')" /></a>';
+
 $article['icons']		= impression_displayicons( $article_arr['published'], $article_arr['status'], $article_arr['hits'] );
 $article['dirname']		= icms::$module -> getVar( 'dirname' );
 $article['readarticle'] = '<a href="' . $url . '">' . $article_arr['title'] . ' </a>';
