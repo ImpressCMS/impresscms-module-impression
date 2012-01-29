@@ -12,11 +12,11 @@
 * @license		GNU General Public License (GPL)
 *				a copy of the GNU license is enclosed.
 * ----------------------------------------------------------------------------------------------------------
-* @package		WF-Links 
+* @package		WF-Links
 * @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
-* 				WF-Links 
+* 				WF-Links
 * @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@
 * @author		McDonald
 * @version		$Id$
 */
- 
+
 $impressiondir = basename( dirname( __FILE__ ) );
 
 global $icmsConfig;
@@ -35,16 +35,16 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 } else { include_once ICMS_ROOT_PATH . '/language/english/moduleabout.php'; }
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
-$modversion['version'] 			= 1.11;
+$modversion['version']			= 1.11;
 $modversion['date'] 			= 'xx xxxxx 2012';
-$modversion['status'] 			= 'Trunk';
-$modversion['status_version'] 	= 'Trunk';
+$modversion['status']			= 'Trunk';
+$modversion['status_version']	= 'Trunk';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
-$modversion['license'] 			= _MI_IMPRESSION_ABOUTLICENSE;
-$modversion['dirname'] 			= basename( dirname( __FILE__ ) );
-$modversion['image'] 			= 'images/impression_ilogo.png';
-$modversion['iconsmall'] 		= 'images/impression_iconsmall.png';
-$modversion['iconbig'] 			= 'images/impression_iconbig.png';
+$modversion['license']			= _MI_IMPRESSION_ABOUTLICENSE;
+$modversion['dirname']			= basename( dirname( __FILE__ ) );
+$modversion['image']			= 'images/impression_ilogo.png';
+$modversion['iconsmall']		= 'images/impression_iconsmall.png';
+$modversion['iconbig']			= 'images/impression_iconbig.png';
 
 $modversion['author']				= 'Version developer: McDonald';
 $modversion['credits']				= 'WF-Projects Team. Based on the module WF-Links, thanks to the dream-team for some code snippits.';
@@ -54,7 +54,7 @@ $modversion['author_website_name']	= 'McDonalds Store';
 
 $modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
 $modversion['support_site_name']= '<a href="http://community.impresscms.org/modules/newbb/viewforum.php?forum=9" target="_blank">ImpressCMS Community Forum - Modules Support</a>';
-// 	** Contributors **
+// ** Contributors **
 $modversion['people']['developers'] [] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a> &nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
 
 $modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a>';
@@ -310,7 +310,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 'title',
-	'options'		=> array( 	_MI_IMPRESSION_TITLE => 'title',
+	'options'		=> array(	_MI_IMPRESSION_TITLE => 'title',
 								_MI_IMPRESSION_WEIGHT => 'weight' ) );
 
 $modversion['config'][] = array(
@@ -341,7 +341,7 @@ $modversion['config'][] = array(
 	'default'		=> 'tinymce',
 	'options'		=>  array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
 								_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
-								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );	
+								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'captcha',
@@ -349,7 +349,7 @@ $modversion['config'][] = array(
 	'description'	=> '_MI_IMPRESSION_CAPTCHADSC',
 	'formtype'		=> 'yesno',
 	'valuetype'		=> 'int',
-	'default'		=> 1 );								
+	'default'		=> 1 );
 
 $modversion['config'][] = array(
 	'name'			=> 'mainimagedir',
