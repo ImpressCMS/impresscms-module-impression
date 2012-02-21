@@ -98,7 +98,7 @@ function b_impression_news_show( $options ) {
 		$articlenews['comment_rules'] = $impressionModuleConfig['com_rule'];
 		$articlenews['commentz']	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . hascomments( $myrow['aid'] ) . ')" />';
 		if ( mb_strlen( $myrow['description'] ) > 0 ) {
-			$articlenews['readmore'] = '<a href="' . $url . '"><b><i>' . _MB_IMPRESSION_READMORE . '</i></b></a>';
+			$articlenews['readmore'] = '<a href="' . $url . '">' . _MB_IMPRESSION_READMORE . '</a>';
 			$articlenews['options']	= $options[3];
 		} else {
 			$articlenews['readmore'] = '';
