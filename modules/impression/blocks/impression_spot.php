@@ -101,7 +101,7 @@ function b_impression_spot_show( $options ) {
 		$articlespot['commentz']	= '<img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/comments.png" alt="" title="' . _COMMENTS . '&nbsp;(' . hascomments( $myrow['aid'] ) . ')" />';
 		$articlespot['bytesmore']	= mb_strlen( $myrow['description'] );
 		if ( mb_strlen( $myrow['description'] ) > 0 ) {
-			$articlespot['readmore'] = '<a href="' . $url . '"><b><i>' . _MB_IMPRESSION_READMORE . '</i></b></a>';
+			$articlespot['readmore'] = '<a href="' . $url . '">' . _MB_IMPRESSION_READMORE . '</a>';
 			$articlespot['options']	= $options[3];
 		} else {
 			$articlespot['readmore'] = '';
