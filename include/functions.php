@@ -300,7 +300,7 @@ function impression_getDirSelectOption( $selected, $dirarray, $namearray ) {
 		} else {
 			$opt_selected = '';
 		}
-		echo "<option value='" . $impressionmyts -> htmlSpecialCharsStrip( $namearray, ENT_QUOTES ) . "' $opt_selected>" . $workd . "</option>";
+		echo '<option value="' . htmlspecialchars( $namearray, ENT_QUOTES ) . '"' . $opt_selected . '>' . $workd . '</option>';
 	}
 	echo "</select>";
 }
