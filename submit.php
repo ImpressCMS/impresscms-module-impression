@@ -42,7 +42,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 	if ( impression_cleanRequestVars( $_REQUEST, 'submit', 0 ) ) {
 		
 		// Verify captcha code
-		if ( icms::$module -> config['captcha'] == true && $icmsConfigUser['use_captcha'] == true ) {
+		if ( icms::$module -> config['captcha'] ) {
 			$icmsCaptcha = icms_form_elements_captcha_Object::instance();
 			if ( !$icmsCaptcha -> verify( true ) ) {
 				redirect_header( 'submit.php', 2, $icmsCaptcha -> getMessage() );
@@ -302,7 +302,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$sform -> addElement( $option_tray );
 		
 		// Captcha
-		if ( icms::$module -> config['captcha'] == true && $icmsConfigUser['use_captcha'] == true ) {
+		if ( icms::$module -> config['captcha'] ) {
 			$sform -> addElement( new icms_form_elements_Captcha( _SECURITYIMAGE_GETCODE, 'scode' ), true ); 
 		}
 
