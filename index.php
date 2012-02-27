@@ -169,8 +169,8 @@ $rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'impression_confi
 list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
 
 if ( $rssactive == 1 ) {
-	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="' . _MD_IMPRESSION_FEED . '" title="' . _MD_IMPRESSION_FEED . '" /></a>');
-	$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MD_IMPRESSION_FEED . '" href="feed.php">' );
+	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="" title="' . _MD_IMPRESSION_FEED . '" /></a>');
+	$xoopsTpl -> assign( 'xoops_module_header', '<atom:link rel="alternate" type="application/rss+xml" title="' . _MD_IMPRESSION_FEED . '" href="feed.php">' );
 }
 
 include ICMS_ROOT_PATH . '/footer.php';
