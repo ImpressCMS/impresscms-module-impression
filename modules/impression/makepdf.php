@@ -22,17 +22,7 @@ include_once 'header.php';
 
 if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
-function strip_p_tag( $text ) {
-	$search = array( "'<p>'si", "'</p>'si" );
-
-	$replace = array( "", "<br /><br />" );
-
-	$text = preg_replace( $search, $replace, $text );
-	return $text;
-}
-
-$aid = impression_cleanRequestVars( $_REQUEST, 'aid', 0 );
-$aid = intval( $aid );
+$aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
 $result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix('impression_articles') . ' WHERE aid=' . $aid );
 $myrow = icms::$xoopsDB -> fetchArray( $result );
@@ -53,9 +43,13 @@ $category = $mycat['title'];
 $whowhen = sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
 $content = '<h1>' . $title . '</h1><br /><br />' . $myrow['introtext'] . $myrow['description'];
 
-$slogan = $icmsConfig['sitename'] . ' - ' . $icmsConfig['slogan'];
+if ( $icmsConfig['slogan'] ) {
+	$slogan = $icmsConfig['sitename'] . ' - ' . $icmsConfig['slogan'];
+} else {
+	$slogan = $icmsConfig['sitename'];
+}
+
 $keywords = $myrow['meta_keywords'];
-$description = '';
 
 require_once ICMS_PDF_LIB_PATH . '/tcpdf.php';
 
@@ -67,20 +61,15 @@ if ( file_exists( $filename ) ) {
 	include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/language/english/main.php';
 }
 
-$filename = ICMS_PDF_LIB_PATH . '/config/lang/' . _LANGCODE . '.php';
-if( file_exists( $filename ) ) {
+$filename = ICMS_ROOT_PATH . '/language/' . $icmsConfig['language'] . '/pdf.php';
+if ( file_exists( $filename ) ) {
 	include_once $filename;
+} else {
+	include_once ICMS_PDF_LIB_PATH . '/config/lang/eng.php';
 }
 
 $firstLine = $slogan;
 $secondLine = $whowhen;
-
-// Set font
-// dejavusans is a UTF-8 Unicode font, if you only need to
-// print standard ASCII chars, you can use core fonts like
-// helvetica or times to reduce file size.
-// For Japanese change dejavusans to arialunicid0
-$fonttype = 'dejavusans';
 
 // Extend the TCPDF class to create custom Footer
 class ImpressionPDF extends TCPDF {
@@ -99,7 +88,7 @@ $pdf = new ImpressionPDF( PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true,
 
 // set document information
 $pdf -> SetCreator( PDF_CREATOR );
-$pdf -> SetAuthor( $submitter );
+$pdf -> SetAuthor( strip_tags( icms_member_user_Handler::getUserLink( $myrow['uid'] ) ) );
 $pdf -> SetTitle( $title );
 $pdf -> SetSubject( $category );
 $pdf -> SetKeywords( $keywords );
@@ -124,11 +113,11 @@ $pdf -> setLanguageArray($l); //set language items
 $pdf -> setFontSubsetting( true );
 
 // set font
-$pdf -> SetFont( $fonttype, '', 10, '', true );
+$pdf -> SetFont( '', '', 10, '', true );
 
 // initialize document
 // $pdf -> AliasNbPages();
 $pdf -> AddPage();
-$pdf -> writeHTML( $content, true, false , true, false, '');
+$pdf -> writeHTML( $content, true, false, true, false, '' );
 $pdf -> Output();
 ?>
