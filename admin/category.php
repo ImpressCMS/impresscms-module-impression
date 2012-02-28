@@ -68,6 +68,9 @@ function createcat($cid = 0) {
 		$groups = true;
 	}
 
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+	  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+
 	$sform = new icms_form_Theme( $heading, 'op', '' );
 	$sform -> setExtra( 'enctype="multipart/form-data"' );
 
@@ -105,7 +108,7 @@ function createcat($cid = 0) {
 	$sform -> addElement( $editor, false );
 
 // Display in blocks
-	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_CAT_INBLOCKS . impression_helptip( _AM_IMPRESSION_CAT_INBLOCKS_DSC ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
+	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_CAT_INBLOCKS . impression_tooltip( _AM_IMPRESSION_CAT_INBLOCKS_DSC, 'help' ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
 	$sform -> addElement( $inblocks_yn );
 
 	$sform -> addElement(new icms_form_elements_Hidden( 'cid', $cid ) );

@@ -50,10 +50,13 @@ function rss_edit() {
 	$rsstotal    = $feed_array['rsstotal'] ? htmlspecialchars( $feed_array['rsstotal'] ) : '15';
 	$rssofftitle = $feed_array['rssofftitle'] ? htmlspecialchars( $feed_array['rssofftitle'] ) : _AM_IMPRESSION_RSSOFFTITLE;
 	$rssoffdsc   = $feed_array['rssoffdsc'] ? htmlspecialchars( $feed_array['rssoffdsc'] ) : _AM_IMPRESSION_RSSOFFMSGDEF;
-		
+
 	icms_cp_header();
 	impression_adminmenu( 8, _AM_IMPRESSION_RSSFEED );
-	
+
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 				' . _AM_IMPRESSION_RSSFEEDDSC . '';
@@ -65,58 +68,58 @@ function rss_edit() {
 	$sform = new icms_form_Theme( _AM_IMPRESSION_RSSFEEDCFG, 'storyform', '' );
 	$sform -> setExtra( 'enctype="multipart/form-data"' );
 
-	$rssstatus_radio = new icms_form_elements_Radioyn( _AM_IMPRESSION_RSSACTIVE . impression_helptip( _AM_IMPRESSION_RSSACTIVEDSC ), 'rssactive', $rssactive, ' ' . _YES . '', ' ' . _NO . '' );
+	$rssstatus_radio = new icms_form_elements_Radioyn( _AM_IMPRESSION_RSSACTIVE . impression_tooltip( _AM_IMPRESSION_RSSACTIVEDSC ), 'rssactive', $rssactive, ' ' . _YES . '', ' ' . _NO . '' );
 	$sform -> addElement( $rssstatus_radio );
 
-	$formtitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSTITLE . impression_helptip( _AM_IMPRESSION_RSSTITLEDSC ), 'rsstitle', icms::$module -> config['txt_width'], 128, $rsstitle );
+	$formtitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSTITLE . impression_tooltip( _AM_IMPRESSION_RSSTITLEDSC ), 'rsstitle', icms::$module -> config['txt_width'], 128, $rsstitle );
 	$sform -> addElement( $formtitle, false );
 
-	$formlink = new icms_form_elements_Text( _AM_IMPRESSION_RSSLINKS . impression_helptip( _AM_IMPRESSION_RSSLINKSDSC ), 'rsslink', icms::$module -> config['txt_width'], 255, $rsslink );
+	$formlink = new icms_form_elements_Text( _AM_IMPRESSION_RSSLINKS . impression_tooltip( _AM_IMPRESSION_RSSLINKSDSC ), 'rsslink', icms::$module -> config['txt_width'], 255, $rsslink );
 	$sform -> addElement( $formlink, false );
 
-	$formdsc = new icms_form_elements_Textarea( _AM_IMPRESSION_RSSDESCRIPTION . impression_helptip( _AM_IMPRESSION_RSSDESCRIPTIONDSC ), 'rssdsc', $rssdsc, 4, 50 );
+	$formdsc = new icms_form_elements_Textarea( _AM_IMPRESSION_RSSDESCRIPTION . impression_tooltip( _AM_IMPRESSION_RSSDESCRIPTIONDSC ), 'rssdsc', $rssdsc, 4, 50 );
 	$sform -> addElement( $formdsc, false );
 
-	$formimage = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMAGE . impression_helptip( _AM_IMPRESSION_RSSIMAGEDSC ), 'rssimgurl', icms::$module -> config['txt_width'], 255, $rssimgurl );
+	$formimage = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMAGE . impression_tooltip( _AM_IMPRESSION_RSSIMAGEDSC ), 'rssimgurl', icms::$module -> config['txt_width'], 255, $rssimgurl );
 	$sform -> addElement( $formimage, false );
 
-	$formwidth = new icms_form_elements_Text( _AM_IMPRESSION_RSSWIDTH . impression_helptip( _AM_IMPRESSION_RSSWIDTHDSC ), 'rsswidth', 3, 8, $rsswidth );
+	$formwidth = new icms_form_elements_Text( _AM_IMPRESSION_RSSWIDTH . impression_tooltip( _AM_IMPRESSION_RSSWIDTHDSC ), 'rsswidth', 3, 8, $rsswidth );
 	$sform -> addElement( $formwidth, false );
 
-	$formheight = new icms_form_elements_Text( _AM_IMPRESSION_RSSHEIGHT . impression_helptip( _AM_IMPRESSION_RSSHEIGHTDSC ), 'rssheight', 3, 8, $rssheight );
+	$formheight = new icms_form_elements_Text( _AM_IMPRESSION_RSSHEIGHT . impression_tooltip( _AM_IMPRESSION_RSSHEIGHTDSC ), 'rssheight', 3, 8, $rssheight );
 	$sform -> addElement( $formheight, false );
 
-	$formimgtitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMGTITLE . impression_helptip( _AM_IMPRESSION_RSSIMGTITLEDSC ), 'rssimgtitle', icms::$module -> config['txt_width'], 128, $rssimgtitle );
+	$formimgtitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMGTITLE . impression_tooltip( _AM_IMPRESSION_RSSIMGTITLEDSC ), 'rssimgtitle', icms::$module -> config['txt_width'], 128, $rssimgtitle );
 	$sform -> addElement( $formimgtitle, false );
 
-	$formimglink = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMGLINK . impression_helptip( _AM_IMPRESSION_RSSIMGLINKDSC ), 'rssimglink', icms::$module -> config['txt_width'], 255, $rssimglink );
+	$formimglink = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMGLINK . impression_tooltip( _AM_IMPRESSION_RSSIMGLINKDSC ), 'rssimglink', icms::$module -> config['txt_width'], 255, $rssimglink );
 	$sform -> addElement( $formimglink, false );
 
-	$formttl = new icms_form_elements_Text( _AM_IMPRESSION_RSSTTL . impression_helptip( _AM_IMPRESSION_RSSTTLDSC ), 'rssttl', 3, 128, $rssttl );
+	$formttl = new icms_form_elements_Text( _AM_IMPRESSION_RSSTTL . impression_tooltip( _AM_IMPRESSION_RSSTTLDSC ), 'rssttl', 3, 128, $rssttl );
 	$sform -> addElement( $formttl, false );
 
-	$formwebmaster = new icms_form_elements_Text( _AM_IMPRESSION_RSSWEBMASTER . impression_helptip( _AM_IMPRESSION_RSSWEBMASTERDSC ), 'rsswebmaster', icms::$module -> config['txt_width'], 255, $rsswebmaster );
+	$formwebmaster = new icms_form_elements_Text( _AM_IMPRESSION_RSSWEBMASTER . impression_tooltip( _AM_IMPRESSION_RSSWEBMASTERDSC ), 'rsswebmaster', icms::$module -> config['txt_width'], 255, $rsswebmaster );
 	$sform -> addElement( $formwebmaster, false );
 	
-	$formeditor = new icms_form_elements_Text( _AM_IMPRESSION_RSSEDITOR . impression_helptip( _AM_IMPRESSION_RSSEDITORDSC ), 'rsseditor', icms::$module -> config['txt_width'], 255, $rsseditor );
+	$formeditor = new icms_form_elements_Text( _AM_IMPRESSION_RSSEDITOR . impression_tooltip( _AM_IMPRESSION_RSSEDITORDSC ), 'rsseditor', icms::$module -> config['txt_width'], 255, $rsseditor );
 	$sform -> addElement( $formeditor, false );
 	
-	$formcategory = new icms_form_elements_Text( _AM_IMPRESSION_RSSCATEGORY . impression_helptip( _AM_IMPRESSION_RSSCATEGORYDSC ), 'rsscategory', icms::$module -> config['txt_width'], 128, $rsscategory );
+	$formcategory = new icms_form_elements_Text( _AM_IMPRESSION_RSSCATEGORY . impression_tooltip( _AM_IMPRESSION_RSSCATEGORYDSC ), 'rsscategory', icms::$module -> config['txt_width'], 128, $rsscategory );
 	$sform -> addElement( $formcategory, false );
 	
-	$formgenerator = new icms_form_elements_Text( _AM_IMPRESSION_RSSGENERATOR . impression_helptip( _AM_IMPRESSION_RSSGENERATORDSC ), 'rssgenerator', icms::$module -> config['txt_width'], 128, $rssgenerator );
+	$formgenerator = new icms_form_elements_Text( _AM_IMPRESSION_RSSGENERATOR . impression_tooltip( _AM_IMPRESSION_RSSGENERATORDSC ), 'rssgenerator', icms::$module -> config['txt_width'], 128, $rssgenerator );
 	$sform -> addElement( $formgenerator, false );
 	
-	$formcopyright = new icms_form_elements_Text( _AM_IMPRESSION_RSSCOPYRIGHT . impression_helptip( _AM_IMPRESSION_RSSCOPYRIGHTDSC ), 'rsscopyright', icms::$module -> config['txt_width'], 128, $rsscopyright );
+	$formcopyright = new icms_form_elements_Text( _AM_IMPRESSION_RSSCOPYRIGHT . impression_tooltip( _AM_IMPRESSION_RSSCOPYRIGHTDSC ), 'rsscopyright', icms::$module -> config['txt_width'], 128, $rsscopyright );
 	$sform -> addElement( $formcopyright, false );
 	
-	$formtotal = new icms_form_elements_Text( _AM_IMPRESSION_RSSTOTAL . impression_helptip( _AM_IMPRESSION_RSSTOTALDSC ), 'rsstotal', 3, 8, $rsstotal );
+	$formtotal = new icms_form_elements_Text( _AM_IMPRESSION_RSSTOTAL . impression_tooltip( _AM_IMPRESSION_RSSTOTALDSC ), 'rsstotal', 3, 8, $rsstotal );
 	$sform -> addElement( $formtotal, false );
 	
-	$formofftitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSOFFLINE . impression_helptip( _AM_IMPRESSION_RSSOFFLINEDSC ), 'rssofftitle', icms::$module -> config['txt_width'], 128, $rssofftitle );
+	$formofftitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSOFFLINE . impression_tooltip( _AM_IMPRESSION_RSSOFFLINEDSC ), 'rssofftitle', icms::$module -> config['txt_width'], 128, $rssofftitle );
 	$sform -> addElement( $formofftitle, false );
 
-	$formoffmsg = new icms_form_elements_Textarea( _AM_IMPRESSION_RSSOFFMSG . impression_helptip( _AM_IMPRESSION_RSSOFFMSGDSC ), 'rssoffdsc', $rssoffdsc, 4, 50 );
+	$formoffmsg = new icms_form_elements_Textarea( _AM_IMPRESSION_RSSOFFMSG . impression_tooltip( _AM_IMPRESSION_RSSOFFMSGDSC ), 'rssoffdsc', $rssoffdsc, 4, 50 );
 	$sform -> addElement( $formoffmsg, false );
 
 	$button_tray = new icms_form_elements_Tray( '', '' );

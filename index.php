@@ -135,7 +135,7 @@ if ( !$rss_mod ) {
 	$xoopsTpl -> assign( 'rss_icon', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . icms::$module -> getVar( 'dirname' ) . '" alt="' . _MD_IMPRESSION_GETFEED . '" title="' . _MD_IMPRESSION_GETFEED . '" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>' );
 }
 
-if ($head_arr['lastarticlesyn'] == 1  && $head_arr['lastarticlestotal'] > 0) {
+if ( $head_arr['lastarticlestotal'] > 0 ) {
 
 	$result = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE published > 0 
 										AND published <= ' . time() . ' 

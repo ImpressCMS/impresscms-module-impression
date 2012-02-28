@@ -117,8 +117,11 @@ tr.impression_even td {
 	font-size: smaller;
 	font-weight: bold;
 	cursor: pointer;
-	border: outset 1px #CCC;
-	box-shadow:1px 1px 2px #AAAAAA; }
+	border: outset 1px #CCC; }
+
+#button a:link { background-color: transparent; color: #444; font-weight: bold; text-decoration: none; box-shadow: 1px 1px 2px #AAAAAA; }
+#button a:visited { background-color: transparent; color: #444; font-weight: bold; text-decoration: none; }
+#button a:hover { background-color: transparent; color: #444; font-weight: bold; text-decoration: none; border: 1px solid #000; box-shadow: 0px 0px 0px #AAAAAA; }
 
 .impression_minibutton {
 	padding: 2px 0.5em 2px 0.5em;

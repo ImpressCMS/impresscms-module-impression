@@ -39,9 +39,8 @@ switch ( strtolower( $op ) ) {
 		$indeximage = icms_core_DataFilter::addSlashes( $_POST['indeximage'] );
 		$indexheaderalign = icms_core_DataFilter::addSlashes( $_POST['indexheaderalign'] );
 		$indexfooteralign = icms_core_DataFilter::addSlashes( $_POST['indexfooteralign'] );
-		$lastarticlesyn = $_POST['lastarticlesyn'];
 		$lastarticlestotal = icms_core_DataFilter::addSlashes( $_POST['lastarticlestotal'] );
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlesyn='$lastarticlesyn', lastarticlestotal='$lastarticlestotal'";
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlestotal='$lastarticlestotal'";
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
@@ -50,15 +49,18 @@ switch ( strtolower( $op ) ) {
 		break;
 
 	default:
-		$sql = 'SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastarticlesyn, lastarticlestotal FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' );
+		$sql = 'SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastarticlestotal FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' );
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
 		}
-		list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastarticlesyn, $lastarticlestotal ) = icms::$xoopsDB -> fetchrow( $result );
+		list( $indeximage, $indexheading, $indexheader, $indexfooter, $indexheaderalign, $indexfooteralign, $lastarticlestotal ) = icms::$xoopsDB -> fetchrow( $result );
 
 		icms_cp_header();
 		impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
+
+		echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
 
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_IPAGE_INFORMATION . '</div>
@@ -92,9 +94,7 @@ switch ( strtolower( $op ) ) {
 		$footeralign_select -> addOptionArray( array( 'left' => _AM_IMPRESSION_IPAGE_CLEFT, 'right' => _AM_IMPRESSION_IPAGE_CRIGHT, 'center' => _AM_IMPRESSION_IPAGE_CCENTER ) );
 		$sform -> addElement( $footeralign_select );
 
-		$sform -> addElement(  new icms_form_elements_Radioyn( _AM_IMPRESSION_IPAGE_SHOWLATEST, 'lastarticlesyn', $lastarticlesyn, ' ' . _YES . '', ' ' . _NO . '' ) );
-
-		$lastarticlestotalform = new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_LATESTTOTAL . impression_helptip( _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC ), 'lastarticlestotal', 2, 2, $lastarticlestotal );
+		$lastarticlestotalform = new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_LATESTTOTAL . impression_tooltip( _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC, 'help' ), 'lastarticlestotal', 2, 2, $lastarticlestotal );
 		$sform -> addElement( $lastarticlestotalform, false );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );

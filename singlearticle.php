@@ -243,6 +243,9 @@ switch ( icms::$module -> config['plusone_bttn'] ) {
 //Social bookmarks
 $article['showsbookmarks'] = icms::$module -> config['showsbookmarks'];
 
+$article['google'] = icms::$module -> config['plusone_bttn'];
+$article['facebk'] = icms::$module -> config['faceb_bttn'];
+
 switch ( icms::$module -> config['showsbookmarks'] ) {
 	case 0:
 		$article['socialbutton'] = '';

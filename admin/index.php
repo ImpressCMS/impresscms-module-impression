@@ -66,6 +66,10 @@ function edit( $aid = 0, $doclone = 0 ) {
 
 	icms_cp_header();
 	impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );
+
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
+		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+
 	if ( $aid ) {
 		$inblocks = $article_array['inblocks'];
 		$text_info = '
@@ -105,7 +109,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_ARTICLE_TITLE, 'title', icms::$module -> config['txt_width'], 255, $title ), true );
 
 // Article nice url	
-	$niceform = new icms_form_elements_Text( _AM_IMPRESSION_NICEURL . impression_helptip( _AM_IMPRESSION_NICEURLDSC ), 'nice_url', icms::$module -> config['txt_width'], 255, $nice_url );
+	$niceform = new icms_form_elements_Text( _AM_IMPRESSION_NICEURL . impression_tooltip( _AM_IMPRESSION_NICEURLDSC, 'help' ), 'nice_url', icms::$module -> config['txt_width'], 255, $nice_url );
 	$sform -> addElement( $niceform, false );
 
 // Article submitter
@@ -128,28 +132,28 @@ function edit( $aid = 0, $doclone = 0 ) {
 	ob_end_clean();
 
 // Article introtext form
-	$introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT . impression_helptip( _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC ), 'introtextb', $introtextb, 250, 10 );
+	$introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT . impression_tooltip( _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC, 'help' ), 'introtextb', $introtextb, 250, 10 );
 	$sform -> addElement( $introeditor, false );
 
 // Article description form 
-	$editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION . impression_helptip( _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC ), 'descriptionb', $descriptionb, 500, 35 );
+	$editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION . impression_tooltip( _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC, 'help' ), 'descriptionb', $descriptionb, 500, 35 );
 	$sform -> addElement( $editor, false );
 
 // Article source
 	$source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
-	$source_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCE . impression_helptip( _AM_IMPRESSION_SOURCEDSC ), '' );
+	$source_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCE . impression_tooltip( _AM_IMPRESSION_SOURCEDSC, 'help' ), '' );
 	$source_tray -> addElement( $source_text, false) ;
 	$sform -> addElement( $source_tray );
 
 // Article source url
 	$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
-	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL . impression_helptip( _AM_IMPRESSION_SOURCEURLDSC ), '' );
+	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL . impression_tooltip( _AM_IMPRESSION_SOURCEURLDSC, 'help' ), '' );
 	$sourceurl_tray -> addElement( $sourceurl_text, false) ;
 	$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _AM_IMPRESSION_CHECKURL . "' title='" . _AM_IMPRESSION_CHECKURL . "' />" ) );
 	$sform -> addElement( $sourceurl_tray );
 
 // Meta keywords form
-	$keywords = new icms_form_elements_Textarea( _AM_IMPRESSION_KEYWORDS . impression_helptip( _AM_IMPRESSION_KEYWORDS_NOTE ), 'meta_keywords', $meta_keywords, 7, 60);
+	$keywords = new icms_form_elements_Textarea( _AM_IMPRESSION_KEYWORDS . impression_tooltip( _AM_IMPRESSION_KEYWORDS_NOTE, 'help' ), 'meta_keywords', $meta_keywords, 7, 60);
 	$sform -> addElement( $keywords, false );
 
 // Insert tags if Tag-module is installed
@@ -161,7 +165,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	}
 
 // Publish date
-	$datesub_datetime = new icms_form_elements_Datetime(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE . impression_helptip( _AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC ), 'published', $size = 15, $published);
+	$datesub_datetime = new icms_form_elements_Datetime(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE . impression_tooltip( _AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC, 'help' ), 'published', $size = 15, $published);
 	$sform -> addElement( $datesub_datetime );
 
 // Set Status
@@ -175,12 +179,12 @@ function edit( $aid = 0, $doclone = 0 ) {
 								1 => _AM_IMPRESSION_OFFLINE,
 								2 => _AM_IMPRESSION_REJECTED );
 	}
-	$status_select = new icms_form_elements_Select( _AM_IMPRESSION_ARTICLE_FILESSTATUS . impression_helptip( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC ), 'status', $status );
+	$status_select = new icms_form_elements_Select( _AM_IMPRESSION_ARTICLE_FILESSTATUS . impression_tooltip( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC, 'help' ), 'status', $status );
 	$status_select -> addOptionArray( $status_array );
 	$sform -> addElement( $status_select );
 	
 // Display in blocks
-	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_ARTICLE_INBLOCKS . impression_helptip( _AM_IMPRESSION_ARTICLE_INBLOCKS_DSC ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
+	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_ARTICLE_INBLOCKS . impression_tooltip( _AM_IMPRESSION_ARTICLE_INBLOCKS_DSC, 'help' ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
 	$sform -> addElement( $inblocks_yn );	
 
 	if ( !$aid ) {
@@ -359,11 +363,11 @@ switch ( strtolower( $op ) ) {
 
 		icms_cp_header();
 		impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
-		
+
 		echo '<link href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" rel="stylesheet" type="text/css" />';
 		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;  border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
-				<div style="padding: 10px;">
+				<div style="padding: 10px;" id="button">
 					<a class="impression_button" href="category.php">' . _AM_IMPRESSION_SCATEGORY . $totalcats . '</a>
 					<a class="impression_button" href="index.php">' . _AM_IMPRESSION_SFILES . $totalarticles . '</a>
 					<a class="impression_button" href="newarticles.php">' . _AM_IMPRESSION_SNEWFILESVAL . $totalnewarticles . '</a>
@@ -371,12 +375,13 @@ switch ( strtolower( $op ) ) {
 				</div>
 			 </div>';
 
-		if ( $totalarticles > 0 ) {
+//		if ( $totalarticles > 0 ) {
 			$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' ORDER BY aid DESC';
 			$published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
 			$published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
 			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>' . impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
-			echo '<div class="impression_table" style="font-size: 10px;">
+			if ( $published_array_count > 0 ) {
+				echo '<div class="impression_table" style="font-size: 10px;">
 					<div class="impression_tblhdrrow">
 						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ID . '</div>
 						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_TITLE . '</div>
@@ -386,16 +391,16 @@ switch ( strtolower( $op ) ) {
 						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ONLINE . '</div>
 						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_ACTION . '</div>
 					</div>';
-			if ( $published_array_count > 0 ) {
+			
 				while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
 					impression_articlelistbody( $published );
 				}
 				echo '</div>';
 				impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' );
 			} else {
-				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold;">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</div>';
+				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold; background-color: #FFFF99;">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</div>';
 			}
-		}
+//		}
 		icms_cp_footer();
 		break;
 }
