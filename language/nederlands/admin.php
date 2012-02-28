@@ -370,4 +370,6 @@ define( '_AM_IMPRESSION_CAT_INBLOCKS', 'Categorie weergeven in blokken?' );
 define( '_AM_IMPRESSION_CAT_INBLOCKS_DSC', 'Kies <em>Ja</em> om de categorie weer te geven in de blokken Spotlight en Recente Titels. Als u <em>Nee</em> kiest, wordt de categorie niet weergegeven in de blokken.' );
 define( '_AM_IMPRESSION_ICO_INBLOCKN', 'Niet in blokken weergegeven' );
 define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Weergegeven in blokken' );
+define( '_AM_IMPRESSION_WARNLIB1', 'WAARSCHUWING: De library <u>Lytebox</u> is niet aanwezig.' );
+define( '_AM_IMPRESSION_WARNLIB2', 'WAARSCHUWING: De library <u>Social Share Privacy</u> is niet aanwezig.' );
 ?>

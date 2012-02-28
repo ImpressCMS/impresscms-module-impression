@@ -372,4 +372,13 @@ define( '_AM_IMPRESSION_CAT_INBLOCKS', '¿Mostrar la categoría del artículo en
 define( '_AM_IMPRESSION_CAT_INBLOCKS_DSC', 'Seleccione <em>Sí</em> para mostrar la categoría de cada artículo en los bloques del módulo. Si selecciona <em>No</em> se omitirá la misma en el contenido del bloque.' );
 define( '_AM_IMPRESSION_ICO_INBLOCKN', 'No mostrar en los bloques' );
 define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Mostrar en los bloques' );
+
+// Version 1.11
+define( '_AM_IMPRESSION_SOURCE', 'Source:' );
+define( '_AM_IMPRESSION_SOURCEDSC', 'Enter the name of the source' );
+define( '_AM_IMPRESSION_SOURCEURL', 'URL of source:' );
+define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
+define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
+define( '_AM_IMPRESSION_WARNLIB1', 'WARNING: The library <u>Lytebox</u> is missing.' );
+define( '_AM_IMPRESSION_WARNLIB2', 'WARNING: The library <u>Social Share Privacy</u> is missing.' );
 ?>

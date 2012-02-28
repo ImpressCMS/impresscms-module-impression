@@ -382,9 +382,12 @@ define( '_AM_IMPRESSION_CAT_INBLOCKS_DSC', 'Select <i>Yes</i> to have the catego
 define( '_AM_IMPRESSION_ICO_INBLOCKN', 'Not displayed in blocks' );
 define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Displayed in blocks' );
 
+// Version 1.11
 define( '_AM_IMPRESSION_SOURCE', 'Source:' );
 define( '_AM_IMPRESSION_SOURCEDSC', 'Enter the name of the source' );
 define( '_AM_IMPRESSION_SOURCEURL', 'URL of source:' );
 define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
 define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
+define( '_AM_IMPRESSION_WARNLIB1', 'WARNING: The library <u>Lytebox</u> is missing.' );
+define( '_AM_IMPRESSION_WARNLIB2', 'WARNING: The library <u>Social Share Privacy</u> is missing.' );
 ?>
