@@ -192,6 +192,8 @@ if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
 	}
 }
 
+$twitter = $facebook = $plusone = '';
+
 //Twitter button
 switch ( icms::$module -> config['twitt_bttn'] ) {
 	case 1:
