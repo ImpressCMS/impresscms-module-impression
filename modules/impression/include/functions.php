@@ -34,8 +34,8 @@ function impression_checkgroups( $cid = 0, $permType = 'ImpressionCatPerm', $red
 			redirect_header( 'index.php', 3, _NOPERM );
 			exit();
 		}
-    }
-    return true;
+	}
+	return true;
 }
 
 function impression_cleanRequestVars( &$array, $name = null, $def = null, $strict = false, $lengthcheck = 15 ) {
@@ -579,8 +579,21 @@ function hascomments( $aid ) {
 	return $count;
 }
 
-function impression_helptip( $description ) {
-	$helptip = '<img class="helptip" src="'. ICMS_IMAGES_SET_URL . '/actions/acp_help.png" alt="View help text" title="View help text" /><span class="helptext">' . $description . '</span>';
-	return $helptip;
+function impression_tooltip( $description, $tip = 'help' ) {
+	switch ( $tip ) {
+		case 'help':
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:help tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/help.png" alt="" /></a>';
+			break;
+		case 'info':
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:info tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/information.png" alt="" /></a>';
+			break;
+		case 'warning':
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:warning tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" /></a>';
+			break;
+		case 'error':
+			$tooltip = '<a style="float: right;" href="javascript:void(0)" class="lytetip" data-lyte-options="tipStyle:error tipDecoration:none" title="' . $description . '"><img style="float: right;" src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/exclamation.png" alt="" /></a>';
+			break;
+	}
+	return $tooltip;
 }
 ?>

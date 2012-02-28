@@ -40,11 +40,10 @@ CREATE TABLE `impression_indexpage` (
 	`indexfooter` text NOT NULL,
 	`indexheaderalign` varchar(25) NOT NULL default 'left',
 	`indexfooteralign` varchar(25) NOT NULL default 'center',
-	`lastarticlesyn` tinyint(1) NOT NULL default '0',
 	`lastarticlestotal` varchar(5) NOT NULL default '5'
 ) ENGINE=MYISAM;
 
-INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastarticlesyn`,`lastarticlestotal`) VALUES ('impression_bar.png','Impression header','Enjoy reading the articles in <em>Impression</em>','Impression footer','left','left','0','5');
+INSERT INTO `impression_indexpage` (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastarticlestotal`) VALUES ('impression_bar.png','Impression header','Enjoy reading the articles in <em>Impression</em>','Impression footer','left','left','50');
 
 #
 # Table structure for table 'impression_articles'

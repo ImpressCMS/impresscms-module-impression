@@ -81,5 +81,8 @@ if( $ref == '' || strpos( $ref , ICMS_URL . '/modules/system/admin.php' ) === 0 
 
 		$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN sourceurl VARCHAR(255) NOT NULL default ''";
 		if ( !mysql_query( $sql ) ) {}
+
+		$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_indexpage') . " DROP lastlinksyn";
+		if ( !mysql_query( $sql ) ) {}
 }
 ?>

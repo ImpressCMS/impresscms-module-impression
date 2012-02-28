@@ -2,12 +2,17 @@
 xx.xx.2012 - Version 1.x
 =========================================================
 Added:
-- social media buttons for Facebook, Google 1+ and Twitter
-- help tips to forms
+- Social media buttons for Facebook, Google 1+ and Twitter
+- Tool tips to forms
+- Lytebox version 5.5
 
 Fixed:
-- captcha in Submit form causes issues
-- block news by category
+- Captcha in Submit form causes issues
+- Block news by category
+- MySQL errors when updating
+
+Removed:
+- Option to turn on/off latest links in Index Page
 
 Removed files:
 - class/class_thumbnail.php
