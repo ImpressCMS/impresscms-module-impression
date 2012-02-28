@@ -94,43 +94,31 @@ function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $ex
 	// ###### Output warn messages for security ######
 	if ( is_dir( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update/' ) ) {
 		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL1, ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update/' ) );
-		echo '<br />';
 	}
 
 	$_file = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update.php';
 	if ( file_exists( $_file ) ) {
 		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL2, ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/update.php' ) );
-		echo '<br />';
 	}
 
 	$path1 = ICMS_ROOT_PATH . '/' . icms::$module -> config['mainimagedir'];
-	if ( !is_dir( $path1 ) || !is_writable( $path1 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path1 ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path1 ) || !is_writable( $path1 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path1 ) ); }
 
 	$path1_t = ICMS_ROOT_PATH . '/' . icms::$module -> config['mainimagedir'] . '/thumbs';
-	if ( !is_dir( $path1_t ) || !is_writable( $path1_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path1_t ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path1_t ) || !is_writable( $path1_t ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path1_t ) ); }
 
 	$path3 = ICMS_ROOT_PATH . '/' . icms::$module -> config['catimage'];
-	if ( !is_dir( $path3 ) || !is_writable( $path3 ) ) {
-		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path3 ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path3 ) || !is_writable( $path3 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path3 ) ); }
 
 	$path3_t = ICMS_ROOT_PATH . '/' . icms::$module -> config['catimage'] . '/thumbs';
-	if ( !is_dir( $path3_t ) || !is_writable( $path3_t ) ) {
-		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path3_t ) );
-		echo '<br />';
-	}
+	if ( !is_dir( $path3_t ) || !is_writable( $path3_t ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path3_t ) ); }
+
+	// Check if library folders are there
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lytebox' ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNLIB1 ) ); }
+	if ( !is_dir( ICMS_LIBRARIES_PATH . '/socialshareprivacy' ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNLIB2 ) ); }
 
 	echo '<h3 style="color: #2F5376;">' . $header . '</h3>';
-	if ( $extra ) {
-		echo '<div>' . $extra . '</div>';
-	}
+	if ( $extra ) { echo '<div>' . $extra . '</div>'; }
 }
 
 function impression_articlelistbody( $published ) {
