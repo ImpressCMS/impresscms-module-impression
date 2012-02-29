@@ -67,11 +67,11 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$date = time();
 		$ipaddress = $_SERVER['REMOTE_ADDR'];
 		
-		if ( icms::$module -> config['usercantag'] ) {
-			$item_tag = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['item_tag'] ) );
-		} else {
-			$item_tag = '';
-		}
+//		if ( icms::$module -> config['usercantag'] ) {
+//			$item_tag = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['item_tag'] ) );
+//		} else {
+//			$item_tag = '';
+//		}
 
 		if ( $aid == 0 ) {
 			$status = 3;
@@ -84,8 +84,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 				// $offline = 0;
 				$message = _MD_IMPRESSION_ISAPPROVED;
 			}
-			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, uid, status, date, introtext, description, ipaddress, meta_keywords, item_tag, notifypub, source, sourceurl) ";
-			$sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$notifypub', '$source', '$sourceurl')";
+			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, uid, status, date, introtext, description, ipaddress, meta_keywords, notifypub, source, sourceurl) ";
+			$sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$notifypub', '$source', '$sourceurl')";
 			if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			$_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
 				icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -123,7 +123,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		} else {
 			if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
 				$updated = time();
-				$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$publisher', status='0', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', notifypub='$notifypub', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
+				$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$publisher', status='0', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', notifypub='$notifypub', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
 				if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 					$_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
 					icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -147,8 +147,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 				$requestid = $modifysubmitter;
 				$requestdate = time();
 				$updated = impression_cleanRequestVars( $_REQUEST, 'up_dated', time() );
-				$sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate, meta_keywords, item_tag, source, sourceurl)';
-				$sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate', '$meta_keywords', '$item_tag', '$source', '$sourceurl')";
+				$sql = 'INSERT INTO ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' (requestid, aid, cid, title, introtext, description, modifysubmitter, requestdate, meta_keywords, source, sourceurl)';
+				$sql .= " VALUES ('', $aid, $cid, '$title', '$introtextb', '$descriptionb', '$modifysubmitter', '$requestdate', '$meta_keywords', '$source', '$sourceurl')";
 				if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 					$_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
 					icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -210,7 +210,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$published = $article_array['published'] ? $article_array['published'] : 0;
 		$ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
 		$meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
-		$item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
+//		$item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
 		$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
 		$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
 		$sourceurl = $article_array['sourceurl'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['sourceurl'] ) : '';
@@ -268,16 +268,16 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$sform -> addElement( $keywords, false );
 
 // Insert tags if Tag-module is installed and if user is allowed
-		if ( icms::$module -> config['usercantag'] ) {
-			if ( impression_tag_module_included() ) {
-				include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-				$text_tags = new XoopsFormTag('item_tag', 70, 255, $article_array['item_tag'], 0);
-				$sform -> addElement( $text_tags );
-			} else {
-				$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $article_array['item_tag'] ) ) ;
-			}
-		}
-		
+//		if ( icms::$module -> config['usercantag'] ) {
+//			if ( impression_tag_module_included() ) {
+//				include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
+//				$text_tags = new XoopsFormTag('item_tag', 70, 255, $article_array['item_tag'], 0);
+//				$sform -> addElement( $text_tags );
+//			} else {
+//				$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $article_array['item_tag'] ) ) ;
+//			}
+//		}
+
 // Notify form
 		$submitter2 = ( is_object( icms::$user ) && !empty( icms::$user ) ) ? icms::$user -> getVar( 'uid' ) : 0;
 		if ( $submitter2 > 0 ) {
@@ -301,7 +301,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 			$sform -> addElement( new icms_form_elements_Hidden( 'approve', 0 ) );
 		}
 		$sform -> addElement( $option_tray );
-		
+
 		// Captcha
 		if ( icms::$module -> config['captcha'] ) {
 			$sform -> addElement( new icms_form_elements_Captcha( _SECURITYIMAGE_GETCODE, 'scode' ), true ); 

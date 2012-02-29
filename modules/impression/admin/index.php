@@ -58,7 +58,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$status = $article_array['status'] ? $article_array['status'] : 0;
 	$ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
 	$meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
-	$item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
+//	$item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
 	$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
 	$nice_url = $article_array['nice_url'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['nice_url'] ) : '';
 	$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
@@ -157,12 +157,12 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$sform -> addElement( $keywords, false );
 
 // Insert tags if Tag-module is installed
-	if (impression_tag_module_included()) {
-		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-		$sform -> addElement( new XoopsFormTag( 'item_tag', icms::$module -> config['txt_width'], 255, $article_array['item_tag'], 0 ) );
-	} else {
-		$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $article_array['item_tag'] ) );
-	}
+//	if (impression_tag_module_included()) {
+//		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
+//		$sform -> addElement( new XoopsFormTag( 'item_tag', icms::$module -> config['txt_width'], 255, $article_array['item_tag'], 0 ) );
+//	} else {
+//		$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $article_array['item_tag'] ) );
+//	}
 
 // Publish date
 	$datesub_datetime = new icms_form_elements_Datetime(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE . impression_tooltip( _AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC, 'help' ), 'published', $size = 15, $published);
@@ -185,7 +185,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	
 // Display in blocks
 	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_ARTICLE_INBLOCKS . impression_tooltip( _AM_IMPRESSION_ARTICLE_INBLOCKS_DSC, 'help' ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
-	$sform -> addElement( $inblocks_yn );	
+	$sform -> addElement( $inblocks_yn );
 
 	if ( !$aid ) {
 		$button_tray = new icms_form_elements_Tray( '', '' );
@@ -238,7 +238,7 @@ switch ( strtolower( $op ) ) {
 		$source = icms_core_DataFilter::addSlashes( trim( $_POST['source'] ) );
 		$sourceurl = icms_core_DataFilter::addSlashes( trim( $_POST['sourceurl'] ) );
 		$meta_keywords = icms_core_DataFilter::addSlashes( trim( $_POST['meta_keywords'] ) );
-		$item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
+//		$item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
 		$published =  strtotime($_POST['published']['date'] ) + $_POST['published']['time'];
 		$uid = $_POST['uid'];
 		$publisher = icms::$user -> getVar('uid');
@@ -250,9 +250,9 @@ switch ( strtolower( $op ) ) {
 			$date = time();
 			$ipaddress = $_SERVER['REMOTE_ADDR'];
 			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, item_tag, notifypub, nice_url, inblocks, source, sourceurl)";
-			$sql .= " VALUES 	('', $cid, '$title', '$uid', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$item_tag', '$notifypub', '$nice_url', '$inblocks', '$source', '$sourceurl')";
+			$sql .= " VALUES ('', $cid, '$title', '$uid', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$notifypub', '$nice_url', '$inblocks', '$source', '$sourceurl')";
 		} else {
-			$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$uid', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', item_tag='$item_tag', notifypub='$notifypub', nice_url='$nice_url', inblocks='$inblocks', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
+			$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$uid', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', notifypub='$notifypub', nice_url='$nice_url', inblocks='$inblocks', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
 		}
 
 		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
@@ -263,11 +263,11 @@ switch ( strtolower( $op ) ) {
 		$newaid = mysql_insert_id();
 
 // Add item_tag to Tag-module
-		if ( !$aid ) {
-			$tagupdate = impression_tagupdate( $newaid, $item_tag );
-		} else {
-			$tagupdate = impression_tagupdate( $aid, $item_tag );
-		}
+//		if ( !$aid ) {
+//			$tagupdate = impression_tagupdate( $newaid, $item_tag );
+//		} else {
+//			$tagupdate = impression_tagupdate( $aid, $item_tag );
+//		}
 
 // Send notifications
 		if ( !$aid ) {
@@ -332,13 +332,13 @@ switch ( strtolower( $op ) ) {
 				return false;
 			}
 		list( $aid, $title ) = icms::$xoopsDB -> fetchrow( $result );
-			$item_tag = $result['item_tag'];
+//			$item_tag = $result['item_tag'];
 			icms_cp_header();
 			impression_adminmenu( _AM_IMPRESSION_BINDEX );
 			icms_core_Message::confirm( array( 'op' => 'delete', 'aid' => $aid, 'confirm' => 1, 'title' => $title ), 'index.php', _AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS . '<br /><br>' . $title, _DELETE );
 
 			// Remove item_tag from Tag-module
-			$tagupdate = impression_tagupdate( $aid, $item_tag );
+//			$tagupdate = impression_tagupdate( $aid, $item_tag );
 
 			icms_cp_footer();
 		}
