@@ -249,7 +249,7 @@ switch ( strtolower( $op ) ) {
 		if ( !$aid ) {
 			$date = time();
 			$ipaddress = $_SERVER['REMOTE_ADDR'];
-			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, item_tag, notifypub, nice_url, inblocks, source, sourceurl)";
+			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, notifypub, nice_url, inblocks, source, sourceurl)";
 			$sql .= " VALUES ('', $cid, '$title', '$uid', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$notifypub', '$nice_url', '$inblocks', '$source', '$sourceurl')";
 		} else {
 			$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$uid', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', notifypub='$notifypub', nice_url='$nice_url', inblocks='$inblocks', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
