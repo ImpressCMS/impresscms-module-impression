@@ -45,15 +45,11 @@
 
 <{$catarray.indexfooter}>
 
-<{if $showlatest}>
-	<br /><br />
-	<div class="impression_even" style="clear: both; font-size: bigger; font-weight: bold; margin: 10px 0 10px 0;">
-		<{$smarty.const._MD_IMPRESSION_LATESTLIST}>
-	</div>
+<{if $showlatest > 0}>
+	<br /><br /><br />
+	<div class="impression_even" style="clear: both; font-size: bigger; font-weight: bold; margin: 30px 0 10px 0;"><{$smarty.const._MD_IMPRESSION_LATESTLIST}></div>
 
-	<{if $pagenav}>
-		<div style="float: right;"><{$pagenav}></div>
-	<{/if}>
+	<{if $pagenav}><div style="float: right;"><{$pagenav}></div><{/if}>
 
 	<div style="display: table; width: 100%;">
 		<!-- Start articleloop -->
@@ -63,11 +59,7 @@
 		<!-- End article loop -->
 	</div>
 
-	<{if $pagenav}>
-		<div style="float: right;"><{$pagenav}></div>
-	<{/if}>
+	<{if $pagenav}><div style="float: right;"><{$pagenav}></div><{/if}>
 <{/if}>
-
-<br /><br />
 
 <{include file="db:system_notification_select.html"}>

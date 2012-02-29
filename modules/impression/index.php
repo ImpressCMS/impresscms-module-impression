@@ -159,7 +159,7 @@ if ( $head_arr['lastarticlestotal'] > 0 ) {
 	}
 	$pagenav = new icms_view_PageNav( $count, icms::$module -> config['perpage'], $start, 'start' );
 	$xoopsTpl -> assign( 'pagenav', $pagenav -> renderNav() );
-	$xoopsTpl -> assign( 'showlatest', $head_arr['lastarticlesyn'] );
+	$xoopsTpl -> assign( 'showlatest', $head_arr['lastarticlestotal'] );
 }
 
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
