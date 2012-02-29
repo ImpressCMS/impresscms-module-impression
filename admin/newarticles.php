@@ -111,21 +111,21 @@ switch ( strtolower( $op ) ) {
 				$submitter = icms_member_user_Handler::getUserLink( $new['uid'] );
 				$datetime = impression_time( formatTimestamp( $new['date'], icms::$module -> config['dateformat'] ) );
 
-				$icon = ( $new['published'] ) ? $approved : '<a href="newarticles.php?op=approve&amp;aid=' . $aid . '">' . $imagearray['approve'] . '</a>&nbsp;';
-				$icon .= '<a href="index.php?op=edit&amp;aid=' . $aid . '">' . $imagearray['editimg'] . '</a>&nbsp;';
-				$icon .= '<a href="index.php?op=delete&amp;aid=' . $aid . '">' . $imagearray['deleteimg'] . '</a>';
+				$icon = ( $new['published'] ) ? $approved : '<a href="newarticles.php?op=approve&amp;aid=' . $aid . '">' . $imagearray['approve'] . '</a>';
+				$icon .= '<a style="padding-left: 5px;" href="index.php?op=edit&amp;aid=' . $aid . '">' . $imagearray['editimg'] . '</a>';
+				$icon .= '<a style="padding-left: 5px;" href="index.php?op=delete&amp;aid=' . $aid . '">' . $imagearray['deleteimg'] . '</a>';
 
 				echo '<div class="impression_tblrow">
 						<div class="impression_tblhdrcell" style="text-align: center;">'. $aid . '</div>
 						<div class="impression_tblcell"><a href="newarticles.php?op=edit&amp;aid=' . $aid . '">' . $title. '</a></div>
 						<div class="impression_tblcell" style="text-align: center;">' . $submitter . '</div>
 						<div class="impression_tblcell" style="text-align: center;">' . $datetime . '</div>
-						<div class="impression_tblcell" style="text-align: center;">' . $icon . '</div>
+						<div class="impression_tblcell" style="text-align: center; width: 70px;">' . $icon . '</div>
 					  </div>';
 			}
 			echo '</div>';
 		} else {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMPRESSION_SUB_NOFILESWAITING . '</div>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMPRESSION_SUB_NOFILESWAITING . '</div>';
 		}
 
 		include_once ICMS_ROOT_PATH . '/class/pagenav.php';
