@@ -111,7 +111,7 @@ function b_impression_spot_show( $options ) {
 		list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
 		if ( $rssactive == 1 ) {
 			$articlespot['impression_feed'] = '<a href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php" target="_blank"><img src="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/feed.png" border="0" alt="" title="' . _MB_IMPRESSION_FEED . '" /></a>';
-			$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php">' );
+			$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php">' );
 		}
 
 		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
