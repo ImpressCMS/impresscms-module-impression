@@ -151,10 +151,10 @@ function impression_articlelistbody( $published ) {
 	} else {
 		$published_status = $imagearray['offline'];
 	}
-	$icon  = '<a href="index.php?op=edit&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_EDIT . '">' . $imagearray['editimg'] . '&nbsp;</a>';
-	$icon .= '<a href="index.php?op=delete&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_DELETE . '">' . $imagearray['deleteimg'] . '&nbsp;</a>';
-	$icon .= '<a href="index.php?op=clone&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_CLONE . '">' . $imagearray['clone'] . '</a>&nbsp;';
-	$icon .= '<a href="altcat.php?op=main&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>';
+	$icon  = '<a href="index.php?op=edit&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="index.php?op=delete&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="index.php?op=clone&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_CLONE . '">' . $imagearray['clone'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="altcat.php?op=main&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>';
 
 	echo '<div class="impression_tblrow">
 			<div class="impression_tblhdrcell" style="text-align: center;">' . $aid . '</div>
@@ -163,7 +163,7 @@ function impression_articlelistbody( $published ) {
 			<div class="impression_tblcell" style="text-align: center;">' . $submitter . '</div>
 			<div class="impression_tblcell" style="text-align: center;">' . $publish . '</div>
 			<div class="impression_tblcell" style="text-align: center;">' . $published_status . '</div>
-			<div class="impression_tblcell" style="white-space: nowrap; text-align: center;">' . $icon . '</div>
+			<div class="impression_tblcell" style="white-space: nowrap; text-align: center; width: 90px;">' . $icon . '</div>
 		</div>';
 	unset( $published );
 }

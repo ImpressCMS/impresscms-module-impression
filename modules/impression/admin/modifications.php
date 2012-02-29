@@ -39,11 +39,11 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_MOD_MODREQUESTS );
 
-		$sql = 'SELECT modifysubmitter, requestid, aid, cid, title, introtext, description, meta_keywords, item_tag FROM ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' WHERE requestid=' . $requestid;
+		$sql = 'SELECT modifysubmitter, requestid, aid, cid, title, introtext, description, meta_keywords FROM ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' WHERE requestid=' . $requestid;
 		$mod_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 		unset( $sql );
 
-		$sql = 'SELECT uid, aid, cid, title, introtext, description, meta_keywords, item_tag FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $mod_array['aid'];
+		$sql = 'SELECT uid, aid, cid, title, introtext, description, meta_keywords FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $mod_array['aid'];
 		$orig_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 		unset( $sql );
 
@@ -124,9 +124,9 @@ switch ( strtolower( $op ) ) {
 		$description = $article_array['description'];
 		$submitter = $article_array['modifysubmitter'];
 		$meta_keywords = $article_array['meta_keywords'];
-		$item_tag = $article_array['item_tag'];
+//		$item_tag = $article_array['item_tag'];
 
-		$sql1 = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid='$cid', title='$title', uid='$submitter', publisher='$publisher', introtext='$introtext', description='$description', meta_keywords='$meta_keywords', item_tag='$item_tag' WHERE aid=" . $aid;
+		$sql1 = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid='$cid', title='$title', uid='$submitter', publisher='$publisher', introtext='$introtext', description='$description', meta_keywords='$meta_keywords' WHERE aid=" . $aid;
 		$result = icms::$xoopsDB -> query( $sql1 );
 		$sql2 = 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' WHERE requestid=' . $requestid;
 		$result = icms::$xoopsDB -> query( $sql2 );
@@ -187,7 +187,7 @@ switch ( strtolower( $op ) ) {
 			}
 			echo '</div>';
 		} else {
-			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px;">' . _AM_IMPRESSION_MOD_NOMODREQUEST . '</div>';
+			echo '<div style="border: 1px solid #ccc; text-align: center; margin: auto; width: 99%; font-weight: bold; padding: 3px; background-color: #FFFF99;">' . _AM_IMPRESSION_MOD_NOMODREQUEST . '</div>';
 		}
 
 		include_once ICMS_ROOT_PATH . '/class/pagenav.php';
