@@ -3,6 +3,7 @@ xx.xx.2012 - Version 1.x
 =========================================================
 Added:
 - Social media buttons for Facebook, Google 1+ and Twitter
+- Articles can be set online/offline by clicking icon
 - Tool tips to forms
 - Lytebox version 5.5
 
@@ -10,6 +11,7 @@ Fixed:
 - Captcha in Submit form causes issues
 - Block news by category
 - MySQL errors when updating
+- Disabled XOOPS Tag module
 
 Removed:
 - Option to turn on/off latest links in Index Page
