@@ -6,21 +6,21 @@
 *
 * File: language/english/admin.php
 *
-* @copyright		http://www.xoops.org/ The XOOPS Project
-* @copyright		XOOPS_copyrights.txt
-* @copyright		http://www.impresscms.org/ The ImpressCMS Project
+* @copyright	http://www.xoops.org/ The XOOPS Project
+* @copyright	XOOPS_copyrights.txt
+* @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03
+* @since		1.03
 * @author		John N
 * ----------------------------------------------------------------------------------------------------------
 * @package		WF-Links 
-* @since			1.03b and 1.03c
+* @since		1.03b and 1.03c
 * @author		McDonald
 * ----------------------------------------------------------------------------------------------------------
 * @package		Impression
-* @since			1.00
+* @since		1.00
 * @author		McDonald
 * @version		$Id$
 */
@@ -390,4 +390,6 @@ define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
 define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
 define( '_AM_IMPRESSION_WARNLIB1', 'WARNING: The library <u>Lytebox</u> is missing.' );
 define( '_AM_IMPRESSION_WARNLIB2', 'WARNING: The library <u>Social Share Privacy</u> is missing.' );
+define( '_AM_IMPRESSION_MSG_OFFLINE', 'Article was set Offline successfully.' );
+define( '_AM_IMPRESSION_MSG_ONLINE', 'Article was set Online successfully.' );
 ?>

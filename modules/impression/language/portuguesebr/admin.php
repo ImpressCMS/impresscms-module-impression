@@ -365,6 +365,15 @@ define( '_AM_IMPRESSION_ARTICLE_INBLOCKS', 'Display article in blocks?' );
 define( '_AM_IMPRESSION_ARTICLE_INBLOCKS_DSC', 'Select <em>Yes</em> to have the article displayed in the Spotlight and Recent Headlines blocks. If you select <em>No</em> the article will not be displayed in the two blocks.' );
 define( '_AM_IMPRESSION_ICO_INBLOCKN', 'Not displayed in blocks' );
 define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Displayed in blocks' );
+
+// Version 1.11
+define( '_AM_IMPRESSION_SOURCE', 'Source:' );
+define( '_AM_IMPRESSION_SOURCEDSC', 'Enter the name of the source' );
+define( '_AM_IMPRESSION_SOURCEURL', 'URL of source:' );
+define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
+define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
 define( '_AM_IMPRESSION_WARNLIB1', 'WARNING: The library <u>Lytebox</u> is missing.' );
 define( '_AM_IMPRESSION_WARNLIB2', 'WARNING: The library <u>Social Share Privacy</u> is missing.' );
+define( '_AM_IMPRESSION_MSG_OFFLINE', 'Article was set Offline successfully.' );
+define( '_AM_IMPRESSION_MSG_ONLINE', 'Article was set Online successfully.' );
 ?>
