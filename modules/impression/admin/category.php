@@ -68,8 +68,8 @@ function createcat($cid = 0) {
 		$groups = true;
 	}
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-	  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />';
 
 	$sform = new icms_form_Theme( $heading, 'op', '' );
 	$sform -> setExtra( 'enctype="multipart/form-data"' );

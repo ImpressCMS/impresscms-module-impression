@@ -55,6 +55,9 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_PRUNE );
 
+		echo '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />';
+
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/warning.png" alt="" style="float: left; padding-right: 10px;" />
 				<div style="padding-left: 45px; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_PRUNEINFO . '</div>
@@ -64,7 +67,7 @@ switch ( strtolower( $op ) ) {
 		$sform = new icms_form_Theme( _AM_IMPRESSION_PRUNEFORM, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
-		$datesub_datetime = new icms_form_elements_Date( _AM_IMPRESSION_PRUNEDATE . impression_helptip( _AM_IMPRESSION_PRUNEDATEDSC ), 'published', 15, time() );
+		$datesub_datetime = new icms_form_elements_Date( _AM_IMPRESSION_PRUNEDATE . impression_tooltip( _AM_IMPRESSION_PRUNEDATEDSC, 'error' ), 'published', 15, time() );
 		$sform -> addElement( $datesub_datetime );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );

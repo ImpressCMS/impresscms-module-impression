@@ -83,11 +83,11 @@ $article['id'] = intval( $article_arr['aid'] );
 $article['cid'] = intval( $article_arr['cid'] );
 
 if ( $article_arr['source'] && $article_arr['sourceurl'] ) {
-	$article['source'] = '<br />' . _MD_IMPRESSION_SOURCE . ' <a href="' . $article_arr['sourceurl'] . '" target="_blank">' . $article_arr['source'] . '</a>';
+	$article['source'] = '<span style="padding-top: 15px;">' . _MD_IMPRESSION_SOURCE . ' <a href="' . $article_arr['sourceurl'] . '" target="_blank">' . $article_arr['source'] . '</a></span><br />';
 } elseif ( $article_arr['source'] && !$article_arr['sourceurl'] ) {
-	$article['source'] = '<br />' . _MD_IMPRESSION_SOURCE . ' ' . $article_arr['source'];
+	$article['source'] = '<span style="padding-top: 15px;">' . _MD_IMPRESSION_SOURCE . ' ' . $article_arr['source'] . '</span><br />';
 } elseif ( !$article_arr['source'] && $article_arr['sourceurl'] ) {
-	$article['source'] = '<br />' . _MD_IMPRESSION_SOURCE . ' <a href="' . $article_arr['sourceurl'] . '" target="_blank">' . $article_arr['sourceurl'] . '</a>';
+	$article['source'] = '<span style="padding-top: 15px;">' . _MD_IMPRESSION_SOURCE . ' <a href="' . $article_arr['sourceurl'] . '" target="_blank">' . $article_arr['sourceurl'] . '</a></span><br />';
 }
 
 $article['mail_subject'] = rawurlencode( sprintf( _MD_IMPRESSION_INTFILEFOUND, $icmsConfig['sitename'] ) );

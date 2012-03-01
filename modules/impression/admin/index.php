@@ -67,8 +67,8 @@ function edit( $aid = 0, $doclone = 0 ) {
 	icms_cp_header();
 	impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+	echo '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />';
 
 	if ( $aid ) {
 		$inblocks = $article_array['inblocks'];

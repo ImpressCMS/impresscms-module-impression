@@ -59,8 +59,8 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
 
-		echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+		echo '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />';
 
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_IPAGE_INFORMATION . '</div>
@@ -69,6 +69,7 @@ switch ( strtolower( $op ) ) {
 		$sform = new icms_form_Theme( _AM_IMPRESSION_IPAGE_MODIFY, 'op', '' );
 
 		$sform -> addElement( new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_CTITLE, 'indexheading', icms::$module -> config['txt_width'], 128, $indexheading ), false );
+
 		$graph_array = &impressionLists :: getListTypeAsArray( ICMS_ROOT_PATH . '/' . icms::$module -> config['mainimagedir'], $type = 'images' );
 		$indeximage_select = new icms_form_elements_Select( '', 'indeximage', $indeximage );
 		$indeximage_select -> addOptionArray( $graph_array );
@@ -82,7 +83,7 @@ switch ( strtolower( $op ) ) {
 		}
 		$sform -> addElement( $indeximage_tray );
 
-		$editor = impression_getWysiwygForm( _AM_IMPRESSION_IPAGE_CHEADING, 'indexheader', $indexheader, 250, 10 );
+		$editor = impression_getWysiwygForm( _AM_IMPRESSION_IPAGE_CHEADING, 'indexheader', $indexheader, 200, 10 );
 		$sform -> addElement( $editor, false );
 
 		$headeralign_select = new icms_form_elements_Select( _AM_IMPRESSION_IPAGE_CHEADINGA, 'indexheaderalign', $indexheaderalign );
