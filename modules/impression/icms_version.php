@@ -429,7 +429,7 @@ $modversion['config'][] = array(
 	'description'	=> '_MI_IMPRESSION_BYTESDESC',
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
-	'default'		=> 'tinymce',
+	'default'		=> 0,
 	'options'		=>  array(	_NONE					=> 0,
 								_MI_IMPRESSION_BYTES	=> 1,
 								_MI_IMPRESSION_WORDS	=> 2,
