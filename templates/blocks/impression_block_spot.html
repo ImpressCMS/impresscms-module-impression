@@ -9,7 +9,7 @@
 	</div>
 	<div class="impression_articleFooter">
 		<span style="float: left;">
-			<{if $articlespot.bytesmore > 0}>&nbsp;<{$articlespot.readmore}>
+			<{if $articlespot.bytesmore > 0}>&nbsp;<i><{$articlespot.readmore}></i>
 				<{if $articlespot.options == 1}>&nbsp;|&nbsp;<{$articlespot.bytesmore}>&nbsp;<{$smarty.const._MB_IMPRESSION_BYTESMORE}><{/if}>
 				<{if $articlespot.options == 2}>&nbsp;|&nbsp;<{$articlespot.description|count_words}>&nbsp;<{$smarty.const._MB_IMPRESSION_WORDSMORE}><{/if}>
 				<{if $articlespot.options == 3}>&nbsp;|&nbsp;<{$articlespot.description|count_characters}>&nbsp;<{$smarty.const._MB_IMPRESSION_CHARSMORE}><{/if}>

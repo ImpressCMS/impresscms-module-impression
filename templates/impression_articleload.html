@@ -11,7 +11,7 @@
 
 <div class="impression_articleFooter">
 	<span style="float: left;">
-		<{if $article.bytesmore > 0}>&nbsp;<em><{$article.readmore}></em>
+		<{if $article.bytesmore > 0}>&nbsp;<i><{$article.readmore}></i>
 			<{if $article.options == 1}>&nbsp;|&nbsp;<{$article.bytesmore}>&nbsp;<{$smarty.const._MD_IMPRESSION_BYTESMORE}><{/if}>
 			<{if $article.options == 2}>&nbsp;|&nbsp;<{$article.description|count_words}>&nbsp;<{$smarty.const._MD_IMPRESSION_WORDSMORE}><{/if}>
 			<{if $article.options == 3}>&nbsp;|&nbsp;<{$article.description|count_characters}>&nbsp;<{$smarty.const._MD_IMPRESSION_CHARSMORE}><{/if}>

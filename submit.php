@@ -198,7 +198,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		echo '<div style="clear: both; text-align: center; padding: 10px 0 10px 0;">' . impression_imageheader() . '</div>';
 		echo '<div>' . _MD_IMPRESSION_SUB_SNEWMNAMEDESC . '</div><br />';
 
-		$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . intval( $aid );
+		$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
 		$article_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
 		$aid = $article_array['aid'] ? $article_array['aid'] : 0;
@@ -215,8 +215,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
 		$sourceurl = $article_array['sourceurl'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['sourceurl'] ) : '';
 
-		echo '<script type="text/javascript" language="javascript" src="' . ICMS_URL . '/libraries/lytebox/lytebox.js"></script>
-		  <link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_URL . '/libraries/lytebox/lytebox.css" />';
+		echo '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />';
 
 		$sform = new icms_form_Theme( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );

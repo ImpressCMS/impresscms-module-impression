@@ -55,6 +55,8 @@ $pathstring .= $mytree -> getNicePathFromId( $cid, 'title', 'catview.php?op=' );
 $xoopsTpl -> assign( 'category_path', '<div class="impression_path" style="font-size: .8em; font-weight: bold;">' . $pathstring . '</div><br />' );
 $xoopsTpl -> assign( 'category_id', $cid );
 
+$xoopsTpl -> assign( 'dirname', icms::$module -> getVar( 'dirname' ) );
+
 // Display Sub-categories for selected Category
 if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 	$scount = 1;
@@ -192,7 +194,6 @@ if ( $count > 0 ) {
 	$istrue = ( isset( $page_nav ) && !empty( $page_nav ) ) ? true : false;
 	$xoopsTpl -> assign( 'page_nav', $istrue );
 	$xoopsTpl -> assign( 'pagenav', $page_nav );
-	$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 	$xoopsTpl -> assign( 'showartcount', icms::$module -> config['showartcount'] );
 }
 unset( $article_arr );

@@ -12,6 +12,7 @@ Fixed:
 - Block news by category
 - MySQL errors when updating
 - Disabled XOOPS Tag module
+- CSS not loaded correctly in impression_catview.html
 
 Removed:
 - Option to turn on/off latest links in Index Page

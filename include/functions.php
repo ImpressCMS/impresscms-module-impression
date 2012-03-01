@@ -306,7 +306,7 @@ function impression_getDirSelectOption( $selected, $dirarray, $namearray ) {
 }
 
 // Retreive an editor according to the module's option "form_options"
-function impression_getWysiwygForm( $caption, $name, $value, $height, $height2 ) {
+function impression_getWysiwygForm( $caption, $name, $value, $height ) {
 	$isadmin = ( ( is_object( icms::$user ) && !empty( icms::$user ) ) && icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) ? true : false;
 	if ( $isadmin == true ) {
 		$formuser = icms::$module -> config['form_options'];
