@@ -3,7 +3,7 @@ xx.xx.2012 - Version 1.x
 =========================================================
 Added:
 - Social media buttons for Facebook, Google 1+ and Twitter
-- Articles can be set online/offline by clicking icon
+- Articles can be set online/offline by clicking status icon
 - Tool tips to forms
 - Lytebox version 5.5
 
@@ -13,6 +13,10 @@ Fixed:
 - MySQL errors when updating
 - Disabled XOOPS Tag module
 - CSS not loaded correctly in impression_catview.html
+- Wrong default value for form_bytesyn in icms_version.php
+
+Other:
+- Disabled XOOPS Tag module
 
 Removed:
 - Option to turn on/off latest links in Index Page
