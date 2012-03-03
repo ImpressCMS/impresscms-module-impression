@@ -43,25 +43,25 @@ class ImpressionModuleAbout {
 
 		icms_loadLanguageFile( icms::$module -> getVar( 'dirname' ), 'modinfo' );
 		icms_loadLanguageFile( icms::$module -> getVar( 'dirname' ), 'moduleabout' );
-		
+
 		$this -> _aboutTitle = $aboutTitle;
 
-		$this -> _lang_developer_contributor = _MODABOUT_IMPRESSION_DEVELOPER_CONTRIBUTOR;
-		$this -> _lang_developer_website = _MODABOUT_IMPRESSION_DEVELOPER_WEBSITE;
-		$this -> _lang_developer_email = _MODABOUT_IMPRESSION_DEVELOPER_EMAIL;
-		$this -> _lang_developer_credits = _MODABOUT_IMPRESSION_DEVELOPER_CREDITS;
-		$this -> _lang_module_info = _MODABOUT_IMPRESSION_MODULE_INFO;
-		$this -> _lang_module_status = _MODABOUT_IMPRESSION_MODULE_STATUS;
-		$this -> _lang_module_release_date =_MODABOUT_IMPRESSION_MODULE_RELEASE_DATE ;
-		$this -> _lang_module_demo = _MODABOUT_IMPRESSION_MODULE_DEMO;
-		$this -> _lang_module_support = _CO_ICMS_MODULE_SUPPORT;
-		$this -> _lang_module_bug = _MODABOUT_IMPRESSION_MODULE_BUG;
-		$this -> _lang_module_submit_bug = _MODABOUT_IMPRESSION_MODULE_SUBMIT_BUG;
-		$this -> _lang_module_feature = _MODABOUT_IMPRESSION_MODULE_FEATURE;
-		$this -> _lang_module_submit_feature = _CO_ICMS_MODULE_SUBMIT_FEATURE;
-		$this -> _lang_module_disclaimer = _MODABOUT_IMPRESSION_MODULE_DISCLAIMER;
-		$this -> _lang_author_word = _MODABOUT_IMPRESSION_AUTHOR_WORD;
-		$this -> _lang_version_history = _MODABOUT_IMPRESSION_VERSION_HISTORY;
+		$this -> _lang_developer_contributor	= _MODABOUT_IMPRESSION_DEVELOPER_CONTRIBUTOR;
+		$this -> _lang_developer_website		= _MODABOUT_IMPRESSION_DEVELOPER_WEBSITE;
+		$this -> _lang_developer_email			= _MODABOUT_IMPRESSION_DEVELOPER_EMAIL;
+		$this -> _lang_developer_credits		= _MODABOUT_IMPRESSION_DEVELOPER_CREDITS;
+		$this -> _lang_module_info				= _MODABOUT_IMPRESSION_MODULE_INFO;
+		$this -> _lang_module_status			= _MODABOUT_IMPRESSION_MODULE_STATUS;
+		$this -> _lang_module_release_date		= _MODABOUT_IMPRESSION_MODULE_RELEASE_DATE ;
+		$this -> _lang_module_demo				= _MODABOUT_IMPRESSION_MODULE_DEMO;
+		$this -> _lang_module_support			= _CO_ICMS_MODULE_SUPPORT;
+		$this -> _lang_module_bug				= _MODABOUT_IMPRESSION_MODULE_BUG;
+		$this -> _lang_module_submit_bug		= _MODABOUT_IMPRESSION_MODULE_SUBMIT_BUG;
+		$this -> _lang_module_feature			= _MODABOUT_IMPRESSION_MODULE_FEATURE;
+		$this -> _lang_module_submit_feature	= _CO_ICMS_MODULE_SUBMIT_FEATURE;
+		$this -> _lang_module_disclaimer		= _MODABOUT_IMPRESSION_MODULE_DISCLAIMER;
+		$this -> _lang_author_word				= _MODABOUT_IMPRESSION_AUTHOR_WORD;
+		$this -> _lang_version_history			= _MODABOUT_IMPRESSION_VERSION_HISTORY;
 	}
 
 	function sanitize( $value ) {
@@ -131,7 +131,7 @@ class ImpressionModuleAbout {
 		// Manual
 		$manual =$versioninfo -> getInfo( 'manual' );
 		if ( $manual ) {
-			$this -> _tpl -> assign( 'module_manual', isset( $manual['wiki'] ) ? array_map( array( $this, 'sanitize' ), $manual['wiki']) : false );
+			$this -> _tpl -> assign( 'module_manual', $manual );
 		}
 
 		// Warning

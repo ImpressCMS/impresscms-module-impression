@@ -157,6 +157,19 @@ tr.impression_even td {
 	border: 1px solid #ccc;
 	border-collapse: collapse; }
 
+.impression_tblhdr {
+	display: table-block;
+	font-weight: bold;
+	padding: 3px;
+	background-image: url(images/icon/backgnd.png);
+	background-position: center bottom;
+	background-repeat: repeat-x;
+	background-size: contain;
+	margin-right: -1px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc; }
+
 .impression_tblhdrrow {
 	display: table-header-group;
 	font-weight: bold;
