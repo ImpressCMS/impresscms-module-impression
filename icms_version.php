@@ -72,6 +72,12 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.icons-land.com"
 $modversion['people']['other'][] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
 
+// ** Documentation
+$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual.pdf" target="_blank">English [PDF]</a>';
+//$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_de.pdf" target="_blank">German [PDF]</a>';
+//$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_nl.pdf" target="_blank">Nederlands [PDF]</a>';
+//$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_es.pdf" target="_blank">Spanish [PDF]</a>';
+
 //** If Release Candidate **
 $modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_RC;
 

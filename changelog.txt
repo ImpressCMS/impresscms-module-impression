@@ -4,6 +4,7 @@ xx.xx.2012 - Version 1.x
 Added:
 - Social media buttons for Facebook, Google 1+ and Twitter
 - Articles can be set online/offline by clicking status icon
+- Link to manual in About page
 - Tool tips to forms
 - Lytebox version 5.5
 
