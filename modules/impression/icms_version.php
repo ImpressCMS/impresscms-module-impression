@@ -36,9 +36,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
 $modversion['version']			= 1.11;
-$modversion['date'] 			= 'xx xxxxx 2012';
-$modversion['status']			= 'Trunk';
-$modversion['status_version']	= 'Trunk';
+$modversion['date'] 			= '04 March 2012';
+$modversion['status']			= 'RC-1';
+$modversion['status_version']	= 'RC-1';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license']			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['dirname']			= basename( dirname( __FILE__ ) );
@@ -54,6 +54,7 @@ $modversion['author_website_name']	= 'McDonalds Store';
 
 $modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb/viewforum.php?forum=9';
 $modversion['support_site_name']= '<a href="http://community.impresscms.org/modules/newbb/viewforum.php?forum=9" target="_blank">ImpressCMS Community Forum - Modules Support</a>';
+
 // ** Contributors **
 $modversion['people']['developers'] [] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a> &nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
 
@@ -73,7 +74,7 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.fixicon.com" ta
 $modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
 
 // ** Documentation
-$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual.pdf" target="_blank">English [PDF]</a>';
+$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_en.pdf" target="_blank">English [PDF]</a>';
 //$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_de.pdf" target="_blank">German [PDF]</a>';
 //$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_nl.pdf" target="_blank">Nederlands [PDF]</a>';
 //$modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_es.pdf" target="_blank">Spanish [PDF]</a>';
