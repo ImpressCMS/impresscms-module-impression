@@ -26,11 +26,6 @@
 		<div style="display: table-cell; padding: 3px;"><{$smarty.const._MODABOUT_IMPRESSION_MODULE_INFO}></div>
 		<div style="display: table-cell; padding: 3px;"> </div>
 	</div>
-	
-	<div class="impression_tblrow">
-		<div class="impression_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMPRESSION_MODULE_RELEASE_DATE}></div>
-		<div class="impression_tblcell"><{$module_date}></div>
-	</div>
 
 	<div class="impression_tblrow">
 		<div class="impression_tblhdrcell"><{$smarty.const._MODABOUT_IMPRESSION_VERSION}></div>
@@ -40,6 +35,11 @@
 	<div class="impression_tblrow">
 		<div class="impression_tblhdrcell"><{$smarty.const._MODABOUT_IMPRESSION_MODULE_STATUS}></div>
 		<div class="impression_tblcell"><{$module_status}></div>
+	</div>
+
+	<div class="impression_tblrow">
+		<div class="impression_tblhdrcell" style="width: 300px;"><{$smarty.const._MODABOUT_IMPRESSION_MODULE_RELEASE_DATE}></div>
+		<div class="impression_tblcell"><{$module_date}></div>
 	</div>
 
 	<{if $module_demo_site_name}>
