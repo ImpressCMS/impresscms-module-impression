@@ -215,8 +215,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
 		$sourceurl = $article_array['sourceurl'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['sourceurl'] ) : '';
 
-		echo '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
-			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />';
+		$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 		$sform = new icms_form_Theme( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', '' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
