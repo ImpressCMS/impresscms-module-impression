@@ -94,7 +94,7 @@ switch ( strtolower( $op ) ) {
 				</div>
 			  </div><br />';
 
-		echo '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />';
+		$icmsAdminTpl -> assign( 'xoops_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
 
 		if ( $new_array_count > 0 ) {
 			echo '<div class="impression_table" style="font-size: 10px;">
