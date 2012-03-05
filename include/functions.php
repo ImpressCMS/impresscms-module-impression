@@ -574,7 +574,7 @@ function impression_charrepl( $string ) {
 function hascomments( $aid ) {
 	$modhandler = icms::handler( 'icms_module' );
 	$impressionModule = $modhandler -> getByDirname( basename( dirname(  dirname( __FILE__ ) ) ) );
-	$sql = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB->prefix('xoopscomments') . ' WHERE com_modid=' . $impressionModule -> getVar( 'mid' ) . ' AND com_itemid=' . $aid );
+	$sql = icms::$xoopsDB -> query( 'SELECT COUNT(*) FROM ' . icms::$xoopsDB -> prefix('xoopscomments') . ' WHERE com_modid=' . $impressionModule -> getVar( 'mid' ) . ' AND com_itemid=' . $aid );
 	list( $count ) = icms::$xoopsDB -> fetchRow( $sql );
 	return $count;
 }
