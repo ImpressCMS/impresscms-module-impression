@@ -40,7 +40,7 @@ if ( isset( $_GET ) ) {
 function createcat($cid = 0) {
 	include_once '../class/impression_lists.php';
 
-	global $totalcats, $impressionmyts;
+	global $totalcats, $impressionmyts, $icmsAdminTpl;
 
 	$aid = 0;
 	$title = '';
@@ -68,8 +68,8 @@ function createcat($cid = 0) {
 		$groups = true;
 	}
 
-	echo '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
-			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />';
+	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 	$sform = new icms_form_Theme( $heading, 'op', '' );
 	$sform -> setExtra( 'enctype="multipart/form-data"' );
