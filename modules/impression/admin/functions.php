@@ -113,6 +113,11 @@ function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $ex
 	$path3_t = ICMS_ROOT_PATH . '/' . icms::$module -> config['catimage'] . '/thumbs';
 	if ( !is_dir( $path3_t ) || !is_writable( $path3_t ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path3_t ) ); }
 
+	$_file = ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/smartsection.php';
+	if ( file_exists( $_file ) ) {
+		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL2, ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/smartsection.php' ) );
+	}
+
 	// Check if library folders are there
 	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lytebox' ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNLIB1 ) ); }
 	if ( !is_dir( ICMS_LIBRARIES_PATH . '/socialshareprivacy' ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNLIB2 ) ); }
