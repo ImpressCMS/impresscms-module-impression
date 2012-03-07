@@ -366,7 +366,7 @@ define( '_AM_IMPRESSION_NOSELECTION', 'No selection' );
 define( '_AM_IMPRESSION_NOFILESELECT', 'No selected file' );
 define( '_AM_IMPRESSION_PRUNE', 'Prune' );
 define( '_AM_IMPRESSION_PRUNEINFO', 'Prune Information' );
-define( '_AM_IMPRESSION_PRUNEWARN', 'This form gives you the opportunity to delete articles that are published before the selected date.<br />Also comments associated with these articles will be deleted.<br />Please note that this action can <strong>NOT</strong> be undone. That\'s why it\'s advised to make a backup of your database first.' );
+define( '_AM_IMPRESSION_PRUNEWARN', 'This form gives you the opportunity to delete articles that are published before the selected date.<br />Also comments associated with these articles will be deleted.<br />Please note that this action <b>CANNOT</b> be undone. That\'s why it\'s advised to make a backup of your database first.' );
 define( '_AM_IMPRESSION_PRUNEDELETED', 'Articles successfully removed from the database!' );
 define( '_AM_IMPRESSION_PRUNEDATE', 'Select date:' );
 define( '_AM_IMPRESSION_PRUNEDATEDSC', 'All articles before the selected date will be deleted.' );
