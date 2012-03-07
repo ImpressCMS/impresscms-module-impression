@@ -7,6 +7,8 @@ Added:
 - Link to manual in About page
 - Tool tips to forms
 - Lytebox version 5.5
+- Social Share Privacy 1.3
+- Import script for SmartSection
 
 Fixed:
 - Captcha in Submit form causes issues
