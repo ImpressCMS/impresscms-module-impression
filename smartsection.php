@@ -90,6 +90,8 @@ include 'header.php';
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " DROP doimage";
 	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " DROP dobr";
+	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " DROP cancomment";
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " DROP meta_description";
@@ -98,10 +100,24 @@ include 'header.php';
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " DROP partial_view";
 	if ( !mysql_query( $sql ) ) {}
-
-	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN source VARCHAR(255) NOT NULL default ''";
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " DROP weight";
 	if ( !mysql_query( $sql ) ) {}
-	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN sourceurl VARCHAR(255) NOT NULL default ''";
+
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `uname` VARCHAR(255) NOT NULL DEFAULT ''";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `publisher` VARCHAR(255) NOT NULL DEFAULT ''";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `published` INT(11) NOT NULL DEFAULT '0'";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `ipaddress` VARCHAR(120) NOT NULL DEFAULT '0'";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `nice_url` VARCHAR(128) NOT NULL DEFAULT ''";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `inblocks` TINYINT(1) NOT NULL DEFAULT '1'";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `source` VARCHAR(255) NOT NULL default ''";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `sourceurl` VARCHAR(255) NOT NULL default ''";
 	if ( !mysql_query( $sql ) ) {}
 
 
