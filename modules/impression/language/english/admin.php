@@ -26,7 +26,7 @@
 */
 
 define( '_AM_IMPRESSION_WARNINSTALL1', 'WARNING: Directory %s exists on your server. <br />Please remove this directory for security reasons.' );
-define( '_AM_IMPRESSION_WARNINSTALL2', 'WARNING: File %s exists on your server. <br />Please remove this directory for security reasons.' );
+define( '_AM_IMPRESSION_WARNINSTALL2', 'WARNING: File %s exists on your server. <br />Please remove this file for security reasons.' );
 define( '_AM_IMPRESSION_WARNINSTALL3', 'WARNING: Folder %s does not exists on your server. <br />This folder is required by Impression.' );
 
 define( '_AM_IMPRESSION_MODULE_NAME', 'Impression' );

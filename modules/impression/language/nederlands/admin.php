@@ -8,7 +8,7 @@
  */
 
 define( "_AM_IMPRESSION_WARNINSTALL1", "WAARSCHUWING: Map %s bestaat op uw server. <br />Verwijder deze map om veiligheidsredenen aub." );
-define( "_AM_IMPRESSION_WARNINSTALL2", "WAARSCHUWING: Bestand %s bestaat op uw server. <br />Verwijder deze map om veiligheidsredenen aub." );
+define( "_AM_IMPRESSION_WARNINSTALL2", "WAARSCHUWING: Bestand %s bestaat op uw server. <br />Verwijder dit bestand om veiligheidsredenen aub." );
 define( "_AM_IMPRESSION_WARNINSTALL3", "WAARSCHUWING: Map %s bestaat niet op uw server. <br />Deze map is nodig voor Impression." );
 
 define( "_AM_IMPRESSION_MODULE_NAME", "Impression" );
