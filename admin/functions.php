@@ -117,6 +117,10 @@ function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $ex
 	if ( file_exists( $_file ) ) {
 		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL2, ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/smartsection.php' ) );
 	}
+	
+	if ( is_dir( ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/import/' ) ) {
+		icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL1, ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/import/' ) );
+	}
 
 	// Check if library folders are there
 	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lytebox' ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNLIB1 ) ); }
