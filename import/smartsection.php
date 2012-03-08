@@ -69,7 +69,7 @@ if ( !is_object( $icmsUser ) || !is_object( icms::$module ) || !icms::$user -> i
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `uid` `uid` MEDIUMINT(8) NOT NULL DEFAULT '1'";
 	if ( !mysql_query( $sql ) ) {}
-	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `datesub` `date` INT(11) NOT NULL DEFAULT '0'";
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `datesub` `published` INT(11) NOT NULL DEFAULT '0'";
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `status` `status` TINYINT(2) NOT NULL DEFAULT '0'";
 	if ( !mysql_query( $sql ) ) {}
@@ -107,11 +107,11 @@ if ( !is_object( $icmsUser ) || !is_object( icms::$module ) || !icms::$user -> i
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " DROP `weight`";
 	if ( !mysql_query( $sql ) ) {}
 
-	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `uname` VARCHAR(255) NOT NULL DEFAULT ''";
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `uname` VARCHAR(255) NOT NULL DEFAULT '' AFTER `uid`";
 	if ( !mysql_query( $sql ) ) {}
-	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `publisher` VARCHAR(255) NOT NULL DEFAULT ''";
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `publisher` VARCHAR(255) NOT NULL DEFAULT '' AFTER `uname`";
 	if ( !mysql_query( $sql ) ) {}
-	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `published` INT(11) NOT NULL DEFAULT '0'";
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `date` INT(11) NOT NULL DEFAULT '0' AFTER `status`";
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles') . " ADD COLUMN `ipaddress` VARCHAR(120) NOT NULL DEFAULT '0'";
 	if ( !mysql_query( $sql ) ) {}
