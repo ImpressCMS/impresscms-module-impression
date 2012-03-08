@@ -91,7 +91,7 @@ function b_impression_spot_show( $options ) {
 		$nice_link					= impression_nicelink( $myrow['title'], $myrow['nice_url'] );
 		$url						= impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], $impressionModuleConfig['niceurl'] );
 		$articlespot['title']		= '<a href="' . $url . '">' . $title . ' </a>';
-		$articlespot['date']		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
+		$articlespot['published']		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
 		$articlespot['hits']		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
 		$articlespot['submitter']	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
 		$articlespot['introtext']	= $myrow['introtext'];
