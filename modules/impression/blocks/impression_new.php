@@ -119,7 +119,7 @@ function b_impression_new_show( $options ) {
 		$url 							= impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], $impressionModuleConfig['niceurl'] );
 		$articlenew['title']			= '<a href="' . $url . '">' . $myrow['title'] . ' </a>';
 		$articlenew['cattitle'] 		= '<a href="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/catview.php?cid=' . $myrow['cid'] . '">' . $mycat['title'] . ' </a>';
-		$articlenew['date']				= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
+		$articlenew['published']				= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
 		$articlenew['newpopicons']		= b_impression_displaynewicons( $myrow['published'], $myrow['status'], $myrow['hits'] );
 		$articlenew['adminnewicons']	= b_impression_adminnewicons( intval( $myrow['aid'] ), basename( dirname(  dirname( __FILE__ ) ) ) );
 		$articlenew['comments'] 		= hascomments( $myrow['aid'] );

@@ -88,7 +88,7 @@ function b_impression_news_show( $options ) {
 		$nice_link					= impression_nicelink( $myrow['title'], $myrow['nice_url'] );
 		$url						= impression_niceurl( $myrow['aid'], $myrow['title'], $myrow['nice_url'], $impressionModuleConfig['niceurl'] );
 		$articlenews['title']		= '<a href="' . $url . '">' . $title . ' </a>';
-		$articlenews['date']		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
+		$articlenews['published']		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
 		$articlenews['hits']		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
 		$articlenews['submitter']	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
 		$articlenews['introtext']	= $myrow['introtext'];
