@@ -129,7 +129,7 @@ if ( !is_object( $icmsUser ) || !is_object( icms::$module ) || !icms::$user -> i
 	$sql = "TRUNCATE TABLE " . icms::$xoopsDB -> prefix( 'impression_altcat');
 	if ( !mysql_query( $sql ) ) {}
 
-	
+
 	sleep(2);
 	echo 'Done!<br /><br />';
 ?>
