@@ -6,9 +6,9 @@
 //		- smartsection_items
 
 
-include 'header.php';
+include '../../../mainfile.php';
 
-if ( !is_object( $icmsUser ) || !is_object( icms::$module ) || !icms::$user -> isAdmin( icms::$module -> getVar( 'mid' ) ) ) {
+if ( !is_object( $icmsUser ) || !icms::$user -> isAdmin() ) {
 	exit( 'Access Denied' );
 }
 
@@ -74,6 +74,8 @@ if ( !is_object( $icmsUser ) || !is_object( icms::$module ) || !icms::$user -> i
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `status` `status` TINYINT(2) NOT NULL DEFAULT '0'";
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `counter` `hits` INT(11) UNSIGNED NOT NULL DEFAULT '0'";
+	if ( !mysql_query( $sql ) ) {}
+	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `comments` `comments` INT(11) UNSIGNED NOT NULL DEFAULT '0'";
 	if ( !mysql_query( $sql ) ) {}
 	$sql = "ALTER TABLE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " CHANGE `notifypub` `notifypub` INT(1) NOT NULL DEFAULT '0'";
 	if ( !mysql_query( $sql ) ) {}
