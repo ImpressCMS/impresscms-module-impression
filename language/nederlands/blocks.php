@@ -21,7 +21,7 @@ define( '_MB_IMPRESSION_DATE', 'Datum' );
 define( '_MB_IMPRESSION_HEADLINES', 'titels' );
 define( '_MB_IMPRESSION_ADMINSECTION', 'Administratie' );
 define( '_MB_IMPRESSION_DATEFORMAT', 'Datum formaat: ' );
-define( '_MB_IMPRESSION_DATEFORMATMANUAL', 'Zie <a href="http://docs.php.net/manual/nl/function.date.php" target="_blank">PHP handleiding</a>' );
+define( '_MB_IMPRESSION_DATEFORMATMANUAL', "Zie <a href='http://docs.php.net/manual/nl/function.date.php' target='_blank'>PHP handleiding</a>" );
 define( '_MB_IMPRESSION_SELECTFEED', 'Kies RSS feed: ' );
 define( '_MB_IMPRESSION_SELECTFEED_DSC', '<small> - Kies ICMS om ImpressCMS RSS feed te gebruiken.<br /> - Kies RSSfit om Brandycoke\'s RSSfit module te gebruiken (subfeed dient geaktiveerd te zijn).</small>' );
 define( '_MB_IMPRESSION_READMORE', 'Lees verder...' );
@@ -42,4 +42,5 @@ define( '_MB_IMPRESSION_CHARSF', 'Karakters' );
 define( '_MB_IMPRESSION_WORDSMORE', 'woorden meer' );
 define( '_MB_IMPRESSION_CHARSMORE', 'karakters meer' );
 define( '_MB_IMPRESSION_SELECTCAT', 'Selekteer een categorie:' );
+define( '_MB_IMPRESSION_SELECTTICKER', 'Selekteer type:' );
 ?>

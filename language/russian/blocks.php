@@ -21,7 +21,7 @@ define( '_MB_IMPRESSION_DATE', 'Дата' );
 define( '_MB_IMPRESSION_HEADLINES', 'headlines' );
 define( '_MB_IMPRESSION_ADMINSECTION', 'Администрировать' );
 define( '_MB_IMPRESSION_DATEFORMAT', 'Формат даты' );
-define( '_MB_IMPRESSION_DATEFORMATMANUAL', 'See <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP manual</a>' );
+define( '_MB_IMPRESSION_DATEFORMATMANUAL', "See <a href='http://jp.php.net/manual/en/function.date.php' target='_blank'>PHP manual</a>" );
 define( '_MB_IMPRESSION_SELECTFEED', 'Выбор RSS канала: ' );
 define( '_MB_IMPRESSION_SELECTFEED_DSC', '<small> - Выберите ICMS, чтобы использовать ImpressCMS RSS канал.<br /> - Select RSSfit to use Brandycoke\'s RSSfit module (subfeed needs to be activated).</small>'  );
 define( '_MB_IMPRESSION_READMORE', 'Читать' );
@@ -37,4 +37,5 @@ define( '_MB_IMPRESSION_POPULAR', 'Popular!' );
 define( '_MB_IMPRESSION_BYTESMORE', 'bytes more' );
 define( '_MB_IMPRESSION_BYTESYN', 'Display <i>xx bytes more</i> in footer: ' );
 define( '_MB_IMPRESSION_SELECTCAT', 'Select a category:' );
+define( '_MB_IMPRESSION_SELECTTICKER', 'Select format:' );
 ?>
