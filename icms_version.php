@@ -56,7 +56,7 @@ $modversion['support_site_url'] = 'http://community.impresscms.org/modules/newbb
 $modversion['support_site_name']= '<a href="http://community.impresscms.org/modules/newbb/viewforum.php?forum=9" target="_blank">ImpressCMS Community Forum - Modules Support</a>';
 
 // ** Contributors **
-$modversion['people']['developers'] [] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a> &nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
+$modversion['people']['developers'] [] = '<a href="http://community.impresscms.org/userinfo.php?uid=179" target="_blank">McDonald</a>&nbsp;&nbsp;<span style="font-size: smaller;">( pietjebell31 [at] hotmail [dot] com )</span>';
 
 $modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=10" target="_blank">sato-san</a>';
 $modversion['people']['testers'][] = '&middot; <a href="http://community.impresscms.org/userinfo.php?uid=14" target="_blank">GibaPhp</a>';
@@ -72,6 +72,8 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.famfamfam.com" 
 $modversion['people']['other'][] = '&middot; <a href="http://www.icons-land.com" target=_blank">Icons-Land</a> (icons)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
+$modversion['people']['other'][] = '&middot; <a href="http://jonmifsud.com/web-tools/jquery-webticker/" target="_blank">Jonathan Mifsud</a> (WebTicker)';
+$modversion['people']['other'][] = '&middot; <a href="http://www.makemineatriple.com/2007/10/bbcnewsticker" target="_blank">Bryan Gullan</a> (BBC style news ticker)';
 
 // ** Documentation
 $modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_en.pdf" target="_blank">English [PDF]</a>';
@@ -131,7 +133,7 @@ $modversion['blocks'][$i]['options']		= 'new|25|d F Y';
 $modversion['blocks'][$i]['template']		= 'impression_block_new.html';
 $modversion['blocks'][$i]['can_clone']		= true ;
 
-// Recent News block
+// Recent News by Category block
 $i++;
 $modversion['blocks'][$i]['file']			= 'impression_news.php';
 $modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BNEWS;
@@ -140,6 +142,17 @@ $modversion['blocks'][$i]['show_func']		= 'b_impression_news_show';
 $modversion['blocks'][$i]['edit_func']		= 'b_impression_news_edit';
 $modversion['blocks'][$i]['options']		= 'news|10|d F Y|0|0';
 $modversion['blocks'][$i]['template']		= 'impression_block_news.html';
+$modversion['blocks'][$i]['can_clone']		= true;
+
+// Ticker block
+$i++;
+$modversion['blocks'][$i]['file']			= 'impression_ticker.php';
+$modversion['blocks'][$i]['name']			= 'Ticker';
+$modversion['blocks'][$i]['description']	= 'Shows articles from selected categories';
+$modversion['blocks'][$i]['show_func']		= 'b_impression_ticker';
+$modversion['blocks'][$i]['edit_func']		= 'b_impression_ticker_edit';
+$modversion['blocks'][$i]['options']		= 'ticker|10|d F Y|';
+$modversion['blocks'][$i]['template']		= 'impression_block_ticker.html';
 $modversion['blocks'][$i]['can_clone']		= true;
 
 // Tag Cloud block
@@ -173,7 +186,7 @@ $module = &$module_handler -> getByDirname( $modversion['dirname'] );
 $cansubmit = 0;
 if ( is_object( $module ) ) {
 	$groups = ( is_object( icms::$user ) ) ? icms::$user -> getGroups() : XOOPS_GROUP_ANONYMOUS;
-	$gperm_handler = icms::handler('icms_member_groupperm');
+	$gperm_handler = icms::handler( 'icms_member_groupperm' );
 	if ( $gperm_handler -> checkRight( 'ImpressionSubPerm', 0, $groups, $module -> getVar( 'mid' ) ) ) {
 		$cansubmit = 1;
 	}
@@ -335,7 +348,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
-	'options'		=>  array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
+	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
 								_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
@@ -346,7 +359,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
-	'options'		=>  array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
+	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
 								_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
@@ -437,7 +450,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 0,
-	'options'		=>  array(	_NONE					=> 0,
+	'options'		=> array(	_NONE					=> 0,
 								_MI_IMPRESSION_BYTES	=> 1,
 								_MI_IMPRESSION_WORDS	=> 2,
 								_MI_IMPRESSION_CHARSF	=> 3 ) );

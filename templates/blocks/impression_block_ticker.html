@@ -1,0 +1,40 @@
+<{if $tickertype == Ticker}>
+	<script type="text/javascript" src="<{$icms_url}>/libraries/newsticker/newsTicker.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var options = {
+				newsList: "ul.impressionticker",
+				startDelay: 10,
+				tickerRate: 80,
+				controls: false,
+				ownControls: false,
+				stopOnHover: false,
+				resumeOffHover: true
+			}
+			$().newsTicker(options);
+		});
+	</script>
+
+	<ul class="impressionticker" style="list-style-type: none;">
+		<{foreach item=iticker from=$block.ticker}>
+			<li><{$iticker.title}></li>
+		<{/foreach}>
+	</ul>
+<{/if}>
+
+<{if $tickertype == Marquee}>
+	<link rel="stylesheet" href="<{$icms_url}>/libraries/webticker/webticker.css" type="text/css" media="screen">
+	<script type="text/javascript" src="<{$icms_url}>/libraries/webticker/jquery.webticker.js"></script> 
+	<script type="text/javascript">
+		$(function(){
+			$("#webticker").webTicker();
+			$("#webticker2").webTicker({travelocity: 0.05, direction: 1});
+		});
+	</script>
+
+	<ul id="webticker">
+		<{foreach item=iticker from=$block.ticker}>
+			<li><{$iticker.title}><span>(<{$iticker.published|wordwrap:50:"\n":true}>)</span></li>
+		<{/foreach}>
+	</ul>
+<{/if}>
