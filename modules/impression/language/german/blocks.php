@@ -39,7 +39,7 @@ define( '_MB_IMPRESSION_DATE', 'Datum' );
 define( '_MB_IMPRESSION_HEADLINES', 'Kopfzeilen' );
 define( '_MB_IMPRESSION_ADMINSECTION', 'administrativer Bereich' );
 define( '_MB_IMPRESSION_DATEFORMAT', 'Datumsformat: ' );
-define( '_MB_IMPRESSION_DATEFORMATMANUAL', 'Siehe dazu <a href="http://jp.php.net/manual/en/function.date.php" target="_blank">PHP Handbuch</a>' );
+define( '_MB_IMPRESSION_DATEFORMATMANUAL', "Siehe dazu <a href='http://jp.php.net/manual/en/function.date.php' target='_blank'>PHP Handbuch</a>" );
 define( '_MB_IMPRESSION_SELECTFEED', 'RSS Feed auswählen: ' );
 define( '_MB_IMPRESSION_SELECTFEED_DSC', '<small> - Wähle ICMS zur Benutzung des RSS Feed von ImpressCMS.<br /> - Select RSSfit to use Brandycoke\'s RSSfit module (subfeed needs to be activated).</small>'  );
 define( '_MB_IMPRESSION_READMORE', 'weiterlesen' );
@@ -60,4 +60,5 @@ define( '_MB_IMPRESSION_CHARSF', 'Zeichen' );
 define( '_MB_IMPRESSION_WORDSMORE', 'Wörter mehr' );
 define( '_MB_IMPRESSION_CHARSMORE', 'Zeichen mehr' );
 define( '_MB_IMPRESSION_SELECTCAT', 'Eine Kategorie auswählen:' );
+define( '_MB_IMPRESSION_SELECTTICKER', 'Select format:' );
 ?>
