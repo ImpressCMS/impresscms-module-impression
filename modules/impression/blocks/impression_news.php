@@ -123,7 +123,13 @@ function b_impression_news_show( $options ) {
 // @param $options
 // @return 
 function b_impression_news_edit( $options ) {
+	global $icmsAdminTpl;
+	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />');
+	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
+
 	$form = '<table cellspacing="5">';
+
 	$form .= '<tr><td width="200px"><b>' . _MB_IMPRESSION_DISP . '</b></td>';
 	$form .= '<td><input type="hidden" name="options[]" value="';
 	if ( $options[0] == 'news' ) {
@@ -131,9 +137,10 @@ function b_impression_news_edit( $options ) {
 	}
 	$form .= ' />';
 	$form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMPRESSION_FILES . '</td></tr>';
-	
+
 // Date format
-	$form .= '<tr><td><b>' . _MB_IMPRESSION_DATEFORMAT . '</b></td><td><input type="text" name="options[]" value="' . $options[2] . '" />&nbsp;' . _MB_IMPRESSION_DATEFORMATMANUAL . '</td></tr>';
+	$form .= '<tr><td><b>' . _MB_IMPRESSION_DATEFORMAT . '</b>' . impression_tooltip( _MB_IMPRESSION_DATEFORMATMANUAL, 'help' ) . '</td>';
+	$form .= '<td><input type="text" name="options[]" value="' . $options[2] . '" /></td></tr>';
 	
 // Bytes more
 	$chk   = '';
