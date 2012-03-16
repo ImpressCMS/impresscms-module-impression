@@ -70,18 +70,18 @@
 	&nbsp;
 </div>
 
-<div style="text-align: center; margin-top: 10px;"><{$commentsnav}><{$lang_notice}></div>
+<{if $commentsnav}>
+	<div style="text-align: center; margin-top: 20px;"><{$commentsnav}><{$lang_notice}></div>
+<{/if}>
 
 <!-- start comments loop -->
-<div>
-	<{if $comment_mode == "flat"}>
-	<{include file="db:system_comments_flat.html"}>
-	<{elseif $comment_mode == "thread"}>
-	<{include file="db:system_comments_thread.html"}>
-	<{elseif $comment_mode == "nest"}>
-	<{include file="db:system_comments_nest.html"}>
-	<{/if}>
-</div>
+<{if $comment_mode == "flat"}>
+	<a name="#comments"></a><{include file="db:system_comments_flat.html"}>
+<{elseif $comment_mode == "thread"}>
+	<a name="#comments"></a><{include file="db:system_comments_thread.html"}>
+<{elseif $comment_mode == "nest"}>
+	<a name="#comments"></a><{include file="db:system_comments_nest.html"}>
+<{/if}>
 <!-- end comments loop -->
 
 <{include file="db:system_notification_select.html"}>
