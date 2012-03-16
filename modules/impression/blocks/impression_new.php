@@ -144,7 +144,7 @@ function b_impression_new_edit( $options ) {
 
 	$form = '<table cellspacing="5">';
 
-	$form .= '<tr><td width="140px"><b>' . _MB_IMPRESSION_DISP . '</b></td>';
+	$form .= '<tr><td width="200px"><b>' . _MB_IMPRESSION_DISP . '</b></td>';
 	$form .= '<td><input type="hidden" name="options[]" value="';
 	if ( $options[0] == 'new' ) {
 		$form .= 'new"';

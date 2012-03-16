@@ -87,7 +87,7 @@ function b_impression_ticker_edit( $options ) {
 
 	$form = '<table cellspacing="5">';
 
-	$form .= '<tr><td width="140px"><b>' . _MB_IMPRESSION_DISP . '</b></td>';
+	$form .= '<tr><td width="200px"><b>' . _MB_IMPRESSION_DISP . '</b></td>';
 	$form .= '<td><input type="hidden" name="options[]" value="ticker" />';
 	$form .= '<input type="text" name="options[]" value="' . $options[1] . '" />&nbsp;' . _MB_IMPRESSION_HEADLINES . '</td></tr>';
 
