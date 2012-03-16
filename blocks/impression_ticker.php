@@ -101,7 +101,7 @@ function b_impression_ticker_edit( $options ) {
 		if ( $options[3] == $tickerlist  ) {
 			$selected = ' selected';
 		}
-		$form .= '<option value="' . $tickerlist . '"' . $selected . '>&nbsp;' . $tickerlist . '&nbsp;</option>';
+		$form .= '<option value="' . $tickerlist . '"' . $selected . '>' . $tickerlist . '</option>';
 	}
 	$form .= '</select>';
 	$form .= '</td></tr>';
