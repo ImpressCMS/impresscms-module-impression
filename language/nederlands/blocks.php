@@ -43,4 +43,8 @@ define( '_MB_IMPRESSION_WORDSMORE', 'woorden meer' );
 define( '_MB_IMPRESSION_CHARSMORE', 'karakters meer' );
 define( '_MB_IMPRESSION_SELECTCAT', 'Selekteer een categorie:' );
 define( '_MB_IMPRESSION_SELECTTICKER', 'Selekteer type:' );
+define( '_MB_IMPRESSION_TICKER01', 'Marquee' );
+define( '_MB_IMPRESSION_TICKER02', 'Ticker (stijl 01)' );
+define( '_MB_IMPRESSION_TICKER03', 'Ticker (stijl 02)' );
+define( '_MB_IMPRESSION_TICKER04', 'Vertikale Ticker' );
 ?>

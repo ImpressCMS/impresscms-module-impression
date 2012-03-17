@@ -72,8 +72,10 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.famfamfam.com" 
 $modversion['people']['other'][] = '&middot; <a href="http://www.icons-land.com" target=_blank">Icons-Land</a> (icons)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.fixicon.com" target="_blank">FixIcon</a> (module icon)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
-$modversion['people']['other'][] = '&middot; <a href="http://jonmifsud.com/web-tools/jquery-webticker/" target="_blank">Jonathan Mifsud</a> (WebTicker)';
-$modversion['people']['other'][] = '&middot; <a href="http://www.makemineatriple.com/2007/10/bbcnewsticker" target="_blank">Bryan Gullan</a> (BBC style news ticker)';
+$modversion['people']['other'][] = '&middot; <a href="http://jonmifsud.com/web-tools/jquery-webticker/" target="_blank">Jonathan Mifsud</a> (Marquee)';
+$modversion['people']['other'][] = '&middot; <a href="http://www.makemineatriple.com/2007/10/bbcnewsticker" target="_blank">Bryan Gullan</a> (Ticker style 01)';
+$modversion['people']['other'][] = '&middot; <a href="http://www.htmldrive.net/items/show/989/Very-Useful-News-Ticker-with-jQuery" target="_blank">HTML Drive</a> (Ticker style 02)';
+$modversion['people']['other'][] = '&middot; <a href="http://www.scriptbreaker.com/javascript/script/JQuery-news-slider" target="_blank">ScriptBreaking.com</a> (Vertical ticker)';
 
 // ** Documentation
 $modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_en.pdf" target="_blank">English [PDF]</a>';

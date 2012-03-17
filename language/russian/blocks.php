@@ -38,4 +38,8 @@ define( '_MB_IMPRESSION_BYTESMORE', 'bytes more' );
 define( '_MB_IMPRESSION_BYTESYN', 'Display <i>xx bytes more</i> in footer: ' );
 define( '_MB_IMPRESSION_SELECTCAT', 'Select a category:' );
 define( '_MB_IMPRESSION_SELECTTICKER', 'Select format:' );
+define( '_MB_IMPRESSION_TICKER01', 'Marquee' );
+define( '_MB_IMPRESSION_TICKER02', 'Ticker (style 01)' );
+define( '_MB_IMPRESSION_TICKER03', 'Ticker (style 02)' );
+define( '_MB_IMPRESSION_TICKER04', 'Vertical Ticker' );
 ?>
