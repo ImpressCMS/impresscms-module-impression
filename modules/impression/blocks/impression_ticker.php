@@ -94,10 +94,10 @@ function b_impression_ticker_edit( $options ) {
 	$form .= '<tr><td><b>' . _MB_IMPRESSION_DATEFORMAT . '</b>' . impression_tooltip( _MB_IMPRESSION_DATEFORMATMANUAL, 'help' ) . '</td>';
 	$form .= '<td><input type="text" name="options[]" value="' . $options[2] . '" /></td></tr>';
 
-	$ticker_arr = array( "a" => "Marquee", "b" => "Ticker" );
-	$form .= '<tr><td><b>' . _MB_IMPRESSION_SELECTTICKER . '</b></td><br /><td><select name="options[]" size="1">';
+	$ticker_arr = array( _MB_IMPRESSION_TICKER01, _MB_IMPRESSION_TICKER02, _MB_IMPRESSION_TICKER03, _MB_IMPRESSION_TICKER04 );
+	$form .= '<tr><td><b>' . _MB_IMPRESSION_SELECTTICKER . '</b></td><td><select name="options[]" size="1">';
 	foreach( $ticker_arr as $tickerlist ) {
-	$selected = '';
+		$selected = '';
 		if ( $options[3] == $tickerlist  ) {
 			$selected = ' selected';
 		}

@@ -1,5 +1,22 @@
-<{if $tickertype == Ticker}>
-	<script type="text/javascript" src="<{$icms_url}>/libraries/newsticker/newsTicker.js"></script>
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER01}>
+	<link rel="stylesheet" href="<{$icms_url}>/libraries/tickers/webticker/webticker.css" type="text/css" media="screen">
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/webticker/jquery.webticker.js"></script> 
+	<script type="text/javascript">
+		$(function(){
+			$("#webticker").webTicker();
+			$("#webticker2").webTicker({travelocity: 0.05, direction: 1});
+		});
+	</script>
+
+	<ul id="webticker">
+		<{foreach item=iticker from=$block.ticker}>
+			<li><{$iticker.title}><span>(<{$iticker.published|wordwrap:50:"\n":true}>)</span></li>
+		<{/foreach}>
+	</ul>
+<{/if}>
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER02}>
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/newsticker01/newsTicker.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var options = {
@@ -22,19 +39,47 @@
 	</ul>
 <{/if}>
 
-<{if $tickertype == Marquee}>
-	<link rel="stylesheet" href="<{$icms_url}>/libraries/webticker/webticker.css" type="text/css" media="screen">
-	<script type="text/javascript" src="<{$icms_url}>/libraries/webticker/jquery.webticker.js"></script> 
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER03}>
+	<link rel="stylesheet" href="<{$icms_url}>/libraries/tickers/newsticker02/ticker-style.css" type="text/css" media="screen">
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/newsticker02/jquery.ticker.js"></script>
 	<script type="text/javascript">
-		$(function(){
-			$("#webticker").webTicker();
-			$("#webticker2").webTicker({travelocity: 0.05, direction: 1});
+		$(function () {
+			$('#js-news').ticker({
+				speed: 0.10,
+				fadeInSpeed: 600,
+				titleText: 'Latest news:'
+			});
 		});
 	</script>
 
-	<ul id="webticker">
-		<{foreach item=iticker from=$block.ticker}>
-			<li><{$iticker.title}><span>(<{$iticker.published|wordwrap:50:"\n":true}>)</span></li>
-		<{/foreach}>
-	</ul>
+	<div id="ticker-wrapper" class="no-js">
+		<ul id="js-news" class="js-hidden">
+			<{foreach item=iticker from=$block.ticker}>
+				<li class="news-item"><{$iticker.title}></li>
+			<{/foreach}>
+		</ul>
+	</div>
+<{/if}>
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER04}>
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/jcarousellite/jcarousellite_1.0.1c4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#newsticker-demo").jCarouselLite({
+				vertical: true,
+				hoverPause:false,
+				visible: 3,
+				auto:3000,
+				speed:500
+			});
+		});
+	</script>
+
+	<div id="newsticker-demo">
+		<ul>
+			<{foreach item=iticker from=$block.ticker}>
+				<li><{$iticker.title}> (<{$iticker.published|wordwrap:50:"\n":true}>)</li>
+			<{/foreach}>
+		</ul>
+	</div>
 <{/if}>
