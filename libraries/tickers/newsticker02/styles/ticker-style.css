@@ -4,11 +4,11 @@
 /*	width: 780px;*/
 	height: 32px;
 	display: block;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	background-color: #f8f0db;
-	font-size: 0.75em;
+	font-size: 0.8em;
 }
 #ticker {
 	width: 100%;
@@ -23,11 +23,10 @@
 	color: #990000;
 	font-weight: bold;
 	background-color: #f8f0db;
-
 }
 #ticker-content {
 	margin: 0px;
-	padding-top: 9px;
+	padding-top: 11px;
 	position: absolute;
 	color: #1F527B;
 	font-weight: bold;
@@ -49,7 +48,7 @@
 	top: 0px;
 	background-color: #f8f0db;
 	display: block;
-	width: 800px;
+	width: 100%;
 	height: 23px; 
 }
 #ticker-swipe span {

@@ -381,7 +381,7 @@
 
 	// plugin defaults - added as a property on our plugin function
 	$.fn.ticker.defaults = {
-		speed: 0.10,
+		speed: 0.10,			
 		ajaxFeed: false,
 		feedUrl: '',
 		feedType: 'xml',
@@ -389,8 +389,8 @@
 		htmlFeed: true,
 		debugMode: true,
 		controls: true,
-		titleText: 'Latest',
-		direction: 'ltr',
+		titleText: 'Latest',	
+		direction: 'ltr',	
 		pauseOnItems: 3000,
 		fadeInSpeed: 600,
 		fadeOutSpeed: 300
