@@ -170,7 +170,7 @@ function b_impression_news_edit( $options ) {
 	$cat_arr = array();
 	$xt = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 	$cat_arr = $xt -> getChildTreeArray( 0, 'title');
-	$form .= '<tr><td><b>' . _MB_IMPRESSION_SELECTCAT . '</b></td><br /><td><select name="options[]" size="8">';
+	$form .= '<tr><td><b>' . _MB_IMPRESSION_SELECTCAT . '</b></td><td><select name="options[]" size="8">';
 	foreach( $cat_arr as $catlist ) {
 	$selected = '';
 		if ( $options[4] == $catlist['cid']  ) {
