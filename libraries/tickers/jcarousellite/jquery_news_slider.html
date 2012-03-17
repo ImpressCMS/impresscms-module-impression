@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>ScriptBreaker.com - JQuery news slider</title>
+<link rel="stylesheet" href="style-newsticker.css" type="text/css" media="screen" />
+<script src="jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="jcarousellite_1.0.1c4.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	$("#newsticker-demo").jCarouselLite({
+		vertical: true,
+		hoverPause:true,
+		btnPrev: ".previous",
+		btnNext: ".next",
+		visible: 3,
+		auto:3000,
+		speed:500
+	});
+});
+</script>
+</head>
+<body>
+ <img src="news-arrow-previous.png" class="previous" />
+ <div id="newsticker-demo">
+     <ul>
+       <li>
+			<p>
+				<span class="title">Tip: </span><a href="http://www.scriptbreaker.com">Looking for new scripts?</a><br>
+				Visit our homepage to see the latest scripts.
+       		</p>
+       </li>
+       <li>
+       		<p>
+       			<span class="title">Find: </span><a href="http://www.scriptbreaker.com">Scripts by category?</a><br>
+				A collection of popular scripts by category
+			</p>
+       </li>
+       <li>
+       		<p>
+       			<span class="title">Help: </span><a href="http://www.scriptbreaker.com">Say hello?</a><br>
+				Need some help?  Just drop us a line.
+			</p>
+       </li>
+       <li>
+       		<p>
+       			<span class="title">Wow: </span><a href="http://www.scriptbreaker.com">Navigation?</a><br>
+				Looking for some cool navigation scripts
+			</p>
+       </li>
+       <li>
+       		<p>
+       			<span class="title">Request: </span><a href="http://www.scriptbreaker.com">Need a script?</a><br>
+				Can't find the the script you're looking for'?  Ask us!
+			</p>
+       </li>
+     </ul>
+ </div>
+ <img src="news-arrow.png" class="next" />
+ </body>
+ </html>
