@@ -36,9 +36,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
 $modversion['version']			= 1.11;
-$modversion['date'] 			= 'xx xxxxx 2012';
-$modversion['status']			= 'Trunk';
-$modversion['status_version']	= 'Trunk';
+$modversion['date'] 			= '18 March 2012';
+$modversion['status']			= 'RC-2';
+$modversion['status_version']	= 'RC-2';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license']			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['dirname']			= basename( dirname( __FILE__ ) );
