@@ -36,9 +36,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
 $modversion['version']			= 1.11;
-$modversion['date'] 			= '04 March 2012';
-$modversion['status']			= 'RC-1';
-$modversion['status_version']	= 'RC-1';
+$modversion['date'] 			= 'xx xxxxx 2012';
+$modversion['status']			= 'Trunk';
+$modversion['status_version']	= 'Trunk';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license']			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['dirname']			= basename( dirname( __FILE__ ) );
@@ -74,7 +74,7 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.fixicon.com" ta
 $modversion['people']['other'][] = '&middot; <a href="http://www.heise.de/extras/socialshareprivacy/" target="_blank">Social Share Privacy</a>';
 $modversion['people']['other'][] = '&middot; <a href="http://jonmifsud.com/web-tools/jquery-webticker/" target="_blank">Jonathan Mifsud</a> (Marquee)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.makemineatriple.com/2007/10/bbcnewsticker" target="_blank">Bryan Gullan</a> (Ticker style 01)';
-$modversion['people']['other'][] = '&middot; <a href="http://www.htmldrive.net/items/show/989/Very-Useful-News-Ticker-with-jQuery" target="_blank">HTML Drive</a> (Ticker style 02)';
+$modversion['people']['other'][] = '&middot; <a href="http://www.jquerynewsticker.com/" target="_blank">jQuery News Ticker</a> (Ticker style 02)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.scriptbreaker.com/javascript/script/JQuery-news-slider" target="_blank">ScriptBreaking.com</a> (Vertical ticker)';
 
 // ** Documentation
