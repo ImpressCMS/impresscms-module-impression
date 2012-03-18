@@ -387,8 +387,6 @@ define( '_AM_IMPRESSION_SOURCEDSC', 'Geben Sie den Namen der Quelle ein' );
 define( '_AM_IMPRESSION_SOURCEURL', 'URL der Quelle:' );
 define( '_AM_IMPRESSION_SOURCEURLDSC', 'Geben Sie die URL der Quelle ein' );
 define( '_AM_IMPRESSION_CHECKURL', 'URL prüfen' );
-define( '_AM_IMPRESSION_WARNLIB1', 'WARNING: The library <u>Lytebox</u> is missing.' );
-define( '_AM_IMPRESSION_WARNLIB2', 'WARNING: The library <u>Social Share Privacy</u> is missing.' );
 define( '_AM_IMPRESSION_MSG_OFFLINE', 'Article was set Offline successfully.' );
 define( '_AM_IMPRESSION_MSG_ONLINE', 'Article was set Online successfully.' );
 ?>

@@ -388,10 +388,6 @@ define( '_AM_IMPRESSION_SOURCEDSC', 'Enter the name of the source' );
 define( '_AM_IMPRESSION_SOURCEURL', 'URL of source:' );
 define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
 define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
-define( '_AM_IMPRESSION_WARNLIB1', 'WARNING: The library <u>Lytebox</u> is missing.' );
-define( '_AM_IMPRESSION_WARNLIB2', 'WARNING: The library <u>Social Share Privacy</u> is missing.' );
-define( '_AM_IMPRESSION_WARNLIB3', 'WARNING: The library <u>NewsTicker</u> is missing.' );
-define( '_AM_IMPRESSION_WARNLIB4', 'WARNING: The library <u>WebTicker</u> is missing.' );
 define( '_AM_IMPRESSION_MSG_OFFLINE', 'Article was set Offline successfully.' );
 define( '_AM_IMPRESSION_MSG_ONLINE', 'Article was set Online successfully.' );
 ?>
