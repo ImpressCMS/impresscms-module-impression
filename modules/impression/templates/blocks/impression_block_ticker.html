@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$dirname}>/impressionstyle.css" />
+
 <{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER01}>
 	<link rel="stylesheet" href="<{$icms_url}>/libraries/tickers/webticker/webticker.css" type="text/css" media="screen">
 	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/webticker/jquery.webticker.js"></script> 
@@ -97,4 +99,33 @@
 			<{/foreach}>
 		</ul>
 	</div>
+<{/if}>
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER05}>
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/bxslider/jquery.bxSlider.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#slider1').bxSlider({
+			mode: 'horizontal',		// 'horizontal', 'vertical', 'fade'
+			controls: false,		// true, false - previous and next controls
+			nextText: '<a class="impression_button">next</a>',		// string - text displayed for 'next' control
+			nextImage: '',		// string - filepath of image used for 'next' control. ex: 'images/next.jpg'
+			nextSelector: null,		// jQuery selector - element to contain the next control. ex: '#next'
+			prevText: '<a class="impression_button">prev</a>',
+			prevImage: '',		// string - filepath of image used for 'previous' control. ex: 'images/prev.jpg'
+			prevSelector: null,		// jQuery selector - element to contain the previous control. ex: '#next'
+			ticker: true,		// true, false - continuous motion ticker mode (think news ticker)
+								// note: autoControls, autoControlsSelector, and autoHover apply to ticker!
+			tickerSpeed: 80000,		  // float - use value between 1 and 5000 to determine ticker speed - the smaller the value the faster the ticker speed
+			tickerDirection: 'next',		// 'next', 'prev' - direction in which ticker show will traverse
+			tickerHover: true		// true, false - if true ticker will pause on mouseover
+			});
+		});
+	</script>
+
+	<ul id="slider1">
+		<{foreach item=iticker from=$block.ticker}>
+			<li><{$iticker.title}> (<{$iticker.published|wordwrap:50:"\n":true}>)</li>
+		<{/foreach}>
+	</ul>
 <{/if}>

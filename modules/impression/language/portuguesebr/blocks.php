@@ -48,4 +48,5 @@ define( '_MB_IMPRESSION_TICKER01', 'Marquee' );
 define( '_MB_IMPRESSION_TICKER02', 'Ticker (style 01)' );
 define( '_MB_IMPRESSION_TICKER03', 'Ticker (style 02)' );
 define( '_MB_IMPRESSION_TICKER04', 'Vertical Ticker' );
+define( '_MB_IMPRESSION_TICKER05', 'bxSlider' );
 ?>
