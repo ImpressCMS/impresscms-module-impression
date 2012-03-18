@@ -123,8 +123,18 @@ function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $ex
 	}
 
 	// Check if library folders are there
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/lytebox' ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNLIB1 ) ); }
-	if ( !is_dir( ICMS_LIBRARIES_PATH . '/socialshareprivacy' ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNLIB2 ) ); }
+	$path_tickers_01 = ICMS_LIBRARIES_PATH . '/lytebox';
+	$path_tickers_02 = ICMS_LIBRARIES_PATH . '/socialshareprivacy';
+	$path_tickers_03 = ICMS_LIBRARIES_PATH . '/tickers/jcarousellite';
+	$path_tickers_04 = ICMS_LIBRARIES_PATH . '/tickers/jquery_news_ticker';
+	$path_tickers_05 = ICMS_LIBRARIES_PATH . '/tickers/newsticker01';
+	$path_tickers_06 = ICMS_LIBRARIES_PATH . '/tickers/webticker';
+	if ( !is_dir( $path_tickers_01 ) || !is_writable( $path_tickers_01 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_01 ) ); }
+	if ( !is_dir( $path_tickers_02 ) || !is_writable( $path_tickers_02 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_02 ) ); }
+	if ( !is_dir( $path_tickers_03 ) || !is_writable( $path_tickers_03 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_03 ) ); }
+	if ( !is_dir( $path_tickers_04 ) || !is_writable( $path_tickers_04 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_04 ) ); }
+	if ( !is_dir( $path_tickers_05 ) || !is_writable( $path_tickers_05 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_05 ) ); }
+	if ( !is_dir( $path_tickers_06 ) || !is_writable( $path_tickers_06 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_06 ) ); }
 
 	echo '<h3 style="color: #2F5376;">' . $header . '</h3>';
 	if ( $extra ) { echo '<div>' . $extra . '</div>'; }
