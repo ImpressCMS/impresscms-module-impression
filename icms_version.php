@@ -76,6 +76,7 @@ $modversion['people']['other'][] = '&middot; <a href="http://jonmifsud.com/web-t
 $modversion['people']['other'][] = '&middot; <a href="http://www.makemineatriple.com/2007/10/bbcnewsticker" target="_blank">Bryan Gullan</a> (Ticker style 01)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.jquerynewsticker.com/" target="_blank">jQuery News Ticker</a> (Ticker style 02)';
 $modversion['people']['other'][] = '&middot; <a href="http://www.scriptbreaker.com/javascript/script/JQuery-news-slider" target="_blank">ScriptBreaking.com</a> (Vertical ticker)';
+$modversion['people']['other'][] = '&middot; <a href="http://bxslider.com/" target="_blank">Steven Wanderski</a> (bxSlider)';
 
 // ** Documentation
 $modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/impression_manual_en.pdf" target="_blank">English [PDF]</a>';
