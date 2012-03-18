@@ -20,13 +20,16 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var options = {
-				newsList: "ul.impressionticker",
-				startDelay: 10,
-				tickerRate: 80,
-				controls: false,
-				ownControls: false,
-				stopOnHover: false,
-				resumeOffHover: true
+				newsList: "ul.impressionticker", // assumes unordered list; specify the ul holding the news items
+				startDelay: 10, // delay before first run of the ticker (ms)
+				tickerRate: 80, // time gap between display of each letter (ms)
+				controls: false, // show resume / stop controls (see below for the markup added)
+				ownControls: false, // use own markup for controls (sets controls = true)
+				stopOnHover: false, // trigger the stop action on hovering over the links
+				resumeOffHover: true, // trigger the resume action on mouseout from the links. NB the links must be block display for this to work reliably with stopOnHover
+				// loopDelay: 3000, // time for which full text of each item is shown at end of print-out (ms)
+				placeHolder1: " |", // character placeholder shown on even loops
+				placeHolder2: "_" // character placeholder shown on odd loops
 			}
 			$().newsTicker(options);
 		});
@@ -40,13 +43,14 @@
 <{/if}>
 
 <{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER03}>
-	<link rel="stylesheet" href="<{$icms_url}>/libraries/tickers/newsticker02/ticker-style.css" type="text/css" media="screen">
-	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/newsticker02/jquery.ticker.js"></script>
+	<link rel="stylesheet" href="<{$icms_url}>/libraries/tickers/newsticker02/styles/ticker-style.css" type="text/css" media="screen">
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/newsticker02/includes/jquery.ticker.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$('#js-news').ticker({
 				speed: 0.10,
 				fadeInSpeed: 600,
+				controls: false,
 				titleText: 'Latest news:'
 			});
 		});
