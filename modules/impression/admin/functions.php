@@ -130,13 +130,13 @@ function impression_adminmenu( $currentoption = 0, $header = '', $menu = '', $ex
 	$path_tickers_05 = ICMS_LIBRARIES_PATH . '/tickers/newsticker';
 	$path_tickers_06 = ICMS_LIBRARIES_PATH . '/tickers/webticker';
 	$path_tickers_07 = ICMS_LIBRARIES_PATH . '/tickers/bxslider';
-	if ( !is_dir( $path_tickers_01 ) || !is_writable( $path_tickers_01 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_01 ) ); }
-	if ( !is_dir( $path_tickers_02 ) || !is_writable( $path_tickers_02 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_02 ) ); }
-	if ( !is_dir( $path_tickers_03 ) || !is_writable( $path_tickers_03 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_03 ) ); }
-	if ( !is_dir( $path_tickers_04 ) || !is_writable( $path_tickers_04 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_04 ) ); }
-	if ( !is_dir( $path_tickers_05 ) || !is_writable( $path_tickers_05 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_05 ) ); }
-	if ( !is_dir( $path_tickers_06 ) || !is_writable( $path_tickers_06 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_06 ) ); }
-	if ( !is_dir( $path_tickers_07 ) || !is_writable( $path_tickers_07 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_07 ) ); }
+	if ( !is_dir( $path_tickers_01 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_01 ) ); }
+	if ( !is_dir( $path_tickers_02 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_02 ) ); }
+	if ( !is_dir( $path_tickers_03 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_03 ) ); }
+	if ( !is_dir( $path_tickers_04 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_04 ) ); }
+	if ( !is_dir( $path_tickers_05 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_05 ) ); }
+	if ( !is_dir( $path_tickers_06 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_06 ) ); }
+	if ( !is_dir( $path_tickers_07 ) ) { icms_core_Message::error( sprintf( _AM_IMPRESSION_WARNINSTALL3, $path_tickers_07 ) ); }
 
 	echo '<h3 style="color: #2F5376;">' . $header . '</h3>';
 	if ( $extra ) { echo '<div>' . $extra . '</div>'; }
