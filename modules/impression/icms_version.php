@@ -523,7 +523,7 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 0,
-	'options'		=> array( _NONE => 0, _MI_IMPRESSION_HORICNT => 1, _MI_IMPRESSION_VERTCNT => 2 ) );
+	'options'		=> array( _NONE => 0, _MI_IMPRESSION_DEFAULT => 1, _MI_IMPRESSION_HORICNT => 2, _MI_IMPRESSION_VERTCNT => 3 ) );
 
 $modversion['config'][] = array(
 	'name'			=> 'plusone_bttn',
