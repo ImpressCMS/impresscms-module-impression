@@ -149,7 +149,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
 	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL . impression_tooltip( _AM_IMPRESSION_SOURCEURLDSC, 'help' ), '' );
 	$sourceurl_tray -> addElement( $sourceurl_text, false) ;
-	$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _AM_IMPRESSION_CHECKURL . "' title='" . _AM_IMPRESSION_CHECKURL . "' />" ) );
+	$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _AM_IMPRESSION_CHECKURL . "' title='" . _AM_IMPRESSION_CHECKURL . "' style='cursor:pointer;' />" ) );
 	$sform -> addElement( $sourceurl_tray );
 
 // Meta keywords form
@@ -257,7 +257,7 @@ switch ( strtolower( $op ) ) {
 		$sourceurl = icms_core_DataFilter::addSlashes( trim( $_POST['sourceurl'] ) );
 		$meta_keywords = icms_core_DataFilter::addSlashes( trim( $_POST['meta_keywords'] ) );
 //		$item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
-		$published =  strtotime($_POST['published']['date'] ) + $_POST['published']['time'];
+		$published = strtotime( $_POST['published']['date'] ) + $_POST['published']['time'];
 		$uid = $_POST['uid'];
 		$publisher = icms::$user -> getVar('uid');
 		$notifypub = ( isset( $_POST['notifypub'] ) && $_POST['notifypub'] == 1 );

@@ -260,7 +260,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$sourceurl_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCEURL . impression_tooltip( _MD_IMPRESSION_SOURCEURLDSC ), '' );
 
 		$sourceurl_tray -> addElement( $sourceurl_text, false) ;
-		$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _MD_IMPRESSION_CHECKURL . "' title='" . _MD_IMPRESSION_CHECKURL . "' />" ) );
+		$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _MD_IMPRESSION_CHECKURL . "' title='" . _MD_IMPRESSION_CHECKURL . "' style='cursor:pointer;' />" ) );
 		$sform -> addElement( $sourceurl_tray );
 
 // Meta meta_keywords form
