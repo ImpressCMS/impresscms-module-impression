@@ -123,7 +123,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		} else {
 			if ( true == impression_checkgroups( $cid, 'ImpressionAutoApp' ) || $approve == 1 ) {
 				$updated = time();
-				$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$publisher', status='0', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', notifypub='$notifypub', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
+				$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', status='0', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', notifypub='$notifypub', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
 				if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 					$_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
 					icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
