@@ -110,7 +110,13 @@ tr.impression_even td {
 
 .impression_button {
 	padding: 2px 0.5em 3px 0.5em;
-	background-image: url(images/icon/backgnd.png);
+	background-color: #FFFFFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#D1D1D1));
+	background-image: -webkit-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:    -moz-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:     -ms-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:      -o-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:         linear-gradient(top, #FFFFFF, #D1D1D1);
 	background-position: center center;
 	background-repeat: repeat-x;
 	color: #444;
@@ -125,7 +131,13 @@ tr.impression_even td {
 
 .impression_minibutton {
 	padding: 2px 0.5em 2px 0.5em;
-	background-image: url(images/icon/backgnd.png);
+	background-color: #FFFFFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#D1D1D1));
+	background-image: -webkit-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:    -moz-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:     -ms-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:      -o-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:         linear-gradient(top, #FFFFFF, #D1D1D1);
 	background-position: center center;
 	background-repeat: repeat-x;
 	color: #444;
@@ -140,7 +152,13 @@ tr.impression_even td {
 
 .impression_microbutton {
 	padding: 1px 0.5em 1px 0.5em;
-	background-image: url(images/icon/backgnd.png);
+	background-color: #FFFFFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#D1D1D1));
+	background-image: -webkit-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:    -moz-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:     -ms-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:      -o-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:         linear-gradient(top, #FFFFFF, #D1D1D1);
 	background-position: center center;
 	background-repeat: repeat-x;
 	color: #000;
@@ -161,7 +179,13 @@ tr.impression_even td {
 	display: table-block;
 	font-weight: bold;
 	padding: 3px;
-	background-image: url(images/icon/backgnd.png);
+	background-color: #FFFFFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#D1D1D1));
+	background-image: -webkit-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:    -moz-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:     -ms-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:      -o-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:         linear-gradient(top, #FFFFFF, #D1D1D1);
 	background-position: center bottom;
 	background-repeat: repeat-x;
 	background-size: contain;
@@ -175,7 +199,13 @@ tr.impression_even td {
 	font-weight: bold;
 	padding: 3px;
 	background-repeat: repeat-x;
-	background-image: url(images/icon/backgnd.png);
+	background-color: #FFFFFF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#D1D1D1));
+	background-image: -webkit-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:    -moz-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:     -ms-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:      -o-linear-gradient(top, #FFFFFF, #D1D1D1);
+	background-image:         linear-gradient(top, #FFFFFF, #D1D1D1);
 	background-position: center center;
 	background-size: contain; }
 
