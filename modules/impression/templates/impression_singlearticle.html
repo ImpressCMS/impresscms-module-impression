@@ -1,5 +1,26 @@
 <link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/impressionstyle.css" />
 
+<!--[if  ie 9]>
+<style type="text/css" media="screen">
+	.linear-top,
+	.linear-right,
+	.linear-bottom,
+	.linear-left,
+	.gradient,
+	.impression_minibutton,
+	.impression_button,
+	.impression_microbutton,
+	.impression_tblhdr,
+	.impression_tblhdrrow
+	{
+		filter: none;
+		background-image: url(<{$icms_url}>/modules/<{$dirname}>/images/icon/backgnd.png);
+		background-size: 100% 600%;
+		zoom: 1;
+	}
+</style>
+<![endif]-->
+
 <{if $article.showsbookmarks == 2 && $article.google > 0}>
 	<!-- Google Plus One script -->
 	<script type="text/javascript">
