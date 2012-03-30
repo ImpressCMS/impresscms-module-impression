@@ -170,7 +170,7 @@ list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssq
 
 if ( $rssactive == 1 ) {
 	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMPRESSION_FEED . '" /></a>');
-	$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMPRESSION_FEED . '" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php">' );
+	$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMPRESSION_FEED . '" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php">' );
 }
 
 include ICMS_ROOT_PATH . '/footer.php';
