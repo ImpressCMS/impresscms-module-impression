@@ -20,6 +20,7 @@ Fixed:
 - Disabled XOOPS Tag module
 - CSS not loaded correctly in impression_catview.html
 - Wrong default value for form_bytesyn in icms_version.php
+- Gradient background of buttons and table header rows
 
 Other:
 - Disabled XOOPS Tag module
@@ -29,6 +30,7 @@ Removed:
 
 Removed files:
 - class/class_thumbnail.php
+- images/icon/backgnd.png
 
 =========================================================
 25.09.2011 - Version 1.1
