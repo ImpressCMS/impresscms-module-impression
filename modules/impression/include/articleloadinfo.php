@@ -34,8 +34,8 @@ $path = str_replace( '/', '', basename( substr( $mytree -> getPathFromId( $artic
 $article['category'] = $path;
 
 $article['hits'] = sprintf( _MD_IMPRESSION_ARTICLEHITS, intval( $article_arr['hits'] ) ) ;
-$publisher = ( isset( $article_arr['publisher'] ) && !empty( $article_arr['publisher'] ) ) ? $impressionmyts -> htmlSpecialCharsStrip( $article_arr['publisher'] ) : _MD_IMPRESSION_NOTSPECIFIED;
-$article['title'] = $impressionmyts -> htmlSpecialCharsStrip( $article_arr['title'] );
+$publisher = ( isset( $article_arr['publisher'] ) && !empty( $article_arr['publisher'] ) ) ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_arr['publisher'] ) ) : _MD_IMPRESSION_NOTSPECIFIED;
+$article['title'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_arr['title'] ) );
 
 $article['updated'] = impression_time( formatTimestamp( $article_arr['published'], icms::$module -> config['dateformat'] ) );
 $article['introtext'] = $article_arr['introtext'];

@@ -30,6 +30,7 @@ Removed:
 
 Removed files:
 - class/class_thumbnail.php
+- class/myts_extended.php
 - images/icon/backgnd.png
 
 =========================================================

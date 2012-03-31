@@ -54,7 +54,7 @@ function impression_makeTreeCheckTable( $xt, $itemid, $title, $checks, $cidd ) {
 		
 		foreach ( $arr as $cat ) {
 			$cat['prefix'] = str_replace( '.', '-', $cat['prefix'] );
-			$catpath = $cat['prefix'] . '&nbsp;' . $impressionmyts -> htmlSpecialCharsStrip( $cat[$title] ) . '&nbsp;';
+			$catpath = $cat['prefix'] . '&nbsp;' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat[$title] ) ) . '&nbsp;';
 			$checked = array_key_exists( $cat['cid'], $checks ) ? 'checked="checked"' : '';
 			$disabled = ( $cat['cid'] == $cidd ) ? 'disabled="yes"' : '';
 			$level = substr_count( $cat['prefix'], '-' ) + 1;
@@ -110,7 +110,7 @@ switch ( strtolower( $op ) ) {
 					<div style="padding: 8px;">' . _AM_IMPRESSION_ALTCAT_INFOTEXT . '</div>
 				</div>';
 
-		echo '<div style="text-align: left; font-size: 14px; font-weight: bold; margin: 15px 0 10px 5px;">' . $impressionmyts -> htmlSpecialCharsStrip( $title ) . '</div>'; 
+		echo '<div style="text-align: left; font-size: 14px; font-weight: bold; margin: 15px 0 10px 5px;">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $title ) ) . '</div>'; 
 		// Get an array of all alternate categories for this topic
 		$sql2 = icms::$xoopsDB -> query( 'SELECT cid FROM ' . icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' WHERE aid=' . $aid . ' ORDER BY aid' );
 		$altcats = array();

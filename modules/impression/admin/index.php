@@ -41,28 +41,28 @@ function edit( $aid = 0, $doclone = 0 ) {
 	
 	if ( $doclone == 0 ) {
 		$aid = $article_array['aid'] ? $article_array['aid'] : 0;
-		$title = $article_array['title'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['title'] ) : '';
+		$title = $article_array['title'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['title'] ) ) : '';
 		$published = $article_array['published'] ? $article_array['published'] : time();
 	} else {
 		$aid='';
-		$title = $article_array['title'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['title'] . '  ' . _AM_IMPRESSION_CLONE ) : '';
+		$title = $article_array['title'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['title'] . '  ' . _AM_IMPRESSION_CLONE ) ) : '';
 		$published = time();
 	}
 
 	$cid = $article_array['cid'] ? $article_array['cid'] : 0;
 	$submitter = $article_array['uid'] ? $article_array['uid'] : 1;
 	$uid = $article_array['uid'] ? $article_array['uid'] : 'Anonymous';
-	$introtextb = $article_array['introtext'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['introtext'] ) : '';
-	$descriptionb = $article_array['description'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['description'] ) : '';
+	$introtextb = $article_array['introtext'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['introtext'] ) ) : '';
+	$descriptionb = $article_array['description'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['description'] ) ) : '';
 	$date = $article_array['date'];
 	$status = $article_array['status'] ? $article_array['status'] : 0;
 	$ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
-	$meta_keywords = $article_array['meta_keywords'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['meta_keywords'] ) : '';
-//	$item_tag = $article_array['item_tag'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['item_tag'] ) : '';
+	$meta_keywords = $article_array['meta_keywords'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['meta_keywords'] ) ) : '';
+//	$item_tag = $article_array['item_tag'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['item_tag'] ) ) : '';
 	$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
-	$nice_url = $article_array['nice_url'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['nice_url'] ) : '';
-	$source = $article_array['source'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['source'] ) : '';
-	$sourceurl = $article_array['sourceurl'] ? $impressionmyts -> htmlSpecialCharsStrip( $article_array['sourceurl'] ) : '';
+	$nice_url = $article_array['nice_url'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['nice_url'] ) ) : '';
+	$source = $article_array['source'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['source'] ) ) : '';
+	$sourceurl = $article_array['sourceurl'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['sourceurl'] ) ) : '';
 
 	icms_cp_header();
 	impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );

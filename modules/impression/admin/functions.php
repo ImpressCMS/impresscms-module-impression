@@ -153,11 +153,11 @@ function impression_articlelistbody( $published ) {
 	}
 	$nice_link = impression_nicelink( $published['title'], $published['nice_url'] );
 	if ( icms::$module -> config['niceurl'] ) {
-		$title = $icon . '&nbsp;<a href="../singlearticle.php?aid=' . $published['aid'] . '&amp;title=' . $nice_link . '">' . $impressionmyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+		$title = $icon . '&nbsp;<a href="../singlearticle.php?aid=' . $published['aid'] . '&amp;title=' . $nice_link . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
 	} else {
-		$title = $icon . '&nbsp;<a href="../singlearticle.php?aid=' . $published['aid'] . '">' . $impressionmyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) . '</a>';
+		$title = $icon . '&nbsp;<a href="../singlearticle.php?aid=' . $published['aid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
 	}
-	$maintitle = urlencode( $impressionmyts -> htmlSpecialCharsStrip( trim( $published['title'] ) ) );
+	$maintitle = urlencode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) );
 	$cattitle = impression_cattitle( $published['cid'] );
 	$submitter = icms_member_user_Handler::getUserLink( $published['uid'] );
 	$submitted = impression_time( formatTimestamp( $published['date'], icms::$module -> config['dateformat'] ) );

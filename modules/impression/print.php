@@ -47,13 +47,13 @@ if ( icms::$module -> config['showsubmitter'] ) {
 $date = formatTimestamp( $myrow['published'], icms::$module -> config['dateformat'] );
 
 $item = array();
-$item['printtitle']  = $icmsConfig['sitename'] . ' - ' . $impressionmyts -> htmlSpecialCharsStrip( $myrow['title'] );
-$item['printheader'] = icms::$module -> config['headerprint'];
-$who_when    = sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
-$item['categoryname']= $mycat['title'];
-$item['title']       = $myrow['title'];
-$item['introtext']   = $myrow['introtext'];
-$item['description'] = $myrow['description'];
+$item['printtitle']		= $icmsConfig['sitename'] . ' - ' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
+$item['printheader']	= icms::$module -> config['headerprint'];
+$who_when				= sprintf( _MD_IMPRESSION_WHO_WHEN, $submitter, $date );
+$item['categoryname']	= $mycat['title'];
+$item['title']			= $myrow['title'];
+$item['introtext']		= $myrow['introtext'];
+$item['description']	= $myrow['description'];
 
 $xoopsTpl -> assign( 'printtitle', $item['printtitle'] );
 $xoopsTpl -> assign( 'printlogourl', icms::$module -> config['printlogourl'] );
@@ -61,6 +61,6 @@ $xoopsTpl -> assign( 'printheader', $item['printheader'] );
 $xoopsTpl -> assign( 'lang_category', _MD_IMPRESSION_CATEGORY );
 $xoopsTpl -> assign( 'lang_author_date', $who_when );
 $xoopsTpl -> assign( 'item', $item );
-$xoopsTpl -> assign( 'itemfooter', strip_tags( $impressionmyts -> htmlSpecialCharsStrip( icms::$module -> config['itemfooter'] ) ) );
+$xoopsTpl -> assign( 'itemfooter', strip_tags( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( icms::$module -> config['itemfooter'] ) ) ) );
 $xoopsTpl -> display( 'db:impression_print.html' );
 ?>

@@ -56,14 +56,14 @@ while ( list( $cid, $ctitle ) = icms::$xoopsDB -> fetchRow( $result ) ) {
 		$filecount = icms::$xoopsDB -> getRowsNum( $result2 );
 
 		if ( $filecount > 0 ) {
-			$rankings[$e]['title'] = $impressionmyts -> htmlSpecialCharsStrip( $ctitle );
+			$rankings[$e]['title'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $ctitle ) );
 			$rank = 1;
 			while ( list( $did, $dcid, $dtitlea, $hits, $nice_url ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
 				
 				$result3 = icms::$xoopsDB -> query( 'SELECT title FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $dcid );
 				$mycat = icms::$xoopsDB -> fetchArray( $result3 );	
 				$category = $mycat['title'];
-				$dtitle = $impressionmyts -> htmlSpecialCharsStrip( $dtitlea );
+				$dtitle = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $dtitlea ) );
 				$nice_link = impression_nicelink( $dtitlea, $nice_url );
 				$rankings[$e]['file'][] = array( 'id' => $did, 'cid' => $dcid, 'rank' => $rank, 'title' => $dtitle, 'category' => $category, 'hits' => $hits, 'nice_link' => $nice_link );
 				$rank++;

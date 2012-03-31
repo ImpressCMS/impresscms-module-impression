@@ -45,8 +45,8 @@ if ( $head_arr['indeximage'] ) {
 if ( $head_arr['indexheading'] ) {
 	$catarray['indexheading'] = '<div style="padding: 12px 3px 12px 8px;">' . $head_arr['indexheading'] . '</div>';
 }
-$catarray['indexheaderalign'] = $impressionmyts -> htmlSpecialCharsStrip( $head_arr['indexheaderalign'] );
-$catarray['indexfooteralign'] = $impressionmyts -> htmlSpecialCharsStrip( $head_arr['indexfooteralign'] );
+$catarray['indexheaderalign'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $head_arr['indexheaderalign'] ) );
+$catarray['indexfooteralign'] = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $head_arr['indexfooteralign'] ) );
 if ( $head_arr['indexheader'] ) {
 	$catarray['indexheader'] = '<div style="text-align: '.$catarray['indexheaderalign'].'; padding: 12px 3px 12px 8px;">' . $head_arr['indexheader'] . '</div>';
 }
@@ -67,7 +67,7 @@ while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 	$indicator['image'] = 'modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/folder.png';
 	$indicator['alttext'] = _MD_IMPRESSION_NEWLAST;
 	if ( impression_checkgroups( $myrow['cid'] ) ) {
-		$title = $impressionmyts -> htmlSpecialCharsStrip( $myrow['title'] );
+		$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $myrow['title'] ) );
 		$arr = array();
 		$arr = $mytree -> getFirstChild( $myrow['cid'], 'title' );
 		$space = $chcount = 1;
@@ -76,7 +76,7 @@ while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 			$hassubitems = impression_getTotalItems( $ele['cid'], 1 );
 			if ( true == impression_checkgroups( $ele['cid'] ) ) {
 				if ( icms::$module -> config['subcats'] == 1 ) {
-					$chtitle = $impressionmyts -> htmlSpecialCharsStrip( $ele['title'] );
+					$chtitle = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $ele['title'] ) );
 					if ( $chcount > 5 ) {
 						$subcategories .= '...';
 						break;

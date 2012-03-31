@@ -55,9 +55,9 @@ function createcat($cid = 0) {
 	if ( $cid ) {
 	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE cid=' . $cid;
 		$cat_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
-		$title = $impressionmyts -> htmlSpecialCharsStrip( $cat_arr['title'] );
-		$imgurl = $impressionmyts -> htmlSpecialCharsStrip( $cat_arr['imgurl'] );
-		$description = $impressionmyts -> htmlSpecialCharsStrip( $cat_arr['description'] );
+		$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat_arr['title'] ) );
+		$imgurl = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat_arr['imgurl'] ) );
+		$description = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $cat_arr['description'] ) );
 		$weight = $cat_arr['weight'];
 		$inblocks = $cat_arr['inblocks'];
 		$heading = _AM_IMPRESSION_CCATEGORY_MODIFY;

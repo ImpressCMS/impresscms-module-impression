@@ -33,9 +33,6 @@ include '../../../include/cp_header.php';
 include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/functions.php';
 include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/functions.php';
 include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/impression_lists.php';
-include_once ICMS_ROOT_PATH . '/modules/'. icms::$module -> getVar( 'dirname' ) . '/class/myts_extended.php';
-
-$impressionmyts = new impressionTextSanitizer(); // MyTextSanitizer object
 
 $imagearray = array(
 	'editimg'		=> '<img src="../images/icon/page_edit.png" alt="" title="' . _AM_IMPRESSION_ICO_EDIT . '" style="vertical-align: middle;" />',
@@ -62,6 +59,4 @@ $imagearray = array(
 	'blckyellow'	=> '<img src="../images/icon/box_yellow.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" />',
 	'blckblue'		=> '<img src="../images/icon/box_blue.png" alt="" title="' . _AM_IMPRESSION_ICO_INBLOCKY . '" />'
 );
-
-global $impressionmyts;
 ?>

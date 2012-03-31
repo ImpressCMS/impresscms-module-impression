@@ -107,7 +107,7 @@ switch ( strtolower( $op ) ) {
 					</div>';
 			while ( $new = icms::$xoopsDB -> fetchArray( $new_array ) ) {
 				$aid = intval( $new['aid'] );
-				$title = $impressionmyts -> htmlSpecialCharsStrip( $new['title'] );
+				$title = icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $new['title'] ) );
 				$submitter = icms_member_user_Handler::getUserLink( $new['uid'] );
 				$datetime = impression_time( formatTimestamp( $new['date'], icms::$module -> config['dateformat'] ) );
 
