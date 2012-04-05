@@ -350,7 +350,7 @@ function impression_tinyeditor( $caption, $name, $value, $height ) {
 function impression_tinymce( $caption, $name, $value, $height ) {
 	if ( file_exists( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' ) ) {
 		include_once( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' );
-		$impression_editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => $height . 'px', 0 ) );
+		$impression_editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => $height . 'px', 'setextra' => 0 ) );
 	}
 	return $impression_editor;
 }
