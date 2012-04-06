@@ -187,7 +187,7 @@ if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
 	if ( true == impression_checkgroups( $cid ) ) {
 		$article['useradminarticle'] = 1;
 		if ( icms::$user -> getVar( 'uid' ) == $article_arr['uid'] ) {
-			$article['usermodify'] = '<a class="button" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?aid=' . $article_arr['aid'] . '"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_modify.png" alt="" title="' . _MD_IMPRESSION_MODIFY . '" /></a>';
+			$article['usermodify'] = '<a class="impression_fe_button" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?aid=' . $article_arr['aid'] . '"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_modify.png" alt="" title="' . _MD_IMPRESSION_MODIFY . '" /></a>';
 		}
 	}
 }
