@@ -58,12 +58,12 @@ function b_impression_displaynewicons( $time, $status = 0, $counter = 0 ) {
 		if ( $newdate < $time ) {
 			if ( intval( $status ) > 1 ) {
 				if ( $impressionModuleConfig['displayicons'] == 1 )
-					$new = '&nbsp;<span class="impression_microbutton"><img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/icon_alert.gif" alt="" style="verticl-align: middle;" />&nbsp;' . _MB_IMPRESSION_UPDATED . "</span>";
+					$new = '&nbsp;<span class="impression_microbutton"><img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/icon_alert.gif" alt="" style="vertical-align: middle;" />&nbsp;' . _MB_IMPRESSION_UPDATED . "</span>";
 				if ( $impressionModuleConfig['displayicons'] == 2 )
 					$new = '<i>' . _MB_IMPRESSION_UPDATED . '</i>';
 			} else {
 				if ( $impressionModuleConfig['displayicons'] == 1 )
-					$new = '&nbsp;<span class="impression_microbutton"><img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/icon_flag_blue.gif" alt="" style="verticl-align: middle;" />&nbsp;' . _MB_IMPRESSION_NEW . "</span>";
+					$new = '&nbsp;<span class="impression_microbutton"><img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/icon_flag_blue.gif" alt="" style="vertical-align: middle;" />&nbsp;' . _MB_IMPRESSION_NEW . "</span>";
 				if ( $impressionModuleConfig['displayicons'] == 2 )
 					$new = '<i>' . _MB_IMPRESSION_NEW . '</i>';
 			}
@@ -71,7 +71,7 @@ function b_impression_displaynewicons( $time, $status = 0, $counter = 0 ) {
 		if ( $popdate > $time ) {
 			if ( $counter >= $impressionModuleConfig['popular'] ) {
 				if ( $impressionModuleConfig['displayicons'] == 1 )
-					$pop = '&nbsp;<span class="impression_microbutton"><img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/icon_favourites.gif" alt="" style="verticl-align: middle;" />&nbsp;' . _MB_IMPRESSION_POPULAR . "</span>";
+					$pop = '&nbsp;<span class="impression_microbutton"><img src="' . ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/icon_favourites.gif" alt="" style="vertical-align: middle;" />&nbsp;' . _MB_IMPRESSION_POPULAR . "</span>";
 				if ( $impressionModuleConfig['displayicons'] == 2 )
 					$pop = '<i>' . _MB_IMPRESSION_POPULAR . '</i>';
 			}
