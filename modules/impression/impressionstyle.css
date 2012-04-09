@@ -179,7 +179,7 @@ tr.impression_even td {
 	border-collapse: collapse; }
 
 .impression_tblhdr {
-	display: table-block;
+	display: block;
 	font-weight: bold;
 	padding: 3px;
 	background: #FFFFFF; /* Old browsers */
@@ -230,36 +230,6 @@ tr.impression_even td {
 	font-weight: bold;
 	background-color: #f2f2f2;
 	padding: 3px; }
-
-/* Tooltip box */
-.caption-text img {
-	float: right;
-	padding-top: 2px; }
-
-span.helptext {
-	position: absolute;
-	right: 50px;
-	z-index: 9000;
-	background-color: #000;
-	border: 1px solid #000;
-	border-radius: 6px;
-	padding: 5px 10px;
-	width: 200px;
-	display: none;
-	color: #FFF;
-	text-align: left;
-	font-size: 11px;
-	font-weight: normal;
-	/* outline radius for mozilla/firefox only */
-	outline-radius: 4px;
-	-moz-outline-radius: 4px;
-	-webkit-outline-radius: 4px;
-
-	/* opacity for tooltip box */
-	filter: alpha(opacity=70);
-	-moz-opacity: 0.75;
-	-khtml-opacity: 0.75;
-	opacity: 0.75; }
 
 /* Bookmark tags */
 div.impression_socbookmark {
