@@ -386,10 +386,10 @@ switch ( strtolower( $op ) ) {
 		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;  border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
 				<div style="padding: 10px;" id="button">
-					<a class="impression_button" href="category.php">' . _AM_IMPRESSION_SCATEGORY . $totalcats . '</a>
-					<a class="impression_button" href="index.php">' . _AM_IMPRESSION_SFILES . $totalarticles . '</a>
-					<a class="impression_button" href="newarticles.php">' . _AM_IMPRESSION_SNEWFILESVAL . $totalnewarticles . '</a>
-					<a class="impression_button" href="modifications.php">' . _AM_IMPRESSION_SMODREQUEST . $totalmodrequests . '</a>
+					<a class="impression_gradient impression_button" href="category.php">' . _AM_IMPRESSION_SCATEGORY . $totalcats . '</a>
+					<a class="impression_gradient impression_button" href="index.php">' . _AM_IMPRESSION_SFILES . $totalarticles . '</a>
+					<a class="impression_gradient impression_button" href="newarticles.php">' . _AM_IMPRESSION_SNEWFILESVAL . $totalnewarticles . '</a>
+					<a class="impression_gradient impression_button" href="modifications.php">' . _AM_IMPRESSION_SMODREQUEST . $totalmodrequests . '</a>
 				</div>
 			 </div>';
 
@@ -400,7 +400,7 @@ switch ( strtolower( $op ) ) {
 			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>' . impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
 			if ( $published_array_count > 0 ) {
 				echo '<div class="impression_table" style="font-size: 10px;">
-					<div class="impression_tblhdrrow">
+					<div class="impression_gradient impression_tblhdrrow">
 						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ID . '</div>
 						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_TITLE . '</div>
 						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_CATTITLE . '</div>

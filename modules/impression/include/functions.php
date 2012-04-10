@@ -99,12 +99,12 @@ function impression_displayicons( $time, $status = 0, $counter = 0 ) {
 		if ( $newdate < $time ) {
 			if ( intval( $status ) > 1 ) {
 				if ( icms::$module -> config['displayicons'] == 1 )
-					$new = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_UPDATE . "</span>";
+					$new = '&nbsp;<span class="impression_gradient impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/error.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_UPDATE . "</span>";
 				if ( icms::$module -> config['displayicons'] == 2 )
 					$new = '<i>' . _MD_IMPRESSION_UPDATE . '!</i>';
 			} else {
 				if ( icms::$module -> config['displayicons'] == 1 )
-					$new = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/flag_blue.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_NEW . "</span>";
+					$new = '&nbsp;<span class="impression_gradient impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/flag_blue.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_NEW . "</span>";
 				if ( icms::$module -> config['displayicons'] == 2 )
 					$new = '<i>' . _MD_IMPRESSION_NEW . '!</i>';
 				}
@@ -112,7 +112,7 @@ function impression_displayicons( $time, $status = 0, $counter = 0 ) {
 		if ( $popdate > $time ) {
 			if ( $counter >= icms::$module -> config['popular'] ) {
 				if ( icms::$module -> config['displayicons'] == 1 )
-					$pop = '&nbsp;<span class="impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/star.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_POPULAR . "</span>";
+					$pop = '&nbsp;<span class="impression_gradient impression_minibutton"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/star.png" alt="" style="vertical-align: middle;" />&nbsp;' . _MD_IMPRESSION_POPULAR . "</span>";
 					if ( icms::$module -> config['displayicons'] == 2 )
 						$pop = '<i>' . _MD_IMPRESSION_POPULAR . '!</i>';
 			}

@@ -76,7 +76,7 @@ while ( list( $cid, $ctitle ) = icms::$xoopsDB -> fetchRow( $result ) ) {
 if ( impression_imageheader() ) {
 	$xoopsTpl -> assign( 'imageheader', '<div class="impression_header">' . impression_imageheader() . '</div>' );
 }
-$xoopsTpl -> assign( 'back', '<a class="impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );
+$xoopsTpl -> assign( 'back', '<a class="impression_gradient impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );
 $xoopsTpl -> assign( 'lang_sortby' , $lang_array[$sort_arr] );
 $xoopsTpl -> assign( 'rankings', $rankings );
 $xoopsTpl -> assign( 'nice_url', icms::$module -> config['niceurl'] );

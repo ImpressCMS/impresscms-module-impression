@@ -270,7 +270,7 @@ switch ( icms::$module -> config['showsbookmarks'] ) {
 
 $xoopsTpl -> assign( 'article', $article );
 
-$xoopsTpl -> assign( 'back', '<a class="impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );
+$xoopsTpl -> assign( 'back', '<a class="impression_gradient impression_button" href="javascript:history.go(-1)">&#9668; ' . _MD_IMPRESSION_BACKBUTTON . '</a>' );
 $xoopsTpl -> assign( 'module_dir', icms::$module -> getVar( 'dirname' ) );
 
 include ICMS_ROOT_PATH . '/include/comment_view.php';
