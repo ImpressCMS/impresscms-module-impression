@@ -43,10 +43,10 @@ define( '_MB_IMPRESSION_CHARSF', 'Caracteres' );
 define( '_MB_IMPRESSION_WORDSMORE', 'palabras más' );
 define( '_MB_IMPRESSION_CHARSMORE', 'caracteres más' );
 define( '_MB_IMPRESSION_SELECTCAT', 'Seleccione una categoría:' );
-define( '_MB_IMPRESSION_SELECTTICKER', 'Select format:' );
+define( '_MB_IMPRESSION_SELECTTICKER', 'Seleccione el formato:' );
 define( '_MB_IMPRESSION_TICKER01', 'Marquee' );
-define( '_MB_IMPRESSION_TICKER02', 'Ticker (style 01)' );
-define( '_MB_IMPRESSION_TICKER03', 'Ticker (style 02)' );
-define( '_MB_IMPRESSION_TICKER04', 'Vertical Ticker' );
+define( '_MB_IMPRESSION_TICKER02', 'Ticker (estilo 01)' );
+define( '_MB_IMPRESSION_TICKER03', 'Ticker (estilo 02)' );
+define( '_MB_IMPRESSION_TICKER04', 'Ticker vertical' );
 define( '_MB_IMPRESSION_TICKER05', 'bxSlider' );
 ?>

@@ -157,5 +157,5 @@ define( '_MD_IMPRESSION_BYTESMORE', 'bytes más' );
 define( '_MD_IMPRESSION_WORDSMORE', 'palabras más' );
 define( '_MD_IMPRESSION_CHARSMORE', 'caracteres más' );
 define( '_MD_IMPRESSION_PDF_PAGE', 'Página ' );
-define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Sorry, you do not have permission to view this category.' );
+define( '_MD_IMPRESSION_NOPERMISSIONTOVIEW', 'Lo sentimos: no tiene permisos para visualizar esta categoría.' );
 ?>

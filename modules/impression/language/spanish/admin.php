@@ -374,11 +374,11 @@ define( '_AM_IMPRESSION_ICO_INBLOCKN', 'No mostrar en los bloques' );
 define( '_AM_IMPRESSION_ICO_INBLOCKY', 'Mostrar en los bloques' );
 
 // Version 1.11
-define( '_AM_IMPRESSION_SOURCE', 'Source:' );
-define( '_AM_IMPRESSION_SOURCEDSC', 'Enter the name of the source' );
-define( '_AM_IMPRESSION_SOURCEURL', 'URL of source:' );
-define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
-define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
-define( '_AM_IMPRESSION_MSG_OFFLINE', 'Article was set Offline successfully.' );
-define( '_AM_IMPRESSION_MSG_ONLINE', 'Article was set Online successfully.' );
+define( '_AM_IMPRESSION_SOURCE', 'Fuente:' );
+define( '_AM_IMPRESSION_SOURCEDSC', 'Introduzca el nombre de la fuente' );
+define( '_AM_IMPRESSION_SOURCEURL', 'URL de la fuente:' );
+define( '_AM_IMPRESSION_SOURCEURLDSC', 'Introduzca el URL de la fuente' );
+define( '_AM_IMPRESSION_CHECKURL', 'Comprobar URL' );
+define( '_AM_IMPRESSION_MSG_OFFLINE', 'El artículo fue desactivado con éxito' );
+define( '_AM_IMPRESSION_MSG_ONLINE', 'El artículo fue activado con éxito' );
 ?>
