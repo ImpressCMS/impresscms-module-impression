@@ -54,7 +54,7 @@ function rss_edit() {
 	icms_cp_header();
 	impression_adminmenu( 8, _AM_IMPRESSION_RSSFEED );
 
-	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">

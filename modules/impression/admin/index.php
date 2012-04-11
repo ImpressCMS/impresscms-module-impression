@@ -67,7 +67,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	icms_cp_header();
 	impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );
 
-	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />');
 
 	if ( $aid ) {
@@ -382,7 +382,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
 
-		$icmsAdminTpl -> assign( 'xoops_module_header', '<link href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" rel="stylesheet" type="text/css" />' );
+		$icmsAdminTpl -> assign( 'icms_module_header', '<link href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" rel="stylesheet" type="text/css" />' );
 		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;  border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
 				<div style="padding: 10px;" id="button">

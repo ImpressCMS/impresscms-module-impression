@@ -111,7 +111,7 @@ function b_impression_spot_show( $options ) {
 		list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
 		if ( $rssactive == 1 ) {
 			$articlespot['impression_feed'] = '<a href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php" target="_blank"><img src="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/feed.png" border="0" alt="" title="' . _MB_IMPRESSION_FEED . '" /></a>';
-			$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php">' );
+			$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php">' );
 		}
 
 		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
@@ -126,7 +126,7 @@ function b_impression_spot_show( $options ) {
 // @return
 function b_impression_spot_edit( $options ) {
 	global $icmsAdminTpl;
-	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />');
 	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
 
