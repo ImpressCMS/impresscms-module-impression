@@ -63,7 +63,7 @@ define( "_AM_IMPRESSION_BLOCKADMIN", "Blockeinstellungen" );
 define( "_AM_IMPRESSION_GOMODULE", "gehe zu Modul" );
 define( "_AM_IMPRESSION_ABOUT", "über" );
 // Admin Summary
-define( "_AM_IMPRESSION_SCATEGORY", "Kategorien: " );
+define( "_AM_IMPRESSION_SCATEGORY", "Kategorie: " );
 define( "_AM_IMPRESSION_SFILES", "Beitrag: " );
 define( "_AM_IMPRESSION_SNEWFILESVAL", "eingereicht: " );
 define( "_AM_IMPRESSION_SMODREQUEST", "geändert: " );
