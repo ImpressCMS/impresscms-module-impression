@@ -1,0 +1,24 @@
+<link href="<{$icms_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
+<div class="impression_table" style="font-size: .8em;">
+	<div class="impression_tblhdrrow">
+		<div class="impression_tblcell"><{$smarty.const._MB_IMPRESSION_CATEGORY}></div>
+		<div class="impression_tblcell"><{$smarty.const._MB_IMPRESSION_ARTICLE}></div>
+		<div class="impression_tblcell" style="text-align: center;"><{$smarty.const._MB_IMPRESSION_DATE}></div>
+	</div>
+	<{foreach item=articlenew from=$block.articlenew}>
+		<div class="impression_tblrow">
+			<div class="impression_tblhdrcell"><{$articlenew.cattitle}></div>
+			<div class="impression_tblcell">
+				<{$articlenew.title}>
+				<{$articlenew.newpopicons}>
+				<{if $icms_isadmin}>
+					<{$articlenew.adminnewicons}>
+				<{/if}>
+				<{if $articlenew.comment_rules > 0 and $articlenew.comments > 0}> 
+					<{$articlenew.commentz}>
+				<{/if}>
+			</div>
+			<div class="impression_tblcell" style="text-align: center;"><{$articlenew.published}></div>
+		</div>
+	<{/foreach}>
+</div>

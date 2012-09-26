@@ -1,0 +1,65 @@
+<link href="<{$icms_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
+
+<{$catarray.imageheader}>
+<{$catarray.indexheading}>
+<{$catarray.indexheader}>
+<{if count($categories) gt 0}>
+
+<div class="impression_path" style="font-weight: bold;"><{$smarty.const._MD_IMPRESSION_MAINLISTING}></div>
+<div style="display: table; width: 100%; padding: 5px; ">
+	<!-- Start category loop -->
+	<{foreach item=category from=$categories}>
+
+		<!-- Category image -->
+		<span style="float: left; padding-right: 10px; vertical-align: top;">
+			<a href="<{$icms_url}>/modules/<{$dirname}>/catview.php?cid=<{$category.id}>"><img src="<{$category.image}>" alt="" title="<{$category.title}>" /></a>
+		</span>
+
+		<!-- Display total articles in category -->
+		<{if $category.showartcount}>
+			<span style="float: right; padding-right: 10px; font-size: smaller;">&nbsp;(<{$category.totalarticles}><{$smarty.const._MD_IMPRESSION_ARTICLESCAT}>)</span>
+		<{/if}>
+
+		<!-- Category title -->
+		<span style="float: left; font-size: 1.1em; font-weight: bold;"><a href="<{$icms_url}>/modules/<{$dirname}>/catview.php?cid=<{$category.id}>"><{$category.title}></a></span>
+		<br />
+
+		<!-- Category description -->
+		<div style="font-size: .8em; padding: 5px 15px 0 45px;"><{$category.alttext}></div>
+
+		<{if $category.subcategories}>
+			<div style="font-size: .8em; padding-left: 45px;"><{$category.subcategories}></div>
+		<{/if}>
+
+		<div style="clear: both; height: 1px; border-bottom: 1px solid #D9D9D9; margin: 4px 5px 4px 0;">&nbsp;</div>
+
+	<{/foreach}>
+	<!-- End category loop -->
+</div>
+<{/if}>
+
+<div style="padding: 0 8px; 8px 8px">
+	<span style="float: left; font-size: .75em;"><{$lang_thereare}></span>
+	<span style="float: right;"><{$impression_feed}></span>
+</div>
+
+<{$catarray.indexfooter}>
+
+<{if $showlatest > 0}>
+	<br /><br /><br />
+	<div class="impression_even" style="clear: both; font-size: bigger; font-weight: bold; margin: 30px 0 10px 0;"><{$smarty.const._MD_IMPRESSION_LATESTLIST}></div>
+
+	<{if $pagenav}><div style="float: right;"><{$pagenav}></div><{/if}>
+
+	<div style="display: table; width: 100%;">
+		<!-- Start articleloop -->
+		<{section name=i loop=$article}>
+			<{include file="db:impression_articleload.html" article=$article[i]}>
+		<{/section}>
+		<!-- End article loop -->
+	</div>
+
+	<{if $pagenav}><div style="float: right;"><{$pagenav}></div><{/if}>
+<{/if}>
+
+<{include file="db:system_notification_select.html"}>
