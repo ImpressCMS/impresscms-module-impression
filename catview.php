@@ -35,9 +35,8 @@ if ( $cid == '' ) {
 $selectdate = impression_cleanRequestVars( $_REQUEST, 'selectdate', '' );
 $list = impression_cleanRequestVars( $_REQUEST, 'list', '' );
 
-$catsort = icms::$module -> config['sortcats'];
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
-$arr = $mytree -> getFirstChild( $cid, $catsort );
+$arr = $mytree -> getFirstChild( $cid, icms::$module -> config['sortcats'] );
 
 if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 	if ( false == impression_checkgroups( $cid ) ) {
@@ -65,7 +64,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 			continue;
 		}
 		$sub_arr = array();
-		$sub_arr = $mytree -> getFirstChild( $ele['cid'], $catsort );
+		$sub_arr = $mytree -> getFirstChild( $ele['cid'], icms::$module -> config['sortcats'] );
 		$space = 1;
 		$chcount = 1;
 		$infercategories = '';

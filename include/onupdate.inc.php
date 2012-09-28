@@ -24,7 +24,6 @@
  
 if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 
-
 define( 'IMPRESSION_DB_VERSION', 1 );
 
 function icms_module_update_impression( &$module, $oldversion = null, $dbversion = null ) {
@@ -59,12 +58,63 @@ function icms_module_install_impression( $module ) {
 		fclose( $openedfile );
 	}
 
-	$db =& Database::getInstance();
 	$queries = array();
-	$queries[] = "INSERT INTO " . $db->prefix('impression_indexpage') . " (`id`,`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastarticlestotal`) VALUES ('','impression_bar.png','Impression header','Enjoy reading the articles in <em>Impression</em>','Impression footer','left','left','50')";
-	$queries[] = "INSERT INTO " . $db->prefix('impression_configs') . " (`id`,`rssactive`,`rsstitle`,`rsslink`,`rssdsc`,`rssimgurl`,`rsswidth`,`rssheight`,`rssimgtitle`,`rssimglink`,`rssttl`,`rsswebmaster`,`rsseditor`,`rsscategory`,`rssgenerator`,`rsscopyright`,`rsstotal`,`rssofftitle`,`rssoffdsc`) VALUES ('','1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15', '', '')";
+	
+	$queries[] = "CREATE TABLE ". icms::$xoopsDB -> prefix('impression_altcat') . " (
+		`aid` int(11) unsigned NOT NULL default '0',
+		`cid` int(5) unsigned NOT NULL default '0',
+		KEY `aid` (`aid`),
+		KEY `cid` (`cid`)
+	)";
+	
+	$queries[] = "CREATE TABLE ". icms::$xoopsDB -> prefix( 'impression_indexpage' ) . " (
+		`indeximage` varchar(255) NOT NULL default 'blank.gif',
+		`indexheading` varchar(255) NOT NULL default 'Impression',
+		`indexheader` text NOT NULL,
+		`indexfooter` text NOT NULL,
+		`indexheaderalign` varchar(25) NOT NULL default 'left',
+		`indexfooteralign` varchar(25) NOT NULL default 'center',
+		`lastarticlestotal` varchar(5) NOT NULL default '5'
+	)";
+	
+	$queries[] = "INSERT INTO " . icms::$xoopsDB -> prefix('impression_indexpage') . " (`indeximage`,`indexheading`,`indexheader`,`indexfooter`,`indexheaderalign`,`indexfooteralign`,`lastarticlestotal`) VALUES ('impression_bar.png','Impression header','Enjoy reading the articles in <em>Impression</em>','Impression footer','left','left','50')";
+	
+	$queries[] = "CREATE TABLE ". icms::$xoopsDB -> prefix('impression_configs') . " (
+		`rssactive` int(1) NOT NULL default '1',
+		`rsstitle` varchar(128) NOT NULL,
+		`rsslink` varchar(128) NOT NULL,
+		`rssdsc` varchar(128) NOT NULL,
+		`rssimgurl` varchar(255) NOT NULL,
+		`rsswidth` tinyint(8) NOT NULL default '0',
+		`rssheight` tinyint(8) NOT NULL default '0',
+		`rssimgtitle` varchar(128) NOT NULL,
+		`rssimglink` varchar(255) NOT NULL,
+		`rssttl` tinyint(8) NOT NULL default '0',
+		`rsswebmaster` varchar(255) NOT NULL,
+		`rsseditor` varchar(255) NOT NULL,
+		`rsscategory` varchar(128) NOT NULL,
+		`rssgenerator` varchar(128) NOT NULL,
+		`rsscopyright` varchar(128) NOT NULL,
+		`rsstotal` tinyint(8) NOT NULL default '0',
+		`rssofftitle` varchar(128) NOT NULL default '',
+		`rssoffdsc` varchar(255) NOT NULL default ''
+	)";
+
+	$queries[] = "INSERT INTO " . icms::$xoopsDB -> prefix('impression_configs') . " (`rssactive`,`rsstitle`,`rsslink`,`rssdsc`,`rssimgurl`,`rsswidth`,`rssheight`,`rssimgtitle`,`rssimglink`,`rssttl`,`rsswebmaster`,`rsseditor`,`rsscategory`,`rssgenerator`,`rsscopyright`,`rsstotal`,`rssofftitle`,`rssoffdsc`) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15', '', '')";
 	foreach($queries as $query) {
-		$db -> query( $query );;
+		icms::$xoopsDB -> query( $query );;
+	}
+
+	return TRUE;
+}
+
+function icms_module_uninstall_impression( $module ) {
+	$queries = array();
+	$queries[] = "DROP TABLE ". icms::$xoopsDB -> prefix('impression_altcat');
+	$queries[] = "DROP TABLE ". icms::$xoopsDB -> prefix('impression_indexpage');
+	$queries[] = "DROP TABLE ". icms::$xoopsDB -> prefix('impression_configs');
+	foreach($queries as $query) {
+			icms::$xoopsDB -> query( $query );;
 	}
 	return TRUE;
 }

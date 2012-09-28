@@ -95,15 +95,16 @@ $modversion['adminmenu'] = 'admin/menu.php';
 
 // Launch additional install script to check
 $modversion['onInstall']	= 'include/onupdate.inc.php';
-$modversion['onUpdate']		= 'include/updatedb.php';
+$modversion['onUpdate']		= 'include/onupdate.inc.php';
+$modversion['onUninstall']	= 'include/onupdate.inc.php';
 
 // Tables created by sql file (without prefix!)
-$modversion['object_items'][1] = 'altcat';
+$modversion['object_items'][1] = 'cat';
 $modversion['object_items'][2] = 'articles';
-$modversion['object_items'][3] = 'cat';
-$modversion['object_items'][4] = 'mod';
-$modversion['object_items'][5] = 'indexpage';
-$modversion['object_items'][6] = 'configs';
+$modversion['object_items'][3] = 'mod';
+// $modversion['object_items'][4] = 'configs';
+// $modversion['object_items'][5] = 'indexpage';
+// $modversion['object_items'][6] = 'altcat';
 
 $modversion['tables'] = icms_getTablesArray( $modversion['dirname'], $modversion['object_items'] );
 
@@ -353,7 +354,7 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
 	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
-								_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
+	//							_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
 $modversion['config'][] = array(
@@ -364,7 +365,7 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
 	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
-								_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
+	//							_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
 $modversion['config'][] = array(

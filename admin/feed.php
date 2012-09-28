@@ -23,7 +23,7 @@ $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
 function rss_edit() {
 	global $icmsConfig, $icmsAdminTpl;
 
-	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_configs' ) . ' WHERE id=1';
+	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_configs' );
 	$feed_array = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
 	$webmaster  = $icmsConfig['adminmail'] . ' (' . icms::$module -> getVar( 'name' ) . ') ';
@@ -54,7 +54,7 @@ function rss_edit() {
 	icms_cp_header();
 	impression_adminmenu( 8, _AM_IMPRESSION_RSSFEED );
 
-	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
@@ -161,7 +161,7 @@ switch ( strtolower( $op ) ) {
 		$rssofftitle = addslashes( trim( $_POST['rssofftitle'] ) );
 		$rssoffdsc   = addslashes( trim( $_POST['rssoffdsc'] ) );
 
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal', rssofftitle='$rssofftitle', rssoffdsc='$rssoffdsc' WHERE id=1";
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal', rssofftitle='$rssofftitle', rssoffdsc='$rssoffdsc'";
 		$result = icms::$xoopsDB -> queryF( $sql );
 		$error = _AM_IMPRESSION_DBERROR . ': <br /><br />' . $sql;
 		if ( !$result ) {

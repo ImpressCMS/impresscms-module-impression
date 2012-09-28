@@ -36,7 +36,7 @@ include ICMS_ROOT_PATH . '/header.php';
 $mytree = new icms_view_Tree( icms::$xoopsDB -> prefix( 'impression_cat' ), 'cid', 'pid' );
 
 // Begin Main page Heading etc
-$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . ' WHERE id=1';
+$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' );
 $head_arr = icms::$xoopsDB -> fetchArray( icms::$xoopsDB -> query( $sql ) );
 
 if ( $head_arr['indeximage'] ) {
@@ -59,8 +59,7 @@ $xoopsTpl -> assign( 'catarray', $catarray );
 $count = 1;
 $chcount = 0;
 $countin = 0;
-$catsort = icms::$module -> config['sortcats'];
-$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid = 0 ORDER BY ' . $catsort );
+$result = icms::$xoopsDB -> query( 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_cat' ) . ' WHERE pid=0 ORDER BY ' . icms::$module -> config['sortcats'] );
 while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 	$countin++;
 	$totalarticleload = impression_getTotalItems( $myrow['cid'], 1 );
@@ -124,15 +123,6 @@ switch ( $total_cat ) {
 	default:
 		$lang_thereare = _MD_IMPRESSION_THEREARE;
 		break;
-}
-
-$modhandler = icms::handler( 'icms_module' );
-$rss_mod = $modhandler -> getByDirName( 'rss' );
-if ( !$rss_mod ) {
-	$rss_icon = '';
-	$rss_mod = false;
-} else {
-	$xoopsTpl -> assign( 'rss_icon', '<a href="'. ICMS_URL . '/modules/rss/rss.php?feed=' . icms::$module -> getVar( 'dirname' ) . '" alt="' . _MD_IMPRESSION_GETFEED . '" title="' . _MD_IMPRESSION_GETFEED . '" target="_blank"><img src="'. ICMS_URL . '/modules/' . $mydirname . '/images/icon/rss.png" /></a>' );
 }
 
 if ( $head_arr['lastarticlestotal'] > 0 ) {

@@ -30,8 +30,8 @@ class mod_impression_Articles extends icms_ipf_seo_Object {
 		icms_ipf_object::__construct( $handler );
 
 		$this -> quickInitVar( 'aid', XOBJ_DTYPE_INT, true );
-		$this -> quickInitVar( 'cid', XOBJ_DTYPE_INT, false );
-		$this -> quickInitVar( 'title', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'cid', XOBJ_DTYPE_INT, true );
+		$this -> quickInitVar( 'title', XOBJ_DTYPE_TXTBOX, true );
 		$this -> quickInitVar( 'uid', XOBJ_DTYPE_INT, false, '', '', 1 );
 		$this -> quickInitVar( 'uname', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'publisher', XOBJ_DTYPE_TXTBOX, false );
@@ -42,7 +42,7 @@ class mod_impression_Articles extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'introtext', XOBJ_DTYPE_TXTAREA, false );
 		$this -> quickInitVar( 'description', XOBJ_DTYPE_TXTAREA, false );
 		$this -> quickInitVar( 'ipaddress', XOBJ_DTYPE_TXTBOX, false );
-		$this -> quickInitVar( 'meta_keywords', XOBJ_DTYPE_TXTBOX, false );
+		$this -> quickInitVar( 'meta_keywords', XOBJ_DTYPE_TXTAREA, false );
 		$this -> quickInitVar( 'item_tag', XOBJ_DTYPE_TXTAREA, false );
 		$this -> quickInitVar( 'comments', XOBJ_DTYPE_INT, false );
 		$this -> quickInitVar( 'notifypub', XOBJ_DTYPE_INT, false );

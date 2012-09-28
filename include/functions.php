@@ -202,7 +202,7 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
 		. icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
 		. ' ON b.aid=a.aid'
 		. ' WHERE a.published > 0 AND a.published <= ' . time()
-		. ' AND status = 0 '
+		. ' AND status = 0'
 		. ' AND (b.cid=a.cid OR (a.cid=' . $sel_id . ' OR b.cid=' . $sel_id . '))' 
 		 . ' GROUP BY a.aid, a.cid, a.published';
 	} else {
@@ -225,16 +225,16 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
 	if ( $get_child == 1 ) {
 		$arr = $mytree -> getAllChildId( $sel_id );
 		$size = count( $arr );
-		for( $i = 0;$i < count( $arr );$i++ ) {
-			$query2 = 'SELECT a.aid, a.published, a.cid FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
+		for( $i = 0; $i < count( $arr ); $i++ ) {
+			$sql = 'SELECT a.aid, a.cid, a.published FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' a LEFT JOIN '
 				. icms::$xoopsDB -> prefix( 'impression_altcat' ) . ' b'
 				. ' ON b.aid=a.aid'
 				. ' WHERE a.published > 0 AND a.published <= ' . time()
-				. ' AND status = 0 '
+				. ' AND status = 0'
 				. ' AND (b.cid=a.cid OR (a.cid=' . $arr[$i] . ' OR b.cid=' . $arr[$i] . '))'
-				. ' GROUP BY a.aid, a.published, a.cid';
-			$result2 = icms::$xoopsDB -> query( $query2 );
-			while ( list( $aid, $published ) = icms::$xoopsDB -> fetchRow( $result2 ) ) {
+				. ' GROUP BY a.aid, a.cid, a.published';
+			$result = icms::$xoopsDB -> query( $sql );
+			while ( list( $aid, $published ) = icms::$xoopsDB -> fetchRow( $result ) ) {
 				if ( $published == 0 ) {
 					continue;
 				}
@@ -250,7 +250,7 @@ function impression_getTotalItems( $sel_id = 0, $get_child = 0, $return_sql = 0 
 
 function impression_imageheader( $indeximage = '', $indexheading = '' ) {
 	if ( $indeximage == '' ) {
-		$result = icms::$xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . ' WHERE id=1' );
+		$result = icms::$xoopsDB -> query( 'SELECT indeximage, indexheading FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) );
 		list( $indeximage, $indexheading ) = icms::$xoopsDB -> fetchrow( $result );
 	}
 	$image = '';

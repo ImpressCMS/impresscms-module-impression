@@ -40,7 +40,7 @@ switch ( strtolower( $op ) ) {
 		$indexheaderalign = icms_core_DataFilter::addSlashes( $_POST['indexheaderalign'] );
 		$indexfooteralign = icms_core_DataFilter::addSlashes( $_POST['indexfooteralign'] );
 		$lastarticlestotal = icms_core_DataFilter::addSlashes( $_POST['lastarticlestotal'] );
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlestotal='$lastarticlestotal' WHERE id=1";
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . " SET indexheading='$indexheading', indexheader='$indexheader', indexfooter='$indexfooter', indeximage='$indeximage', indexheaderalign='$indexheaderalign ', indexfooteralign='$indexfooteralign', lastarticlestotal='$lastarticlestotal'";
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
@@ -49,7 +49,7 @@ switch ( strtolower( $op ) ) {
 		break;
 
 	default:
-		$sql = 'SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastarticlestotal FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' ) . ' WHERE id=1';
+		$sql = 'SELECT indeximage, indexheading, indexheader, indexfooter, indexheaderalign, indexfooteralign, lastarticlestotal FROM ' . icms::$xoopsDB -> prefix( 'impression_indexpage' );
 		if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
