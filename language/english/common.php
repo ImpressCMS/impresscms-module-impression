@@ -24,14 +24,14 @@
 
 defined( 'ICMS_ROOT_PATH' ) or die( 'ICMS root path not defined' );
 
-define( '_CO_IMPRESSION_ARTICLES_TERM', 'Term' );
 define( '_CO_IMPRESSION_ARTICLES_TITLE', 'Title' );
-define( '_CO_IMPRESSION_ARTICLES_ENTRYID', 'ID' );
-define( '_CO_IMPRESSION_ARTICLES_DATESUB', 'Created' );
-define( '_CO_IMPRESSION_ARTICLES_OFFLINE', 'Status' );
-define( '_CO_IMPRESSION_ARTICLES_UID', 'Submitter' );
-define( '_CO_IMPRESSION_CATS_CATEGORYID', 'ID' );
-define( '_CO_IMPRESSION_CATS_NAME', 'Category name' );
-define( '_CO_IMPRESSION_CATS_DESCRIPTION', 'Category description' );
-define( '_CO_IMPRESSION_CATS_WEIGHT', 'Weight' );
-define( '_CO_IMPRESSION_CATS_TOTAL', 'Total entries' );
+define( '_CO_IMPRESSION_ARTICLES_AID', 'ID' );
+define( '_CO_IMPRESSION_ARTICLES_PUBLISHED', 'Published' );
+define( '_CO_IMPRESSION_ARTICLES_STATUS', 'Status' );
+define( '_CO_IMPRESSION_ARTICLES_UID', 'Poster' );
+define( '_CO_IMPRESSION_ARTICLES_CID', 'Category' );
+define( '_CO_IMPRESSION_CAT_CATEGORYID', 'ID' );
+define( '_CO_IMPRESSION_CAT_NAME', 'Category' );
+define( '_CO_IMPRESSION_CAT_DESCRIPTION', 'Category description' );
+define( '_CO_IMPRESSION_CAT_WEIGHT', 'Weight' );
+define( '_CO_IMPRESSION_CAT_TOTAL', 'Total entries' );

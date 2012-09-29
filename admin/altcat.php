@@ -96,7 +96,7 @@ switch ( strtolower( $op ) ) {
 				}
 			}
 		}
-		redirect_header( 'index.php', 1, _AM_IMPRESSION_ALTCAT_CREATED );
+		redirect_header( 'articles.php', 1, _AM_IMPRESSION_ALTCAT_CREATED );
 		break;
 
 	case 'main':

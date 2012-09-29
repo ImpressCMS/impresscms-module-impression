@@ -27,12 +27,12 @@
 */
 
 $adminmenu[1]['title'] = _MI_IMPRESSION_BINDEX;
-$adminmenu[1]['link']  = 'admin/index.php';
+$adminmenu[1]['link']  = 'admin/articles.php';
 $adminmenu[1]['icon']  = 'images/icon/home.png'; // 32x32 px for options bar (tabs) 
 $adminmenu[1]['small'] = 'images/icon/home_small.png'; // 16x16 px for drop down
 
 $adminmenu[2]['title'] = _MI_IMPRESSION_MARTICLES;
-$adminmenu[2]['link']  = 'admin/index.php?op=edit';
+$adminmenu[2]['link']  = 'admin/articles.php?op=edit';
 $adminmenu[2]['icon']  = 'images/impression_iconbig.png'; // 32x32 px for options bar (tabs) 
 $adminmenu[2]['small'] = 'images/impression_iconsmall.png'; // 16x16 px for drop down
 

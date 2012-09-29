@@ -167,7 +167,7 @@ switch ( strtolower( $op ) ) {
 		if ( !$result ) {
 			trigger_error( $error, E_USER_ERROR );
 		}
-		redirect_header( 'index.php', 1, _AM_IMPRESSION_RSSDBUPDATED );
+		redirect_header( 'articles.php', 1, _AM_IMPRESSION_RSSDBUPDATED );
 		break;
 }
 ?>

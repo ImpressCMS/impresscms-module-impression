@@ -47,7 +47,7 @@ switch ( strtolower( $op ) ) {
 			return false;
 		}
 
-		redirect_header( 'index.php', 1, sprintf( _AM_IMPRESSION_PRUNEDELETED, '' ) );
+		redirect_header( 'articles.php', 1, sprintf( _AM_IMPRESSION_PRUNEDELETED, '' ) );
 		exit();
 
 	case 'default':

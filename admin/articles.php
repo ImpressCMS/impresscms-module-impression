@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06
 *
-* File: /admin/index.php
+* File: /admin/articles.php
 *
 * @copyright	http://www.impresscms.org/ The ImpressCMS Project
 * @license		GNU General Public License (GPL)
@@ -28,6 +28,9 @@ include 'admin_header.php';
 
 $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
 $aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
+
+$impression_articles_handler = icms_getModuleHandler( 'articles', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
+$impression_cat_handler = icms_getModuleHandler( 'cat', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
 
 function edit( $aid = 0, $doclone = 0 ) {
 	global $mytree, $impressionmyts, $icmsAdminTpl;
@@ -200,7 +203,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 		$button_tray -> addElement( $hidden );
 
 		$butt_dup = new icms_form_elements_Button( '', '', _AM_IMPRESSION_BMODIFY, 'submit' );
-		$butt_dup -> setExtra( 'onclick="this . form . elements . op . value = \'save\'"' );
+		$butt_dup -> setExtra( 'onclick="this.form.elements.op.value=\'save\'"' );
 		$button_tray -> addElement( $butt_dup );
 		$butt_dupct = new icms_form_elements_Button( '', '', _AM_IMPRESSION_BDELETE, 'submit' );
 		$butt_dupct -> setExtra( 'onclick="this.form.elements.op.value=\'delete\'"' );
@@ -230,7 +233,7 @@ switch ( strtolower( $op ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
 		}
-		redirect_header( 'index.php', 1, _AM_IMPRESSION_MSG_OFFLINE );
+		redirect_header( 'articles.php', 1, _AM_IMPRESSION_MSG_OFFLINE );
 		break;
 
 	case 'status_on':
@@ -239,7 +242,7 @@ switch ( strtolower( $op ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
 		}
-		redirect_header( 'index.php', 1, _AM_IMPRESSION_MSG_ONLINE );
+		redirect_header( 'articles.php', 1, _AM_IMPRESSION_MSG_ONLINE );
 		break;
 
 	case 'save':
@@ -318,7 +321,7 @@ switch ( strtolower( $op ) ) {
 		$message = ( !$aid ) ? _AM_IMPRESSION_ARTICLE_NEWFILEUPLOAD : _AM_IMPRESSION_ARTICLE_FILEMODIFIEDUPDATE ;
 		$message = ( $aid && !$_POST['published'] && $approved ) ? _AM_IMPRESSION_ARTICLE_FILEAPPROVED : $message;
 
-		redirect_header( 'index.php', 1, $message );
+		redirect_header( 'articles.php', 1, $message );
 		break;
 
 	case 'delete':
@@ -341,7 +344,7 @@ switch ( strtolower( $op ) ) {
 
 			// delete comments
 			xoops_comment_delete( icms::$module -> getVar( 'mid' ), $aid );
-			redirect_header( 'index.php', 1, sprintf( _AM_IMPRESSION_ARTICLE_FILEWASDELETED, $title ) );
+			redirect_header( 'articles.php', 1, sprintf( _AM_IMPRESSION_ARTICLE_FILEWASDELETED, $title ) );
 			exit();
 		} else {
 			$sql = 'SELECT aid, title FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
@@ -353,7 +356,7 @@ switch ( strtolower( $op ) ) {
 //			$item_tag = $result['item_tag'];
 			icms_cp_header();
 			impression_adminmenu( _AM_IMPRESSION_BINDEX );
-			icms_core_Message::confirm( array( 'op' => 'delete', 'aid' => $aid, 'confirm' => 1, 'title' => $title ), 'index.php', _AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS . '<br /><br>' . $title, _DELETE );
+			icms_core_Message::confirm( array( 'op' => 'delete', 'aid' => $aid, 'confirm' => 1, 'title' => $title ), 'articles.php', _AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS . '<br /><br>' . $title, _DELETE );
 
 			// Remove item_tag from Tag-module
 //			$tagupdate = impression_tagupdate( $aid, $item_tag );
@@ -361,9 +364,22 @@ switch ( strtolower( $op ) ) {
 			icms_cp_footer();
 		}
 		break;
+		
+	case 'changestatus':
+		$status = $ret = '';
+		$aid = isset( $_POST['aid'] ) ? intval( $_POST['aid'] ) : intval( $_GET['aid'] );
+		$status = $impression_articles_handler -> changeOnlineStatus( $aid, 'status' );
+		$ret = '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/articles.php';
+		if ( $status == 0 ) {
+			redirect_header( ICMS_URL . $ret, 2, _AM_IMPRESSION_ICO_ONLINE );
+		} else {
+			redirect_header( ICMS_URL . $ret, 2, _AM_IMPRESSION_ICO_OFFLINE );
+		}
+		break;
 
 	case 'main':
 	default:
+	
 		$start  = impression_cleanRequestVars( $_REQUEST, 'start', 0 );
 		$start1 = impression_cleanRequestVars( $_REQUEST, 'start1', 0 );
 		$start2 = impression_cleanRequestVars( $_REQUEST, 'start2', 0 );
@@ -387,12 +403,33 @@ switch ( strtolower( $op ) ) {
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
 				<div style="padding: 10px;" id="button">
 					<a class="impression_button" href="category.php">' . _AM_IMPRESSION_SCATEGORY . $totalcats . '</a>
-					<a class="impression_button" href="index.php">' . _AM_IMPRESSION_SFILES . $totalarticles . '</a>
+					<a class="impression_button" href="articles.php">' . _AM_IMPRESSION_SFILES . $totalarticles . '</a>
 					<a class="impression_button" href="newarticles.php">' . _AM_IMPRESSION_SNEWFILESVAL . $totalnewarticles . '</a>
 					<a class="impression_button" href="modifications.php">' . _AM_IMPRESSION_SMODREQUEST . $totalmodrequests . '</a>
 				</div>
 			 </div>';
+			 
+		// Main Index
+		$objectTable = new icms_ipf_view_Table( $impression_articles_handler, false, array() );
 
+		$objectTable -> addHeader('<span style="float: left; font-size: 14px; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>');
+
+		$objectTable -> addColumn( new icms_ipf_view_Column( 'aid', 'center', 50, true ) );
+		$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewArticle' ) );
+		$objectTable -> addColumn( new icms_ipf_view_Column( 'cid', _GLOBAL_LEFT, false ) );
+		$objectTable -> addColumn( new icms_ipf_view_Column( 'uid', 'center' ) );
+		$objectTable -> addColumn( new icms_ipf_view_Column( 'published', 'center', 150 ) );
+		$objectTable -> addColumn( new icms_ipf_view_Column( 'status', 'center', 50 ) );
+
+		$objectTable -> addCustomAction( 'getEditArticle' );
+		$objectTable -> addCustomAction( 'getDeleteArticle' );
+		$objectTable -> addCustomAction( 'getCloneArticle' );
+		$objectTable -> addCustomAction( 'getAltcatArticle' );
+
+		$icmsAdminTpl -> assign( 'impression_articles_table', $objectTable -> fetch() );
+		$icmsAdminTpl -> display( 'db:impression_admin_index.html' );
+		
+/**
 //		if ( $totalarticles > 0 ) {
 			$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' ORDER BY aid DESC';
 			$published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
@@ -419,6 +456,7 @@ switch ( strtolower( $op ) ) {
 				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold; background-color: #FFFF99;">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</div>';
 			}
 //		}
+*/
 		icms_cp_footer();
 		break;
 }

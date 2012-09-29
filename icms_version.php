@@ -219,39 +219,39 @@ $modversion['comments']['callback']['update'] = 'impression_com_update';
 // Templates
 $modversion['templates'][1] = array(
 	'file'			=> 'impression_articleload.html',
-	'description'	=> '' );
+	'description'	=> 'Article load' );
 
 $modversion['templates'][2] = array(
 	'file'			=> 'impression_index.html',
-	'description'	=> '' );
+	'description'	=> 'Index page' );
 
 $modversion['templates'][3] = array(
 	'file'			=> 'impression_singlearticle.html',
-	'description'	=> '' );
+	'description'	=> 'Single article' );
 
 $modversion['templates'][4] = array(
 	'file'			=> 'impression_catview.html',
-	'description'	=> '' );
+	'description'	=> 'Category view' );
 
 $modversion['templates'][5] = array(
 	'file'			=> 'impression_print.html',
-	'description'	=> '' );
+	'description'	=> 'Print' );
 
 $modversion['templates'][6] = array(
 	'file'			=> 'impression_topten.html',
-	'description'	=> '' );
+	'description'	=> 'Top Ten' );
 
 $modversion['templates'][7] = array(
 	'file'			=> 'impression_moduleabout.html',
-	'description'	=> '' );
+	'description'	=> 'Module About' );
 
 $modversion['templates'][8] = array(
 	'file'			=> 'impression_rss.html',
-	'description'	=> '' );
+	'description'	=> 'RSS feed' );
 
 $modversion['templates'][9] = array(
 	'file'			=> 'impression_disclaimer.html',
-	'description'	=> '' );
+	'description'	=> 'Disclaimer' );
 	
 $modversion['templates'][10] = array(
 	'file'			=> 'impression_admin_index.html',

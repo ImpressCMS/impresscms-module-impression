@@ -51,7 +51,7 @@ function impression_serverstats() {
 	echo '</div></div><br />';
 }
 
-function impression_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = '', $redirecturl = 'index.php', $num = 0, $redirect = 0, $usertype = 1 ) {
+function impression_uploading( $_FILES, $uploaddir = 'uploads', $allowed_mimetypes = '', $redirecturl = 'articles.php', $num = 0, $redirect = 0, $usertype = 1 ) {
 	global $_FILES;
 	$down = array();
 	include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/class/uploader.php';
@@ -164,18 +164,18 @@ function impression_articlelistbody( $published ) {
 	$publish = ( $published['published'] > 0 ) ? impression_time( formatTimestamp( $published['published'], icms::$module -> config['dateformatadmin'] ) ) : _AM_IMPRESSION_NOTPUBLiSHED;
 
 	if ( $published['status'] == 0 && ( $published['published'] && $published['published'] < time() ) ) {
-		$published_status = '<a href="index.php?op=status_off&amp;aid=' . $aid . '">' . $imagearray['online'] . '</a>';;
+		$published_status = '<a href="articles.php?op=status_off&amp;aid=' . $aid . '">' . $imagearray['online'] . '</a>';;
 	} elseif ( $published['status'] == 2 ) {
 		$published_status = $imagearray['rejected'];
 	} elseif ( $published['status'] == 3 ) {
 		$published_status = $imagearray['submitted'];
 	} else {
-		$published_status = ( $published['published'] == 0 ) ? "<a href='newarticles.php'>" . $imagearray['offline'] . "</a>" : '<a href="index.php?op=status_on&amp;aid=' . $aid . '">' . $imagearray['offline'] . '</a>';
+		$published_status = ( $published['published'] == 0 ) ? "<a href='newarticles.php'>" . $imagearray['offline'] . "</a>" : '<a href="articles.php?op=status_on&amp;aid=' . $aid . '">' . $imagearray['offline'] . '</a>';
 	}
 
-	$icon  = '<a href="index.php?op=edit&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>';
-	$icon .= '<a style="padding-left: 5px;" href="index.php?op=delete&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>';
-	$icon .= '<a style="padding-left: 5px;" href="index.php?op=clone&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_CLONE . '">' . $imagearray['clone'] . '</a>';
+	$icon  = '<a href="articles.php?op=edit&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="articles.php?op=delete&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="articles.php?op=clone&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_CLONE . '">' . $imagearray['clone'] . '</a>';
 	$icon .= '<a style="padding-left: 5px;" href="altcat.php?op=main&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>';
 
 	echo '<div class="impression_tblrow">

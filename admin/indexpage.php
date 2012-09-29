@@ -45,7 +45,7 @@ switch ( strtolower( $op ) ) {
 			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
 			return false;
 		}
-		redirect_header( 'index.php', 1, _AM_IMPRESSION_IPAGE_UPDATED );
+		redirect_header( 'articles.php', 1, _AM_IMPRESSION_IPAGE_UPDATED );
 		break;
 
 	default:

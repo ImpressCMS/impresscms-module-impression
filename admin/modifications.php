@@ -55,7 +55,7 @@ switch ( strtolower( $op ) ) {
 
 		$not_allowed = array( 'aid', 'uid', 'requestid', 'modifysubmitter' );
 		
-		$sform = new icms_form_Theme( _AM_IMPRESSION_MOD_ORIGINAL, 'storyform', 'index.php' );
+		$sform = new icms_form_Theme( _AM_IMPRESSION_MOD_ORIGINAL, 'storyform', 'articles.php' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
 		foreach ( $orig_array as $key => $content ) {
@@ -130,13 +130,13 @@ switch ( strtolower( $op ) ) {
 		$result = icms::$xoopsDB -> query( $sql1 );
 		$sql2 = 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' WHERE requestid=' . $requestid;
 		$result = icms::$xoopsDB -> query( $sql2 );
-		redirect_header( 'index.php', 1, _AM_IMPRESSION_MOD_REQUPDATED );
+		redirect_header( 'articles.php', 1, _AM_IMPRESSION_MOD_REQUPDATED );
 		break;
 
 	case 'ignoremodreq':
 		$sql = sprintf( 'DELETE FROM ' . icms::$xoopsDB -> prefix( 'impression_mod' ) . ' WHERE requestid=' . $requestid );
 		icms::$xoopsDB -> query( $sql );
-		redirect_header( 'index.php', 1, _AM_IMPRESSION_MOD_REQDELETED );
+		redirect_header( 'articles.php', 1, _AM_IMPRESSION_MOD_REQDELETED );
 		break;
 
 	case 'main':

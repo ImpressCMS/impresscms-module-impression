@@ -112,8 +112,8 @@ switch ( strtolower( $op ) ) {
 				$datetime = impression_time( formatTimestamp( $new['date'], icms::$module -> config['dateformat'] ) );
 
 				$icon = ( $new['published'] ) ? $approved : '<a href="newarticles.php?op=approve&amp;aid=' . $aid . '">' . $imagearray['approve'] . '</a>';
-				$icon .= '<a style="padding-left: 5px;" href="index.php?op=edit&amp;aid=' . $aid . '">' . $imagearray['editimg'] . '</a>';
-				$icon .= '<a style="padding-left: 5px;" href="index.php?op=delete&amp;aid=' . $aid . '">' . $imagearray['deleteimg'] . '</a>';
+				$icon .= '<a style="padding-left: 5px;" href="articles.php?op=edit&amp;aid=' . $aid . '">' . $imagearray['editimg'] . '</a>';
+				$icon .= '<a style="padding-left: 5px;" href="articles.php?op=delete&amp;aid=' . $aid . '">' . $imagearray['deleteimg'] . '</a>';
 
 				echo '<div class="impression_tblrow">
 						<div class="impression_tblhdrcell" style="text-align: center;">'. $aid . '</div>
