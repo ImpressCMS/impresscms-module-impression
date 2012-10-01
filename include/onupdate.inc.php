@@ -101,7 +101,8 @@ function icms_module_install_impression( $module ) {
 	)";
 
 	$queries[] = "INSERT INTO " . icms::$xoopsDB -> prefix('impression_configs') . " (`rssactive`,`rsstitle`,`rsslink`,`rssdsc`,`rssimgurl`,`rsswidth`,`rssheight`,`rssimgtitle`,`rssimglink`,`rssttl`,`rsswebmaster`,`rsseditor`,`rsscategory`,`rssgenerator`,`rsscopyright`,`rsstotal`,`rssofftitle`,`rssoffdsc`) VALUES ('1', '', '', '', '', '', '', '', '', '60', '', '', '', '', '', '15', '', '')";
-	foreach($queries as $query) {
+	
+	foreach( $queries as $query ) {
 		icms::$xoopsDB -> query( $query );;
 	}
 
@@ -113,7 +114,7 @@ function icms_module_uninstall_impression( $module ) {
 	$queries[] = "DROP TABLE ". icms::$xoopsDB -> prefix('impression_altcat');
 	$queries[] = "DROP TABLE ". icms::$xoopsDB -> prefix('impression_indexpage');
 	$queries[] = "DROP TABLE ". icms::$xoopsDB -> prefix('impression_configs');
-	foreach($queries as $query) {
+	foreach( $queries as $query ) {
 			icms::$xoopsDB -> query( $query );;
 	}
 	return TRUE;

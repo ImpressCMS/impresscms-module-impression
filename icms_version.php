@@ -36,9 +36,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
 $modversion['version']			= 1.11;
-$modversion['date'] 			= '06 April 2012';
-$modversion['status']			= 'Final';
-$modversion['status_version']	= 'Final';
+$modversion['date'] 			= 'xx xxxxx 2012';
+$modversion['status']			= 'Trunk';
+$modversion['status_version']	= 'Trunk';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license']			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['image']			= 'images/impression_ilogo.png';
@@ -83,10 +83,10 @@ $modversion['people']['other'][] = '&middot; <a href="http://bxslider.com/" targ
 $modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/english/impression_manual_en.pdf" target="_blank">English [PDF]</a>';
 
 //** If Release Candidate **
-//$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_RC;
+$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_RC;
 
 //** If Final  **
-$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_FINAL;
+//$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_FINAL;
 
 // Admin things
 $modversion['hasAdmin'] = 1;
@@ -102,9 +102,6 @@ $modversion['onUninstall']	= 'include/onupdate.inc.php';
 $modversion['object_items'][1] = 'cat';
 $modversion['object_items'][2] = 'articles';
 $modversion['object_items'][3] = 'mod';
-// $modversion['object_items'][4] = 'configs';
-// $modversion['object_items'][5] = 'indexpage';
-// $modversion['object_items'][6] = 'altcat';
 
 $modversion['tables'] = icms_getTablesArray( $modversion['dirname'], $modversion['object_items'] );
 
