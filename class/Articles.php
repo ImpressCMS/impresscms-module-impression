@@ -105,7 +105,7 @@ class mod_impression_Articles extends icms_ipf_seo_Object {
 		} else {
 			$title = $icon . '&nbsp;<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlearticle.php?aid=' . $this -> getVar( 'aid' ) . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $this -> getVar( 'title' ) ) ) ) . '</a>';
 		}
-		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlearticle.php?aid=' . $this -> getVar( 'aid' ) . '">' . $title . '</a>';
+		// $ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlearticle.php?aid=' . $this -> getVar( 'aid' ) . '">' . $title . '</a>';
 		return $title;
 	}
 	

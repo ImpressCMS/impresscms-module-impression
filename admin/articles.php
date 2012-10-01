@@ -30,7 +30,7 @@ $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
 $aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
 $impression_articles_handler = icms_getModuleHandler( 'articles', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
-$impression_cat_handler = icms_getModuleHandler( 'cat', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
+// $impression_cat_handler = icms_getModuleHandler( 'cat', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
 
 function edit( $aid = 0, $doclone = 0 ) {
 	global $mytree, $impressionmyts, $icmsAdminTpl;
@@ -225,24 +225,6 @@ switch ( strtolower( $op ) ) {
 
 	case 'clone':
 		edit( intval( $aid ), 1 );
-		break;
-		
-	case 'status_off':
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET status='1' WHERE aid=" . $aid;
-		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
-			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
-			return false;
-		}
-		redirect_header( 'articles.php', 1, _AM_IMPRESSION_MSG_OFFLINE );
-		break;
-
-	case 'status_on':
-		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET status='0' WHERE aid=" . $aid;
-		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
-			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
-			return false;
-		}
-		redirect_header( 'articles.php', 1, _AM_IMPRESSION_MSG_ONLINE );
 		break;
 
 	case 'save':
