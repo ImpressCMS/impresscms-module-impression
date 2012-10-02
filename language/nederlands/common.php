@@ -4,7 +4,7 @@
 *
 * Based upon WF-Links 1.06 and imLinks
 *
-* File: language/english/common.php
+* File: language/nederlands/common.php
 *
 * @copyright	http://www.xoops.org/ The XOOPS Project
 * @copyright	XOOPS_copyrights.txt
@@ -27,9 +27,9 @@
 
 defined( 'ICMS_ROOT_PATH' ) or die( 'ICMS root path not defined' );
 
-define( '_CO_IMPRESSION_ARTICLES_TITLE', 'Title' );
+define( '_CO_IMPRESSION_ARTICLES_TITLE', 'Titel' );
 define( '_CO_IMPRESSION_ARTICLES_AID', 'ID' );
-define( '_CO_IMPRESSION_ARTICLES_PUBLISHED', 'Published' );
+define( '_CO_IMPRESSION_ARTICLES_PUBLISHED', 'Gepubliceerd' );
 define( '_CO_IMPRESSION_ARTICLES_STATUS', 'Status' );
 define( '_CO_IMPRESSION_ARTICLES_UID', 'Poster' );
-define( '_CO_IMPRESSION_ARTICLES_CID', 'Category' );
+define( '_CO_IMPRESSION_ARTICLES_CID', 'Categorie' );
