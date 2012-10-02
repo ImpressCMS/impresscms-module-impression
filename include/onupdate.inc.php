@@ -27,6 +27,21 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 define( 'IMPRESSION_DB_VERSION', 1 );
 
 function icms_module_update_impression( &$module, $oldversion = null, $dbversion = null ) {
+	// Start removing obsolete files
+	$file = array(	'list.tag.php',
+					'view.tag.php',
+					'blocks/impression_block_tag.php',
+					'include/install.php',
+					'include/plugin.tag.php',
+					'templates/blocks/impression_tag_block_cloud.html',
+					'templates/blocks/impression_tag_block_tag.html' );
+	foreach ( $file as $item ) {
+		if ( file_exists(ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $item ) ) {
+			chmod( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $item, 0777 );
+			unlink( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $item );
+		}
+	}
+	// End of removing obsolete files
 	return TRUE;
 }
 
