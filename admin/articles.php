@@ -30,7 +30,6 @@ $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
 $aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
 $impression_articles_handler = icms_getModuleHandler( 'articles', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
-// $impression_cat_handler = icms_getModuleHandler( 'cat', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
 
 function edit( $aid = 0, $doclone = 0 ) {
 	global $mytree, $impressionmyts, $icmsAdminTpl;
@@ -61,7 +60,6 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$status = $article_array['status'] ? $article_array['status'] : 0;
 	$ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
 	$meta_keywords = $article_array['meta_keywords'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['meta_keywords'] ) ) : '';
-//	$item_tag = $article_array['item_tag'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['item_tag'] ) ) : '';
 	$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
 	$nice_url = $article_array['nice_url'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['nice_url'] ) ) : '';
 	$source = $article_array['source'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['source'] ) ) : '';
@@ -159,14 +157,6 @@ function edit( $aid = 0, $doclone = 0 ) {
 	$keywords = new icms_form_elements_Textarea( _AM_IMPRESSION_KEYWORDS . impression_tooltip( _AM_IMPRESSION_KEYWORDS_NOTE, 'help' ), 'meta_keywords', $meta_keywords, 7, 60);
 	$sform -> addElement( $keywords, false );
 
-// Insert tags if Tag-module is installed
-//	if (impression_tag_module_included()) {
-//		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-//		$sform -> addElement( new XoopsFormTag( 'item_tag', icms::$module -> config['txt_width'], 255, $article_array['item_tag'], 0 ) );
-//	} else {
-//		$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $article_array['item_tag'] ) );
-//	}
-
 // Publish date
 	$datesub_datetime = new icms_form_elements_Datetime(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE . impression_tooltip( _AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC, 'help' ), 'published', $size = 15, $published);
 	$sform -> addElement( $datesub_datetime );
@@ -241,7 +231,6 @@ switch ( strtolower( $op ) ) {
 		$source = icms_core_DataFilter::addSlashes( trim( $_POST['source'] ) );
 		$sourceurl = icms_core_DataFilter::addSlashes( trim( $_POST['sourceurl'] ) );
 		$meta_keywords = icms_core_DataFilter::addSlashes( trim( $_POST['meta_keywords'] ) );
-//		$item_tag = icms_core_DataFilter::addSlashes( trim( $_POST['item_tag'] ) );
 		$published = strtotime( $_POST['published']['date'] ) + $_POST['published']['time'];
 		$uid = $_POST['uid'];
 		$publisher = icms::$user -> getVar('uid');
@@ -264,13 +253,6 @@ switch ( strtolower( $op ) ) {
 		}
 
 		$newaid = mysql_insert_id();
-
-// Add item_tag to Tag-module
-//		if ( !$aid ) {
-//			$tagupdate = impression_tagupdate( $newaid, $item_tag );
-//		} else {
-//			$tagupdate = impression_tagupdate( $aid, $item_tag );
-//		}
 
 // Send notifications
 		if ( !$aid ) {
@@ -335,13 +317,9 @@ switch ( strtolower( $op ) ) {
 				return false;
 			}
 		list( $aid, $title ) = icms::$xoopsDB -> fetchrow( $result );
-//			$item_tag = $result['item_tag'];
 			icms_cp_header();
 			impression_adminmenu( _AM_IMPRESSION_BINDEX );
 			icms_core_Message::confirm( array( 'op' => 'delete', 'aid' => $aid, 'confirm' => 1, 'title' => $title ), 'articles.php', _AM_IMPRESSION_ARTICLE_REALLYDELETEDTHIS . '<br /><br>' . $title, _DELETE );
-
-			// Remove item_tag from Tag-module
-//			$tagupdate = impression_tagupdate( $aid, $item_tag );
 
 			icms_cp_footer();
 		}
@@ -408,7 +386,7 @@ switch ( strtolower( $op ) ) {
 		$objectTable -> addCustomAction( 'getCloneArticle' );
 		$objectTable -> addCustomAction( 'getAltcatArticle' );
 		
-	//	$objectTable -> addQuickSearch( array( 'title' ), 'SEARCH' ); // Search term
+		$objectTable -> addQuickSearch( array( 'title' ), 'SEARCH' );
 		
 		$objectTable -> setDefaultSort( 'aid' );
 		$objectTable -> setDefaultOrder( 'DESC' );

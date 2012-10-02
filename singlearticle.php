@@ -192,6 +192,7 @@ if ( is_object( icms::$user ) && !empty( icms::$user ) ) {
 	}
 }
 
+// Start social buttons
 $twitter = $facebook = $plusone = '';
 
 //Twitter button
@@ -253,20 +254,24 @@ $article['facebk'] = icms::$module -> config['faceb_bttn'];
 
 switch ( icms::$module -> config['showsbookmarks'] ) {
 	case 0:
+		// no buttons
 		$article['socialbutton'] = '';
 		break;
 	case 1:
+		// social bookmarks
 		include_once ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/sbookmarks.php';
 		$article['socialbutton'] = '<div class="impression_socbookmark">' . impression_sbmarks( $article_arr['aid'], $article_arr['title'] ) . '</div>';
 		break;
 	case 2:
+		// social media
 		$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;">' . $twitter . $facebook . $plusone . '</div>';
 		break;
 	case 3:
+		// social share privacy
 		$article['socialbutton'] = '<br /><div style="float: ' . _GLOBAL_LEFT . '; padding-top: 10px;" id="socialshareprivacy"></div>';
 		break;
 }
-//End Social buttons
+// End Social buttons
 
 $xoopsTpl -> assign( 'article', $article );
 

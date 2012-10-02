@@ -320,10 +320,6 @@ function impression_getWysiwygForm( $caption, $name, $value, $height ) {
 		$editor = impression_fckeditor( $caption, $name, $value, $height );
 		break;
 
-	case 'tinyeditor':
-		$editor = impression_tinyeditor( $caption, $name, $value, $height );
-		break;
-
 	case 'tinymce' :
 		$editor = impression_tinymce( $caption, $name, $value, $height );    
         break;
@@ -339,44 +335,12 @@ function impression_fckeditor( $caption, $name, $value, $height ) {
 	return $impression_editor;
 }
 
-function impression_tinyeditor( $caption, $name, $value, $height ) {
-	if ( file_exists( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' ) ) {
-		include_once( ICMS_ROOT_PATH . '/class/xoopseditor/tinyeditor/formtinyeditortextarea.php' );
-		$impression_editor = new XoopsFormTinyeditorTextArea( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => $height . 'px' ) );
-	}
-	return $impression_editor;
-}	
-
 function impression_tinymce( $caption, $name, $value, $height ) {
 	if ( file_exists( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' ) ) {
 		include_once( ICMS_ROOT_PATH . '/editors/tinymce/formtinymce.php' );
 		$impression_editor = new XoopsFormTinymce( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => $height . 'px', 'setextra' => 0 ) );
 	}
 	return $impression_editor;
-}
-
-// Check if Tag module is installed
-function impression_tag_module_included() {
-	static 	$impression_tag_module_included;
-	if ( !isset( $impression_tag_module_included ) ) {
-		$modules_handler = icms::handler( 'icms_module' );
-		$tag_mod = $modules_handler -> getByDirName( 'tag' );
-		if ( !$tag_mod ) {
-			$tag_mod = false;
-		} else {
-			$impression_tag_module_included = $tag_mod -> getVar( 'isactive' ) == 1;
-		}
-	}
-	return $impression_tag_module_included;
-}
-
-// Add item_tag to Tag-module
-function impression_tagupdate( $aid, $item_tag ) {
-	if (impression_tag_module_included()) {
-		include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-		$tag_handler = icms_getModuleHandler( 'tag', 'tag' );
-		$tag_handler -> updateByItem( $item_tag, $aid, icms::$module -> getVar( 'dirname' ), 0 );
-	}
 }
 
 function impression_adminicons( $aid, $dirname ) {

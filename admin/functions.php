@@ -24,7 +24,6 @@
 * @version		$Id$
 */
 
-// impression_serverstats()
 function impression_serverstats() {
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 			<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_ARTICLE_IMAGEINFO . '</div>

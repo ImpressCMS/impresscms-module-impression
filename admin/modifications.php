@@ -124,7 +124,6 @@ switch ( strtolower( $op ) ) {
 		$description = $article_array['description'];
 		$submitter = $article_array['modifysubmitter'];
 		$meta_keywords = $article_array['meta_keywords'];
-//		$item_tag = $article_array['item_tag'];
 
 		$sql1 = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid='$cid', title='$title', uid='$submitter', publisher='$publisher', introtext='$introtext', description='$description', meta_keywords='$meta_keywords' WHERE aid=" . $aid;
 		$result = icms::$xoopsDB -> query( $sql1 );

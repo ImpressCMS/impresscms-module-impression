@@ -1,4 +1,21 @@
 =========================================================
+xx.xx.2012 - Version x
+=========================================================
+Added:
+- IPF classes
+
+Removed:
+- support for TinyEditor
+- support for XOOPS TAG module
+
+Removed files:
+- list.tag.php
+- view.tag.php
+- blocks/impression_block_tag.php
+- include/install.php
+- include/plugin.tag.php
+
+=========================================================
 06.04.2012 - Version 1.11
 =========================================================
 Added:

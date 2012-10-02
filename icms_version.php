@@ -152,28 +152,6 @@ $modversion['blocks'][$i]['options']		= 'ticker|10|d F Y|';
 $modversion['blocks'][$i]['template']		= 'impression_block_ticker.html';
 $modversion['blocks'][$i]['can_clone']		= true;
 
-// Tag Cloud block
-//$i++;
-//$modversion['blocks'][$i]['file']			= 'impression_block_tag.php';
-//$modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BTAGCLOUD;
-//$modversion['blocks'][$i]['description']	= 'Show tag cloud';
-//$modversion['blocks'][$i]['show_func']		= 'impression_tag_block_cloud_show';
-//$modversion['blocks'][$i]['edit_func']		= 'impression_tag_block_cloud_edit';
-//$modversion['blocks'][$i]['options']		= '100|0|150|80';
-//$modversion['blocks'][$i]['template']		= 'impression_tag_block_cloud.html';
-//$modversion['blocks'][$i]['can_clone']		= true ;
-
-// Top Tags block
-//$i++;
-//$modversion['blocks'][$i]['file']			= 'impression_block_tag.php';
-//$modversion['blocks'][$i]['name']			= _MI_IMPRESSION_BTOPTAG;
-//$modversion['blocks'][$i]['description']	= 'Show top tag';
-//$modversion['blocks'][$i]['show_func']		= 'impression_tag_block_top_show';
-//$modversion['blocks'][$i]['edit_func']		= 'impression_tag_block_top_edit';
-//$modversion['blocks'][$i]['options']		= '50|30|c';
-//$modversion['blocks'][$i]['template']		= 'impression_tag_block_tag.html';
-//$modversion['blocks'][$i]['can_clone']		= true ;
-
 // Menu
 $modversion['hasMain'] = 1;
 
@@ -351,7 +329,6 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
 	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
-	//							_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
 $modversion['config'][] = array(
@@ -362,7 +339,6 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
 	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
-	//							_MI_IMPRESSION_FORM_TINYEDITOR	=> 'tinyeditor',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
 $modversion['config'][] = array(
@@ -464,14 +440,6 @@ $modversion['config'][] = array(
 	'formtype'		=> 'yesno',
 	'valuetype'		=> 'int',
 	'default'		=> 1 );
-
-//$modversion['config'][] = array(
-//	'name'			=> 'usercantag',
-//	'title'			=> '_MI_IMPRESSION_USERTAGDESCR',
-//	'description'	=> '_MI_IMPRESSION_USERTAGDSC',
-//	'formtype'		=> 'yesno',
-//	'valuetype'		=> 'int',
-//	'default'		=> 0 );
 
 $modversion['config'][] = array(
 	'name'			=> 'linkedterms',
