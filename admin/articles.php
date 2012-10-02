@@ -386,7 +386,7 @@ switch ( strtolower( $op ) ) {
 		$objectTable -> addCustomAction( 'getCloneArticle' );
 		$objectTable -> addCustomAction( 'getAltcatArticle' );
 		
-		$objectTable -> addQuickSearch( array( 'title' ), 'SEARCH' );
+		$objectTable -> addQuickSearch( array( 'title' ), _AM_IMPRESSION_SEARCHTITLE );
 		
 		$objectTable -> setDefaultSort( 'aid' );
 		$objectTable -> setDefaultOrder( 'DESC' );

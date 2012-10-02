@@ -14,6 +14,8 @@ Removed files:
 - blocks/impression_block_tag.php
 - include/install.php
 - include/plugin.tag.php
+- templates/blocks/impression_tag_block_cloud.html
+- templates/blocks/impression_tag_block_tag.html
 
 =========================================================
 06.04.2012 - Version 1.11

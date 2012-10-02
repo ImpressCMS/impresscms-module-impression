@@ -90,10 +90,6 @@ tr.impression_even td {
 	background-color:#393939;
 	border: 1px solid #999999; }
 
-.impression_tags {
-	font-size: .8em;
-	clear: both; }
-
 .impression_articlepath {
 	float: left;
 	margin-left: 4px;
