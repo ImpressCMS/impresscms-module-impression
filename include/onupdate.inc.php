@@ -27,6 +27,7 @@ if ( !defined( 'ICMS_ROOT_PATH' ) ) { die( 'ICMS root path not defined' ); }
 define( 'IMPRESSION_DB_VERSION', 1 );
 
 function icms_module_update_impression( &$module, $oldversion = null, $dbversion = null ) {
+
 	// Start removing obsolete files
 	$file = array(	'list.tag.php',
 					'view.tag.php',
@@ -45,6 +46,9 @@ function icms_module_update_impression( &$module, $oldversion = null, $dbversion
 					'include/config.php',
 					'include/install.php',
 					'include/plugin.tag.php',
+					'include/update.php',
+					'sql/impression.sql',
+					'sql/index.html',
 					'templates/blocks/impression_tag_block_cloud.html',
 					'templates/blocks/impression_tag_block_tag.html' );
 	foreach ( $file as $item ) {
@@ -54,6 +58,17 @@ function icms_module_update_impression( &$module, $oldversion = null, $dbversion
 		}
 	}
 	// End of removing obsolete files
+
+	// Start removing obsolete folders
+	$folder = array( 'sql' );
+	foreach ( $folder as $dir ) {
+		if ( is_dir( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir ) ) {
+			chmod( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir, 0777 );
+			rmdir( ICMS_ROOT_PATH . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/' . $dir );
+		}
+	}
+	// End of removing obsolete folders
+
 	return TRUE;
 }
 

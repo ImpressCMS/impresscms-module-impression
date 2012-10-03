@@ -14,6 +14,9 @@ Removed files:
 - blocks/impression_block_tag.php
 - include/install.php
 - include/plugin.tag.php
+- include/update.php
+- sql/impression.sql
+- sql/index.html
 - templates/blocks/impression_tag_block_cloud.html
 - templates/blocks/impression_tag_block_tag.html
 
