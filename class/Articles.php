@@ -38,7 +38,7 @@ class mod_impression_Articles extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'uname', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'publisher', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'status', XOBJ_DTYPE_INT, true, false, false, true );
-		$this -> quickInitVar( 'date', XOBJ_DTYPE_INT, false );
+		$this -> quickInitVar( 'date', XOBJ_DTYPE_LTIME, false, '', '', 1033141070 );
 		$this -> quickInitVar( 'hits', XOBJ_DTYPE_INT, false );
 		$this -> quickInitVar( 'published', XOBJ_DTYPE_LTIME, false, '', '', 1033141070 );
 		$this -> quickInitVar( 'introtext', XOBJ_DTYPE_TXTAREA, false );

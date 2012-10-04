@@ -3,6 +3,7 @@ xx.xx.2012 - Version x
 =========================================================
 Added:
 - IPF classes
+- Automatic deleting of obsolete files and folders
 
 Removed:
 - support for TinyEditor

@@ -161,4 +161,52 @@ function impression_articlelistpagenav( $pubrowamount, $start, $art = 'art', $_t
 	$pagenav = new icms_view_PageNav( $pubrowamount, icms::$module -> config['admin_perpage'], $start, 'st' . $art, $_this );
 	echo '<span style="float: ' . $align . '; font-size: 0.9em;">' . $pagenav -> renderNav() . '</span>';
 }
+
+function impression_articlelistbody( $published ) {
+	global $imagearray, $impressionmyts;
+	$aid = $published['aid'];
+	$cid = $published['cid'];
+	if ( $published['inblocks'] ) {
+		$icon = $imagearray['blckgreen'];
+	} else {
+		$icon = $imagearray['blckorange'];
+	}
+	$nice_link = impression_nicelink( $published['title'], $published['nice_url'] );
+	if ( icms::$module -> config['niceurl'] ) {
+		$title = $icon . '&nbsp;<a href="../singlearticle.php?aid=' . $published['aid'] . '&amp;title=' . $nice_link . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
+	} else {
+		$title = $icon . '&nbsp;<a href="../singlearticle.php?aid=' . $published['aid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) . '</a>';
+	}
+	$maintitle = urlencode( icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $published['title'] ) ) ) );
+	$cattitle = impression_cattitle( $published['cid'] );
+	$submitter = icms_member_user_Handler::getUserLink( $published['uid'] );
+	$submitted = impression_time( formatTimestamp( $published['date'], icms::$module -> config['dateformat'] ) );
+	$publish = ( $published['published'] > 0 ) ? impression_time( formatTimestamp( $published['published'], icms::$module -> config['dateformatadmin'] ) ) : _AM_IMPRESSION_NOTPUBLiSHED;
+
+	if ( $published['status'] == 0 && ( $published['published'] && $published['published'] < time() ) ) {
+		$published_status = '<a href="index.php?op=status_off&amp;aid=' . $aid . '">' . $imagearray['online'] . '</a>';;
+	} elseif ( $published['status'] == 2 ) {
+		$published_status = $imagearray['rejected'];
+	} elseif ( $published['status'] == 3 ) {
+		$published_status = $imagearray['submitted'];
+	} else {
+		$published_status = ( $published['published'] == 0 ) ? "<a href='newarticles.php'>" . $imagearray['offline'] . "</a>" : '<a href="index.php?op=status_on&amp;aid=' . $aid . '">' . $imagearray['offline'] . '</a>';
+	}
+
+	$icon  = '<a href="index.php?op=edit&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_EDIT . '">' . $imagearray['editimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="index.php?op=delete&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_DELETE . '">' . $imagearray['deleteimg'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="index.php?op=clone&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ICO_CLONE . '">' . $imagearray['clone'] . '</a>';
+	$icon .= '<a style="padding-left: 5px;" href="altcat.php?op=main&amp;aid=' . $aid . '" title="' . _AM_IMPRESSION_ALTCAT_CREATEF . '">' . $imagearray['altcat'] . '</a>';
+
+	echo '<div class="impression_tblrow">
+			<div class="impression_tblhdrcell" style="text-align: center;">' . $aid . '</div>
+			<div class="impression_tblcell">' . $title . '</div>
+			<div class="impression_tblcell" style="white-space: nowrap;">' . $cattitle . '</div>
+			<div class="impression_tblcell" style="text-align: center;">' . $submitter . '</div>
+			<div class="impression_tblcell" style="text-align: center;">' . $publish . '</div>
+			<div class="impression_tblcell" style="text-align: center;">' . $published_status . '</div>
+			<div class="impression_tblcell" style="white-space: nowrap; text-align: center; width: 90px;">' . $icon . '</div>
+		</div>';
+	unset( $published );
+}
 ?>

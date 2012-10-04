@@ -291,7 +291,6 @@ function impression_strrrchr( $haystack, $needle ) {
 }
 
 function impression_getDirSelectOption( $selected, $dirarray, $namearray ) {
-	global $impressionmyts;
 	echo "<select size='1' name='workd' onchange='location.href=\"upload.php?rootpath=\"+this.options[this.selectedIndex].value'>";
 	echo "<option value=''>--------------------------------------</option>";
 	foreach( $namearray as $namearray => $workd ) {

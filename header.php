@@ -26,13 +26,11 @@
 * @version		$Id$
 */
 
-$mydirname = basename( dirname( __FILE__ ) );
-
 include_once '../../mainfile.php';
-include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/include/functions.php';
+include ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/include/functions.php';
 
 if ( !file_exists( 'language/' . $icmsConfig['language'] . '/main.php' ) ) {
-	include ICMS_ROOT_PATH . '/modules/' . $mydirname . '/language/' . $icmsConfig['language'] . '/main.php';
+	include ICMS_ROOT_PATH . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/language/' . $icmsConfig['language'] . '/main.php';
 }
 
 global $xoopsTpl, $xoTheme, $icmsConfig;

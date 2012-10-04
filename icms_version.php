@@ -277,6 +277,14 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'int',
 	'default'		=> 50,
 	'options'		=> array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100, '200' => 200 ) );
+	
+$modversion['config'][] = array(
+	'name'			=> 'ipftables',
+	'title'			=> '_MI_IMPRESSION_IPFTABLE',
+	'description'	=> '_MI_IMPRESSION_IPFTABLEDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 0 );
 
 $modversion['config'][] = array(
 	'name'			=> 'txt_width',

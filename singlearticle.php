@@ -167,7 +167,7 @@ global $xoopsTpl, $xoTheme;
 	$xoopsTpl -> assign( 'icms_pagetitle', $article_arr['title'] );
 	// Open Graph tags
 	$xoopsTpl -> assign( 'og_url', $article_url );
-	$xoopsTpl -> assign( 'og_image', ICMS_URL . '/modules/' . $mydirname . '/images/impression_ilogo.png' );
+	$xoopsTpl -> assign( 'og_image', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/impression_ilogo.png' );
 // End of meta tags
 
 $moderate = 0;

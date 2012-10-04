@@ -34,12 +34,11 @@ class mod_impression_Mod extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'cid', XOBJ_DTYPE_INT, false );
 		$this -> quickInitVar( 'title', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'uid', XOBJ_DTYPE_INT, false, '', '', 1 );
-		$this -> quickInitVar( 'uname', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'publisher', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'status', XOBJ_DTYPE_INT, false );
-		$this -> quickInitVar( 'date', XOBJ_DTYPE_INT, false );
+		$this -> quickInitVar( 'date', XOBJ_DTYPE_LTIME, false, '', '', 1033141070 );
 		$this -> quickInitVar( 'hits', XOBJ_DTYPE_INT, false );
-		$this -> quickInitVar( 'published', XOBJ_DTYPE_INT, false );
+		$this -> quickInitVar( 'published', XOBJ_DTYPE_LTIME, false, '', '', 1033141070 );
 		$this -> quickInitVar( 'introtext', XOBJ_DTYPE_TXTAREA, false );
 		$this -> quickInitVar( 'description', XOBJ_DTYPE_TXTAREA, false );
 		$this -> quickInitVar( 'ipaddress', XOBJ_DTYPE_TXTBOX, false );
@@ -49,6 +48,8 @@ class mod_impression_Mod extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'notifypub', XOBJ_DTYPE_INT, false );
 		$this -> quickInitVar( 'nice_url', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'inblocks', XOBJ_DTYPE_INT, false, '', '', 1 );
+		$this -> quickInitVar( 'modifysubmitter', XOBJ_DTYPE_INT, false );
+		$this -> quickInitVar( 'requestdate', XOBJ_DTYPE_LTIME, false, '', '', 1033141070 );
 		$this -> quickInitVar( 'source', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'sourceurl', XOBJ_DTYPE_TXTBOX, false );
 	}

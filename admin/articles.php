@@ -369,30 +369,63 @@ switch ( strtolower( $op ) ) {
 				</div>
 			 </div>';
 			 
+			 
 		// Main Index
-		$objectTable = new icms_ipf_view_Table( $impression_articles_handler, false, array() );
-
-		$objectTable -> addHeader('<span style="float: left; font-size: 12px; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>');
-
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'aid', 'center', 40, true ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewArticle' ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'cid', _GLOBAL_LEFT, false ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'uid', 'center' ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'published', 'center', 150 ) );
-		$objectTable -> addColumn( new icms_ipf_view_Column( 'status', 'center' ) );
-
-		$objectTable -> addCustomAction( 'getEditArticle' );
-		$objectTable -> addCustomAction( 'getDeleteArticle' );
-		$objectTable -> addCustomAction( 'getCloneArticle' );
-		$objectTable -> addCustomAction( 'getAltcatArticle' );
+		if ( icms::$module -> config['ipftables'] == 1 ) {
 		
-		$objectTable -> addQuickSearch( array( 'title' ), _AM_IMPRESSION_SEARCHTITLE );
-		
-		$objectTable -> setDefaultSort( 'aid' );
-		$objectTable -> setDefaultOrder( 'DESC' );
+			echo '<br />';
 
-		$icmsAdminTpl -> assign( 'impression_articles_table', $objectTable -> fetch() );
-		$icmsAdminTpl -> display( 'db:impression_admin_index.html' );
+			$objectTable = new icms_ipf_view_Table( $impression_articles_handler, false, array() );
+
+			$objectTable -> addHeader('<span style="float: left; font-size: 12px; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>');
+
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'aid', 'center', 40, true ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'title', _GLOBAL_LEFT, false, 'ViewArticle' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'cid', _GLOBAL_LEFT, false ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'uid', 'center' ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'published', 'center', 150 ) );
+			$objectTable -> addColumn( new icms_ipf_view_Column( 'status', 'center' ) );
+
+			$objectTable -> addCustomAction( 'getEditArticle' );
+			$objectTable -> addCustomAction( 'getDeleteArticle' );
+			$objectTable -> addCustomAction( 'getCloneArticle' );
+			$objectTable -> addCustomAction( 'getAltcatArticle' );
+		
+			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMPRESSION_SEARCHTITLE );
+		
+			$objectTable -> setDefaultSort( 'aid' );
+			$objectTable -> setDefaultOrder( 'DESC' );
+
+			$icmsAdminTpl -> assign( 'impression_articles_table', $objectTable -> fetch() );
+			$icmsAdminTpl -> display( 'db:impression_admin_index.html' );
+			
+		} else {
+		
+			$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' ORDER BY aid DESC';
+			$published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
+			$published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
+			echo '<br /><div><span style="float: left; font-weight: bold; color: #0A3760;">' . _AM_IMPRESSION_MINDEX_PUBLISHEDARTICLE . '</span>' . impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' ) . '</div>';
+			if ( $published_array_count > 0 ) {
+				echo '<div class="impression_table" style="font-size: 10px;">
+					<div class="impression_tblhdrrow">
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ID . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_TITLE . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_CATTITLE . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_POSTER . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_PUBLISH . '</div>
+						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ONLINE . '</div>
+						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_ACTION . '</div>
+					</div>';
+			
+				while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
+					impression_articlelistbody( $published );
+				}
+				echo '</div>';
+				impression_articlelistpagenav( $published_array_count, $start, 'art', '', 'right' );
+			} else {
+				echo '<br /><div style="border: 1px solid #ccc; text-align: center; width: 100%; font-weight: bold; background-color: #FFFF99;">' . _AM_IMPRESSION_MINDEX_NOARTICLESFOUND . '</div>';
+			}
+		}
 		
 		icms_cp_footer();
 		break;

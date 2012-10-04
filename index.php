@@ -155,7 +155,7 @@ if ( $head_arr['lastarticlestotal'] > 0 ) {
 $xoopsTpl -> assign( 'lang_thereare', sprintf( $lang_thereare, $total_cat, $listings['count'] ) );
 $xoopsTpl -> assign( 'dirname', icms::$module -> getVar( 'dirname' ) );
 
-$rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'impression_configs' ) . ' WHERE id = 1';
+$rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'impression_configs' );
 list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
 
 if ( $rssactive == 1 ) {
