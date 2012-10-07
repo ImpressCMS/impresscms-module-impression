@@ -52,6 +52,34 @@ class mod_impression_Mod extends icms_ipf_seo_Object {
 		$this -> quickInitVar( 'requestdate', XOBJ_DTYPE_LTIME, false, '', '', 1033141070 );
 		$this -> quickInitVar( 'source', XOBJ_DTYPE_TXTBOX, false );
 		$this -> quickInitVar( 'sourceurl', XOBJ_DTYPE_TXTBOX, false );
+	
+		$this -> setControl( 'status', 'yesno' );
+	}
+	
+	public function getVar( $key, $format = 's' ) {
+		if ( $format == 's' && in_array( $key, array( 'modifysubmitter', 'requestdate' ) ) ) {
+			return call_user_func( array( $this, $key ) );
+		}
+		return parent::getVar( $key, $format );
+	}
+
+	function modifysubmitter() {
+		return icms_member_user_Handler::getUserLink( $this -> getVar( 'modifysubmitter', 'e' ) );
+	}
+	
+	function requestdate() {
+		$publish = formatTimestamp( $this -> getVar( 'requestdate', 'e' ), icms::$module -> config['dateformatadmin'] );
+		return $publish;
+	}
+	
+	function ViewArticle() {
+		$title = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/modifications.php?op=listmodreqshow&requestid=' . $this -> getVar( 'requestid' ) . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $this -> getVar( 'title' ) ) ) ) . '</a>';
+		return $title;
+	}
+	
+	function getListModReqShow() {
+		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/modifications.php?op=listmodreqshow&amp;requestid=' . $this -> getVar( 'requestid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/find.png" alt="" title="' . _AM_IMPRESSION_ICO_VIEW . '" /></a>';
+		return $ret;
 	}
 
 }

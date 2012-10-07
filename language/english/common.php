@@ -2,7 +2,7 @@
 /**
 * Impression - a light content management module for ImpressCMS
 *
-* Based upon WF-Links 1.06 and imLinks
+* Based upon WF-Links 1.06 and IMPRESSION
 *
 * File: language/english/common.php
 *
@@ -33,3 +33,9 @@ define( '_CO_IMPRESSION_ARTICLES_PUBLISHED', 'Published' );
 define( '_CO_IMPRESSION_ARTICLES_STATUS', 'Status' );
 define( '_CO_IMPRESSION_ARTICLES_UID', 'Poster' );
 define( '_CO_IMPRESSION_ARTICLES_CID', 'Category' );
+define( '_CO_IMPRESSION_ARTICLES_DATE', 'Date submitted' );
+
+define( '_CO_IMPRESSION_MOD_REQUESTID', 'ID' );
+define( '_CO_IMPRESSION_MOD_TITLE', 'Title' );
+define( '_CO_IMPRESSION_MOD_REQUESTDATE', 'Request date' );
+define( '_CO_IMPRESSION_MOD_MODIFYSUBMITTER', 'Submitter' );

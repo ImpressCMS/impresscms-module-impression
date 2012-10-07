@@ -128,5 +128,10 @@ class mod_impression_Articles extends icms_ipf_seo_Object {
 		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/altcat.php?op=main&amp;aid=' . $this -> getVar( 'aid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/folder_add.png" alt="" title="' . _AM_IMPRESSION_ALTCAT_CREATEF . '" /></a>';
 		return $ret;
 	}
+	
+	function getApprove() {
+		$ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/newarticles.php?op=approve&amp;aid=' . $this -> getVar( 'aid' ) . '"><img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/accept.png" alt="" title="' . _AM_IMPRESSION_ICO_APPROVE . '" /></a>';
+		return $ret;
+	}
 
 }
