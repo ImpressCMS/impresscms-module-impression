@@ -390,6 +390,9 @@ switch ( strtolower( $op ) ) {
 			$objectTable -> addCustomAction( 'getDeleteArticle' );
 			$objectTable -> addCustomAction( 'getCloneArticle' );
 			$objectTable -> addCustomAction( 'getAltcatArticle' );
+			
+			$objectTable -> addFilter( 'uid', 'submitterArray' );
+			$objectTable -> addFilter( 'status', 'statusArray' );
 		
 			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMPRESSION_SEARCHTITLE );
 		

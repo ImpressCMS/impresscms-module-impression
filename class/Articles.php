@@ -72,13 +72,15 @@ class mod_impression_Articles extends icms_ipf_seo_Object {
 		$status = $this -> getVar( 'status', 'e' );
 		$buttona = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/admin/articles.php?op=changestatus&amp;aid=' . $this -> getVar( 'aid' ) . '">';
 		if ( $status == 0 ) {
-			$buttona .= '<img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/on.png" alt="" title="' . _AM_IMPRESSION_ICO_ONLINE . '" /></a>';
+			$buttona .= '<img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/on.png" alt="" title="' . _AM_IMPRESSION_PUBLISHED . '" /></a>';
 			$button = $buttona;
 		} elseif ( $status == 1 ) {
-			$buttona .= '<img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/off.png" alt="" title="' . _AM_IMPRESSION_ICO_OFFLINE . '" /></a>';
+			$buttona .= '<img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/off.png" alt="" title="' . _AM_IMPRESSION_OFFLINE . '" /></a>';
 			$button = $buttona;
 		} elseif ( $status == 2 ) {
-			$button .= '<img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/cross.png" alt="" title="' . _AM_IMPRESSION_ICO_REJECTED . '" />';
+			$button .= '<img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/cross.png" alt="" title="' . _AM_IMPRESSION_REJECTED . '" />';
+		} elseif ( $status == 3 ) {
+			$button .= '<img src="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/images/icon/impression.png" alt="" title="' . _AM_IMPRESSION_SUBMITTED . '" />';
 		}
 		return $button;
 	}
@@ -105,7 +107,6 @@ class mod_impression_Articles extends icms_ipf_seo_Object {
 		} else {
 			$title = $icon . '&nbsp;<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlearticle.php?aid=' . $this -> getVar( 'aid' ) . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( trim( $this -> getVar( 'title' ) ) ) ) . '</a>';
 		}
-		// $ret = '<a href="' . ICMS_URL . '/modules/' . basename( dirname( dirname( __FILE__ ) ) ) . '/singlearticle.php?aid=' . $this -> getVar( 'aid' ) . '">' . $title . '</a>';
 		return $title;
 	}
 	

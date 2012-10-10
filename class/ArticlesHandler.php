@@ -45,4 +45,16 @@ class mod_impression_ArticlesHandler extends icms_ipf_Handler {
 		$this -> insert( $entryObj, true );
 		return $visibility;
 	}
+	
+	public function submitterArray() {
+		return icms::handler( 'icms_member' ) -> getUserList();
+	}
+	
+	public function statusArray() {
+		$status_array = array(	0 => _AM_IMPRESSION_PUBLISHED,
+								1 => _AM_IMPRESSION_OFFLINE,
+								2 => _AM_IMPRESSION_REJECTED,
+								3 => _AM_IMPRESSION_SUBMITTED );
+		return $status_array;
+	}
 }
