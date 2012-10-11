@@ -53,15 +53,15 @@ if ( icms_userIsAdmin() == true && $moderate == 0 ) {
 	$article['adminarticle'] = '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php">
 								<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/computer.png" alt="" title="' . _MD_IMPRESSION_ADMINSECTION . '" />
 								</a>';
-	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=edit&amp;aid=' . intval($article_arr['aid']) . '">
+	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/articles.php?op=edit&amp;aid=' . $article_arr['aid'] . '">
 								 <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_edit.png" alt="" title="' . _MD_IMPRESSION_EDIT . '" />
 								 </a>';
-	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/index.php?op=delete&amp;aid=' . intval($article_arr['aid']) . '">
+	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/admin/articles.php?op=delete&amp;aid=' . $article_arr['aid'] . '">
 								 <img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/page_delete.png" alt="" title="' . _MD_IMPRESSION_DELETE . '" />
 								 </a>';
 } else {
-	$article['adminarticle'] = '[ <a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;aid=' . intval($article_arr['aid']) . '&approve=1">' . _MD_IMPRESSION_APPROVE . '</a> | ';
-	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;aid=' . intval($article_arr['aid']) . '">' . _MD_IMPRESSION_DELETE . '</a> ]';
+	$article['adminarticle'] = '[ <a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=edit&amp;aid=' . $article_arr['aid'] . '&approve=1">' . _MD_IMPRESSION_APPROVE . '</a> | ';
+	$article['adminarticle'] .= '<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?op=delete&amp;aid=' . $article_arr['aid'] . '">' . _MD_IMPRESSION_DELETE . '</a> ]';
 }
 
 if ( is_object( icms::$user ) && !empty( icms::$user ) ) {

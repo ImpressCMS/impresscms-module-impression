@@ -45,8 +45,8 @@ function checkImpressionSpotgroups( $cid = 0, $permType = 'ImpressionCatPerm', $
 
 function b_impression_spoticons( $aid, $dirname ) {
 	$iconsadmin  = '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/computer.png" alt="" title="' . _MB_IMPRESSION_ADMINSECTION . '" /></a>';
-	$iconsadmin .= '&nbsp;<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=edit&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/page_edit.png" alt="" title="' . _MB_IMPRESSION_EDIT . '" /></a>&nbsp;';
-	$iconsadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=delete&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/page_delete.png" alt="" title="' . _MB_IMPRESSION_DELETE . '" /></a>&nbsp;';
+	$iconsadmin .= '&nbsp;<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/articles.php?op=edit&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/page_edit.png" alt="" title="' . _MB_IMPRESSION_EDIT . '" /></a>&nbsp;';
+	$iconsadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/articles.php?op=delete&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/page_delete.png" alt="" title="' . _MB_IMPRESSION_DELETE . '" /></a>&nbsp;';
 	return $iconsadmin;
 }
 

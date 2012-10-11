@@ -83,8 +83,8 @@ function b_impression_displaynewicons( $time, $status = 0, $counter = 0 ) {
 
 function b_impression_adminnewicons( $aid, $dirname ) {
 	$iconadmin = '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/computer_small.png" alt="" title="' . _MB_IMPRESSION_ADMINSECTION . '" /></a>';
-	$iconadmin .= '&nbsp;<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=edit&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pageedit_small.png" alt="" title="' . _MB_IMPRESSION_EDIT . '" /></a>&nbsp;';
-	$iconadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/index.php?op=delete&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pagedelete_small.png" alt="" title="' . _MB_IMPRESSION_DELETE . '" /></a>&nbsp;';
+	$iconadmin .= '&nbsp;<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/articles.php?op=edit&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pageedit_small.png" alt="" title="' . _MB_IMPRESSION_EDIT . '" /></a>&nbsp;';
+	$iconadmin .= '<a href="' . ICMS_URL . '/modules/' . $dirname . '/admin/articles.php?op=delete&amp;aid=' . $aid . '"><img src="' . ICMS_URL . '/modules/' . $dirname . '/images/icon/pagedelete_small.png" alt="" title="' . _MB_IMPRESSION_DELETE . '" /></a>&nbsp;';
 	return $iconadmin;
 }
 
