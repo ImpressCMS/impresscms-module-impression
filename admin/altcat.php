@@ -32,7 +32,6 @@ $op = impression_cleanRequestVars( $_REQUEST, 'op', '' );
 $aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 
 function impression_makeTreeCheckTable( $xt, $itemid, $title, $checks, $cidd ) {
-	global $impressionmyts;
 
 	echo '<div style="text-align: left;">';
 	echo '<form name="altcat" method="post" action="' . xoops_getenv( 'PHP_SELF' ) . '">';

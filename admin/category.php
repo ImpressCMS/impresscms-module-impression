@@ -40,7 +40,7 @@ if ( isset( $_GET ) ) {
 function createcat($cid = 0) {
 	include_once '../class/impression_lists.php';
 
-	global $totalcats, $impressionmyts, $icmsAdminTpl;
+	global $totalcats, $icmsAdminTpl;
 
 	$aid = 0;
 	$title = '';

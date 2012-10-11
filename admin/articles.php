@@ -32,7 +32,7 @@ $aid = intval( impression_cleanRequestVars( $_REQUEST, 'aid', 0 ) );
 $impression_articles_handler = icms_getModuleHandler( 'articles', basename( dirname( dirname( __FILE__ ) ) ), 'impression' );
 
 function edit( $aid = 0, $doclone = 0 ) {
-	global $mytree, $impressionmyts, $icmsAdminTpl;
+	global $mytree, $icmsAdminTpl;
 
 	$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' WHERE aid=' . $aid;
 	if ( !$result = icms::$xoopsDB -> query( $sql ) ) {

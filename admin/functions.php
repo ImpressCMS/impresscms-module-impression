@@ -163,7 +163,7 @@ function impression_articlelistpagenav( $pubrowamount, $start, $art = 'art', $_t
 }
 
 function impression_articlelistbody( $published ) {
-	global $imagearray, $impressionmyts;
+	global $imagearray;
 	$aid = $published['aid'];
 	$cid = $published['cid'];
 	if ( $published['inblocks'] ) {
