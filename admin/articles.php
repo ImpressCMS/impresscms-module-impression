@@ -358,7 +358,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( 1, _AM_IMPRESSION_BINDEX );
 
-		$icmsAdminTpl -> assign( 'icms_module_header', '<link href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" rel="stylesheet" type="text/css" />' );
+		$icmsAdminTpl -> assign( 'icms_module_header', '<link href="../impressionstyle.css" rel="stylesheet" type="text/css" />' );
 		echo '<div style="border: #E8E8E8 1px solid; padding: 8px;  border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MINDEX_ARTICLESUMMARY . '</div>
 				<div style="padding: 10px;" id="button">
@@ -368,11 +368,10 @@ switch ( strtolower( $op ) ) {
 					<a class="impression_button" href="modifications.php">' . _AM_IMPRESSION_SMODREQUEST . $totalmodrequests . '</a>
 				</div>
 			 </div>';
-			 
-			 
+
 		// Main Index
 		if ( icms::$module -> config['ipftables'] == 1 ) {
-		
+
 			echo '<br />';
 
 			$objectTable = new icms_ipf_view_Table( $impression_articles_handler, false, array() );
@@ -390,20 +389,20 @@ switch ( strtolower( $op ) ) {
 			$objectTable -> addCustomAction( 'getDeleteArticle' );
 			$objectTable -> addCustomAction( 'getCloneArticle' );
 			$objectTable -> addCustomAction( 'getAltcatArticle' );
-			
+
 			$objectTable -> addFilter( 'uid', 'submitterArray' );
 			$objectTable -> addFilter( 'status', 'statusArray' );
-		
+
 			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMPRESSION_SEARCHTITLE );
-		
+
 			$objectTable -> setDefaultSort( 'aid' );
 			$objectTable -> setDefaultOrder( 'DESC' );
 
 			$icmsAdminTpl -> assign( 'impression_articles_table', $objectTable -> fetch() );
 			$icmsAdminTpl -> display( 'db:impression_admin_index.html' );
-			
+
 		} else {
-		
+
 			$sql = 'SELECT * FROM ' . icms::$xoopsDB -> prefix( 'impression_articles' ) . ' ORDER BY aid DESC';
 			$published_array = icms::$xoopsDB -> query( $sql, icms::$module -> config['admin_perpage'], $start );
 			$published_array_count = icms::$xoopsDB -> getRowsNum( icms::$xoopsDB -> query( $sql ) );
@@ -419,7 +418,6 @@ switch ( strtolower( $op ) ) {
 						<div class="impression_tblcell" style="text-align: center;">' . _AM_IMPRESSION_MINDEX_ONLINE . '</div>
 						<div class="impression_tblcell">' . _AM_IMPRESSION_MINDEX_ACTION . '</div>
 					</div>';
-			
 				while ( $published = icms::$xoopsDB -> fetchArray( $published_array ) ) {
 					impression_articlelistbody( $published );
 				}

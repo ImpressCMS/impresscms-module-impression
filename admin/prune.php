@@ -55,11 +55,11 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_PRUNE );
 
-		$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+		$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
-				<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/warning.png" alt="" style="float: left; padding-right: 10px;" />
+				<img src="../images/icon/warning.png" alt="" style="float: left; padding-right: 10px;" />
 				<div style="padding-left: 45px; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_PRUNEINFO . '</div>
 				<div style="padding-left: 45px;">' . _AM_IMPRESSION_PRUNEWARN . '</div>
 			  </div><br />';

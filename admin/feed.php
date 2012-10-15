@@ -58,7 +58,7 @@ function rss_edit() {
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
-				<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
+				<img src="../images/icon/feed32.png" alt="" style="float: left; padding-right: 10px;" />
 				' . _AM_IMPRESSION_RSSFEEDDSC . '';
 	if ( $feed_array['rsstitle'] == '' ) {
 		echo '<br /><br /><span style="text-decoration: blink; font-weight: bold; color: red;">' . _AM_IMPRESSION_RSSCLICKSUBMIT . '</span>';
@@ -142,24 +142,24 @@ switch ( strtolower( $op ) ) {
 		break;
 
 	case 'saverss':
-		$rssactive   = ( $_POST['rssactive'] == 1 ) ? 1 : 0;
-		$rsstitle    = addslashes( trim( $_POST['rsstitle'] ) );
-		$rsslink     = ( $_POST['rsslink'] != 'http://' ) ? addslashes( $_POST['rsslink'] ) : '';
-		$rssdsc      = addslashes( trim( $_POST['rssdsc'] ) );
-		$rssimgurl   = addslashes( trim( $_POST['rssimgurl'] ) );
-		$rsswidth    = addslashes( trim( $_POST['rsswidth'] ) );
-		$rssheight   = addslashes( trim( $_POST['rssheight'] ) );
-		$rssimgtitle = addslashes( trim( $_POST['rssimgtitle'] ) );
-		$rssimglink  = addslashes( trim( $_POST['rssimglink'] ) );
-		$rssttl      = addslashes( trim( $_POST['rssttl'] ) );
-		$rsswebmaster= addslashes( trim( $_POST['rsswebmaster'] ) );
-		$rsseditor   = addslashes( trim( $_POST['rsseditor'] ) );
-		$rsscategory = addslashes( trim( $_POST['rsscategory'] ) );
-		$rssgenerator= addslashes( trim( $_POST['rssgenerator'] ) );
-		$rsscopyright= addslashes( trim( $_POST['rsscopyright'] ) );
-		$rsstotal	 = addslashes( trim( $_POST['rsstotal'] ) );
-		$rssofftitle = addslashes( trim( $_POST['rssofftitle'] ) );
-		$rssoffdsc   = addslashes( trim( $_POST['rssoffdsc'] ) );
+		$rssactive		= ( $_POST['rssactive'] == 1 ) ? 1 : 0;
+		$rsstitle		= addslashes( trim( $_POST['rsstitle'] ) );
+		$rsslink		= ( $_POST['rsslink'] != 'http://' ) ? addslashes( $_POST['rsslink'] ) : '';
+		$rssdsc			= addslashes( trim( $_POST['rssdsc'] ) );
+		$rssimgurl		= addslashes( trim( $_POST['rssimgurl'] ) );
+		$rsswidth		= addslashes( trim( $_POST['rsswidth'] ) );
+		$rssheight		= addslashes( trim( $_POST['rssheight'] ) );
+		$rssimgtitle	= addslashes( trim( $_POST['rssimgtitle'] ) );
+		$rssimglink		= addslashes( trim( $_POST['rssimglink'] ) );
+		$rssttl			= addslashes( trim( $_POST['rssttl'] ) );
+		$rsswebmaster	= addslashes( trim( $_POST['rsswebmaster'] ) );
+		$rsseditor		= addslashes( trim( $_POST['rsseditor'] ) );
+		$rsscategory	= addslashes( trim( $_POST['rsscategory'] ) );
+		$rssgenerator	= addslashes( trim( $_POST['rssgenerator'] ) );
+		$rsscopyright	= addslashes( trim( $_POST['rsscopyright'] ) );
+		$rsstotal		= addslashes( trim( $_POST['rsstotal'] ) );
+		$rssofftitle	= addslashes( trim( $_POST['rssofftitle'] ) );
+		$rssoffdsc		= addslashes( trim( $_POST['rssoffdsc'] ) );
 
 		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_configs' ) . " SET rssactive='$rssactive', rsstitle='$rsstitle', rsslink='$rsslink', rssdsc='$rssdsc', rssimgurl='$rssimgurl', rsswidth='$rsswidth', rssheight='$rssheight', rssimgtitle='$rssimgtitle', rssimglink='$rssimglink', rssttl='$rssttl', rsswebmaster='$rsswebmaster', rsseditor='$rsseditor', rsscategory='$rsscategory', rssgenerator='$rssgenerator', rsscopyright='$rsscopyright', rsstotal='$rsstotal', rssofftitle='$rssofftitle', rssoffdsc='$rssoffdsc'";
 		$result = icms::$xoopsDB -> queryF( $sql );

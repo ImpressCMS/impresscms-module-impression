@@ -314,14 +314,14 @@ function impression_getWysiwygForm( $caption, $name, $value, $height ) {
 	}
 	$editor='';
 	switch( $formuser ) {
-	
+
 	case 'fck':
 		$editor = impression_fckeditor( $caption, $name, $value, $height );
 		break;
 
 	case 'tinymce' :
 		$editor = impression_tinymce( $caption, $name, $value, $height );    
-        break;
+		break;
 	}
 	return $editor;
 }

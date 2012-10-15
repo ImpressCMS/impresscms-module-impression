@@ -96,7 +96,7 @@ switch ( strtolower( $op ) ) {
 				</div>
 			  </div><br />';
 
-		$icmsAdminTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/style.css" />' );
+		$icmsAdminTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="../impressionstyle.css" />' );
 
 		if ( icms::$module -> config['ipftables'] == 1 ) {
 		

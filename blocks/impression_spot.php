@@ -111,7 +111,7 @@ function b_impression_spot_show( $options ) {
 		list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
 		if ( $rssactive == 1 ) {
 			$articlespot['impression_feed'] = '<a href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php" target="_blank"><img src="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/images/icon/feed.png" border="0" alt="" title="' . _MB_IMPRESSION_FEED . '" /></a>';
-			$xoopsTpl -> assign( 'xoops_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php">' );
+			$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . _MB_IMPRESSION_FEED . '" href="'. ICMS_URL . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/feed.php">' );
 		}
 
 		$xoopsTpl -> assign( 'dirname', basename( dirname(  dirname( __FILE__ ) ) ) );
@@ -126,7 +126,7 @@ function b_impression_spot_show( $options ) {
 // @return
 function b_impression_spot_edit( $options ) {
 	global $icmsAdminTpl;
-	$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />');
 	include_once ICMS_ROOT_PATH . '/modules/' . basename( dirname(  dirname( __FILE__ ) ) ) . '/include/functions.php';
 
@@ -144,25 +144,25 @@ function b_impression_spot_edit( $options ) {
 	$form .= '<tr><td><b>' . _MB_IMPRESSION_DATEFORMAT . '</b>' . impression_tooltip( _MB_IMPRESSION_DATEFORMATMANUAL, 'help' ) . '</td><td><input type="text" name="options[]" value="' . $options[2] . '" /></td></tr>';
 
 // Bytes more
-	$chk   = '';
+	$chk = '';
 	if ( $options[3] == 0 ) {
 		$chk = ' checked="checked"';
 	}
 	$form .= '<tr><td><b>' . _MB_IMPRESSION_BYTESYN . '</b></td><td><input type="radio" name="options[3]" value="0"' . $chk . ' />&nbsp;' . _NONE . '&nbsp;';
 
-	$chk   = '';
+	$chk = '';
 	if ( $options[3] == 1 ) {
 		$chk = ' checked="checked"';
 	}
 	$form .= '&nbsp;<input type="radio" name="options[3]" value="1"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_BYTES . '&nbsp;';
 
-	$chk   = '';
+	$chk = '';
 	if ( $options[3] == 2 ) {
 		$chk = ' checked="checked"';
 	}
 	$form .= '&nbsp;<input type="radio" name="options[3]" value="2"' . $chk . ' />&nbsp;' . _MB_IMPRESSION_WORDS . '&nbsp;';	
 
-	$chk   = '';
+	$chk = '';
 	if ( $options[3] == 3 ) {
 		$chk = ' checked="checked"';
 	}

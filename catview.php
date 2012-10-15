@@ -79,7 +79,7 @@ if ( is_array( $arr ) > 0 && !$list && !$selectdate ) {
 					break;
 				}
 				if ( $space > 0 )
-					$infercategories .= '&bull;&nbsp;<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . $sub_ele['cid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $sub_ele['title'] ) ) . '</a> (' . $hassubitems['count'] . ')';
+					$infercategories .= '&bull;&nbsp;<a href="catview.php?cid=' . $sub_ele['cid'] . '">' . icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $sub_ele['title'] ) ) . '</a> (' . $hassubitems['count'] . ')';
 					$infercategories .= '<br />';
 				$space++;
 				$chcount++;

@@ -66,12 +66,6 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$notifypub = impression_cleanRequestVars( $_REQUEST, 'notifypub', 0 );
 		$date = time();
 		$ipaddress = $_SERVER['REMOTE_ADDR'];
-		
-//		if ( icms::$module -> config['usercantag'] ) {
-//			$item_tag = icms_core_DataFilter::addSlashes( ltrim( $_REQUEST['item_tag'] ) );
-//		} else {
-//			$item_tag = '';
-//		}
 
 		if ( $aid == 0 ) {
 			$status = 3;
@@ -84,8 +78,8 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 				// $offline = 0;
 				$message = _MD_IMPRESSION_ISAPPROVED;
 			}
-			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . "	(aid, cid, title, uid, status, date, introtext, description, ipaddress, meta_keywords, notifypub, source, sourceurl) ";
-			$sql .= " VALUES 	('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$notifypub', '$source', '$sourceurl')";
+			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, status, date, introtext, description, ipaddress, meta_keywords, notifypub, source, sourceurl) ";
+			$sql .= " VALUES ('', $cid, '$title', '$submitter', '$status', '$date', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$notifypub', '$source', '$sourceurl')";
 			if ( !$result = icms::$xoopsDB -> query( $sql ) ) {
 			$_error = icms::$xoopsDB -> error() . ' : ' . icms::$xoopsDB -> errno();
 				icms::$logger -> handleError( E_USER_WARNING, $_error, __FILE__, __LINE__ );
@@ -180,14 +174,14 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
 			$xoopsTpl -> assign( 'image_header', '<div align="center">' . impression_imageheader() . '</div>' );
 			$xoopsTpl -> assign( 'disclaimer', icms_core_DataFilter::checkVar( icms::$module -> config['disclaimer'], 'text' ) );
-			$xoopsTpl -> assign( 'cancel_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/index.php' );
+			$xoopsTpl -> assign( 'cancel_location', 'index.php' );
 			$xoopsTpl -> assign( 'article_disclaimer', false );
 			$xoopsTpl -> assign( 'module_dir', icms::$module -> getVar('dirname') );
 			if ( !isset( $_REQUEST['aid'] ) ) {
-				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?agree=1' );
+				$xoopsTpl -> assign( 'agree_location', 'submit.php?agree=1' );
 			} elseif ( isset( $_REQUEST['aid'] ) ) {
 				$aid = intval( $_REQUEST['aid'] );
-				$xoopsTpl -> assign( 'agree_location', ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/submit.php?agree=1&amp;aid=' . intval( $aid ) );
+				$xoopsTpl -> assign( 'agree_location', 'submit.php?agree=1&amp;aid=' . intval( $aid ) );
 			}
 			include ICMS_ROOT_PATH . '/footer.php';
 			exit();
@@ -210,12 +204,11 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$published = $article_array['published'] ? $article_array['published'] : 0;
 		$ipaddress = $article_array['ipaddress'] ? $article_array['ipaddress'] : 0;
 		$meta_keywords = $article_array['meta_keywords'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['meta_keywords'] ) ) : '';
-//		$item_tag = $article_array['item_tag'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['item_tag'] ) ) : '';
 		$notifypub = $article_array['notifypub'] ? $article_array['notifypub'] : 0;
 		$source = $article_array['source'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['source'] ) ) : '';
 		$sourceurl = $article_array['sourceurl'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['sourceurl'] ) ) : '';
 
-		$xoopsTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+		$xoopsTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 		$sform = new icms_form_Theme( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', '' );
@@ -266,17 +259,6 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 // Meta meta_keywords form
 		$keywords = new icms_form_elements_Textarea( _MD_IMPRESSION_KEYWORDS . impression_tooltip( _MD_IMPRESSION_KEYWORDS_NOTE ), 'meta_keywords', $meta_keywords, 4, 60 );
 		$sform -> addElement( $keywords, false );
-
-// Insert tags if Tag-module is installed and if user is allowed
-//		if ( icms::$module -> config['usercantag'] ) {
-//			if ( impression_tag_module_included() ) {
-//				include_once ICMS_ROOT_PATH . '/modules/tag/include/formtag.php';
-//				$text_tags = new XoopsFormTag('item_tag', 70, 255, $article_array['item_tag'], 0);
-//				$sform -> addElement( $text_tags );
-//			} else {
-//				$sform -> addElement( new icms_form_elements_Hidden( 'item_tag', $article_array['item_tag'] ) ) ;
-//			}
-//		}
 
 // Notify form
 		$submitter2 = ( is_object( icms::$user ) && !empty( icms::$user ) ) ? icms::$user -> getVar( 'uid' ) : 0;

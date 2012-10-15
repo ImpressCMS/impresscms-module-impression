@@ -67,7 +67,7 @@ define( '_MD_IMPRESSION_NOTSPECIFIED', 'Not specified' );
 define( '_MD_IMPRESSION_PUBLISHER', 'Publisher' );
 define( '_MD_IMPRESSION_UPDATEDON', 'Updated on' );
 define( '_MD_IMPRESSION_PRICEFREE', 'Free' );
-define( '_MD_IMPRESSION_READMORE', 'Read more' );
+define( '_MD_IMPRESSION_READMORE', 'Read more...' );
 define( '_MD_IMPRESSION_OPTIONS', 'Options: ' );
 define( '_MD_IMPRESSION_NOTIFYAPPROVE', 'Notify me when this article is approved' );
 define( '_MD_IMPRESSION_INTFILEFOUND', 'Here is a good article to look at %s' ); // %s is your site name

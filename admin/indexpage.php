@@ -59,12 +59,12 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
 
-		$icmsAdminTpl -> assign( 'xoops_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+		$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_IPAGE_INFORMATION . '</div>
-				<div style="padding: 8px;"><img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />' . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . '</div>
+				<div style="padding: 8px;"><img src="../images/icon/indexpage.png" alt="" style="float: left; padding-right: 10px;" />' . _AM_IMPRESSION_MINDEX_PAGEINFOTXT . '</div>
 			  </div><br />';
 		$sform = new icms_form_Theme( _AM_IMPRESSION_IPAGE_MODIFY, 'op', '' );
 

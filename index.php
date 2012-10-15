@@ -83,7 +83,7 @@ while ( $myrow = icms::$xoopsDB -> fetchArray( $result ) ) {
 					if ( $space > 1 ) {
 						$subcategories .= '<br />';
 					}
-					$subcategories .= '&bull;&nbsp;<a href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/catview.php?cid=' . $ele['cid'] . '">' . $chtitle . '</a> (' . $hassubitems['count'] . ')';
+					$subcategories .= '&bull;&nbsp;<a href="catview.php?cid=' . $ele['cid'] . '">' . $chtitle . '</a> (' . $hassubitems['count'] . ')';
 					$space++;
 					$chcount++;
 				}
@@ -159,7 +159,7 @@ $rsssql = 'SELECT rssactive FROM ' . icms::$xoopsDB -> prefix( 'impression_confi
 list( $rssactive ) = icms::$xoopsDB -> fetchRow( icms::$xoopsDB -> query( $rsssql ) );
 
 if ( $rssactive == 1 ) {
-	$xoopsTpl -> assign( 'impression_feed', '<a href="'. ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMPRESSION_FEED . '" /></a>');
+	$xoopsTpl -> assign( 'impression_feed', '<a href="feed.php" target="_blank"><img src="images/icon/feed.png" border="0" alt="" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMPRESSION_FEED . '" /></a>');
 	$xoopsTpl -> assign( 'icms_module_header', '<link rel="alternate" type="application/rss+xml" title="' . icms::$module -> getVar( 'name' ) . ' ' . _MD_IMPRESSION_FEED . '" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/feed.php">' );
 }
 

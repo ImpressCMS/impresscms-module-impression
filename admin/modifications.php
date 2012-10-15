@@ -152,7 +152,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_MOD_MODREQUESTS );
 
-		$icmsAdminTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/impressionstyle.css" />' );
+		$icmsAdminTpl -> assign( 'icms_module_header', '<link rel="stylesheet" type="text/css" href="../impressionstyle.css" />' );
 
 		echo '<div style="border: #E8E8E8 1px solid; padding: 8px; border-radius: 5px;">
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MOD_MODREQUESTSINFO . '</div>

@@ -27,7 +27,7 @@
 function impression_serverstats() {
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
 			<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_ARTICLE_IMAGEINFO . '</div>
-			<img src="' . ICMS_URL . '/modules/' . icms::$module -> getVar( 'dirname' ) . '/images/icon/server.png" alt="" style="float: left; padding-right: 10px;" />
+			<img src="../images/icon/server.png" alt="" style="float: left; padding-right: 10px;" />
 			<div>' . _AM_IMPRESSION_ARTICLE_SPHPINI . '</div>';
 
 	$article_on = '<b>' . _AM_IMPRESSION_ARTICLE_ON . '</b>';

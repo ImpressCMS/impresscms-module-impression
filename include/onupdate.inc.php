@@ -39,6 +39,8 @@ function icms_module_update_impression( &$module, $oldversion = null, $dbversion
 					'class/class_lists.php',
 					'class/impression_datetime.php',
 					'class/myts_extended.php',
+					'images/down.gif',
+					'images/up.gif',
 					'images/screenshots',
 					'images/icon/backgnd.png',
 					'images/sbookmarks/simpy.png',

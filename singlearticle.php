@@ -70,12 +70,6 @@ if ( !is_array( $article_arr ) ) {
 $xoopsOption['template_main'] = 'impression_singlearticle.html';
 include ICMS_ROOT_PATH . '/header.php';
 
-// tags support
-//if ( impression_tag_module_included() ) {
-//	include_once ICMS_ROOT_PATH . '/modules/tag/include/tagbar.php';
-//	$xoopsTpl -> assign( 'tagbar', tagBar( $article_arr['aid'], 0 ) );
-//}
-
 if ( impression_imageheader() ) {
 	$article['imageheader'] = '<div class="impression_header">' . impression_imageheader() . '</div>';
 }
