@@ -68,7 +68,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 	icms_cp_header();
 	impression_adminmenu( 2, _AM_IMPRESSION_MARTICLES );
 
-	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+	if ( icms::$module -> config['uselyte'] == 1 ) $icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />');
 
 	if ( $aid ) {
@@ -111,6 +111,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 
 // Article nice url	
 	$niceform = new icms_form_elements_Text( _AM_IMPRESSION_NICEURL . impression_tooltip( _AM_IMPRESSION_NICEURLDSC, 'help' ), 'nice_url', icms::$module -> config['txt_width'], 255, $nice_url );
+	if ( icms::$module -> config['uselyte'] == 0 ) $niceform -> setDescription( _AM_IMPRESSION_NICEURLDSC );
 	$sform -> addElement( $niceform, false );
 
 // Article submitter
@@ -134,31 +135,37 @@ function edit( $aid = 0, $doclone = 0 ) {
 
 // Article introtext form
 	$introeditor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_INTROTEXT . impression_tooltip( _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC, 'help' ), 'introtextb', $introtextb, 250, 10 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $introeditor -> setDescription( _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC );
 	$sform -> addElement( $introeditor, false );
 
 // Article description form 
 	$editor = impression_getWysiwygForm( _AM_IMPRESSION_ARTICLE_DESCRIPTION . impression_tooltip( _AM_IMPRESSION_ARTICLE_DESCRIPTION_DSC, 'help' ), 'descriptionb', $descriptionb, 500, 35 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $editor -> setDescription( _AM_IMPRESSION_ARTICLE_INTROTEXT_DSC );
 	$sform -> addElement( $editor, false );
 
 // Article source
 	$source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
 	$source_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCE . impression_tooltip( _AM_IMPRESSION_SOURCEDSC, 'help' ), '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $source_tray -> setDescription( _AM_IMPRESSION_SOURCEDSC );
 	$source_tray -> addElement( $source_text, false) ;
 	$sform -> addElement( $source_tray );
 
 // Article source url
 	$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
 	$sourceurl_tray = new icms_form_elements_Tray( _AM_IMPRESSION_SOURCEURL . impression_tooltip( _AM_IMPRESSION_SOURCEURLDSC, 'help' ), '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $sourceurl_tray -> setDescription( _AM_IMPRESSION_SOURCEURLDSC );
 	$sourceurl_tray -> addElement( $sourceurl_text, false) ;
 	$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='../images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _AM_IMPRESSION_CHECKURL . "' title='" . _AM_IMPRESSION_CHECKURL . "' style='cursor:pointer;' />" ) );
 	$sform -> addElement( $sourceurl_tray );
 
 // Meta keywords form
 	$keywords = new icms_form_elements_Textarea( _AM_IMPRESSION_KEYWORDS . impression_tooltip( _AM_IMPRESSION_KEYWORDS_NOTE, 'help' ), 'meta_keywords', $meta_keywords, 7, 60);
+	if ( icms::$module -> config['uselyte'] == 0 ) $keywords -> setDescription( _AM_IMPRESSION_KEYWORDS_NOTE );
 	$sform -> addElement( $keywords, false );
 
 // Publish date
 	$datesub_datetime = new icms_form_elements_Datetime(_AM_IMPRESSION_ARTICLE_SETPUBLISHDATE . impression_tooltip( _AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC, 'help' ), 'published', $size = 15, $published);
+	if ( icms::$module -> config['uselyte'] == 0 ) $datesub_datetime -> setDescription( _AM_IMPRESSION_ARTICLE_SETPUBLISHDATE_DSC );
 	$sform -> addElement( $datesub_datetime );
 
 // Set Status
@@ -173,11 +180,13 @@ function edit( $aid = 0, $doclone = 0 ) {
 								2 => _AM_IMPRESSION_REJECTED );
 	}
 	$status_select = new icms_form_elements_Select( _AM_IMPRESSION_ARTICLE_FILESSTATUS . impression_tooltip( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC, 'help' ), 'status', $status );
+	if ( icms::$module -> config['uselyte'] == 0 ) $status_select -> setDescription( _AM_IMPRESSION_ARTICLE_FILESSTATUS_DSC );
 	$status_select -> addOptionArray( $status_array );
 	$sform -> addElement( $status_select );
 	
 // Display in blocks
 	$inblocks_yn = new icms_form_elements_Radioyn( _AM_IMPRESSION_ARTICLE_INBLOCKS . impression_tooltip( _AM_IMPRESSION_ARTICLE_INBLOCKS_DSC, 'help' ), 'inblocks', $inblocks, ' ' . _YES . '', ' ' . _NO . '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $inblocks_yn -> setDescription( _AM_IMPRESSION_ARTICLE_INBLOCKS_DSC );
 	$sform -> addElement( $inblocks_yn );
 
 	if ( !$aid ) {

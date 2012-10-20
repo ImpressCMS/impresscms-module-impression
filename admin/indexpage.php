@@ -59,7 +59,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( 4, _AM_IMPRESSION_INDEXPAGE );
 
-		$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+		if ( icms::$module -> config['uselyte'] == 1 ) $icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
@@ -96,6 +96,7 @@ switch ( strtolower( $op ) ) {
 		$sform -> addElement( $footeralign_select );
 
 		$lastarticlestotalform = new icms_form_elements_Text( _AM_IMPRESSION_IPAGE_LATESTTOTAL . impression_tooltip( _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC, 'help' ), 'lastarticlestotal', 2, 2, $lastarticlestotal );
+		if ( icms::$module -> config['uselyte'] == 0 ) $lastarticlestotalform -> setDescription( _AM_IMPRESSION_IPAGE_LATESTTOTAL_DSC );
 		$sform -> addElement( $lastarticlestotalform, false );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );

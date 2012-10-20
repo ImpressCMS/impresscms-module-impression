@@ -55,7 +55,7 @@ switch ( strtolower( $op ) ) {
 		icms_cp_header();
 		impression_adminmenu( '', _AM_IMPRESSION_PRUNE );
 
-		$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+		if ( icms::$module -> config['uselyte'] == 1 ) $icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 		echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
@@ -68,6 +68,7 @@ switch ( strtolower( $op ) ) {
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
 		$datesub_datetime = new icms_form_elements_Date( _AM_IMPRESSION_PRUNEDATE . impression_tooltip( _AM_IMPRESSION_PRUNEDATEDSC, 'error' ), 'published', 15, time() );
+		if ( icms::$module -> config['uselyte'] == 0 ) $datesub_datetime -> setDescription( _AM_IMPRESSION_PRUNEDATEDSC );
 		$sform -> addElement( $datesub_datetime );
 
 		$button_tray = new icms_form_elements_Tray( '', '' );

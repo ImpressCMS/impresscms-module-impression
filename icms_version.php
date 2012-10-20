@@ -35,7 +35,7 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 } else { include_once ICMS_ROOT_PATH . '/language/english/moduleabout.php'; }
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
-$modversion['version']			= 1.11;
+$modversion['version']			= 1.12;
 $modversion['date'] 			= 'xx xxxxx 2012';
 $modversion['status']			= 'Trunk';
 $modversion['status_version']	= 'Trunk';
@@ -277,14 +277,22 @@ $modversion['config'][] = array(
 	'valuetype'		=> 'int',
 	'default'		=> 50,
 	'options'		=> array( '5' => 5, '10' => 10, '15' => 15, '20' => 20, '25' => 25, '30' => 30, '50' => 50, '75' => 75, '100' => 100, '200' => 200 ) );
-	
+
 $modversion['config'][] = array(
 	'name'			=> 'ipftables',
 	'title'			=> '_MI_IMPRESSION_IPFTABLE',
 	'description'	=> '_MI_IMPRESSION_IPFTABLEDSC',
 	'formtype'		=> 'yesno',
 	'valuetype'		=> 'int',
-	'default'		=> 0 );
+	'default'		=> 1 );
+
+$modversion['config'][] = array(
+	'name'			=> 'uselyte',
+	'title'			=> '_MI_IMPRESSION_USELYTE',
+	'description'	=> '_MI_IMPRESSION_USELYTEDSC',
+	'formtype'		=> 'yesno',
+	'valuetype'		=> 'int',
+	'default'		=> 1 );
 
 $modversion['config'][] = array(
 	'name'			=> 'txt_width',

@@ -208,7 +208,7 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 		$source = $article_array['source'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['source'] ) ) : '';
 		$sourceurl = $article_array['sourceurl'] ? icms_core_DataFilter::htmlSpecialChars( icms_core_DataFilter::stripSlashesGPC( $article_array['sourceurl'] ) ) : '';
 
-		$xoopsTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+		if ( icms::$module -> config['uselyte'] == 1 ) $xoopsTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 		$sform = new icms_form_Theme( _MD_IMPRESSION_SUBMITCATHEAD, 'storyform', '' );
@@ -236,28 +236,32 @@ if ( true == impression_checkgroups( $cid, 'ImpressionSubPerm' ) ) {
 
 // Article introtext form
 		$introtext = impression_getWysiwygForm( _MD_IMPRESSION_INTROTEXTC . impression_tooltip( _MD_IMPRESSION_INTROTEXTC_DSC ), 'introtextb', $introtextb, 250, 10 );
+		if ( icms::$module -> config['uselyte'] == 0 ) $introtext -> setDescription( _MD_IMPRESSION_INTROTEXTC_DSC );
 		$sform -> addElement( $introtext, false );
 
 // Article description form
 		$editor = impression_getWysiwygForm( _MD_IMPRESSION_DESCRIPTIONC . impression_tooltip( _MD_IMPRESSION_DESCRIPTIONC_DSC ), 'descriptionb', $descriptionb, 500, 35 );
+		if ( icms::$module -> config['uselyte'] == 0 ) $editor -> setDescription( _MD_IMPRESSION_DESCRIPTIONC_DSC );
 		$sform -> addElement( $editor, false );
 
 // Article source
 		$source_text = new icms_form_elements_Text( '', 'source', 70, 255, $source );
 		$source_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCE . impression_tooltip( _MD_IMPRESSION_SOURCEDSC ), '' );
+		if ( icms::$module -> config['uselyte'] == 0 ) $source_tray -> setDescription( _MD_IMPRESSION_SOURCEDSC );
 		$source_tray -> addElement( $source_text, false) ;
 		$sform -> addElement( $source_tray );
 
 // Article source url
 		$sourceurl_text = new icms_form_elements_Text( '', 'sourceurl', 70, 255, $sourceurl );
 		$sourceurl_tray = new icms_form_elements_Tray( _MD_IMPRESSION_SOURCEURL . impression_tooltip( _MD_IMPRESSION_SOURCEURLDSC ), '' );
-
+		if ( icms::$module -> config['uselyte'] == 0 ) $sourceurl_tray -> setDescription( _MD_IMPRESSION_SOURCEURLDSC );
 		$sourceurl_tray -> addElement( $sourceurl_text, false) ;
 		$sourceurl_tray -> addElement( new icms_form_elements_Label( "&nbsp;<img src='images/icon/world.png' onClick=\"window.open(storyform.sourceurl.value,'','');return(false);\" alt='" . _MD_IMPRESSION_CHECKURL . "' title='" . _MD_IMPRESSION_CHECKURL . "' style='cursor:pointer;' />" ) );
 		$sform -> addElement( $sourceurl_tray );
 
 // Meta meta_keywords form
 		$keywords = new icms_form_elements_Textarea( _MD_IMPRESSION_KEYWORDS . impression_tooltip( _MD_IMPRESSION_KEYWORDS_NOTE ), 'meta_keywords', $meta_keywords, 4, 60 );
+		if ( icms::$module -> config['uselyte'] == 0 ) $keywords -> setDescription( _MD_IMPRESSION_KEYWORDS_NOTE );
 		$sform -> addElement( $keywords, false );
 
 // Notify form

@@ -54,7 +54,7 @@ function rss_edit() {
 	icms_cp_header();
 	impression_adminmenu( 8, _AM_IMPRESSION_RSSFEED );
 
-	$icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
+	if ( icms::$module -> config['uselyte'] == 1 ) $icmsAdminTpl -> assign( 'icms_module_header', '<script type="text/javascript" language="javascript" src="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.js"></script>
 			<link rel="stylesheet" type="text/css" media="screen" href="' . ICMS_LIBRARIES_URL . '/lytebox/lytebox.css" />' );
 
 	echo '<div style="border: #e8e8e8 1px solid; padding: 8px; border-radius: 5px;">
@@ -69,57 +69,75 @@ function rss_edit() {
 	$sform -> setExtra( 'enctype="multipart/form-data"' );
 
 	$rssstatus_radio = new icms_form_elements_Radioyn( _AM_IMPRESSION_RSSACTIVE . impression_tooltip( _AM_IMPRESSION_RSSACTIVEDSC ), 'rssactive', $rssactive, ' ' . _YES . '', ' ' . _NO . '' );
+	if ( icms::$module -> config['uselyte'] == 0 ) $rssstatus_radio -> setDescription( _AM_IMPRESSION_RSSACTIVEDSC );
 	$sform -> addElement( $rssstatus_radio );
 
 	$formtitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSTITLE . impression_tooltip( _AM_IMPRESSION_RSSTITLEDSC ), 'rsstitle', icms::$module -> config['txt_width'], 128, $rsstitle );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formtitle -> setDescription( _AM_IMPRESSION_RSSTITLEDSC );
 	$sform -> addElement( $formtitle, false );
 
 	$formlink = new icms_form_elements_Text( _AM_IMPRESSION_RSSLINKS . impression_tooltip( _AM_IMPRESSION_RSSLINKSDSC ), 'rsslink', icms::$module -> config['txt_width'], 255, $rsslink );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formlink -> setDescription( _AM_IMPRESSION_RSSLINKSDSC );
 	$sform -> addElement( $formlink, false );
 
 	$formdsc = new icms_form_elements_Textarea( _AM_IMPRESSION_RSSDESCRIPTION . impression_tooltip( _AM_IMPRESSION_RSSDESCRIPTIONDSC ), 'rssdsc', $rssdsc, 4, 50 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formdsc -> setDescription( _AM_IMPRESSION_RSSDESCRIPTIONDSC );
 	$sform -> addElement( $formdsc, false );
 
 	$formimage = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMAGE . impression_tooltip( _AM_IMPRESSION_RSSIMAGEDSC ), 'rssimgurl', icms::$module -> config['txt_width'], 255, $rssimgurl );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formimage -> setDescription( _AM_IMPRESSION_RSSIMAGEDSC );
 	$sform -> addElement( $formimage, false );
 
 	$formwidth = new icms_form_elements_Text( _AM_IMPRESSION_RSSWIDTH . impression_tooltip( _AM_IMPRESSION_RSSWIDTHDSC ), 'rsswidth', 3, 8, $rsswidth );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formwidth -> setDescription( _AM_IMPRESSION_RSSWIDTHDSC );
 	$sform -> addElement( $formwidth, false );
 
 	$formheight = new icms_form_elements_Text( _AM_IMPRESSION_RSSHEIGHT . impression_tooltip( _AM_IMPRESSION_RSSHEIGHTDSC ), 'rssheight', 3, 8, $rssheight );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formheight -> setDescription( _AM_IMPRESSION_RSSHEIGHTDSC );
 	$sform -> addElement( $formheight, false );
 
 	$formimgtitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMGTITLE . impression_tooltip( _AM_IMPRESSION_RSSIMGTITLEDSC ), 'rssimgtitle', icms::$module -> config['txt_width'], 128, $rssimgtitle );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formimgtitle -> setDescription( _AM_IMPRESSION_RSSIMGTITLEDSC );
 	$sform -> addElement( $formimgtitle, false );
 
 	$formimglink = new icms_form_elements_Text( _AM_IMPRESSION_RSSIMGLINK . impression_tooltip( _AM_IMPRESSION_RSSIMGLINKDSC ), 'rssimglink', icms::$module -> config['txt_width'], 255, $rssimglink );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formimglink -> setDescription( _AM_IMPRESSION_RSSIMGLINKDSC );
 	$sform -> addElement( $formimglink, false );
 
 	$formttl = new icms_form_elements_Text( _AM_IMPRESSION_RSSTTL . impression_tooltip( _AM_IMPRESSION_RSSTTLDSC ), 'rssttl', 3, 128, $rssttl );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formttl -> setDescription( _AM_IMPRESSION_RSSTTLDSC );
 	$sform -> addElement( $formttl, false );
 
 	$formwebmaster = new icms_form_elements_Text( _AM_IMPRESSION_RSSWEBMASTER . impression_tooltip( _AM_IMPRESSION_RSSWEBMASTERDSC ), 'rsswebmaster', icms::$module -> config['txt_width'], 255, $rsswebmaster );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formwebmaster -> setDescription( _AM_IMPRESSION_RSSWEBMASTERDSC );
 	$sform -> addElement( $formwebmaster, false );
 	
 	$formeditor = new icms_form_elements_Text( _AM_IMPRESSION_RSSEDITOR . impression_tooltip( _AM_IMPRESSION_RSSEDITORDSC ), 'rsseditor', icms::$module -> config['txt_width'], 255, $rsseditor );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formeditor -> setDescription( _AM_IMPRESSION_RSSEDITORDSC );
 	$sform -> addElement( $formeditor, false );
 	
 	$formcategory = new icms_form_elements_Text( _AM_IMPRESSION_RSSCATEGORY . impression_tooltip( _AM_IMPRESSION_RSSCATEGORYDSC ), 'rsscategory', icms::$module -> config['txt_width'], 128, $rsscategory );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formcategory -> setDescription( _AM_IMPRESSION_RSSCATEGORYDSC );
 	$sform -> addElement( $formcategory, false );
 	
 	$formgenerator = new icms_form_elements_Text( _AM_IMPRESSION_RSSGENERATOR . impression_tooltip( _AM_IMPRESSION_RSSGENERATORDSC ), 'rssgenerator', icms::$module -> config['txt_width'], 128, $rssgenerator );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formgenerator -> setDescription( _AM_IMPRESSION_RSSGENERATORDSC );
 	$sform -> addElement( $formgenerator, false );
 	
 	$formcopyright = new icms_form_elements_Text( _AM_IMPRESSION_RSSCOPYRIGHT . impression_tooltip( _AM_IMPRESSION_RSSCOPYRIGHTDSC ), 'rsscopyright', icms::$module -> config['txt_width'], 128, $rsscopyright );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formcopyright -> setDescription( _AM_IMPRESSION_RSSCOPYRIGHTDSC );
 	$sform -> addElement( $formcopyright, false );
 	
 	$formtotal = new icms_form_elements_Text( _AM_IMPRESSION_RSSTOTAL . impression_tooltip( _AM_IMPRESSION_RSSTOTALDSC ), 'rsstotal', 3, 8, $rsstotal );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formtotal -> setDescription( _AM_IMPRESSION_RSSTOTALDSC );
 	$sform -> addElement( $formtotal, false );
 	
 	$formofftitle = new icms_form_elements_Text( _AM_IMPRESSION_RSSOFFLINE . impression_tooltip( _AM_IMPRESSION_RSSOFFLINEDSC ), 'rssofftitle', icms::$module -> config['txt_width'], 128, $rssofftitle );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formofftitle -> setDescription( _AM_IMPRESSION_RSSOFFLINEDSC );
 	$sform -> addElement( $formofftitle, false );
 
 	$formoffmsg = new icms_form_elements_Textarea( _AM_IMPRESSION_RSSOFFMSG . impression_tooltip( _AM_IMPRESSION_RSSOFFMSGDSC ), 'rssoffdsc', $rssoffdsc, 4, 50 );
+	if ( icms::$module -> config['uselyte'] == 0 ) $formoffmsg -> setDescription( _AM_IMPRESSION_RSSOFFMSGDSC );
 	$sform -> addElement( $formoffmsg, false );
 
 	$button_tray = new icms_form_elements_Tray( '', '' );

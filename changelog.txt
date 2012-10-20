@@ -1,9 +1,11 @@
 =========================================================
-xx.xx.2012 - Version x
+xx.xx.2012 - Version 1.12
 =========================================================
 Added:
 - IPF classes
 - Automatic deleting of obsolete files and folders
+- Option to switch between IPF tables and normal tables
+- Option to enable/disable Lytebox library for help tips
 
 Removed:
 - support for TinyEditor

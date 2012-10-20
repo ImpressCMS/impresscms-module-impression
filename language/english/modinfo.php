@@ -313,7 +313,9 @@ define( '_MI_IMPRESSION_FACEBOOKBTTNDSC', 'Choose a Facebook button style.' );
 define( '_MI_IMPRESSION_PLUSONEBTTN', 'Google +1 button' );
 define( '_MI_IMPRESSION_PLUSONEBTTNDSC', 'Choose a Google +1 button style.' );
 
-// Impression xx
-define( '_MI_IMPRESSION_IPFTABLE', 'Use IPF table on admin main index page' );
+// Impression 1.12
+define( '_MI_IMPRESSION_IPFTABLE', 'Use IPF table on admin main index page:' );
 define( '_MI_IMPRESSION_IPFTABLEDSC', 'Using the IPF table will limit the amount of links listed per page.' );
+define( '_MI_IMPRESSION_USELYTE', 'Use Lytebox for help tips:' );
+define( '_MI_IMPRESSION_USELYTEDSC', 'Choose <i>Yes</i> for help tips in the forms. Choose <i>No</i> to disable this feature.' );
 ?>

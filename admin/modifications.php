@@ -56,7 +56,7 @@ switch ( strtolower( $op ) ) {
 		echo '<div><b>' . _AM_IMPRESSION_MOD_MODPOSTER . '</b> ' . $submittername . '</div>';
 
 		$not_allowed = array( 'aid', 'uid', 'requestid', 'modifysubmitter' );
-		
+
 		$sform = new icms_form_Theme( _AM_IMPRESSION_MOD_ORIGINAL, 'storyform', 'articles.php' );
 		$sform -> setExtra( 'enctype="multipart/form-data"' );
 
@@ -158,9 +158,9 @@ switch ( strtolower( $op ) ) {
 				<div style="display: inline; font-weight: bold; color: #0A3760; font-size: 12px;">' . _AM_IMPRESSION_MOD_MODREQUESTSINFO . '</div>
 				<div style="padding: 8px;">' . _AM_IMPRESSION_MOD_TOTMODREQUESTS . ' <b>' . $totalmodrequests . '</b></div>
 			</div><br/>';
-		
+
 		if ( icms::$module -> config['ipftables'] == 1 ) {
-		
+
 			$objectTable = new icms_ipf_view_Table( $impression_mod_handler, false, array() );
 
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'requestid', 'center', 40, true ) );
@@ -169,15 +169,15 @@ switch ( strtolower( $op ) ) {
 			$objectTable -> addColumn( new icms_ipf_view_Column( 'requestdate', 'center', 100 ) );
 
 			$objectTable -> addCustomAction( 'getListModReqShow' );
-		
+
 			$objectTable -> addQuickSearch( array( 'title' ), _AM_IMPRESSION_SEARCHTITLE );
-		
+
 			$objectTable -> setDefaultSort( 'requestid' );
 			$objectTable -> setDefaultOrder( 'DESC' );
 
 			$icmsAdminTpl -> assign( 'imlinks_mod_table', $objectTable -> fetch() );
 			$icmsAdminTpl -> display( 'db:imlinks_admin_index.html' );
-		
+
 		} else {
 
 			if ( $totalmodrequests > 0 ) {
@@ -215,9 +215,7 @@ switch ( strtolower( $op ) ) {
 			include_once ICMS_ROOT_PATH . '/class/pagenav.php';
 			$pagenav = new icms_view_PageNav( $totalmodrequests, icms::$module -> config['admin_perpage'], $start, 'start' );
 			echo '<div style="text-align: right; padding: 8px;">' . $pagenav -> renderNav() . '</div>';
-		
 		}
-		
 		icms_cp_footer();
 }
 ?>
