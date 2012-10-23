@@ -374,4 +374,8 @@ define( '_AM_IMPRESSION_SOURCEURLDSC', 'Enter URL of the source' );
 define( '_AM_IMPRESSION_CHECKURL', 'Check URL' );
 define( '_AM_IMPRESSION_MSG_OFFLINE', 'Article was set Offline successfully.' );
 define( '_AM_IMPRESSION_MSG_ONLINE', 'Article was set Online successfully.' );
+
+// Version 1.12
+define( '_AM_IMPRESSION_SEARCHTITLE', 'Search title' );
+define( '_AM_IMPRESSION_APPROVEDBY', 'Approved by:' );
 ?>
