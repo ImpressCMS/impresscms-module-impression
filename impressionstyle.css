@@ -43,7 +43,7 @@ tr.impression_even td {
 	vertical-align: text-bottom; }
 
 .impression_articleMain {
-	display: inline-block;
+	display: block;
 	padding: 2px 4px 2px 4px;
 	background-color: #FFF;
 	border-left: 1px solid #E8E6E2;
