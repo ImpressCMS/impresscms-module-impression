@@ -7,6 +7,9 @@ Added:
 - Option to switch between IPF tables and normal tables
 - Option to enable/disable Lytebox library for help tips
 
+Fixed:
+- Id and name of approver of an article wasn't stored in database
+
 Removed:
 - support for TinyEditor
 - support for XOOPS TAG module

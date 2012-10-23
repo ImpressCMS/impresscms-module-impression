@@ -84,6 +84,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 					<td  style="width: 34%; vertical-align: top; padding: 8px;">
 						<div><b>' . _AM_IMPRESSION_ARTICLE_PUBLISHER . ' </b>' . icms_member_user_Handler::getUserLink( $article_array['uid'] ) . '</div>
 						<div><b>' . _AM_IMPRESSION_ARTICLE_IP . ' </b>' . $ipaddress . '</div>
+						<div><b>' . _AM_IMPRESSION_APPROVEDBY . ' </b>' . icms_member_user_Handler::getUserLink( $article_array['uname'] ) . '</div>
 					</td>
 					<td  style="width: 40%; vertical-align: top; padding: 8px;">
 						<div><b>' . _AM_IMPRESSION_MINDEX_SUBMITTED . ': </b>' . impression_time( formatTimestamp( $article_array['date'], icms::$module -> config['dateformatadmin'] ) ) . '</div>
@@ -122,7 +123,7 @@ function edit( $aid = 0, $doclone = 0 ) {
 			$sform -> addElement( new icms_form_elements_Label( _AM_IMPRESSION_ARTICLE_PUBLISHER, ob_get_contents() ) );
 		ob_end_clean();
 	} else {
-		$uid = icms::$user -> getVar('uname');
+		$uid = icms::$user -> getVar('uid');
 		$sform -> addElement( new icms_form_elements_Hidden( 'uid', $uid ) );
 	}
 
@@ -242,7 +243,8 @@ switch ( strtolower( $op ) ) {
 		$meta_keywords = icms_core_DataFilter::addSlashes( trim( $_POST['meta_keywords'] ) );
 		$published = strtotime( $_POST['published']['date'] ) + $_POST['published']['time'];
 		$uid = $_POST['uid'];
-		$publisher = icms::$user -> getVar('uid');
+		$publisher = icms::$user -> getVar('uname'); // name of approver
+		$uname = icms::$user -> getVar('uid'); // id of aprrover
 		$notifypub = ( isset( $_POST['notifypub'] ) && $_POST['notifypub'] == 1 );
 		$approved = ( isset( $_POST['approved'] ) && $_POST['approved'] == 1 ) ? 1 : 0;
 
@@ -250,10 +252,10 @@ switch ( strtolower( $op ) ) {
 		if ( !$aid ) {
 			$date = time();
 			$ipaddress = $_SERVER['REMOTE_ADDR'];
-			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, notifypub, nice_url, inblocks, source, sourceurl)";
-			$sql .= " VALUES ('', $cid, '$title', '$uid', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$notifypub', '$nice_url', '$inblocks', '$source', '$sourceurl')";
+			$sql = "INSERT INTO " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " (aid, cid, title, uid, uname, publisher, status, date, published, introtext, description, ipaddress, meta_keywords, notifypub, nice_url, inblocks, source, sourceurl)";
+			$sql .= " VALUES ('', $cid, '$title', '$uid', '$uname', '$publisher', '$status', '$date', '$published', '$introtextb', '$descriptionb', '$ipaddress', '$meta_keywords', '$notifypub', '$nice_url', '$inblocks', '$source', '$sourceurl')";
 		} else {
-			$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$uid', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', notifypub='$notifypub', nice_url='$nice_url', inblocks='$inblocks', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
+			$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET cid=$cid, title='$title', uid='$uid', uname='$uname', publisher='$publisher', status='$status', published='$published', introtext='$introtextb', description='$descriptionb', meta_keywords='$meta_keywords', notifypub='$notifypub', nice_url='$nice_url', inblocks='$inblocks', source='$source', sourceurl='$sourceurl' WHERE aid=" . $aid;
 		}
 
 		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
