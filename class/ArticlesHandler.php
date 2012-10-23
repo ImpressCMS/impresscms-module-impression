@@ -46,8 +46,18 @@ class mod_impression_ArticlesHandler extends icms_ipf_Handler {
 		return $visibility;
 	}
 	
+	private $_usersArray;
+	
 	public function submitterArray() {
-		return icms::handler( 'icms_member' ) -> getUserList();
+		global $icmsConfig;
+		if ( !count( $this -> _usersArray ) ) { 
+            $users = icms::handler( 'icms_member' ) -> getUserList(); 
+            $this -> _usersArray[0] = $icmsConfig['anonymous']; 
+            foreach ( $users as $key => $value ) { 
+                $this -> _usersArray[$key] = $value; 
+            } 
+        } 
+        return $this -> _usersArray;
 	}
 	
 	public function statusArray() {
