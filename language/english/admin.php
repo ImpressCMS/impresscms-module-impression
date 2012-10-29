@@ -135,7 +135,7 @@ define( '_AM_IMPRESSION_ARTICLE_MAXPOSTSIZE', 'Max post size permitted: ' );
 define( '_AM_IMPRESSION_ARTICLE_SAFEMODEPROBLEMS', ' (This may cause problems)' );
 define( '_AM_IMPRESSION_ARTICLE_GDLIBSTATUS', 'GD Library support: ' );
 define( '_AM_IMPRESSION_ARTICLE_GDLIBVERSION', 'GD Library version: ' );
-define( '_AM_IMPRESSION_ARTICLE_GDON', '<b>Enabled</b> (Thumbs nails available)' );
+define( '_AM_IMPRESSION_ARTICLE_GDON', '<b>Enabled</b> (Thumb nails available)' );
 define( '_AM_IMPRESSION_ARTICLE_GDOFF', '<b>Disabled</b> (No thumb nails available)' );
 define( '_AM_IMPRESSION_ARTICLE_OFF', 'OFF' );
 define( '_AM_IMPRESSION_ARTICLE_ON', 'ON' );
@@ -300,7 +300,7 @@ define( '_AM_IMPRESSION_ARTICLE_META_DESCRIPTION', 'Meta description');
 define( '_AM_IMPRESSION_ARTICLE_META_DESCRIPTION_DSC', 'In order to help Search Engines, you can customize the meta description you would like to use for this article. if you leave this field empty when creating a category, it will automatically be populated with the Summary field of this article.');
 
 define('_AM_IMPRESSION_DATESUB_DSC', 'Select the date of publication');
-define('_AM_IMPRESSION_DATESUB', 'Published date');
+define('_AM_IMPRESSION_DATESUB', 'Date published');
 define('_AM_IMPRESSION_READS', 'Reads: ');
 
 define( '_AM_IMPRESSION_PUBLISHED', 'Published' );
