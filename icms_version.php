@@ -36,9 +36,9 @@ if ( file_exists( ICMS_ROOT_PATH . '/modules/' . $impressiondir . '/language/' .
 
 $modversion['name'] 			= _MI_IMPRESSION_NAME;
 $modversion['version']			= 1.12;
-$modversion['date'] 			= 'xx xxxxx 2012';
-$modversion['status']			= 'Trunk';
-$modversion['status_version']	= 'Trunk';
+$modversion['date'] 			= '21 December 2012';
+$modversion['status']			= 'Final';
+$modversion['status_version']	= 'Final';
 $modversion['description'] 		= _MI_IMPRESSION_DESC;
 $modversion['license']			= _MI_IMPRESSION_ABOUTLICENSE;
 $modversion['image']			= 'images/impression_ilogo.png';
@@ -79,14 +79,15 @@ $modversion['people']['other'][] = '&middot; <a href="http://www.jquerynewsticke
 $modversion['people']['other'][] = '&middot; <a href="http://www.scriptbreaker.com/javascript/script/JQuery-news-slider" target="_blank">ScriptBreaking.com</a> (Vertical ticker)';
 $modversion['people']['other'][] = '&middot; <a href="http://bxslider.com/" target="_blank">Steven Wanderski</a> (bxSlider)';
 
-// ** Documentation
+// Documentation
 $modversion['manual'][] = '<a href="http://www.assembla.com/code/impresscmsaddons/subversion/nodes/modules/impression/docs/english/impression_manual_en.pdf" target="_blank">English [PDF]</a>';
 
-//** If Release Candidate **
-$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_RC;
-
-//** If Final  **
-//$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_FINAL;
+// Warning
+if ( $modversion['status'] > 'Final' ) {
+	$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_RC;
+} else {
+	$modversion['warning'] = _MODABOUT_IMPRESSION_WARNING_FINAL;
+}
 
 // Admin things
 $modversion['hasAdmin'] = 1;

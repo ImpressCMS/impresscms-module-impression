@@ -1,5 +1,5 @@
 =========================================================
-xx.xx.2012 - Version 1.12
+21.12.2012 - Version 1.12
 =========================================================
 Added:
 - IPF classes
@@ -9,6 +9,7 @@ Added:
 
 Fixed:
 - Id and name of approver of an article wasn't stored in database
+- Converted CRLF linebreaks of files to LF linebreaks
 
 Removed:
 - support for TinyEditor
