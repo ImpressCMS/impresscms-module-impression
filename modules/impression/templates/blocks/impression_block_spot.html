@@ -1,0 +1,24 @@
+<link href="<{$icms_url}>/modules/<{$dirname}>/impressionstyle.css" rel="stylesheet" type="text/css" />
+<{foreach item=articlespot from=$block.articlespot}>
+	<div class="impression_articleTitle"><{$articlespot.title}></div>
+	<div id="impression_main" class="impression_articleMain">
+		<div style="text-align: right; font-size: 75%; margin-right: 5px;">
+			<{$smarty.const._MB_IMPRESSION_PUBLISHEDON}><{$articlespot.published|wordwrap:50:"\n":true}><{$smarty.const._MB_IMPRESSION_BY}><{$articlespot.submitter}>&nbsp;<{$articlespot.hits|wordwrap:50:"\n":true}>
+		</div>
+		<div><{$articlespot.introtext}></div>
+	</div>
+	<div class="impression_articleFooter">
+		<span style="float: left;">
+			<{if $articlespot.bytesmore > 0}>&nbsp;<i><{$articlespot.readmore}></i>
+				<{if $articlespot.options == 1}>&nbsp;|&nbsp;<{$articlespot.bytesmore}>&nbsp;<{$smarty.const._MB_IMPRESSION_BYTESMORE}><{/if}>
+				<{if $articlespot.options == 2}>&nbsp;|&nbsp;<{$articlespot.description|count_words}>&nbsp;<{$smarty.const._MB_IMPRESSION_WORDSMORE}><{/if}>
+				<{if $articlespot.options == 3}>&nbsp;|&nbsp;<{$articlespot.description|count_characters}>&nbsp;<{$smarty.const._MB_IMPRESSION_CHARSMORE}><{/if}>
+			<{/if}>
+		</span>
+		<{if $articlespot.comment_rules > 0 and $articlespot.comments > 0}>
+			<span style="float: right;"><{$articlespot.commentz}></span>
+		<{/if}>
+		<div style="float: right;"><span><{if $icms_isadmin}> <small><{$articlespot.adminarticle}>&nbsp;</small><{/if}></span></div>
+	</div>
+<{/foreach}>
+<div align="center" style="padding: 2px;"><{$articlespot.impression_feed}></div>

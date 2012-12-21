@@ -1,0 +1,92 @@
+<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$module_dir}>/impressionstyle.css" />
+
+<{if $article.showsbookmarks == 2 && $article.google > 0}>
+	<!-- Google Plus One script -->
+	<script type="text/javascript">
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+<{/if}>
+
+<{if $article.showsbookmarks == 2 && $article.facebk > 0}>
+	<!-- Facebook script -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = '//connect.facebook.net/en_US/all.js#xfbml=1';
+			fjs.parentNode.insertBefore(js, fjs);
+		}
+		(document, 'script', 'facebook-jssdk'));
+	</script>
+<{/if}>
+
+<{if $article.showsbookmarks == 3}>
+	<!-- Social Share Privacy -->
+	<link rel="stylesheet" type="text/css" href="<{$icms_url}>/libraries/socialshareprivacy/socialshareprivacy.css" />
+	<script type="text/javascript" src="<{$icms_url}>/libraries/socialshareprivacy/jquery.socialshareprivacy.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			if($('#socialshareprivacy').length > 0){
+				$('#socialshareprivacy').socialSharePrivacy();
+			}
+		});
+	</script>
+<{/if}>
+
+<{$article.imageheader}>
+
+<div style="display: table; width: 100%; margin-bottom: 10px;">
+	<span class="impression_articlepath"><{$article.path}></span>
+	<span style="float: right; padding: 2px;" id="button"><{$back}></span>
+</div>
+
+<div class="impression_articleTitle"><{$article.title}><{$article.icons}></div>
+
+<div id="impression_main" class="impression_articleMain">
+	<div style="text-align: right; font-size: .75em;">
+		<{$smarty.const._MD_IMPRESSION_PUBLISHEDON}><{$article.updated|wordwrap:50:"\n":true}><{$article.submitter}>&nbsp;<{$article.hits|wordwrap:50:"\n":true}>
+	</div>
+	<{if $article.page == 0 }><{$article.introtext}><br /><{/if}>
+	<{$article.description2}>
+	<{$pagenav}>
+	<{$article.source}>
+	<{$article.socialbutton}>
+</div>
+
+<div class="impression_articleFooter">
+	<{$article.pdf}>
+	<{$article.print}>
+	<{$article.recommend}>
+	<{if $article.comment_rules > 0 and $article.comments > 0}>
+		<{$article.comment2}>
+	<{/if}>
+	<{if $icms_isadmin}>
+		<small><{$article.adminarticle}></small>
+	<{/if}>
+	<{if $article.useradminarticle}>
+		<{$article.usermodify}>
+	<{/if}>
+	&nbsp;
+</div>
+
+<{if $commentsnav}>
+	<div style="text-align: center; margin-top: 20px;"><{$commentsnav}><{$lang_notice}></div>
+<{/if}>
+
+<!-- start comments loop -->
+<{if $comment_mode == "flat"}>
+	<a name="#comments"></a><{include file="db:system_comments_flat.html"}>
+<{elseif $comment_mode == "thread"}>
+	<a name="#comments"></a><{include file="db:system_comments_thread.html"}>
+<{elseif $comment_mode == "nest"}>
+	<a name="#comments"></a><{include file="db:system_comments_nest.html"}>
+<{/if}>
+<!-- end comments loop -->
+
+<{include file="db:system_notification_select.html"}>

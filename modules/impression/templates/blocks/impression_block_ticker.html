@@ -1,0 +1,131 @@
+<link rel="stylesheet" type="text/css" href="<{$icms_url}>/modules/<{$dirname}>/impressionstyle.css" />
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER01}>
+	<link rel="stylesheet" href="<{$icms_url}>/libraries/tickers/webticker/webticker.css" type="text/css" media="screen">
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/webticker/jquery.webticker.js"></script> 
+	<script type="text/javascript">
+		$(function(){
+			$("#webticker").webTicker();
+			$("#webticker2").webTicker({travelocity: 0.05, direction: 1});
+		});
+	</script>
+
+	<ul id="webticker">
+		<{foreach item=iticker from=$block.ticker}>
+			<li><{$iticker.title}><span>(<{$iticker.published|wordwrap:50:"\n":true}>)</span></li>
+		<{/foreach}>
+	</ul>
+<{/if}>
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER02}>
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/newsticker/newsTicker.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var options = {
+				newsList: "ul.impressionticker", // assumes unordered list; specify the ul holding the news items
+				startDelay: 10, // delay before first run of the ticker (ms)
+				tickerRate: 80, // time gap between display of each letter (ms)
+				controls: false, // show resume / stop controls (see below for the markup added)
+				ownControls: false, // use own markup for controls (sets controls = true)
+				stopOnHover: false, // trigger the stop action on hovering over the links
+				resumeOffHover: true, // trigger the resume action on mouseout from the links. NB the links must be block display for this to work reliably with stopOnHover
+				// loopDelay: 3000, // time for which full text of each item is shown at end of print-out (ms)
+				placeHolder1: " |", // character placeholder shown on even loops
+				placeHolder2: "_" // character placeholder shown on odd loops
+			}
+			$().newsTicker(options);
+		});
+	</script>
+
+	<ul class="impressionticker" style="list-style-type: none;">
+		<{foreach item=iticker from=$block.ticker}>
+			<li><{$iticker.title}></li>
+		<{/foreach}>
+	</ul>
+<{/if}>
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER03}>
+	<link rel="stylesheet" href="<{$icms_url}>/libraries/tickers/jquery_news_ticker/styles/ticker-style.css" type="text/css" media="screen">
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/jquery_news_ticker/includes/jquery.ticker.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#js-news').ticker({
+				speed: 0.10,			// The speed of the reveal
+				ajaxFeed: false,		// Populate jQuery News Ticker via a feed
+				feedUrl: false,			// The URL of the feed
+										// MUST BE ON THE SAME DOMAIN AS THE TICKER
+				feedType: 'xml',		// Currently only XML
+				htmlFeed: true,			// Populate jQuery News Ticker via HTML
+				debugMode: true,		// Show some helpful errors in the console or as alerts
+										// SHOULD BE SET TO FALSE FOR PRODUCTION SITES!
+				controls: false,			// Whether or not to show the jQuery News Ticker controls
+				titleText: 'Latest news',	// To remove the title set this to an empty String
+				displayType: 'reveal',	// Animation type - current options are 'reveal' or 'fade'
+				direction: 'ltr',		// Ticker direction - current options are 'ltr' or 'rtl'
+				pauseOnItems: 2000,		// The pause on a news item before being replaced
+				fadeInSpeed: 600,		// Speed of fade in animation
+				fadeOutSpeed: 300		// Speed of fade out animation
+			});
+		});
+	</script>
+
+	<div id="ticker-wrapper" class="no-js">
+		<ul id="js-news" class="js-hidden">
+			<{foreach item=iticker from=$block.ticker}>
+				<li class="news-item"><{$iticker.title}></li>
+			<{/foreach}>
+		</ul>
+	</div>
+<{/if}>
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER04}>
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/jcarousellite/jcarousellite_1.0.1c4.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#newsticker-demo").jCarouselLite({
+				vertical: true,
+				hoverPause:false,
+				visible: 3,
+				auto:3000,
+				speed:500
+			});
+		});
+	</script>
+
+	<div id="newsticker-demo">
+		<ul>
+			<{foreach item=iticker from=$block.ticker}>
+				<li><{$iticker.title}> (<{$iticker.published|wordwrap:50:"\n":true}>)</li>
+			<{/foreach}>
+		</ul>
+	</div>
+<{/if}>
+
+<{if $tickertype == $smarty.const._MB_IMPRESSION_TICKER05}>
+	<script type="text/javascript" src="<{$icms_url}>/libraries/tickers/bxslider/jquery.bxSlider.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#slider1').bxSlider({
+			mode: 'horizontal',		// 'horizontal', 'vertical', 'fade'
+			controls: false,		// true, false - previous and next controls
+			nextText: '<a class="impression_button">next</a>',		// string - text displayed for 'next' control
+			nextImage: '',		// string - filepath of image used for 'next' control. ex: 'images/next.jpg'
+			nextSelector: null,		// jQuery selector - element to contain the next control. ex: '#next'
+			prevText: '<a class="impression_button">prev</a>',
+			prevImage: '',		// string - filepath of image used for 'previous' control. ex: 'images/prev.jpg'
+			prevSelector: null,		// jQuery selector - element to contain the previous control. ex: '#next'
+			ticker: true,		// true, false - continuous motion ticker mode (think news ticker)
+								// note: autoControls, autoControlsSelector, and autoHover apply to ticker!
+			tickerSpeed: 80000,		  // float - use value between 1 and 5000 to determine ticker speed - the smaller the value the faster the ticker speed
+			tickerDirection: 'next',		// 'next', 'prev' - direction in which ticker show will traverse
+			tickerHover: true		// true, false - if true ticker will pause on mouseover
+			});
+		});
+	</script>
+
+	<ul id="slider1">
+		<{foreach item=iticker from=$block.ticker}>
+			<li><{$iticker.title}> (<{$iticker.published|wordwrap:50:"\n":true}>)</li>
+		<{/foreach}>
+	</ul>
+<{/if}>
