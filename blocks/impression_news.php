@@ -90,7 +90,11 @@ function b_impression_news_show( $options ) {
 		$articlenews['title']		= '<a href="' . $url . '">' . $title . ' </a>';
 		$articlenews['published']		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
 		$articlenews['hits']		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
-		$articlenews['submitter']	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
+		if ( $impressionModuleConfig['showsubmitter'] ) {
+			$articlenews['submitter']	= _MB_IMPRESSION_BY . ' ' . icms_member_user_Handler::getUserLink( $myrow['uid'] );
+		} else {
+			$articlenews['submitter'] = '';
+		}
 		$articlenews['introtext']	= $myrow['introtext'];
 		$articlenews['description'] = $myrow['description'];
 		$articlenews['bytesmore']	= mb_strlen( $myrow['description'] );

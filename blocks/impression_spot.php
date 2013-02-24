@@ -93,7 +93,11 @@ function b_impression_spot_show( $options ) {
 		$articlespot['title']		= '<a href="' . $url . '">' . $title . ' </a>';
 		$articlespot['published']		= impression_time( formatTimestamp( $myrow['published'], $options[2] ) );
 		$articlespot['hits']		= sprintf( _MB_IMPRESSION_ARTICLEHITS, intval( $myrow['hits'] ) );
-		$articlespot['submitter']	= icms_member_user_Handler::getUserLink( $myrow['uid'] );
+		if ( $impressionModuleConfig['showsubmitter'] ) {
+			$articlespot['submitter']	= _MB_IMPRESSION_BY . ' ' . icms_member_user_Handler::getUserLink( $myrow['uid'] );
+		} else {
+			$articlespot['submitter'] = '';
+		}
 		$articlespot['introtext']	= $myrow['introtext'];
 		$articlespot['description'] = $myrow['description'];
 		$articlespot['comments']	= hascomments( $myrow['aid'] );
