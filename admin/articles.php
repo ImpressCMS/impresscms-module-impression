@@ -336,7 +336,7 @@ switch ( strtolower( $op ) ) {
 		}
 		break;
 		
-	case 'changestatus':
+	case 'changestatus':	// IPF mode ON
 		$status = $ret = '';
 		$aid = isset( $_POST['aid'] ) ? intval( $_POST['aid'] ) : intval( $_GET['aid'] );
 		$status = $impression_articles_handler -> changeOnlineStatus( $aid, 'status' );
@@ -346,6 +346,24 @@ switch ( strtolower( $op ) ) {
 		} else {
 			redirect_header( ICMS_URL . $ret, 2, _AM_IMPRESSION_ICO_OFFLINE );
 		}
+		break;
+		
+	case 'status_off':		// IPF mode off
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET status='1' WHERE aid=" . $aid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+			return false;
+		}
+		redirect_header( 'index.php', 1, _AM_IMPRESSION_MSG_OFFLINE );
+		break;
+
+	case 'status_on':		// IPF mode off
+		$sql = "UPDATE " . icms::$xoopsDB -> prefix( 'impression_articles' ) . " SET status='0' WHERE aid=" . $aid;
+		if ( !$result = icms::$xoopsDB -> queryF( $sql ) ) {
+			icms::$logger -> handleError( E_USER_WARNING, $sql, __FILE__, __LINE__ );
+			return false;
+		}
+		redirect_header( 'index.php', 1, _AM_IMPRESSION_MSG_ONLINE );
 		break;
 
 	case 'main':
