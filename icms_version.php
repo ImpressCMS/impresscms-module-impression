@@ -345,7 +345,8 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
-	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
+	'options'		=> array(	_MI_IMPRESSION_FORM_CK			=> 'ckeditor',
+								_MI_IMPRESSION_FORM_FCK			=> 'fck',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
 $modversion['config'][] = array(
@@ -355,7 +356,8 @@ $modversion['config'][] = array(
 	'formtype'		=> 'select',
 	'valuetype'		=> 'text',
 	'default'		=> 'tinymce',
-	'options'		=> array(	_MI_IMPRESSION_FORM_FCK			=> 'fck',
+	'options'		=> array(	_MI_IMPRESSION_FORM_CK			=> 'ckeditor',
+								_MI_IMPRESSION_FORM_FCK			=> 'fck',
 								_MI_IMPRESSION_FORM_TINYMCE		=> 'tinymce' ) );
 
 $modversion['config'][] = array(

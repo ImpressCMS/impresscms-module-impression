@@ -315,6 +315,10 @@ function impression_getWysiwygForm( $caption, $name, $value, $height ) {
 	$editor='';
 	switch( $formuser ) {
 
+	case 'ckeditor':
+		$editor = impression_ckeditor( $caption, $name, $value, $height );
+		break;
+		
 	case 'fck':
 		$editor = impression_fckeditor( $caption, $name, $value, $height );
 		break;
@@ -324,6 +328,14 @@ function impression_getWysiwygForm( $caption, $name, $value, $height ) {
 		break;
 	}
 	return $editor;
+}
+
+function impression_ckeditor( $caption, $name, $value, $height ) {
+	if ( file_exists( ICMS_ROOT_PATH . '/editors/CKeditor/formCKeditor.php' ) ) {
+		include_once( ICMS_ROOT_PATH . '/editors/CKeditor/formCKeditor.php' );
+		$impression_editor = new icmsFormCKEditor( array( 'caption' => $caption, 'name' => $name, 'value' => $value, 'width' => '100%', 'height' => $height . 'px' ), true );
+	}
+	return $impression_editor;
 }
 
 function impression_fckeditor( $caption, $name, $value, $height ) {

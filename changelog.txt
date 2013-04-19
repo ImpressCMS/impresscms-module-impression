@@ -1,6 +1,9 @@
 =========================================================
 xx.xx.201x - Version 1.1x
 =========================================================
+Added:
+- Added CKeditor to list of editors that can be used with Impression
+
 Fixed:
 - Link of edit, delete and clone icon not working when not in IPF mode
 

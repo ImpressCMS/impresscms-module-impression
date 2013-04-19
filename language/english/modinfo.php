@@ -318,4 +318,7 @@ define( '_MI_IMPRESSION_IPFTABLE', 'Use IPF table on admin main index page:' );
 define( '_MI_IMPRESSION_IPFTABLEDSC', 'Using the IPF table will limit the amount of links listed per page.' );
 define( '_MI_IMPRESSION_USELYTE', 'Use Lytebox for help tips:' );
 define( '_MI_IMPRESSION_USELYTEDSC', 'Choose <i>Yes</i> for help tips in the forms. Choose <i>No</i> to disable this feature.' );
+
+// Impression 1.1x
+define( '_MI_IMPRESSION_FORM_CK', 'CKeditor' );
 ?>
