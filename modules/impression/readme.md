@@ -30,14 +30,14 @@ For this it is advised to add the following to the header of the file `theme.htm
 
 ```html
 <!-- Open Graph -->
-	<meta property="fb:admins" content="0123456789" />
-	<meta property="og:title" content="<{if $icms_pagetitle !=''}><{$icms_pagetitle}><{else}><{$icms_sitename}><{/if}>" />
-	<meta property="og:type" content="website" />
-	<meta property="og:description" content="<{$icms_meta_description}>" />
-	<meta property="og:site_name" content="<{$icms_sitename}>" />
-	<meta property="og:locale" content="en_US" />
-	<{if $og_image !=''}><meta property="og:image" content="<{$og_image}>" /><{else}><meta property="og:image" content="<{$icms_url}>/images/s_poweredby.gif" /><{/if}>
-	<{if $og_url !=''}><meta property="og:url" content="<{$og_url}>" /><{/if}>
+<meta property="fb:admins" content="0123456789" />
+<meta property="og:title" content="<{if $icms_pagetitle !=''}><{$icms_pagetitle}><{else}><{$icms_sitename}><{/if}>" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="<{$icms_meta_description}>" />
+<meta property="og:site_name" content="<{$icms_sitename}>" />
+<meta property="og:locale" content="en_US" />
+<{if $og_image !=''}><meta property="og:image" content="<{$og_image}>" /><{else}><meta property="og:image" content="<{$icms_url}>/images/s_poweredby.gif" /><{/if}>
+<{if $og_url !=''}><meta property="og:url" content="<{$og_url}>" /><{/if}>
 ```
 	
 Replace in the first line 0123456789 with a comma-separated list of the Facebook IDs of page administrators. At a minimum, include only your own Facebook ID.
@@ -50,15 +50,15 @@ To test if the above code is working you can test it by passing the website url 
 
 Further, in the file theme.html you have to replace this line
 
-	```html
-	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$icms_langcode}>">
-	```
+```html
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$icms_langcode}>">
+```
 	
 with this one:
 
 ```html
-	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" xml:lang="<{$icms_langcode}>">
-	```
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" xml:lang="<{$icms_langcode}>">
+```
 
 More information about the Open Graph Protocol can be found here:
 - http://ogp.me/
