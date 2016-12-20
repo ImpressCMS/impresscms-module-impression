@@ -1,3 +1,7 @@
+# Impression
+
+A simple module to create articles.
+
 ## Installation
 You can install the module Impression as any other ImpressCMS module.
 Upon installing the `uploads/impression` will be created automatically upon installation.
